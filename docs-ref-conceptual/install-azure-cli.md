@@ -12,10 +12,11 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: ea5c0ee1-c530-4a1e-a83f-e1be71f6d416
-ms.openlocfilehash: 664535701ad814f8ff85fefe8ecc45772777d0ba
-ms.sourcegitcommit: ec22ff07aedb5c47e5f636f2a9a341c3edbe7ca1
+ms.openlocfilehash: 7065ed5270ef9bfc70beea81d0bc442a7b4df38c
+ms.sourcegitcommit: c077bd5cbe07f7225714c41714d3981fa0d9928f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
+ms.lasthandoff: 05/16/2017
 ---
 # <a name="install-azure-cli-20"></a>Instalar a CLI 2.0 do Azure
 
@@ -51,10 +52,19 @@ Para saber mais sobre a versão mais recente, veja as [notas de versão](release
 
 ## <a name="windows"></a>Windows
 
-A CLI 2.0 do Azure oferece suporte à sintaxe de comando do Bash, tornando o Bash no Ubuntu no Windows uma ótima maneira de usar a CLI.
-Se você não usar o Bash, pode instalar e usar a CLI na linha de comando do Windows.
+É possível instalar a CLI com o MSI e usá-la na linha de comando do Windows ou instalar a CLI com apt-get no Bash, no Ubuntu no Windows.
 
-### <a name="bash-on-ubuntu-on-windows"></a>Bash no Ubuntu no Windows
+### <a name="msi-for-the-windows-command-line"></a>MSI para a linha de comando do Windows 
+
+Para instalar a CLI no Windows e usá-la na linha de comando do Windows, baixe e execute o [msi](https://aka.ms/InstallAzureCliWindows).
+
+> [!NOTE]
+> Ao instalar com o msi, não há suporte para `az component`.
+> Para atualizar para a última CLI, execute o [msi](https://aka.ms/InstallAzureCliWindows) novamente.
+> 
+> Para desinstalar a CLI, execute o [msi](https://aka.ms/InstallAzureCliWindows) novamente e escolha Desinstalar.
+
+### <a name="apt-get-for-bash-on-ubuntu-on-windows"></a>apt-get para Bash no Ubuntu no Windows
 
 1. Se você não tiver o Bash no Windows, [instale-o](https://msdn.microsoft.com/commandline/wsl/install_guide).
 
@@ -80,38 +90,6 @@ Se você não usar o Bash, pode instalar e usar a CLI na linha de comando do Win
 > Para atualizar a CLI, execute `sudo apt-get update && sudo apt-get install azure-cli` novamente.
 > 
 > Para desinstalar, execute `sudo apt-get remove azure-cli`.
-
-### <a name="windows-command-line"></a>Linha de comando do Windows 
-
-1. Visite o site do Python e [baixe o Python](https://www.python.org/downloads/) para Windows.
-   Não se esqueça de instalar o componente de Pip ao instalar o Python.
-   Depois de concluir a instalação, adicione o Python à variável de ambiente PATH (o instalador avisará você).
-
-2. Verifique a instalação do Python em um prompt de comando.
-
-   ```bash
-   python --version
-   ```
-
-3. Instale a CLI 2.0 do Azure usando `pip`.
-
-   ```bash
-   pip install --user azure-cli
-   ```
-
-4. Adicione a pasta que contém o az.bat ao seu caminho.
-   A CLI `az.bat` pode ser instalada em `%USERPROFILE%\AppData\Roaming\Python\Scripts` ou `%USERPROFILE%\AppData\Roaming\Python\PythonXY\Scripts` onde `XY` é sua versão do Python (por exemplo, `%USERPROFILE%\AppData\Roaming\Python\Python27\Scripts`).
-   Adicione a pasta que contém `az.bat` ao seu caminho.
-   
-4. Execute a CLI 2.0 do Azure no prompt de comando com o comando `az`.
-
-> [!NOTE]
-> Se você já tiver a CLI 2.0 do Azure instalada e desejar verificar se você tem a versão mais recente, use `az --version` para ver qual versão você possui.
-> Compare isso com a versão mais recente disponível em [https://pypi.python.org/pypi/azure-cli](https://pypi.python.org/pypi/azure-cli).
-> 
-> Para atualizar para a CLI mais recente, execute `az component update`.
-> 
-> Para desinstalar a CLI, execute `pip uninstall azure-cli`.
 
 ## <a name="linux"></a>Linux
 
@@ -213,7 +191,6 @@ Para sistemas baseados em Debian/Ubuntu, instale a CLI 2.0 do Azure por meio de 
    ```
 
 ## <a name="troubleshooting"></a>Solucionar problemas
--------------------------------
 
 ### <a name="errors-with-curl-redirection"></a>Erros com o redirecionamento de rotação
 
@@ -232,70 +209,6 @@ bash: line 1: syntax error near unexpected token `<'
 curl https://azurecliprod.blob.core.windows.net/install | bash
 ```
 
-
-### <a name="errors-on-install-with-cffi-or-cryptography"></a>Erros de instalação com `cffi` ou criptografia
-
-Se você receber erros de instalação no OS X, atualize `pip`.
-
-```bash
-pip install --upgrade --force-reinstall pip
-```
-
-Se você receber erros de instalação no **Debian** ou **Ubuntu**, como nestes exemplos, instale `libssl-dev` e `libffi-dev`.
-
-```bash
-sudo apt-get update
-sudo apt-get install -y libssl-dev libffi-dev
-```
-
-Instale também o Desenvolvimento do Python para sua versão do Python.
-
-Python 2:
-
-```bash
-sudo apt-get install -y python-dev
-```
-
-Python 3:
-
-```bash
-sudo apt-get install -y python3-dev
-```
-
-O Ubuntu 15 também pode exigir `build-essential`:
-
-```bash
-sudo apt-get install -y build-essential
-```
-
-### <a name="example-errors"></a>Erros de exemplo
-
-```
-Downloading cffi-1.5.2.tar.gz (388kB)
-    100% |################################| 389kB 3.9MB/s
-    Complete output from command python setup.py egg_info:
-
-        No working compiler found, or bogus compiler options
-        passed to the compiler from Python's distutils module.
-        See the error messages above.
-        (If they are about -mno-fused-madd and you are on OS/X 10.8,
-        see http://stackoverflow.com/questions/22313407/ .)
-
-    ----------------------------------------
-Command "python setup.py egg_info" failed with error code 1 in /tmp/pip-build-77i2fido/cffi/
-```
-
-```
-#include <openssl/e_os2.h>
-                            ^
-compilation terminated.
-error: command 'x86_64-linux-gnu-gcc' failed with exit status 1
-
-Failed building wheel for cryptography
-```
-
-Confira a pergunta do Stack Overflow: [Falha ao instalar o pacote de Criptografia do Python com o PIP e setup.py](http://stackoverflow.com/questions/22073516/failed-to-install-python-cryptography-package-with-pip-and-setup-py)
-
 ## <a name="uninstall"></a>Desinstalar
 
 Se você usou o script em https://aka.ms/InstallAzureCli para instalar a CLI, é possível desinstalá-la com estas etapas.
@@ -312,7 +225,7 @@ Se você usou o script em https://aka.ms/InstallAzureCli para instalar a CLI, é
 > [!Note]
 > O local de instalação padrão é `/Users/<username>`.
 
-Se você usou o pip, apt-get ou Docker para instalar a CLI, use a mesma ferramenta para desinstalá-la.
+Se você usou apt-get, o Docker ou o msi para instalar a CLI, use a mesma ferramenta para desinstalá-la.
 
 ## <a name="reporting-issues-and-feedback"></a>Relatando comentários e problemas
 

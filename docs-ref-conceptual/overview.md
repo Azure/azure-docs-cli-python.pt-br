@@ -12,10 +12,11 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: 80ae9f6c-adb7-483c-bfb4-fbb958e075ba
-ms.openlocfilehash: 2f4f9950dd663ae85f41bf4efe114b15770ace5d
-ms.sourcegitcommit: bcf93ad8ed8802072249cd8187cd4420da89b4c6
+ms.openlocfilehash: 35e754b4ecd75481bd60d95dd1545b798c2e85b3
+ms.sourcegitcommit: c077bd5cbe07f7225714c41714d3981fa0d9928f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
+ms.lasthandoff: 05/16/2017
 ---
 # <a name="azure-cli-20"></a>CLI do Azure 2.0
 
@@ -27,8 +28,9 @@ A CLI do Azure 2.0 foi projetada para gerenciar e administrar os recursos do Azu
 az vm create -n MyLinuxVM -g MyResourceGroup --image UbuntuLTS
 ```
 
-Examine o artigo [Instalar](install-azure-cli.md) para colocar a CLI do Azure 2.0 em funcionamento no sistema. Em seguida, leia o artigo de [Introdução](get-started-with-azure-cli.md) para começar a usá-lo.
-Para saber mais sobre a versão mais recente, consulte as [notas de versão](release-notes-azure-cli.md).
+Examine o [artigo Instalação](install-azure-cli.md) para colocar a CLI 2.0 do Azure rapidamente em execução no sistema ou use o [Cloud Shell](/azure/cloud-shell/overview) para executar a CLI no navegador.
+Leia o artigo de [Introdução](get-started-with-azure-cli.md) para começar a usar a CLI.
+Para saber mais sobre a versão mais recente, veja as [notas de versão](release-notes-azure-cli.md).
 
 Os exemplos a seguir podem ajudar você a saber mais sobre como executar cenários comuns com a CLI do Azure 2.0:
 - [Máquinas Virtuais do Linux](/azure/virtual-machines/virtual-machines-linux-cli-samples?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json)

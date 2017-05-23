@@ -12,11 +12,11 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: 85c418a8-6177-4833-bb8d-ff4ce2233c1a
-ms.openlocfilehash: 0f8e494ffdd73c666b8361488db0966af01d6876
-ms.sourcegitcommit: 66d997a5afcf32143a4d4817ec1608cbdf58a59f
+ms.openlocfilehash: 45e51918ec95494699bf781f66e4cd57bd06fbad
+ms.sourcegitcommit: b4cb5c910b2238cba342f70122feb158c4036844
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 05/18/2017
 ---
 # <a name="get-started-with-azure-cli-20"></a>Introdução à CLI do Azure 2.0
 
@@ -40,6 +40,9 @@ Você deve ver o número da versão da CLI do Azure e outras bibliotecas depende
   
 Se você receber um erro, é provável que tenha ocorrido um problema ao instalar a CLI. Consulte a seção "Solução de problemas de Instalação" do [artigo de instalação da CLI do Azure 2.0](install-azure-cli.md#troubleshooting) para obter orientações ou poste um comentário na discussão na parte inferior da página para obter ajuda.
 
+> [!Note]
+> Caso você não deseje instalar a CLI 2.0 do Azure, poderá usar o [Cloud Shell](/azure/cloud-shell/overview) para executá-la no navegador.
+
 ## <a name="log-in-to-azure"></a>Fazer logon no Azure
 
 Agora que você tem a CLI do Azure 2.0 instalada, a próxima etapa será conectá-la com segurança à sua conta do Azure. Use o comando `az login` para fazer isso.
@@ -62,7 +65,7 @@ Agora você pode executar comandos da CLI do Azure 2.0 em recursos e serviços d
 
 Agora que tudo foi configurado, vamos usar a CLI do Azure para criar recursos no Azure.
 
-Primeiro, crie um Grupo de Recursos.  Os Grupos de recursos no Azure fornecem uma maneira de gerenciar vários recursos que você deseja agrupar logicamente.  Por exemplo, você pode criar um Grupo de recursos para um aplicativo ou projeto e adicionar uma máquina virtual, um banco de dados e um serviço CDN dentro dele.
+Primeiro, crie um Grupo de Recursos.  Os Grupos de Recursos no Azure fornecem uma maneira de gerenciar vários recursos que você deseja agrupar logicamente.  Por exemplo, você pode criar um Grupo de recursos para um aplicativo ou projeto e adicionar uma máquina virtual, um banco de dados e um serviço CDN dentro dele.
 
 Vamos criar um grupo de recursos chamado "MyResourceGroup" na região *westus2* do Azure.  Para fazer isso, digite o seguinte comando:
 
@@ -89,7 +92,7 @@ Quando o grupo de recursos for criado, o comando `az group create` gerará vári
 
 Agora que temos nosso grupo de recursos, vamos criar uma VM do Linux dentro dele.
 
-Você pode criar uma VM do Linux usando a famosa imagem do UbuntuTLS, com dois discos de armazenamento anexados de 10 e 20GB, através do seguinte comando:
+Você pode criar uma VM Linux usando a imagem popular do UbuntuTLS, com dois discos de armazenamento anexados de 10 GB e 20 GB, usando o seguinte comando:
 
 ```azurecli-interactive
 az vm create -n MyLinuxVM -g MyResourceGroup --image UbuntuLTS --data-disk-sizes-gb 10 20
@@ -155,7 +158,7 @@ my-login@MyLinuxVM:~$
 
 ## <a name="create-a-windows-server-virtual-machine"></a>Criar uma Máquina Virtual do Windows Server
 
-Agora, vamos criar uma VM baseada no Windows Server 2016 Datacenter usando o comando `az vm create` e adicioná-la ao mesmo grupo de recursos "MyResourceGroup" que usamos em nossa VM do Linux.  Como no exemplo da VM do Linux, também anexaremos dois discos de armazenamento usando o parâmetro `--data-disk-sizes-gb`.
+Agora, vamos criar uma VM baseada no Windows Server 2016 Datacenter usando o comando `az vm create` e adicioná-la ao mesmo grupo de recursos “MyResourceGroup” que usamos em nossa VM Linux.  Como no exemplo da VM Linux, também anexaremos dois discos de armazenamento usando o parâmetro `--data-disk-sizes-gb`.
 
 O Azure exige que você evite usar nomes de usuário/senha fáceis de adivinhar. Há regras específicas para quais caracteres podem ser usados, além do comprimento mínimo do nome de usuário e senha.  
 
@@ -237,7 +240,7 @@ SQL Database Server         az sql server create
 Document DB                 az documentdb create
 ```
 
-Visite a [Documentação de referência](/azure/doc-ref-autogen) para saber mais sobre os outros parâmetros específicos de recursos que você pode passar para cada um dos comandos anteriores e os tipos de recursos que você pode criar. 
+Visite a [Documentação de referência](/cli/azure) para saber mais sobre os outros parâmetros específicos de recursos que você pode passar para cada um dos comandos anteriores e os tipos de recursos que você pode criar. 
 
 ## <a name="useful-tip-optimizing-create-operations-using---no-wait"></a>Dica útil: otimização das operações de criação usando --no-wait
 
