@@ -12,10 +12,11 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: 98fb955e-6dbf-47e2-80ac-170d6d95cb70
-ms.openlocfilehash: a28b24dd186fc567f36e52f8a0f5a7c2b0af060c
-ms.sourcegitcommit: c2d380f4ad8e7606850530db690855bcccfd6e86
+ms.openlocfilehash: 383fb6ebd90ac79f60869187b402d53d4f1791fd
+ms.sourcegitcommit: 4fd631a58cf19c494162510d073fbbbdf0524d16
 ms.translationtype: HT
 ms.contentlocale: pt-BR
+ms.lasthandoff: 06/05/2017
 ---
 # <a name="manage-multiple-azure-subscriptions"></a>Gerenciar várias assinaturas do Azure
 
@@ -23,9 +24,11 @@ Se você for novo no Azure, provavelmente tem apenas uma única assinatura.
 Mas se você já usa o Azure por algum tempo, poderá criar várias assinaturas do Azure.
 Se esse for o caso, configure a CLI do Azure 2.0 para executar comandos em uma assinatura específica.
 
+[!INCLUDE [cloud-shell-try-it.md](includes/cloud-shell-try-it.md)]
+
 1. Obtenha uma lista de todas as assinaturas em sua conta.
 
-   ```azurecli
+   ```azurecli-interactive
    az account list --output table
    ```
 
@@ -39,7 +42,7 @@ Se esse for o caso, configure a CLI do Azure 2.0 para executar comandos em uma a
 
 1. Defina o padrão.
  
-   ```azurecli
+   ```azurecli-interactive
    az account set --subscription "My Demos"
    ```
 

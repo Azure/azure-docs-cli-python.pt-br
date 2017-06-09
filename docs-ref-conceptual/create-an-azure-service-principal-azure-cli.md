@@ -12,10 +12,11 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: fab89cb8-dac1-4e21-9d34-5eadd5213c05
-ms.openlocfilehash: 10a168ae0c33207905d58b7b57ac9ad76d8d9bf4
-ms.sourcegitcommit: 73a73c8a17d95b116d33eee3287d938addc5c0ac
+ms.openlocfilehash: 0ee794d5a732c6e8d2d52fca5810a874827930ae
+ms.sourcegitcommit: 4fd631a58cf19c494162510d073fbbbdf0524d16
 ms.translationtype: HT
 ms.contentlocale: pt-BR
+ms.lasthandoff: 06/05/2017
 ---
 # <a name="create-an-azure-service-principal-with-azure-cli-20"></a>Criar uma entidade de serviço do Azure com a CLI do Azure 2.0
 
@@ -26,7 +27,7 @@ Esse tópico orienta você pela criação de uma entidade de segurança com a CL
 > Você também pode criar uma entidade de serviço por meio do Portal do Azure.
 > Leia [Usar o portal para criar um aplicativo e entidade de serviço do Active Directory que pode acessar recursos](/azure/azure-resource-manager/resource-group-create-service-principal-portal) para obter mais detalhes.
 
-## <a name="what-is-a-service-principal"></a>O que é uma entidade de serviço?
+## <a name="what-is-a-service-principal"></a>O que é uma ‘entidade de serviço’?
 
 Uma entidade de serviço do Azure é uma identidade de segurança usada por aplicativos criados pelo usuário, serviços e ferramentas de automação para acessar recursos específicos do Azure. Pense nela como uma 'identidade de usuário' (login e senha ou certificado) com uma função específica e permissões de acesso aos seus recursos rigidamente controladas. Ela só precisa ser capaz de fazer coisas específicas, ao contrário de uma identidade de usuário geral. A segurança aumenta se você só conceder a ela o nível mínimo de permissões necessárias para realizar suas tarefas de gerenciamento. 
 
@@ -51,7 +52,9 @@ Esses valores identificam seu aplicativo durante a criação de uma entidade de 
 
 Obtenha informações sobre seu aplicativo com a `az ad app list`.
 
-```azurecli
+[!INCLUDE [cloud-shell-try-it.md](includes/cloud-shell-try-it.md)]
+
+```azurecli-interactive
 az ad app list --display-name MyDemoWebApp
 ```
 
@@ -77,7 +80,7 @@ O opção `--display-name` filtra a lista retornada de aplicativos para mostrá-
 
 Use [az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac) para criar a entidade de serviço. 
 
-```azurecli
+```azurecli-interactive
 az ad sp create-for-rbac --name {appId} --password "{strong password}" 
 ``` 
 
@@ -96,7 +99,7 @@ az ad sp create-for-rbac --name {appId} --password "{strong password}"
 
 ### <a name="get-information-about-the-service-principal"></a>Obter informações sobre a entidade de serviço
 
-```azurecli
+```azurecli-interactive
 az ad sp show --id a487e0c1-82af-47d9-9a0b-af184eb87646d
 ```
 
@@ -117,7 +120,7 @@ az ad sp show --id a487e0c1-82af-47d9-9a0b-af184eb87646d
 
 Agora você pode entrar como a nova entidade de serviço para seu aplicativo usando a *appId* e a *senha* de `az ad sp show`.  Forneça o valor *tenant* dos resultados de `az ad sp create-for-rbac`.
 
-```azurecli
+```azurecli-interactive
 az login --service-principal -u a487e0c1-82af-47d9-9a0b-af184eb87646d --password {password} --tenant {tenant}
 ``` 
 
@@ -158,14 +161,14 @@ A função padrão para uma entidade de serviço é **Colaborador**. Pode não s
 
 Nesse exemplo, adicionamos a função **Leitor** ao nosso exemplo anterior e excluímos a função **Colaborador**:
 
-```azurecli
+```azurecli-interactive
 az role assignment create --assignee a487e0c1-82af-47d9-9a0b-af184eb87646d --role Reader
 az role assignment delete --assignee a487e0c1-82af-47d9-9a0b-af184eb87646d --role Contributor
 ```
 
 Verifique as alterações listando as funções atribuídas no momento:
 
-```azurecli
+```azurecli-interactive
 az role assignment list --assignee a487e0c1-82af-47d9-9a0b-af184eb87646d
 ```
 
@@ -196,7 +199,7 @@ az role assignment list --assignee a487e0c1-82af-47d9-9a0b-af184eb87646d
 
 Use `az ad sp reset-credentials` para redefinir a senha atual da entidade de serviço.
 
-```azurecli
+```azurecli-interactive
 az ad sp reset-credentials --name 20bce7de-3cd7-49f4-ab64-bb5b443838c3 --password {new-password}
 ```
 
