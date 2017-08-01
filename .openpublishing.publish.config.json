@@ -45,10 +45,11 @@
     {
       "path_to_root": "_repo.en-us",
       "url": "https://github.com/Azure/azure-docs-cli-python",
-      "branch": "live",
+      "branch": "masterbeforemerge",
       "branch_mapping": {
         "live": "live",
-        "master": "master"
+        "master": "master",
+        "masterbeforemerge": "masterbeforemerge"
       }
     }
   ],
