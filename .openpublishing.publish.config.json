@@ -18,13 +18,11 @@
       },
       "build_entry_point": "docs",
       "template_folder": "_themes",
-      "customized_tasks": [ 
-        { 
+      "customized_tasks": { 
           "repo_setup": [ 
             "_dependentPackages/CommonPlugins/tools/AzureCLI-MergeTOC.ps1" 
           ] 
-        } 
-      ], 
+      }, 
       "customized_template_paths": [ 
           "_dependentPackages/uref/content" 
       ] 
