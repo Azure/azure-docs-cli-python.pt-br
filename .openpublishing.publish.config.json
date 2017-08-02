@@ -47,7 +47,8 @@
       "branch_mapping": {
         "live": "live",
         "master": "master",
-        "masterbeforemerge": "masterbeforemerge"
+        "masterbeforemerge": "masterbeforemerge",
+        "mastergeorge": "masterbeforemerge"
       }
     }
   ],
