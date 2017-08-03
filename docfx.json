@@ -10,6 +10,14 @@
       },
       {
         "files": [
+          "TOC.yml"
+        ],
+        "src": "latest/docs-ref-autogen",
+        "version": "azure-cli-latest",
+        "dest": "command"
+      },
+      {
+        "files": [
           "**/TOC.md",
           "**/*.yml"
         ],

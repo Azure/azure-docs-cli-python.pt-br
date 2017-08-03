@@ -49,7 +49,16 @@
         "master": "master",
         "alice-fusion": "alice-fusion"
       }
-    }
+    },
+    { 
+       "path_to_root": "cli-xref", 
+       "url": "https://github.com/MicrosoftDocs/cli-xref", 
+       "branch": "master", 
+       "branch_mapping": { 
+         "master": "master", 
+         "live": "live" 
+      } 
+    } 
   ],
   "need_generate_pdf_url_template": false,
   "dependent_packages": [
