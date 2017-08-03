@@ -20,7 +20,7 @@
       "template_folder": "_themes",
       "customized_tasks": { 
           "docset_prebuild": [ 
-            "_dependentPackages/CommonPlugins/tools/AzureCLI-MergeTOC.ps1" 
+            "_dependentPackages/CommonPlugins/tools/JoinTOC.ps1" 
           ] 
       }, 
       "customized_template_paths": [ 
@@ -47,7 +47,7 @@
       "branch_mapping": {
         "live": "live",
         "master": "master",
-        "masterbeforemerge": "masterbeforemerge"
+        "alice-fusion": "alice-fusion"
       }
     }
   ],
@@ -62,14 +62,18 @@
     }, 
     { 
        "id": "Microsoft.OpenPublishing.CommonPlugins", 
-       "nuget_feed": "https://www.myget.org/F/op/api/v2", 
+       "nuget_feed": "https://www.myget.org/F/op-dev/api/v2", 
        "path_to_root": "_dependentPackages/CommonPlugins", 
        "target_framework": "net45", 
-       "version": "latest" 
+       "version": "latest-prerelease" 
     } 
   ],
-  "MergeMDTocPlugin": { 
-     "AutogenTocFolder": "docs-ref-autogen", 
-     "ConceptTocFolder": "docs-ref-conceptual" 
-   } 
+  "JoinTOCPlugin": [
+    {
+      "TopLevelTOC": "latest/docs-ref-autogen/toc.yml",
+      "ConceptualTOC": "latest/docs-ref-conceptual/toc.yml",
+      "ReferenceTOCUrl": "/cli/azure/command/toc.json?view=azure-cli-latest",
+      "ConceptualTOCUrl": "/cli/azure/toc.json?view=azure-cli-latest"
+    }
+  ]
 }
