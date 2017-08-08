@@ -47,7 +47,16 @@
       "branch_mapping": {
         "live": "live",
         "master": "master",
-        "FusionToc": "fusiontoc"
+        "FusionToc": "FusionToc"
+      }
+    },
+    { 
+       "path_to_root": "cli-xref", 
+       "url": "https://github.com/MicrosoftDocs/cli-xref", 
+       "branch": "master", 
+       "branch_mapping": { 
+         "master": "master", 
+         "live": "live" 
       }
     }
   ],
