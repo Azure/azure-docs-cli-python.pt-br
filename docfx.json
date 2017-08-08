@@ -46,11 +46,11 @@
       },
       {
         "files": [
-          "**/TOC.md",
+          "**/*.md",
           "**/*.yml"
         ],
         "exclude": [
-          "TOC.yml",
+          "**/TOC.md",
           "**/obj/**",
           "**/includes/**",
           "README.md",
@@ -68,7 +68,6 @@
           "**/*.yml"
         ],
         "exclude": [
-          "TOC.yml",
           "**/TOC.md",
           "**/obj/**",
           "**/includes/**",
