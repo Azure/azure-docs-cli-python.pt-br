@@ -50,6 +50,7 @@
           "**/*.yml"
         ],
         "exclude": [
+          "TOC.yml",
           "**/obj/**",
           "**/includes/**",
           "README.md",
