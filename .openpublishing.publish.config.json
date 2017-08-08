@@ -43,7 +43,7 @@
     {
       "path_to_root": "_repo.en-us",
       "url": "https://github.com/Azure/azure-docs-cli-python",
-      "branch": "fusiontoc",
+      "branch": "FusionToc",
       "branch_mapping": {
         "live": "live",
         "master": "master",
