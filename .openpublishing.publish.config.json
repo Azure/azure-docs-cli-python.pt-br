@@ -47,7 +47,7 @@
       "branch_mapping": {
         "live": "live",
         "master": "master",
-        "fusiontoc": "FusionToc"
+        "FusionToc": "fusiontoc"
       }
     }
   ],
