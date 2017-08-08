@@ -18,11 +18,11 @@
       },
       "build_entry_point": "docs",
       "template_folder": "_themes",
-      "customized_tasks": {
-        "docset_prebuild": [
-          "_dependentPackages/CommonPlugins/tools/JoinTOC.ps1"
-        ]
-      },
+      "customized_tasks": { 
+          "docset_prebuild": [ 
+            "_dependentPackages/CommonPlugins/tools/JoinTOC.ps1" 
+          ] 
+      }, 
       "customized_template_paths": [ 
           "_dependentPackages/uref/content" 
       ] 
@@ -57,8 +57,8 @@
        "branch_mapping": { 
          "master": "master", 
          "live": "live" 
-      }
-    }
+      } 
+    } 
   ],
   "need_generate_pdf_url_template": false,
   "dependent_packages": [
@@ -83,12 +83,6 @@
       "ConceptualTOC": "latest/docs-ref-conceptual/toc.yml",
       "ReferenceTOCUrl": "/cli/azure/command/toc.json?view=azure-cli-latest",
       "ConceptualTOCUrl": "/cli/azure/toc.json?view=azure-cli-latest"
-    },
-    {
-      "TopLevelTOC": "2017-03-09-profile/docs-ref-autogen/toc.yml",
-      "ConceptualTOC": "2017-03-09-profile/docs-ref-conceptual/toc.yml",
-      "ReferenceTOCUrl": "/cli/azure/command/toc.json?view=azure-cli-2017-03-09-profile",
-      "ConceptualTOCUrl": "/cli/azure/toc.json?view=azure-cli-2017-03-09-profile"
     }
   ]
 }

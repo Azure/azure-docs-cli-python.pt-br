@@ -10,26 +10,11 @@
       },
       {
         "files": [
-          "TOC.yml"
-        ],
-        "src": "latest/docs-ref-autogen",
-        "version": "azure-cli-latest",
-        "dest": "command"
-      },
-      {
-        "files": [
-          "TOC.yml"
-        ],
-        "src": "2017-03-09-profile/docs-ref-autogen",
-        "version": "azure-cli-2017-03-09-profile",
-        "dest": "command"
-      },
-      {
-        "files": [
-          "**/*.md",
+          "**/TOC.md",
           "**/*.yml"
         ],
         "exclude": [
+          "TOC.yml",
           "**/obj/**",
           "**/includes/**",
           "README.md",
@@ -61,7 +46,7 @@
       },
       {
         "files": [
-          "**/*.md",
+          "**/TOC.md",
           "**/*.yml"
         ],
         "exclude": [
