@@ -12,11 +12,11 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: 85c418a8-6177-4833-bb8d-ff4ce2233c1a
-ms.openlocfilehash: 11153c13fb9868897b0bb21dac9d64072c3af16e
-ms.sourcegitcommit: 70c4d7a14591e5b761e261105cd2d376753f2a54
+ms.openlocfilehash: bfc865f9b34afd8f312808fa420ad987be2a7d34
+ms.sourcegitcommit: 792a4283245160072edcf2bee1482aba19b285d5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2017
+ms.lasthandoff: 06/26/2017
 ---
 # <a name="get-started-with-azure-cli-20"></a>Introdução à CLI do Azure 2.0
 
@@ -40,7 +40,7 @@ A maneira mais simples de começar é [iniciar o Cloud Shell](/azure/cloud-shell
 
    ![Criar uma conta de armazenamento](media/get-started-with-azure-cli/storage-prompt.png)
 
-Você também pode [instalar](install-azure-cli.md) a CLI e executá-la localmente a partir da linha de comando. Assim que tiver instalado a CLI, execute `az login` para entrar com sua assinatura padrão.
+Você também pode [instalar](install-azure-cli.md) a CLI e executá-la localmente a partir da linha de comando.
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -73,7 +73,7 @@ Quando o grupo de recursos for criado, o comando `az group create` gerará vári
 
 Agora que temos nosso grupo de recursos, vamos criar uma VM do Linux dentro dele.
 
-Você pode criar uma VM Linux usando a imagem popular do UbuntuLTS, com dois discos de armazenamento anexados de 10 GB e 20 GB, usando o seguinte comando:
+Você pode criar uma VM Linux usando a imagem popular do UbuntuTLS, com dois discos de armazenamento anexados de 10 GB e 20 GB, usando o seguinte comando:
 
 ```azurecli-interactive
 az vm create -n MyLinuxVM -g MyResourceGroup --image UbuntuLTS --data-disk-sizes-gb 10 20

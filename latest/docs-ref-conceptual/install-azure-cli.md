@@ -12,11 +12,11 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: ea5c0ee1-c530-4a1e-a83f-e1be71f6d416
-ms.openlocfilehash: a61f47076854d0ff0a7056f82240794b7533fe3e
-ms.sourcegitcommit: 3db5fb207db551a0d3fe0a88fe09e8f5e2ec184d
+ms.openlocfilehash: 580438bfc66f3ed0b4dad504258eab453b1b9183
+ms.sourcegitcommit: c1df7794ad42adb8640b51b630e4275f4a791ac2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/19/2017
 ---
 # <a name="install-azure-cli-20"></a>Instalar a CLI 2.0 do Azure
 
@@ -29,6 +29,33 @@ Para saber mais sobre a versão mais recente, veja as [notas de versão](release
 > Se você precisa da versão anterior da CLI do Azure, veja como [instalar a CLI do Azure 1.0](/azure/cli-install-nodejs).
 
 ## <a name="a-namemacosinstall-on-macos"></a><a name="macOS"/>Instalar no macOS
+
+No macOS, é possível instalar qualquer um com [Homebrew](https://brew.sh/) ou manualmente.
+
+### <a name="install-with-homebrew"></a>Instalar com o Homebrew
+
+1. Se não tiver feito já, instale o Homebrew seguindo as [instruções de instalação do Homebrew](https://docs.brew.sh/Installation.html).
+
+2. Atualize seus repositórios locais do Homebrew.
+
+   ```bash
+   brew update
+   ```
+
+3. Instale o pacote `azure-cli`.
+
+  ```bash
+  brew install azure-cli
+  ```
+
+> [!NOTE]
+> Se você instalou anteriormente a CLI do Azure 1.0 com o Homebrew, em vez de instalar com o pacote, pode obter a CLI 2.0 pelo processo de atualização regular do Homebrew.
+>
+> ```bash
+> brew upgrade
+> ```
+
+### <a name="install-manually"></a>Instalar manualmente
 
 1. Instale a CLI do Azure 2.0 com `curl`.
 
@@ -220,12 +247,6 @@ Se você receber um erro de `curl` relacionado ao parâmetro `-L` ou uma mensage
 curl https://azurecliprod.blob.core.windows.net/install | bash
 ```
 
-### <a name="homebrew-on-macos-installing-older-version"></a>Instalação de versão mais antiga com o Homebrew no macOS
-
-A fórmula `azure-cli` de Homebrew disponível para macOS está atualmente desatualizada e instalará uma versão 1.x da CLI. Você pode ver quando ela é atualizada verificando `brew info azure-cli`.
-
-Até lá, [desinstale a versão mais antiga](#uninstall_brew) e siga as [instruções de instalação para macOS](#macOS).
-
 ## <a name="uninstall-cli-1x-versions"></a>Desinstale as versões 1.x da CLI
 
 Se você tiver uma versão anterior a 1.x da CLI disponível em seu sistema, você pode desinstalá-la com base no tipo de instalação usada.
@@ -237,14 +258,6 @@ Remover a CLI mais antiga com `npm uninstall`.
   ```bash
   npm uninstall -g azure-cli
   ```
-
-### <a name="a-nameuninstallbrewuninstall-with-homebrew-on-macos"></a><a name="uninstall_brew"/>Desinstalar com Homebrew no macOS
-
-Remover a CLI mais antiga com `brew uninstall`.
-
-```bash
-brew uninstall azure-cli
-```
 
 ### <a name="uninstall-with-distributable"></a>Desinstalar com distribuível
 
@@ -261,6 +274,20 @@ Se você instalou uma imagem do Docker para usar a versão anterior da CLI, remo
 ## <a name="update-the-cli"></a>Atualizar a CLI
 
 Para atualizar a CLI do Azure, use o mesmo método que você usou para instalá-la.
+
+### <a name="update-with-homebrew"></a>Atualizar com o Homebrew
+
+1. Atualize suas informações de repositório do Homebrew local.
+
+   ```bash
+   brew update
+   ```
+
+2. Atualize os seus pacotes instalados.
+
+   ```bash
+   brew upgrade
+   ```
 
 ### <a name="update-with-msi"></a>Atualizar com MSI
 
@@ -318,6 +345,14 @@ Siga as instruções de instalação manual para [macOS](#macOS) ou [Linux](#Lin
 ## <a name="uninstall"></a>Desinstalar
 
 Se você decidir desinstalar a CLI, lamentamos a sua saída. Você deve desinstalar usando o mesmo método que você usou para instalar a CLI.
+
+### <a name="uninstall-with-homebrew"></a>Desinstalar com o Homebrew
+
+Desinstalar o pacote `azure-cli`.
+
+   ```bash
+   brew uninstall azure-cli
+   ```
 
 ### <a name="uninstall-with-msi"></a>Desinstalar com MSI
 
