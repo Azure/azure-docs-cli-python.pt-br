@@ -12,13 +12,73 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: ce0428f7-0a59-4e72-9237-d907b171af51
-ms.openlocfilehash: ad30efeb7efafcc5816160ee130665d37adb62c6
-ms.sourcegitcommit: e866977985ba0286fa05f41729dd7e7d9ce86f8e
+ms.openlocfilehash: 72630c52b5e6afd69809ff19145717c0d65e0252
+ms.sourcegitcommit: 3a490ae3a2a1b2e63a062806f9b720fa4c6be01e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 09/25/2017
 ---
 # <a name="azure-cli-20-release-notes"></a>Notas de versão da CLI do Azure 2.0
+
+## <a name="september-22-2017"></a>22 de setembro de 2017
+
+Versão 2.0.1.8
+
+### <a name="resource"></a>Recurso
+
+* Suporte adicionado para mostrar as definições de políticas internas
+* Parâmetro de modo de suporte adicionado para a criação de definições de política
+* Suporte adicionado para definições de interface do usuário e modelos em `managedapp definition create`
+* [ALTERAÇÃO SIGNIFICATIVA] O tipo de recurso `managedapp` foi alterado de `appliances` para `applications` e `applianceDefinitions` para `applicationDefinitions`
+
+### <a name="network"></a>Rede
+
+* Suporte adicionado para a zona de disponibilidade para os subcomandos `network lb` e `network public-ip`
+* Suporte adicionado ao Emparelhamento IPv6 da Microsoft para `express-route`
+* Adicionados `asg` comandos de grupo de segurança do aplicativo
+* Adicionado o argumento `--application-security-groups` para `nic [create|ip-config create|ip-config update]`
+* Adicionados os argumentos `--source-asgs` e `--destination-asgs` para `nsg rule [create|update]`
+* Adicionados os argumentos `--ddos-protection` e `--vm-protection` para `vnet [create|update]`
+* Adicionados os comandos `network [vnet-gateway|vpn-client|show-url]`
+
+### <a name="storage"></a>Armazenamento
+
+* Correção do problema onde `storage account network-rule` comandos poderão falhar após a atualização do SDK
+
+### <a name="eventgrid"></a>Grade de eventos
+
+* Atualizada SDK Python da Grade de Eventos do Azure para usar a versão de API mais recente "2017-09-15-preview"
+
+### <a name="sql"></a>SQL
+
+* Alterado o `sql server list` argumento `--resource-group` para ser opcional. Se não for especificado, todos os servidores sql na assinatura serão retornados
+* Adicionado o `--no-wait` parâmetro para `db [create|copy|restore|update|replica create|create|update]` e `dw [create|update]`
+
+### <a name="keyvault"></a>Keyvault
+
+* Adicionado suporte para comandos Keyvault por trás de um proxy
+
+### <a name="vm"></a>VM
+
+* Adicionado suporte à zona de disponibilidade para `[vm|vmss|disk] create`
+* Correção do problema onde usar`--app-gateway ID` com `vmss create` poderia causar uma falha
+* Adicionado o argumento `--asgs` para `vm create`
+* Suporte adicionado para executar comandos em VMs com `vm run-command`
+* [VERSÃO PRÉVIA] Adicionado suporte para criptografia de disco VMSS com `vmss encryption`
+* Suporte adicionado para realizar a manutenção em VMs com `vm perform-maintenance`
+
+### <a name="acs"></a>ACS
+
+* [VERSÃO PRÉVIA] Adicionado `--orchestrator-release` argumento para `acs create` para regiões de versão prévia do ACS
+
+### <a name="appservice"></a>AppService
+
+* Adicionada a capacidade para atualizar e mostrar as configurações de autenticação com `webapp auth [update|show]`
+
+### <a name="backup"></a>Backup
+
+* Versão prévia
+
 
 ## <a name="september-11-2017"></a>11 de setembro de 2017
 

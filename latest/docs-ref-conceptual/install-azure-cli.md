@@ -12,11 +12,11 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: ea5c0ee1-c530-4a1e-a83f-e1be71f6d416
-ms.openlocfilehash: 580438bfc66f3ed0b4dad504258eab453b1b9183
-ms.sourcegitcommit: c1df7794ad42adb8640b51b630e4275f4a791ac2
+ms.openlocfilehash: 935814d56d0a6be00f626da860dc643adbf14804
+ms.sourcegitcommit: 9f38efbb7efd800ee5cab80d6641770d268c5a68
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="install-azure-cli-20"></a>Instalar a CLI 2.0 do Azure
 
@@ -36,13 +36,15 @@ No macOS, é possível instalar qualquer um com [Homebrew](https://brew.sh/) ou 
 
 1. Se não tiver feito já, instale o Homebrew seguindo as [instruções de instalação do Homebrew](https://docs.brew.sh/Installation.html).
 
-2. Atualize seus repositórios locais do Homebrew.
+2. Se você instalou anteriormente a CLI manualmente, siga as instruções de [desinstalação manual](#UninstallManually).
+
+3. Atualize seus repositórios locais do Homebrew.
 
    ```bash
    brew update
    ```
 
-3. Instale o pacote `azure-cli`.
+4. Instale o pacote `azure-cli`.
 
   ```bash
   brew install azure-cli
@@ -73,11 +75,9 @@ No macOS, é possível instalar qualquer um com [Homebrew](https://brew.sh/) ou 
 
 ## <a name="install-on-windows"></a>Instalar no Windows
 
-É possível instalar a CLI do Azure 2.0 com o MSI e usá-la na linha de comando do Windows ou instalar a CLI com o `apt-get` no Bash, no Ubuntu no Windows.
-
 ### <a name="install-with-msi-for-the-windows-command-line"></a>Instalar com MSI para a linha de comando do Windows 
 
-Para instalar a CLI no Windows e usá-la na linha de comando do Windows, baixe e execute o [MSI](https://aka.ms/InstallAzureCliWindows).
+Para instalar a CLI no Windows e usá-la na linha de comando do Windows, baixe e execute o [Instalador da CLI do Azure (MSI)](https://aka.ms/InstallAzureCliWindows).
 
 ### <a name="install-with-apt-get-for-bash-on-ubuntu-on-windows"></a>Instalar com apt-get para Bash no Ubuntu no Windows
 
@@ -247,6 +247,16 @@ Se você receber um erro de `curl` relacionado ao parâmetro `-L` ou uma mensage
 curl https://azurecliprod.blob.core.windows.net/install | bash
 ```
 
+### <a name="az-command-not-found"></a>`az` comando não encontrado
+
+Talvez seja necessário limpar o cache de hash de comando do shell. Executar
+
+```bash
+hash -r
+```
+
+e ver se o problema foi resolvido.
+
 ## <a name="uninstall-cli-1x-versions"></a>Desinstale as versões 1.x da CLI
 
 Se você tiver uma versão anterior a 1.x da CLI disponível em seu sistema, você pode desinstalá-la com base no tipo de instalação usada.
@@ -261,7 +271,7 @@ Remover a CLI mais antiga com `npm uninstall`.
 
 ### <a name="uninstall-with-distributable"></a>Desinstalar com distribuível
 
-Se você tiver instalado por meio de [MSI](http://aka.ms/webpi-azure-cli) ou um [pacote de macOS](http://aka.ms/mac-azure-cli), use a mesma ferramenta para remover a instalação.
+Se você tiver instalado por meio do [Instalador da CLI do Azure (MSI)](http://aka.ms/webpi-azure-cli) ou de um [pacote de macOS](http://aka.ms/mac-azure-cli), use a mesma ferramenta para remover a instalação.
 
 ### <a name="uninstall-with-docker"></a>Desinstalar com o Docker
 
@@ -277,13 +287,15 @@ Para atualizar a CLI do Azure, use o mesmo método que você usou para instalá-
 
 ### <a name="update-with-homebrew"></a>Atualizar com o Homebrew
 
-1. Atualize suas informações de repositório do Homebrew local.
+1. Se você tiver instalado manualmente, siga as instruções para [instalar com o Homebrew](#macOS).
+
+2. Atualize suas informações de repositório do Homebrew local.
 
    ```bash
    brew update
    ```
 
-2. Atualize os seus pacotes instalados.
+3. Atualize os seus pacotes instalados.
 
    ```bash
    brew upgrade
@@ -291,7 +303,7 @@ Para atualizar a CLI do Azure, use o mesmo método que você usou para instalá-
 
 ### <a name="update-with-msi"></a>Atualizar com MSI
 
-Execute o [MSI](https://aka.ms/InstallAzureCliWindows) novamente.
+Execute o [Instalador da CLI do Azure (MSI)](https://aka.ms/InstallAzureCliWindows) novamente.
 
 ### <a name="update-with-apt-get"></a>Atualizar com apt get
 
@@ -396,7 +408,7 @@ Se você instalou uma imagem do Docker, será necessário remover qualquer cont�
 > [!NOTE]
 > Se você instalou uma versão específica da imagem, você precisará adicionar `:<version>` ao final do nome da imagem.
 
-### <a name="uninstall-manually"></a>Desinstalar manualmente
+###<a name="a-nameuninstallmanuallyuninstall-manually"></a><a name="UninstallManually"/>Desinstalar manualmente
 
 Se você usou o script em https://aka.ms/InstallAzureCli para instalar a CLI, é possível desinstalá-la com estas etapas.
 
