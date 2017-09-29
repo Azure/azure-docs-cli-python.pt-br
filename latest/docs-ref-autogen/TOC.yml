@@ -3997,6 +3997,25 @@
             - name: Atualização
               uid: az_policy_definition_update
               displayName: az policy definition update
+        - name: Set-Definition
+          uid: az_policy_set_definition
+          displayName: az policy set-definition
+          items:
+            - name: Criar
+              uid: az_policy_set_definition_create
+              displayName: az policy set-definition create
+            - name: Exclusão
+              uid: az_policy_set_definition_delete
+              displayName: az policy set-definition delete
+            - name: Listar
+              uid: az_policy_set_definition_list
+              displayName: az policy set-definition list
+            - name: Mostrar
+              uid: az_policy_set_definition_show
+              displayName: az policy set-definition show
+            - name: Atualização
+              uid: az_policy_set_definition_update
+              displayName: az policy set-definition update
     - name: Funcionalidades do provedor de recursos
       uid: az_feature
       displayName: az feature
@@ -4065,6 +4084,9 @@
         - name: Exclusão
           uid: az_resource_delete
           displayName: az resource delete
+        - name: Invoke-Action
+          uid: az_resource_invoke_action
+          displayName: az resource invoke-action
         - name: Listar
           uid: az_resource_list
           displayName: az resource list
@@ -4183,6 +4205,9 @@
             - name: Listar
               uid: az_sql_db_list
               displayName: az sql db list
+            - name: Lista excluídas
+              uid: az_sql_db_list_deleted
+              displayName: az sql db list-deleted
             - name: Listar edições
               uid: az_sql_db_list_editions
               displayName: az sql db list-editions
@@ -4224,6 +4249,19 @@
                 - name: Definir primário
                   uid: az_sql_db_replica_set_primary
                   displayName: az sql db replica set-primary
+            - name: Tde
+              uid: az_sql_db_tde
+              displayName: az sql db tde
+              items:
+                - name: List-Activity
+                  uid: az_sql_db_tde_list_activity
+                  displayName: az sql db tde list-activity
+                - name: Definir
+                  uid: az_sql_db_tde_set
+                  displayName: az sql db tde set
+                - name: Mostrar
+                  uid: az_sql_db_tde_show
+                  displayName: az sql db tde show
             - name: Política de ameaças
               uid: az_sql_db_threat_policy
               displayName: az sql db threat-policy
@@ -4316,6 +4354,32 @@
                 - name: Atualização
                   uid: az_sql_server_firewall_rule_update
                   displayName: az sql server firewall-rule update
+            - name: Chave
+              uid: az_sql_server_key
+              displayName: az sql server key
+              items:
+                - name: Criar
+                  uid: az_sql_server_key_create
+                  displayName: az sql server key create
+                - name: Exclusão
+                  uid: az_sql_server_key_delete
+                  displayName: az sql server key delete
+                - name: Listar
+                  uid: az_sql_server_key_list
+                  displayName: az sql server key list
+                - name: Mostrar
+                  uid: az_sql_server_key_show
+                  displayName: az sql server key show
+            - name: Tde-Key
+              uid: az_sql_server_tde_key
+              displayName: az sql server tde-key
+              items:
+                - name: Definir
+                  uid: az_sql_server_tde_key_set
+                  displayName: az sql server tde-key set
+                - name: Mostrar
+                  uid: az_sql_server_tde_key_show
+                  displayName: az sql server tde-key show
             - name: Vnet-Rule
               uid: az_sql_server_vnet_rule
               displayName: az sql server vnet-rule
