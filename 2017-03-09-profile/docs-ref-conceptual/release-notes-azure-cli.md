@@ -683,7 +683,7 @@ vm (2.0.2)
  
 ### <a name="acs"></a>ACS
 
-* [ACS] Adicionar suporte para configurar um cluster do ACS padrão ([&#2554;](https://github.com/Azure/azure-cli/pull/2554))
+* [ACS] Adicionar suporte para configurar um cluster do ACS padrão ([#2554](https://github.com/Azure/azure-cli/pull/2554))
 * Adicione suporte para solicitação de senha de chave ssh. ([#2044](https://github.com/Azure/azure-cli/pull/2044))
 * Adicione suporte para clusters do windows. ([#2211](https://github.com/Azure/azure-cli/pull/2211))
 * Alterne da função Proprietário para Colaborador. ([#2321](https://github.com/Azure/azure-cli/pull/2321))
