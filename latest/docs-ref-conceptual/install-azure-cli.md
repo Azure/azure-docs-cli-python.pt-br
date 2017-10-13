@@ -12,11 +12,11 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: ea5c0ee1-c530-4a1e-a83f-e1be71f6d416
-ms.openlocfilehash: 935814d56d0a6be00f626da860dc643adbf14804
-ms.sourcegitcommit: 9f38efbb7efd800ee5cab80d6641770d268c5a68
+ms.openlocfilehash: 1b47bd5603f5214dd11d772caaebe8cf380df5c0
+ms.sourcegitcommit: 5e862fd0a93cf668fa76a74ae1c7505d3c8c45f2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 10/09/2017
 ---
 # <a name="install-azure-cli-20"></a>Instalar a CLI 2.0 do Azure
 
@@ -104,7 +104,10 @@ Para instalar a CLI no Windows e usá-la na linha de comando do Windows, baixe e
 
 ## <a name="install-on-debianubuntu-with-apt-get"></a>Instalar no Debian/Ubuntu com apt get
 
-Para sistemas baseados em Debian/Ubuntu, instale a CLI 2.0 do Azure por meio de `apt-get`.
+Para obter distribuições usando o gerenciador de pacote `apt`, instale a CLI 2.0 do Azure por meio de `apt-get`.
+
+> [!NOTE]
+> A distribuição deve ter suporte para Python 2.7.x ou Python 3.x para usar a CLI.
 
 1. Modifique sua lista de fontes:
  
@@ -134,7 +137,10 @@ Para sistemas baseados em Debian/Ubuntu, instale a CLI 2.0 do Azure por meio de 
 
 ## <a name="install-on-rhel-fedora-and-centos-with-yum"></a>Instalar no RHEL, Fedora e CentOS com yum
 
-Para qualquer distribuição baseada no RedHat e que contenha o gerenciador de pacotes do `yum`, você poderá instalar a CLI do Azure 2.0 por meio do `yum`.
+Para distribuições que usam o gerenciador de pacote `yum`, instale a CLI 2.0 do Azure por meio de `yum`.
+
+> [!NOTE]
+> A distribuição deve ter suporte para Python 2.7.x ou Python 3.x para usar a CLI.
 
 1. Importe a chave de repositório da Microsoft:
 
@@ -158,6 +164,11 @@ Para qualquer distribuição baseada no RedHat e que contenha o gerenciador de p
 4. Execute a CLI no prompt de comando com o comando `az`.
 
 ## <a name="install-on-opensuse-and-sle-with-zypper"></a>Instalar no openSUSE e SLE com zypper
+
+Para distribuições que usam o gerenciador de pacote `zypper`, instale a CLI 2.0 do Azure por meio de `zypper`.
+
+> [!NOTE]
+> A distribuição deve ter suporte para Python 2.7.x ou Python 3.x para usar a CLI.
 
 1. Importe a chave de repositório da Microsoft:
 
@@ -201,9 +212,9 @@ A CLI está instalada na imagem como o comando `az` no `/usr/local/bin`.
 > docker run -v ${HOME}:/root azuresdk/azure-cli-python:<version>
 > ```
 
-## <a name="a-namelinuxinstall-on-linux-without-apt-get"></a><a name="Linux"/>Instalar no Linux sem apt get
+## <a name="a-namelinuxinstall-on-linux-without-a-package-manager"></a><a name="Linux"/>Instalar no Linux sem um gerenciador de pacotes
 
-É recomendável que você instale a CLI com um gerenciador de pacotes, se for possível. Para as distribuições que não têm um pacote fornecido para elas, você pode instalar manualmente.
+É recomendável que você instale a CLI com um gerenciador de pacotes, se for possível. Se você não quiser adicionar repositórios da Microsoft, ou estiver trabalhando com uma distribuição que não tem um pacote fornecido, você pode instalar manualmente a CLI.
 
 1. Instale os pré-requisitos com base na sua distribuição do Linux.
 
@@ -219,7 +230,7 @@ A CLI está instalada na imagem como o comando `az` no `/usr/local/bin`.
    SUSE OpenSUSE 13.2    | sudo zypper refresh && sudo zypper --non-interactive install curl gcc python python-xml libffi-devel python-devel openssl-devel
    ```
 
-Se a distribuição não estiver listada acima, você precisará instalar [Python](https://www.python.org/downloads/), [libffi](https://sourceware.org/libffi/) e [OpenSSL](https://www.openssl.org/source/).
+Se a distribuição não estiver listada acima, você precisará instalar o [Python 2.7 ou posterior](https://www.python.org/downloads/), [libffi](https://sourceware.org/libffi/) e [OpenSSL](https://www.openssl.org/source/).
 
 2. Instalar a CLI com `curl`.
 
@@ -420,6 +431,12 @@ Se você usou o script em https://aka.ms/InstallAzureCli para instalar a CLI, é
    ```
 
 2. Exclua a linha `<install location>/lib/azure-cli/az.completion` de `<install location>/.bash_profile`.
+
+3. Se o shell usa um cache de comando, recarregue-o.
+
+   ```bash
+   hash -r
+   ```
 
 > [!Note]
 > O local de instalação padrão é `/Users/<username>`.

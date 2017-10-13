@@ -12,13 +12,71 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: ce0428f7-0a59-4e72-9237-d907b171af51
-ms.openlocfilehash: 72630c52b5e6afd69809ff19145717c0d65e0252
-ms.sourcegitcommit: 3a490ae3a2a1b2e63a062806f9b720fa4c6be01e
+ms.openlocfilehash: 2ea9daa558200204750f19b5d22685587ff097ef
+ms.sourcegitcommit: 376bc0601aba890630dadd55908c1a65ddf40f5a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cli-20-release-notes"></a>Notas de versão da CLI do Azure 2.0
+
+## <a name="october-9-2017"></a>9 de outubro de 2017
+
+Versão 2.0.19
+
+### <a name="core"></a>Núcleo
+
+* Tratamento de URLs de autoridade do AD FS adicionado com uma barra à direita para o Azure Stack
+
+### <a name="appservice"></a>AppService
+
+* Atualização genérica adicionada com o novo comando `webapp update`
+
+### <a name="batch"></a>Batch
+
+* Atualizado para o SDK do Lote 4.0.0
+* A opção `--image` de VirtualMachineConfiguration foi atualizada para dar suporte a referências de imagem ARM além de publish:offer:sku:version
+* Suporte adicionado para o novo modelo de extensão da CLI para comandos de Extensões de Lote
+* Removeu o suporte de Lote do modelo de componente
+
+### <a name="batchai"></a>Batchai
+
+* Versão inicial do módulo de IA de Lote
+
+### <a name="keyvault"></a>Keyvault
+
+* Correção do problema de autenticação do Cofre de Chaves ao usar o AD FS no Azure Stack. [(#4448)](https://github.com/Azure/azure-cli/issues/4448)
+
+### <a name="network"></a>Rede
+
+* Alterado `--server` argumento de `application-gateway address-pool create` para ser opcional, permitindo pools de endereços vazios
+* `traffic-manager` foi atualizado para oferecer suporte aos recursos mais recentes
+
+### <a name="resource"></a>Recurso
+
+* Suporte adicionado para `--resource-group/-g` opções do nome do grupo de recursos para `group`
+* Comandos adicionados a `account lock` para funcionar com bloqueios no nível da assinatura
+* Comandos adicionados a `group lock` para funcionar com bloqueios no nível do grupo
+* Comandos adicionados a `resource lock` para funcionar com bloqueios no nível do recurso
+
+### <a name="sql"></a>Sql
+
+* Suporte adicionado para SQL TDE (Transparent Data Encryption) e TDE com Traga sua própria chave
+* Comando `db list-deleted` e parâmetro `db restore --deleted-time` adicionados, permitindo localizar e restaurar bancos de dados excluídos
+* `db op list` e `db op cancel` adicionados, permitindo listar e cancelar operações em andamento no banco de dados
+
+### <a name="storage"></a>Armazenamento
+
+* Suporte adicionado para instantâneo de compartilhamento de arquivos
+
+### <a name="vm"></a>VM
+
+* Correção de um bug em `vm show` onde o uso de `-d` causou uma falha nos endereços IP privados ausentes
+* [VERSÃO PRÉVIA] Suporte adicionado para atualização sem interrupção para `vmss create`
+* Suporte adicionado para atualizar as configurações de criptografia com `vm encryption enable`
+* Parâmetro `--os-disk-size-gb` adicionado a `vm create`
+* Parâmetro `--license-type` adicionado ao Windows para `vmss create`
+
 
 ## <a name="september-22-2017"></a>22 de setembro de 2017
 
@@ -160,13 +218,13 @@ Versão 2.0.15
 
 ### <a name="cli"></a>CLI
 
-* Adicionada uma observação legal para `--version`.
+* Nota legal adicionada ao `--version`.
 
 ### <a name="acs"></a>ACS
 
 * Corrigidas as regiões de visualização.
 * Corrigida a formatação padrão de `dns_name_prefix`.
-* Otimização de saída de comando do ACS.
+* Saída de comando ACS otimizada.
 
 ### <a name="appservice"></a>AppService
 
@@ -184,13 +242,13 @@ Versão 2.0.15
 
 * [ALTERAÇÃO SIGNIFICATIVA] `vnet list-private-access-services` renomeado para `vnet list-endpoint-services`
 * [ALTERAÇÃO SIGNIFICATIVA] Opção `--private-access-services` renomeada como `--service-endpoints` para `vnet subnet [create|update]`
-* Adicionado suporte para vários IP e intervalos de porta para `nsg rule [create|update]`
+* Adicionado suporte para vários  intervalos de IP e portas para `nsg rule [create|update]`
 * Adicionado suporte ao SKU para `lb create`
 * Adicionado suporte ao SKU para `public-ip create`
 
 ### <a name="profile"></a>Perfil
 
-* Exposto `--msi` e `--msi-port` para logon com a identidade de uma máquina virtual
+* `--msi` e `--msi-port` expostos a logon usando a identidade de uma máquina virtual
 
 ### <a name="service-fabric"></a>Service Fabric
 
@@ -202,8 +260,8 @@ Versão 2.0.15
 ### <a name="storage"></a>Armazenamento
 
 * Habilitada a camada de blob de configuração
-* Adicionados os argumentos `--bypass` e `--default-action` para `storage account [create|update]` para dar suporte ao serviço de túnel
-* Comandos adicionados para adicionar as regras de rede virtual e com base em IP para `storage account network-rule`  
+* Adicionados os argumentos `--bypass` e `--default-action` ao `storage account [create|update]` para dar suporte ao serviço de túnel
+* Comandos adicionados ao `storage account network-rule` para adicionar as regras de rede virtual e regras baseadas em IP  
 * Habilitada a criptografia de serviço por chave gerenciada de cliente
 * [ALTERAÇÃO SIGNIFICATIVA] Opção `--encryption` renomeada como `--encryption-services` para o comando `az storage account create and az storage account update`
 * Correção #4220: `az storage account update encryption` - incompatibilidade de sintaxe
@@ -244,10 +302,10 @@ Versão 2.0.13
 
 ### <a name="batch"></a>Batch
 
-* Atualizado para o SDK 3.1.0 do Lote e SDK 4.1.0 do Gerenciamento de Lote
-* Adicionado um novo comando que mostra as contagens de tarefa de um trabalho
+* Atualizado para o Lote SDK 3.1.0 e Gerenciamento de Lote SDK 4.1.0
+* Adicionado um novo comando que mostra as contagens de tarefas de um trabalho
 * Corrigido o bug no processamento de URL de SAS do arquivo de recurso
-* Ponto de extremidade de conta de lote agora dá suporte ao prefixo conta do Lote “https://” opcional
+* Ponto de extremidade da conta de lote agora dá suporte ao prefixo opcional “https://” 
 * Suporte para adicionar listas de mais de 100 tarefas a um trabalho
 * Adicionado log de depuração para carregar o módulo do comando de Extensões
 
@@ -262,7 +320,7 @@ Versão 2.0.13
 
 ### <a name="data-lake-store"></a>Data Lake Store
 
-* Habilitado o controle de progresso
+* Habilitado o controle do andamento
 
 ### <a name="event-grid"></a>Grade de Eventos
 
@@ -349,10 +407,10 @@ vm (2.0.11)
 * Criar clientes de assinatura com o perfil correto do SDK (#3635)
 * Relatório de andamento para implantações de modelo (#3510)
 * Adicionado suporte para escolher campos de saída da tabela através da consulta JMESpath (#3581)
-* Aprimorado a desativação de áudio de argumentos de análise e acrescentar histórico com gestos (#3434)
+* Aprimoramento da desativação de áudio de argumentos de análise e da adição do histórico com gestos (#3434)
 * Criar clientes de assinatura com o perfil correto do SDK
 * Mover todos os arquivos existentes de gravação para a pasta mais recente
-* Corrigida a idempotência fixa para criação de VM/VMSS (#3586)
+* Corrigida a idempotência para a criação de VM/VMSS (#3586)
 * Os caminhos de comando não diferenciam mais maiúsculas de minúsculas
 * Determinados parâmetros do tipo booliano não diferenciam mais maiúsculas de minúsculas
 * Suporte para logon do ADFS em um servidor local como o Azure Stack
@@ -364,7 +422,7 @@ vm (2.0.11)
 * Suporte para atualização do SKU para registros gerenciados
 * Adicionados registros gerenciados com o SKU gerenciado
 * Adicionados webhooks para registros gerenciados com o módulo de comando de webhook do ACR
-* Adicionada autenticação do AAD adicionada com o comando de logon de ACR
+* Adicionada autenticação do AAD com o comando de logon de ACR
 * Adicionado comando de exclusão para marcas, manifestos e repositórios do Docker
 
 ### <a name="acs"></a>ACS
@@ -376,7 +434,7 @@ vm (2.0.11)
 * Corrigido o bug onde listar o aplicativo Web Linux não retornava nada
 * Suporte para recuperar credenciais de ACR
 * Remover todos os comandos em `appservice web`
-* Máscara de senhas de registro do Docker da saída do comando (#3656)
+* Ocultar as senhas de registro do Docker da saída do comando (#3656)
 * Verifique se o navegador padrão é usado no macOS sem erros (#3623)
 * Aprimorada a Ajuda de `webapp log tail` e `webapp log download` (#3624)
 * Exposto o comando `traffic-routing` para configurar roteamento estático (#3566)
@@ -385,13 +443,13 @@ vm (2.0.11)
 
 ### <a name="batch"></a>Batch
 
-* Atualizado para o SDK 3.0.0 do Lote com suporte para VMs de baixa prioridade em pools
+* Atualizado para o Lote SDK 3.0.0 com suporte para VMs de baixa prioridade em pools
 * Opção `pool create` renomeada como `--target-dedicated` para `--target-dedicated-nodes`
 * Adicionadas as opções `pool create` e `--target-low-priority-nodes` de `--application-licenses`
 
 ### <a name="cdn"></a>CDN
 
-* Fornecida uma mensagem de erro mais adequada para `cdn endpoint list` quando o perfil especificado por `--profile-name` não existe.
+* Uma mensagem de erro mais adequada foi fornecida para `cdn endpoint list` quando o perfil especificado por `--profile-name` não existir.
 
 ### <a name="cloud"></a>Nuvem
 
@@ -448,7 +506,7 @@ vm (2.0.11)
 ### <a name="lab"></a>Laboratório
 
 * Adicionado o suporte para reivindicar qualquer VM no laboratório através de `az lab vm claim`
-* Adicionada o formatador de tabela `az lab vm list` e `az lab vm show`
+* Adicionado o formatador de saída da tabela para `az lab vm list` e `az lab vm show`
 
 ### <a name="monitor"></a>Monitoramento
 
@@ -467,7 +525,7 @@ vm (2.0.11)
   * Padrões de `description` agora baseados na condição fornecida
   *  Adicionar exemplos para ajudar a esclarecer o novo formato
 * Suporte para nomes ou IDs para comandos `monitor metric`
-* Argumentos de conveniência adicional e exemplos para `monitor alert rule update`
+* Exemplos e argumentos de conveniência adicionados ao `monitor alert rule update`
 
 ### <a name="network"></a>Rede
 
@@ -495,7 +553,7 @@ vm (2.0.11)
 * Corrigido o bug com a lógica padrão de `network watcher show-topology`
 * Aprimorada a formatação de saída para `network list-usages`
 * Usar IP de front-end padrão para `application-gateway http-listener create` se existir apenas um
-* Usar o pool padrão de pool de endereços, configurações de HTTP e o ouvinte HTTP para `application-gateway rule create` se existir apenas um
+* Usar o pool padrão de endereços, configurações de HTTP e o ouvinte HTTP para `application-gateway rule create`, se existir apenas um
 * Usar IP de front-end e pool de back-end padrão para `lb rule create` se existir apenas um
 * Usar IP de front-end padrão para `lb inbound-nat-rule create` se existir apenas um
 
@@ -527,11 +585,11 @@ vm (2.0.11)
 
 ### <a name="role"></a>Função
 
-* Suporte à saída para no formato de arquivo de autenticação do SDK para `create-for-rbac`
+* Suporte à saída no formato de arquivo de autenticação do SDK para `create-for-rbac`
 * Limpar as atribuições de função e aplicativos relacionados ao AAD ao excluir uma entidade de serviço (#3610)
 * Incluir o formato de hora nos argumentos `app create` e descrições `--start-date` e `--end-date`
 * Mostrar avisos de código obsoleto ao usar `--expanded-view`
-* Adicionada a integração do cofre da chaves para os comandos `create-for-rbac` e `reset-credentials`
+* Adicionada a integração do cofre de chaves para os comandos `create-for-rbac` e `reset-credentials`
 
 ### <a name="service-fabric"></a>Service Fabric
 * Corrigido um problema com arquivos grandes em aplicativos que eram truncados ao serem carregados (#3666)
@@ -817,7 +875,7 @@ vm (2.0.2)
  
 ### <a name="acs"></a>ACS
 
-* [ACS] Adicionar suporte para configurar um cluster do ACS padrão ([#2554](https://github.com/Azure/azure-cli/pull/2554))
+* [ACS] Adicionar suporte para configurar um cluster do ACS padrão ([&#2554;](https://github.com/Azure/azure-cli/pull/2554))
 * Adicione suporte para solicitação de senha de chave ssh. ([#2044](https://github.com/Azure/azure-cli/pull/2044))
 * Adicione suporte para clusters do windows. ([#2211](https://github.com/Azure/azure-cli/pull/2211))
 * Alterne da função Proprietário para Colaborador. ([#2321](https://github.com/Azure/azure-cli/pull/2321))
