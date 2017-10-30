@@ -12,13 +12,54 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: ce0428f7-0a59-4e72-9237-d907b171af51
-ms.openlocfilehash: 2ea9daa558200204750f19b5d22685587ff097ef
-ms.sourcegitcommit: 376bc0601aba890630dadd55908c1a65ddf40f5a
+ms.openlocfilehash: 429b099dabd27d9356e88791f955ec52acd2a5f9
+ms.sourcegitcommit: 9b36c15dc0e10024e23b8018604f5ef63c025de1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="azure-cli-20-release-notes"></a>Notas de versão da CLI do Azure 2.0
+
+## <a name="october-24-2017"></a>24 de outubro de 2017
+
+Versão 2.0.20
+
+### <a name="core"></a>Núcleo
+
+* Atualizado `2017-03-09-profile` para usar a `MGMT_STORAGE` versão da API`2016-01-01`
+
+### <a name="acr"></a>ACR
+
+* Gerenciamento de recursos atualizado para apontar para a versão da API `2017-10-01`
+* SKU 'traga seu próprio armazenamento' alterada para Clássico
+* SKUs de registro renomeados como Básico, Standard e Premium
+
+### <a name="acs"></a>ACS
+
+* [VERSÃO PRÉVIA] Comandos `az aks` adicionados
+* Kubernetes `get-credentials` corrigido
+
+### <a name="appservice"></a>AppService
+
+* Problema corrigido onde os logs `webapp` baixados podem ser inválidos
+
+### <a name="component"></a>Componente
+
+* Mensagem de reprovação mais clara adicionada para todos os instaladores e prompt de confirmação
+
+### <a name="monitor"></a>Monitoramento
+
+* Adicionados os comandos `action-group`
+
+### <a name="resource"></a>Recurso
+
+* Incompatibilidade corrigida com a versão mais recente de dependência msrest em `group export`
+* `policy assignment create` corrigido para trabalhar com as definições de política internas e as definições do conjunto de políticas
+
+### <a name="vm"></a>VM
+
+* Adicionado o argumento `--accelerated-networking` para `vmss create`
+
 
 ## <a name="october-9-2017"></a>9 de outubro de 2017
 

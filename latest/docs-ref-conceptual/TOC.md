@@ -4,6 +4,9 @@
 ## [Cloud Shell](/azure/cloud-shell/overview)
 ## [Fazer logon](authenticate-azure-cli.md)
 ### [Criar uma entidade de serviço](create-an-azure-service-principal-azure-cli.md)
+### Usar Identidades do Serviço Gerenciado
+#### [Configurar o MSI para uma VM do Azure](/azure/active-directory/msi-qs-configure-cli-windows-vm?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json)
+#### [Conectar uma VM do Azure usando o MSI](/azure/active-directory/msi-how-to-get-access-token-using-msi?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json)
 ## [Modo interativo](interactive-azure-cli.md)
 ## Modelos de implantação
 ### [Usar modelos de implantação](/azure/azure-resource-manager/resource-group-template-deploy-cli?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json)
