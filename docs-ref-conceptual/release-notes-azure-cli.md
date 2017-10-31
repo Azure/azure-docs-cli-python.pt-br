@@ -12,77 +12,13 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: ce0428f7-0a59-4e72-9237-d907b171af51
-ms.openlocfilehash: e893b99349bbf2a5eec8af254158eb07001f1da7
-ms.sourcegitcommit: f107cf927ea1ef51de181d87fc4bc078e9288e47
+ms.openlocfilehash: 39e4710a29ac57730919b82ab76b9c9a4b9ca786
+ms.sourcegitcommit: 43d4f838d132ab9bcfa59dbda3b544c06373b6a9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2017
+ms.lasthandoff: 08/22/2017
 ---
 # <a name="azure-cli-20-release-notes"></a>Notas de versão da CLI do Azure 2.0
-
-## <a name="august-28-2017"></a>28 de agosto de 2017
-
-Versão 2.0.15
-
-### <a name="cli"></a>CLI
-
-* Adicionada uma observação legal para `--version`.
-
-### <a name="acs"></a>ACS
-
-* Corrigidas as regiões de visualização.
-* Corrigida a formatação padrão de `dns_name_prefix`.
-* Otimização de saída de comando do ACS.
-
-### <a name="appservice"></a>AppService
-
-* [ALTERAÇÃO SIGNIFICATIVA] Corrigidas as inconsistências na saída de `az webapp config appsettings [delete|set]`
-* Adicionado um novo alias de `-i` para `az webapp config container set --docker-custom-image-name`
-* Exposto `az webapp log show`
-* Expostos novos argumentos de `az webapp delete` para manter o plano, as métricas ou o registro de DNS do serviço de aplicativo
-* Correção: detectar as configurações de slot corretamente
-
-### <a name="iot"></a>IoT
-
-* Correção #3934: Criação de política não limpa as políticas existentes
-
-### <a name="network"></a>Rede
-
-* [ALTERAÇÃO SIGNIFICATIVA] `vnet list-private-access-services` renomeado para `vnet list-endpoint-services`
-* [ALTERAÇÃO SIGNIFICATIVA] Opção `--private-access-services` renomeada como `--service-endpoints` para `vnet subnet [create|update]`
-* Adicionado suporte para vários IP e intervalos de porta para `nsg rule [create|update]`
-* Adicionado suporte ao SKU para `lb create`
-* Adicionado suporte ao SKU para `public-ip create`
-
-### <a name="profile"></a>Perfil
-
-* Exposto `--msi` e `--msi-port` para logon com a identidade de uma máquina virtual
-
-### <a name="service-fabric"></a>Service Fabric
-
-* Versão prévia
-* Simplificadas as regras de registro de usuário/senha para comando
-* Corrigido o prompt de senha para o usuário mesmo após a passagem do parâmetro
-* Adicionado suporte para `registry_cred` vazio
-
-### <a name="storage"></a>Armazenamento
-
-* Habilitada a camada de blob de configuração
-* Adicionados os argumentos `--bypass` e `--default-action` para `storage account [create|update]` para dar suporte ao serviço de túnel
-* Comandos adicionados para adicionar as regras de rede virtual e com base em IP para `storage account network-rule`  
-* Habilitada a criptografia de serviço por chave gerenciada de cliente
-* [ALTERAÇÃO SIGNIFICATIVA] Opção `--encryption` renomeada como `--encryption-services` para o comando `az storage account create and az storage account update`
-* Correção #4220: `az storage account update encryption` - incompatibilidade de sintaxe
-
-### <a name="vm"></a>VM
-
-* Corrigido o problema em que informações incorretas extras eram exibidas para `vmss get-instance-view` ao usar `--instance-id *`
-* Adicionado suporte ao `--lb-sku` para `vmss create`: 
-* Removidos nomes humanos da lista de bloqueio de nome de administrador para `[vm|vmss] create` 
-* Corrigido o problema onde `[vm|vmss] create` geraria um erro se não for possível extrair informações do plano de uma imagem
-* Corrigida uma falha ao criar um conjunto de dimensionamento de máquinas virtuais com um balanceamento de carga interno
-* Corrigido o problema onde o argumento `--no-wait` não funcionava com `vm availability-set create`
-
 
 ## <a name="august-15-2017"></a>15 de agosto de 2017
 
@@ -683,7 +619,7 @@ vm (2.0.2)
  
 ### <a name="acs"></a>ACS
 
-* [ACS] Adicionar suporte para configurar um cluster do ACS padrão ([#2554](https://github.com/Azure/azure-cli/pull/2554))
+* [ACS] Adicionar suporte para configurar um cluster do ACS padrão ([&#2554;](https://github.com/Azure/azure-cli/pull/2554))
 * Adicione suporte para solicitação de senha de chave ssh. ([#2044](https://github.com/Azure/azure-cli/pull/2044))
 * Adicione suporte para clusters do windows. ([#2211](https://github.com/Azure/azure-cli/pull/2211))
 * Alterne da função Proprietário para Colaborador. ([#2321](https://github.com/Azure/azure-cli/pull/2321))
