@@ -12,22 +12,30 @@
       items:
         - name: Criar uma entidade de serviço
           href: create-an-azure-service-principal-azure-cli.md
+        - name: Usar Identidades do Serviço Gerenciado
+          items:
+            - name: Configurar o MSI para uma VM do Azure
+              href: /azure/active-directory/msi-qs-configure-cli-windows-vm?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
+            - name: Conectar uma VM do Azure usando o MSI
+              href: /azure/active-directory/msi-how-to-get-access-token-using-msi?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
     - name: Modo interativo
       href: interactive-azure-cli.md
-    - name: Implantar
+    - name: Modelos de implantação
       items:
-        - name: Com modelos
+        - name: Usar modelos de implantação
           href: /azure/azure-resource-manager/resource-group-template-deploy-cli?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
-        - name: Exportar modelos
+        - name: Exportar modelos de implantação
           href: /azure/azure-resource-manager/resource-manager-export-template-cli?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
-        - name: Com modelos particulares
-          href: /azure-resource-manager/resource-manager-cli-sas-token?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
+        - name: Implantar a partir de modelos particulares
+          href: /azure/azure-resource-manager/resource-manager-cli-sas-token?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
     - name: Formatos de saída
       href: format-output-azure-cli.md
     - name: Consultar
       href: query-azure-cli.md
     - name: Assinaturas
       href: manage-azure-subscriptions-azure-cli.md
+    - name: Extensões
+      href: azure-cli-extensions.md
     - name: Notas de versão
       href: release-notes-azure-cli.md
 - name: Exemplos de Scripts

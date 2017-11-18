@@ -5,18 +5,18 @@ keywords: CLI do Azure 2.0, Azure Active Directory, Azure Active directory, AD, 
 author: rloutlaw
 ms.author: routlaw
 manager: douge
-ms.date: 02/27/2017
+ms.date: 10/12/2017
 ms.topic: article
 ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: fab89cb8-dac1-4e21-9d34-5eadd5213c05
-ms.openlocfilehash: f37df762a9a605ea649b215f38f2e9866614f4ac
-ms.sourcegitcommit: f107cf927ea1ef51de181d87fc4bc078e9288e47
+ms.openlocfilehash: a6ad5611f3e507b65e160122c87e22ec44546588
+ms.sourcegitcommit: e8fe15e4f7725302939d726c75ba0fb3cad430be
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="create-an-azure-service-principal-with-azure-cli-20"></a>Criar uma entidade de serviço do Azure com a CLI do Azure 2.0
 
@@ -31,7 +31,7 @@ Esse tópico orienta você pela criação de uma entidade de segurança com a CL
 
 Uma entidade de serviço do Azure é uma identidade de segurança usada por aplicativos criados pelo usuário, serviços e ferramentas de automação para acessar recursos específicos do Azure. Pense nela como uma 'identidade de usuário' (login e senha ou certificado) com uma função específica e permissões de acesso aos seus recursos rigidamente controladas. Ela só precisa ser capaz de fazer coisas específicas, ao contrário de uma identidade de usuário geral. A segurança aumenta se você só conceder a ela o nível mínimo de permissões necessárias para realizar suas tarefas de gerenciamento. 
 
-Atualmente, a CLI do Azure 2.0 só suporta a criação de credenciais de autenticação baseadas em senha. Nesse tópico, abordaremos a criação de uma entidade de serviço com uma senha específica e, opcionalmente, a atribuição de funções específicas a ela.
+A CLI do Azure 2.0 oferece suporte à criação de credenciais de autenticação baseadas em senha e credenciais de certificado. Neste tópico, abordaremos os dois tipos de credenciais.
 
 ## <a name="verify-your-own-permission-level"></a>Verificar seu próprio nível de permissão
 
@@ -76,9 +76,9 @@ az ad app list --display-name MyDemoWebApp
 
 O opção `--display-name` filtra a lista retornada de aplicativos para mostrá-los com o `displayName` começando com MyDemoWebApp.
 
-### <a name="create-the-service-principal"></a>Criar a entidade de serviço
+### <a name="create-a-service-principal-with-a-password"></a>Criar uma entidade de serviço com uma senha
 
-Use [az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac) para criar a entidade de serviço. 
+Use [az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac) e o parâmetro `--password` para criar a entidade de serviço com uma senha. Quando você não fornece uma função ou escopo, o padrão é a função **Colaborador** para a assinatura atual. Se você criar uma entidade de serviço sem usar o parâmetro `--password` ou `--cert`, a autenticação de senha será usada e uma senha, gerada para você.
 
 ```azurecli-interactive
 az ad sp create-for-rbac --name {appId} --password "{strong password}" 
@@ -96,6 +96,29 @@ az ad sp create-for-rbac --name {appId} --password "{strong password}"
 
  > [!WARNING] 
  > Não crie uma senha não segura.  Execute a orientação [Restrições e regras de senha do Azure AD](/azure/active-directory/active-directory-passwords-policy).
+
+### <a name="create-a-service-principal-with-a-self-signed-certificate"></a>Criar uma entidade de serviço com um certificado autoassinado
+
+Use [az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac) e o parâmetro `--create-cert` para criar um certificado autoassinado.
+
+```azurecli-interactive
+az ad sp create-for-rbac --name {appId} --create-cert
+```
+
+```json
+{
+  "appId": "c495db57-82e0-4e2e-9369-069dff176858",
+  "displayName": "azure-cli-2017-10-12-22-15-38",
+  "fileWithCertAndPrivateKey": "<path>/<file-name>.pem",
+  "name": "http://MyDemoWebApp",
+  "password": null,
+  "tenant": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
+}
+```
+
+Copie o valor da resposta `fileWithCertAndPrivateKey`. Este é o arquivo de certificado que será usado para a autenticação.
+
+Para obter mais opções ao usar os certificados, consulte [az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac).
 
 ### <a name="get-information-about-the-service-principal"></a>Obter informações sobre a entidade de serviço
 
@@ -118,10 +141,10 @@ az ad sp show --id a487e0c1-82af-47d9-9a0b-af184eb87646d
 
 ### <a name="sign-in-using-the-service-principal"></a>Entrar usando a entidade de serviço
 
-Agora você pode entrar como a nova entidade de serviço para seu aplicativo usando a *appId* e a *senha* de `az ad sp show`.  Forneça o valor *tenant* dos resultados de `az ad sp create-for-rbac`.
+Agora, você pode fazer logon como a nova entidade de serviço para seu aplicativo usando *appId* de `az ad sp show`e a *senha* ou o caminho para o certificado criado.  Forneça o valor *tenant* dos resultados de `az ad sp create-for-rbac`.
 
 ```azurecli-interactive
-az login --service-principal -u a487e0c1-82af-47d9-9a0b-af184eb87646d --password {password} --tenant {tenant}
+az login --service-principal -u a487e0c1-82af-47d9-9a0b-af184eb87646d --password {password-or-path-to-cert} --tenant {tenant}
 ``` 
 
 Você verá essa saída após um logon bem-sucedido:
