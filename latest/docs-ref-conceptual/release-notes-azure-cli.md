@@ -12,13 +12,119 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: ce0428f7-0a59-4e72-9237-d907b171af51
-ms.openlocfilehash: 429b099dabd27d9356e88791f955ec52acd2a5f9
-ms.sourcegitcommit: 9b36c15dc0e10024e23b8018604f5ef63c025de1
+ms.openlocfilehash: 761bd61474e7c72fb2daeb756828f00196b56c3a
+ms.sourcegitcommit: bb649ebd7e7fce8fb5008ac1e2e2c33481a45df9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="azure-cli-20-release-notes"></a>Notas de versão da CLI do Azure 2.0
+
+## <a name="november-14-2017"></a>14 de novembro de 2017
+
+Versão 2.0.21
+
+### <a name="acr"></a>ACR
+
+* Suporte adicionado para criar webhooks em regiões de replicação
+
+
+### <a name="acs"></a>ACS
+
+* Alteradas todas as palavras "agente" para "nó" no AKS
+* Opção `--orchestrator-release` preterida para `acs create`
+* Tamanho alterado da VM padrão do AKS para `Standard_D1_v2`
+* `az aks browse` corrigido no Windows
+* `az aks get-credentials` corrigido no Windows
+
+### <a name="appservice"></a>AppService
+
+* Origem da implantação adicional `config-zip` para webapps e aplicativos de funções
+* Opção `--docker-container-logging` adicionada a `az webapp log config`
+* Removida a opção `storage` do parâmetro `--web-server-logging` de `az webapp log config`
+* Mensagens de erro aprimoradas para `deployment user set`
+* Suporte adicionado para criar aplicativos de funções do Linux
+* `list-locations` fixo
+
+### <a name="batch"></a>Batch
+
+* Bug corrigido no comando pool create quando uma ID do recurso foi usada com o sinalizador `--image`
+
+### <a name="batchai"></a>Batchai
+
+* Opção curta adicionada `-s` para `--vm-size` ao fornecer o tamanho da VM no comando `file-server create`
+* Nome da conta de armazenamento e argumentos-chave adicionados aos parâmetros `cluster create`
+* Documentação corrigida para `job list-files` e `job stream-file`
+* Opção curta adicionada `-r` para `--cluster-name` ao fornecer o nome do cluster no comando `job create`
+
+### <a name="cloud"></a>Nuvem
+
+* `cloud [register|update]` alterado para evitar registrar nuvens sem os pontos de extremidade necessários
+
+### <a name="container"></a>Contêiner
+
+* Suporte adicionado para abrir várias portas
+* Política de reinicialização do grupo de contêiner adicionada
+* Suporte adicionado para montar o compartilhamento de Arquivos do Azure como um volume
+* Documentos de ajuda atualizados
+
+### <a name="data-lake-analytics"></a>Análises Data Lake
+
+* `[job|account] list` alterada para retornar informações mais concisas
+
+### <a name="data-lake-store"></a>Repositório Data Lake
+
+* `account list` alterada para retornar informações mais concisas
+
+### <a name="extension"></a>Extensão
+
+* `extension list-available` adicionado para permitir a listagem de extensões oficiais da Microsoft
+* `--name` adicionado a `extension [add|update]` para permitir a instalação de extensões por nome
+
+### <a name="iot"></a>IoT
+
+* Suporte adicionado para as autoridades de certificação (CA) e cadeias de certificado
+
+### <a name="monitor"></a>Monitoramento
+
+* Adicionados os comandos `activity-log alert`
+
+### <a name="network"></a>Rede
+
+* Suporte adicionado para registros DNS da CAA
+* Problema corrigido onde os pontos de extremidade não podem ser atualizados com `traffic-manager profile update`
+* Problema corrigido onde `vnet update --dns-servers` não funcionou dependendo de como a VNET foi criada
+* Problema corrigido onde os nomes DNS relativos foram importados incorretamente por`dns zone import`
+
+### <a name="reservations"></a>Reservas
+
+* Versão prévia inicial
+
+### <a name="resource"></a>Recurso
+
+* Suporte adicionado das IDs de recurso ao parâmetro `--resource` e bloqueios no nível do recurso
+
+### <a name="sql"></a>SQL
+
+* Parâmetro `--ignore-missing-vnet-service-endpoint` adicionado a `sql server vnet-rule [create|update]`
+
+### <a name="storage"></a>Armazenamento
+
+* `storage account create` criado ao usar o SKU `Standard_RAGRS` como padrão
+* Bugs corrigidos ao lidar com nomes de arquivo/blob que incluem caracteres não ascii
+* Bug corrigido que impedia usar `--source-uri` com `storage [blob|file] copy start-batch`
+* Comandos adicionados para usar o glob e excluir vários objetos com `storage [blob|file] delete-batch`
+* Problema corrigido ao habilitar métricas com `storage metrics update`
+* Problema corrigido com arquivos acima de 200 GB ao usar `storage blob upload-batch`
+* Problema corrigido onde `--bypass` e `--default-action` foram ignorados por `storage account [create|update]`
+
+### <a name="vm"></a>VM
+
+* Bug corrigido com `vmss create`, que impediu o uso da camada de tamanho `Basic`
+* Argumentos `--plan` adicionados a `[vm|vmss] create` para ter imagens personalizadas com informações de cobrança
+* Comandos `vm secret `[add|remove|list]` adicionados
+* `vm format-secret` renomeado para `vm secret format`
+* Adicionado o argumento `--encrypt format` para `vm encryption enable`
 
 ## <a name="october-24-2017"></a>24 de outubro de 2017
 

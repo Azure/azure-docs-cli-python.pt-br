@@ -1,22 +1,22 @@
 ---
 title: Entrar com a CLI do Azure 2.0
 description: Entre com a CLI do Azure 2.0 no Linux, Mac ou Windows.
-keywords: CLI do Azure 2.0, Linux, Mac, Windows, OS X, Ubuntu, Debian, CentOS, RHEL, SUSE, CoreOS, Docker, Windows, Python, PIP
-author: rloutlaw
-ms.author: routlaw
-manager: douge
-ms.date: 02/27/2017
+keywords: "CLI do Azure 2.0, logon, CLI do Azure, autenticação, autorizar, logon"
+author: sptramer
+ms.author: stttramer
+manager: routlaw
+ms.date: 11/13/2017
 ms.topic: article
 ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: 65becd3a-9d69-4415-8a30-777d13a0e7aa
-ms.openlocfilehash: 3ba1dd840102c738ccd9eb62a0b9db612cec48d1
-ms.sourcegitcommit: 5cfbea569fef193044da712708bc6957d3fb557c
+ms.openlocfilehash: dd05868f7378673836f47e743ed4088f2efd3dca
+ms.sourcegitcommit: 5db22de971cf3983785cb209d92cbed1bbd69ecf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="log-in-with-azure-cli-20"></a>Entrar com a CLI do Azure 2.0
 
@@ -24,7 +24,7 @@ Há várias maneiras de fazer logon e autenticar com a CLI do Azure. É a maneir
 
 Nenhuma informação de credencial privada é armazenada localmente. Em vez disso, um token de autenticação é gerado pelo Azure e armazenado. Após o logon, seu token de logon local é válido até ficar 14 dias sem ser usado. Nesse ponto, você precisará autenticar novamente.
 
-Comandos que são executados com a CLI são executados em sua assinatura padrão.  Se você tiver mais de uma assinatura, convém [confirmar sua assinatura padrão](manage-azure-subscriptions-azure-cli.md) e alterá-la adequadamente.
+Após o logon, os comandos da CLI são executados em sua assinatura padrão. Se você tiver mais de uma assinatura, poderá querer [altear sua assinatura padrão](manage-azure-subscriptions-azure-cli.md).
 
 ## <a name="interactive-log-in"></a>Logon Interativo
 
@@ -46,35 +46,18 @@ az login -u <username> -p <password>
 ## <a name="logging-in-with-a-service-principal"></a>Como fazer logon com uma entidade de serviço
 
 As entidades de serviço são como as contas de usuário às quais você pode aplicar regras usando o Azure Active Directory.
-Autenticar com uma entidade de serviço é a melhor maneira de proteger o uso de seus recursos do Azure dos scripts ou aplicativos que manipulam recursos.
-Você define as funções que deseja que os usuários tenham por meio do conjunto de comandos do `az role`.
-Você pode saber mais e ver exemplos de funções de entidade de serviço em nossos [artigos de referência de função az](https://docs.microsoft.com/cli/azure/role.md).
+Autenticar com uma entidade de serviço é a melhor maneira de proteger o uso de seus recursos do Azure dos scripts ou aplicativos que manipulam recursos. Se você ainda não tem uma entidade de serviço disponível e gostaria de criar uma, confira [Criar uma entidade de serviço do Azure com a CLI do Azure](create-an-azure-service-principal-azure-cli.md).
 
-1. Se você ainda não tiver uma entidade de serviço, [crie uma](create-an-azure-service-principal-azure-cli.md).
+Para fazer logon com uma entidade de serviço, você fornece o nome de usuário, senha ou arquivo do certificado PEM e o locatário associado à entidade de serviço:
 
-1. Faça logon com uma entidade de serviço.
+```azurecli-interactive
+az login --service-principal -u <user> -p <password-or-cert> --tenant <tenant>
+```
 
-   ```azurecli-interactive
-   az login --service-principal -u "http://my-app" -p <password> --tenant <tenant>
-   ```
+O valor do locatário é um locatário do Azure Active Directory associado à entidade de serviço. Isso pode ser um domínio .onmicrosoft.com ou a ID de objeto do Azure para o locatário.
+Você pode obter a ID de objeto do locatário para seu logon atual usando o seguinte comando:
 
-   Para obter o locatário, faça logon interativamente e obtenha a TenantId da sua assinatura.
+```azurecli
+az account show --query 'tenanatId' -o tsv
+```
 
-   ```azurecli
-   az account show
-   ```
-
-   ```json
-   {
-       "environmentName": "AzureCloud",
-       "id": "********-****-****-****-************",
-       "isDefault": true,
-       "name": "Pay-As-You-Go",
-       "state": "Enabled",
-       "tenantId": "********-****-****-****-************",
-       "user": {
-       "name": "********",
-       "type": "user"
-       }
-   }
-   ```

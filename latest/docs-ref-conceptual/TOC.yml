@@ -28,16 +28,18 @@
           href: /azure/azure-resource-manager/resource-manager-export-template-cli?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
         - name: Implantar a partir de modelos particulares
           href: /azure/azure-resource-manager/resource-manager-cli-sas-token?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
+    - name: Gerenciar Assinaturas
+      href: manage-azure-subscriptions-azure-cli.md
+    - name: Trabalhar com várias nuvens
+      href: manage-clouds-azure-cli.md?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
     - name: Formatos de saída
       href: format-output-azure-cli.md
     - name: Consultar
       href: query-azure-cli.md
-    - name: Assinaturas
-      href: manage-azure-subscriptions-azure-cli.md
     - name: Extensões
       href: azure-cli-extensions.md
     - name: Notas de versão
-      href: release-notes-azure-cli.md
+      href: release-notes-azure-cli.md?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
 - name: Exemplos de Scripts
   items:
     - name: VMs Linux
