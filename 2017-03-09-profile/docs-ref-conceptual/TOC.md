@@ -4,11 +4,14 @@
 ## [Cloud Shell](/azure/cloud-shell/overview)
 ## [Fazer logon](authenticate-azure-cli.md)
 ### [Criar uma entidade de serviço](create-an-azure-service-principal-azure-cli.md)
+### Usar Identidades do Serviço Gerenciado
+#### [Configurar o MSI para uma VM do Azure](/azure/active-directory/msi-qs-configure-cli-windows-vm?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json)
+#### [Conectar uma VM do Azure usando o MSI](/azure/active-directory/msi-how-to-get-access-token-using-msi?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json)
 ## [Modo interativo](interactive-azure-cli.md)
-## Implantar
-### [Com modelos](/azure/azure-resource-manager/resource-group-template-deploy-cli?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json)
-### [Exportar modelos](/azure/azure-resource-manager/resource-manager-export-template-cli?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json)
-### [Com modelos particulares](/azure-resource-manager/resource-manager-cli-sas-token?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json)
+## Modelos de implantação
+### [Usar modelos de implantação](/azure/azure-resource-manager/resource-group-template-deploy-cli?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json)
+### [Exportar modelos de implantação](/azure/azure-resource-manager/resource-manager-export-template-cli?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json)
+### [Implantar modelos particulares](/azure/azure-resource-manager/resource-manager-cli-sas-token?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json)
 ## [Formatos de saída](format-output-azure-cli.md)
 ## [Consulta](query-azure-cli.md)
 ## [Assinaturas](manage-azure-subscriptions-azure-cli.md)
