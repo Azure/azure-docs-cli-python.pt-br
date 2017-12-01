@@ -1,66 +1,60 @@
-items:
 - name: CLI do Azure 2.0
   href: overview.md
   items:
-  - name: Instalar
-    href: install-azure-cli.md
-  - name: "Introdução"
-    href: get-started-with-azure-cli.md
-  - name: Cloud Shell
-    href: /azure/cloud-shell/overview
-  - name: Fazer logon
-    href: authenticate-azure-cli.md
-    items:
-    - name: "Criar uma entidade de serviço"
-      href: create-an-azure-service-principal-azure-cli.md
-    - name: "Usar Identidades do Serviço Gerenciado"
+    - name: Instalar
+      href: install-azure-cli.md
+    - name: Introdução
+      href: get-started-with-azure-cli.md
+    - name: Cloud Shell
+      href: /azure/cloud-shell/overview
+    - name: Fazer logon
+      href: authenticate-azure-cli.md
       items:
-      - name: Configurar o MSI para uma VM do Azure
-        href: /azure/active-directory/msi-qs-configure-cli-windows-vm?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
-      - name: Conectar uma VM do Azure usando o MSI
-        href: /azure/active-directory/msi-how-to-get-access-token-using-msi?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
-  - name: Modo interativo
-    href: interactive-azure-cli.md
-  - name: "Modelos de implantação"
-    items:
-    - name: "Usar modelos de implantação"
-      href: /azure/azure-resource-manager/resource-group-template-deploy-cli?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
-    - name: "Exportar modelos de implantação"
-      href: /azure/azure-resource-manager/resource-manager-export-template-cli?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
-    - name: Implantar a partir de modelos particulares
-      href: /azure/azure-resource-manager/resource-manager-cli-sas-token?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
-  - name: Gerenciar Assinaturas
-    href: manage-azure-subscriptions-azure-cli.md
-  - name: "Trabalhar com várias nuvens"
-    href: manage-clouds-azure-cli.md?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
-  - name: "Formatos de saída"
-    href: format-output-azure-cli.md
-  - name: Consultar
-    href: query-azure-cli.md
-  - name: "Extensões"
-    href: azure-cli-extensions.md
-  - name: "Notas de versão"
-    href: release-notes-azure-cli.md?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
-  ms.openlocfilehash: 91483df716b0bc25a316c1b46422adf467717d8f
-  ms.sourcegitcommit: 37d816f4d08142eb16bf22f7d4cd22fa7a21ad53
-  ms.translationtype: HT
-  ms.contentlocale: pt-BR
-  ms.lasthandoff: 11/28/2017
+        - name: Criar uma entidade de serviço
+          href: create-an-azure-service-principal-azure-cli.md
+        - name: Usar Identidades do Serviço Gerenciado
+          items:
+            - name: Configurar o MSI para uma VM do Azure
+              href: /azure/active-directory/msi-qs-configure-cli-windows-vm?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
+            - name: Conectar uma VM do Azure usando o MSI
+              href: /azure/active-directory/msi-how-to-get-access-token-using-msi?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
+    - name: Modo interativo
+      href: interactive-azure-cli.md
+    - name: Modelos de implantação
+      items:
+        - name: Usar modelos de implantação
+          href: /azure/azure-resource-manager/resource-group-template-deploy-cli?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
+        - name: Exportar modelos de implantação
+          href: /azure/azure-resource-manager/resource-manager-export-template-cli?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
+        - name: Implantar a partir de modelos particulares
+          href: /azure/azure-resource-manager/resource-manager-cli-sas-token?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
+    - name: Gerenciar Assinaturas
+      href: manage-azure-subscriptions-azure-cli.md
+    - name: Trabalhar com várias nuvens
+      href: manage-clouds-azure-cli.md?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
+    - name: Formatos de saída
+      href: format-output-azure-cli.md
+    - name: Consultar
+      href: query-azure-cli.md
+    - name: Extensões
+      href: azure-cli-extensions.md
+    - name: Notas de versão
+      href: release-notes-azure-cli.md?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
 - name: Exemplos de Scripts
   items:
-  - name: VMs Linux
-    href: /azure/virtual-machines/linux/cli-samples?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
-  - name: VMs Windows
-    href: /azure/virtual-machines/windows/cli-samples?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
-  - name: Aplicativos Web
-    href: /azure/app-service-web/app-service-cli-samples?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
-  - name: "Funções"
-    href: /azure/azure-functions/functions-cli-samples?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
-  - name: Banco de dados SQL
-    href: /azure/sql-database/sql-database-cli-samples?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
-  - name: PostgreSQL
-    href: /azure/postgresql/sample-scripts-azure-cli?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
-  - name: MySQL
-    href: /azure/mysql/sample-scripts-azure-cli?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
-  - name: Banco de Dados Cosmos
-    href: /azure/cosmos-db/cli-samples?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
+    - name: VMs Linux
+      href: /azure/virtual-machines/linux/cli-samples?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
+    - name: VMs Windows
+      href: /azure/virtual-machines/windows/cli-samples?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
+    - name: Aplicativos Web
+      href: /azure/app-service-web/app-service-cli-samples?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
+    - name: Funções
+      href: /azure/azure-functions/functions-cli-samples?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
+    - name: Banco de dados SQL
+      href: /azure/sql-database/sql-database-cli-samples?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
+    - name: PostgreSQL
+      href: /azure/postgresql/sample-scripts-azure-cli?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
+    - name: MySQL
+      href: /azure/mysql/sample-scripts-azure-cli?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
+    - name: Banco de Dados Cosmos
+      href: /azure/cosmos-db/cli-samples?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
