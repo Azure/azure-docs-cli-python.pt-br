@@ -12,13 +12,71 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: ce0428f7-0a59-4e72-9237-d907b171af51
-ms.openlocfilehash: 761bd61474e7c72fb2daeb756828f00196b56c3a
-ms.sourcegitcommit: 905939cc44764b4d1cc79a9b36c0793f7055a686
+ms.openlocfilehash: e02b84891f4bf60cde12591b8e85987f4b3c9e79
+ms.sourcegitcommit: a3c8e15eafac1ddc2289110d513b39714a23353b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="azure-cli-20-release-notes"></a>Notas de versão da CLI do Azure 2.0
+
+## <a name="december-5-2017"></a>5 de dezembro de 2017
+
+Versão 2.0.22
+
+* Comandos `az component` removidos. Usar `az extension`
+
+### <a name="core"></a>Núcleo
+* Modificou o ponto de extremidade de autoridade AAD `AZURE_US_GOV_CLOUD` de login.microsoftonline.com para login.microsoftonline.us
+* Corrigido o problema onde a telemetria reenviaria continuamente
+
+### <a name="acs"></a>ACS
+
+* Comandos `aks install-connector` e `aks remove-connector` adicionados
+* Relatório de erros aprimorado para `acs create`
+* Corrigido o uso de `aks get-credentials -f` sem um caminho totalmente qualificado
+
+### <a name="advisor"></a>Supervisor
+
+* Versão inicial
+
+### <a name="appservice"></a>AppService
+
+* Corrigida a geração de nome do certificado com `webapp config ssl upload`
+* Corrigidos `webapp [list|show]` e `functionapp [list|show]` para exibir os aplicativos corretos
+* Valor padrão adicionado para `WEBSITE_NODE_DEFAULT_VERSION`
+
+### <a name="consumption"></a>Consumo
+
+* Suporte adicionado para a API versão de 30/11/2017
+
+### <a name="container"></a>Contêiner
+
+* Corrigida a regressão de portas padrão
+
+### <a name="monitor"></a>Monitoramento
+
+* Suporte de várias dimensões adicionado ao comando de métricas
+
+### <a name="resource"></a>Recurso
+
+* Adicionado o argumento `--include-response-body` para `resource show`
+
+### <a name="role"></a>Função
+
+* Exibição de atribuições padrão adicionada dos administradores "clássicos" para `role assignment list`
+* Suporte adicionado a `ad sp reset-credentials` para adicionar as credenciais em vez de substituir
+* Relatório de erros aprimorado para `ad sp create-for-rbac`
+
+### <a name="sql"></a>SQL
+
+* Comandos `sql db list-usages` e `sql db show-usage` adicionados
+* Comandos `sql server conn-policy show` e `sql server conn-policy update` adicionados
+
+### <a name="vm"></a>VM
+
+* Informações da zona adicionadas a `az vm list-skus`
+
 
 ## <a name="november-14-2017"></a>14 de novembro de 2017
 
@@ -408,7 +466,7 @@ Versão 2.0.15
 
 * Habilitada a camada de blob de configuração
 * Adicionados os argumentos `--bypass` e `--default-action` ao `storage account [create|update]` para dar suporte ao serviço de túnel
-* Comandos adicionados ao `storage account network-rule` para adicionar as regras de rede virtual e regras baseadas em IP  
+* Comandos adicionados ao `storage account network-rule` para adicionar as regras de rede virtual e regras baseadas em IP
 * Habilitada a criptografia de serviço por chave gerenciada de cliente
 * [ALTERAÇÃO SIGNIFICATIVA] Opção `--encryption` renomeada como `--encryption-services` para o comando `az storage account create and az storage account update`
 * Correção #4220: `az storage account update encryption` - incompatibilidade de sintaxe
@@ -416,8 +474,8 @@ Versão 2.0.15
 ### <a name="vm"></a>VM
 
 * Corrigido o problema em que informações incorretas extras eram exibidas para `vmss get-instance-view` ao usar `--instance-id *`
-* Adicionado suporte ao `--lb-sku` para `vmss create`: 
-* Removidos nomes humanos da lista de bloqueio de nome de administrador para `[vm|vmss] create` 
+* Adicionado suporte ao `--lb-sku` para `vmss create`:
+* Removidos nomes humanos da lista de bloqueio de nome de administrador para `[vm|vmss] create`
 * Corrigido o problema onde `[vm|vmss] create` geraria um erro se não for possível extrair informações do plano de uma imagem
 * Corrigida uma falha ao criar um conjunto de dimensionamento de máquinas virtuais com um balanceamento de carga interno
 * Corrigido o problema onde o argumento `--no-wait` não funcionava com `vm availability-set create`
@@ -505,43 +563,43 @@ Versão 2.0.12
 * Adicionados módulos de cobrança e de consumo
 
 ```
-azure-cli (2.0.12)  
+azure-cli (2.0.12)
 
-acr (2.0.9)  
-acs (2.0.11)  
-appservice (0.1.11)  
-batch (3.0.3)  
-billing (0.1.3)  
-cdn (0.0.6)  
-cloud (2.0.7)  
-cognitiveservices (0.1.6)  
-command-modules-nspkg (2.0.1)  
-component (2.0.6)  
-configure (2.0.10)  
-consumption (0.1.3)  
-container (0.1.7)  
-core (2.0.12)  
-cosmosdb (0.1.11)  
-dla (0.0.10)  
-dls (0.0.11)  
-feedback (2.0.6)  
-find (0.2.6)  
-interactive (0.3.7)  
-iot (0.1.10)  
-keyvault (2.0.8)  
-lab (0.0.9)  
-monitor (0.0.8)  
-network (2.0.11)  
-nspkg (3.0.1)  
-profile (2.0.9)  
-rdbms (0.0.5)  
-redis (0.2.7)  
-resource (2.0.11)  
-role (2.0.9)  
-sf (1.0.5)  
-sql (2.0.8)  
-storage (2.0.11)  
-vm (2.0.11) 
+acr (2.0.9)
+acs (2.0.11)
+appservice (0.1.11)
+batch (3.0.3)
+billing (0.1.3)
+cdn (0.0.6)
+cloud (2.0.7)
+cognitiveservices (0.1.6)
+command-modules-nspkg (2.0.1)
+component (2.0.6)
+configure (2.0.10)
+consumption (0.1.3)
+container (0.1.7)
+core (2.0.12)
+cosmosdb (0.1.11)
+dla (0.0.10)
+dls (0.0.11)
+feedback (2.0.6)
+find (0.2.6)
+interactive (0.3.7)
+iot (0.1.10)
+keyvault (2.0.8)
+lab (0.0.9)
+monitor (0.0.8)
+network (2.0.11)
+nspkg (3.0.1)
+profile (2.0.9)
+rdbms (0.0.5)
+redis (0.2.7)
+resource (2.0.11)
+role (2.0.9)
+sf (1.0.5)
+sql (2.0.8)
+storage (2.0.11)
+vm (2.0.11)
 ```
 
 ### <a name="core"></a>Núcleo
@@ -754,8 +812,8 @@ vm (2.0.11)
 * Removida a opção `--marker` dos comandos `storage blob list`, `storage container list`, e `storage share list` (#3745)
 * Habilitado a criação de uma conta de armazenamento somente para https
 * Atualizadas as métricas de armazenamento, registro em log e os comandos do CORS (#3495)
-* Mensagem de exceção reformulada do ADD do CORS adicionar (#3638) (#3362)  
-* Convertido o gerador para uma lista no modo de simulação de comando do lote de download (#3592) 
+* Mensagem de exceção reformulada do ADD do CORS adicionar (#3638) (#3362)
+* Convertido o gerador para uma lista no modo de simulação de comando do lote de download (#3592)
 * Corrigido o problema de simulação do lote de download de blob (#3640) (#3592)
 
 ### <a name="vm"></a>VM
@@ -821,7 +879,7 @@ vm (2.0.6)
 
 ### <a name="core"></a>Núcleo
 
-* núcleo: captura de exceções causadas por um provedor não registrado e seu registro automático   
+* núcleo: captura de exceções causadas por um provedor não registrado e seu registro automático
 * desempenho: persistência do cache de tokens do ADAL na memória até o encerramento do processo ([nº 2603](https://github.com/Azure/azure-cli/issues/2603))
 * Correção de bytes retornados da impressão digital hexadecimal -o tsv ([nº 3053](https://github.com/Azure/azure-cli/issues/3053))
 * Melhoria do download do Certificado do Key Vault e da integração de SP do AAD ([nº 3003](https://github.com/Azure/azure-cli/issues/3003))
@@ -915,7 +973,7 @@ vm (2.0.6)
 * Correção de um bug com `vpn-connection create` ao usar os parâmetros `--no-wait` ou `--validate`.
 * Adição de suporte para gateways de VNet ativos/ativos
 * Remoção de valores nulos na saída de comandos `network vpn-connection list/show`.
-* BC: correção de um bug na saída de `vpn-connection create` 
+* BC: correção de um bug na saída de `vpn-connection create`
 * Correção de um bug em que o argumento “--key-length” de “vpn-connection create” não é analisado corretamente.
 * Correção de um bug em `dns zone import`, em que os registros não são importados corretamente.
 * Correção de um bug em que `traffic-manager endpoint update` não funciona.
@@ -981,7 +1039,7 @@ Lançamos os componentes ACR, Batch, KeyVault, e SQL nessa versão.
 
 ```
 azure-cli (2.0.2)
- 
+
 acr (2.0.0)
 acs (2.0.2)
 appservice (0.1.2)
@@ -1019,26 +1077,26 @@ vm (2.0.2)
 * Adicione solicitação para parâmetros de modelo ausentes. ([#2364](https://github.com/Azure/azure-cli/pull/2364))
 * Suporte à definição de valores padrão para os argumentos comuns como grupo de recursos padrão, Web padrão, vm padrão
 * Suporte a logon para um locatário específico
- 
+
 ### <a name="acs"></a>ACS
 
 * [ACS] Adicionar suporte para configurar um cluster do ACS padrão ([#2554](https://github.com/Azure/azure-cli/pull/2554))
 * Adicione suporte para solicitação de senha de chave ssh. ([#2044](https://github.com/Azure/azure-cli/pull/2044))
 * Adicione suporte para clusters do windows. ([#2211](https://github.com/Azure/azure-cli/pull/2211))
 * Alterne da função Proprietário para Colaborador. ([#2321](https://github.com/Azure/azure-cli/pull/2321))
- 
+
 ### <a name="appservice"></a>AppService
 
 * AppService: suporte para obter o endereço ip externo usado para registros de DNS A ([#2627](https://github.com/Azure/azure-cli/pull/2627))
 * AppService: suporte à associação de certificados curinga ([#2625](https://github.com/Azure/azure-cli/pull/2625))
 * AppService: lista de suporte à publicação de perfis ([#2504](https://github.com/Azure/azure-cli/pull/2504))
 * AppService - Aciona a sincronização de controle de origem após a configuração ([#2326](https://github.com/Azure/azure-cli/pull/2326))
- 
+
 ### <a name="datalake"></a>DataLake
 
 * Versão inicial do módulo do Data Lake Analytics.
 * Versão inicial do módulo do Data Lake Store.
- 
+
 ### <a name="docuemntdb"></a>DocuemntDB
 
 * DocumentDB: Adicionar suporte para a listagem de cadeias de conexão ([#2580](https://github.com/Azure/azure-cli/pull/2580))
@@ -1097,8 +1155,8 @@ role (2.0.0)
 sql (0.1.1b5)
 storage (2.0.0)
 vm (2.0.0)
- 
-Python (Darwin) 2.7.10 (default, Jul 30 2016, 19:40:32) 
+
+Python (Darwin) 2.7.10 (default, Jul 30 2016, 19:40:32)
 [GCC 4.2.1 Compatible Apple LLVM 8.0.0 (clang-800.0.34)]
 ```
 
