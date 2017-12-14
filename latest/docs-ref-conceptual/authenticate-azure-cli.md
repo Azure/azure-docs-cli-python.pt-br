@@ -12,15 +12,15 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: 65becd3a-9d69-4415-8a30-777d13a0e7aa
-ms.openlocfilehash: dd05868f7378673836f47e743ed4088f2efd3dca
-ms.sourcegitcommit: 5db22de971cf3983785cb209d92cbed1bbd69ecf
+ms.openlocfilehash: 0a8ec3541783ae19961f2acf1192c0ee061a465f
+ms.sourcegitcommit: 2e4d0bdd94c626e061434883032367b5619de4fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="log-in-with-azure-cli-20"></a>Entrar com a CLI do Azure 2.0
 
-Há várias maneiras de fazer logon e autenticar com a CLI do Azure. É a maneira mais simples para começar é fazer logon interativamente no navegador ou na linha de comando. A abordagem recomendada é usar entidades de serviço que fornecem uma maneira para que você crie contas não-interativas para manipular os recursos. Ao conceder apenas as permissões apropriadas necessárias para uma entidade de serviço, você pode garantir que seus scripts de automação fiquem ainda mais seguros. 
+Há várias maneiras de fazer logon e autenticar com a CLI do Azure. É a maneira mais simples para começar é fazer logon interativamente no navegador ou na linha de comando. A abordagem recomendada é usar entidades de serviço que fornecem uma maneira para que você crie contas não-interativas para manipular os recursos. Ao conceder apenas as permissões apropriadas necessárias para uma entidade de serviço, você pode garantir que seus scripts de automação fiquem ainda mais seguros.
 
 Nenhuma informação de credencial privada é armazenada localmente. Em vez disso, um token de autenticação é gerado pelo Azure e armazenado. Após o logon, seu token de logon local é válido até ficar 14 dias sem ser usado. Nesse ponto, você precisará autenticar novamente.
 
@@ -58,6 +58,6 @@ O valor do locatário é um locatário do Azure Active Directory associado à en
 Você pode obter a ID de objeto do locatário para seu logon atual usando o seguinte comando:
 
 ```azurecli
-az account show --query 'tenanatId' -o tsv
+az account show --query 'tenantId' -o tsv
 ```
 

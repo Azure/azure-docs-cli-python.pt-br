@@ -12,11 +12,11 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: 85c418a8-6177-4833-bb8d-ff4ce2233c1a
-ms.openlocfilehash: 3354d1c6518ea2d0ef0db227a13b86cb59d0575e
-ms.sourcegitcommit: 905939cc44764b4d1cc79a9b36c0793f7055a686
+ms.openlocfilehash: 689b8f4d77af5a6f398c0dd85e922baa398f767a
+ms.sourcegitcommit: 2e4d0bdd94c626e061434883032367b5619de4fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="get-started-with-azure-cli-20"></a>Introdução à CLI do Azure 2.0
 
@@ -51,7 +51,7 @@ Primeiro, crie um Grupo de Recursos.  Os Grupos de Recursos no Azure fornecem um
 Vamos criar um grupo de recursos chamado "MyResourceGroup" na região *westus2* do Azure.  Para fazer isso, digite o seguinte comando:
 
 ```azurecli-interactive
-az group create -n MyResourceGroup -l westus2 
+az group create -n MyResourceGroup -l westus2
 ```
 
 Quando o grupo de recursos for criado, o comando `az group create` gerará várias propriedades do recurso recém-criado:
@@ -141,7 +141,7 @@ my-login@MyLinuxVM:~$
 
 Agora, vamos criar uma VM baseada no Windows Server 2016 Datacenter usando o comando `az vm create` e adicioná-la ao mesmo grupo de recursos “MyResourceGroup” que usamos em nossa VM Linux.  Como no exemplo da VM Linux, também anexaremos dois discos de armazenamento usando o parâmetro `--data-disk-sizes-gb`.
 
-O Azure exige que você evite usar nomes de usuário/senha fáceis de adivinhar. Há regras específicas para quais caracteres podem ser usados, além do comprimento mínimo do nome de usuário e senha.  
+O Azure exige que você evite usar nomes de usuário/senha fáceis de adivinhar. Há regras específicas para quais caracteres podem ser usados, além do comprimento mínimo do nome de usuário e senha.
 
 > [!NOTE]
 > Você deverá inserir o nome de usuário e a senha ao executar esse comando.
@@ -165,7 +165,7 @@ O comando `az vm create` gera uma saída após a VM ter sido totalmente criada e
 }
 ```
 
-Agora faça logon em sua VM do Windows Server criada recentemente usando a Área de Trabalho Remota e o endereço IP público da VM (que é retornada na saída de `az vm create`).  
+Agora faça logon em sua VM do Windows Server criada recentemente usando a Área de Trabalho Remota e o endereço IP público da VM (que é retornada na saída de `az vm create`).
 Se você estiver em um sistema baseado em Windows, faça isso na linha de comando usando o comando `mstsc`:
 
 ```azurecli-interactive
@@ -176,7 +176,7 @@ Forneça a mesma combinação de nome de usuário/senha usada ao criar a VM para
 
 ## <a name="creating-other-resources-in-azure"></a>Criar outros recursos no Azure
 
-Agora percorremos a criação de um Grupo de recursos, uma VM do Linux e uma VM do Windows Server. Você também pode criar vários outros tipos de recursos do Azure.  
+Agora percorremos a criação de um Grupo de recursos, uma VM do Linux e uma VM do Windows Server. Você também pode criar vários outros tipos de recursos do Azure.
 
 Todos os novos recursos são criados usando um processo consistente padrão de nomenclatura `az <resource type name> create`.  Por exemplo, para criar um Balanceador de Carga de Rede do Azure que poderíamos associar às nossas VMs recém-criadas, podemos usar o seguinte comando create:
 
@@ -199,8 +199,8 @@ Por exemplo, é possível usar a CLI do Azure para criar um Serviço de Aplicati
 az appservice plan create -n MyAppServicePlan -g MyResourceGroup
 
 # Create Two Web Apps within the AppService (note: name param must be a unique DNS entry)
-az webapp create -n MyWebApp43432 -g MyResourceGroup --plan MyAppServicePlan 
-az webapp create -n MyWebApp43433 -g MyResourceGroup --plan MyAppServicePlan 
+az webapp create -n MyWebApp43432 -g MyResourceGroup --plan MyAppServicePlan
+az webapp create -n MyWebApp43433 -g MyResourceGroup --plan MyAppServicePlan
 ```
 
 Depois de compreender os conceitos básicos do padrão `az <resource type name> create`, é fácil criar qualquer coisa. A seguir veja alguns tipos de recursos populares do Azure e comandos create da CLI do Azure correspondentes para criá-los:
@@ -221,7 +221,7 @@ SQL Database Server         az sql server create
 Document DB                 az documentdb create
 ```
 
-Visite a [Documentação de referência](/cli/azure) para saber mais sobre os outros parâmetros específicos de recursos que você pode passar para cada um dos comandos anteriores e os tipos de recursos que você pode criar. 
+Visite a [Documentação de referência](/cli/azure) para saber mais sobre os outros parâmetros específicos de recursos que você pode passar para cada um dos comandos anteriores e os tipos de recursos que você pode criar.
 
 ## <a name="useful-tip-optimizing-create-operations-using---no-wait"></a>Dica útil: otimização das operações de criação usando --no-wait
 
@@ -241,14 +241,14 @@ A abordagem `--no-wait` pode ajudá-lo a otimizar consideravelmente o desempenho
 
 ## <a name="listing-resources-and-formatting-output"></a>Listagem de recursos e a formatação de saída
 
-Você pode usar o comando `list` na CLI do Azure para localizar e listar os recursos em execução no Azure. 
+Você pode usar o comando `list` na CLI do Azure para localizar e listar os recursos em execução no Azure.
 
 Como acontece com o comando create, você pode listar recursos usando a CLI do Azure 2.0 usando um padrão de nomenclatura `az <resource type name> list` comum que seja consistente em todos os tipos de recursos.  Há vários formatos de saída e opções de consulta para filtrar e classificar a lista de recursos da maneira que você prefere vê-los.
 
-Por exemplo, `az vm list` mostra a lista de todas as VMs que você possui.   
+Por exemplo, `az vm list` mostra a lista de todas as VMs que você possui.
 
 ```azurecli-interactive
-az vm list 
+az vm list
 ```
 Os valores retornados estão em JSON por padrão (mostrando apenas o resultado parcial para fins de brevidade).
 
@@ -276,7 +276,7 @@ Os valores retornados estão em JSON por padrão (mostrando apenas o resultado p
     },
           ...
           ...
-          ...   
+          ...
 ]
 ```
 
@@ -293,7 +293,7 @@ MyLinuxVM  MyResourceGroup  westus2
 MyWinVM    MyResourceGroup  westus2
 ```
 
-A opção de saída *tsv* pode ser usada para obter um formato baseado em texto, separado por tabulações, sem nenhum cabeçalho.  Esse formato é útil quando você deseja redirecionar a saída para outra ferramenta baseada em texto como grep. 
+A opção de saída *tsv* pode ser usada para obter um formato baseado em texto, separado por tabulações, sem nenhum cabeçalho.  Esse formato é útil quando você deseja redirecionar a saída para outra ferramenta baseada em texto como grep.
 
 ```azurecli-interactive
 az vm list --output tsv
@@ -307,7 +307,7 @@ Visite o artigo [formatos de saída](format-output-azure-cli.md) para saber mais
 
 ## <a name="querying-resources-and-shaping-outputs"></a>Consulta de recursos e modelagem de saídas
 
-Geralmente, convém consultar apenas os recursos que atendem a uma condição específica.  
+Geralmente, convém consultar apenas os recursos que atendem a uma condição específica.
 
 O comando `list` conta com suporte interno que facilita a filtragem de recursos pelo nome do Grupo de Recursos.  Por exemplo, você pode passar a um parâmetro `--ResourceGroup` ou `-g` para um comando `list` para recuperar apenas os recursos dentro de um grupo de recursos específico:
 
@@ -328,7 +328,7 @@ Para obter ainda um suporte à consulta ainda mais avançado, use o parâmetro `
 Por exemplo, execute o seguinte comando para consultar qualquer recurso de máquina virtual dentro de qualquer grupo de recursos que contenha as letras "Meu":
 
 ```azurecli-interactive
-az vm list --output table --query "[?contains(resourceGroup, 'MY')]" 
+az vm list --output table --query "[?contains(resourceGroup, 'MY')]"
 ```
 
 ```Output
@@ -341,7 +341,7 @@ MYRESOURCEGROUP  Succeeded            MyWinVM    westus2     XXXXXXXX-XXXX-XXXX-
 Em seguida, poderíamos escolher refinar ainda mais a saída usando o recurso de modelagem de consultas JMESPath para também gerar valores diferentes.  Por exemplo, o comando a seguir recupera o tipo de disco do sistema operacional que a máquina virtual está usando para determinar se o sistema operacional é baseado em Linux ou Windows:
 
 ```azurecli-interactive
-az vm list --output table --query "[?contains(resourceGroup, 'MY')].{ VMName:name, OSType:storageProfile.osDisk.osType }" 
+az vm list --output table --query "[?contains(resourceGroup, 'MY')].{ VMName:name, OSType:storageProfile.osDisk.osType }"
 ```
 
 ```Output

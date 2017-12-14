@@ -12,11 +12,11 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: fab89cb8-dac1-4e21-9d34-5eadd5213c05
-ms.openlocfilehash: a6ad5611f3e507b65e160122c87e22ec44546588
-ms.sourcegitcommit: e8fe15e4f7725302939d726c75ba0fb3cad430be
+ms.openlocfilehash: 9c2b693c356be78893d0893221d99a23beb5f38b
+ms.sourcegitcommit: 2e4d0bdd94c626e061434883032367b5619de4fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="create-an-azure-service-principal-with-azure-cli-20"></a>Criar uma entidade de serviço do Azure com a CLI do Azure 2.0
 
@@ -29,13 +29,13 @@ Esse tópico orienta você pela criação de uma entidade de segurança com a CL
 
 ## <a name="what-is-a-service-principal"></a>O que é uma ‘entidade de serviço’?
 
-Uma entidade de serviço do Azure é uma identidade de segurança usada por aplicativos criados pelo usuário, serviços e ferramentas de automação para acessar recursos específicos do Azure. Pense nela como uma 'identidade de usuário' (login e senha ou certificado) com uma função específica e permissões de acesso aos seus recursos rigidamente controladas. Ela só precisa ser capaz de fazer coisas específicas, ao contrário de uma identidade de usuário geral. A segurança aumenta se você só conceder a ela o nível mínimo de permissões necessárias para realizar suas tarefas de gerenciamento. 
+Uma entidade de serviço do Azure é uma identidade de segurança usada por aplicativos criados pelo usuário, serviços e ferramentas de automação para acessar recursos específicos do Azure. Pense nela como uma 'identidade de usuário' (login e senha ou certificado) com uma função específica e permissões de acesso aos seus recursos rigidamente controladas. Ela só precisa ser capaz de fazer coisas específicas, ao contrário de uma identidade de usuário geral. A segurança aumenta se você só conceder a ela o nível mínimo de permissões necessárias para realizar suas tarefas de gerenciamento.
 
 A CLI do Azure 2.0 oferece suporte à criação de credenciais de autenticação baseadas em senha e credenciais de certificado. Neste tópico, abordaremos os dois tipos de credenciais.
 
 ## <a name="verify-your-own-permission-level"></a>Verificar seu próprio nível de permissão
 
-Primeiro, você deve ter permissões suficientes no Azure Active Directory e em sua assinatura do Azure. Especificamente, você deve ser capaz de criar um aplicativo no Active Directory e atribuir uma função à entidade de serviço. 
+Primeiro, você deve ter permissões suficientes no Azure Active Directory e em sua assinatura do Azure. Especificamente, você deve ser capaz de criar um aplicativo no Active Directory e atribuir uma função à entidade de serviço.
 
 A maneira mais fácil de verificar se a sua conta tem as permissões adequadas é por meio do portal. Consulte [Verificar permissão necessária no portal](/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions).
 
@@ -81,8 +81,8 @@ O opção `--display-name` filtra a lista retornada de aplicativos para mostrá-
 Use [az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac) e o parâmetro `--password` para criar a entidade de serviço com uma senha. Quando você não fornece uma função ou escopo, o padrão é a função **Colaborador** para a assinatura atual. Se você criar uma entidade de serviço sem usar o parâmetro `--password` ou `--cert`, a autenticação de senha será usada e uma senha, gerada para você.
 
 ```azurecli-interactive
-az ad sp create-for-rbac --name {appId} --password "{strong password}" 
-``` 
+az ad sp create-for-rbac --name {appId} --password "{strong password}"
+```
 
 ```json
 {
@@ -94,7 +94,7 @@ az ad sp create-for-rbac --name {appId} --password "{strong password}"
 }
 ```
 
- > [!WARNING] 
+ > [!WARNING]
  > Não crie uma senha não segura.  Execute a orientação [Restrições e regras de senha do Azure AD](/azure/active-directory/active-directory-passwords-policy).
 
 ### <a name="create-a-service-principal-with-a-self-signed-certificate"></a>Criar uma entidade de serviço com um certificado autoassinado
@@ -145,7 +145,7 @@ Agora, você pode fazer logon como a nova entidade de serviço para seu aplicati
 
 ```azurecli-interactive
 az login --service-principal -u a487e0c1-82af-47d9-9a0b-af184eb87646d --password {password-or-path-to-cert} --tenant {tenant}
-``` 
+```
 
 Você verá essa saída após um logon bem-sucedido:
 
@@ -165,9 +165,9 @@ Você verá essa saída após um logon bem-sucedido:
 ]
 ```
 
-Use os valores `id`, `password` e `tenant` valores como as credenciais para a execução de seu aplicativo. 
+Use os valores `id`, `password` e `tenant` valores como as credenciais para a execução de seu aplicativo.
 
-## <a name="managing-roles"></a>Gerenciamento de funções 
+## <a name="managing-roles"></a>Gerenciamento de funções
 
 > [!NOTE]
 > O RBAC (Controle de Acesso do Azure Baseado em Função) é um modelo para definir e gerenciar funções para entidades de usuário e de serviço.
@@ -210,10 +210,10 @@ az role assignment list --assignee a487e0c1-82af-47d9-9a0b-af184eb87646d
 }
 ```
 
-> [!NOTE] 
+> [!NOTE]
 > Se sua conta não tiver permissões suficientes para atribuir uma função, verá uma mensagem de erro.
 > A mensagem informa que sua conta “não tem autorização para executar a ação 'Microsoft.Authorization/roleAssignments/write' no escopo '/subscriptions/{guid}'”.
-   
+
 ## <a name="change-the-credentials-of-a-security-principal"></a>Alterar as credenciais de uma entidade de segurança
 
 É uma boa prática de segurança examinar as permissões e atualizar as senhas regularmente. Talvez você também queira gerenciar e modificar as credenciais de segurança à medida que seu aplicativo muda.

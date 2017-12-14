@@ -12,20 +12,19 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: c01679ccb77880f1f628f4e48683d8ff030a568b
-ms.sourcegitcommit: 905939cc44764b4d1cc79a9b36c0793f7055a686
+ms.openlocfilehash: 6b9a97e73f45c8271f1e8f19d5a8cf5f9f748d07
+ms.sourcegitcommit: 2e4d0bdd94c626e061434883032367b5619de4fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="install-azure-cli-20-with-zypper"></a>Instalar CLI do Azure 2.0 com zypper
 
 Se você estiver executando uma distribuição que vem com o `zypper`, como o OpenSUSE ou SLE, há um pacote disponível para a CLI do Azure que pode ser instalado em seu sistema.
 
-> [!NOTE]
-> Você deve ter o Python 2.7.x ou Python 3.x para usar a CLI. Se a distribuição não tiver um pacote para cada um, [instale o Python](https://www.python.org/downloads/).
+[!INCLUDE [linux-install-requirements.md](includes/linux-install-requirements.md)]
 
-## <a name="install"></a>Instalar 
+## <a name="install"></a>Instalar
 
 1. Instale `curl`:
 
