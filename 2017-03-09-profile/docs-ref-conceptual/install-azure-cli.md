@@ -12,87 +12,87 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: ea5c0ee1-c530-4a1e-a83f-e1be71f6d416
-ms.openlocfilehash: 36429bb23f392ff6210a9c99885df83f53768386
-ms.sourcegitcommit: 5fc7d8ccf2304c5a12fb99a80f0b00a0ad2c34e9
+ms.openlocfilehash: 5a667ad8720100b45ff714601225535ef442545c
+ms.sourcegitcommit: 2e4d0bdd94c626e061434883032367b5619de4fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/09/2017
 ---
-# <a name="install-azure-cli-20"></a><span data-ttu-id="67ec7-104">Instalar a CLI 2.0 do Azure</span><span class="sxs-lookup"><span data-stu-id="67ec7-104">Install Azure CLI 2.0</span></span>
+# <a name="install-azure-cli-20"></a><span data-ttu-id="7f51a-104">Instalar a CLI 2.0 do Azure</span><span class="sxs-lookup"><span data-stu-id="7f51a-104">Install Azure CLI 2.0</span></span>
 
-<span data-ttu-id="67ec7-105">Instale hoje mesmo a nova versão da CLI do Azure!</span><span class="sxs-lookup"><span data-stu-id="67ec7-105">Install the new version of the Azure CLI today!</span></span>
-<span data-ttu-id="67ec7-106">Nós a aprimoramos e atualizamos para fornecer uma ótima experiência de linha de comando nativa para gerenciar os recursos do Azure.</span><span class="sxs-lookup"><span data-stu-id="67ec7-106">We've improved and updated it to provide a great native command-line experience for managing Azure resources.</span></span>
-<span data-ttu-id="67ec7-107">Ela pode ser usada em Windows, Linux e macOS.</span><span class="sxs-lookup"><span data-stu-id="67ec7-107">It can be used on macOS, Linux, and Windows.</span></span>
-<span data-ttu-id="67ec7-108">Para saber mais sobre a versão mais recente, veja as [notas de versão](release-notes-azure-cli.md).</span><span class="sxs-lookup"><span data-stu-id="67ec7-108">For information about the latest release, see the [release notes](release-notes-azure-cli.md).</span></span>
+<span data-ttu-id="7f51a-105">Instale hoje mesmo a nova versão da CLI do Azure!</span><span class="sxs-lookup"><span data-stu-id="7f51a-105">Install the new version of the Azure CLI today!</span></span>
+<span data-ttu-id="7f51a-106">Nós a aprimoramos e atualizamos para fornecer uma ótima experiência de linha de comando nativa para gerenciar os recursos do Azure.</span><span class="sxs-lookup"><span data-stu-id="7f51a-106">We've improved and updated it to provide a great native command-line experience for managing Azure resources.</span></span>
+<span data-ttu-id="7f51a-107">Ela pode ser usada em Windows, Linux e macOS.</span><span class="sxs-lookup"><span data-stu-id="7f51a-107">It can be used on macOS, Linux, and Windows.</span></span>
+<span data-ttu-id="7f51a-108">Para saber mais sobre a versão mais recente, veja as [notas de versão](release-notes-azure-cli.md).</span><span class="sxs-lookup"><span data-stu-id="7f51a-108">For information about the latest release, see the [release notes](release-notes-azure-cli.md).</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="67ec7-109">Se você estiver usando o modelo ASM (Gerenciamento de Serviço do Azure), [instale a CLI do Azure 1.0](/azure/cli-install-nodejs).</span><span class="sxs-lookup"><span data-stu-id="67ec7-109">If you are using the Azure Service Management (ASM) model, [install Azure CLI 1.0](/azure/cli-install-nodejs).</span></span>
+> <span data-ttu-id="7f51a-109">Se você estiver usando o modelo ASM (Gerenciamento de Serviço do Azure), [instale a CLI do Azure 1.0](/azure/cli-install-nodejs).</span><span class="sxs-lookup"><span data-stu-id="7f51a-109">If you are using the Azure Service Management (ASM) model, [install Azure CLI 1.0](/azure/cli-install-nodejs).</span></span>
 
-## <a name="a-namemacosinstall-on-macos"></a><span data-ttu-id="67ec7-110"><a name="macOS"/>Instalar no macOS</span><span class="sxs-lookup"><span data-stu-id="67ec7-110"><a name="macOS"/>Install on macOS</span></span>
+## <a name="a-namemacosinstall-on-macos"></a><span data-ttu-id="7f51a-110"><a name="macOS"/>Instalar no macOS</span><span class="sxs-lookup"><span data-stu-id="7f51a-110"><a name="macOS"/>Install on macOS</span></span>
 
-<span data-ttu-id="67ec7-111">No macOS, é possível instalar qualquer um com [Homebrew](https://brew.sh/) ou manualmente.</span><span class="sxs-lookup"><span data-stu-id="67ec7-111">On macOS, you are able to install either with [Homebrew](https://brew.sh/) or manually.</span></span>
+<span data-ttu-id="7f51a-111">No macOS, é possível instalar qualquer um com [Homebrew](https://brew.sh/) ou manualmente.</span><span class="sxs-lookup"><span data-stu-id="7f51a-111">On macOS, you are able to install either with [Homebrew](https://brew.sh/) or manually.</span></span>
 
-### <a name="install-with-homebrew"></a><span data-ttu-id="67ec7-112">Instalar com o Homebrew</span><span class="sxs-lookup"><span data-stu-id="67ec7-112">Install with Homebrew</span></span>
+### <a name="install-with-homebrew"></a><span data-ttu-id="7f51a-112">Instalar com o Homebrew</span><span class="sxs-lookup"><span data-stu-id="7f51a-112">Install with Homebrew</span></span>
 
-1. <span data-ttu-id="67ec7-113">Se não tiver feito já, instale o Homebrew seguindo as [instruções de instalação do Homebrew](https://docs.brew.sh/Installation.html).</span><span class="sxs-lookup"><span data-stu-id="67ec7-113">If you don't have it already, install Homebrew by following the [Homebrew installation instructions](https://docs.brew.sh/Installation.html).</span></span>
+1. <span data-ttu-id="7f51a-113">Se não tiver feito já, instale o Homebrew seguindo as [instruções de instalação do Homebrew](https://docs.brew.sh/Installation.html).</span><span class="sxs-lookup"><span data-stu-id="7f51a-113">If you don't have it already, install Homebrew by following the [Homebrew installation instructions](https://docs.brew.sh/Installation.html).</span></span>
 
-2. <span data-ttu-id="67ec7-114">Se você instalou anteriormente a CLI manualmente, siga as instruções de [desinstalação manual](#UninstallManually).</span><span class="sxs-lookup"><span data-stu-id="67ec7-114">If you have previously installed the CLI manually, follow the [manual uninstall](#UninstallManually) instructions.</span></span>
+2. <span data-ttu-id="7f51a-114">Se você instalou anteriormente a CLI manualmente, siga as instruções de [desinstalação manual](#UninstallManually).</span><span class="sxs-lookup"><span data-stu-id="7f51a-114">If you have previously installed the CLI manually, follow the [manual uninstall](#UninstallManually) instructions.</span></span>
 
-3. <span data-ttu-id="67ec7-115">Atualize seus repositórios locais do Homebrew.</span><span class="sxs-lookup"><span data-stu-id="67ec7-115">Update your local Homebrew repositories.</span></span>
+3. <span data-ttu-id="7f51a-115">Atualize seus repositórios locais do Homebrew.</span><span class="sxs-lookup"><span data-stu-id="7f51a-115">Update your local Homebrew repositories.</span></span>
 
    ```bash
    brew update
    ```
 
-4. <span data-ttu-id="67ec7-116">Instale o pacote `azure-cli`.</span><span class="sxs-lookup"><span data-stu-id="67ec7-116">Install the `azure-cli` package.</span></span>
+4. <span data-ttu-id="7f51a-116">Instale o pacote `azure-cli`.</span><span class="sxs-lookup"><span data-stu-id="7f51a-116">Install the `azure-cli` package.</span></span>
 
   ```bash
   brew install azure-cli
   ```
 
 > [!NOTE]
-> <span data-ttu-id="67ec7-117">Se você instalou anteriormente a CLI do Azure 1.0 com o Homebrew, em vez de instalar com o pacote, pode obter a CLI 2.0 pelo processo de atualização regular do Homebrew.</span><span class="sxs-lookup"><span data-stu-id="67ec7-117">If you previously installed the Azure CLI 1.0 with Homebrew, instead of installing the package you can get CLI 2.0 through the regular Homebrew upgrade process.</span></span>
+> <span data-ttu-id="7f51a-117">Se você instalou anteriormente a CLI do Azure 1.0 com o Homebrew, em vez de instalar com o pacote, pode obter a CLI 2.0 pelo processo de atualização regular do Homebrew.</span><span class="sxs-lookup"><span data-stu-id="7f51a-117">If you previously installed the Azure CLI 1.0 with Homebrew, instead of installing the package you can get CLI 2.0 through the regular Homebrew upgrade process.</span></span>
 >
 > ```bash
 > brew upgrade
 > ```
 
-### <a name="install-manually"></a><span data-ttu-id="67ec7-118">Instalar manualmente</span><span class="sxs-lookup"><span data-stu-id="67ec7-118">Install manually</span></span>
+### <a name="install-manually"></a><span data-ttu-id="7f51a-118">Instalar manualmente</span><span class="sxs-lookup"><span data-stu-id="7f51a-118">Install manually</span></span>
 
-1. <span data-ttu-id="67ec7-119">Instale a CLI do Azure 2.0 com `curl`.</span><span class="sxs-lookup"><span data-stu-id="67ec7-119">Install Azure CLI 2.0 with `curl`.</span></span>
+1. <span data-ttu-id="7f51a-119">Instale a CLI do Azure 2.0 com `curl`.</span><span class="sxs-lookup"><span data-stu-id="7f51a-119">Install Azure CLI 2.0 with `curl`.</span></span>
 
    ```bash
    curl -L https://aka.ms/InstallAzureCli | bash
    ```
 
-2. <span data-ttu-id="67ec7-120">Talvez você precise reiniciar o shell para que algumas alterações entrem em vigor.</span><span class="sxs-lookup"><span data-stu-id="67ec7-120">You may have to restart your shell for some changes to take effect.</span></span>
+2. <span data-ttu-id="7f51a-120">Talvez você precise reiniciar o shell para que algumas alterações entrem em vigor.</span><span class="sxs-lookup"><span data-stu-id="7f51a-120">You may have to restart your shell for some changes to take effect.</span></span>
 
    ```bash
    exec -l $SHELL
    ```
-   
-3. <span data-ttu-id="67ec7-121">Execute a CLI no prompt de comando com o comando `az`.</span><span class="sxs-lookup"><span data-stu-id="67ec7-121">Run the CLI from the command prompt with the `az` command.</span></span>
 
-## <a name="install-on-windows"></a><span data-ttu-id="67ec7-122">Instalar no Windows</span><span class="sxs-lookup"><span data-stu-id="67ec7-122">Install on Windows</span></span>
+3. <span data-ttu-id="7f51a-121">Execute a CLI no prompt de comando com o comando `az`.</span><span class="sxs-lookup"><span data-stu-id="7f51a-121">Run the CLI from the command prompt with the `az` command.</span></span>
 
-### <a name="install-with-msi-for-the-windows-command-line"></a><span data-ttu-id="67ec7-123">Instalar com MSI para a linha de comando do Windows</span><span class="sxs-lookup"><span data-stu-id="67ec7-123">Install with MSI for the Windows command-line</span></span> 
+## <a name="install-on-windows"></a><span data-ttu-id="7f51a-122">Instalar no Windows</span><span class="sxs-lookup"><span data-stu-id="7f51a-122">Install on Windows</span></span>
 
-<span data-ttu-id="67ec7-124">Para instalar a CLI no Windows e usá-la na linha de comando do Windows, baixe e execute o [Instalador da CLI do Azure (MSI)](https://aka.ms/InstallAzureCliWindows).</span><span class="sxs-lookup"><span data-stu-id="67ec7-124">To install the CLI on Windows and use it in the Windows command-line, download and run the [Azure CLI Installer (MSI)](https://aka.ms/InstallAzureCliWindows).</span></span>
+### <a name="install-with-msi-for-the-windows-command-line"></a><span data-ttu-id="7f51a-123">Instalar com MSI para a linha de comando do Windows</span><span class="sxs-lookup"><span data-stu-id="7f51a-123">Install with MSI for the Windows command-line</span></span>
 
-### <a name="install-with-apt-get-for-bash-on-ubuntu-on-windows"></a><span data-ttu-id="67ec7-125">Instalar com apt-get para Bash no Ubuntu no Windows</span><span class="sxs-lookup"><span data-stu-id="67ec7-125">Install with apt-get for Bash on Ubuntu on Windows</span></span>
+<span data-ttu-id="7f51a-124">Para instalar a CLI no Windows e usá-la na linha de comando do Windows, baixe e execute o [Instalador da CLI do Azure (MSI)](https://aka.ms/InstallAzureCliWindows).</span><span class="sxs-lookup"><span data-stu-id="7f51a-124">To install the CLI on Windows and use it in the Windows command-line, download and run the [Azure CLI Installer (MSI)](https://aka.ms/InstallAzureCliWindows).</span></span>
 
-1. <span data-ttu-id="67ec7-126">Se você não tiver o Bash no Windows, [instale-o](https://msdn.microsoft.com/commandline/wsl/install_guide).</span><span class="sxs-lookup"><span data-stu-id="67ec7-126">If you don't have Bash on Windows, [install it](https://msdn.microsoft.com/commandline/wsl/install_guide).</span></span>
+### <a name="install-with-apt-get-for-bash-on-ubuntu-on-windows"></a><span data-ttu-id="7f51a-125">Instalar com apt-get para Bash no Ubuntu no Windows</span><span class="sxs-lookup"><span data-stu-id="7f51a-125">Install with apt-get for Bash on Ubuntu on Windows</span></span>
 
-2. <span data-ttu-id="67ec7-127">Abra o shell do Bash.</span><span class="sxs-lookup"><span data-stu-id="67ec7-127">Open the Bash shell.</span></span>
+1. <span data-ttu-id="7f51a-126">Se você não tiver o Bash no Windows, [instale-o](https://msdn.microsoft.com/commandline/wsl/install_guide).</span><span class="sxs-lookup"><span data-stu-id="7f51a-126">If you don't have Bash on Windows, [install it](https://msdn.microsoft.com/commandline/wsl/install_guide).</span></span>
 
-3. <span data-ttu-id="67ec7-128">Modifique sua lista de fontes.</span><span class="sxs-lookup"><span data-stu-id="67ec7-128">Modify your sources list.</span></span>
+2. <span data-ttu-id="7f51a-127">Abra o shell do Bash.</span><span class="sxs-lookup"><span data-stu-id="7f51a-127">Open the Bash shell.</span></span>
+
+3. <span data-ttu-id="7f51a-128">Modifique sua lista de fontes.</span><span class="sxs-lookup"><span data-stu-id="7f51a-128">Modify your sources list.</span></span>
 
    ```bash
    echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ wheezy main" | \
         sudo tee /etc/apt/sources.list.d/azure-cli.list
    ```
 
-4. <span data-ttu-id="67ec7-129">Execute os comandos sudo a seguir:</span><span class="sxs-lookup"><span data-stu-id="67ec7-129">Run the following sudo commands:</span></span>
+4. <span data-ttu-id="7f51a-129">Execute os comandos sudo a seguir:</span><span class="sxs-lookup"><span data-stu-id="7f51a-129">Run the following sudo commands:</span></span>
 
    ```bash
    sudo apt-key adv --keyserver packages.microsoft.com --recv-keys 52E16F86FEE04B979B07E28DB02C46DF417A0893
@@ -100,32 +100,31 @@ ms.lasthandoff: 12/01/2017
    sudo apt-get update && sudo apt-get install azure-cli
    ```
 
-5.  <span data-ttu-id="67ec7-130">Execute a CLI no prompt de comando com o comando `az`.</span><span class="sxs-lookup"><span data-stu-id="67ec7-130">Run the CLI from the command prompt with the `az` command.</span></span>
+5.  <span data-ttu-id="7f51a-130">Execute a CLI no prompt de comando com o comando `az`.</span><span class="sxs-lookup"><span data-stu-id="7f51a-130">Run the CLI from the command prompt with the `az` command.</span></span>
 
-## <a name="install-with-apt-package-manager"></a><span data-ttu-id="67ec7-131">Instalar com gerenciador de pacotes apt</span><span class="sxs-lookup"><span data-stu-id="67ec7-131">Install with apt package manager</span></span> 
+## <a name="install-with-apt-package-manager"></a><span data-ttu-id="7f51a-131">Instalar com gerenciador de pacotes apt</span><span class="sxs-lookup"><span data-stu-id="7f51a-131">Install with apt package manager</span></span>
 
-<span data-ttu-id="67ec7-132">Para obter distribuições usando o gerenciador de pacote `apt` como Ubuntu ou Debian, você pode instalar a CLI do Azure 2.0 via `apt-get`.</span><span class="sxs-lookup"><span data-stu-id="67ec7-132">For distributions using the `apt` package manager such as Ubuntu or Debian, you can install Azure CLI 2.0 via `apt-get`.</span></span>
+<span data-ttu-id="7f51a-132">Para obter distribuições usando o gerenciador de pacote `apt` como Ubuntu ou Debian, você pode instalar a CLI do Azure 2.0 via `apt-get`.</span><span class="sxs-lookup"><span data-stu-id="7f51a-132">For distributions using the `apt` package manager such as Ubuntu or Debian, you can install Azure CLI 2.0 via `apt-get`.</span></span>
 
-> [!NOTE]
-> <span data-ttu-id="67ec7-133">Você deve ter o Python 2.7.x ou Python 3.x para usar a CLI.</span><span class="sxs-lookup"><span data-stu-id="67ec7-133">You must have Python 2.7.x or Python 3.x in order to use the CLI.</span></span> <span data-ttu-id="67ec7-134">Se a distribuição não tiver um pacote para cada um, [instale o Python](https://www.python.org/downloads/).</span><span class="sxs-lookup"><span data-stu-id="67ec7-134">If your distribution does not have a package for either, [install Python](https://www.python.org/downloads/).</span></span>
+[!INCLUDE [linux-install-requirements.md](includes/linux-install-requirements.md)]
 
-1. <span data-ttu-id="67ec7-135">Modifique sua lista de fontes:</span><span class="sxs-lookup"><span data-stu-id="67ec7-135">Modify your sources list:</span></span>
- 
-   - <span data-ttu-id="67ec7-136">sistema de 32 bits</span><span class="sxs-lookup"><span data-stu-id="67ec7-136">32-bit system</span></span>
+1. <span data-ttu-id="7f51a-133">Modifique sua lista de fontes:</span><span class="sxs-lookup"><span data-stu-id="7f51a-133">Modify your sources list:</span></span>
+
+   - <span data-ttu-id="7f51a-134">sistema de 32 bits</span><span class="sxs-lookup"><span data-stu-id="7f51a-134">32-bit system</span></span>
 
      ```bash
      echo "deb https://packages.microsoft.com/repos/azure-cli/ wheezy main" | \
           sudo tee /etc/apt/sources.list.d/azure-cli.list
      ```
 
-   - <span data-ttu-id="67ec7-137">sistema de 64 bits</span><span class="sxs-lookup"><span data-stu-id="67ec7-137">64-bit system</span></span>
+   - <span data-ttu-id="7f51a-135">sistema de 64 bits</span><span class="sxs-lookup"><span data-stu-id="7f51a-135">64-bit system</span></span>
 
      ```bash
      echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ wheezy main" | \
           sudo tee /etc/apt/sources.list.d/azure-cli.list
      ```
 
-2. <span data-ttu-id="67ec7-138">Execute os comandos sudo a seguir:</span><span class="sxs-lookup"><span data-stu-id="67ec7-138">Run the following sudo commands:</span></span>
+2. <span data-ttu-id="7f51a-136">Execute os comandos sudo a seguir:</span><span class="sxs-lookup"><span data-stu-id="7f51a-136">Run the following sudo commands:</span></span>
 
    ```bash
    sudo apt-key adv --keyserver packages.microsoft.com --recv-keys 52E16F86FEE04B979B07E28DB02C46DF417A0893
@@ -133,90 +132,88 @@ ms.lasthandoff: 12/01/2017
    sudo apt-get update && sudo apt-get install azure-cli
    ```
 
-3.  <span data-ttu-id="67ec7-139">Execute a CLI no prompt de comando com o comando `az`.</span><span class="sxs-lookup"><span data-stu-id="67ec7-139">Run the CLI from the command prompt with the `az` command.</span></span>
+3.  <span data-ttu-id="7f51a-137">Execute a CLI no prompt de comando com o comando `az`.</span><span class="sxs-lookup"><span data-stu-id="7f51a-137">Run the CLI from the command prompt with the `az` command.</span></span>
 
-## <a name="install-with-yum-package-manager"></a><span data-ttu-id="67ec7-140">Instalar com gerenciador de pacotes yum</span><span class="sxs-lookup"><span data-stu-id="67ec7-140">Install with yum package manager</span></span>
+## <a name="install-with-yum-package-manager"></a><span data-ttu-id="7f51a-138">Instalar com gerenciador de pacotes yum</span><span class="sxs-lookup"><span data-stu-id="7f51a-138">Install with yum package manager</span></span>
 
-<span data-ttu-id="67ec7-141">Para as distribuições que usam o gerenciador de pacotes `yum` como Red Hat Enterprise Linux (RHEL), Fedora ou CentOS, você pode instalar o CLI do Azure 2.0 via `yum`.</span><span class="sxs-lookup"><span data-stu-id="67ec7-141">For distributions which use the `yum` package manager such as Red Hat Enterprise Linux (RHEL), Fedora, or CentOS, you can install Azure CLI 2.0 via `yum`.</span></span>
+<span data-ttu-id="7f51a-139">Para as distribuições que usam o gerenciador de pacotes `yum` como Red Hat Enterprise Linux (RHEL), Fedora ou CentOS, você pode instalar o CLI do Azure 2.0 via `yum`.</span><span class="sxs-lookup"><span data-stu-id="7f51a-139">For distributions which use the `yum` package manager such as Red Hat Enterprise Linux (RHEL), Fedora, or CentOS, you can install Azure CLI 2.0 via `yum`.</span></span>
 
-> [!NOTE]
-> <span data-ttu-id="67ec7-142">Você deve ter o Python 2.7.x ou Python 3.x para usar a CLI.</span><span class="sxs-lookup"><span data-stu-id="67ec7-142">You must have Python 2.7.x or Python 3.x in order to use the CLI.</span></span> <span data-ttu-id="67ec7-143">Se a distribuição não tiver um pacote para cada um, [instale o Python](https://www.python.org/downloads/).</span><span class="sxs-lookup"><span data-stu-id="67ec7-143">If your distribution does not have a package for either, [install Python](https://www.python.org/downloads/).</span></span>
+[!INCLUDE [linux-install-requirements.md](includes/linux-install-requirements.md)]
 
-1. <span data-ttu-id="67ec7-144">Importe a chave de repositório da Microsoft:</span><span class="sxs-lookup"><span data-stu-id="67ec7-144">Import the Microsoft repository key:</span></span>
+1. <span data-ttu-id="7f51a-140">Importe a chave de repositório da Microsoft:</span><span class="sxs-lookup"><span data-stu-id="7f51a-140">Import the Microsoft repository key:</span></span>
 
    ```bash
    sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
    ```
 
-2. <span data-ttu-id="67ec7-145">Crie informações sobre o repositório do `azure-cli` local:</span><span class="sxs-lookup"><span data-stu-id="67ec7-145">Create local `azure-cli` repository information:</span></span>
+2. <span data-ttu-id="7f51a-141">Crie informações sobre o repositório do `azure-cli` local:</span><span class="sxs-lookup"><span data-stu-id="7f51a-141">Create local `azure-cli` repository information:</span></span>
 
    ```bash
    sudo sh -c 'echo -e "[azure-cli]\nname=Azure CLI\nbaseurl=https://packages.microsoft.com/yumrepos/azure-cli\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/azure-cli.repo'
    ```
 
-3. <span data-ttu-id="67ec7-146">Atualize o índice de pacote do `yum` e instale:</span><span class="sxs-lookup"><span data-stu-id="67ec7-146">Update the `yum` package index and install:</span></span>
+3. <span data-ttu-id="7f51a-142">Atualize o índice de pacote do `yum` e instale:</span><span class="sxs-lookup"><span data-stu-id="7f51a-142">Update the `yum` package index and install:</span></span>
 
    ```bash
    yum check-update
    sudo yum install azure-cli
    ```
 
-4. <span data-ttu-id="67ec7-147">Execute a CLI no prompt de comando com o comando `az`.</span><span class="sxs-lookup"><span data-stu-id="67ec7-147">Run the CLI from the command prompt with the `az` command.</span></span>
+4. <span data-ttu-id="7f51a-143">Execute a CLI no prompt de comando com o comando `az`.</span><span class="sxs-lookup"><span data-stu-id="7f51a-143">Run the CLI from the command prompt with the `az` command.</span></span>
 
-## <a name="install-with-zypper-package-manager"></a><span data-ttu-id="67ec7-148">Instalar com gerenciador de pacotes zypper</span><span class="sxs-lookup"><span data-stu-id="67ec7-148">Install with zypper package manager</span></span>
+## <a name="install-with-zypper-package-manager"></a><span data-ttu-id="7f51a-144">Instalar com gerenciador de pacotes zypper</span><span class="sxs-lookup"><span data-stu-id="7f51a-144">Install with zypper package manager</span></span>
 
-<span data-ttu-id="67ec7-149">Para distribuições que usam o gerenciador de pacotes `zypper` como OpenSUSE ou SLE, instale a CLI do Azure 2.0 via `zypper`.</span><span class="sxs-lookup"><span data-stu-id="67ec7-149">For distributions which use the `zypper` package manager such as OpenSUSE or SLE, you can install Azure CLI 2.0 via `zypper`.</span></span>
+<span data-ttu-id="7f51a-145">Para distribuições que usam o gerenciador de pacotes `zypper` como OpenSUSE ou SLE, instale a CLI do Azure 2.0 via `zypper`.</span><span class="sxs-lookup"><span data-stu-id="7f51a-145">For distributions which use the `zypper` package manager such as OpenSUSE or SLE, you can install Azure CLI 2.0 via `zypper`.</span></span>
 
-> [!NOTE]
-> <span data-ttu-id="67ec7-150">Você deve ter o Python 2.7.x ou Python 3.x para usar a CLI.</span><span class="sxs-lookup"><span data-stu-id="67ec7-150">You must have Python 2.7.x or Python 3.x in order to use the CLI.</span></span> <span data-ttu-id="67ec7-151">Se a distribuição não tiver um pacote para cada um, [instale o Python](https://www.python.org/downloads/).</span><span class="sxs-lookup"><span data-stu-id="67ec7-151">If your distribution does not have a package for either, [install Python](https://www.python.org/downloads/).</span></span>
+[!INCLUDE [linux-install-requirements.md](includes/linux-install-requirements.md)]
 
-1. <span data-ttu-id="67ec7-152">Importe a chave de repositório da Microsoft:</span><span class="sxs-lookup"><span data-stu-id="67ec7-152">Import the Microsoft repository key:</span></span>
+1. <span data-ttu-id="7f51a-146">Importe a chave de repositório da Microsoft:</span><span class="sxs-lookup"><span data-stu-id="7f51a-146">Import the Microsoft repository key:</span></span>
 
    ```bash
    sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
    ```
 
-2. <span data-ttu-id="67ec7-153">Crie informações sobre o repositório do `azure-cli` local:</span><span class="sxs-lookup"><span data-stu-id="67ec7-153">Create local `azure-cli` repository information:</span></span>
+2. <span data-ttu-id="7f51a-147">Crie informações sobre o repositório do `azure-cli` local:</span><span class="sxs-lookup"><span data-stu-id="7f51a-147">Create local `azure-cli` repository information:</span></span>
 
    ```bash
    sudo sh -c 'echo -e "[azure-cli]\nname=Azure CLI\nbaseurl=https://packages.microsoft.com/yumrepos/azure-cli\nenabled=1\ntype=rpm-md\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/zypp/repos.d/azure-cli.repo'
    ```
 
-3. <span data-ttu-id="67ec7-154">Atualize o índice de pacote do `zypper` e instale:</span><span class="sxs-lookup"><span data-stu-id="67ec7-154">Update the `zypper` package index and install:</span></span>
+3. <span data-ttu-id="7f51a-148">Atualize o índice de pacote do `zypper` e instale:</span><span class="sxs-lookup"><span data-stu-id="7f51a-148">Update the `zypper` package index and install:</span></span>
 
    ```bash
    sudo zypper refresh
    sudo zypper install azure-cli
    ```
 
-4. <span data-ttu-id="67ec7-155">Execute a CLI no prompt de comando com o comando `az`.</span><span class="sxs-lookup"><span data-stu-id="67ec7-155">Run the CLI from the command prompt with the `az` command.</span></span>
+4. <span data-ttu-id="7f51a-149">Execute a CLI no prompt de comando com o comando `az`.</span><span class="sxs-lookup"><span data-stu-id="7f51a-149">Run the CLI from the command prompt with the `az` command.</span></span>
 
-## <a name="install-with-docker"></a><span data-ttu-id="67ec7-156">Instalar com o Docker</span><span class="sxs-lookup"><span data-stu-id="67ec7-156">Install with Docker</span></span>
+## <a name="install-with-docker"></a><span data-ttu-id="7f51a-150">Instalar com o Docker</span><span class="sxs-lookup"><span data-stu-id="7f51a-150">Install with Docker</span></span>
 
-<span data-ttu-id="67ec7-157">Vamos manter uma imagem de Docker pré-configurada com a CLI do Azure 2.0.</span><span class="sxs-lookup"><span data-stu-id="67ec7-157">We maintain a Docker image preconfigured with the Azure CLI 2.0.</span></span>
+<span data-ttu-id="7f51a-151">Vamos manter uma imagem de Docker pré-configurada com a CLI do Azure 2.0.</span><span class="sxs-lookup"><span data-stu-id="7f51a-151">We maintain a Docker image preconfigured with the Azure CLI 2.0.</span></span>
 
-<span data-ttu-id="67ec7-158">Instalar a CLI usando `docker run`.</span><span class="sxs-lookup"><span data-stu-id="67ec7-158">Install the CLI using `docker run`.</span></span>
+<span data-ttu-id="7f51a-152">Instalar a CLI usando `docker run`.</span><span class="sxs-lookup"><span data-stu-id="7f51a-152">Install the CLI using `docker run`.</span></span>
 
    ```bash
    docker run -it azuresdk/azure-cli-python:<version>
    ```
 
-<span data-ttu-id="67ec7-159">Confira nossas [marcas do Docker](https://hub.docker.com/r/azuresdk/azure-cli-python/tags/) para versões disponíveis.</span><span class="sxs-lookup"><span data-stu-id="67ec7-159">See our [Docker tags](https://hub.docker.com/r/azuresdk/azure-cli-python/tags/) for available versions.</span></span>
+<span data-ttu-id="7f51a-153">Confira nossas [marcas do Docker](https://hub.docker.com/r/azuresdk/azure-cli-python/tags/) para versões disponíveis.</span><span class="sxs-lookup"><span data-stu-id="7f51a-153">See our [Docker tags](https://hub.docker.com/r/azuresdk/azure-cli-python/tags/) for available versions.</span></span>
 
-<span data-ttu-id="67ec7-160">A CLI está instalada na imagem como o comando `az` no `/usr/local/bin`.</span><span class="sxs-lookup"><span data-stu-id="67ec7-160">The CLI is installed on the image as the `az` command in `/usr/local/bin`.</span></span>
+<span data-ttu-id="7f51a-154">A CLI está instalada na imagem como o comando `az` no `/usr/local/bin`.</span><span class="sxs-lookup"><span data-stu-id="7f51a-154">The CLI is installed on the image as the `az` command in `/usr/local/bin`.</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="67ec7-161">Se você quiser acompanhar as chaves SSH do seu ambiente de usuário, use `-v ${HOME}:/root` para montar $HOME como `/root`.</span><span class="sxs-lookup"><span data-stu-id="67ec7-161">If you want to pick up the SSH keys from your user environment, you can use `-v ${HOME}:/root` to mount $HOME as `/root`.</span></span>
+> <span data-ttu-id="7f51a-155">Se você quiser acompanhar as chaves SSH do seu ambiente de usuário, use `-v ${HOME}:/root` para montar $HOME como `/root`.</span><span class="sxs-lookup"><span data-stu-id="7f51a-155">If you want to pick up the SSH keys from your user environment, you can use `-v ${HOME}:/root` to mount $HOME as `/root`.</span></span>
 
 > ```bash
 > docker run -it -v ${HOME}:/root azuresdk/azure-cli-python:<version>
 > ```
 
-## <a name="a-namelinuxinstall-on-linux-without-a-package-manager"></a><span data-ttu-id="67ec7-162"><a name="Linux"/>Instalar no Linux sem um gerenciador de pacotes</span><span class="sxs-lookup"><span data-stu-id="67ec7-162"><a name="Linux"/>Install on Linux without a package manager</span></span>
+## <a name="a-namelinuxinstall-on-linux-without-a-package-manager"></a><span data-ttu-id="7f51a-156"><a name="Linux"/>Instalar no Linux sem um gerenciador de pacotes</span><span class="sxs-lookup"><span data-stu-id="7f51a-156"><a name="Linux"/>Install on Linux without a package manager</span></span>
 
-<span data-ttu-id="67ec7-163">É recomendável que você instale a CLI com um gerenciador de pacotes, se for possível.</span><span class="sxs-lookup"><span data-stu-id="67ec7-163">It is recommended that you install the CLI with a package manager if you are able to.</span></span> <span data-ttu-id="67ec7-164">Se você não quiser adicionar repositórios da Microsoft, ou estiver trabalhando com uma distribuição que não tem um pacote fornecido, você pode instalar manualmente a CLI.</span><span class="sxs-lookup"><span data-stu-id="67ec7-164">If you do not want to add Microsoft's repositories, or are working with a distribution which does not have a provided package, you can manually install the CLI.</span></span>
+<span data-ttu-id="7f51a-157">É recomendável que você instale a CLI com um gerenciador de pacotes, se for possível.</span><span class="sxs-lookup"><span data-stu-id="7f51a-157">It is recommended that you install the CLI with a package manager if you are able to.</span></span> <span data-ttu-id="7f51a-158">Se você não quiser adicionar repositórios da Microsoft, ou estiver trabalhando com uma distribuição que não tem um pacote fornecido, você pode instalar manualmente a CLI.</span><span class="sxs-lookup"><span data-stu-id="7f51a-158">If you do not want to add Microsoft's repositories, or are working with a distribution which does not have a provided package, you can manually install the CLI.</span></span>
 
-1. <span data-ttu-id="67ec7-165">Instale os pré-requisitos com base na sua distribuição do Linux.</span><span class="sxs-lookup"><span data-stu-id="67ec7-165">Install the prerequisites based on your Linux distribution.</span></span>
+1. <span data-ttu-id="7f51a-159">Instale os pré-requisitos com base na sua distribuição do Linux.</span><span class="sxs-lookup"><span data-stu-id="7f51a-159">Install the prerequisites based on your Linux distribution.</span></span>
 
    ```
    Platform              | Prerequisites
@@ -230,134 +227,134 @@ ms.lasthandoff: 12/01/2017
    SUSE OpenSUSE 13.2    | sudo zypper refresh && sudo zypper --non-interactive install curl gcc python python-xml libffi-devel python-devel openssl-devel
    ```
 
-<span data-ttu-id="67ec7-166">Se a distribuição não estiver listada acima, você precisará instalar o [Python 2.7 ou posterior](https://www.python.org/downloads/), [libffi](https://sourceware.org/libffi/) e [OpenSSL](https://www.openssl.org/source/).</span><span class="sxs-lookup"><span data-stu-id="67ec7-166">If your distribution is not listed above, you will need to install [Python 2.7 or later](https://www.python.org/downloads/), [libffi](https://sourceware.org/libffi/), and [OpenSSL](https://www.openssl.org/source/).</span></span>
+<span data-ttu-id="7f51a-160">Se a distribuição não estiver listada acima, você precisará instalar o [Python 2.7 ou posterior](https://www.python.org/downloads/), [libffi](https://sourceware.org/libffi/) e [OpenSSL 1.0.2](https://www.openssl.org/source/).</span><span class="sxs-lookup"><span data-stu-id="7f51a-160">If your distribution is not listed above, you will need to install [Python 2.7 or later](https://www.python.org/downloads/), [libffi](https://sourceware.org/libffi/), and [OpenSSL 1.0.2](https://www.openssl.org/source/).</span></span>
 
-2. <span data-ttu-id="67ec7-167">Instalar a CLI com `curl`.</span><span class="sxs-lookup"><span data-stu-id="67ec7-167">Install the CLI with  `curl`.</span></span>
+2. <span data-ttu-id="7f51a-161">Instalar a CLI com `curl`.</span><span class="sxs-lookup"><span data-stu-id="7f51a-161">Install the CLI with  `curl`.</span></span>
 
    ```bash
    curl -L https://aka.ms/InstallAzureCli | bash
    ```
 
-3. <span data-ttu-id="67ec7-168">Talvez você precise reiniciar o shell para que algumas alterações entrem em vigor.</span><span class="sxs-lookup"><span data-stu-id="67ec7-168">You may have to restart your shell for some changes to take effect.</span></span>
+3. <span data-ttu-id="7f51a-162">Talvez você precise reiniciar o shell para que algumas alterações entrem em vigor.</span><span class="sxs-lookup"><span data-stu-id="7f51a-162">You may have to restart your shell for some changes to take effect.</span></span>
 
    ```bash
    exec -l $SHELL
    ```
 
-4. <span data-ttu-id="67ec7-169">Execute a CLI no prompt de comando com o comando `az`.</span><span class="sxs-lookup"><span data-stu-id="67ec7-169">Run the CLI from the command prompt with the `az` command.</span></span>
+4. <span data-ttu-id="7f51a-163">Execute a CLI no prompt de comando com o comando `az`.</span><span class="sxs-lookup"><span data-stu-id="7f51a-163">Run the CLI from the command prompt with the `az` command.</span></span>
 
-## <a name="troubleshooting"></a><span data-ttu-id="67ec7-170">Solucionar problemas</span><span class="sxs-lookup"><span data-stu-id="67ec7-170">Troubleshooting</span></span>
+## <a name="troubleshooting"></a><span data-ttu-id="7f51a-164">Solucionar problemas</span><span class="sxs-lookup"><span data-stu-id="7f51a-164">Troubleshooting</span></span>
 
-<span data-ttu-id="67ec7-171">Se você encontrar um problema durante a instalação do CLI, verifique essa seção para ver se o seu caso específico é abordado.</span><span class="sxs-lookup"><span data-stu-id="67ec7-171">If you encounter an issue during CLI install, check this section to see if your particular case is covered.</span></span> <span data-ttu-id="67ec7-172">Se o problema não estiver aqui, [faça um registro do problema do Github](https://github.com/Azure/azure-cli/issues).</span><span class="sxs-lookup"><span data-stu-id="67ec7-172">If your issue is not here, please [file a Github issue](https://github.com/Azure/azure-cli/issues).</span></span>
+<span data-ttu-id="7f51a-165">Se você encontrar um problema durante a instalação do CLI, verifique essa seção para ver se o seu caso específico é abordado.</span><span class="sxs-lookup"><span data-stu-id="7f51a-165">If you encounter an issue during CLI install, check this section to see if your particular case is covered.</span></span> <span data-ttu-id="7f51a-166">Se o problema não estiver aqui, [faça um registro do problema do Github](https://github.com/Azure/azure-cli/issues).</span><span class="sxs-lookup"><span data-stu-id="7f51a-166">If your issue is not here, please [file a Github issue](https://github.com/Azure/azure-cli/issues).</span></span>
 
-### <a name="curl-object-moved-error"></a><span data-ttu-id="67ec7-173">Erro "Objeto movido" de cURL</span><span class="sxs-lookup"><span data-stu-id="67ec7-173">curl "Object Moved" error</span></span>
+### <a name="curl-object-moved-error"></a><span data-ttu-id="7f51a-167">Erro "Objeto movido" de cURL</span><span class="sxs-lookup"><span data-stu-id="7f51a-167">curl "Object Moved" error</span></span>
 
-<span data-ttu-id="67ec7-174">Se você receber um erro de `curl` relacionado ao parâmetro `-L` ou uma mensagem de erro incluindo o texto "Objeto movido", tente usar a URL completa em vez da `aka.ms` de redirecionamento:</span><span class="sxs-lookup"><span data-stu-id="67ec7-174">If you get an error from `curl` related to the `-L` parameter, or an error message including the text "Object Moved", try using the full URL instead of the `aka.ms` redirect:</span></span>
+<span data-ttu-id="7f51a-168">Se você receber um erro de `curl` relacionado ao parâmetro `-L` ou uma mensagem de erro incluindo o texto "Objeto movido", tente usar a URL completa em vez da `aka.ms` de redirecionamento:</span><span class="sxs-lookup"><span data-stu-id="7f51a-168">If you get an error from `curl` related to the `-L` parameter, or an error message including the text "Object Moved", try using the full URL instead of the `aka.ms` redirect:</span></span>
 
 ```bash
 curl https://azurecliprod.blob.core.windows.net/install | bash
 ```
 
-### <a name="az-command-not-found"></a><span data-ttu-id="67ec7-175">`az` comando não encontrado</span><span class="sxs-lookup"><span data-stu-id="67ec7-175">`az` command not found</span></span>
+### <a name="az-command-not-found"></a><span data-ttu-id="7f51a-169">`az` comando não encontrado</span><span class="sxs-lookup"><span data-stu-id="7f51a-169">`az` command not found</span></span>
 
-<span data-ttu-id="67ec7-176">Talvez seja necessário limpar o cache de hash de comando do shell.</span><span class="sxs-lookup"><span data-stu-id="67ec7-176">You may need to clear your shell's command hash cache.</span></span> <span data-ttu-id="67ec7-177">Executar</span><span class="sxs-lookup"><span data-stu-id="67ec7-177">Run</span></span>
+<span data-ttu-id="7f51a-170">Talvez seja necessário limpar o cache de hash de comando do shell.</span><span class="sxs-lookup"><span data-stu-id="7f51a-170">You may need to clear your shell's command hash cache.</span></span> <span data-ttu-id="7f51a-171">Executar</span><span class="sxs-lookup"><span data-stu-id="7f51a-171">Run</span></span>
 
 ```bash
 hash -r
 ```
 
-<span data-ttu-id="67ec7-178">e ver se o problema foi resolvido.</span><span class="sxs-lookup"><span data-stu-id="67ec7-178">and see if the problem is resolved.</span></span> <span data-ttu-id="67ec7-179">O comando também pode não estar em seu `$PATH`.</span><span class="sxs-lookup"><span data-stu-id="67ec7-179">The command may also not be in your `$PATH`.</span></span> <span data-ttu-id="67ec7-180">Verifique se `<install path>/bin` aparece em seu `$PATH` e reinicie o shell se necessário.</span><span class="sxs-lookup"><span data-stu-id="67ec7-180">Make sure that `<install path>/bin` appears in your `$PATH`, and restart your shell if necessary.</span></span>
+<span data-ttu-id="7f51a-172">e ver se o problema foi resolvido.</span><span class="sxs-lookup"><span data-stu-id="7f51a-172">and see if the problem is resolved.</span></span> <span data-ttu-id="7f51a-173">O comando também pode não estar em seu `$PATH`.</span><span class="sxs-lookup"><span data-stu-id="7f51a-173">The command may also not be in your `$PATH`.</span></span> <span data-ttu-id="7f51a-174">Verifique se `<install path>/bin` aparece em seu `$PATH` e reinicie o shell se necessário.</span><span class="sxs-lookup"><span data-stu-id="7f51a-174">Make sure that `<install path>/bin` appears in your `$PATH`, and restart your shell if necessary.</span></span>
 
-## <a name="uninstall-cli-1x-versions"></a><span data-ttu-id="67ec7-181">Desinstale as versões 1.x da CLI</span><span class="sxs-lookup"><span data-stu-id="67ec7-181">Uninstall CLI 1.x versions</span></span>
+## <a name="uninstall-cli-1x-versions"></a><span data-ttu-id="7f51a-175">Desinstale as versões 1.x da CLI</span><span class="sxs-lookup"><span data-stu-id="7f51a-175">Uninstall CLI 1.x versions</span></span>
 
-<span data-ttu-id="67ec7-182">Se você tiver uma versão anterior a 1.x da CLI disponível em seu sistema, você pode desinstalá-la com base no tipo de instalação usada.</span><span class="sxs-lookup"><span data-stu-id="67ec7-182">If you have an earlier CLI 1.x version available on your system, you can uninstall it based upon the type of install used.</span></span>
+<span data-ttu-id="7f51a-176">Se você tiver uma versão anterior a 1.x da CLI disponível em seu sistema, você pode desinstalá-la com base no tipo de instalação usada.</span><span class="sxs-lookup"><span data-stu-id="7f51a-176">If you have an earlier CLI 1.x version available on your system, you can uninstall it based upon the type of install used.</span></span>
 
-### <a name="uninstall-with-npm"></a><span data-ttu-id="67ec7-183">Desinstalar com NPM</span><span class="sxs-lookup"><span data-stu-id="67ec7-183">Uninstall with npm</span></span>
+### <a name="uninstall-with-npm"></a><span data-ttu-id="7f51a-177">Desinstalar com NPM</span><span class="sxs-lookup"><span data-stu-id="7f51a-177">Uninstall with npm</span></span>
 
-<span data-ttu-id="67ec7-184">Remover a CLI mais antiga com `npm uninstall`.</span><span class="sxs-lookup"><span data-stu-id="67ec7-184">Remove the older CLI with `npm uninstall`.</span></span>
+<span data-ttu-id="7f51a-178">Remover a CLI mais antiga com `npm uninstall`.</span><span class="sxs-lookup"><span data-stu-id="7f51a-178">Remove the older CLI with `npm uninstall`.</span></span>
 
   ```bash
   npm uninstall -g azure-cli
   ```
 
-### <a name="uninstall-with-distributable"></a><span data-ttu-id="67ec7-185">Desinstalar com distribuível</span><span class="sxs-lookup"><span data-stu-id="67ec7-185">Uninstall with distributable</span></span>
+### <a name="uninstall-with-distributable"></a><span data-ttu-id="7f51a-179">Desinstalar com distribuível</span><span class="sxs-lookup"><span data-stu-id="7f51a-179">Uninstall with distributable</span></span>
 
-<span data-ttu-id="67ec7-186">Se você tiver instalado por meio do [Instalador da CLI do Azure (MSI)](http://aka.ms/webpi-azure-cli) ou de um [pacote de macOS](http://aka.ms/mac-azure-cli), use a mesma ferramenta para remover a instalação.</span><span class="sxs-lookup"><span data-stu-id="67ec7-186">If you installed via the [Azure CLI Installer (MSI)](http://aka.ms/webpi-azure-cli) or a [macOS package](http://aka.ms/mac-azure-cli), use the same tool to remove your install.</span></span>
+<span data-ttu-id="7f51a-180">Se você tiver instalado por meio do [Instalador da CLI do Azure (MSI)](http://aka.ms/webpi-azure-cli) ou de um [pacote de macOS](http://aka.ms/mac-azure-cli), use a mesma ferramenta para remover a instalação.</span><span class="sxs-lookup"><span data-stu-id="7f51a-180">If you installed via the [Azure CLI Installer (MSI)](http://aka.ms/webpi-azure-cli) or a [macOS package](http://aka.ms/mac-azure-cli), use the same tool to remove your install.</span></span>
 
-### <a name="uninstall-with-docker"></a><span data-ttu-id="67ec7-187">Desinstalar com o Docker</span><span class="sxs-lookup"><span data-stu-id="67ec7-187">Uninstall with Docker</span></span>
+### <a name="uninstall-with-docker"></a><span data-ttu-id="7f51a-181">Desinstalar com o Docker</span><span class="sxs-lookup"><span data-stu-id="7f51a-181">Uninstall with Docker</span></span>
 
-<span data-ttu-id="67ec7-188">Se você instalou uma imagem do Docker para usar a versão anterior da CLI, remova a imagem e qualquer contêiner associado.</span><span class="sxs-lookup"><span data-stu-id="67ec7-188">If you installed a Docker image to use the earlier CLI version, remove that image and any associated containers.</span></span> <span data-ttu-id="67ec7-189">Você pode criar os contêineres novamente depois de instalar a nova imagem do Docker, conforme descrito nas instruções de instalação.</span><span class="sxs-lookup"><span data-stu-id="67ec7-189">You can then re-create the containers after installing the new Docker image as described in the install instructions.</span></span>
+<span data-ttu-id="7f51a-182">Se você instalou uma imagem do Docker para usar a versão anterior da CLI, remova a imagem e qualquer contêiner associado.</span><span class="sxs-lookup"><span data-stu-id="7f51a-182">If you installed a Docker image to use the earlier CLI version, remove that image and any associated containers.</span></span> <span data-ttu-id="7f51a-183">Você pode criar os contêineres novamente depois de instalar a nova imagem do Docker, conforme descrito nas instruções de instalação.</span><span class="sxs-lookup"><span data-stu-id="7f51a-183">You can then re-create the containers after installing the new Docker image as described in the install instructions.</span></span>
 
   ```bash
   docker rmi -f microsoft/azure-cli
   ```
 
-## <a name="update-the-cli"></a><span data-ttu-id="67ec7-190">Atualizar a CLI</span><span class="sxs-lookup"><span data-stu-id="67ec7-190">Update the CLI</span></span>
+## <a name="update-the-cli"></a><span data-ttu-id="7f51a-184">Atualizar a CLI</span><span class="sxs-lookup"><span data-stu-id="7f51a-184">Update the CLI</span></span>
 
-<span data-ttu-id="67ec7-191">Para atualizar a CLI do Azure, use o mesmo método que você usou para instalá-la.</span><span class="sxs-lookup"><span data-stu-id="67ec7-191">To update the Azure CLI, use the same method that you used to install it.</span></span>
+<span data-ttu-id="7f51a-185">Para atualizar a CLI do Azure, use o mesmo método que você usou para instalá-la.</span><span class="sxs-lookup"><span data-stu-id="7f51a-185">To update the Azure CLI, use the same method that you used to install it.</span></span>
 
-### <a name="update-with-homebrew"></a><span data-ttu-id="67ec7-192">Atualizar com o Homebrew</span><span class="sxs-lookup"><span data-stu-id="67ec7-192">Update with Homebrew</span></span>
+### <a name="update-with-homebrew"></a><span data-ttu-id="7f51a-186">Atualizar com o Homebrew</span><span class="sxs-lookup"><span data-stu-id="7f51a-186">Update with Homebrew</span></span>
 
-1. <span data-ttu-id="67ec7-193">Se você tiver instalado manualmente, siga as instruções para [instalar com o Homebrew](#macOS).</span><span class="sxs-lookup"><span data-stu-id="67ec7-193">If you previously installed manually, follow the [install with Homebrew](#macOS) instructions.</span></span>
+1. <span data-ttu-id="7f51a-187">Se você tiver instalado manualmente, siga as instruções para [instalar com o Homebrew](#macOS).</span><span class="sxs-lookup"><span data-stu-id="7f51a-187">If you previously installed manually, follow the [install with Homebrew](#macOS) instructions.</span></span>
 
-2. <span data-ttu-id="67ec7-194">Atualize suas informações de repositório do Homebrew local.</span><span class="sxs-lookup"><span data-stu-id="67ec7-194">Update your local Homebrew repository information.</span></span>
+2. <span data-ttu-id="7f51a-188">Atualize suas informações de repositório do Homebrew local.</span><span class="sxs-lookup"><span data-stu-id="7f51a-188">Update your local Homebrew repository information.</span></span>
 
    ```bash
    brew update
    ```
 
-3. <span data-ttu-id="67ec7-195">Atualize os seus pacotes instalados.</span><span class="sxs-lookup"><span data-stu-id="67ec7-195">Upgrade your installed packages.</span></span>
+3. <span data-ttu-id="7f51a-189">Atualize os seus pacotes instalados.</span><span class="sxs-lookup"><span data-stu-id="7f51a-189">Upgrade your installed packages.</span></span>
 
    ```bash
    brew upgrade
    ```
 
-### <a name="update-with-msi"></a><span data-ttu-id="67ec7-196">Atualizar com MSI</span><span class="sxs-lookup"><span data-stu-id="67ec7-196">Update with MSI</span></span>
+### <a name="update-with-msi"></a><span data-ttu-id="7f51a-190">Atualizar com MSI</span><span class="sxs-lookup"><span data-stu-id="7f51a-190">Update with MSI</span></span>
 
-<span data-ttu-id="67ec7-197">Execute o [Instalador da CLI do Azure (MSI)](https://aka.ms/InstallAzureCliWindows) novamente.</span><span class="sxs-lookup"><span data-stu-id="67ec7-197">Run the [Azure CLI Installer (MSI)](https://aka.ms/InstallAzureCliWindows) again.</span></span>
+<span data-ttu-id="7f51a-191">Execute o [Instalador da CLI do Azure (MSI)](https://aka.ms/InstallAzureCliWindows) novamente.</span><span class="sxs-lookup"><span data-stu-id="7f51a-191">Run the [Azure CLI Installer (MSI)](https://aka.ms/InstallAzureCliWindows) again.</span></span>
 
-### <a name="update-with-apt"></a><span data-ttu-id="67ec7-198">Atualizar com apt</span><span class="sxs-lookup"><span data-stu-id="67ec7-198">Update with apt</span></span>
+### <a name="update-with-apt"></a><span data-ttu-id="7f51a-192">Atualizar com apt</span><span class="sxs-lookup"><span data-stu-id="7f51a-192">Update with apt</span></span>
 
-<span data-ttu-id="67ec7-199">Use `apt-get upgrade` para atualizar o pacote da CLI.</span><span class="sxs-lookup"><span data-stu-id="67ec7-199">Use `apt-get upgrade` to update the CLI package.</span></span>
+<span data-ttu-id="7f51a-193">Use `apt-get upgrade` para atualizar o pacote da CLI.</span><span class="sxs-lookup"><span data-stu-id="7f51a-193">Use `apt-get upgrade` to update the CLI package.</span></span>
 
    ```bash
    sudo apt-get update && sudo apt-get upgrade
    ```
 
 > [!NOTE]
-> <span data-ttu-id="67ec7-200">Isso atualizará todos os pacotes instalados no sistema que não tiveram uma alteração de dependência.</span><span class="sxs-lookup"><span data-stu-id="67ec7-200">This will upgrade all of the installed packages on your system which have not had a dependency change.</span></span>
-> <span data-ttu-id="67ec7-201">Para atualizar somente a CLI, use `apt-get install`.</span><span class="sxs-lookup"><span data-stu-id="67ec7-201">To upgrade only the CLI, use `apt-get install`.</span></span>
+> <span data-ttu-id="7f51a-194">Isso atualizará todos os pacotes instalados no sistema que não tiveram uma alteração de dependência.</span><span class="sxs-lookup"><span data-stu-id="7f51a-194">This will upgrade all of the installed packages on your system which have not had a dependency change.</span></span>
+> <span data-ttu-id="7f51a-195">Para atualizar somente a CLI, use `apt-get install`.</span><span class="sxs-lookup"><span data-stu-id="7f51a-195">To upgrade only the CLI, use `apt-get install`.</span></span>
 > ```bash
 > sudo apt-get update && sudo apt-get install --only-upgrade -y azure-cli
 > ```
 
-### <a name="update-with-yum"></a><span data-ttu-id="67ec7-202">Atualizar com yum</span><span class="sxs-lookup"><span data-stu-id="67ec7-202">Update with yum</span></span>
+### <a name="update-with-yum"></a><span data-ttu-id="7f51a-196">Atualizar com yum</span><span class="sxs-lookup"><span data-stu-id="7f51a-196">Update with yum</span></span>
 
-<span data-ttu-id="67ec7-203">Atualize a CLI do Azure com o comando `yum update`.</span><span class="sxs-lookup"><span data-stu-id="67ec7-203">Update the Azure CLI with the `yum update` command.</span></span>
+<span data-ttu-id="7f51a-197">Atualize a CLI do Azure com o comando `yum update`.</span><span class="sxs-lookup"><span data-stu-id="7f51a-197">Update the Azure CLI with the `yum update` command.</span></span>
 
 ```bash
 yum check-update
 sudo yum update azure-cli
 ```
 
-### <a name="update-with-zypper"></a><span data-ttu-id="67ec7-204">Atualizar com zypper</span><span class="sxs-lookup"><span data-stu-id="67ec7-204">Update with zypper</span></span>
+### <a name="update-with-zypper"></a><span data-ttu-id="7f51a-198">Atualizar com zypper</span><span class="sxs-lookup"><span data-stu-id="7f51a-198">Update with zypper</span></span>
 
-<span data-ttu-id="67ec7-205">Você pode atualizar o pacote com o comando `zypper update`.</span><span class="sxs-lookup"><span data-stu-id="67ec7-205">You can update the package with the `zypper update` command.</span></span>
+<span data-ttu-id="7f51a-199">Você pode atualizar o pacote com o comando `zypper update`.</span><span class="sxs-lookup"><span data-stu-id="7f51a-199">You can update the package with the `zypper update` command.</span></span>
 
 ```bash
 sudo zypper refresh
 sudo zypper update azure-cli
 ```
 
-### <a name="update-with-docker"></a><span data-ttu-id="67ec7-206">Atualizar com o Docker</span><span class="sxs-lookup"><span data-stu-id="67ec7-206">Update with Docker</span></span>
+### <a name="update-with-docker"></a><span data-ttu-id="7f51a-200">Atualizar com o Docker</span><span class="sxs-lookup"><span data-stu-id="7f51a-200">Update with Docker</span></span>
 
-1. <span data-ttu-id="67ec7-207">Atualizar sua imagem local com `docker pull`.</span><span class="sxs-lookup"><span data-stu-id="67ec7-207">Update your local image with `docker pull`.</span></span>
+1. <span data-ttu-id="7f51a-201">Atualizar sua imagem local com `docker pull`.</span><span class="sxs-lookup"><span data-stu-id="7f51a-201">Update your local image with `docker pull`.</span></span>
 
    ```bash
    docker pull azuresdk/azure-cli-python
    ```
 
-2. <span data-ttu-id="67ec7-208">Obter os contêineres atuais usando a imagem CLI.</span><span class="sxs-lookup"><span data-stu-id="67ec7-208">Get the containers currently using the CLI image.</span></span>
+2. <span data-ttu-id="7f51a-202">Obter os contêineres atuais usando a imagem CLI.</span><span class="sxs-lookup"><span data-stu-id="7f51a-202">Get the containers currently using the CLI image.</span></span>
 
    ```bash
    docker container ls -a --filter 'ancestor=azuresdk/azure-cli-python'
@@ -369,9 +366,9 @@ sudo zypper update azure-cli
    ```
 
 > [!NOTE]
-> <span data-ttu-id="67ec7-209">Se você instalou uma versão específica da imagem, você precisará adicionar `:<version>` ao final do nome da imagem.</span><span class="sxs-lookup"><span data-stu-id="67ec7-209">If you installed a specific version of the image, you will need to add `:<version>` to the end of the image name.</span></span>
+> <span data-ttu-id="7f51a-203">Se você instalou uma versão específica da imagem, você precisará adicionar `:<version>` ao final do nome da imagem.</span><span class="sxs-lookup"><span data-stu-id="7f51a-203">If you installed a specific version of the image, you will need to add `:<version>` to the end of the image name.</span></span>
 
-3. <span data-ttu-id="67ec7-210">Interromper e recriar os contêineres.</span><span class="sxs-lookup"><span data-stu-id="67ec7-210">Halt and recreate the containers.</span></span>
+3. <span data-ttu-id="7f51a-204">Interromper e recriar os contêineres.</span><span class="sxs-lookup"><span data-stu-id="7f51a-204">Halt and recreate the containers.</span></span>
 
    ```bash
    docker stop inspiring_benz
@@ -379,81 +376,81 @@ sudo zypper update azure-cli
    docker run azuresdk/azure-cli-python
    ```
 
-### <a name="update-manually"></a><span data-ttu-id="67ec7-211">Atualizar manualmente</span><span class="sxs-lookup"><span data-stu-id="67ec7-211">Update manually</span></span>
+### <a name="update-manually"></a><span data-ttu-id="7f51a-205">Atualizar manualmente</span><span class="sxs-lookup"><span data-stu-id="7f51a-205">Update manually</span></span>
 
-<span data-ttu-id="67ec7-212">Siga as instruções de instalação manual para [macOS](#macOS) ou [Linux](#Linux) para atualizar.</span><span class="sxs-lookup"><span data-stu-id="67ec7-212">Follow the manual installation instructions for [macOS](#macOS) or [Linux](#Linux) to update.</span></span>
+<span data-ttu-id="7f51a-206">Siga as instruções de instalação manual para [macOS](#macOS) ou [Linux](#Linux) para atualizar.</span><span class="sxs-lookup"><span data-stu-id="7f51a-206">Follow the manual installation instructions for [macOS](#macOS) or [Linux](#Linux) to update.</span></span>
 
-## <a name="uninstall"></a><span data-ttu-id="67ec7-213">Desinstalar</span><span class="sxs-lookup"><span data-stu-id="67ec7-213">Uninstall</span></span>
+## <a name="uninstall"></a><span data-ttu-id="7f51a-207">Desinstalar</span><span class="sxs-lookup"><span data-stu-id="7f51a-207">Uninstall</span></span>
 
-<span data-ttu-id="67ec7-214">Se você decidir desinstalar a CLI, lamentamos a sua saída.</span><span class="sxs-lookup"><span data-stu-id="67ec7-214">If you decide to uninstall the CLI, we're sorry to see you go.</span></span> <span data-ttu-id="67ec7-215">Você deve desinstalar usando o mesmo método que você usou para instalar a CLI.</span><span class="sxs-lookup"><span data-stu-id="67ec7-215">You should uninstall using the same method that you used to install the CLI.</span></span>
+<span data-ttu-id="7f51a-208">Se você decidir desinstalar a CLI, lamentamos a sua saída.</span><span class="sxs-lookup"><span data-stu-id="7f51a-208">If you decide to uninstall the CLI, we're sorry to see you go.</span></span> <span data-ttu-id="7f51a-209">Você deve desinstalar usando o mesmo método que você usou para instalar a CLI.</span><span class="sxs-lookup"><span data-stu-id="7f51a-209">You should uninstall using the same method that you used to install the CLI.</span></span>
 
-### <a name="uninstall-with-homebrew"></a><span data-ttu-id="67ec7-216">Desinstalar com o Homebrew</span><span class="sxs-lookup"><span data-stu-id="67ec7-216">Uninstall with Homebrew</span></span>
+### <a name="uninstall-with-homebrew"></a><span data-ttu-id="7f51a-210">Desinstalar com o Homebrew</span><span class="sxs-lookup"><span data-stu-id="7f51a-210">Uninstall with Homebrew</span></span>
 
-<span data-ttu-id="67ec7-217">Desinstalar o pacote `azure-cli`.</span><span class="sxs-lookup"><span data-stu-id="67ec7-217">Uninstall the `azure-cli` package.</span></span>
+<span data-ttu-id="7f51a-211">Desinstalar o pacote `azure-cli`.</span><span class="sxs-lookup"><span data-stu-id="7f51a-211">Uninstall the `azure-cli` package.</span></span>
 
    ```bash
    brew uninstall azure-cli
    ```
 
-### <a name="uninstall-with-msi"></a><span data-ttu-id="67ec7-218">Desinstalar com MSI</span><span class="sxs-lookup"><span data-stu-id="67ec7-218">Uninstall with MSI</span></span>
+### <a name="uninstall-with-msi"></a><span data-ttu-id="7f51a-212">Desinstalar com MSI</span><span class="sxs-lookup"><span data-stu-id="7f51a-212">Uninstall with MSI</span></span>
 
-<span data-ttu-id="67ec7-219">Execute o [MSI](https://aka.ms/InstallAzureCliWindows) novamente e escolha Desinstalar.</span><span class="sxs-lookup"><span data-stu-id="67ec7-219">Run the [MSI](https://aka.ms/InstallAzureCliWindows) again and choose uninstall.</span></span>
+<span data-ttu-id="7f51a-213">Execute o [MSI](https://aka.ms/InstallAzureCliWindows) novamente e escolha Desinstalar.</span><span class="sxs-lookup"><span data-stu-id="7f51a-213">Run the [MSI](https://aka.ms/InstallAzureCliWindows) again and choose uninstall.</span></span>
 
-### <a name="uninstall-with-apt"></a><span data-ttu-id="67ec7-220">Desinstalar com apt</span><span class="sxs-lookup"><span data-stu-id="67ec7-220">Uninstall with apt</span></span>
+### <a name="uninstall-with-apt"></a><span data-ttu-id="7f51a-214">Desinstalar com apt</span><span class="sxs-lookup"><span data-stu-id="7f51a-214">Uninstall with apt</span></span>
 
-<span data-ttu-id="67ec7-221">Desinstalar através de `apt-get remove`:</span><span class="sxs-lookup"><span data-stu-id="67ec7-221">Uninstall via `apt-get remove`:</span></span>
+<span data-ttu-id="7f51a-215">Desinstalar através de `apt-get remove`:</span><span class="sxs-lookup"><span data-stu-id="7f51a-215">Uninstall via `apt-get remove`:</span></span>
 
   ```bash
   sudo apt-get remove -y azure-cli
   ```
 
-### <a name="uninstall-with-yum"></a><span data-ttu-id="67ec7-222">Desinstalar com yum</span><span class="sxs-lookup"><span data-stu-id="67ec7-222">Uninstall with yum</span></span>
+### <a name="uninstall-with-yum"></a><span data-ttu-id="7f51a-216">Desinstalar com yum</span><span class="sxs-lookup"><span data-stu-id="7f51a-216">Uninstall with yum</span></span>
 
-1. <span data-ttu-id="67ec7-223">Remova o pacote do seu sistema.</span><span class="sxs-lookup"><span data-stu-id="67ec7-223">Remove the package from your system.</span></span>
+1. <span data-ttu-id="7f51a-217">Remova o pacote do seu sistema.</span><span class="sxs-lookup"><span data-stu-id="7f51a-217">Remove the package from your system.</span></span>
 
    ```bash
    sudo yum remove azure-cli
    ```
 
-2. <span data-ttu-id="67ec7-224">Se você não pretende reinstalar a CLI, remova as informações do repositório.</span><span class="sxs-lookup"><span data-stu-id="67ec7-224">If you do not plan to reinstall the CLI, remove the repository information.</span></span>
+2. <span data-ttu-id="7f51a-218">Se você não pretende reinstalar a CLI, remova as informações do repositório.</span><span class="sxs-lookup"><span data-stu-id="7f51a-218">If you do not plan to reinstall the CLI, remove the repository information.</span></span>
 
    ```bash
    sudo rm /etc/yum.repos.d/azure-cli.repo
    ```
 
-3. <span data-ttu-id="67ec7-225">Se você removeu as informações do repositório, remova também a chave de assinatura do Microsoft GPG.</span><span class="sxs-lookup"><span data-stu-id="67ec7-225">If you removed the repository information, also remove the Microsoft GPG signature key.</span></span>
+3. <span data-ttu-id="7f51a-219">Se você removeu as informações do repositório, remova também a chave de assinatura do Microsoft GPG.</span><span class="sxs-lookup"><span data-stu-id="7f51a-219">If you removed the repository information, also remove the Microsoft GPG signature key.</span></span>
 
   ```bash
   MSFT_KEY=`rpm -qa gpg-pubkey /* --qf "%{version}-%{release} %{summary}\n" | grep Microsoft | awk '{print $1}'`
   rpm -e --allmatches gpg-pubkey-$MSFT_KEY
   ```
 
-### <a name="uninstall-with-zypper"></a><span data-ttu-id="67ec7-226">Desinstalar com zypper</span><span class="sxs-lookup"><span data-stu-id="67ec7-226">Uninstall with zypper</span></span>
+### <a name="uninstall-with-zypper"></a><span data-ttu-id="7f51a-220">Desinstalar com zypper</span><span class="sxs-lookup"><span data-stu-id="7f51a-220">Uninstall with zypper</span></span>
 
-1. <span data-ttu-id="67ec7-227">Remova o pacote do seu sistema.</span><span class="sxs-lookup"><span data-stu-id="67ec7-227">Remove the package from your system.</span></span>
+1. <span data-ttu-id="7f51a-221">Remova o pacote do seu sistema.</span><span class="sxs-lookup"><span data-stu-id="7f51a-221">Remove the package from your system.</span></span>
 
     ```bash
     sudo zypper remove -y azure-cli
     ```
 
-2. <span data-ttu-id="67ec7-228">Se você não pretende reinstalar a CLI, remova as informações do repositório.</span><span class="sxs-lookup"><span data-stu-id="67ec7-228">If you do not plan to reinstall the CLI, remove the repository information.</span></span>
+2. <span data-ttu-id="7f51a-222">Se você não pretende reinstalar a CLI, remova as informações do repositório.</span><span class="sxs-lookup"><span data-stu-id="7f51a-222">If you do not plan to reinstall the CLI, remove the repository information.</span></span>
 
   ```bash
   sudo rm /etc/zypp/repos.d/azure-cli.repo
   ```
 
-3. <span data-ttu-id="67ec7-229">Se você removeu as informações do repositório, remova também a chave de assinatura do Microsoft GPG.</span><span class="sxs-lookup"><span data-stu-id="67ec7-229">If you removed the repository information, also remove the Microsoft GPG signature key.</span></span>
+3. <span data-ttu-id="7f51a-223">Se você removeu as informações do repositório, remova também a chave de assinatura do Microsoft GPG.</span><span class="sxs-lookup"><span data-stu-id="7f51a-223">If you removed the repository information, also remove the Microsoft GPG signature key.</span></span>
 
   ```bash
   MSFT_KEY=`rpm -qa gpg-pubkey /* --qf "%{version}-%{release} %{summary}\n" | grep Microsoft | awk '{print $1}'`
   rpm -e --allmatches gpg-pubkey-$MSFT_KEY
   ```
 
-### <a name="uninstall-with-docker"></a><span data-ttu-id="67ec7-230">Desinstalar com o Docker</span><span class="sxs-lookup"><span data-stu-id="67ec7-230">Uninstall with Docker</span></span>
+### <a name="uninstall-with-docker"></a><span data-ttu-id="7f51a-224">Desinstalar com o Docker</span><span class="sxs-lookup"><span data-stu-id="7f51a-224">Uninstall with Docker</span></span>
 
-<span data-ttu-id="67ec7-231">Se você instalou uma imagem do Docker, será necessário remover qualquer contêiner que a estiver executando e, em seguida, excluir a imagem local.</span><span class="sxs-lookup"><span data-stu-id="67ec7-231">If you installed a docker image, you will need to remove any containers running it, and then delete the local image.</span></span>
+<span data-ttu-id="7f51a-225">Se você instalou uma imagem do Docker, será necessário remover qualquer contêiner que a estiver executando e, em seguida, excluir a imagem local.</span><span class="sxs-lookup"><span data-stu-id="7f51a-225">If you installed a docker image, you will need to remove any containers running it, and then delete the local image.</span></span>
 
-1. <span data-ttu-id="67ec7-232">Obtenha os contêineres que estão executando a imagem da CLI do Azure.</span><span class="sxs-lookup"><span data-stu-id="67ec7-232">Get the containers which are running the azure-cli image.</span></span>
+1. <span data-ttu-id="7f51a-226">Obtenha os contêineres que estão executando a imagem da CLI do Azure.</span><span class="sxs-lookup"><span data-stu-id="7f51a-226">Get the containers which are running the azure-cli image.</span></span>
 
    ```bash
    docker container ls -a --filter 'ancestor=azuresdk/azure-cli-python'
@@ -464,44 +461,44 @@ sudo zypper update azure-cli
    34a868beb2ab        azuresdk/azure-cli-python:latest      "/bin/sh -c bash"   8 minutes ago       Exited (0) 8 minutes ago                       inspiring_benz
    ```
 
-2. <span data-ttu-id="67ec7-233">Exclua todos os contêineres com a imagem da CLI.</span><span class="sxs-lookup"><span data-stu-id="67ec7-233">Delete any containers with the CLI image.</span></span>
+2. <span data-ttu-id="7f51a-227">Exclua todos os contêineres com a imagem da CLI.</span><span class="sxs-lookup"><span data-stu-id="7f51a-227">Delete any containers with the CLI image.</span></span>
 
    ```bash
    docker rm 34a868beb2ab
    ```
 
-3. <span data-ttu-id="67ec7-234">Remova a imagem da CLI instalada localmente.</span><span class="sxs-lookup"><span data-stu-id="67ec7-234">Remove the locally installed CLI image.</span></span>
+3. <span data-ttu-id="7f51a-228">Remova a imagem da CLI instalada localmente.</span><span class="sxs-lookup"><span data-stu-id="7f51a-228">Remove the locally installed CLI image.</span></span>
 
    ```bash
    docker rmi azuresdk/azure-cli-python
    ```
 
 > [!NOTE]
-> <span data-ttu-id="67ec7-235">Se você instalou uma versão específica da imagem, você precisará adicionar `:<version>` ao final do nome da imagem.</span><span class="sxs-lookup"><span data-stu-id="67ec7-235">If you installed a specific version of the image, you will need to add `:<version>` to the end of the image name.</span></span>
+> <span data-ttu-id="7f51a-229">Se você instalou uma versão específica da imagem, você precisará adicionar `:<version>` ao final do nome da imagem.</span><span class="sxs-lookup"><span data-stu-id="7f51a-229">If you installed a specific version of the image, you will need to add `:<version>` to the end of the image name.</span></span>
 
-###<a name="a-nameuninstallmanuallyuninstall-manually"></a><span data-ttu-id="67ec7-236"><a name="UninstallManually"/>Desinstalar manualmente</span><span class="sxs-lookup"><span data-stu-id="67ec7-236"><a name="UninstallManually"/>Uninstall manually</span></span>
+###<a name="a-nameuninstallmanuallyuninstall-manually"></a><span data-ttu-id="7f51a-230"><a name="UninstallManually"/>Desinstalar manualmente</span><span class="sxs-lookup"><span data-stu-id="7f51a-230"><a name="UninstallManually"/>Uninstall manually</span></span>
 
-<span data-ttu-id="67ec7-237">Se você usou o script em https://aka.ms/InstallAzureCli para instalar a CLI, é possível desinstalá-la com estas etapas.</span><span class="sxs-lookup"><span data-stu-id="67ec7-237">If you used the script at https://aka.ms/InstallAzureCli to install the CLI, you can uninstall it with these steps.</span></span>
+<span data-ttu-id="7f51a-231">Se você usou o script em https://aka.ms/InstallAzureCli para instalar a CLI, é possível desinstalá-la com estas etapas.</span><span class="sxs-lookup"><span data-stu-id="7f51a-231">If you used the script at https://aka.ms/InstallAzureCli to install the CLI, you can uninstall it with these steps.</span></span>
 
-1. <span data-ttu-id="67ec7-238">Remova os arquivos instalados.</span><span class="sxs-lookup"><span data-stu-id="67ec7-238">Remove the installed files.</span></span>
+1. <span data-ttu-id="7f51a-232">Remova os arquivos instalados.</span><span class="sxs-lookup"><span data-stu-id="7f51a-232">Remove the installed files.</span></span>
 
    ```bash
    rm -r <install location>/lib/azure-cli
    rm <install location>/bin/az
    ```
 
-2. <span data-ttu-id="67ec7-239">Exclua a linha `<install location>/lib/azure-cli/az.completion` de `<install location>/.bash_profile`.</span><span class="sxs-lookup"><span data-stu-id="67ec7-239">Delete the line `<install location>/lib/azure-cli/az.completion` from `<install location>/.bash_profile`.</span></span>
+2. <span data-ttu-id="7f51a-233">Exclua a linha `<install location>/lib/azure-cli/az.completion` de `<install location>/.bash_profile`.</span><span class="sxs-lookup"><span data-stu-id="7f51a-233">Delete the line `<install location>/lib/azure-cli/az.completion` from `<install location>/.bash_profile`.</span></span>
 
-3. <span data-ttu-id="67ec7-240">Se o shell usa um cache de comando, recarregue-o.</span><span class="sxs-lookup"><span data-stu-id="67ec7-240">If your shell uses a command cache, reload it.</span></span>
+3. <span data-ttu-id="7f51a-234">Se o shell usa um cache de comando, recarregue-o.</span><span class="sxs-lookup"><span data-stu-id="7f51a-234">If your shell uses a command cache, reload it.</span></span>
 
    ```bash
    hash -r
    ```
 
 > [!Note]
-> <span data-ttu-id="67ec7-241">O local de instalação padrão é `/Users/<username>` para o macOS e `/home/<username>` para o Linux.</span><span class="sxs-lookup"><span data-stu-id="67ec7-241">The default install location is `/Users/<username>` for macOS and `/home/<username>` for Linux.</span></span>
+> <span data-ttu-id="7f51a-235">O local de instalação padrão é `/Users/<username>` para o macOS e `/home/<username>` para o Linux.</span><span class="sxs-lookup"><span data-stu-id="7f51a-235">The default install location is `/Users/<username>` for macOS and `/home/<username>` for Linux.</span></span>
 
-## <a name="report-cli-issues-and-feedback"></a><span data-ttu-id="67ec7-242">Relatar comentários e problemas da CLI</span><span class="sxs-lookup"><span data-stu-id="67ec7-242">Report CLI issues and feedback</span></span>
+## <a name="report-cli-issues-and-feedback"></a><span data-ttu-id="7f51a-236">Relatar comentários e problemas da CLI</span><span class="sxs-lookup"><span data-stu-id="7f51a-236">Report CLI issues and feedback</span></span>
 
-<span data-ttu-id="67ec7-243">Se você encontrar bugs na ferramenta, faça o registro do problema na seção [Problemas](https://github.com/Azure/azure-cli/issues) do nosso repositório do GitHub.</span><span class="sxs-lookup"><span data-stu-id="67ec7-243">If you encounter any bugs with the tool, file an issue in the [Issues](https://github.com/Azure/azure-cli/issues) section of our GitHub repository.</span></span>
-<span data-ttu-id="67ec7-244">Para fornecer comentários na linha de comando, use o comando `az feedback`.</span><span class="sxs-lookup"><span data-stu-id="67ec7-244">To provide feedback from the command line, use the `az feedback` command.</span></span>
+<span data-ttu-id="7f51a-237">Se você encontrar bugs na ferramenta, faça o registro do problema na seção [Problemas](https://github.com/Azure/azure-cli/issues) do nosso repositório do GitHub.</span><span class="sxs-lookup"><span data-stu-id="7f51a-237">If you encounter any bugs with the tool, file an issue in the [Issues](https://github.com/Azure/azure-cli/issues) section of our GitHub repository.</span></span>
+<span data-ttu-id="7f51a-238">Para fornecer comentários na linha de comando, use o comando `az feedback`.</span><span class="sxs-lookup"><span data-stu-id="7f51a-238">To provide feedback from the command line, use the `az feedback` command.</span></span>
