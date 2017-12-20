@@ -12,11 +12,11 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: ea5c0ee1-c530-4a1e-a83f-e1be71f6d416
-ms.openlocfilehash: 36429bb23f392ff6210a9c99885df83f53768386
-ms.sourcegitcommit: 5fc7d8ccf2304c5a12fb99a80f0b00a0ad2c34e9
+ms.openlocfilehash: 5a667ad8720100b45ff714601225535ef442545c
+ms.sourcegitcommit: 2e4d0bdd94c626e061434883032367b5619de4fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="install-azure-cli-20"></a>Instalar a CLI 2.0 do Azure
 
@@ -70,12 +70,12 @@ No macOS, é possível instalar qualquer um com [Homebrew](https://brew.sh/) ou 
    ```bash
    exec -l $SHELL
    ```
-   
+
 3. Execute a CLI no prompt de comando com o comando `az`.
 
 ## <a name="install-on-windows"></a>Instalar no Windows
 
-### <a name="install-with-msi-for-the-windows-command-line"></a>Instalar com MSI para a linha de comando do Windows 
+### <a name="install-with-msi-for-the-windows-command-line"></a>Instalar com MSI para a linha de comando do Windows
 
 Para instalar a CLI no Windows e usá-la na linha de comando do Windows, baixe e execute o [Instalador da CLI do Azure (MSI)](https://aka.ms/InstallAzureCliWindows).
 
@@ -102,15 +102,14 @@ Para instalar a CLI no Windows e usá-la na linha de comando do Windows, baixe e
 
 5.  Execute a CLI no prompt de comando com o comando `az`.
 
-## <a name="install-with-apt-package-manager"></a>Instalar com gerenciador de pacotes apt 
+## <a name="install-with-apt-package-manager"></a>Instalar com gerenciador de pacotes apt
 
 Para obter distribuições usando o gerenciador de pacote `apt` como Ubuntu ou Debian, você pode instalar a CLI do Azure 2.0 via `apt-get`.
 
-> [!NOTE]
-> Você deve ter o Python 2.7.x ou Python 3.x para usar a CLI. Se a distribuição não tiver um pacote para cada um, [instale o Python](https://www.python.org/downloads/).
+[!INCLUDE [linux-install-requirements.md](includes/linux-install-requirements.md)]
 
 1. Modifique sua lista de fontes:
- 
+
    - sistema de 32 bits
 
      ```bash
@@ -139,8 +138,7 @@ Para obter distribuições usando o gerenciador de pacote `apt` como Ubuntu ou D
 
 Para as distribuições que usam o gerenciador de pacotes `yum` como Red Hat Enterprise Linux (RHEL), Fedora ou CentOS, você pode instalar o CLI do Azure 2.0 via `yum`.
 
-> [!NOTE]
-> Você deve ter o Python 2.7.x ou Python 3.x para usar a CLI. Se a distribuição não tiver um pacote para cada um, [instale o Python](https://www.python.org/downloads/).
+[!INCLUDE [linux-install-requirements.md](includes/linux-install-requirements.md)]
 
 1. Importe a chave de repositório da Microsoft:
 
@@ -167,8 +165,7 @@ Para as distribuições que usam o gerenciador de pacotes `yum` como Red Hat Ent
 
 Para distribuições que usam o gerenciador de pacotes `zypper` como OpenSUSE ou SLE, instale a CLI do Azure 2.0 via `zypper`.
 
-> [!NOTE]
-> Você deve ter o Python 2.7.x ou Python 3.x para usar a CLI. Se a distribuição não tiver um pacote para cada um, [instale o Python](https://www.python.org/downloads/).
+[!INCLUDE [linux-install-requirements.md](includes/linux-install-requirements.md)]
 
 1. Importe a chave de repositório da Microsoft:
 
@@ -230,7 +227,7 @@ A CLI está instalada na imagem como o comando `az` no `/usr/local/bin`.
    SUSE OpenSUSE 13.2    | sudo zypper refresh && sudo zypper --non-interactive install curl gcc python python-xml libffi-devel python-devel openssl-devel
    ```
 
-Se a distribuição não estiver listada acima, você precisará instalar o [Python 2.7 ou posterior](https://www.python.org/downloads/), [libffi](https://sourceware.org/libffi/) e [OpenSSL](https://www.openssl.org/source/).
+Se a distribuição não estiver listada acima, você precisará instalar o [Python 2.7 ou posterior](https://www.python.org/downloads/), [libffi](https://sourceware.org/libffi/) e [OpenSSL 1.0.2](https://www.openssl.org/source/).
 
 2. Instalar a CLI com `curl`.
 
