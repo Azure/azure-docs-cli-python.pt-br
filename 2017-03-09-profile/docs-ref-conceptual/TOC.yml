@@ -38,6 +38,8 @@
       href: query-azure-cli.md
     - name: Extensões
       href: azure-cli-extensions.md
+    - name: Definições de configuração
+      href: azure-cli-Configuration.md
     - name: Notas de versão
       href: release-notes-azure-cli.md?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
 - name: Exemplos de Scripts

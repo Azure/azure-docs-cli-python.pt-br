@@ -12,11 +12,11 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: 98fb955e-6dbf-47e2-80ac-170d6d95cb70
-ms.openlocfilehash: b4544d75aa279b5477f8497257d39182472fae71
-ms.sourcegitcommit: 905939cc44764b4d1cc79a9b36c0793f7055a686
+ms.openlocfilehash: 0f453ad1bff621250c8aa3147b5f5e916e712e30
+ms.sourcegitcommit: 16426a08c0f2f62d0b9dca3df8132cece659acff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="manage-multiple-azure-subscriptions"></a>Gerenciar várias assinaturas do Azure
 
@@ -27,7 +27,7 @@ A maioria dos usuários do Azure terá somente uma assinatura. No entanto, se vo
 Talvez você tenha alguma confusão sobre a diferença entre locatários, usuários e assinaturas no Azure. Em geral, um _locatário_ é a entidade do Azure Active Directory que abrange toda a organização. Esse locatário tem pelo menos uma _assinatura_ e _usuário_. Um usuário é um indivíduo e é associado a somente um locatário, a organização à qual pertence. Os usuários são as contas que fazem logon no Azure para provisionar e usar os recursos. Um usuário pode ter acesso a várias _assinaturas_, que são contratos com a Microsoft para usar os serviços de nuvem, incluindo o Azure. Cada recurso é associado a uma assinatura.
 
 Para saber mais sobre as diferenças entre locatários, usuários e assinaturas, confira o [dicionário de terminologia de nuvem do Azure](/azure/azure-glossary-cloud-terminology).
-Para saber como adicionar uma nova assinatura ao seu locatário do Azure Active Directory, confira [Como adicionar uma assinatura do Azure ao Azure Active Directory](/en-us/azure/active-directory/active-directory-how-subscriptions-associated-directory).
+Para saber como adicionar uma nova assinatura ao seu locatário do Azure Active Directory, confira [Como adicionar uma assinatura do Azure ao Azure Active Directory](/azure/active-directory/active-directory-how-subscriptions-associated-directory).
 
 ## <a name="working-with-multiple-subscriptions"></a>Trabalhando com várias assinaturas
 
