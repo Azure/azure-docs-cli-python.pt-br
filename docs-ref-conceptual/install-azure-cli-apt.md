@@ -13,10 +13,10 @@ ms.devlang: azurecli
 ms.service: multiple
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 75c531a13a4b730158cd2e874cb6c5d581a27598
-ms.sourcegitcommit: 2e4d0bdd94c626e061434883032367b5619de4fe
+ms.sourcegitcommit: 3eef136ae752eb90c67af604d4ddd298d70b1c9d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="install-azure-cli-20-with-apt"></a>Instalar CLI do Azure 2.0 com o apt
 
@@ -52,7 +52,7 @@ Se você estiver executando uma distribuição que vem com o `apt`, como o Ubunt
 
 É possível executar a CLI do Azure com o comando `az`.
 
-## <a name="update"></a>Atualização
+## <a name="update"></a>Atualizar
 
 Use `apt-get upgrade` para atualizar o pacote da CLI.
 

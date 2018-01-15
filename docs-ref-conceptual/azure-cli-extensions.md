@@ -12,10 +12,10 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.openlocfilehash: a76e58c4430a184d133cca0ef0623f325aeb2f27
-ms.sourcegitcommit: 2e4d0bdd94c626e061434883032367b5619de4fe
+ms.sourcegitcommit: 3eef136ae752eb90c67af604d4ddd298d70b1c9d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="using-extensions-with-the-azure-cli-20"></a>Usar extensões com a CLI 2.0 do Azure
 
@@ -87,8 +87,8 @@ Uma extensão deve indicar, por meio de sua própria documentação e controle d
 
 ### <a name="can-extensions-depend-upon-each-other"></a>As extensões podem depender umas das outras?
 
-Não. As extensões devem ser pacotes individuais que não dependem um do outro. Isso porque a CLI não oferece nenhuma garantia sobre quando as extensões são carregadas. Assim, não se pode garantir que as dependências sejam atendidas. Ao instalar uma extensão, apenas essa extensão é instalada e ela deve continuar a funcionar mesmo que outras extensões sejam removidas.
+Nº As extensões devem ser pacotes individuais que não dependem um do outro. Isso porque a CLI não oferece nenhuma garantia sobre quando as extensões são carregadas. Assim, não se pode garantir que as dependências sejam atendidas. Ao instalar uma extensão, apenas essa extensão é instalada e ela deve continuar a funcionar mesmo que outras extensões sejam removidas.
 
 ### <a name="are-extensions-updated-along-with-the-cli"></a>As extensões são atualizadas juntamente com a CLI?
 
-Não. As extensões devem ser atualizadas separadamente, conforme descrito na seção [Atualizar extensões](#updating-extensions).
+Nº As extensões devem ser atualizadas separadamente, conforme descrito na seção [Atualizar extensões](#updating-extensions).
