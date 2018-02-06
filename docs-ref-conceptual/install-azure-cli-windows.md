@@ -5,33 +5,39 @@ keywords: CLI do Azure, Instalar CLI do Azure, windows instalar azure, windows d
 author: sptramer
 ms.author: sttramer
 manager: routlaw
-ms.date: 11/01/2017
+ms.date: 01/29/18
 ms.topic: article
 ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 247ae43813ca9ca7b7b98ebd8e933e02989c6649
-ms.sourcegitcommit: 3eef136ae752eb90c67af604d4ddd298d70b1c9d
+ms.openlocfilehash: f2745c05c12a4ed5fb5a25e86a5dec1664651066
+ms.sourcegitcommit: 8606f36963e8daa6448d637393d1e4ef2c9859a0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="install-azure-cli-20-on-windows"></a>Instalar CLI do Azure 2.0 no Windows
 
-No Windows, você pode instalar um binário nativo de um MSI, que pode ser usado com o Prompt de Comando do Windows ou PowerShell. Se você estiver executando o Subsistema do Windows para Linux (WSL), pacotes estarão disponíveis para a distribuição executada. Consulte a [página instalação principal](install-azure-cli.md) para ver a lista de gerenciadores de pacotes com suporte ou como instalar manualmente no WSL.
+No Windows, o binário da CLI do Azure é instalado por meio de uma MSI, o que fornece acesso à CLI por meio do Prompt de Comando do Windows (CMD) ou o PowerShell.
+Se você estiver executando o Subsistema do Windows para Linux (WSL), há pacotes disponíveis para a distribuição do Linux. Consulte a [página instalação principal](install-azure-cli.md) para ver a lista de gerenciadores de pacotes com suporte ou como instalar manualmente no WSL.
 
-## <a name="install-or-update-with-msi"></a>Instalar ou atualizar com o MSI
+## <a name="install-or-update"></a>Instalar ou atualizar
 
-O MSI distribuível é usado para instalar, atualizar e desinstalar o comando `az` no Windows. Você pode [baixar o instalador MSI](https://aka.ms/InstallAzureCliWindows) e executá-lo para instalar ou atualizar.
+O MSI distribuível é usado para instalar, atualizar e desinstalar o comando `az` no Windows.
+
+> [!div class="nextstepaction"]
+> [Baixe o instalador MSI](https://aka.ms/InstallAzureCliWindows)
 
 Quando o instalador perguntar se pode fazer alterações no computador, clique na caixa "Sim".
 
-Agora, você pode executar a CLI do Azure com o comando `az` no Prompt de Comando do Windows ou no PowerShell.
+Agora, você pode executar a CLI do Azure com o comando `az` no Prompt de Comando do Windows ou no PowerShell. O PowerShell oferece alguns recursos de conclusão de guia não disponíveis de CMD.
 
-## <a name="uninstall-with-msi"></a>Desinstalar com MSI
+## <a name="uninstall"></a>Desinstalar
 
-Se você decidiu desinstalar a CLI do Azure, lamentamos sua saída. Antes de desinstalar, use o comando `az feedback` para nos fornecer algumas razões por ter escolhido desinstalar e como poderíamos melhorar a experiência da CLI. Queremos assegurar que a CLI do Azure não tenha bugs e seja amigável o máximo possível. Você também pode [registrar um problema do github](https://github.com/Azure/azure-cli/issues).
+[!INCLUDE [uninstall-boilerplate.md](includes/uninstall-boilerplate.md)]
 
-A desinstalação pode ser feita executando o MSI novamente e escolhendo a opção "Desinstalar". É possível [baixar o instalador MSI](https://aka.ms/InstallAzureCliWindows) se você o não tiver mais disponível.
+A desinstalação pode ser feita executando o MSI novamente e escolhendo a opção "Desinstalar". 
+
+> [!div class="nextstepaction"]
+> [Baixe o instalador MSI](https://aka.ms/InstallAzureCliWindows)
