@@ -3,6 +3,21 @@
   items:
     - name: Instalar
       href: install-azure-cli.md
+      items:
+        - name: macOS
+          href: install-azure-cli-macos.md
+        - name: Windows
+          href: install-azure-cli-windows.md
+        - name: Linux via apt
+          href: install-azure-cli-apt.md
+        - name: Linux via yum
+          href: install-azure-cli-yum.md
+        - name: Linux via zypper
+          href: install-azure-cli-zypper.md
+        - name: Linux
+          href: install-azure-cli-linux.md
+        - name: Executar no Docker
+          href: run-azure-cli-docker.md
     - name: Introdução
       href: get-started-with-azure-cli.md
     - name: Cloud Shell
@@ -58,5 +73,7 @@
       href: /azure/postgresql/sample-scripts-azure-cli?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
     - name: MySQL
       href: /azure/mysql/sample-scripts-azure-cli?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
-    - name: Banco de Dados Cosmos
+    - name: Cosmos DB
       href: /azure/cosmos-db/cli-samples?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
+    - name: Batch
+      href: /azure/batch/cli-samples?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
