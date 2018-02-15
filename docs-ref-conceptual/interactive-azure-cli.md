@@ -1,7 +1,6 @@
 ---
 title: Modo interativo da CLI 2.0 do Azure
 description: Use a CLI 2.0 do Azure no modo interativo.
-keywords: CLI 2.0 do Azure, modo interativo
 author: rloutlaw
 ms.author: routlaw
 manager: douge
@@ -11,12 +10,11 @@ ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.assetid: 
-ms.openlocfilehash: fb260d7385728acd0c699488ecb5b108afefd08c
-ms.sourcegitcommit: dd5b2c7b0b56608ef9ea8730c7dc76e6c532d5ea
+ms.openlocfilehash: 0d32b7a1e754ba28ec1722fe4bf80e5f36b031e2
+ms.sourcegitcommit: b93a19222e116d5880bbe64c03507c64e190331e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2018
+ms.lasthandoff: 02/15/2018
 ---
 # <a name="interactive-azure-cli-20"></a>CLI 2.0 interativa do Azure
 

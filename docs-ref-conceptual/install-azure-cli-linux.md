@@ -1,21 +1,20 @@
 ---
 title: Instalar a CLI do Azure 2.0 para Linux manualmente
 description: Como instalar a CLI do Azure 2.0 no Linux manualmente
-keywords: CLI do Azure, Instalar CLI do Azure, linux do azure, linux instalar azure
 author: sptramer
 ms.author: sttramer
 manager: routlaw
-ms.date: 01/29/18
+ms.date: 01/29/2018
 ms.topic: article
 ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: d8c88d111c50a3cbb6b643a14dcd2a9773699657
-ms.sourcegitcommit: 8606f36963e8daa6448d637393d1e4ef2c9859a0
+ms.openlocfilehash: 4ab1f70308810e045b9a1d923fd809ad9848f6c6
+ms.sourcegitcommit: b93a19222e116d5880bbe64c03507c64e190331e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/15/2018
 ---
 # <a name="install-azure-cli-20-on-linux-manually"></a>Instalar CLI do Azure 2.0 no Linux manualmente
 
@@ -32,7 +31,7 @@ Para instalar a CLI, você precisa dos seguintes softwares disponíveis em seu s
 * [libffi](https://sourceware.org/libffi/)
 * [OpenSSL 1.0.2](https://www.openssl.org/source/)
 
-## <a name="install-or-update"></a>Instalar ou atualizar 
+## <a name="install-or-update"></a>Instalar ou atualizar
 
 Se você estiver instalando ou atualizando a CLI, precisa executar uma instalação completa. Assim que tiver os pré-requisitos, poderá instalar a CLI executando `curl`.
 
@@ -76,19 +75,19 @@ O problema também pode ocorrer se você não reiniciou o shell após a instala�
 Desinstale a CLI excluindo diretamente os arquivos do local escolhido no momento da instalação. O local de instalação padrão é `$HOME`.
 
 1. Remova os arquivos da CLI instalados.
-  
+
   ```bash
   rm -r <install location>/lib/azure-cli
   rm <install location>/bin/az
   ```
 2. Modifique o arquivo `$HOME/.bash_profile` para remover a seguinte linha:
-  
+
   ```
   <install location>/lib/azure-cli/az.completion
   ```
 
 3. Se usar `bash` ou `zsh`, recarregue o cache de comando do shell.
-  
+
   ```bash
   hash -r
   ```

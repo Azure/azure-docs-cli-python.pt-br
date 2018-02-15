@@ -1,21 +1,20 @@
 ---
 title: Instalar a CLI do Azure para Windows
 description: Como instalar a CLI do Azure 2.0 no Windows
-keywords: CLI do Azure, Instalar CLI do Azure, windows instalar azure, windows da cli do azure, windows do azure
 author: sptramer
 ms.author: sttramer
 manager: routlaw
-ms.date: 01/29/18
+ms.date: 01/29/2018
 ms.topic: article
 ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: fc84b80e44a994495ef97cf9d7ec4e4a79a5c5b3
-ms.sourcegitcommit: b41c5ed4a26c771a1a32b4560131f7a65b80fd33
+ms.openlocfilehash: 3e732ea7fae118ddb1564bed28d54d15bab4f7f0
+ms.sourcegitcommit: b93a19222e116d5880bbe64c03507c64e190331e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/15/2018
 ---
 # <a name="install-azure-cli-20-on-windows"></a>Instalar CLI do Azure 2.0 no Windows
 
@@ -37,7 +36,7 @@ Agora, você pode executar a CLI do Azure com o comando `az` no Prompt de Comand
 
 [!INCLUDE [uninstall-boilerplate.md](includes/uninstall-boilerplate.md)]
 
-A desinstalação pode ser feita executando o MSI novamente e escolhendo a opção "Desinstalar". 
+A desinstalação pode ser feita executando o MSI novamente e escolhendo a opção "Desinstalar".
 
 > [!div class="nextstepaction"]
 > [Baixe o instalador MSI](https://azurecliprod.blob.core.windows.net/msi/azure-cli-latest.msi)
