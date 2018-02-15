@@ -1,7 +1,6 @@
 ---
 title: CLI do Azure 2.0
 description: "Visão geral da CLI do Azure 2.0."
-keywords: CLI do Azure 2.0, Linux, Mac, Windows, OS X, Ubuntu, Debian, CentOS, RHEL, SUSE, CoreOS, Docker, Windows, Python, PIP
 author: rloutlaw
 ms.author: routlaw
 manager: douge
@@ -11,39 +10,38 @@ ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.assetid: 80ae9f6c-adb7-483c-bfb4-fbb958e075ba
-ms.openlocfilehash: 92079f3fa17f69a560e937101aa9e6f09c3080eb
-ms.sourcegitcommit: dd5b2c7b0b56608ef9ea8730c7dc76e6c532d5ea
+ms.openlocfilehash: 5f3d514200b138d498043e0efb2cf5c2f478d108
+ms.sourcegitcommit: b93a19222e116d5880bbe64c03507c64e190331e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2018
+ms.lasthandoff: 02/15/2018
 ---
-# <a name="azure-cli-20"></a><span data-ttu-id="91f58-104">CLI do Azure 2.0</span><span class="sxs-lookup"><span data-stu-id="91f58-104">Azure CLI 2.0</span></span>
+# <a name="azure-cli-20"></a><span data-ttu-id="e7771-103">CLI do Azure 2.0</span><span class="sxs-lookup"><span data-stu-id="e7771-103">Azure CLI 2.0</span></span>
 
-<span data-ttu-id="91f58-105">A CLI 2.0 do Azure é a nova experiência de linha de comando do Azure para gerenciar recursos do Azure.</span><span class="sxs-lookup"><span data-stu-id="91f58-105">The Azure CLI 2.0 is Azure's new command-line experience for managing Azure resources.</span></span>
-<span data-ttu-id="91f58-106">Você pode usá-lo no seu navegador com o [Azure Cloud Shell](/azure/cloud-shell/overview) ou pode [instalá-lo](install-azure-cli.md) no macOS, Linux e Windows e executá-lo da linha de comando.</span><span class="sxs-lookup"><span data-stu-id="91f58-106">You can use it in your browser with [Azure Cloud Shell](/azure/cloud-shell/overview), or you can [install](install-azure-cli.md) it on macOS, Linux, and Windows and run it from the command line.</span></span>
+<span data-ttu-id="e7771-104">A CLI 2.0 do Azure é a nova experiência de linha de comando do Azure para gerenciar recursos do Azure.</span><span class="sxs-lookup"><span data-stu-id="e7771-104">The Azure CLI 2.0 is Azure's new command-line experience for managing Azure resources.</span></span>
+<span data-ttu-id="e7771-105">Você pode usá-lo no seu navegador com o [Azure Cloud Shell](/azure/cloud-shell/overview) ou pode [instalá-lo](install-azure-cli.md) no macOS, Linux e Windows e executá-lo da linha de comando.</span><span class="sxs-lookup"><span data-stu-id="e7771-105">You can use it in your browser with [Azure Cloud Shell](/azure/cloud-shell/overview), or you can [install](install-azure-cli.md) it on macOS, Linux, and Windows and run it from the command line.</span></span>
 
-<span data-ttu-id="91f58-107">A CLI do Azure 2.0 foi projetada para gerenciar e administrar os recursos do Azure da linha de comando e para a compilação de scripts de automação que funcionam no Azure Resource Manager.</span><span class="sxs-lookup"><span data-stu-id="91f58-107">Azure CLI 2.0 is optimized for managing and administering Azure resources from the command line, and for building automation scripts that work against the Azure Resource Manager.</span></span> <span data-ttu-id="91f58-108">Com a CLI do Azure 2.0, a criação de VMs no Azure é tão fácil quanto digitar o seguinte comando:</span><span class="sxs-lookup"><span data-stu-id="91f58-108">Using the Azure CLI 2.0, you can create VMs within Azure as easily as typing the following command:</span></span>
+<span data-ttu-id="e7771-106">A CLI do Azure 2.0 foi projetada para gerenciar e administrar os recursos do Azure da linha de comando e para a compilação de scripts de automação que funcionam no Azure Resource Manager.</span><span class="sxs-lookup"><span data-stu-id="e7771-106">Azure CLI 2.0 is optimized for managing and administering Azure resources from the command line, and for building automation scripts that work against the Azure Resource Manager.</span></span> <span data-ttu-id="e7771-107">Com a CLI do Azure 2.0, a criação de VMs no Azure é tão fácil quanto digitar o seguinte comando:</span><span class="sxs-lookup"><span data-stu-id="e7771-107">Using the Azure CLI 2.0, you can create VMs within Azure as easily as typing the following command:</span></span>
 
 ```azurecli-interactive
 az vm create -n MyLinuxVM -g MyResourceGroup --image UbuntuLTS
 ```
 
-<span data-ttu-id="91f58-109">Use o [Cloud Shell](/azure/cloud-shell/overview) para executar a CLI no seu navegador ou [instale-o](install-azure-cli.md) no macOS, Linux ou Windows.</span><span class="sxs-lookup"><span data-stu-id="91f58-109">Use the [Cloud Shell](/azure/cloud-shell/overview) to run the CLI in your browser, or [install](install-azure-cli.md) it on macOS, Linux, or Windows.</span></span>
-<span data-ttu-id="91f58-110">Leia o artigo de [Introdução](get-started-with-azure-cli.md) para começar a usar a CLI.</span><span class="sxs-lookup"><span data-stu-id="91f58-110">Read the [Get Started](get-started-with-azure-cli.md) article to begin using the CLI.</span></span>
-<span data-ttu-id="91f58-111">Para saber mais sobre a versão mais recente, veja as [notas de versão](release-notes-azure-cli.md).</span><span class="sxs-lookup"><span data-stu-id="91f58-111">For information about the latest release, see the [release notes](release-notes-azure-cli.md).</span></span>
+<span data-ttu-id="e7771-108">Use o [Cloud Shell](/azure/cloud-shell/overview) para executar a CLI no seu navegador ou [instale-o](install-azure-cli.md) no macOS, Linux ou Windows.</span><span class="sxs-lookup"><span data-stu-id="e7771-108">Use the [Cloud Shell](/azure/cloud-shell/overview) to run the CLI in your browser, or [install](install-azure-cli.md) it on macOS, Linux, or Windows.</span></span>
+<span data-ttu-id="e7771-109">Leia o artigo de [Introdução](get-started-with-azure-cli.md) para começar a usar a CLI.</span><span class="sxs-lookup"><span data-stu-id="e7771-109">Read the [Get Started](get-started-with-azure-cli.md) article to begin using the CLI.</span></span>
+<span data-ttu-id="e7771-110">Para saber mais sobre a versão mais recente, veja as [notas de versão](release-notes-azure-cli.md).</span><span class="sxs-lookup"><span data-stu-id="e7771-110">For information about the latest release, see the [release notes](release-notes-azure-cli.md).</span></span>
 
-<span data-ttu-id="91f58-112">Os exemplos a seguir podem ajudar você a saber mais sobre como executar cenários comuns com a CLI do Azure 2.0:</span><span class="sxs-lookup"><span data-stu-id="91f58-112">The following samples can help you learn how to perform common scenarios with Azure CLI 2.0:</span></span>
-- [<span data-ttu-id="91f58-113">Máquinas Virtuais do Linux</span><span class="sxs-lookup"><span data-stu-id="91f58-113">Linux Virtual Machines</span></span>](/azure/virtual-machines/virtual-machines-linux-cli-samples?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json)
-- [<span data-ttu-id="91f58-114">Máquinas Virtuais do Windows</span><span class="sxs-lookup"><span data-stu-id="91f58-114">Windows Virtual Machines</span></span>](/azure/virtual-machines/virtual-machines-windows-cli-samples?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json)
-- [<span data-ttu-id="91f58-115">Aplicativos Web</span><span class="sxs-lookup"><span data-stu-id="91f58-115">Web Apps</span></span>](/azure/app-service-web/app-service-cli-samples?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json)
-- [<span data-ttu-id="91f58-116">Banco de Dados SQL</span><span class="sxs-lookup"><span data-stu-id="91f58-116">SQL Database</span></span>](/azure/sql-database/sql-database-cli-samples?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json)
+<span data-ttu-id="e7771-111">Os exemplos a seguir podem ajudar você a saber mais sobre como executar cenários comuns com a CLI do Azure 2.0:</span><span class="sxs-lookup"><span data-stu-id="e7771-111">The following samples can help you learn how to perform common scenarios with Azure CLI 2.0:</span></span>
+- [<span data-ttu-id="e7771-112">Máquinas Virtuais do Linux</span><span class="sxs-lookup"><span data-stu-id="e7771-112">Linux Virtual Machines</span></span>](/azure/virtual-machines/virtual-machines-linux-cli-samples?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json)
+- [<span data-ttu-id="e7771-113">Máquinas Virtuais do Windows</span><span class="sxs-lookup"><span data-stu-id="e7771-113">Windows Virtual Machines</span></span>](/azure/virtual-machines/virtual-machines-windows-cli-samples?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json)
+- [<span data-ttu-id="e7771-114">Aplicativos Web</span><span class="sxs-lookup"><span data-stu-id="e7771-114">Web Apps</span></span>](/azure/app-service-web/app-service-cli-samples?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json)
+- [<span data-ttu-id="e7771-115">Banco de Dados SQL</span><span class="sxs-lookup"><span data-stu-id="e7771-115">SQL Database</span></span>](/azure/sql-database/sql-database-cli-samples?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json)
 
-<span data-ttu-id="91f58-117">Além disso, uma [referência](/cli/azure/) detalhada está disponível e documenta a forma de usar cada comando individual da CLI do Azure 2.0.</span><span class="sxs-lookup"><span data-stu-id="91f58-117">A detailed [reference](/cli/azure/) is also available that documents how to use each individual Azure CLI 2.0 command.</span></span>
+<span data-ttu-id="e7771-116">Além disso, uma [referência](/cli/azure/) detalhada está disponível e documenta a forma de usar cada comando individual da CLI do Azure 2.0.</span><span class="sxs-lookup"><span data-stu-id="e7771-116">A detailed [reference](/cli/azure/) is also available that documents how to use each individual Azure CLI 2.0 command.</span></span>
 
-<span data-ttu-id="91f58-118">[Comece a usar](get-started-with-azure-cli.md) a CLI do Azure 2.0 agora.</span><span class="sxs-lookup"><span data-stu-id="91f58-118">[Get started](get-started-with-azure-cli.md) with Azure CLI 2.0 now.</span></span>
+<span data-ttu-id="e7771-117">[Comece a usar](get-started-with-azure-cli.md) a CLI do Azure 2.0 agora.</span><span class="sxs-lookup"><span data-stu-id="e7771-117">[Get started](get-started-with-azure-cli.md) with Azure CLI 2.0 now.</span></span>
 
 
 > [!NOTE]
-> <span data-ttu-id="91f58-119">Se você usa a versão anterior da CLI (CLI do Azure), continue a usá-la.</span><span class="sxs-lookup"><span data-stu-id="91f58-119">If you use the previous version of the CLI (Azure CLI), you can continue to use it.</span></span>
-> <span data-ttu-id="91f58-120">Se você usa ambas CLIs, lembre-se de que `azure` é a CLI antiga (CLI do Azure) e que `az` é a nova CLI (CLI do Azure 2.0).</span><span class="sxs-lookup"><span data-stu-id="91f58-120">If you use both CLIs, remember that `azure` is the old CLI - Azure CLI, and that `az` is the new CLI - Azure CLI 2.0.</span></span>
+> <span data-ttu-id="e7771-118">Se você usa a versão anterior da CLI (CLI do Azure), continue a usá-la.</span><span class="sxs-lookup"><span data-stu-id="e7771-118">If you use the previous version of the CLI (Azure CLI), you can continue to use it.</span></span>
+> <span data-ttu-id="e7771-119">Se você usa ambas CLIs, lembre-se de que `azure` é a CLI antiga (CLI do Azure) e que `az` é a nova CLI (CLI do Azure 2.0).</span><span class="sxs-lookup"><span data-stu-id="e7771-119">If you use both CLIs, remember that `azure` is the old CLI - Azure CLI, and that `az` is the new CLI - Azure CLI 2.0.</span></span>
