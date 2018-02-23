@@ -1,30 +1,29 @@
 ---
 title: Entrar com a CLI do Azure 2.0
-description: Entre com a CLI do Azure 2.0 no Linux, Mac ou Windows.
-keywords: "CLI do Azure 2.0, logon, CLI do Azure, autenticação, autorizar, logon"
+description: "Faça logon com a CLI do Azure 2.0 interativamente ou com credenciais locais"
 author: sptramer
-ms.author: stttramer
+ms.author: sttramer
 manager: routlaw
-ms.date: 11/13/2017
+ms.date: 02/13/2018
 ms.topic: article
 ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.assetid: 65becd3a-9d69-4415-8a30-777d13a0e7aa
-ms.openlocfilehash: 0a8ec3541783ae19961f2acf1192c0ee061a465f
-ms.sourcegitcommit: dd5b2c7b0b56608ef9ea8730c7dc76e6c532d5ea
+ms.openlocfilehash: a140f8f54ad72f7f3b5e2d63e2300d0aa2c061ac
+ms.sourcegitcommit: b93a19222e116d5880bbe64c03507c64e190331e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2018
+ms.lasthandoff: 02/15/2018
 ---
 # <a name="log-in-with-azure-cli-20"></a>Entrar com a CLI do Azure 2.0
 
-Há várias maneiras de fazer logon e autenticar com a CLI do Azure. É a maneira mais simples para começar é fazer logon interativamente no navegador ou na linha de comando. A abordagem recomendada é usar entidades de serviço que fornecem uma maneira para que você crie contas não-interativas para manipular os recursos. Ao conceder apenas as permissões apropriadas necessárias para uma entidade de serviço, você pode garantir que seus scripts de automação fiquem ainda mais seguros.
+Há várias maneiras de fazer logon e autenticar com a CLI do Azure. A maneira mais simples de começar é fazendo logon interativamente no navegador por meio do Azure Cloud Shell ou do comando `az login`.
+A abordagem recomendada é usar entidades de serviço, que são contas restritas a permissões. Ao conceder apenas as permissões apropriadas necessárias para uma entidade de serviço, você pode garantir que seus scripts de automação fiquem ainda mais seguros.
 
-Nenhuma informação de credencial privada é armazenada localmente. Em vez disso, um token de autenticação é gerado pelo Azure e armazenado. Após o logon, seu token de logon local é válido até ficar 14 dias sem ser usado. Nesse ponto, você precisará autenticar novamente.
+Nenhuma informação de credencial privada é armazenada localmente. Em vez disso, um token de autenticação é gerado pelo Azure e armazenado. Após o logon, seu token de logon local fica válido até passar 14 dias sem ser usado. Depois disso, você precisará autenticar novamente.
 
-Após o logon, os comandos da CLI são executados em sua assinatura padrão. Se você tiver mais de uma assinatura, poderá querer [altear sua assinatura padrão](manage-azure-subscriptions-azure-cli.md).
+Após o logon, os comandos da CLI são executados em sua assinatura padrão. Caso tenha mais de uma assinatura, é possível [alterar sua assinatura padrão](manage-azure-subscriptions-azure-cli.md).
 
 ## <a name="interactive-log-in"></a>Logon Interativo
 
@@ -39,22 +38,21 @@ Forneça suas credenciais na linha de comando.
 > [!Note]
 > Essa abordagem não funciona com contas da Microsoft ou contas que tenham a autenticação de dois fatores habilitada.
 
-```azurecli-interactive
+```azurecli
 az login -u <username> -p <password>
 ```
 
 ## <a name="logging-in-with-a-service-principal"></a>Como fazer logon com uma entidade de serviço
 
-As entidades de serviço são como as contas de usuário às quais você pode aplicar regras usando o Azure Active Directory.
-Autenticar com uma entidade de serviço é a melhor maneira de proteger o uso de seus recursos do Azure dos scripts ou aplicativos que manipulam recursos. Se você ainda não tem uma entidade de serviço disponível e gostaria de criar uma, confira [Criar uma entidade de serviço do Azure com a CLI do Azure](create-an-azure-service-principal-azure-cli.md).
+Entidades de serviço são contas que não estão associadas a nenhum usuário específico, as quais podem ter permissões atribuídas por meio de funções predefinidas. Autenticar com uma entidade de serviço é a melhor maneira de gravar scripts seguros ou programas, permitindo a aplicação de restrições de permissões e informações de credenciais estáticas armazenadas localmente. Para saber mais sobre entidades de serviço, consulte [Criar uma entidade de serviço do Azure com a CLI do Azure](create-an-azure-service-principal-azure-cli.md).
 
 Para fazer logon com uma entidade de serviço, você fornece o nome de usuário, senha ou arquivo do certificado PEM e o locatário associado à entidade de serviço:
 
-```azurecli-interactive
+```azurecli
 az login --service-principal -u <user> -p <password-or-cert> --tenant <tenant>
 ```
 
-O valor do locatário é um locatário do Azure Active Directory associado à entidade de serviço. Isso pode ser um domínio .onmicrosoft.com ou a ID de objeto do Azure para o locatário.
+O valor do locatário é um locatário do Azure Active Directory associado à entidade de serviço. Pode tanto ser um domínio .onmicrosoft.com como a ID de objeto do Azure para o locatário.
 Você pode obter a ID de objeto do locatário para seu logon atual usando o seguinte comando:
 
 ```azurecli

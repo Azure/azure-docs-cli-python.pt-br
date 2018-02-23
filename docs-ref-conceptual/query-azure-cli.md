@@ -1,7 +1,6 @@
 ---
 title: Resultados do comando de consulta com a CLI do Azure 2.0
-description: "Use --query para realizar consultas JMESPath na saída dos comandos da CLI do Azure 2.0."
-keywords: CLI do Azure 2.0, JMESPath, consulta, Linux, Mac, Windows, OS X
+description: "Saiba como realizar consultas JMESPath na saída dos comandos da CLI do Azure 2.0."
 author: rloutlaw
 ms.author: routlaw
 manager: douge
@@ -11,20 +10,19 @@ ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.assetid: 5979acc5-21a5-41e2-a4b6-3183bfe6aa22
-ms.openlocfilehash: 0de18adc91589377d4f96a306a70c9adfeabdcab
-ms.sourcegitcommit: 8606f36963e8daa6448d637393d1e4ef2c9859a0
+ms.openlocfilehash: 98bc35c1e8136231011a2303901f42c68c9a7758
+ms.sourcegitcommit: b93a19222e116d5880bbe64c03507c64e190331e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/15/2018
 ---
-# <a name="using-jmespath-queries-with-azure-cli-20"></a>Como usar consultas JMESPath com a CLI do Azure 2.0
+# <a name="use-jmespath-queries-with-azure-cli-20"></a>Usar consultas JMESPath com a CLI do Azure 2.0
 
 A CLI do Azure 2.0 usa o parâmetro `--query` para executar uma [consulta JMESPath](http://jmespath.org) nos resultados do comando `az`. JMESPath é uma linguagem de consulta eficiente para saídas JSON.  Se estiver familiarizado com consultas JMESPath, consulte um tutorial em [JMESPath.org/tutorial](http://JMESPath.org/tutorial.html).
 
 O parâmetro `Query` é suportado por cada tipo de recurso (Serviços de Contêiner, Aplicativos Web, VM, etc.) na CLI do Azure 2.0 e pode ser usado para várias finalidades diferentes.  Listamos vários exemplos abaixo.
 
-## <a name="selecting-simple-properties"></a>Seleção de propriedades simples
+## <a name="select-simple-properties"></a>Selecionar propriedades simples
 
 O comando `list` simples com o formato de saída `table` retorna um conjunto estruturado com as propriedades mais comuns e simples para cada tipo de recurso em um formato tabular de fácil leitura.
 
@@ -85,7 +83,7 @@ RGDEMO001  KBDemo001VM
 RGDEMO001  KBDemo020
 ```
 
-## <a name="selecting-complex-nested-properties"></a>Seleção de propriedades aninhadas complexas
+## <a name="select-complex-nested-properties"></a>Selecionar propriedades aninhadas complexas
 
 Se a propriedade que você deseja selecionar estiver aninhada profundamente na saída JSON, será necessário fornecer o caminho completo para a propriedade aninhada. O exemplo a seguir mostra como selecionar o nome da VM e o tipo do SO a partir do comando de lista da vm.
 

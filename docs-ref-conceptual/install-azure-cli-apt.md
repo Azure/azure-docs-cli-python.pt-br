@@ -1,43 +1,35 @@
 ---
 title: Instalar a CLI do Azure 2.0 no Linux com apt
 description: Como instalar a CLI do Azure 2.0 com o gerenciador de pacotes apt
-keywords: CLI do Azure, Instalar CLI do Azure, apt do azure, debian do azure, ubuntu do azure
 author: sptramer
 ms.author: sttramer
 manager: routlaw
-ms.date: 01/29/18
+ms.date: 02/06/2018
 ms.topic: article
 ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: fdd9f0061d5d38ed5a349b11eb0f5f27786bc1ab
-ms.sourcegitcommit: 8606f36963e8daa6448d637393d1e4ef2c9859a0
+ms.openlocfilehash: 4076fefb902a324f77f97bc042b9f5ba3e787734
+ms.sourcegitcommit: b93a19222e116d5880bbe64c03507c64e190331e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/15/2018
 ---
 # <a name="install-azure-cli-20-with-apt"></a>Instalar CLI do Azure 2.0 com o apt
 
-Se você estiver executando uma distribuição que vem com o `apt`, como o Ubuntu ou Debian, há um pacote disponível para a CLI do Azure. Esse pacote foi testado com Ubuntu Wheezy e Ubuntu Xenial.
+Se você estiver executando uma distribuição que venha com o `apt`, como o Ubuntu ou Debian, há um pacote 64-bit disponível para a CLI do Azure. Esse pacote foi testado com:
 
-[!INCLUDE [linux-install-requirements.md](includes/linux-install-requirements.md)]
+* Ubuntu wheezy, xenial e artful
+* Debian wheezy, jessie e stretch
 
 ## <a name="install"></a>Instalar
 
 1. Modifique sua lista de fontes:
 
-   - sistema de 32 bits
-
      ```bash
-     echo "deb https://packages.microsoft.com/repos/azure-cli/ wheezy main" | \
-          sudo tee /etc/apt/sources.list.d/azure-cli.list
-     ```
-
-   - sistema de 64 bits
-
-     ```bash
-     echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ wheezy main" | \
+     AZ_REPO=$(lsb_release -cs)
+     echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ $AZ_REPO main" | \
           sudo tee /etc/apt/sources.list.d/azure-cli.list
      ```
 
@@ -53,7 +45,7 @@ Se você estiver executando uma distribuição que vem com o `apt`, como o Ubunt
 
 ## <a name="troubleshooting"></a>solução de problemas
 
-Aqui estão alguns problemas comuns vistos durante a instalação com `apt`. Se o problema não estiver listado aqui, [faça um registro do problema no github](https://github.com/Azure/azure-cli/issues).
+Aqui estão alguns problemas comuns vistos durante a instalação com `apt`. Se o problema não estiver listado aqui, [registre um problema no github](https://github.com/Azure/azure-cli/issues).
 
 ### <a name="apt-key-fails-with-no-dirmngr"></a>A apt-key falha com “Sem dirmngr”
 

@@ -1,23 +1,193 @@
 ---
 title: "Notas de versão da CLI do Azure 2.0"
 description: "Saiba mais sobre as últimas atualizações da CLI do Azure 2.0"
-keywords: "Notas da versão, CLI do Azure 2.0"
 author: sptramer
 ms.author: sttramer
 manager: routlaw
-ms.date: 01/17/2018
+ms.date: 02/13/2018
 ms.topic: article
 ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: 86babea3030ea932de1858a391014e5d0bba7f73
-ms.sourcegitcommit: cae66f994cb7b7f829f75ac528093fdb6851f64e
+ms.openlocfilehash: 480b646b7230c8fb22f10b28a9204287cd0acc19
+ms.sourcegitcommit: b93a19222e116d5880bbe64c03507c64e190331e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/15/2018
 ---
 # <a name="azure-cli-20-release-notes"></a>Notas de versão da CLI do Azure 2.0
+
+## <a name="february-13-2018"></a>13 de fevereiro de 2018
+
+Versão 2.0.27
+
+### <a name="core"></a>Núcleo
+
+* Alterada a autenticação para chave tanto na ID de assinatura quanto no nome de logon do MSI
+
+### <a name="acs"></a>ACS
+
+* [ALTERAÇÃO SIGNIFICATIVA] `aks get-versions` renomeado para `aks get-upgrades` para fins de precisão
+* `aks get-versions` alterado para mostrar versões do Kubernetes disponíveis para `aks create`
+* Alterados os padrões de `aks create` para permitir que o servidor escolha a versão do Kubernetes
+* Atualizadas as mensagens de ajuda sobre a entidade de serviço gerada pelo AKS
+* Alterados os tamanhos de nó padrão para `aks create` de “Standard\_D1\_v2” para “Standard\_DS1\_v2”
+* Aumentada a confiabilidade ao localizar o pod de painel para `az aks browse`
+* `aks get-credentials` corrigido para tratar de erros de Unicode ao carregar arquivos de configuração do Kubernetes
+* Adicionada uma mensagem para `az aks install-cli` para ajudar a obter `kubectl` em `$PATH`
+
+### <a name="appservice"></a>AppService
+
+* Corrigido o problema em que `webapp [backup|restore]` falhou devido a uma referência nula
+* Adicionado suporte para planos de serviço de aplicativo padrão por meio de `az configure --defaults appserviceplan=my-asp`
+
+### <a name="cdn"></a>CDN
+
+* Adicionados os comandos `cdn custom-domain [enable-https|disable-https]`
+
+### <a name="container"></a>Contêiner
+
+* Adicionada a opção `--follow` para `az container logs` para logs de streaming
+* Adicionado o comando `container attach` que anexa fluxos locais de saída e erro padrão para um contêiner em um grupo de contêiner
+
+### <a name="cosmosdb"></a>CosmosDB
+
+* Adicionado suporte para a configuração de recursos
+
+### <a name="extension"></a>Extensão
+
+* Adicionado suporte para parâmetro `--pip-proxy` para comandos `az extension [add|update]`
+* Adicionado suporte para argumento `--pip-extra-index-urls` para comandos `az extension [add|update]`
+
+### <a name="feedback"></a>Comentários
+
+* Adicionadas informações de extensão aos dados de telemetria
+
+### <a name="interactive"></a>Interativo
+
+* Corrigido o problema em que o usuário é solicitado a fazer logon ao usar o modo interativo no Cloud Shell
+* Corrigida a regressão com conclusões de parâmetro ausentes
+
+### <a name="iot"></a>IoT
+
+* Corrigido o problema em que `iot dps access policy [create|update]` retornaria um erro ‘não encontrado’ em caso de sucesso.
+* Corrigido o problema em que `iot dps linked-hub [create|update]` retornaria um erro ‘não encontrado’ em caso de sucesso.
+* Adicionado o suporte `--no-wait` para `iot dps access policy [create|update]` e `iot dps linked-hub [create|update]`
+* `iot hub create` alterado para permitir a especificação do número de partições
+
+### <a name="monitor"></a>Monitoramento
+
+* Corrigido o comando `az monitor log-profiles create`
+
+### <a name="network"></a>Rede
+
+* Corrigida a opção `--tags` para os seguintes comandos:
+  * `network public-ip create`
+  * `network lb create`
+  * `network local-gateway create`
+  * `network nic create`
+  * `network vnet-gateway create`
+  * `network vpn-connection create`
+
+### <a name="profile"></a>Perfil
+
+* `az login` habilitado no modo interativo
+
+### <a name="resource"></a>Recurso
+
+* `feature show` adicionado novamente
+
+### <a name="role"></a>Função
+
+* Adicionado o argumento `--available-to-other-tenants` para `ad app update`
+
+### <a name="sql"></a>SQL
+
+* Adicionados os comandos `sql server dns-alias`
+* Adicionado `sql db rename`
+* Adicionado suporte para o argumento `--ids` para todos os comandos sql
+
+### <a name="storage"></a>Armazenamento
+
+* Adicionados os comandos `storage blob service-properties delete-policy` e `storage blob undelete` para habilitar a exclusão reversível
+
+### <a name="vm"></a>VM
+
+* Corrigida uma falha quando a criptografia de VM não pode ser totalmente inicializada
+* Adicionada saída de ID de entidade de segurança ao habilitar o MSI
+* `vm boot-diagnostics get-boot-log` fixo
+
+
+## <a name="january-31-2018"></a>31 de janeiro de 2018
+
+Versão 2.0.26
+
+### <a name="core"></a>Núcleo
+
+* Adicionado suporte para recuperação de token bruto no contexto MSI
+* Removida a cadeia de caracteres do indicador de sondagem depois de terminar o LRO no Windows cmd.exe
+* Adicionado um aviso que aparece ao usar um padrão configurado que foi alterado para uma entrada de nível de informações. Usar `--verbose` para ver
+* Adicionar um indicador de progresso para comandos de espera
+
+### <a name="acs"></a>ACS
+
+* Argumento `--disable-browser` esclarecido
+* Preenchimento de guia melhorado para argumentos `--vm-size`
+
+### <a name="appservice"></a>AppService
+
+* `webapp log [tail|download]` fixo
+* Removida a verificação de `kind` em aplicativos Web e funções
+
+### <a name="cdn"></a>CDN
+
+* Corrigido o problema de cliente ausente com `cdn custom-domain create`
+
+### <a name="cosmosdb"></a>CosmosDB
+
+* Corrigida a descrição do parâmetro para políticas de failover
+
+### <a name="interactive"></a>Interativo
+
+* Corrigido o problema em que as conclusões de opção de comando não aparecem mais
+
+### <a name="network"></a>Rede
+
+* Adicionada a proteção para `--cert-password` para `application-gateway create`
+* Corrigido o problema com `application-gateway update` em que `--sku` aplicou um valor padrão de forma errada
+* Adicionada proteção para `--shared-key` e `--authorization-key` para `vpn-connection create`
+* Corrigido o problema de cliente ausente com `asg create`
+* Adicionado o parâmetro `--file-name / -f` para nomes exportados para `dns zone export`
+* Os seguintes problemas foram corrigidos com `dns zone export`:
+  * Corrigido o problema em que registros TXT longos foram exportados incorretamente
+  * Corrigido o problema em que registros TXT entre aspas foram exportados incorretamente sem as aspas com caracteres de escape
+* Corrigido o problema em que determinados registros foram importados duas vezes com `dns zone import` 
+* Restaurados os comandos `vnet-gateway root-cert` e `vnet-gateway revoked-cert`
+
+### <a name="profile"></a>Perfil
+
+* `get-access-token` corrigido para trabalhar em uma VM com identidade
+
+### <a name="resource"></a>Recurso
+
+* Corrigido o bug com `deployment [create|validate]` em que um aviso era exibido incorretamente quando um campo ‘tipo’ do modelo continha valores maiúsculos
+
+### <a name="storage"></a>Armazenamento
+
+* Corrigido o problema com a migração de contas de Armazenamento V1 para Armazenamento V2
+* Adicionado o relatório de andamento de todos os comandos de upload/download
+* Corrigido o bug que impedia a opção “-n” arg com `storage account check-name`  
+* Adicionada a coluna ‘instantâneo’ à saída de tabela para `blob [list|show]`
+* Corrigidos bugs com vários parâmetros que precisam ser analisados como ints
+
+### <a name="vm"></a>VM
+
+* Adicionado o comando `vm image accept-terms` para permitir a criação de VMs a partir de imagens com encargos adicionais
+* `[vm|vmss create]` corrigido para garantir que comandos possam ser executados sob o proxy com certificados não assinados
+* [VERSÃO PRÉVIA] Adicionado suporte para “baixa” prioridade para VMSS
+* Adicionada a proteção para `--admin-password` para `[vm|vmss] create`
+
 
 ## <a name="january-17-2018"></a>17 de janeiro de 2018
 
@@ -84,7 +254,7 @@ Versão 2.0.25
 ### <a name="monitor"></a>Monitoramento
 
 * Adicionado o suporte de configuração de vários diagnósticos. Agora o parâmetro `--name` é necessário para `az monitor diagnostic-settings create`
-* Adicionado o comando `monitor diagnostic-settings categories` para obter a categoria de configurações de diagnóstico 
+* Adicionado o comando `monitor diagnostic-settings categories` para obter a categoria de configurações de diagnóstico
 
 ### <a name="network"></a>Rede
 
