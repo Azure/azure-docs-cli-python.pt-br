@@ -1,166 +1,128 @@
 ---
 title: Resultados do comando de consulta com a CLI do Azure 2.0
 description: "Saiba como realizar consultas JMESPath na saída dos comandos da CLI do Azure 2.0."
-author: rloutlaw
-ms.author: routlaw
-manager: douge
-ms.date: 02/27/2017
+author: sptramer
+ms.author: sttramer
+manager: carmonm
+ms.date: 02/22/2018
 ms.topic: article
 ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: 98bc35c1e8136231011a2303901f42c68c9a7758
-ms.sourcegitcommit: b93a19222e116d5880bbe64c03507c64e190331e
+ms.openlocfilehash: 2a0cdc34bbaf0864885588ecaddff725c744c90e
+ms.sourcegitcommit: 5a4c7205087d2f6c4800cf25178f0543a6157d99
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="use-jmespath-queries-with-azure-cli-20"></a>Usar consultas JMESPath com a CLI do Azure 2.0
 
-A CLI do Azure 2.0 usa o parâmetro `--query` para executar uma [consulta JMESPath](http://jmespath.org) nos resultados do comando `az`. JMESPath é uma linguagem de consulta eficiente para saídas JSON.  Se estiver familiarizado com consultas JMESPath, consulte um tutorial em [JMESPath.org/tutorial](http://JMESPath.org/tutorial.html).
+A CLI 2.0 do Azure usa o argumento `--query` para executar uma [consulta JMESPath](http://jmespath.org) nos resultados de comandos. JMESPath é uma linguagem de consulta para JSON, permitindo que você selecione e apresente dados de saída da CLI. Essas consultas são executadas na saída JSON antes de executar qualquer outra formatação de exibição.
 
-O parâmetro `Query` é suportado por cada tipo de recurso (Serviços de Contêiner, Aplicativos Web, VM, etc.) na CLI do Azure 2.0 e pode ser usado para várias finalidades diferentes.  Listamos vários exemplos abaixo.
+O argumento `--query` tem suporte de todos os comandos na CLI do Azure. Os exemplos deste artigo abrangem os casos de uso comum e demonstram como usar os recursos do JMESPath.
 
-## <a name="select-simple-properties"></a>Selecionar propriedades simples
+## <a name="work-with-dictionary-output"></a>Trabalhar com saída de dicionário
 
-O comando `list` simples com o formato de saída `table` retorna um conjunto estruturado com as propriedades mais comuns e simples para cada tipo de recurso em um formato tabular de fácil leitura.
+Comandos que retornam um dicionário em JSON só podem ser explorados por seus nomes de chave. Os caminhos de chave usam o caractere `.` como separador. O exemplo a seguir efetua pull de uma lista de chaves SSH públicas que têm permissão para se conectar a uma VM do Linux:
 
-```azurecli-interactive
-az vm list --out table
+```azurecli
+az vm show -g QueryDemo -n TestVM --query osProfile.linuxConfiguration.ssh.publicKeys
 ```
 
-```
-Name         ResourceGroup    Location
------------  ---------------  ----------
-DemoVM010    DEMORG1          westus
-demovm212    DEMORG1          westus
-demovm213    DEMORG1          westus
-KBDemo001VM  RGDEMO001        westus
-KBDemo020    RGDEMO001        westus
+Também é possível obter vários valores, colocando-os em uma matriz ordenada. A matriz não tem nenhuma informação de chave, mas a ordem dos elementos da matriz corresponde à ordem das chaves consultadas. O exemplo a seguir mostra como recuperar a imagem do Azure oferecendo o nome e o tamanho do disco do sistema operacional:
+
+```azurecli
+az vm show -g QueryDemo -n TestVM --query 'storageProfile.[imageReference.offer, osDisk.diskSizeGb]'
 ```
 
-Você pode usar o parâmetro `--query` para mostrar apenas o nome do Grupo de Recursos e o nome da VM para todas as máquinas virtuais em sua assinatura.
-
-```azurecli-interactive
-az vm list \
-  --query "[].[name, resourceGroup]" --out table
+```json
+[
+  "UbuntuServer",
+  30
+]
 ```
 
-```
-Column1     Column2
----------   -----------
-DemoVM010   DEMORG1
-demovm111   DEMORG1
-demovm211   DEMORG1
-demovm212   DEMORG1
-demovm213   DEMORG1
-demovm214   DEMORG1
-demovm222   DEMORG1
-KBDemo001VM RGDEMO001
-KBDemo020   RGDEMO001
+Se quiser chaves em sua saída, você pode usar uma sintaxe de dicionário alternativa. A seleção múltipla do elemento em um dicionário usa o formato `{displayKey:keyPath, ...}` para filtrar na expressão `keyPath` do JMESPath. Isso é exibido na saída como `{displayKey: value}`. O exemplo a seguir usa a consulta do último exemplo e a torna mais clara com a atribuição de chaves para a saída:
+
+```azurecli
+az vm show -g QueryDemo -n TestVM --query 'storageProfile.{image:imageReference.offer, diskSize:osDisk.diskSizeGb}'
 ```
 
-No exemplo anterior, observe que os cabeçalhos das colunas são "Coluna1" e "Coluna2".  Também é possível adicionar nomes ou rótulos amigáveis às propriedades selecionadas.  No exemplo a seguir, adicionamos os rótulos "VMName" e "RGName" às propriedades selecionadas "name" e "resourceGroup".
-
-
-```azurecli-interactive
-az vm list \
-  --query "[].{RGName:resourceGroup, VMName:name}" --out table
+```json
+{
+  "diskSize": 30,
+  "image": "UbuntuServer"
+}
 ```
 
-```
-RGName     VMName
----------  -----------
-DEMORG1    DemoVM010
-DEMORG1    demovm111
-DEMORG1    demovm211
-DEMORG1    demovm212
-DEMORG1    demovm213
-DEMORG1    demovm214
-DEMORG1    demovm222
-RGDEMO001  KBDemo001VM
-RGDEMO001  KBDemo020
-```
+Ao exibir as informações de formato de saída `table`, a exibição de dicionário é bastante útil. Isso permite configurar seus próprios cabeçalhos de coluna, tornando a leitura da saída ainda mais fácil. Para obter mais informações sobre formatos de saída, confira [Formatos de saída para comandos da CLI 2.0 do Azure](/cli/azure/format-output-azure-cli).
 
-## <a name="select-complex-nested-properties"></a>Selecionar propriedades aninhadas complexas
+> [!NOTE]
+> Algumas chaves são filtradas e não são impressas na exibição da tabela. Essas chaves são `id`, `type` e `etag`. Caso precise ver essas informações, é possível alterar o nome da chave e evitar a filtragem.
+>
+> ```azurecli
+> az vm show -g QueryDemo -n TestVM --query "{objectID:id}" -o table
+> ```
 
-Se a propriedade que você deseja selecionar estiver aninhada profundamente na saída JSON, será necessário fornecer o caminho completo para a propriedade aninhada. O exemplo a seguir mostra como selecionar o nome da VM e o tipo do SO a partir do comando de lista da vm.
+## <a name="work-with-list-output"></a>Trabalhar com saída de lista
 
-```azurecli-interactive
-az vm list \
-  --query "[].{VMName:name, OSType:storageProfile.osDisk.osType}" --out table
+Os comandos da CLI que podem retornar mais de um valor sempre retornam uma matriz. As matrizes podem ter seus elementos acessados por índice, mas nunca há uma garantia de ordem da CLI. A melhor maneira de consultar uma matriz de valores é mesclando-os com o operador `[]`. O operador será gravado depois da chave para a matriz ou como o primeiro elemento na expressão. A mescla executa a consulta a seguindo em relação a cada elemento individual na matriz e coloca os valores resultantes em uma nova matriz. O exemplo a seguir imprime o nome e o sistema operacional em execução em cada VM em um grupo de recursos. 
+
+```azurecli
+az vm list -g QueryDemo --query '[].{name:name, image:storageProfile.imageReference.offer}'
 ```
 
-```
-VMName       OSType
------------  --------
-DemoVM010    Linux
-demovm111    Linux
-demovm211    Linux
-demovm212    Linux
-demovm213    Linux
-demovm214    Linux
-demovm222    Linux
-KBDemo001VM  Linux
-KBDemo020    Linux
-```
-
-## <a name="filter-with-the-contains-function"></a>Filtrar com a função contains
-
-Você pode usar a função `contains` do JMESPath para refinar os resultados retornados na consulta.
-No exemplo a seguir, o comando seleciona apenas as VMs com o texto "RGD" em seu nome.
-
-```azurecli-interactive
-az vm list \
-  --query "[?contains(resourceGroup, 'RGD')].{ resource: resourceGroup, name: name }" --out table
-```
-
-```
-Resource    VMName
-----------  -----------
-RGDEMO001   KBDemo001VM
-RGDEMO001   KBDemo020
+```json
+[
+  {
+    "image": "CentOS",
+    "name": "CentBox"
+  },
+  {
+    "image": "openSUSE-Leap",
+    "name": "SUSEBox"
+  },
+  {
+    "image": "UbuntuServer",
+    "name": "TestVM"
+  },
+  {
+    "image": "UbuntuServer",
+    "name": "Test2"
+  },
+  {
+    "image": "WindowsServer",
+    "name": "WinServ"
+  }
+]
 ```
 
-Com o exemplo a seguir, os resultados retornarão as VMs com o vmSize 'Standard_DS1'.
+As matrizes que fazem parte de um caminho de chave também podem ser mescladas. Este exemplo demonstra uma consulta que obtém as IDs de objeto do Azure para as NICs às quais uma VM está conectada.
 
-```azurecli-interactive
-az vm list \
-  --query "[?contains(hardwareProfile.vmSize, 'Standard_DS1')]" --out table
+```azurecli
+az vm show -g QueryDemo -n TestVM --query 'networkProfile.networkInterfaces[].id'
 ```
 
-```
-ResourceGroup    VMName     VmId                                  Location    ProvisioningState
----------------  ---------  ------------------------------------  ----------  -------------------
-DEMORG1          DemoVM010  cbd56d9b-9340-44bc-a722-25f15b578444  westus      Succeeded
-DEMORG1          demovm111  c1c024eb-3837-4075-9117-bfbc212fa7da  westus      Succeeded
-DEMORG1          demovm211  95eda642-417f-4036-9475-67246ac0f0d0  westus      Succeeded
-DEMORG1          demovm212  4bdac85d-c2f7-410f-9907-ca7921d930b4  westus      Succeeded
-DEMORG1          demovm213  2131c664-221a-4b7f-9653-f6d542fbfa34  westus      Succeeded
-DEMORG1          demovm214  48f419af-d27a-4df0-87f3-9481007c2e5a  westus      Succeeded
-DEMORG1          demovm222  e0f59516-1d69-4d54-b8a2-f6c4a5d031de  westus      Succeeded
+## <a name="filter-array-output-with-predicates"></a>Saída de matriz de filtro com predicados
+
+O JMESPath oferece [expressões de filtragem](http://jmespath.org/specification.html#filterexpressions) para filtrar os dados exibidos. Essas expressões são eficientes, especialmente quando combinadas com [funções internas do JMESPath](http://jmespath.org/specification.html#built-in-functions) para executar correspondências parciais ou manipular dados em um formato padrão. As expressões de filtragem só funcionam em dados de matriz e, quando usadas em qualquer outra situação, retornam o valor `null`. Por exemplo, é possível usar a saída de comandos como a `vm list` e filtrá-la para procurar tipos específicos de VMs. O exemplo a seguir vai além do anterior, filtrando o tipo de VM para capturar somente VMs do Windows e imprimir seu nome.
+
+```azurecli
+az vm list --query '[?osProfile.windowsConfiguration!=null].name'
 ```
 
-## <a name="filter-with-grep"></a>Filtrar com grep
-
-O formato de saída `tsv` é um texto separado por tabulações sem cabeçalhos. Ele pode ser transferido para comandos como `grep` e `cut` para analisar ainda mais os valores específicos da saída `list`. No exemplo a seguir, o comando `grep` seleciona apenas as VMs com o texto "RGD" em seu nome.  O comando `cut` seleciona apenas o valor do oitavo campo (separado por tabulações) para mostrar na saída.
-
-```azurecli-interactive
-az vm list --out tsv | grep RGD | cut -f8
+```json
+[
+  "WinServ"
+]
 ```
 
-```
-KBDemo001VM
-KBDemo020
-```
+## <a name="experiment-with-queries-interactively"></a>Experimentar consultas interativamente
 
-## <a name="explore-with-jpterm"></a>Explorar com jpterm
-
-Você também pode transferir a saída do comando para [JMESPath-terminal](https://github.com/jmespath/jmespath.terminal) e testar sua consulta JMESPath lá.
+Para experimentar expressões JMESPath, convém trabalhar de maneira que você possa editar consultas e inspecionar a saída rapidamente. Um ambiente interativo é oferecido pelo pacote [JMESPath-terminal](https://github.com/jmespath/jmespath.terminal) do Python, o qual permite fazer o piping de dados como entrada e, em seguida, gavar consultas internas no programa para extrair os dados.
 
 ```bash
 pip install jmespath-terminal
 az vm list | jpterm
 ```
-

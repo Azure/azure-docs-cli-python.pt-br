@@ -3,20 +3,80 @@ title: "Notas de versão da CLI do Azure 2.0"
 description: "Saiba mais sobre as últimas atualizações da CLI do Azure 2.0"
 author: sptramer
 ms.author: sttramer
-manager: routlaw
-ms.date: 02/13/2018
+manager: carmonm
+ms.date: 02/27/2018
 ms.topic: article
 ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: 480b646b7230c8fb22f10b28a9204287cd0acc19
-ms.sourcegitcommit: b93a19222e116d5880bbe64c03507c64e190331e
+ms.openlocfilehash: 01078b7a3665f563f0a6b1d809c9a41f18d136d6
+ms.sourcegitcommit: f3ab5da6019083ef2482b62c7355817e6170dcfb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-cli-20-release-notes"></a>Notas de versão da CLI do Azure 2.0
+
+## <a name="february-27-2018"></a>27 de fevereiro de 2018
+
+Versão 2.0.28
+
+### <a name="core"></a>Núcleo
+
+* Correção [#5184](https://github.com/Azure/azure-cli/issues/5184): problema de instalação do Homebrew
+* Adição de suporte para telemetria de extensão com chaves personalizadas
+* Adição de log HTTP em `--debug`
+
+### <a name="acs"></a>ACS
+
+* Alteração para usa o gráfico `virtual-kubelet-for-aks` do Helm para `aks install-connector` por padrão
+* Correção do problema de permissão insuficiente para entidades de serviço criarem um grupo de contêiner ACI
+* Adição dos parâmetros `--aci-container-group`, `--location` e `--image-tag` ao `aks install-connector`
+* Remoção do aviso de reprovação de `aks get-versions`
+
+### <a name="appservice"></a>AppService
+
+* Atualizações para a nova versão do SDK (azure-mgmt-web 0.35.0)
+* Correção [#5538](https://github.com/Azure/azure-cli/issues/5538): `Free` relatado como SKU inválido
+
+### <a name="cognitive-services"></a>Serviços Cognitivos
+
+* Atualização do “aviso” ao criar uma nova conta dos Serviços Cognitivos
+
+### <a name="consumption"></a>Consumo
+
+* Adição de novos comandos para a API pricesheet
+* Atualização dos formatos existentes de Detalhes de uso e Detalhes de reserva
+
+### <a name="container"></a>Contêiner
+
+* Adição dos argumentos `--secrets` e `--secrets-mount-path` ao `container create` para usar segredos na ACI
+
+### <a name="network"></a>Rede
+
+* Correção [#5559](https://github.com/Azure/azure-cli/issues/5559): cliente ausente em `network vnet-gateway vpn-client generate`
+
+### <a name="resource"></a>Recurso
+
+* Alteração do `group deployment export` para exibir um modelo parcial e erros ao falhar
+
+### <a name="role"></a>Função
+
+* Adição de `role assignment list-changelogs` para permitir a auditoria das funções da entidade de serviço
+
+### <a name="sql"></a>SQL
+
+* Adição de suporte para a redundância de zona para os bancos de dados e pools elásticos em criação ou atualização
+
+### <a name="storage"></a>Armazenamento
+
+* Habilitação de especificação de caminho de destino/prefixo do `storage blob [upload-batch|download-batch]`
+
+### <a name="vm"></a>VM
+
+* Adição de suporte para anexar/desanexar discos em uma instância única de VMSS
+
 
 ## <a name="february-13-2018"></a>13 de fevereiro de 2018
 
