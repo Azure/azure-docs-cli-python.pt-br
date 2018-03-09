@@ -11,11 +11,11 @@ ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: d60ede5b971ee2489482fb5a72bde9bf5389d37c
-ms.sourcegitcommit: 8606f36963e8daa6448d637393d1e4ef2c9859a0
+ms.openlocfilehash: a85824cfcd1eb4176c7675a6e38327eccb390ca0
+ms.sourcegitcommit: 29d7366a0902488f4f4d39c2cb0e89368d5186ea
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-cli-20-configuration"></a>Configuração da CLI do Azure 2.0
 
@@ -29,7 +29,7 @@ Os valores de configuração usados pela CLI são avaliados na seguinte precedê
 
 ## <a name="cli-configuration-with-az-configure"></a>Configurar a CLI com o az configure
 
-Você define padrões para a CLI com o comando [az configure](/cli/azure/?view=azure-cli-latest#az_configure).
+Você define padrões para a CLI com o comando [az configure](/cli/azure/reference-index#az_configure).
 Esse comando usa um argumento, `--defaults`, que é uma lista separada por espaços de pares `key=value`. Os valores fornecidos são usados pela CLI no lugar de argumentos necessários.
 
 A seguir há uma lista de chaves disponíveis que você pode usar.
@@ -52,7 +52,7 @@ az configure --defaults "location=westus2 group=MyResourceGroup"
 
 ## <a name="cli-configuration-file"></a>Arquivo de configuração da CLI
 
-O arquivo de configuração da CLI contém outras configurações que são usadas para gerenciar o comportamento da CLI. O arquivo de configuração em si está localizado em `$AZURE_CONFIG_DIR/config`. O valor padrão de `AZURE_CONFIG_DIR` é `$HOME/.azure/config` no Linux e macOS, e `%USERPROFILE%\.azure\config` no Windows.
+O arquivo de configuração da CLI contém outras configurações que são usadas para gerenciar o comportamento da CLI. O arquivo de configuração em si está localizado em `$AZURE_CONFIG_DIR/config`. O valor padrão de `AZURE_CONFIG_DIR` é `$HOME/.azure` no Linux e macOS, e `%USERPROFILE%\.azure` no Windows.
 
 Os arquivos de configuração são gravados no formato de arquivo INI. Esses arquivos são compostos de seções que começam com um cabeçalho `[section-name]`, seguido por uma lista de entradas `key=value`. Os nomes de seção diferenciam maiúsculas de minúsculas, mas nomes de chave não.
 Os comentários são qualquer linha que comece com um `#` ou `;`. Não são permitidos comentários em linha. Os valores boolianos diferenciam maiúsculas de minúsculas e são representados pelos valores a seguir.

@@ -11,11 +11,11 @@ ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: c2758922d74080d3a3110b1e3a507ddf0f8d85d1
-ms.sourcegitcommit: b93a19222e116d5880bbe64c03507c64e190331e
+ms.openlocfilehash: 3f5fe1b01a8ce691846126a6c03e7222e9b20e0d
+ms.sourcegitcommit: 29d7366a0902488f4f4d39c2cb0e89368d5186ea
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="get-started-with-azure-cli-20"></a>Introdução à CLI do Azure 2.0
 
@@ -25,7 +25,7 @@ Bem-vindo à CLI do Azure 2.0! A CLI é uma ferramenta projetada para ajudar voc
 
 Caso ainda não o tenha feito, [instale a CLI](install-azure-cli.md) ou experimento o [Azure Cloud Shell](/azure/cloud-shell/overview).
 
-Antes de usar os comandos da CLI com uma instalação local, é preciso fazer logon com [az login](/cli/azure/index#az_login).
+Antes de usar os comandos da CLI com uma instalação local, é preciso fazer logon com [az login](/cli/azure/reference-index#az_login).
 
 ```azurecli
 az login
@@ -53,7 +53,7 @@ Todos os subcomandos desses grupos e sua documentação podem ser pesquisados na
 Comandos na CLI são fornecidos como _subcomandos_ de _grupos_.
 Cada grupo representa um serviço fornecido pelo Azure, e os subgrupos dividem os comandos para esses serviços em agrupamentos lógicos.
 
-Para procurar comandos, use [az find](/cli/azure/index#az_find). Por exemplo, para procurar nomes de comando que contenham `secret`, use o seguinte comando:
+Para procurar comandos, use [az find](/cli/azure/reference-index#az_find). Por exemplo, para procurar nomes de comando que contenham `secret`, use o seguinte comando:
 
 ```azurecli
 az find -q secret
@@ -95,8 +95,8 @@ Para a introdução à CLI do Azure 2.0, experimente ver um tutorial aprofundado
 
 Se você preferir se concentrar em outros serviços, há uma variedade de guias de início rápido para os serviços do Azure que usam a CLI.
 
-* [Criar uma conta de armazenamento usando a CLI do Azure](/azure/storage/common/storage-quickstart-create-storage-account-cl)
-* [Transferir objetos de/para o Armazenamento de blobs do Azure usando a CLI](/storage/blobs/storage-quickstart-blobs-cli)
+* [Criar uma conta de armazenamento usando a CLI do Azure](/azure/storage/common/storage-quickstart-create-storage-account-cli)
+* [Transferir objetos de/para o Armazenamento de blobs do Azure usando a CLI](/azure/storage/blobs/storage-quickstart-blobs-cli)
 * [Criar um único banco de dados SQL do Azure usando a CLI do Azure](/azure/sql-database/sql-database-get-started-cli)
 * [Criar um servidor de Banco de Dados do Azure para MySQL usando a CLI do Azure](/azure/mysql/quickstart-create-mysql-server-database-using-azure-cli)
 * [Criar um servidor de Banco de Dados do Azure para PostgreSQL usando a CLI Azure](/azure/postgresql/quickstart-create-server-database-azure-cli)
