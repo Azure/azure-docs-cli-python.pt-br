@@ -1,6 +1,6 @@
 ---
-title: "Notas de versão da CLI do Azure 2.0"
-description: "Saiba mais sobre as últimas atualizações da CLI do Azure 2.0"
+title: Notas de versão da CLI do Azure 2.0
+description: Saiba mais sobre as últimas atualizações da CLI do Azure 2.0
 author: sptramer
 ms.author: sttramer
 manager: carmonm
@@ -10,13 +10,100 @@ ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: 01078b7a3665f563f0a6b1d809c9a41f18d136d6
-ms.sourcegitcommit: f3ab5da6019083ef2482b62c7355817e6170dcfb
+ms.openlocfilehash: 116fa95e51399b9b97c1b35c38445f30db7efc94
+ms.sourcegitcommit: fefb5bb6a21cab30c44592c0577408a8d1a2ccc7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-cli-20-release-notes"></a>Notas de versão da CLI do Azure 2.0
+
+## <a name="march-13-2018"></a>13 de março de 2018
+
+Versão 2.0.29
+
+### <a name="acr"></a>ACR
+
+* Suporte adicionado do parâmetro `--image` a `repository delete`
+* Parâmetros `--manifest` e `--tag` preteridos do comando `repository delete`
+* Comando `repository untag` adicionado para remover uma marcação sem excluir dados
+
+### <a name="acs"></a>ACS
+
+* Comando `aks upgrade-connector` adicionado para atualizar um conector existente
+* Arquivos de configuração `kubectl` alterados para usar um YAML mais legível em bloco
+
+### <a name="advisor"></a>Supervisor
+
+* [ALTERAÇÃO SIGNIFICATIVA] `advisor configuration get` renomeado para `advisor configuration list`
+* [ALTERAÇÃO SIGNIFICATIVA] `advisor configuration set` renomeado para `advisor configuration update`
+* [ALTERAÇÃO SIGNIFICATIVA] Removida `advisor recommendation generate` 
+* Parâmetro `--refresh` adicionado a `advisor recommendation list`
+* Adicionado o comando `advisor recommendation show`
+
+### <a name="appservice"></a>AppService
+
+* Preterido `[webapp|functionapp] assign-identity`
+* Comandos de identidade gerenciada `webapp identity [assign|show]` e `functionapp identity [assign|show]` adicionados
+
+### <a name="eventhubs"></a>Hubs de eventos
+
+* Versão inicial
+
+### <a name="extension"></a>Extensão
+
+* Verificação adicionada para avisar ao usuário se a distribuição usada é diferente da armazenado no arquivo de origem do pacote, pois isso pode levar a erros
+
+### <a name="interactive"></a>Interativo
+
+* [5625](https://github.com/Azure/azure-cli/issues/5625) corrigido: manter histórico em sessões diferentes
+* [3016](https://github.com/Azure/azure-cli/issues/3016) corrigido: histórico não registrado no escopo
+* [5688](https://github.com/Azure/azure-cli/issues/5688) corrigido: as conclusões não aparecerão se o carregamento da tabela de comando encontrou uma exceção
+* Medidor de progresso corrigido para operações de longa execução
+
+### <a name="monitor"></a>Monitoramento
+
+* Comandos `monitor autoscale-settings` preteridos
+* Adicionados os comandos `monitor autoscale`
+* Adicionados os comandos `monitor autoscale profile`
+* Adicionados os comandos `monitor autoscale rule`
+
+### <a name="network"></a>Rede
+
+* [ALTERAÇÃO SIGNIFICATIVA] Parâmetro `--tags` removido de `route-filter rule create`
+* Valores padrão incorretos removidos dos seguintes comandos:
+  * `network express-route update`
+  * `network nsg rule update`
+  * `network public-ip update`
+  * `traffic-manager profile update`
+  * `network vnet-gateway update`
+* Comandos `network watcher connection-monitor` adicionados
+* Parâmetros `--vnet` e `--subnet` adicionados a `network watcher show-topology`
+
+### <a name="profile"></a>Perfil
+
+* Parâmetro `--msi` preterido de `az login`
+* Parâmetro `--identity` adicionado de `az login` para substituir `--msi`
+
+### <a name="rdbms"></a>RDBMS
+
+* [VISUALIZAÇÃO] Alterado para usar a API 2017-12-01-preview
+
+### <a name="service-bus"></a>Barramento de Serviço
+
+* Versão inicial
+
+### <a name="storage"></a>Armazenamento
+
+* [4971](https://github.com/Azure/azure-cli/issues/4971) corrigido: `storage blob copy` agora dá suporte a outras nuvens do Azure.
+* [5286](https://github.com/Azure/azure-cli/issues/5286) corrigido: os comandos em lotes `storage blob [delete-batch|download-batch|upload-batch]` não geram mais um erro após falhas da pré-condição
+
+### <a name="vm"></a>VM
+
+* Suporte adicionado a `[vm|vmss] create` anexar discos de dados não gerenciados e configurar o cache
+* `[vm|vmss] assign-identity` e `[vm|vmss] remove-identity` preteridos
+* Comandos `vm identity [assign|remove|show]` e `vmss identity [assign|remove|show]` adicionados para substituir comandos preteridos
+* Prioridade padrão alterada em `vmss create` para None
 
 ## <a name="february-27-2018"></a>27 de fevereiro de 2018
 
@@ -1457,7 +1544,7 @@ vm (2.0.2)
 * VM/VMSS: incorporar a lógica de validação de credenciais usada pelo portal ([#2537](https://github.com/Azure/azure-cli/pull/2537))
 * Adicionar comandos de espera e suporte --no-wait ([#2524](https://github.com/Azure/azure-cli/pull/2524))
 * Conjunto de dimensionamento de máquinas virtuais: suporte à * para listar a exibição de instâncias em vms ([#2467](https://github.com/Azure/azure-cli/pull/2467))
-* Adicionar --secrets para o conjunto de dimensionamento de máquinas virtuais e VM ([#2212}(https://github.com/Azure/azure-cli/pull/2212))
+* Adicionar: segredos da VM e do conjunto de dimensionamento de máquinas virtuais ([2212}(https://github.com/Azure/azure-cli/pull/2212))
 * Permitir a criação de VMs com VHD especializado ([#2256](https://github.com/Azure/azure-cli/pull/2256))
 
 ## <a name="february-27-2017"></a>27 de fevereiro de 2017
@@ -1510,7 +1597,7 @@ Python (Darwin) 2.7.10 (default, Jul 30 2016, 19:40:32)
 ```
 
 > [!Note]
-> Alguns dos módulos de comando têm um “b*n*” ou “rc*n*” pós-fixado.
+> Alguns dos módulos de comando têm um "b*n*" ou "rc*n*" como sufixo.
 > Esses módulos de comando ainda estão em visualização e estarão disponíveis no futuro.
 
 Também temos compilações de visualização diárias da CLI.
