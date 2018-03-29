@@ -1,7 +1,7 @@
 ---
-title: "Opções de configuração da CLI do Azure"
+title: Opções de configuração da CLI do Azure
 description: Como configurar a CLI do Azure 2.0
-keywords: "CLI do Azure, definição, configurações, Azure"
+keywords: CLI do Azure, definição, configurações, Azure
 author: sptramer
 ms.author: sttramer
 manager: routlaw
@@ -11,11 +11,11 @@ ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: a85824cfcd1eb4176c7675a6e38327eccb390ca0
-ms.sourcegitcommit: 29d7366a0902488f4f4d39c2cb0e89368d5186ea
+ms.openlocfilehash: 6970844bf9eba5ccf18b7603115de629e995f2c4
+ms.sourcegitcommit: f57b5666523ef3642bee644eb0e0fe7085b3194a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-cli-20-configuration"></a>Configuração da CLI do Azure 2.0
 
@@ -47,7 +47,7 @@ A seguir há uma lista de chaves disponíveis que você pode usar.
 Como exemplo, a seguir você vê como poderia definir o grupo de recursos e local padrão para todos os comandos.
 
 ```azurecli
-az configure --defaults "location=westus2 group=MyResourceGroup"
+az configure --defaults location=westus2 group=MyResourceGroup
 ```
 
 ## <a name="cli-configuration-file"></a>Arquivo de configuração da CLI
