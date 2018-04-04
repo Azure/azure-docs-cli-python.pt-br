@@ -1,6 +1,6 @@
 ---
 title: Instalar a CLI do Azure 2.0
-description: "Referência para a instalação da CLI do Azure 2.0"
+description: Referência para a instalação da CLI do Azure 2.0
 keywords: CLI do Azure, Instalar CLI do Azure
 author: sptramer
 ms.author: sttramer
@@ -11,17 +11,17 @@ ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: ae7b2da00d9ae17a5c1487390d1f81d8ef812ba9
-ms.sourcegitcommit: 5c004b455eff196d853bfbe12901c6114a1652d7
+ms.openlocfilehash: f3adcb838c8d335d3e03691bce7682a045859078
+ms.sourcegitcommit: b5a6296c006e3a44f66892729e47d7a967267d3e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="install-azure-cli-20"></a>Instalar a CLI 2.0 do Azure
 
 A CLI 2.0 do Azure é uma ferramenta de linha de comando que oferece grande experiência para gerenciar recursos do Azure. A CLI é projetada para facilitar o script, flexibilizar dados de consulta, dar suporte a operações de longa execução como processos desbloqueados e muito mais. Experimente hoje e descubra o que a CLI tem a oferecer!
 
-A versão atual da CLI é __2.0.29__. Para saber mais sobre a versão mais recente, veja as [notas de versão](release-notes-azure-cli.md).
+A versão atual da CLI é __2.0.30__. Para saber mais sobre a versão mais recente, veja as [notas de versão](release-notes-azure-cli.md).
 
 * [Instalar no Windows](install-azure-cli-windows.md)
 * [Instalar no macOS](install-azure-cli-macos.md)

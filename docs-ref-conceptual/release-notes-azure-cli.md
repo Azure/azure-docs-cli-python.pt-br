@@ -10,13 +10,120 @@ ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: 116fa95e51399b9b97c1b35c38445f30db7efc94
-ms.sourcegitcommit: fefb5bb6a21cab30c44592c0577408a8d1a2ccc7
+ms.openlocfilehash: 0e81f5723af47242f908b854045deb7d74c50c17
+ms.sourcegitcommit: b5a6296c006e3a44f66892729e47d7a967267d3e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-cli-20-release-notes"></a>Notas de versão da CLI do Azure 2.0
+
+## <a name="march-27-2018"></a>27 de março de 2018
+
+Versão 2.0.30
+
+### <a name="core"></a>Núcleo
+
+* Mostrar mensagem para extensões marcadas como versão prévia na Ajuda
+
+### <a name="acs"></a>ACS
+
+* Corrija o erro de verificação de certificado SSL para `aks install-cli` no Cloud Shell
+
+### <a name="appservice"></a>AppService
+
+* Adição do suporte somente para HTTPS para `webapp update`
+* Adição do suporte para os slots `az webapp identity [assign|show]` e `az functionapp identity [assign|show]`
+
+### <a name="backup"></a>Backup
+
+* Adição do novo comando `az backup protection isenabled-for-vm`. Esse comando pode ser usado para verificar se o backup de uma VM é realizado por qualquer cofre na assinatura
+* Habilitação das IDs de objeto do Azure para os parâmetros `--resource-group` e `--vault-name` para os seguintes comandos:
+  * `backup container show`
+  * `backup item set-policy`
+  * `backup item show`
+  * `backup job show`
+  * `backup job stop`
+  * `backup job wait`
+  * `backup policy delete`
+  * `backup policy get-default-for-vm`
+  * `backup policy list-associated-items`
+  * `backup policy set`
+  * `backup policy show`
+  * `backup protection backup-now`
+  * `backup protection disable`
+  * `backup protection enable-for-vm`
+  * `backup recoverypoint show`
+  * `backup restore files mount-rp`
+  * `backup restore files unmount-rp`
+  * `backup restore restore-disks`
+  * `backup vault delete`
+  * `backup vault show`
+* `--name` parâmetros alterados a fim de aceitar o formato de saída dos comandos `backup ... show`
+
+### <a name="container"></a>Contêiner
+
+* Adição do comando `container exec`. Executa comandos em um contêiner para um grupo de contêiner em execução
+* Permitir a saída da tabela para criar e atualizar um grupo de contêiner
+
+### <a name="extension"></a>Extensão
+
+* Mensagem adicionada para `extension add`, se a extensão estiver no modo de versão prévia
+* `extension list-available` alterado para mostrar dados de extensão total com `--show-details`
+* [ALTERAÇÃO SIGNIFICATIVA] `extension list-available` alterado para mostrar dados de extensão simplificados por padrão
+
+### <a name="interactive"></a>Interativo
+
+* Alteração nas conclusões para ativar após a conclusão do carregamento da tabela de comandos
+* Correção de bug usando o parâmetro `--style`
+* Analisador léxico interativo instanciado após a falta do despejo da tabela de comandos
+* Suporte aprimorado ao completador
+
+### <a name="lab"></a>Laboratório
+
+* Correção de bugs com o comando `create environment`
+
+### <a name="monitor"></a>Monitoramento
+
+* Adição de suporte para `--top`, `--orderby` e `--namespace` para `metrics list` [#5785](https://github.com/Azure/azure-cli/issues/5785)
+* [#4529](https://github.com/Azure/azure-cli/issues/5785) corrigido: `metrics list` aceita uma lista separada por espaços de métricas para recuperação
+* Adição de suporte para `--namespace` para `metrics list-definitions` [#5785](https://github.com/Azure/azure-cli/issues/5785)
+
+### <a name="network"></a>Rede
+
+* Adição de suporte para zonas DNS privado
+
+### <a name="profile"></a>Perfil
+
+* Adição de avisos para `--identity-port` e `--msi-port` para `login`
+
+### <a name="rdbms"></a>RDBMS
+
+* Adição de modelo de negócios GA API versão 2017-12-01
+
+### <a name="resource"></a>Recurso
+
+* [ALTERAÇÃO SIGNIFICATIVA]: Changed `provider operation [list|show]` to not require `--api-version`
+
+### <a name="role"></a>Função
+
+* Adição de suporte para configurações de acesso necessário e clientes nativos para `az ad app create`
+* `rbac` comandos alterados para retornar menos de 1000 IDs na resolução do objeto
+* Adição de comandos de gerenciamento de credencial `ad sp credential [reset|list|delete]`
+* [ALTERAÇÃO SIGNIFICATIVA] "Propriedades" removidas da saída `az role assignment [list|show]`
+* Adição de suporte para as permissões `dataActions` e `notDataActions` para `role definition`
+
+### <a name="storage"></a>Armazenamento
+
+* Correção de problema ao carregar um arquivo com tamanho entre 195 e 200 GB
+* [4049#](https://github.com/Azure/azure-cli/issues/4049) corrigido: problemas com o acréscimo de uploads de blob ignorando os parâmetros da condição
+
+### <a name="vm"></a>VM
+
+* Adição de aviso para `vmss create` para alterações de falha futuras para conjuntos com mais de 100 instâncias
+* Adição de suporte com flexibilidade de região para `vm [snapshot|image]`
+* Alteração no modo de exibição de instância de disco para reportar status de criptografia mais adequados
+* [ALTERAÇÃO SIGNIFICATIVA] `vm extension delete` alterado para não retornar mais a saída
 
 ## <a name="march-13-2018"></a>13 de março de 2018
 
@@ -37,7 +144,7 @@ Versão 2.0.29
 
 * [ALTERAÇÃO SIGNIFICATIVA] `advisor configuration get` renomeado para `advisor configuration list`
 * [ALTERAÇÃO SIGNIFICATIVA] `advisor configuration set` renomeado para `advisor configuration update`
-* [ALTERAÇÃO SIGNIFICATIVA] Removida `advisor recommendation generate` 
+* [ALTERAÇÃO SIGNIFICATIVA] `advisor recommendation generate` removido 
 * Parâmetro `--refresh` adicionado a `advisor recommendation list`
 * Adicionado o comando `advisor recommendation show`
 
@@ -95,7 +202,7 @@ Versão 2.0.29
 
 ### <a name="storage"></a>Armazenamento
 
-* [4971](https://github.com/Azure/azure-cli/issues/4971) corrigido: `storage blob copy` agora dá suporte a outras nuvens do Azure.
+* [#4971](https://github.com/Azure/azure-cli/issues/4971) corrigido: `storage blob copy` agora dá suporte a outras nuvens do Azure
 * [5286](https://github.com/Azure/azure-cli/issues/5286) corrigido: os comandos em lotes `storage blob [delete-batch|download-batch|upload-batch]` não geram mais um erro após falhas da pré-condição
 
 ### <a name="vm"></a>VM
@@ -218,8 +325,8 @@ Versão 2.0.27
 
 ### <a name="iot"></a>IoT
 
-* Corrigido o problema em que `iot dps access policy [create|update]` retornaria um erro ‘não encontrado’ em caso de sucesso.
-* Corrigido o problema em que `iot dps linked-hub [create|update]` retornaria um erro ‘não encontrado’ em caso de sucesso.
+* Correção do problema em que `iot dps access policy [create|update]` retornaria um erro ‘não encontrado’ em caso de sucesso
+* Correção do problema em que `iot dps linked-hub [create|update]` retornaria um erro ‘não encontrado’ em caso de sucesso
 * Adicionado o suporte `--no-wait` para `iot dps access policy [create|update]` e `iot dps linked-hub [create|update]`
 * `iot hub create` alterado para permitir a especificação do número de partições
 
@@ -378,9 +485,9 @@ Versão 2.0.25
 
 ### <a name="event-grid"></a>Grade de Eventos
 
-* [ALTERAÇÃO SIGNIFICATIVA] Movidos os comandos `az eventgrid topic event-subscription` para `eventgrid event-subscription`
-* [ALTERAÇÃO SIGNIFICATIVA] Movidos os comandos `az eventgrid resource event-subscription` para `eventgrid event-subscription`
-* [ALTERAÇÃO SIGNIFICATIVA] Removido o comando `eventgrid event-subscription show-endpoint-url`. Usar `eventgrid event-subscription show --include-full-endpoint-url`
+* [ALTERAÇÃO SIGNIFICATIVA] Comandos `az eventgrid topic event-subscription` transferidos para `eventgrid event-subscription`
+* [ALTERAÇÃO SIGNIFICATIVA] Comandos `az eventgrid resource event-subscription` transferidos para `eventgrid event-subscription`
+* [ALTERAÇÃO SIGNIFICATIVA] Comando `eventgrid event-subscription show-endpoint-url` removido. Usar `eventgrid event-subscription show --include-full-endpoint-url`
 * Adicionado o comando `eventgrid topic update`
 * Adicionado o comando `eventgrid event-subscription update`
 * Adicionado o parâmetro `--ids` para comandos `eventgrid topic`
@@ -425,7 +532,7 @@ Versão 2.0.25
 
 * [VERSÃO PRÉVIA] Suporte entre zonas para `vmss`
 * [ALTERAÇÃO SIGNIFICATIVA] Alterada única zona `vmss` padrão para o balanceador de carga "Padrão"
-* [ALTERAÇÃO SIGNIFICATIVA] Alterado `externalIdentities` para `userAssignedIdentities` para EMSI
+* [ALTERAÇÃO SIGNIFICATIVA] `externalIdentities` alterado para `userAssignedIdentities` para EMSI
 * [VERSÃO PRÉVIA] Adicionado o suporte para a troca de disco do sistema operacional
 * Adicionado o suporte para o uso de imagens da VM de outras assinaturas
 * Adicionados os argumentos `--plan-name`, `--plan-product`, `--plan-promotion-code` e `--plan-publisher` para `[vm|vmss] create`
@@ -728,7 +835,7 @@ Versão 2.0.1.8
 * Suporte adicionado para mostrar as definições de políticas internas
 * Parâmetro de modo de suporte adicionado para a criação de definições de política
 * Suporte adicionado para definições de interface do usuário e modelos em `managedapp definition create`
-* [ALTERAÇÃO SIGNIFICATIVA] O tipo de recurso `managedapp` foi alterado de `appliances` para `applications` e `applianceDefinitions` para `applicationDefinitions`
+* [ALTERAÇÃO SIGNIFICATIVA] Tipo de recurso `managedapp` alterado de `appliances` para `applications` e de `applianceDefinitions` para `applicationDefinitions`
 
 ### <a name="network"></a>Rede
 
@@ -799,15 +906,15 @@ Versão 2.0.17
 
 ### <a name="cdn"></a>CDN
 
-* Foi corrigido o bug 'Não é possível interar CustomDomain' para `cdn custom-domain create`.
+* Foi corrigido o bug 'Não é possível interar CustomDomain' para `cdn custom-domain create`
 
 ### <a name="extension"></a>Extensão
 
-* Versão Inicial.
+* Versão Inicial
 
 ### <a name="keyvault"></a>Keyvault
 
-* Foi corrigido o problema onde permissões diferenciavam maiúsculas de minúsculas para `keyvault set-policy`.
+* Foi corrigido o problema onde permissões diferenciavam maiúsculas de minúsculas para `keyvault set-policy`
 
 ### <a name="network"></a>Rede
 
@@ -859,13 +966,13 @@ Versão 2.0.15
 
 ### <a name="cli"></a>CLI
 
-* Nota legal adicionada ao `--version`.
+* Nota legal adicionada ao `--version`
 
 ### <a name="acs"></a>ACS
 
-* Corrigidas as regiões de visualização.
-* Corrigida a formatação padrão de `dns_name_prefix`.
-* Saída de comando ACS otimizada.
+* Corrigidas as regiões de visualização
+* Corrigida a formatação padrão de `dns_name_prefix`
+* Saída de comando ACS otimizada
 
 ### <a name="appservice"></a>AppService
 
@@ -1090,7 +1197,7 @@ vm (2.0.11)
 
 ### <a name="cdn"></a>CDN
 
-* Uma mensagem de erro mais adequada foi fornecida para `cdn endpoint list` quando o perfil especificado por `--profile-name` não existir.
+* Uma mensagem de erro mais adequada foi fornecida para `cdn endpoint list` quando o perfil especificado por `--profile-name` não existir
 
 ### <a name="cloud"></a>Nuvem
 
@@ -1103,7 +1210,7 @@ vm (2.0.11)
 ### <a name="cosmosdb"></a>CosmosDB
 
 * Corrigida a permissão para criação de coleção com chave de partição personalizada
-* Adicionado suporte para o TTL padrão de coleção.
+* Adicionado suporte para o TTL padrão de coleção
 
 ### <a name="data-lake-analytics"></a>Data Lake Analytics
 
@@ -1257,7 +1364,7 @@ vm (2.0.11)
 * Suporte para configuração de NSG
 * Corrigido o bug onde o servidor DNS não era configurado corretamente
 * Suporte às identidades de serviço gerenciado
-* Corrigido o problema onde `cmss create` com um balanceador de carga existente exigia `--backend-pool-name`.
+* Corrigido o problema onde `cmss create` com um balanceador de carga existente exigia `--backend-pool-name`
 * Os discos de dados criados com LUN do `vm image create` agora começam com 0
 
 
@@ -1267,12 +1374,12 @@ Versão 2.0.6
 
 * Renomeação do DocumentDB para CosmosDB
 * Adição do RDBMS (MySQL, Postgres)
-* Inclusão dos módulos Data Lake Analytics e Data Lake Store.
-* Inclusão do módulo Serviços Cognitivos.
-* Inclusão do módulo Service Fabric.
-* Inclusão do módulo Interativo (renomeação de az-shell).
-* Adição de suporte para comandos CDN.
-* Remoção do módulo Contêiner.
+* Inclusão dos módulos Data Lake Analytics e Data Lake Store
+* Inclusão do módulo Serviços Cognitivos
+* Inclusão do módulo Service Fabric
+* Inclusão do módulo Interativo (renomeação de az-shell)
+* Adição de suporte para comandos CDN
+* Remoção do módulo Contêiner
 * Adição de “az -v” como atalho para “az --version” ([nº 2926](https://github.com/Azure/azure-cli/issues/2926))
 * Melhoria do desempenho de carregamento de pacote e execução de comando ([nº 2819](https://github.com/Azure/azure-cli/issues/2819))
 
@@ -1349,25 +1456,25 @@ vm (2.0.6)
 
 ### <a name="cosmosdb"></a>CosmosDB
 
-* Renomeação do módulo DocumentDB para CosmosDB.
+* Renomeação do módulo DocumentDB para CosmosDB
 * Adição de suporte para APIs do plano de dados do DocumentDB: gerenciamento de banco de dados e de coleção
 * Adição de suporte para habilitar o failover automático em contas de banco de dados
 * Adição de suporte para nova política de consistência ConsistentPrefix
 
 ### <a name="data-lake-analytics"></a>Data Lake Analytics
 
-* Correção de um bug em que a filtragem no resultado e no estado das listas de trabalho gera um erro.
+* Correção de um bug em que a filtragem no resultado e no estado das listas de trabalho gera um erro
 * Adição de suporte para o novo tipo de item de catálogo: pacote. acessado por meio de: `az dla catalog package`
 * Possibilidade de listar os seguintes itens de catálogo no banco de dados (sem a necessidade de especificação de esquema):
 
   * Tabela
   * Função com valor de tabela
   * Visualizar
-  * Estatísticas de Tabela. Isso também pode ser listado com um esquema, mas sem a especificação de um nome de tabela.
+  * Estatísticas de Tabela. Isso também pode ser listado com um esquema, mas sem a especificação de um nome de tabela
 
 ### <a name="data-lake-store"></a>Repositório Data Lake
 
-* Atualização da versão do SDK do sistema de arquivos subjacente, que fornece melhor suporte para lidar com cenários de limitação do servidor.
+* Atualização da versão do SDK do sistema de arquivos subjacente, que fornece melhor suporte para lidar com cenários de limitação do servidor
 * Melhoria do desempenho de carregamento de pacote e execução de comando ([nº 2819](https://github.com/Azure/azure-cli/issues/2819))
 * Ausência de ajuda para mostrar o acesso. Adição em andamento. ([nº 2743](https://github.com/Azure/azure-cli/issues/2743))
 
@@ -1378,18 +1485,18 @@ vm (2.0.6)
 ### <a name="keyvault"></a>KeyVault
 
 * BC:`az keyvault certificate download` alteração de -e da cadeia de caracteres ou do binário para PEM ou DER a fim de representar melhor as opções
-* BC: remoção de --expires e --not-before de `keyvault certificate create`, pois esses parâmetros não têm suporte no serviço.
+* BC: remoção de --expires e --not-before de `keyvault certificate create`, pois esses parâmetros não têm suporte no serviço
 * Adição do parâmetro --validity a `keyvault certificate create` para substituir seletivamente o valor em --policy
-* Correção do problema em `keyvault certificate get-default-policy`, em que “expires” e “not_before” eram expostos, ao contrário de “validity_in_months”.
+* Correção do problema em `keyvault certificate get-default-policy`, em que “expires” e “not_before” eram expostos, ao contrário de “validity_in_months”
 * Correção do cofre de chaves para importação de PEM e PFX ([nº 2754](https://github.com/Azure/azure-cli/issues/2754))
 
 ### <a name="lab"></a>Laboratório
 
-* Adição dos comandos create, show, delete e list ao ambiente do laboratório.
-* Adição dos comandos show e list para exibir modelos ARM no laboratório.
-* Adição do sinalizador --environment a `az lab vm list` para filtrar as VMs por ambiente no laboratório.
-* Adição do comando de conveniência `az lab formula export-artifacts` para exportar o scaffold de artefato em uma fórmula do Laboratório.
-* Adição de comandos para gerenciar segredos em um Laboratório.
+* Adição dos comandos create, show, delete e list ao ambiente do laboratório
+* Adição dos comandos show e list para exibir modelos ARM no laboratório
+* Adição do sinalizador --environment a `az lab vm list` para filtrar as VMs por ambiente no laboratório
+* Adição do comando de conveniência `az lab formula export-artifacts` para exportar o scaffold de artefato em uma fórmula do Laboratório
+* Adição de comandos para gerenciar segredos em um Laboratório
 
 ### <a name="monitor"></a>Monitoramento
 
@@ -1398,22 +1505,22 @@ vm (2.0.6)
 
 ### <a name="network"></a>Rede
 
-* Adição do comando `network watcher test-connectivity`.
-* Adição de suporte para o parâmetro `--filters` de `network watcher packet-capture create`.
-* Adição de suporte para drenagem de conexão do Gateway de Aplicativo.
-* Adição de suporte para a configuração do conjunto de regras WAF do Gateway de Aplicativo.
-* Adição de suporte para filtros de rota e regras do ExpressRoute.
-* Adição de suporte para o roteamento geográfico do Gerenciador de Tráfego.
-* Adição de suporte para seletores de tráfego baseados em política da conexão VPN.
-* Adição de suporte para políticas IPsec da conexão VPN.
-* Correção de um bug com `vpn-connection create` ao usar os parâmetros `--no-wait` ou `--validate`.
+* Adição do comando `network watcher test-connectivity`
+* Adição de suporte para o parâmetro `--filters` de `network watcher packet-capture create`
+* Adição de suporte para drenagem de conexão do Gateway de Aplicativo
+* Adição de suporte para a configuração do conjunto de regras WAF do Gateway de Aplicativo
+* Adição de suporte para filtros de rota e regras do ExpressRoute
+* Adição de suporte para o roteamento geográfico do Gerenciador de Tráfego
+* Adição de suporte para seletores de tráfego baseados em política da conexão VPN
+* Adição de suporte para políticas IPsec da conexão VPN
+* Correção de um bug com `vpn-connection create` ao usar os parâmetros `--no-wait` ou `--validate`
 * Adição de suporte para gateways de VNet ativos/ativos
-* Remoção de valores nulos na saída de comandos `network vpn-connection list/show`.
+* Remoção de valores nulos na saída de comandos `network vpn-connection list/show`
 * BC: correção de um bug na saída de `vpn-connection create`
-* Correção de um bug em que o argumento “--key-length” de “vpn-connection create” não é analisado corretamente.
-* Correção de um bug em `dns zone import`, em que os registros não são importados corretamente.
-* Correção de um bug em que `traffic-manager endpoint update` não funciona.
-* Adição de comandos de visualização “network watcher”.
+* Correção de um bug em que o argumento “--key-length” de “vpn-connection create” não é analisado corretamente
+* Correção de um bug em `dns zone import`, em que os registros não são importados corretamente
+* Correção de um bug em que `traffic-manager endpoint update` não funciona
+* Adição de comandos de visualização “network watcher”
 
 ### <a name="profile"></a>Perfil
 
@@ -1423,7 +1530,7 @@ vm (2.0.6)
 ### <a name="redis"></a>Redis
 
 * Adição do comando update que também adiciona a capacidade de dimensionar o Cache Redis
-* Preterição do comando “update-settings”.
+* Preterição do comando “update-settings”
 
 ### <a name="resource"></a>Recurso
 
@@ -1445,12 +1552,12 @@ vm (2.0.6)
 
 ### <a name="sql"></a>SQL
 
-* Adição dos comandos az sql server list-usages e az sql db list-usages.
+* Adição dos comandos az sql server list-usages e az sql db list-usages
 * SQL – capacidade de se conectar diretamente ao provedor de recursos ([nº 2832](https://github.com/Azure/azure-cli/issues/2832))
 
 ### <a name="storage"></a>Armazenamento
 
-* Localização padrão da localização do grupo de recursos de `storage account create`.
+* Localização padrão da localização do grupo de recursos de `storage account create`
 * Adição de suporte para cópia incremental de blob
 * Adição de suporte para upload de blobs de blocos grandes
 * Alteração do tamanho do bloco para 100MB quando o arquivo a ser carregado é maior que 200GB
@@ -1471,7 +1578,7 @@ vm (2.0.6)
 
 Versão 2.0.2
 
-Lançamos os componentes ACR, Batch, KeyVault, e SQL nessa versão.
+Lançamos os componentes ACR, Batch, KeyVault, e SQL nessa versão
 
 ```
 azure-cli (2.0.2)
@@ -1505,7 +1612,7 @@ vm (2.0.2)
 
 ### <a name="core"></a>Núcleo
 
-* Adicionar módulos acr, laboratório, monitor e localizar à lista padrão.
+* Adicionar módulos acr, laboratório, monitor e localizar à lista padrão
 * Logon: ignorar locatário errado ([#2634](https://github.com/Azure/azure-cli/pull/2634))
 * logon: definir assinatura padrão como um com o estado de "Enabled" ([#2575](https://github.com/Azure/azure-cli/pull/2575))
 * Adicionar comandos de espera e suporte --no-wait para mais comandos ([#2524](https://github.com/Azure/azure-cli/pull/2524))
@@ -1530,8 +1637,8 @@ vm (2.0.2)
 
 ### <a name="datalake"></a>DataLake
 
-* Versão inicial do módulo do Data Lake Analytics.
-* Versão inicial do módulo do Data Lake Store.
+* Versão inicial do módulo do Data Lake Analytics
+* Versão inicial do módulo do Data Lake Store
 
 ### <a name="docuemntdb"></a>DocuemntDB
 
@@ -1551,21 +1658,17 @@ vm (2.0.2)
 
 Versão 2.0.0
 
-Essa versão da CLI do Azure 2.0 é a primeira versão “Disponível”.
-A disponibilidade se aplica a esses módulos de comando:
+Esta versão da CLI do Azure 2.0 é a primeira versão "Amplamente Disponível". A disponibilidade geral se aplica a estes módulos de comando:
 - Serviço de Contêiner (acs)
 - Computação (incluindo Gerenciador de Recursos, VM, conjunto de dimensionamento de máquinas virtuais, Managed Disks)
 - Rede
 - Armazenamento
 
-Esses módulos de comando podem ser usados na produção e são compatíveis com o SLA do Microsoft padrão.
-Você pode abrir problemas diretamente com o suporte da Microsoft ou em nossa [lista de problemas do github](https://github.com/azure/azure-cli/issues/).
-Você pode fazer perguntas sobre [StackOverflow usando a marcação azure-cli](http://stackoverflow.com/questions/tagged/azure-cli) ou entrar em contato com a equipe do produto pelo endereço [ azfeedback@microsoft.com ](mailto:azfeedback@microsoft.com). Você pode fornecer comentários a partir da linha de comando com o comando `az feedback`.
+Esses módulos de comando podem ser usados na produção e têm suporte do SLA padrão da Microsoft. Você pode abrir problemas diretamente com o suporte da Microsoft ou em nossa [lista de problemas do github](https://github.com/azure/azure-cli/issues/). Faça perguntas no [StackOverflow usando a marca azure-cli](http://stackoverflow.com/questions/tagged/azure-cli), ou contate a equipe de produto em [azfeedback@microsoft.com](mailto:azfeedback@microsoft.com) Forneça comentários na linha de comando com o comando `az feedback`
 
-Os comandos nesses módulos são estáveis e a sintaxe não deve ser alterada em versões futuras dessa versão da CLI do Azure.
+Os comandos nesses módulos são estáveis e a sintaxe não deve ser alterada em versões futuras dessa versão da CLI do Azure
 
-Para verificar a versão da CLI, utilize `az --version`.
-A saída lista a versão da CLI (2.0.0 nessa versão), os módulos de comando individuais, as versões do Python e GCC que você está usando.
+Para verificar a versão da CLI, use `az --version` A saída lista a versão da CLI (2.0.0 nessa versão), os módulos de comando individuais, as versões do Python e GCC que você está usando
 
 ```
 azure-cli (2.0.0)
@@ -1597,14 +1700,12 @@ Python (Darwin) 2.7.10 (default, Jul 30 2016, 19:40:32)
 ```
 
 > [!Note]
-> Alguns dos módulos de comando têm um "b*n*" ou "rc*n*" como sufixo.
-> Esses módulos de comando ainda estão em visualização e estarão disponíveis no futuro.
+> Alguns dos módulos de comando têm um sufixo "b*n*" ou "rc*n*". Esses módulos de comando ainda estão em versão prévia e estarão disponíveis no futuro
 
-Também temos compilações de visualização diárias da CLI.
-Para obter informações, consulte essas instruções sobre [como obter as compilações diárias](https://github.com/Azure/azure-cli#nightly-builds) e essas instruções sobre [configuração do desenvolvedor e código de contribuição](https://github.com/Azure/azure-cli#developer-setup).
+Também temos compilações de versão prévia noturnas da CLI. Para obter informações, consulte essas instruções sobre [como obter as compilações diárias](https://github.com/Azure/azure-cli#nightly-builds) e essas instruções sobre [configuração do desenvolvedor e código de contribuição](https://github.com/Azure/azure-cli#developer-setup)
 
 Você pode relatar problemas com as compilações de visualização diárias das seguintes maneiras:
 - Relatar problemas na [lista de problemas do github](https://github.com/azure/azure-cli/issues/)
-- Entre em contato com a equipe do produto no endereço [azfeedback@microsoft.com](mailto:azfeedback@microsoft.com).
-- Forneça comentários a partir da linha de comando com o comando `az feedback`.
+- Entre em contato com a equipe do produto no endereço [azfeedback@microsoft.com](mailto:azfeedback@microsoft.com)
+- Forneça comentários a partir da linha de comando com o comando `az feedback`
 
