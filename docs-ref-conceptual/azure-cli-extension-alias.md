@@ -10,11 +10,11 @@ ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: e8419394bb221d2614e15171bd19dd76fd9cd773
-ms.sourcegitcommit: b5a6296c006e3a44f66892729e47d7a967267d3e
+ms.openlocfilehash: e457d78b1009fe573554df36db18f525516e0b4a
+ms.sourcegitcommit: 335c11e6c34f7907e61a43507745ba84ed4e7469
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="the-azure-cli-20-alias-extension"></a>A extensão de alias da CLI do Azure 2.0
 
@@ -99,7 +99,7 @@ az ls-groups
 
 ## <a name="create-an-alias-command-with-arguments"></a>Criar um comando de alias com argumentos
 
-Você também pode adicionar argumentos posicionais para um comando de alias incluindo-os como `{{ arg_name }}` no nome do alias. O espaço em branco entre chaves é obrigatório.
+Você também pode adicionar argumentos posicionais para um comando de alias incluindo-os como `{{ arg_name }}` no nome do alias. O espaço em branco entre as chaves é obrigatório.
 
 ```
 [alias_name {{ arg1 }} {{ arg2 }} ...]
@@ -115,7 +115,7 @@ command = vm list-ip-addresses --resource-group {{ resourceGroup }} --name {{ vm
 
 Ao executar esse comando, você fornece valores para os argumentos posicionais.
 
-```azruecli
+```azurecli
 az get-vm-ip MyResourceGroup MyVM
 ```
 
@@ -143,7 +143,7 @@ Para saber mais sobre o mecanismo de modelo Jinja2, confira a [documentação do
 
 Para desinstalar a extensão, use o comando [az extension remove](/cli/azure/extension#az-extension-remove).
 
-```bash
+```azurecli
 az extension remove --name alias
 ```
 
