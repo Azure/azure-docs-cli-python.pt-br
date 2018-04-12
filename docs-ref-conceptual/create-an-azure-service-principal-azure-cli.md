@@ -1,6 +1,6 @@
 ---
-title: "Usar entidades de serviço do Azure com a CLI do Azure 2.0"
-description: "Saiba como criar e usar uma entidade de serviço com a CLI do Azure 2.0."
+title: Usar entidades de serviço do Azure com a CLI do Azure 2.0
+description: Saiba como criar e usar uma entidade de serviço com a CLI do Azure 2.0.
 author: sptramer
 ms.author: sttramer
 manager: carmonm
@@ -10,11 +10,11 @@ ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: b46c735a14240bddd07659475ada1c33c75a1e67
-ms.sourcegitcommit: b93a19222e116d5880bbe64c03507c64e190331e
+ms.openlocfilehash: fd615c762f997cb8bd4835d387cd96dd9c475928
+ms.sourcegitcommit: c9da729f4a42a839f13106f7589deaa0ca19cc4e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-an-azure-service-principal-with-azure-cli-20"></a>Criar uma entidade de serviço do Azure com a CLI do Azure 2.0
 
@@ -22,7 +22,7 @@ Caso deseje criar um logon separado com restrições de acesso, é possível faz
 
 ## <a name="create-the-service-principal"></a>Criar a entidade de serviço
 
-Use o comando [az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac) para criar uma entidade de serviço. O nome da entidade de serviço não está vinculado a nenhum aplicativo ou nome de usuário existente. Você pode criar uma entidade de serviço com a escolha do tipo de autenticação.
+Use o comando [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) para criar uma entidade de serviço. O nome da entidade de serviço não está vinculado a nenhum aplicativo ou nome de usuário existente. Você pode criar uma entidade de serviço com a escolha do tipo de autenticação.
 
 * `--password` é usado para autenticação baseada em senha. Verifique se você criou uma senha forte, seguindo as [regras e restrições de senha do Azure Active Directory](/azure/active-directory/active-directory-passwords-policy). Caso não especifique uma senha, uma será criada para você.
 
@@ -67,9 +67,9 @@ Os valores `appId`, `tenant` e `password` são usados para autenticação. O `di
 
 A CLI do Azure 2.0 fornece os comandos a seguir para gerenciar atribuições de função.
 
-* [az role assignment list](/cli/azure/role/assignment#list)
-* [az role assignment create](/cli/azure/role/assignment#create)
-* [az role assignment delete](/cli/azure/role/assignment#delete)
+* [az role assignment list](/cli/azure/role/assignment#az-role-assignment-list)
+* [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create)
+* [az role assignment delete](/cli/azure/role/assignment#az-role-assignment-delete)
 
 A função padrão para uma entidade de serviço é **Colaborador**. Essa função tem permissões completas para ler e gravar em uma conta do Azure e geralmente não é adequada para aplicativos. A função **Leitor** é mais restritiva, oferecendo acesso somente leitura.  Para obter mais informações sobre Controle de acesso baseado em função (RBAC) e funções, consulte [RBAC: funções internas](/azure/active-directory/role-based-access-built-in-roles).
 
@@ -108,7 +108,7 @@ az login --service-principal --username APP_ID --tenant TENANT_ID --password PAT
 ```
 ## <a name="reset-credentials"></a>Redefinir credenciais
 
-Caso esqueça as credenciais de uma entidade de serviço, elas podem ser redefinidas com comando [az ad sp reset-credentials](https://docs.microsoft.com/en-us/cli/azure/ad/sp?view=azure-cli-latest#az_ad_sp_reset_credentials). As mesmas restrições e opções para criar uma nova entidade de serviço também se aplicam aqui.
+Caso esqueça as credenciais de uma entidade de serviço, elas podem ser redefinidas com comando [az ad sp reset-credentials](https://docs.microsoft.com/en-us/cli/azure/ad/sp#az-ad-sp-reset-credentials). As mesmas restrições e opções para criar uma nova entidade de serviço também se aplicam aqui.
 
 ```azurecli
 az ad sp reset-credentials --name APP_ID --password NEW_PASSWORD
