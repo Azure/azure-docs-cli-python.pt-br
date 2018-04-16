@@ -1,7 +1,7 @@
 ---
-title: "Introdução à CLI do Azure 2.0"
-description: "Comece a usar a CLI do Azure 2.0 aprendendo as noções básicas de comando."
-keywords: "CLI do Azure, ajuda da CLI, ajuda do Azure, consulta, automação,"
+title: Introdução à CLI do Azure 2.0
+description: Comece a usar a CLI do Azure 2.0 aprendendo as noções básicas de comando.
+keywords: CLI do Azure, ajuda da CLI, ajuda do Azure, consulta, automação,
 author: sptramer
 ms.author: sttramer
 manager: routlaw
@@ -11,11 +11,11 @@ ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: 3f5fe1b01a8ce691846126a6c03e7222e9b20e0d
-ms.sourcegitcommit: 29d7366a0902488f4f4d39c2cb0e89368d5186ea
+ms.openlocfilehash: 9eec3161a726d6cca53d92f80992059bfd056bf7
+ms.sourcegitcommit: c9da729f4a42a839f13106f7589deaa0ca19cc4e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="get-started-with-azure-cli-20"></a>Introdução à CLI do Azure 2.0
 
@@ -25,7 +25,7 @@ Bem-vindo à CLI do Azure 2.0! A CLI é uma ferramenta projetada para ajudar voc
 
 Caso ainda não o tenha feito, [instale a CLI](install-azure-cli.md) ou experimento o [Azure Cloud Shell](/azure/cloud-shell/overview).
 
-Antes de usar os comandos da CLI com uma instalação local, é preciso fazer logon com [az login](/cli/azure/reference-index#az_login).
+Antes de usar os comandos da CLI com uma instalação local, é preciso fazer logon com [az login](/cli/azure/reference-index#az-login).
 
 ```azurecli
 az login
@@ -53,7 +53,7 @@ Todos os subcomandos desses grupos e sua documentação podem ser pesquisados na
 Comandos na CLI são fornecidos como _subcomandos_ de _grupos_.
 Cada grupo representa um serviço fornecido pelo Azure, e os subgrupos dividem os comandos para esses serviços em agrupamentos lógicos.
 
-Para procurar comandos, use [az find](/cli/azure/reference-index#az_find). Por exemplo, para procurar nomes de comando que contenham `secret`, use o seguinte comando:
+Para procurar comandos, use [az find](/cli/azure/reference-index#az-find). Por exemplo, para procurar nomes de comando que contenham `secret`, use o seguinte comando:
 
 ```azurecli
 az find -q secret
@@ -80,7 +80,7 @@ Há alguns argumentos disponíveis para cada comando.
 
 ## <a name="interactive-mode"></a>Modo interativo
 
-A CLI oferece um modo interativo que exibe informações de ajuda automaticamente e torna mais fácil selecionar subcomandos. Você entra no modo interativo com o comando `az interactive`. Para obter mais informações sobre o modo interativo e como ele ajuda você a aprender sobre a CLI, consulte [Modo interativo da CLI do Azure 2.0](interactive-azure-cli.md).
+A CLI oferece um modo interativo que exibe informações de ajuda automaticamente e torna mais fácil selecionar subcomandos. Você entra no modo interativo com o comando [az interactive](/cli/azure/reference-index#az-interactive). Para obter mais informações sobre o modo interativo e como ele ajuda você a aprender sobre a CLI, consulte [Modo interativo da CLI do Azure 2.0](interactive-azure-cli.md).
 
 Também há um [Plug-in do Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli) que oferece uma experiência interativa, incluindo documentação de preenchimento automático e com o passar do mouse.
 
@@ -105,7 +105,7 @@ Se você preferir se concentrar em outros serviços, há uma variedade de guias 
 
 ## <a name="give-feedback"></a>Fornecer comentários
 
-Apreciamos seus comentários da CLI para ajudar-nos a melhorar e resolver bugs. Você pode [arquivar um problema no Github](https://github.com/azure/azure-cli/issues) ou usar os recursos internos da CLI para deixar um comentário geral com o comando `az feedback`.
+Apreciamos seus comentários da CLI para ajudar-nos a melhorar e resolver bugs. Você pode [arquivar um problema no Github](https://github.com/azure/azure-cli/issues) ou usar os recursos internos da CLI para deixar um comentário geral com o comando [az feedback](/cli/azure/reference-index#az-feedback).
 
 ```azurecli
 az feedback
