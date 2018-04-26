@@ -10,11 +10,11 @@ ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: e457d78b1009fe573554df36db18f525516e0b4a
-ms.sourcegitcommit: 335c11e6c34f7907e61a43507745ba84ed4e7469
+ms.openlocfilehash: d6eae7f5a6ca30af7214e77ae561c3a53a2cee26
+ms.sourcegitcommit: 204fd027d3668959b98b936969ccb41eada0fd29
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="the-azure-cli-20-alias-extension"></a>A extensão de alias da CLI do Azure 2.0
 
@@ -36,14 +36,15 @@ az extension add --name alias
 Verifique a instalação da extensão com [az extension list](/cli/azure/extension#az-extension-list). Se a extensão de alias tiver sido instalada corretamente, estará relacionada na saída do comando.
 
 ```azurecli
-az extension list --output table
+az extension list --output table --query '[].{Name:name}'
 ```
 
 ```output
-ExtensionType    Name                       Version
----------------  -------------------------  ---------
-whl              alias                      0.2.0
+Name
+------
+alias
 ```
+
 
 ## <a name="keep-the-extension-up-to-date"></a>Manter a extensão atualizada
 
@@ -53,27 +54,23 @@ A extensão do alias está em desenvolvimento ativo, e novas versões são lanç
 az extension update --name alias
 ```
 
-## <a name="alias-commands-file-format"></a>Formato de arquivo de comandos do alias
 
-As definições de comando do alias são gravadas em um arquivo de configuração localizado em `$AZURE_USER_CONFIG/alias`. O valor padrão de `AZURE_USER_CONFIG` é `$HOME/.azure` no Linux e macOS, e `%USERPROFILE%\.azure` no Windows. O arquivo de configuração do alias é gravado no formato de arquivo de configuração INI. O formato geral para comandos de alias é:
+## <a name="manage-aliases-for-the-azure-cli"></a>Gerenciar aliases para a CLI do Azure
 
+A extensão de alias fornece comandos familiares e convenientes para gerenciar aliases. Para exibir todos os comandos disponíveis e os detalhes de parâmetros, invoque o comando de alias com `--help`.
+
+```azurecli
+az alias --help
 ```
-[command_name]
-command = invoked_commands
-```
 
-Não inclua `az` como parte do comando.
 
 ## <a name="create-simple-alias-commands"></a>Criar comandos simples de alias
 
 Uma das utilidades dos aliases é encurtar grupos de comando ou nomes de comando existentes. Por exemplo, você pode encurtar o grupo de comandos `group` para `rg` e o comando `list` para `ls`.
 
-```
-[rg]
-command = group
-
-[ls]
-command = list
+```azurecli
+az alias create --name rg --command group
+az alias create --name ls --command list
 ```
 
 Agora, esses aliases recém-definidos podem ser usados nos mesmos lugares que suas definições.
@@ -84,11 +81,12 @@ az rg ls
 az vm ls
 ```
 
+Não inclua `az` como parte do comando.
+
 Aliases também podem ser atalhos para comandos completos. O exemplo a seguir lista os grupos de recursos disponíveis e suas localizações na saída da tabela:
 
-```
-[ls-groups]
-command = group list --query '[].{Name:name, Location:location}' --output table
+```azurecli
+az alias create --name ls-groups --command "group list --query '[].{Name:name, Location:location}' --output table"
 ```
 
 Agora, `ls-groups` pode ser executado como qualquer outro comando da CLI.
@@ -97,20 +95,22 @@ Agora, `ls-groups` pode ser executado como qualquer outro comando da CLI.
 az ls-groups
 ```
 
+
 ## <a name="create-an-alias-command-with-arguments"></a>Criar um comando de alias com argumentos
 
 Você também pode adicionar argumentos posicionais para um comando de alias incluindo-os como `{{ arg_name }}` no nome do alias. O espaço em branco entre as chaves é obrigatório.
 
-```
-[alias_name {{ arg1 }} {{ arg2 }} ...]
-command = invoke_including_args
+```azurecli
+az alias create --name "alias_name {{ arg1 }} {{ arg2 }} ..." --command "invoke_including_args"
 ```
 
 O exemplo de alias seguinte mostra como usar argumentos posicionais para obter o endereço IP público de uma VM.
 
-```
-[get-vm-ip {{ resourceGroup }} {{ vmName }}]
-command = vm list-ip-addresses --resource-group {{ resourceGroup }} --name {{ vmName }} --query [0].virtualMachine.network.publicIpAddresses[0].ipAddress
+```azurecli
+az alias create \
+    --name "get-vm-ip {{ resourceGroup }} {{ vmName }}" \
+    --command "vm list-ip-addresses --resource-group {{ resourceGroup }} --name {{ vmName }}
+        --query [0].virtualMachine.network.publicIpAddresses[0].ipAddress"
 ```
 
 Ao executar esse comando, você fornece valores para os argumentos posicionais.
@@ -121,10 +121,14 @@ az get-vm-ip MyResourceGroup MyVM
 
 Você também pode usar variáveis de ambiente em comandos invocados pelo aliases, as quais são avaliadas em tempo de execução. O exemplo a seguir adiciona o alias `create-rg`, que cria um grupo de recursos em `eastus` e adiciona uma marca `owner`. Essa marca recebe o valor da variável de ambiente local `USER`.
 
+```azurecli
+az alias create \
+    --name "create-rg {{ groupName }}" \
+    --command "group create --name {{ groupName }} --location eastus --tags owner=\$USER"
 ```
-[create-rg {{ groupName }}]
-command = group create --name {{ groupName }} --location eastus --tags owner=$USER
-```
+
+Para registrar as variáveis de ambiente no comando de alias, o sinal de cifrão `$` deve ser precedido de um caractere de escape.
+
 
 ## <a name="process-arguments-using-jinja2-templates"></a>Processar argumentos usando modelos Jinja2
 
@@ -132,12 +136,43 @@ A substituição de argumento na extensão de alias é executada por [Jinja2](ht
 
 Com modelos Jinja2, você pode escrever aliases que aceitam tipos diferentes de argumentos em comparação com o comando subjacente. Por exemplo, você pode criar um alias que usa uma URL de armazenamento. Em seguida, essa URL é analisada para passar os nomes de conta e do contêiner para o comando de armazenamento.
 
-```
-[storage-ls {{ url }}]
-command = storage blob list --account-name {{ url.replace('https://', '').split('.')[0] }} --container-name {{ url.replace('https://', '').split('/')[1] }}
+```azurecli
+az alias create \
+    --name 'storage-ls {{ url }}' \
+    --command "storage blob list
+        --account-name {{ url.replace('https://', '').split('.')[0] }}
+        --container-name {{ url.replace('https://', '').split('/')[1] }}"
 ```
 
 Para saber mais sobre o mecanismo de modelo Jinja2, confira a [documentação do Jinja2](http://jinja.pocoo.org/docs/2.10/templates/).
+
+
+## <a name="alias-configuration-file"></a>Arquivo de configuração de alias
+
+Outra maneira de criar e modificar aliases é alterando o arquivo de configuração de alias. As definições de comando do alias são gravadas em um arquivo de configuração localizado em `$AZURE_USER_CONFIG/alias`. O valor padrão de `AZURE_USER_CONFIG` é `$HOME/.azure` no Linux e macOS, e `%USERPROFILE%\.azure` no Windows. O arquivo de configuração do alias é gravado no formato de arquivo de configuração INI. O formato para comandos de alias é:
+
+```ini
+[alias_name]
+command = invoked_commands
+```
+
+Para aliases que contêm argumentos posicionais, o formato para os comandos de alias é:
+
+```ini
+[alias_name {{ arg1 }} {{ arg2 }} ...]
+command = invoked_commands_including_args
+```
+
+
+## <a name="create-an-alias-command-with-arguments-via-the-alias-configuration-file"></a>Criar um comando de alias com argumentos por meio do arquivo de configuração do alias
+
+Abaixo há um arquivo de configuração de alias que contém um comando de alias de exemplo com argumentos, o qual obtém o endereço IP público para uma VM. Verifique se o comando invocado está em uma única linha e contém os mesmos argumentos definidos no alias.
+
+```ini
+[get-vm-ip {{ resourceGroup }} {{ vmName }}]
+command = vm list-ip-addresses --resource-group {{ resourceGroup }} --name {{ vmName }} --query [0].virtualMachine.network.publicIpAddresses[0].ipAddress
+```
+
 
 ## <a name="uninstall-the-alias-extension"></a>Desinstalar a extensão do alias
 

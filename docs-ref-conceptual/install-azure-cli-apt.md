@@ -10,11 +10,11 @@ ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: 188e7dfded21bb5c7036b3a950b3e4cb10bc1d33
-ms.sourcegitcommit: 5c004b455eff196d853bfbe12901c6114a1652d7
+ms.openlocfilehash: a2578c79ba961cb12f3f49e77a9eaa73c4fe97a2
+ms.sourcegitcommit: 0e9aafa07311526f43661c8bd3a7eba7cbc2caed
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="install-azure-cli-20-with-apt"></a>Instalar CLI do Azure 2.0 com o apt
 
@@ -33,15 +33,33 @@ Se você estiver executando uma distribuição que venha com o `apt`, como o Ubu
           sudo tee /etc/apt/sources.list.d/azure-cli.list
      ```
 
-2. Execute os comandos sudo a seguir:
+2. Obtenha a chave de assinatura da Microsoft:
 
    ```bash
    sudo apt-key adv --keyserver packages.microsoft.com --recv-keys 52E16F86FEE04B979B07E28DB02C46DF417A0893
+   ```
+
+  > [!WARNING]
+  > Esta chave de assinatura foi preterida e será substituída no final de maio de 2018. Para continuar recebendo atualizações com `apt`, verifique se você instalou a nova chave:
+  > 
+  > ```bash
+  > curl -L https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
+  > ``` 
+
+3. Instalar a CLI:
+
+   ```bash
    sudo apt-get install apt-transport-https
    sudo apt-get update && sudo apt-get install azure-cli
    ```
 
-É possível executar a CLI do Azure com o comando `az`.
+É possível executar a CLI do Azure com o comando `az`. Para fazer logon, execute o comando `az login`.
+
+```azurecli
+az login
+```
+
+Para saber mais sobre os métodos de logon diferente, consulte [Fazer logon com a CLI do Azure 2.0](authenticate-azure-cli.md).
 
 ## <a name="troubleshooting"></a>solução de problemas
 

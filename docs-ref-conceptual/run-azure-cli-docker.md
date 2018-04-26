@@ -1,6 +1,6 @@
 ---
-title: "Execute a CLI do Azure 2.0 em um Contêiner do Docker"
-description: "Como executar um contêiner do Docker hospedando a CLI do Azure 2.0"
+title: Execute a CLI do Azure 2.0 em um Contêiner do Docker
+description: Como executar um contêiner do Docker hospedando a CLI do Azure 2.0
 author: sptramer
 ms.author: sttramer
 manager: routlaw
@@ -10,11 +10,11 @@ ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: 3a09eb6d83bb5401628bd952d199a03ecbb8216e
-ms.sourcegitcommit: b93a19222e116d5880bbe64c03507c64e190331e
+ms.openlocfilehash: e394dc5cd375ec6d3393f45f38694f71369379d4
+ms.sourcegitcommit: 0e9aafa07311526f43661c8bd3a7eba7cbc2caed
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="run-azure-cli-20-in-a-docker-container"></a>Executar a CLI do Azure 2.0 em um contêiner do Docker
 
@@ -28,7 +28,13 @@ Instalar a CLI usando `docker run`.
    docker run -it microsoft/azure-cli
    ```
 
-A CLI está instalada na imagem como o comando `az` no `/usr/local/bin`.
+A CLI está instalada na imagem como o comando `az` no `/usr/local/bin`. Para fazer logon, execute o comando `az login`.
+
+```azurecli
+az login
+```
+
+Para saber mais sobre os métodos de logon diferente, consulte [Fazer logon com a CLI do Azure 2.0](authenticate-azure-cli.md).
 
 > [!NOTE]
 > Se você quiser acompanhar as chaves SSH do seu ambiente de usuário, use `-v ${HOME}:/root` para montar $HOME como `/root`.

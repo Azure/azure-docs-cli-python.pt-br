@@ -1,6 +1,6 @@
 ---
 title: Entrar com a CLI do Azure 2.0
-description: "Faça logon com a CLI do Azure 2.0 interativamente ou com credenciais locais"
+description: Faça logon com a CLI do Azure 2.0 interativamente ou com credenciais locais
 author: sptramer
 ms.author: sttramer
 manager: routlaw
@@ -10,11 +10,11 @@ ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: 92c96b7e969de686689ef02bf068392b9f565698
-ms.sourcegitcommit: 29d7366a0902488f4f4d39c2cb0e89368d5186ea
+ms.openlocfilehash: a8bdf99d12e988cc6fdfabb5038c99c9430a9acd
+ms.sourcegitcommit: 0e9aafa07311526f43661c8bd3a7eba7cbc2caed
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="log-in-with-azure-cli-20"></a>Entrar com a CLI do Azure 2.0
 
@@ -33,7 +33,7 @@ Faça logon interativamente usando seu navegador da Web.
 
 ## <a name="command-line"></a>Linha de comando
 
-Forneça suas credenciais na linha de comando.
+Forneça suas credenciais de usuário do Azure na linha de comando.
 
 > [!Note]
 > Essa abordagem não funciona com contas da Microsoft ou contas que tenham a autenticação de dois fatores habilitada.
@@ -41,6 +41,22 @@ Forneça suas credenciais na linha de comando.
 ```azurecli
 az login -u <username> -p <password>
 ```
+
+> [!IMPORTANT]
+> Caso deseje evitar a exibição de sua senha no console e esteja usando `az login` interativamente, use o comando `read -s` em `bash`.
+> 
+> ```bash
+> read -sp "Azure password: " AZ_PASS && echo && az login -u <username> -p $AZ_PASS
+> ```
+>
+> No PowerShell, use o cmdlet `Read-Host -AsSecureString` e proteja a conversão da cadeia de caracteres.
+> 
+> ```powershell
+> $securePass =  Read-Host "Azure password: " -AsSecureString;
+> $AzPass = [Runtime.InteropServices.Marshal]::PtrToStringAuto([Runtime.InteropServices.Marshal]::SecureStringToBSTR($securePass));
+> az login -u <username> -p $AzPass;
+> $AzPass = ""
+> ```
 
 ## <a name="log-in-with-a-specific-tenant"></a>Faça logon com um locatário específico
 
@@ -50,14 +66,14 @@ Caso trabalhe com vários locatários, é possível selecionar seu locatário pa
 az login --tenant <tenant>
 ```
 
-## <a name="logging-in-with-a-service-principal"></a>Como fazer logon com uma entidade de serviço
+## <a name="log-in-with-a-service-principal"></a>Fazer logon com uma entidade de serviço
 
 Entidades de serviço são contas que não estão associadas a nenhum usuário específico, as quais podem ter permissões atribuídas por meio de funções predefinidas. Autenticar com uma entidade de serviço é a melhor maneira de gravar scripts seguros ou programas, permitindo a aplicação de restrições de permissões e informações de credenciais estáticas armazenadas localmente. Para saber mais sobre entidades de serviço, consulte [Criar uma entidade de serviço do Azure com a CLI do Azure](create-an-azure-service-principal-azure-cli.md).
 
 Para fazer logon com uma entidade de serviço, você fornece o nome de usuário, senha ou arquivo do certificado PEM e o locatário associado à entidade de serviço:
 
 ```azurecli
-az login --service-principal -u <user> -p <password-or-cert> --tenant <tenant>
+az login --service-principal -u <app-url> -p <password-or-cert> --tenant <tenant>
 ```
 
 O valor do locatário é um locatário do Azure Active Directory associado à entidade de serviço. Pode tanto ser um domínio `.onmicrosoft.com` como a ID de objeto do Azure para o locatário.
@@ -66,3 +82,19 @@ Você pode obter a ID de objeto do locatário para seu logon atual usando o segu
 ```azurecli
 az account show --query 'tenantId' -o tsv
 ```
+
+> [!IMPORTANT]
+> Caso deseje evitar a exibição de sua senha no console e esteja usando `az login` interativamente, use o comando `read -s` em `bash`.
+> 
+> ```bash
+> read -sp "Azure password: " AZ_PASS && echo && az login --service-principal -u <app-url> -p $AZ_PASS --tenant <tenant>
+> ```
+>
+> No PowerShell, use o cmdlet `Read-Host -AsSecureString` e proteja a conversão da cadeia de caracteres.
+> 
+> ```powershell
+> $securePass =  Read-Host "Azure password: " -AsSecureString;
+> $AzPass = [Runtime.InteropServices.Marshal]::PtrToStringAuto([Runtime.InteropServices.Marshal]::SecureStringToBSTR($securePass));
+> az login --service-principal -u <app-url> -p $AzPass --tenant <tenant>;
+> $AzPass = ""
+> ```

@@ -4,19 +4,136 @@ description: Saiba mais sobre as últimas atualizações da CLI do Azure 2.0
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 02/27/2018
+ms.date: 04/10/2018
 ms.topic: article
 ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: 0e81f5723af47242f908b854045deb7d74c50c17
-ms.sourcegitcommit: b5a6296c006e3a44f66892729e47d7a967267d3e
+ms.openlocfilehash: 1e6bd4cd8bab853fb417ed9c4dd71d56e5de7cdc
+ms.sourcegitcommit: 204fd027d3668959b98b936969ccb41eada0fd29
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cli-20-release-notes"></a>Notas de versão da CLI do Azure 2.0
+
+## <a name="april-10-2018"></a>10 de abril de 2018
+
+Versão 2.0.31
+
+### <a name="acr"></a>ACR
+
+* Melhoria do tratamento de erros do fallback do wincred
+
+### <a name="acs"></a>ACS
+
+* Alteração da validade de SPNs criados pelo AKS para 5 anos
+
+### <a name="appservice"></a>AppService
+
+* [ALTERAÇÃO SIGNIFICATIVA]: Removed `assign-identity`
+* Correção da exceção não identificada de planos de webapp inexistentes
+
+### <a name="batchai"></a>BatchAI
+
+* Adição de suporte para a API 2018-03-01
+
+ - Montagem de nível de trabalho
+ - Variáveis de ambiente com valores secretos
+ - Configurações de contadores de desempenho
+ - Relatório de segmento de linha específico de trabalho
+ - Suporte para subpastas na API de arquivos de lista
+ - Relatório de uso e limites
+ - Permitir a especificação do tipo de cache para servidores NFS
+ - Suporte para imagens personalizadas
+ - Adição de suporte para o kit de ferramentas pyTorch
+
+* Adição do comando `job wait`, que permite aguardar a conclusão do trabalho e relata o código de saída de trabalho
+* Adição do comando `usage show` para listar o uso e os limites do IA do Lote atual para diferentes regiões
+* Há suporte para nuvens nacionais
+* Adição de argumentos de linha de comando do trabalho para montar sistemas de arquivos no nível de trabalho, além de arquivos de configuração
+* Adição de mais opções para personalizar clusters — prioridade de VM, sub-rede, contagem inicial de nós para clusters de dimensionamento automático, especificando a imagem personalizada
+* Adição de opção de linha de comando para especificar o tipo de cache de NFS gerenciado por IA do Lote
+* Simplificação da especificação do sistema de arquivos de montagem nos arquivos de configuração. Agora é possível omitir as credenciais do Compartilhamento de arquivos do Azure e Contêineres de Blob do Azure — a CLI preencherá credenciais ausentes usando a chave da conta de armazenamento fornecida por meio dos parâmetros de linha de comando ou especificada por meio da variável de ambiente ou consultará a chave a partir do Armazenamento do Azure (se a conta de armazenamento pertencer à assinatura atual)
+* O comando do fluxo de arquivo de trabalho agora é preenchido automaticamente quando o trabalho é concluído (com êxito, com falha, encerrado ou excluído)
+* Melhoria da saída de `table` para operações de `show`
+* Adição da opção `--use-auto-storage` para a criação de cluster. Essa opção simplifica o gerenciamento de contas de armazenamento e a montagem do Compartilhamento de arquivos do Azure e dos Contêineres de Blob do Azure para clusters
+* Adição da opção `--generate-ssh-keys` para `cluster create` e `file-server create`
+* Adição da capacidade de fornecer a tarefa de configuração de nó por meio da linha de comando
+* [ALTERAÇÃO SIGNIFICATIVA] Comandos `job stream-file` e `job list-files` movidos para o grupo `job file`
+* [ALTERAÇÃO SIGNIFICATIVA] `--admin-user-name` renomeado para `--user-name` no comando `file-server create` para ser consistente com o comando `cluster create`
+
+### <a name="billing"></a>Cobrança
+
+* Adição de comandos da conta de registro
+
+### <a name="consumption"></a>Consumo
+
+* Adicionados os comandos `marketplace`
+* [ALTERAÇÃO SIGNIFICATIVA] `reservations summaries` renomeado para `reservation summary`
+* [ALTERAÇÃO SIGNIFICATIVA] `reservations details` renomeado para `reservation detail`
+* [ALTERAÇÃO SIGNIFICATIVA] Removidas as opções abreviadas `--reservation-order-id` e `--reservation-id` para os comandos `reservation`
+* [ALTERAÇÃO SIGNIFICATIVA] Removidas as opções abreviadas `--grain` para os comandos `reservation summary`
+* [ALTERAÇÃO SIGNIFICATIVA] Removidas as opções abreviadas `--include-meter-details` para os comandos `pricesheet`
+
+### <a name="container"></a>Contêiner
+
+* Adição dos parâmetros de montagem de volume de repositório git `--gitrepo-url`, `--gitrepo-dir`, `--gitrepo-revision` e `--gitrepo-mount-path`
+* Correção de [#5926](https://github.com/Azure/azure-cli/issues/5926): `az container exec` com falha com --container-name especificado
+
+### <a name="extension"></a>Extensão
+
+* Alteração da mensagem de verificação de distribuição para ser de nível de depuração
+
+### <a name="interactive"></a>Interativo
+
+* Alteração para interromper as conclusões após comandos não reconhecidos
+* Adição de ganchos de eventos antes e depois da criação da subárvore do comando
+* Adição de conclusão para parâmetros `--ids`
+
+### <a name="network"></a>Rede
+
+* Correção de [#5936](https://github.com/Azure/azure-cli/issues/5936): as marcas `application-gateway create` não podiam ser definidas
+* Adição do argumento `--auth-certs` para anexar certificados de autenticação para `application-gateway http-settings [create|update]`. [#4910](https://github.com/Azure/azure-cli/issues/4910)
+* Adição dos comandos `ddos-protection` para criar planos de proteção contra DDoS 
+* Adição de suporte de `--ddos-protection-plan` a `vnet [create|update]` para associar uma VNET a um plano de proteção contra DDoS
+* Correção do problema com o sinalizador `--disable-bgp-route-propagation` em `network route-table [create|update]`
+* Remoção de argumentos fictícios `--public-ip-address-type` e `--subnet-type` para `network lb [create|update]`
+* Adição de suporte para registros TXT com sequências de escape RFC 1035 para `network dns zone [import|export]` e `network dns record-set txt add-record`
+
+### <a name="profile"></a>Perfil
+
+* Adição de suporte para contas clássicas do Azure em `account list`
+* [ALTERAÇÃO SIGNIFICATIVA] Remoção dos argumentos `--msi` & `--msi-port`
+
+### <a name="rdbms"></a>RDBMS
+
+* Adicionado o comando `georestore`
+* Remoção da restrição de tamanho de armazenamento do comando `create`
+
+### <a name="resource"></a>Recurso
+
+* Adicionado o suporte ao `--metadata` para `policy definition create`
+* Adição de suporte para `--metadata`, `--set`, `--add`, `--remove` para `policy definition update`
+
+### <a name="sql"></a>SQL
+
+* Adição de `sql elastic-pool op list` e `sql elastic-pool op cancel`
+
+### <a name="storage"></a>Armazenamento
+
+* Melhoria de mensagens de erro para cadeias de conexão malformadas
+
+### <a name="vm"></a>VM
+
+* Adição de suporte para configurar a contagem de domínios de falha da plataforma para `vmss create`
+* Alteração de `vmss create` para balanceador de carga padrão para um conjunto de dimensionamento desabilitado zonal, grande ou de único grupo de posicionamento
+* [ALTERAÇÃO SIGNIFICATIVA]: Removed `vm assign-identity`, `vm remove-identity and `vm format-secret`
+* Adição de suporte para a SKU de IP público para `vm create`
+* Adição dos argumentos `--keyvault` e `--resource-group` para `vm secret format` para oferecer suporte a cenários em que o comando não é capaz de resolver a ID do cofre. [#5718](https://github.com/Azure/azure-cli/issues/5718)
+* Melhoria de erros de `[vm|vmss create]` quando um local do grupo de recursos não tem suporte de zona
+
 
 ## <a name="march-27-2018"></a>27 de março de 2018
 
