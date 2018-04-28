@@ -1,4 +1,15 @@
-
+---
+author: sptramer
+ms.author: sttramer
+manager: carmonm
+ms.date: 01/19/2018
+ms.topic: include
+ms.openlocfilehash: af927d4ddd1811b05c4f9f2f6bf0f4a1b2a9ff51
+ms.sourcegitcommit: ae72b6c8916aeb372a92188090529037e63930ba
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 04/28/2018
+---
 O Azure Cloud Shell é um shell interativo grátis que pode ser usado para executar as etapas neste artigo. Ele tem ferramentas do Azure instaladas e configuradas para usar com sua conta. Basta clicar em **Copiar** para copiar o código, colá-lo no Cloud Shell e depois pressione Enter para executá-lo.  Há algumas maneiras de inicializar o Cloud Shell:
 
 |  |   |

@@ -3,18 +3,17 @@ title: Execute a CLI do Azure 2.0 em um Contêiner do Docker
 description: Como executar um contêiner do Docker hospedando a CLI do Azure 2.0
 author: sptramer
 ms.author: sttramer
-manager: routlaw
+manager: carmonm
 ms.date: 01/29/2018
-ms.topic: article
+ms.topic: conceptual
 ms.prod: azure
-ms.technology: azure
-ms.devlang: azurecli
-ms.service: multiple
-ms.openlocfilehash: e394dc5cd375ec6d3393f45f38694f71369379d4
-ms.sourcegitcommit: 0e9aafa07311526f43661c8bd3a7eba7cbc2caed
+ms.technology: azure-cli
+ms.devlang: azure-cli
+ms.openlocfilehash: d88dbcec947372aa154bce939edd99f65cd9480f
+ms.sourcegitcommit: ae72b6c8916aeb372a92188090529037e63930ba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="run-azure-cli-20-in-a-docker-container"></a>Executar a CLI do Azure 2.0 em um contêiner do Docker
 

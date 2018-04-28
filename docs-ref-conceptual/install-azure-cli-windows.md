@@ -3,18 +3,17 @@ title: Instalar a CLI do Azure para Windows
 description: Como instalar a CLI do Azure 2.0 no Windows
 author: sptramer
 ms.author: sttramer
-manager: routlaw
+manager: carmonm
 ms.date: 01/29/2018
-ms.topic: article
+ms.topic: conceptual
 ms.prod: azure
-ms.technology: azure
-ms.devlang: azurecli
-ms.service: multiple
-ms.openlocfilehash: 30b9621c82af259e3de762127fd20b31eb249234
-ms.sourcegitcommit: 0e9aafa07311526f43661c8bd3a7eba7cbc2caed
+ms.technology: azure-cli
+ms.devlang: azure-cli
+ms.openlocfilehash: 27284520d923524c5f772c82246889b2f1e6cb8b
+ms.sourcegitcommit: ae72b6c8916aeb372a92188090529037e63930ba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="install-azure-cli-20-on-windows"></a>Instalar CLI do Azure 2.0 no Windows
 

@@ -3,18 +3,17 @@ title: Instalar a CLI do Azure 2.0 para Linux manualmente
 description: Como instalar a CLI do Azure 2.0 no Linux manualmente
 author: sptramer
 ms.author: sttramer
-manager: routlaw
+manager: carmonm
 ms.date: 01/29/2018
-ms.topic: article
+ms.topic: conceptual
 ms.prod: azure
-ms.technology: azure
-ms.devlang: azurecli
-ms.service: multiple
-ms.openlocfilehash: a74a4d30709f5d10fc3a3f2b63c9df931ab0516b
-ms.sourcegitcommit: 0e9aafa07311526f43661c8bd3a7eba7cbc2caed
+ms.technology: azure-cli
+ms.devlang: azure-cli
+ms.openlocfilehash: f62d041d17433b845a89dfa009a74b3d8cf6b3be
+ms.sourcegitcommit: ae72b6c8916aeb372a92188090529037e63930ba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="install-azure-cli-20-on-linux-manually"></a>Instalar CLI do Azure 2.0 no Linux manualmente
 
