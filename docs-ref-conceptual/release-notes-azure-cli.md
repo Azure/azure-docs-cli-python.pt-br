@@ -9,7 +9,6 @@ ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 254c7b306440d921cef6b611268839150fdf3196
 ms.sourcegitcommit: 15d6dfaee2075d0abceb2aa2423f0b6ef7b2ac9b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
@@ -149,16 +148,6 @@ Versão 2.0.32
 
 
 ## <a name="april-10-2018"></a>10 de abril de 2018
-
-Versão 2.0.31
-
-### <a name="acr"></a>ACR
-
-* Melhoria do tratamento de erros do fallback do wincred
-
-### <a name="acs"></a>ACS
-
-* Alteração da validade de SPNs criados pelo AKS para 5 anos
 
 ### <a name="appservice"></a>AppService
 
@@ -1295,11 +1284,6 @@ Versão 2.0.13
 
 * Adicionadas mais regiões de visualização
 
-### <a name="batch"></a>Lote
-
-* Atualizado para o Lote SDK 3.1.0 e Gerenciamento de Lote SDK 4.1.0
-* Adicionado um novo comando que mostra as contagens de tarefas de um trabalho
-* Corrigido o bug no processamento de URL de SAS do arquivo de recurso
 * Ponto de extremidade da conta de lote agora dá suporte ao prefixo opcional “https://” 
 * Suporte para adicionar listas de mais de 100 tarefas a um trabalho
 * Adicionado log de depuração para carregar o módulo do comando de Extensões
