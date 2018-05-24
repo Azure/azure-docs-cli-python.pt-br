@@ -1,1 +1,7 @@
-  tocHref: /azure
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+    - name: CLI do Azure 2.0
+      tocHref: /cli/azure/
+      topicHref: /cli/azure

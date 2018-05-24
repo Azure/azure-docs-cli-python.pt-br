@@ -4,16 +4,16 @@ description: Criar, fazer logon e gerenciar várias nuvens com a CLI do Azure 2.
 author: sptramer
 manager: carmonm
 ms.author: sttramer
-ms.date: 10/20/2017
+ms.date: 05/16/2018
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 98915fb43f2ad3eb45164f7e47c1a41345f3f9c5
-ms.sourcegitcommit: ae72b6c8916aeb372a92188090529037e63930ba
+ms.openlocfilehash: 7ccee3a336f4c596f29783a70ba0cd4398e20b95
+ms.sourcegitcommit: 8b4629a42ceecf30c1efbc6fdddf512f4dddfab0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="managing-multiple-clouds-with-azure-cli-20"></a>Gerenciar várias nuvens com a CLI do Azure 2.0
 
@@ -25,7 +25,7 @@ Você pode listar as nuvens disponíveis com o comando [az cloud list](/cli/azur
 
 Para obter a nuvem ativa e uma lista de todas as nuvens disponíveis:
 
-```azurecli
+```azurecli-interactive
 az cloud list --output table
 ```
 
@@ -40,7 +40,7 @@ True        AzureCloud         latest
 
 A nuvem ativa no momento possui `True` na coluna `IsActive`. Somente uma nuvem pode estar ativa em determinado momento. Para obter informações mais detalhadas sobre uma nuvem, incluindo os pontos de extremidade que ela utiliza para os serviços do Azure, use o comando `cloud show`:
 
-```azurecli
+```azurecli-interactive
 az cloud show --name AzureChinaCloud --output json
 ```
 
@@ -75,7 +75,7 @@ az cloud show --name AzureChinaCloud --output json
 
 Para trocar a nuvem ativa no momento, execute o comando [az cloud set](/cli/azure/cloud#az-cloud-set). Esse comando usa um argumento necessário, o nome da nuvem.
 
-```azurecli
+```azurecli-interactive
 az cloud set --name AzureChinaCloud
 ```
 
@@ -100,6 +100,6 @@ Você faz isso com o comando [az cloud update](/cli/azure/cloud#az-cloud-update)
 
 Se você não precisar de uma nuvem registrada, o registro poderá ser cancelado com o comando [az cloud unregister](/cli/azure/cloud#az-cloud-unregister):
 
-```azurecli
+```azurecli-interactive
 az cloud unregister --name MyCloud
 ```

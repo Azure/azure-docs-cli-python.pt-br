@@ -4,17 +4,17 @@ description: Saiba como criar e usar uma entidade de serviço com a CLI do Azure
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 02/12/2018
+ms.date: 05/16/2018
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
 ms.service: role-based-access-control
-ms.openlocfilehash: c7c993e54d3b9bcfa098d89ea89ec15eecba359f
-ms.sourcegitcommit: ae72b6c8916aeb372a92188090529037e63930ba
+ms.openlocfilehash: 86fa8b448089bd9f6ede46c92b7e95abb7c88dad
+ms.sourcegitcommit: 8b4629a42ceecf30c1efbc6fdddf512f4dddfab0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="create-an-azure-service-principal-with-azure-cli-20"></a>Criar uma entidade de serviço do Azure com a CLI do Azure 2.0
 
@@ -26,31 +26,31 @@ Use o comando [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rb
 
 * `--password` é usado para autenticação baseada em senha. Verifique se você criou uma senha forte, seguindo as [regras e restrições de senha do Azure Active Directory](/azure/active-directory/active-directory-passwords-policy). Caso não especifique uma senha, uma será criada para você.
 
-  ```azurecli
+  ```azurecli-interactive
   az ad sp create-for-rbac --name ServicePrincipalName --password PASSWORD
   ```
 
 * `--cert` é usado para autenticação baseada em certificado para um certificado existente, como uma cadeia de caracteres pública PEM ou DER, ou `@{file}` para carregar um arquivo.
 
-  ```azurecli
+  ```azurecli-interactive
   az ad sp create-for-rbac --name ServicePrincipalName --cert {CertStringOrFile} 
   ```
 
   O argumento `--keyvault` pode ser adicionado para indicar que o certificado está armazenado no Azure Key Vault. Nesse caso, o valor `--cert` se refere ao nome do certificado no Key Vault.
 
-  ```azurecli
+  ```azurecli-interactive
   az ad sp create-for-rbac --name ServicePrincipalName --cert CertName --keyvault VaultName
   ```
 
 * `--create-cert` cria um certificado _autoassinado_ para autenticação. Se o argumento `--cert` não for fornecido, será gerado um nome de certificado aleatório.
 
-  ```azurecli
+  ```azurecli-interactive
   az ad sp create-for-rbac --name ServicePrincipalName --create-cert
   ```
 
   O argumento `--keyvault` pode ser adicionado para armazenar o certificado no Azure Key Vault. Ao usar `--keyvault`, o argumento `--cert` também é necessário.
 
-  ```azurecli
+  ```azurecli-interactive
   az ad sp create-for-rbac --name ServicePrincipalName --create-cert --cert CertName --keyvault VaultName
   ```
 
@@ -85,7 +85,7 @@ A função padrão para uma entidade de serviço é **Colaborador**. Essa funç�
 
 Esse exemplo adiciona a função **Leitor** e exclui a de **Colaborador**.
 
-```azurecli
+```azurecli-interactive
 az role assignment create --assignee APP_ID --role Reader
 az role assignment delete --assignee APP_ID --role Contributor
 ```
@@ -94,7 +94,7 @@ Adicionar uma função _não_ altera as permissões atribuídas anteriormente. A
 
 As alterações podem ser verificadas, listando as funções atribuídas.
 
-```azurecli
+```azurecli-interactive
 az role assignment list --assignee APP_ID
 ```
 
@@ -107,19 +107,20 @@ Você pode testar os novos logon e permissões da entidade de serviço fazendo l
 
 Para fazer logon com uma senha, forneça-o como um parâmetro de argumento.
 
-```azurecli
+```azurecli-interactive
 az login --service-principal --username APP_ID --password PASSWORD --tenant TENANT_ID
 ```
 
 Para fazer logon com um certificado, ele deve estar disponível localmente como um arquivo PEM ou DER.
 
-```azurecli
+```azurecli-interactive
 az login --service-principal --username APP_ID --tenant TENANT_ID --password PATH_TO_CERT
 ```
+
 ## <a name="reset-credentials"></a>Redefinir credenciais
 
 Caso esqueça as credenciais de uma entidade de serviço, elas podem ser redefinidas com comando [az ad sp reset-credentials](https://docs.microsoft.com/en-us/cli/azure/ad/sp#az-ad-sp-reset-credentials). As mesmas restrições e opções para criar uma nova entidade de serviço também se aplicam aqui.
 
-```azurecli
+```azurecli-interactive
 az ad sp reset-credentials --name APP_ID --password NEW_PASSWORD
 ```
