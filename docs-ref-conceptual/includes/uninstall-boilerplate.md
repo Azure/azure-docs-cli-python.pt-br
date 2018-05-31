@@ -2,12 +2,13 @@
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 03/16/2018
+ms.date: 05/16/2018
 ms.topic: include
-ms.openlocfilehash: d97f8b3b63b7227b01b0605a225b82c8efcdd2bf
-ms.sourcegitcommit: ae72b6c8916aeb372a92188090529037e63930ba
+ms.openlocfilehash: 24127042e7c44071616d46c967c84fb648f5e353
+ms.sourcegitcommit: 8b4629a42ceecf30c1efbc6fdddf512f4dddfab0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34307627"
 ---
-Se você decidir desinstalar a CLI do Azure, lamentamos sua saída. Antes de desinstalar, use o comando `az feedback` para nos fornecer algumas razões de por que ter escolhido desinstalar e como a CLI poderia melhorar para ajudá-lo. Nosso objetivo é deixar a CLI do Azure livre de bugs e amigável ao usuário. Se você encontrou um erro, [registre um problema do GitHub](https://github.com/Azure/azure-cli/issues).
+Se você decidir desinstalar a CLI do Azure, lamentamos sua saída. Antes de desinstalar, use o comando `az feedback` para nos fornecer algumas informações sobre o motivo de você ter escolhido desinstalar e como a CLI poderia ser melhorada. Nosso objetivo é deixar a CLI do Azure livre de bugs e amigável ao usuário. Se você encontrou um erro, agradeceríamos se [registrasse um problema do GitHub](https://github.com/Azure/azure-cli/issues).

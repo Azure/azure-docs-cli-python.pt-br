@@ -5,22 +5,23 @@ keywords: CLI do Azure, definição, configurações, Azure
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 12/13/2017
+ms.date: 05/16/2018
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: dac383fa0dbd785f9448514e3d0a3242e4853038
-ms.sourcegitcommit: 42f1ba77b2f562d89dadd302655d1f02ee4b6130
+ms.openlocfilehash: b0d26beac83a7ce3bba44d5e64d129a211c82836
+ms.sourcegitcommit: 8b4629a42ceecf30c1efbc6fdddf512f4dddfab0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34305869"
 ---
 # <a name="azure-cli-20-configuration"></a>Configuração da CLI do Azure 2.0
 
 A CLI do Azure 2.0 permite que a configuração de usuário substitua configurações internas, como o registro em log e coleta de dados, e fornece opções padrão para alguns parâmetros necessários. A CLI fornece um comando de conveniência para gerenciar alguns desses valores, `az configure`, e outros valores podem ser definidos em um arquivo de configuração ou com variáveis de ambiente.
 
-Os valores de configuração usados pela CLI são avaliados na seguinte precedência, com os itens da parte superior da lista sendo prioridade.
+Os valores da configuração usados pela CLI são avaliados na seguinte precedência, com os itens na parte superior da lista sendo prioridade.
 
 1. Parâmetros de linha de comando
 2. Variáveis de ambiente
@@ -45,7 +46,7 @@ A seguir há uma lista de chaves disponíveis que você pode usar.
 
 Como exemplo, a seguir você vê como poderia definir o grupo de recursos e local padrão para todos os comandos.
 
-```azurecli
+```azurecli-interactive
 az configure --defaults location=westus2 group=MyResourceGroup
 ```
 
@@ -61,7 +62,7 @@ Os comentários são qualquer linha que comece com um `#` ou `;`. Não são perm
 
 Aqui está um exemplo de um arquivo de configuração da CLI que desabilita quaisquer prompts de confirmação e define o log para o diretório `/var/log/azure`.
 
-```
+```ini
 [core]
 disable_confirm_prompt=Yes
 
