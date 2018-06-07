@@ -10,11 +10,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: fde52c29a3ec82a1c6a03438a5d84dd4684e296a
-ms.sourcegitcommit: 8b4629a42ceecf30c1efbc6fdddf512f4dddfab0
+ms.openlocfilehash: 1b983faef4c1678763b3483192e94a6c96e24f32
+ms.sourcegitcommit: 80189ff103c91f8c47ab8ebf586df815fff5dd5d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/18/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34479462"
 ---
 # <a name="using-extensions-with-the-azure-cli-20"></a>Usar extensões com a CLI 2.0 do Azure
 
@@ -34,7 +35,7 @@ Também hospedamos uma [lista de extensões da Microsoft](azure-cli-extensions-l
 
 ## <a name="install-extensions"></a>Instalar extensões
 
-Depois de encontrar uma extensão para instalar, use [az extension add](https://docs.microsoft.com/en-us/cli/azure/extension#az-extension-add) para obtê-la. Se a extensão estiver listada em `az extension list-available`, é possível instalar a extensão pelo nome.
+Depois de encontrar uma extensão para instalar, use [az extension add](https://docs.microsoft.com/cli/azure/extension#az-extension-add) para obtê-la. Se a extensão estiver listada em `az extension list-available`, é possível instalar a extensão pelo nome.
 
 ```azurecli-interactive
 az extension add --name <extension-name>
@@ -50,7 +51,7 @@ Depois de instalada, a extensão pode ser encontrada no valor da variável do sh
 
 ## <a name="update-extensions"></a>Atualizar extensões
 
-Se uma extensão tiver sido instalada pelo nome, ela poderá ser atualizada usando [az extension update](https://docs.microsoft.com/en-us/cli/azure/extension#az-extension-update).
+Se uma extensão tiver sido instalada pelo nome, ela poderá ser atualizada usando [az extension update](https://docs.microsoft.com/cli/azure/extension#az-extension-update).
 
 ```azurecli-interactive
 az extension update --name <extension-name>
@@ -62,7 +63,7 @@ Se um nome de extensão não puder ser resolvido pela CLI, desinstalá-a e tente
 
 ## <a name="uninstall-extensions"></a>Desinstalar as extensões
 
-Caso você não precise mais de uma extensão, ela pode ser removida com [az extension remove](https://docs.microsoft.com/en-us/cli/azure/extension#az-extension-remove).
+Caso você não precise mais de uma extensão, ela pode ser removida com [az extension remove](https://docs.microsoft.com/cli/azure/extension#az-extension-remove).
 
 ```azurecli-interactive
 az extension remove --name <extension-name>
