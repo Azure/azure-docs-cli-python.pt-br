@@ -4,16 +4,17 @@ description: Como instalar a CLI do Azure 2.0 com o gerenciador de pacotes apt
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 02/06/2018
+ms.date: 05/24/2018
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 7eb04b408f403264f3951bf663d43686601c4ab8
-ms.sourcegitcommit: 1d18f667af28b59f5524a3499a4b7dc12af5163d
+ms.openlocfilehash: 7b5835581bf1e14e2d9fdc7c9584c704d1a5d82f
+ms.sourcegitcommit: 38549f60d76d4b6b65d180367e83749769fe6e43
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/09/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34703172"
 ---
 # <a name="install-azure-cli-20-with-apt"></a>Instalar CLI do Azure 2.0 com o apt
 
@@ -24,26 +25,19 @@ Se você estiver executando uma distribuição que venha com o `apt`, como o Ubu
 
 ## <a name="install"></a>Instalar
 
-1. Modifique sua lista de fontes:
+1. <a name="install-step-1"/> Modifique sua lista de fontes:
 
-     ```bash
-     AZ_REPO=$(lsb_release -cs)
-     echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ $AZ_REPO main" | \
-          sudo tee /etc/apt/sources.list.d/azure-cli.list
-     ```
+    ```bash
+    AZ_REPO=$(lsb_release -cs)
+    echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ $AZ_REPO main" | \
+        sudo tee /etc/apt/sources.list.d/azure-cli.list
+    ```
 
-2. Obtenha a chave de assinatura da Microsoft:
+2. <a name="signingKey"></a>Obtenha a chave de assinatura da Microsoft:
 
    ```bash
-   sudo apt-key adv --keyserver packages.microsoft.com --recv-keys 52E16F86FEE04B979B07E28DB02C46DF417A0893
+   curl -L https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
    ```
-
-  > [!WARNING]
-  > Esta chave de assinatura foi preterida e será substituída no final de maio de 2018. Para continuar recebendo atualizações com `apt`, verifique se você instalou a nova chave:
-  > 
-  > ```bash
-  > curl -L https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
-  > ``` 
 
 3. Instalar a CLI:
 
@@ -51,6 +45,9 @@ Se você estiver executando uma distribuição que venha com o `apt`, como o Ubu
    sudo apt-get install apt-transport-https
    sudo apt-get update && sudo apt-get install azure-cli
    ```
+
+   > [!WARNING]
+   > A chave de assinatura foi atualizada em maio de 2018 e foi substituída. Se você receber erros de chave de assinatura, confirme se você [adquiriu a chave de assinatura mais recente](#signingKey).
 
 É possível executar a CLI do Azure com o comando `az`. Para fazer logon, execute o comando `az login`.
 
@@ -77,6 +74,10 @@ O erro ocorre devido a lsb_release não estar sendo instalado. Você pode resolv
 ```bash
 sudo apt-get install lsb-release
 ```
+
+### <a name="lsbrelease-does-not-return-the-base-distribution-version"></a>lsb_release não retorna a versão de distribuição de base
+
+Algumas distribuições derivadas de Ubuntu ou Debian, como o Linux Mint, podem não retornar o nome da versão correta do `lsb_release`. Esse valor é usado no processo de instalação para determinar o pacote de instalação. Se souber o nome da versão da qual sua distribuição é derivada, você pode definir o valor `AZ_REPO` manualmente em [instalar etapa 1](#install-step-1). Caso contrário, procure informações para a sua distribuição sobre como determinar o nome da base de distribuição e defina `AZ_REPO` para o valor correto.
 
 ### <a name="apt-key-fails-with-no-dirmngr"></a>A apt-key falha com “Sem dirmngr”
 
@@ -112,6 +113,9 @@ Use `apt-get upgrade` para atualizar o pacote da CLI.
    sudo apt-get update && sudo apt-get upgrade
    ```
 
+> [!WARNING]
+> A chave de assinatura foi atualizada em maio de 2018 e foi substituída. Se você receber erros de chave de assinatura, confirme se você [adquiriu a chave de assinatura mais recente](#signingKey).
+   
 > [!NOTE]
 > Esse comando atualiza todos os pacotes instalados no seu sistema que não tiveram uma alteração de dependência.
 > Para atualizar apenas a CLI, use `apt-get install`.
