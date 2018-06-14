@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 0c7746e70125dcc1678ed19f93322efea8a2b01b
-ms.sourcegitcommit: 8b4629a42ceecf30c1efbc6fdddf512f4dddfab0
+ms.openlocfilehash: dbb6233e8fed15b440282b8396d3b3bd056e80f7
+ms.sourcegitcommit: 5c80e96e96f9608c92a94fa4a9c4afb25099f3fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34306090"
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "35512930"
 ---
 # <a name="get-started-with-azure-cli-20"></a>Introdução à CLI do Azure 2.0
 
@@ -44,7 +44,7 @@ Todos os subcomandos desses grupos e sua documentação podem ser pesquisados na
 | [Máquinas virtuais](/azure/virtual-machines) | [az vm](/cli/azure/vm) |
 | [Contas de armazenamento](/azure/storage/common/storage-introduction) | [az storage account](/cli/azure/storage/account) |
 | [Key Vault](/azure/key-vault/key-vault-whatis) | [az keyvault](/cli/azure/keyvault) |
-| [Aplicativos Web](/azure/ap-service) | [az webapp](/cli/azure/webapp) |
+| [Aplicativos Web](/azure/app-service) | [az webapp](/cli/azure/webapp) |
 | [Bancos de dados SQL](/azure/sql-database) | [az sql server](/cli/azure/sql/server) |
 | [CosmosDB](/azure/cosmos-db) | [az cosmosdb](/cli/azure/cosmosdb) |
 
