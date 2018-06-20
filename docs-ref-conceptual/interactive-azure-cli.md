@@ -14,6 +14,7 @@ ms.sourcegitcommit: 8b4629a42ceecf30c1efbc6fdddf512f4dddfab0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/18/2018
+ms.locfileid: "34306005"
 ---
 # <a name="interactive-azure-cli-20"></a>CLI 2.0 interativa do Azure
 
