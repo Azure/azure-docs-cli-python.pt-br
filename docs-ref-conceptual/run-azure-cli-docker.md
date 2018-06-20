@@ -14,6 +14,7 @@ ms.sourcegitcommit: ae72b6c8916aeb372a92188090529037e63930ba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32043713"
 ---
 # <a name="run-azure-cli-20-in-a-docker-container"></a><span data-ttu-id="0fd85-103">Executar a CLI do Azure 2.0 em um contêiner do Docker</span><span class="sxs-lookup"><span data-stu-id="0fd85-103">Run Azure CLI 2.0 in a Docker container</span></span>
 
