@@ -1,57 +1,52 @@
 ---
-title: Gerenciar as assinaturas do Azure com a CLI do Azure 2.0
-description: Gerencie as assinaturas do Azure com a CLI 2.0 no Linux, Mac ou Windows.
+title: Gerenciar as assinaturas do Azure com a CLI do Azure
+description: Gerenciar as assinaturas do Azure com a CLI do Azure.
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 10/30/2017
+ms.date: 06/15/2018
 ms.topic: conceptual
+ms.produdct: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
 ms.service: active-directory
-ms.openlocfilehash: 5a27eed40e0666f6a5e57a23ac369d92c3b01dab
-ms.sourcegitcommit: 38549f60d76d4b6b65d180367e83749769fe6e43
+ms.openlocfilehash: fdc8ffca38a6a581ae63b0518df72f6e09110d07
+ms.sourcegitcommit: 1a38729d6ae93c49137b3d49b6a9ec8a75eff190
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34703019"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36262702"
 ---
 # <a name="manage-multiple-azure-subscriptions"></a>Gerenciar várias assinaturas do Azure
 
-A maioria dos usuários do Azure terá somente uma assinatura. No entanto, se você fizer parte de várias organizações ou sua organização tiver um acesso dividido a certos recursos em agrupamentos, poderá ter várias assinaturas no Azure. Várias assinaturas podem ser facilmente gerenciadas com a CLI e as operações podem ser executadas selecionando uma assinatura.
+A maioria dos usuários do Azure terá somente uma assinatura. No entanto, se você fizer parte de várias organizações ou sua organização tiver um acesso dividido a certos recursos em agrupamentos, poderá ter várias assinaturas no Azure. Várias assinaturas podem ser facilmente gerenciadas com a CLI definindo uma assinatura global para todos os comandos, ou selecionando uma assinatura em uma base por comando.
 
 ## <a name="tenants-users-and-subscriptions"></a>Locatários, usuários e assinaturas
 
-Talvez você tenha alguma confusão sobre a diferença entre locatários, usuários e assinaturas no Azure. Em geral, um _locatário_ é a entidade do Azure Active Directory que abrange toda a organização. Esse locatário tem pelo menos uma _assinatura_ e _usuário_. Um usuário é um indivíduo e é associado a somente um locatário, a organização à qual pertence. Os usuários são as contas que fazem logon no Azure para provisionar e usar os recursos. Um usuário pode ter acesso a várias _assinaturas_, que são contratos com a Microsoft para usar os serviços de nuvem, incluindo o Azure. Cada recurso é associado a uma assinatura.
+Talvez você tenha alguma confusão sobre a diferença entre locatários, usuários e assinaturas no Azure. Um _locatário_ é a entidade do Azure Active Directory que abrange toda a organização. Esse locatário tem pelo menos uma _assinatura_ e _usuário_. Um usuário é um indivíduo e é associado a somente um locatário: a organização à qual pertence. Os usuários são as contas que fazem logon no Azure para provisionar e usar os recursos.
+Um usuário pode ter acesso a várias _assinaturas_, que são contratos com a Microsoft para usar os serviços de nuvem, incluindo o Azure. Cada recurso é associado a uma assinatura.
 
-Para saber mais sobre as diferenças entre locatários, usuários e assinaturas, confira o [dicionário de terminologia de nuvem do Azure](/azure/azure-glossary-cloud-terminology).
-Para saber como adicionar uma nova assinatura ao seu locatário do Azure Active Directory, confira [Como adicionar uma assinatura do Azure ao Azure Active Directory](/azure/active-directory/active-directory-how-subscriptions-associated-directory).
-Ao trabalhar com vários locatários, talvez seja necessário fazer logon em um locatário específico. Para isso, consulte [Fazer logon com a CLI do Azure 2.0](/cli/azure/authenticate-azure-cli).
+Para saber mais sobre as diferenças entre locatários, usuários e assinaturas, confira o [dicionário de terminologia de nuvem do Azure](/azure/azure-glossary-cloud-terminology).  Para saber como adicionar uma nova assinatura ao seu locatário do Azure Active Directory, confira [Como adicionar uma assinatura do Azure ao Azure Active Directory](/azure/active-directory/active-directory-how-subscriptions-associated-directory).
+Ao trabalhar com vários locatários, talvez seja necessário entrar em um locatário específico. Para isso, confira [Entrar com a CLI do Azure](/cli/azure/authenticate-azure-cli).
 
-## <a name="working-with-multiple-subscriptions"></a>Trabalhando com várias assinaturas
+## <a name="work-with-multiple-subscriptions"></a>Como trabalhar com várias assinaturas
 
-Para acessar os recursos contidos em uma assinatura, você precisa trocar sua assinatura ativa. Todo o trabalho com assinaturas é feito por meio do comando `az account`, que se refere ao contrato de serviço que representa uma assinatura, não à conta individual.
+Para acessar os recursos contidos em uma assinatura, você precisa trocar sua assinatura ativa. A alternância de sua assinatura pode ser feita para todos os comandos da CLI do Azure com [az account set](/cli/azure/account#az-account-set), ou feita por uma base por comando usando o argumento `--subscription`.
 
-[!INCLUDE [cloud-shell-try-it.md](includes/cloud-shell-try-it.md)]
-
-Para começar a trabalhar com suas assinaturas disponíveis, obtenha uma lista das disponíveis em sua conta:
+Para começar, você precisará de uma lista de suas assinaturas disponíveis. Para obter, use o comando [az account list](/cli/azure/account#az-account-list):
 
 ```azurecli-interactive
 az account list --output table
 ```
 
-```Output
-Name                                         CloudName    SubscriptionId                        State     IsDefault
--------------------------------------------  -----------  ------------------------------------  --------  -----------
-My Production Subscription                   AzureCloud   XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX  Enabled
-My DevTest Subscription                      AzureCloud   XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX  Enabled   True
-My Demos                                     AzureCloud   XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX  Enabled
-```
-
-Para alterar a assinatura ativa, você pode usar `az account set`:
+Para alterar a assinatura ativa globalmente, use `az account set` junto com a ID da assinatura ou o nome da assinatura:
 
 ```azurecli-interactive
 az account set --subscription "My Demos"
 ```
 
-É possível pode usar a ID da assinatura ou o nome da assinatura para selecioná-la.
+Para usar uma assinatura específica para um comando, use o argumento `--subscription`. Esse argumento tem uma ID da assinatura ou o nome da assinatura:
+
+```azurecli-interactive
+az vm create --subscription "My Demos" --resource-group MyGroup --name NewVM --image Ubuntu
+```

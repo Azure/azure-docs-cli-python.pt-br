@@ -9,14 +9,109 @@ ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 72e667d74ff8d55f26ecbf3b3c8845c9c03b56be
-ms.sourcegitcommit: 5c80e96e96f9608c92a94fa4a9c4afb25099f3fc
+ms.openlocfilehash: 64db2b58ca883518757d8e189bf7263ed818b283
+ms.sourcegitcommit: 1a38729d6ae93c49137b3d49b6a9ec8a75eff190
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "35512896"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36262651"
 ---
 # <a name="azure-cli-20-release-notes"></a>Notas de versão da CLI do Azure 2.0
+
+## <a name="june-19-2018"></a>19 de junho de 2018
+
+Versão 2.0.38
+
+### <a name="core"></a>Núcleo
+
+* Suporte global adicionado para `--subscription` a maioria dos comandos
+
+### <a name="acr"></a>ACR
+
+* `azure-storage-blob` foi adicionado como dependência
+* A configuração de CPU padrão foi alterada com `acr build-task create` para usar 2 núcleos
+
+### <a name="acs"></a>ACS
+
+* As opções do comando `aks use-dev-spaces` foram atualizadas. Suporte `--update` adicionado
+* `aks get-credentials --admin` foi alterado para substituir o contexto do usuário em `$HOME/.kube/config`
+* A propriedade `nodeResourceGroup` somente leitura foi exposta em clusters gerenciados
+* O erro de comando `acs browse` foi corrigido
+* Foram feitas `--connector-name` opcional para `aks install-connector`, `aks upgrade-connector` e `aks remove-connector`
+* Novas regiões de Instância de Contêiner do Azure foram adicionadas para `aks install-connector`
+* O local normalizado foi adicionado no nome de versão do comando e no nome do nó para `aks install-connector` 
+
+### <a name="appservice"></a>AppService
+
+* Foi adicionado suporte para versões mais recentes do urllib
+* Foi adicionado suporte para `functionapp create` para usar o plano de serviço de aplicativo de grupos de recursos externos
+
+### <a name="batch"></a>Lote
+
+* A dependência `azure-batch-extensions` foi removida
+
+### <a name="batch-ai"></a>Lote AI
+
+* Foi adicionado suporte aos espaços de trabalho. Os espaços de trabalho permitem agrupar clusters, servidores de arquivos e experimentos, removendo a limitação no número de recursos que podem ser criados
+* Foi adicionado suporte para os experimentos. Os experimentos permitem agrupar trabalhos em coleções removendo a limitação no número de trabalhos criados
+* Foi adicionado suporte para configurar `/dev/shm` para trabalhos em execução em um contêiner de docker
+* Foram adicionados os comandos `batchai cluster node exec` e `batchai job node exec`. Esses comandos permitem executar qualquer comando diretamente nos nós e fornece a funcionalidade de encaminhamento de porta.
+* Foi adicionado suporte a `--ids` para os comandos `batchai` 
+* [ALTERAÇÃO SIGNIFICATIVA] Todos os clusters e servidores de arquivos devem ser criados nos espaços de trabalho
+* [ALTERAÇÃO SIGNIFICATIVA] Os trabalhos devem ser criados nas experiências
+* [ALTERAÇÃO SIGNIFICATIVA] `--nfs-resource-group` foi removido dos comandos `cluster create` e `job create`. Para montar um NFS pertencente a outro espaço de trabalho/grupo de recursos, forneça a ID de ARM do servidor de arquivos através da opção `--nfs`
+* [ALTERAÇÃO SIGNIFICATIVA] `--cluster-resource-group` foi removido do comando `job create`. Para enviar um trabalho em um cluster pertencente a outro espaço de trabalho/grupo de recursos, forneça a ID de ARM do cluster através da opção `--cluster`
+* [ALTERAÇÃO SIGNIFICATIVA] O atributo `location` foi removido de trabalhos, cluster e servidores de arquivos. Agora, o local é um atributo de um espaço de trabalho.
+* [ALTERAÇÃO SIGNIFICATIVA] `--location` foi removido dos comandos `job create` e `cluster create` e `file-server create`
+* [ALTERAÇÃO SIGNIFICATIVA] Os nomes das opções curtas foi alterado para tornar a interface mais consistente:
+ - [`--config`, `-c`] foi renomeado para [`--config-file`, `-f`]
+ - [`--cluster`, `-r`] foi renomeado para [`--cluster`, `-c`]
+ - [`--cluster`, `-n`] foi renomeado para [`--cluster`, `-c`]
+ - [`--job`, `-n`] foi renomeado para [`--job`, `-j`]
+
+### <a name="maps"></a>Mapas
+
+* [ALTERAÇÃO SIGNIFICATIVA] `maps account create` foi alterado para exigir a aceitação dos Termos de Serviço pelo prompt interativo ou sinalizador `--accept-tos`
+
+### <a name="network"></a>Rede
+
+* Foi adicionado suporte a `https` para `network lb probe create` [#6571](https://github.com/Azure/azure-cli/issues/6571)
+* Foi corrigido o problema em que `--endpoint-status` diferenciava maiúsculas de minúsculas. [#6502](https://github.com/Azure/azure-cli/issues/6502)
+
+### <a name="reservations"></a>Reservas
+
+* [ALTERAÇÃO SIGNIFICATIVA] Foi adicionado o parâmetro `ReservedResourceType` necessário a `reservations catalog show`
+* Parâmetro `Location` adicionado a `reservations catalog show`
+* [ALTERAÇÃO SIGNIFICATIVA] `kind` foi removido de `ReservationProperties`
+* [ALTERAÇÃO SIGNIFICATIVA] `capabilities` foi renomeado para `sku_properties` em `Catalog`
+* [ALTERAÇÃO SIGNIFICATIVA] As propriedades `size` e `tier` foram removidas de `Catalog`
+* Parâmetro `InstanceFlexibility` adicionado a `reservations reservation update`
+
+### <a name="role"></a>Função
+
+* Tratamento de erro melhorado
+
+### <a name="sql"></a>SQL
+
+* Foi corrigido um erro confuso ao executar `az sql db list-editions` para um local que não está disponível para sua assinatura
+
+### <a name="storage"></a>Armazenamento
+
+* A saída da tabela foi alterada para `storage blob download` para ser mais legível
+
+### <a name="vm"></a>VM
+
+* A verificação da refinação do tamanho da VM foi aprimorada para o suporte de rede acelerada em `vm create`
+* Foi adicionado um aviso para `vmss create` informando que o tamanho padrão da VM será alternado de `Standard_D1_v2` para `Standard_DS1_v2`
+* Foi adicionado `--force-update` a `[vm|vmss] extension set` para atualizar a extensão mesmo quando a configuração não foi alterada
+
+## <a name="june-13-2018"></a>13 de junho de 2018
+
+Versão 2.0.37
+
+### <a name="core"></a>Núcleo
+
+* A telemetria interativa foi melhorada
 
 ## <a name="june-13-2018"></a>13 de junho de 2018
 
