@@ -4,17 +4,17 @@ description: Uma lista completa das extensões com suporte oficial para a CLI do
 author: derekbekoe
 ms.author: debekoe
 manager: routlaw
-ms.date: 06/19/2018
+ms.date: 06/25/2018
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 93ec0ae1da6dd3527ad6c108e2b13e8026f9e456
-ms.sourcegitcommit: 1a38729d6ae93c49137b3d49b6a9ec8a75eff190
+ms.openlocfilehash: bd93775373c8e779dff8a3af3c721e31d0e038c0
+ms.sourcegitcommit: f4a4b1a1cd8be99abeaa655ef4797b97518a52a0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36262617"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36943219"
 ---
 # <a name="available-extensions-for-the-azure-cli-20"></a>Extensões disponíveis para a CLI do Azure 2.0
 
@@ -33,7 +33,7 @@ az extension list-available --output table
 | [azure-batch-cli-extensions](https://github.com/Azure/azure-batch-cli-extensions) | 2.2.2 | Comandos adicionais para trabalhar com o serviço de Lote do Azure |  |
 | [azure-cli-iot-ext](https://github.com/azure/azure-iot-cli-extension) | 0.4.5 | Fornece a camada de comandos do plano de dados para o Azure Hub IoT, IoT Edge e o Serviço de Provisionamento de Dispositivos |  |
 | [botservice](https://github.com/Azure/azure-cli-extensions) | 0.0.3 | Suporte para recursos de visualização do Serviço de Bot do Azure 2017-12-01 | sim |
-| [dev-spaces-preview](https://github.com/Azure/azure-cli-extensions) | 0.1.3 | Os Espaços de Desenvolvimento fornecem uma experiência de desenvolvimento Kubernetes rápida e iterativa para equipes. | sim |
+| [dev-spaces-preview](https://github.com/Azure/azure-cli-extensions) | 0.1.5 | Os Espaços de Desenvolvimento fornecem uma experiência de desenvolvimento Kubernetes rápida e iterativa para equipes. | sim |
 | [dns](https://github.com/Azure/azure-cli-extensions) | 0.0.2 | Uma extensão da CLI do Azure para zonas DNS |  |
 | [eventgrid](https://github.com/Azure/azure-cli-extensions) | 0.2.1 | Suporte para recursos do Azure EventGrid 2018-05-01-preview | sim |
 | [image-copy-extension](https://github.com/Azure/azure-cli-extensions) | 0.0.7 | Suporte para copiar imagens de vm gerenciadas entre regiões |  |
