@@ -9,65 +9,63 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 37358e991f96dd517d169e3b3ac651d513897d6d
-ms.sourcegitcommit: ae72b6c8916aeb372a92188090529037e63930ba
+ms.openlocfilehash: e8190ba91006bd6d83eb0ef90b492ee7df4dda4c
+ms.sourcegitcommit: 308f9eb433a05b814999ac404f63d181169fffeb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32044104"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37439900"
 ---
-# <a name="install-azure-cli-20-on-macos"></a><span data-ttu-id="09729-103">Instalar CLI do Azure 2.0 no macOS</span><span class="sxs-lookup"><span data-stu-id="09729-103">Install Azure CLI 2.0 on macOS</span></span>
+# <a name="install-azure-cli-20-on-macos"></a><span data-ttu-id="ef99e-103">Instalar CLI do Azure 2.0 no macOS</span><span class="sxs-lookup"><span data-stu-id="ef99e-103">Install Azure CLI 2.0 on macOS</span></span>
 
-<span data-ttu-id="09729-104">Para a plataforma macOS, você pode instalar a CLI do Azure com o [gerenciador de pacotes homebrew](http://brew.sh).</span><span class="sxs-lookup"><span data-stu-id="09729-104">For the macOS platform, you can install the Azure CLI with [homebrew package manager](http://brew.sh).</span></span> <span data-ttu-id="09729-105">O Homebrew torna mais fácil manter a instalação da CLI atualizada.</span><span class="sxs-lookup"><span data-stu-id="09729-105">Homebrew makes it easy to keep your installation of the CLI update to date.</span></span> <span data-ttu-id="09729-106">O pacote da CLI foi testado em versões do macOS 10.9 e posteriores.</span><span class="sxs-lookup"><span data-stu-id="09729-106">The CLI package has been tested on macOS versions 10.9 and later.</span></span>
+<span data-ttu-id="ef99e-104">Para a plataforma macOS, você pode instalar a CLI do Azure com o [gerenciador de pacotes homebrew](http://brew.sh).</span><span class="sxs-lookup"><span data-stu-id="ef99e-104">For the macOS platform, you can install the Azure CLI with [homebrew package manager](http://brew.sh).</span></span> <span data-ttu-id="ef99e-105">O Homebrew torna mais fácil manter a instalação da CLI atualizada.</span><span class="sxs-lookup"><span data-stu-id="ef99e-105">Homebrew makes it easy to keep your installation of the CLI update to date.</span></span> <span data-ttu-id="ef99e-106">O pacote da CLI foi testado em versões do macOS 10.9 e posteriores.</span><span class="sxs-lookup"><span data-stu-id="ef99e-106">The CLI package has been tested on macOS versions 10.9 and later.</span></span>
 
-## <a name="install"></a><span data-ttu-id="09729-107">Instalar</span><span class="sxs-lookup"><span data-stu-id="09729-107">Install</span></span>
+## <a name="install"></a><span data-ttu-id="ef99e-107">Instalar</span><span class="sxs-lookup"><span data-stu-id="ef99e-107">Install</span></span>
 
-<span data-ttu-id="09729-108">O homebrew é a maneira mais fácil de gerenciar a instalação da CLI.</span><span class="sxs-lookup"><span data-stu-id="09729-108">Homebrew is the easiest way to manage your CLI install.</span></span> <span data-ttu-id="09729-109">Ele fornece maneiras convenientes de instalar, atualizar e desinstalar.</span><span class="sxs-lookup"><span data-stu-id="09729-109">It provides convenient ways to install, update, and uninstall.</span></span>
-<span data-ttu-id="09729-110">Se você não tiver o homebrew disponível em seu sistema, [instale-o](https://docs.brew.sh/Installation.html) antes de continuar.</span><span class="sxs-lookup"><span data-stu-id="09729-110">If you don't have homebrew available on your system, [install homebrew](https://docs.brew.sh/Installation.html) before continuing.</span></span>
+<span data-ttu-id="ef99e-108">O homebrew é a maneira mais fácil de gerenciar a instalação da CLI.</span><span class="sxs-lookup"><span data-stu-id="ef99e-108">Homebrew is the easiest way to manage your CLI install.</span></span> <span data-ttu-id="ef99e-109">Ele fornece maneiras convenientes de instalar, atualizar e desinstalar.</span><span class="sxs-lookup"><span data-stu-id="ef99e-109">It provides convenient ways to install, update, and uninstall.</span></span>
+<span data-ttu-id="ef99e-110">Se você não tiver o homebrew disponível em seu sistema, [instale-o](https://docs.brew.sh/Installation.html) antes de continuar.</span><span class="sxs-lookup"><span data-stu-id="ef99e-110">If you don't have homebrew available on your system, [install homebrew](https://docs.brew.sh/Installation.html) before continuing.</span></span>
 
-<span data-ttu-id="09729-111">Você pode instalar a CLI atualizando suas informações de repositório brew e executando o comando `install`:</span><span class="sxs-lookup"><span data-stu-id="09729-111">You can install the CLI by updating your brew repository information, and then running the `install` command:</span></span>
+<span data-ttu-id="ef99e-111">Você pode instalar a CLI atualizando suas informações de repositório brew e executando o comando `install`:</span><span class="sxs-lookup"><span data-stu-id="ef99e-111">You can install the CLI by updating your brew repository information, and then running the `install` command:</span></span>
 
 ```bash
 brew update && brew install azure-cli
 ```
 
-<span data-ttu-id="09729-112">É possível executar a CLI do Azure com o comando `az`.</span><span class="sxs-lookup"><span data-stu-id="09729-112">You can then run the Azure CLI with the `az` command.</span></span> <span data-ttu-id="09729-113">Para fazer logon, execute o comando `az login`.</span><span class="sxs-lookup"><span data-stu-id="09729-113">To log in, run the `az login` command.</span></span>
+<span data-ttu-id="ef99e-112">É possível executar a CLI do Azure com o comando `az`.</span><span class="sxs-lookup"><span data-stu-id="ef99e-112">You can then run the Azure CLI with the `az` command.</span></span> <span data-ttu-id="ef99e-113">Para entrar, use o comando [az login](/cli/azure/reference-index#az-login).</span><span class="sxs-lookup"><span data-stu-id="ef99e-113">To sign in, use [az login](/cli/azure/reference-index#az-login) command.</span></span>
 
-```azurecli
-az login
-```
+[!INCLUDE [interactive-login](includes/interactive-login.md)]
 
-<span data-ttu-id="09729-114">Para saber mais sobre os métodos de logon diferente, consulte [Fazer logon com a CLI do Azure 2.0](authenticate-azure-cli.md).</span><span class="sxs-lookup"><span data-stu-id="09729-114">To learn more about different login methods, see [Log in with Azure CLI 2.0](authenticate-azure-cli.md).</span></span>
+<span data-ttu-id="ef99e-114">Para saber mais sobre os métodos de logon diferente, consulte [Fazer logon com a CLI do Azure 2.0](authenticate-azure-cli.md).</span><span class="sxs-lookup"><span data-stu-id="ef99e-114">To learn more about different login methods, see [Log in with Azure CLI 2.0](authenticate-azure-cli.md).</span></span>
 
-## <a name="troubleshooting"></a><span data-ttu-id="09729-115">solução de problemas</span><span class="sxs-lookup"><span data-stu-id="09729-115">Troubleshooting</span></span>
+## <a name="troubleshooting"></a><span data-ttu-id="ef99e-115">solução de problemas</span><span class="sxs-lookup"><span data-stu-id="ef99e-115">Troubleshooting</span></span>
 
-<span data-ttu-id="09729-116">Se você encontrar um problema ao instalar a CLI através do Homebrew, aqui estão alguns erros comuns.</span><span class="sxs-lookup"><span data-stu-id="09729-116">If you encounter a problem when installing the CLI through Homebrew, here are some common errors.</span></span> <span data-ttu-id="09729-117">Se o problema não estiver listado aqui, [registre um problema no github](https://github.com/Azure/azure-cli/issues).</span><span class="sxs-lookup"><span data-stu-id="09729-117">If your issue is not listed here, please [file an issue on github](https://github.com/Azure/azure-cli/issues).</span></span>
+<span data-ttu-id="ef99e-116">Se você encontrar um problema ao instalar a CLI através do Homebrew, aqui estão alguns erros comuns.</span><span class="sxs-lookup"><span data-stu-id="ef99e-116">If you encounter a problem when installing the CLI through Homebrew, here are some common errors.</span></span> <span data-ttu-id="ef99e-117">Se o problema não estiver listado aqui, [registre um problema no github](https://github.com/Azure/azure-cli/issues).</span><span class="sxs-lookup"><span data-stu-id="ef99e-117">If your issue is not listed here, please [file an issue on github](https://github.com/Azure/azure-cli/issues).</span></span>
 
-### <a name="unable-to-find-python-or-installed-packages"></a><span data-ttu-id="09729-118">Não é possível localizar o Python ou os pacotes instalados</span><span class="sxs-lookup"><span data-stu-id="09729-118">Unable to find Python or installed packages</span></span>
+### <a name="unable-to-find-python-or-installed-packages"></a><span data-ttu-id="ef99e-118">Não é possível localizar o Python ou os pacotes instalados</span><span class="sxs-lookup"><span data-stu-id="ef99e-118">Unable to find Python or installed packages</span></span>
 
-<span data-ttu-id="09729-119">Se a instalação não conseguir localizar o Python nem os pacotes instalados, poderá haver uma incompatibilidade de versão secundária ou outro problema que ocorreu durante a instalação do homebrew.</span><span class="sxs-lookup"><span data-stu-id="09729-119">If your install is unable to find Python or installed packages, there may be a minor version mismatch or other issue that occurred during homebrew installation.</span></span> <span data-ttu-id="09729-120">Como a CLI não usa um ambiente virtual Python, ela depende de conseguir localizar as versões corretas do Python.</span><span class="sxs-lookup"><span data-stu-id="09729-120">Since the CLI does not use a Python virtual environment, it relies on being able to find correct Python version.</span></span> <span data-ttu-id="09729-121">Você pode corrigir esses problemas vinculando novamente a instalação do Python.</span><span class="sxs-lookup"><span data-stu-id="09729-121">You may be able to fix these issues by relinking your Python installation.</span></span>
+<span data-ttu-id="ef99e-119">Se a instalação não conseguir localizar o Python nem os pacotes instalados, poderá haver uma incompatibilidade de versão secundária ou outro problema que ocorreu durante a instalação do homebrew.</span><span class="sxs-lookup"><span data-stu-id="ef99e-119">If your install is unable to find Python or installed packages, there may be a minor version mismatch or other issue that occurred during homebrew installation.</span></span> <span data-ttu-id="ef99e-120">Como a CLI não usa um ambiente virtual Python, ela depende de conseguir localizar as versões corretas do Python.</span><span class="sxs-lookup"><span data-stu-id="ef99e-120">Since the CLI does not use a Python virtual environment, it relies on being able to find correct Python version.</span></span> <span data-ttu-id="ef99e-121">Você pode corrigir esses problemas vinculando novamente a instalação do Python.</span><span class="sxs-lookup"><span data-stu-id="ef99e-121">You may be able to fix these issues by relinking your Python installation.</span></span>
 
 ```bash
 brew link --overwrite python3
 ```
 
-### <a name="cli-version-1x-is-installed"></a><span data-ttu-id="09729-122">A versão 1.x da CLI está instalada</span><span class="sxs-lookup"><span data-stu-id="09729-122">CLI version 1.x is installed</span></span>
+### <a name="cli-version-1x-is-installed"></a><span data-ttu-id="ef99e-122">A versão 1.x da CLI está instalada</span><span class="sxs-lookup"><span data-stu-id="ef99e-122">CLI version 1.x is installed</span></span>
 
-<span data-ttu-id="09729-123">Se tiver sido instalada uma versão desatualizada, pode ser devido a um cache de homebrew obsoleto.</span><span class="sxs-lookup"><span data-stu-id="09729-123">If an out-of-date version was installed, it could be due to a stale homebrew cache.</span></span> <span data-ttu-id="09729-124">Siga as instruções de [atualização](#Update).</span><span class="sxs-lookup"><span data-stu-id="09729-124">Follow the [update](#Update) instructions.</span></span>
+<span data-ttu-id="ef99e-123">Se tiver sido instalada uma versão desatualizada, pode ser devido a um cache de homebrew obsoleto.</span><span class="sxs-lookup"><span data-stu-id="ef99e-123">If an out-of-date version was installed, it could be due to a stale homebrew cache.</span></span> <span data-ttu-id="ef99e-124">Siga as instruções de [atualização](#Update).</span><span class="sxs-lookup"><span data-stu-id="ef99e-124">Follow the [update](#Update) instructions.</span></span>
 
-## <a name="update"></a><span data-ttu-id="09729-125">Atualizar</span><span class="sxs-lookup"><span data-stu-id="09729-125">Update</span></span>
+## <a name="update"></a><span data-ttu-id="ef99e-125">Atualizar</span><span class="sxs-lookup"><span data-stu-id="ef99e-125">Update</span></span>
 
-<span data-ttu-id="09729-126">A CLI é atualizada regularmente com correções de bugs, aprimoramentos, novos recursos e funcionalidade de visualização.</span><span class="sxs-lookup"><span data-stu-id="09729-126">The CLI is regularly updated with bug fixes, improvements, new features, and preview functionality.</span></span> <span data-ttu-id="09729-127">Uma nova versão fica disponível aproximadamente a cada duas semanas.</span><span class="sxs-lookup"><span data-stu-id="09729-127">A new release is available roughly every two weeks.</span></span> <span data-ttu-id="09729-128">Atualize as informações do repositório local e atualize o pacote `azure-cli`.</span><span class="sxs-lookup"><span data-stu-id="09729-128">Update your local repository information and then upgrade the `azure-cli` package.</span></span>
+<span data-ttu-id="ef99e-126">A CLI é atualizada regularmente com correções de bugs, aprimoramentos, novos recursos e funcionalidade de visualização.</span><span class="sxs-lookup"><span data-stu-id="ef99e-126">The CLI is regularly updated with bug fixes, improvements, new features, and preview functionality.</span></span> <span data-ttu-id="ef99e-127">Uma nova versão fica disponível aproximadamente a cada duas semanas.</span><span class="sxs-lookup"><span data-stu-id="ef99e-127">A new release is available roughly every two weeks.</span></span> <span data-ttu-id="ef99e-128">Atualize as informações do repositório local e atualize o pacote `azure-cli`.</span><span class="sxs-lookup"><span data-stu-id="ef99e-128">Update your local repository information and then upgrade the `azure-cli` package.</span></span>
 
 ```bash
 brew update && brew upgrade azure-cli
 ```
 
-## <a name="uninstall"></a><span data-ttu-id="09729-129">Desinstalar</span><span class="sxs-lookup"><span data-stu-id="09729-129">Uninstall</span></span>
+## <a name="uninstall"></a><span data-ttu-id="ef99e-129">Desinstalar</span><span class="sxs-lookup"><span data-stu-id="ef99e-129">Uninstall</span></span>
 
 [!INCLUDE [uninstall-boilerplate.md](includes/uninstall-boilerplate.md)]
 
-<span data-ttu-id="09729-130">Use o homebrew para desinstalar o pacote `azure-cli`.</span><span class="sxs-lookup"><span data-stu-id="09729-130">Use homebrew to uninstall the `azure-cli` package.</span></span>
+<span data-ttu-id="ef99e-130">Use o homebrew para desinstalar o pacote `azure-cli`.</span><span class="sxs-lookup"><span data-stu-id="ef99e-130">Use homebrew to uninstall the `azure-cli` package.</span></span>
 
 ```bash
 brew uninstall azure-cli
