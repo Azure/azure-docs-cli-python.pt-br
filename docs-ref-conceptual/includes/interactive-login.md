@@ -2,23 +2,23 @@
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 05/16/2018
+ms.date: 07/02/2018
 ms.topic: include
-ms.openlocfilehash: cace08e129e67c91d3fe45cd1712fcf27ab75204
-ms.sourcegitcommit: 8b4629a42ceecf30c1efbc6fdddf512f4dddfab0
+ms.openlocfilehash: d1ea5227b0a93bc66672a659779099bec83c8baf
+ms.sourcegitcommit: 308f9eb433a05b814999ac404f63d181169fffeb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34443518"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37439985"
 ---
-1. Execute o comando de logon.
+1. Execute o comando `login`.
 
     ```azurecli-interactive
     az login
     ```
 
-   Você recebe um código para usar na próxima etapa.
+    Se a CLI pode determinar o navegador padrão e tem acesso para abri-lo, fará isso e irá direcioná-lo imediatamente a uma página de entrada.
 
-2. Use um navegador da Web para abrir a página [https://aka.ms/devicelogin](https://aka.ms/devicelogin) e digite o código para autenticar.
+    Caso contrário, você precisará abrir uma página do navegador e seguir as instruções na linha de comando para inserir um código de autorização depois de navegar até [https://aka.ms/devicelogin](https://aka.ms/devicelogin) no navegador.
 
-3. Faça logon com suas credenciais de conta no navegador.
+2. Entre com suas credenciais de conta no navegador.

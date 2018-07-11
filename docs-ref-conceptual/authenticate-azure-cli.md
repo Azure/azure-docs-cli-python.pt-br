@@ -10,12 +10,12 @@ ms.technology: azure-cli
 ms.devlang: azurecli
 ms.service: active-directory
 ms.component: authentication
-ms.openlocfilehash: 4d5bee6514477c494ec53d2bd7bba778301ba490
-ms.sourcegitcommit: 38549f60d76d4b6b65d180367e83749769fe6e43
+ms.openlocfilehash: bbd64458b49d3e6c6a533a489d5c8105f364d3d7
+ms.sourcegitcommit: 308f9eb433a05b814999ac404f63d181169fffeb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34703138"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37439866"
 ---
 # <a name="log-in-with-azure-cli-20"></a>Entrar com a CLI do Azure 2.0
 
@@ -26,9 +26,9 @@ Nenhuma informação de credencial privada é armazenada localmente. Em vez diss
 
 Após o logon, os comandos da CLI são executados em sua assinatura padrão. Caso tenha mais de uma assinatura, é possível [alterar sua assinatura padrão](manage-azure-subscriptions-azure-cli.md).
 
-## <a name="interactive-log-in"></a>Logon Interativo
+## <a name="interactive-sign-in"></a>Entrada interativa
 
-Faça logon interativamente usando seu navegador da Web.
+O método de autenticação padrão da CLI do Azure é entrar de modo interativo usando seu navegador da Web.
 
 [!INCLUDE [interactive_login](includes/interactive-login.md)]
 

@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: abbffb1c474d752130dfffa8e60937b3d632fa14
-ms.sourcegitcommit: c6c3058254974b3a1d5d2fa2cd231a900c53d321
+ms.openlocfilehash: 3f52f1545dc4bad44280c7e58ad17ec2302fd436
+ms.sourcegitcommit: 308f9eb433a05b814999ac404f63d181169fffeb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37126575"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37439611"
 ---
 # <a name="install-azure-cli-20-with-apt"></a>Instalar CLI do Azure 2.0 com o apt
 
-Se você estiver executando uma distribuição que venha com o `apt`, como o Ubuntu ou Debian, há um pacote 64-bit disponível para a CLI do Azure. Esse pacote foi testado com:
+Se você estiver executando uma distribuição que vem com `apt`, como o Ubuntu ou o Debian, haverá um pacote de 64 bits disponível para a CLI do Azure. Esse pacote foi testado com:
 
 * Ubuntu trusty, xenial, artful e bionic
 * Debian wheezy, jessie e stretch
@@ -47,21 +47,19 @@ Se você estiver executando uma distribuição que venha com o `apt`, como o Ubu
    ```
 
    > [!WARNING]
-   > A chave de assinatura foi atualizada em maio de 2018 e foi substituída. Se você receber erros de chave de assinatura, confirme se você [adquiriu a chave de assinatura mais recente](#signingKey).
+   > A chave de assinatura foi atualizada em maio de 2018 e foi substituída. Se você receber erros da chave de assinatura, confirme se [adquiriu a chave de assinatura mais recente](#signingKey).
 
-É possível executar a CLI do Azure com o comando `az`. Para fazer logon, execute o comando `az login`.
+É possível executar a CLI do Azure com o comando `az`. Para fazer logon, use o comando [az login](/cli/azure/reference-index#az-login).
 
-```azurecli
-az login
-```
+[!INCLUDE [interactive-login](includes/interactive-login.md)]
 
-Para saber mais sobre os métodos de logon diferente, consulte [Fazer logon com a CLI do Azure 2.0](authenticate-azure-cli.md).
+Para saber mais sobre os diferentes métodos de logon, consulte [Fazer logon com a CLI do Azure 2.0](authenticate-azure-cli.md).
 
-## <a name="troubleshooting"></a>solução de problemas
+## <a name="troubleshooting"></a>Solução de problemas
 
-Aqui estão alguns problemas comuns vistos durante a instalação com `apt`. Se o problema não estiver listado aqui, [registre um problema no github](https://github.com/Azure/azure-cli/issues).
+Aqui estão alguns problemas comuns vistos durante a instalação com `apt`. Se o problema não estiver listado aqui, [registre-o no github](https://github.com/Azure/azure-cli/issues).
 
-### <a name="lsbrelease-fails-with-command-not-found"></a>lsb_release falha com "Command não encontrado"
+### <a name="lsbrelease-fails-with-command-not-found"></a>lsb_release falha com "Comando não encontrado"
 
 Ao executar o comando `lsb_release`, pode ser que você veja uma saída semelhante ao seguinte erro:
 
@@ -69,17 +67,17 @@ Ao executar o comando `lsb_release`, pode ser que você veja uma saída semelhan
 -bash: lsb_release: command not found
 ```
 
-O erro ocorre devido a lsb_release não estar sendo instalado. Você pode resolver isso instalando o pacote `lsb-release`.
+O erro é devido a lsb_release não estar instalado. Você pode resolver isso instalando o pacote `lsb-release`.
 
 ```bash
 sudo apt-get install lsb-release
 ```
 
-### <a name="lsbrelease-does-not-return-the-base-distribution-version"></a>lsb_release não retorna a versão de distribuição de base
+### <a name="lsbrelease-does-not-return-the-base-distribution-version"></a>lsb_release não retorna a versão da distribuição de base
 
-Algumas distribuições derivadas de Ubuntu ou Debian, como o Linux Mint, podem não retornar o nome da versão correta do `lsb_release`. Esse valor é usado no processo de instalação para determinar o pacote de instalação. Se souber o nome da versão da qual sua distribuição é derivada, você pode definir o valor `AZ_REPO` manualmente em [instalar etapa 1](#install-step-1). Caso contrário, procure informações para a sua distribuição sobre como determinar o nome da base de distribuição e defina `AZ_REPO` para o valor correto.
+Algumas distribuições derivadas do Ubuntu ou do Debian, como o Linux Mint, podem não retornar o nome correto da versão de `lsb_release`. Esse valor é usado no processo de instalação para determinar o pacote de instalação. Se você souber o nome da versão da qual sua distribuição é derivada, poderá definir o `AZ_REPO` valor manualmente em [instalar etapa 1](#install-step-1). Caso contrário, procure informações para sua distribuição sobre como determinar o nome da distribuição de base e defina `AZ_REPO` para o valor correto.
 
-### <a name="apt-key-fails-with-no-dirmngr"></a>A apt-key falha com “Sem dirmngr”
+### <a name="apt-key-fails-with-no-dirmngr"></a>apt-key falha com “Sem dirmngr”
 
 Ao executar o comando `apt-key`, pode ser que você veja uma saída semelhante ao seguinte erro:
 
@@ -89,21 +87,21 @@ gpg: connecting dirmngr at '/tmp/apt-key-gpghome.kt5zo27tp1/S.dirmngr' failed: N
 gpg: keyserver receive failed: No dirmngr
 ```
 
-O erro ocorre devido a um componente ausente exigido por `apt-key`. Você pode resolver isso instalando o pacote `dirmngr`.
+O erro ocorre devido a um componente ausente requerido por `apt-key`. Você pode resolver isso instalando o pacote `dirmngr`.
 
 ```bash
 sudo apt-get install dirmngr
 ```
 
-### <a name="apt-key-hangs"></a>A apt-key trava
+### <a name="apt-key-hangs"></a>apt-key trava
 
-Quando atrás de um firewall bloqueando as conexões de saída para a porta 11371, o comando `apt-key` pode travar indefinidamente. O firewall pode exigir o uso de um proxy HTTP para conexões de saída:
+Quando atrás de um firewall que bloqueia as conexões de saída para a porta 11371, o comando `apt-key` pode travar indefinidamente. O firewall pode exigir o uso de um proxy HTTP para as conexões de saída:
 
 ```bash
 sudo apt-key adv --keyserver-options http-proxy=http://<USER>:<PASSWORD>@<PROXY-HOST>:<PROXY-PORT>/ --keyserver packages.microsoft.com --recv-keys 52E16F86FEE04B979B07E28DB02C46DF417A0893
 ```
 
-Se você não souber se tem um proxy, entre em contato com o administrador do sistema. Se o proxy não precisar de um login, deixe usuário, senha e o token `@` de fora.
+Se você não sabe se tem um proxy, entre em contato com o administrador do sistema. Se o proxy não precisar de logon, omita o usuário, a senha e o token `@`.
 
 ## <a name="update"></a>Atualizar
 
@@ -114,10 +112,10 @@ Use `apt-get upgrade` para atualizar o pacote da CLI.
    ```
 
 > [!WARNING]
-> A chave de assinatura foi atualizada em maio de 2018 e foi substituída. Se você receber erros de chave de assinatura, confirme se você [adquiriu a chave de assinatura mais recente](#signingKey).
+> A chave de assinatura foi atualizada em maio de 2018 e foi substituída. Se você receber erros da chave de assinatura, confirme se [adquiriu a chave de assinatura mais recente](#signingKey).
    
 > [!NOTE]
-> Esse comando atualiza todos os pacotes instalados no seu sistema que não tiveram uma alteração de dependência.
+> Esse comando atualiza todos os pacotes instalados no sistema que não tiveram uma alteração de dependência.
 > Para atualizar apenas a CLI, use `apt-get install`.
 > ```bash
 > sudo apt-get update && sudo apt-get install --only-upgrade -y azure-cli

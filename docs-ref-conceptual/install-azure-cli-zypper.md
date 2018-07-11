@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: a862cca17adb1bfa0201af250819158081c29813
-ms.sourcegitcommit: 5c80e96e96f9608c92a94fa4a9c4afb25099f3fc
+ms.openlocfilehash: 3a63c491b883c5a28e7309145e7a5eeb41e36b46
+ms.sourcegitcommit: 308f9eb433a05b814999ac404f63d181169fffeb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "35512964"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37439917"
 ---
 # <a name="install-azure-cli-20-with-zypper"></a>Instalar CLI do Azure 2.0 com zypper
 
@@ -48,11 +48,9 @@ Se você estiver executando uma distribuição que vem com `zypper`, como o open
    sudo zypper install --from azure-cli -y azure-cli
    ```
 
-É possível executar a CLI do Azure com o comando `az`. Para fazer logon, execute o comando `az login`.
+É possível executar a CLI do Azure com o comando `az`. Para entrar, use o comando [az login](/cli/azure/reference-index#az-login).
 
-```azurecli
-az login
-```
+[!INCLUDE [interactive-login](includes/interactive-login.md)]
 
 Para saber mais sobre os métodos de logon diferente, consulte [Fazer logon com a CLI do Azure 2.0](authenticate-azure-cli.md).
 
