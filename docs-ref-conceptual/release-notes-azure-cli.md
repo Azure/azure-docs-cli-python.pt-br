@@ -4,19 +4,100 @@ description: Saiba mais sobre as últimas atualizações da CLI do Azure 2.0
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 06/01/2018
+ms.date: 07/03/2018
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 64db2b58ca883518757d8e189bf7263ed818b283
-ms.sourcegitcommit: 1a38729d6ae93c49137b3d49b6a9ec8a75eff190
+ms.openlocfilehash: 102152b7d99de253ccb2fea09b99be91e3c9135e
+ms.sourcegitcommit: 308f9eb433a05b814999ac404f63d181169fffeb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36262651"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37439662"
 ---
 # <a name="azure-cli-20-release-notes"></a>Notas de versão da CLI do Azure 2.0
+
+## <a name="july-3-2018"></a>3 de julho de 2018
+
+Versão 2.0.41
+
+### <a name="aks"></a>AKS
+
+* Monitoramento alterado para usar a ID de assinatura
+
+## <a name="july-3-2018"></a>3 de julho de 2018
+
+Versão 2.0.40
+
+### <a name="core"></a>Núcleo
+
+* Adicionado um novo fluxo de código de autorização para o logon interativo
+
+### <a name="acr"></a>ACR
+
+* Status da compilação de sondagem adicionado
+* Suporte adicionado para valores de enumeração que não diferenciam maiúsculas de minúsculas
+* Parâmetros `--top` e `--orderby` adicionados para `show-manifests`
+
+### <a name="acs"></a>ACS
+
+* [ALTERAÇÃO SIGNIFICATIVA] Habilitar controle de acesso baseado em funções do Kubernetes por padrão
+* Argumento `--disable-rbac` e preterido `--enable-rbac` adicionados, pois é o padrão agora
+* Opções atualizadas do comando `aks browse`. Suporte `--listen-port` adicionado
+* Atualizado o pacote de gráficos do helm padrão para o comando `aks install-connector`. Usar virtual-kubelet-para-aks-latest.tgz
+* Comandos `aks enable-addons` e `aks disable-addons` adicionados para atualizar um cluster existente
+
+### <a name="appservice"></a>AppService
+
+* Suporte adicionado para desabilitar a identidade via `webapp identity remove`
+* Marca `preview` removida para o recurso de Identidade
+
+### <a name="backup"></a>Backup
+
+* Definição do módulo atualizada
+
+### <a name="batchai"></a>BatchAI
+
+* Saída da tabela corrigida para comandos `batchai cluster node list` e `batchai job node list`
+
+### <a name="cloud"></a>Nuvem
+
+* Sufixo do servidor `acr login` adicionado à configuração de nuvem
+
+### <a name="container"></a>Contêiner
+
+* `container create` alterado para padrão para a operação de longa execução
+* Parâmetros `--log-analytics-workspace` e `--log-analytics-workspace-key` adicionados do Log Analytics
+* Parâmetro `--protocol` adicionado para especificar qual protocolo de rede usar
+
+### <a name="extension"></a>Extensão
+
+* `extension list-available` alterado para mostrar apenas as extensões compatíveis com a versão da CLI
+
+### <a name="network"></a>Rede
+
+* Corrigido o problema onde os tipos de registro diferenciam maiúsculas de minúsculas ([#6602](https://github.com/Azure/azure-cli/issues/6602))
+
+### <a name="rdbms"></a>Rdbms
+
+* Adicionados os comandos `[postgres|myql] server vnet-rule`
+
+### <a name="resource"></a>Recurso
+
+* Novo grupo de operação `deployment` adicionado
+
+### <a name="vm"></a>VM
+
+* Suporte adicionado para remover a identidade atribuída do sistema
+
+## <a name="june-25-2018"></a>25 de junho de 2018
+
+Versão 2.0.39
+
+### <a name="cli"></a>CLI
+
+* Corte de arquivo atualizado no instalador MSI para corrigir o problema de instalação da extensão
 
 ## <a name="june-19-2018"></a>19 de junho de 2018
 
