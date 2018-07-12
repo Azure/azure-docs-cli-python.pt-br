@@ -22,7 +22,7 @@
       href: get-started-with-azure-cli.md
     - name: Cloud Shell
       href: /azure/cloud-shell/overview
-    - name: Fazer logon
+    - name: Entrar
       href: authenticate-azure-cli.md
       items:
         - name: Criar uma entidade de serviço
@@ -66,8 +66,6 @@
   items:
     - name: Criar máquinas virtuais
       href: azure-cli-vm-tutorial.yml
-    - name: Treinamento - Criar máquinas virtuais
-      href: 'https://docs.microsoft.com/learn/azure-cli-2-0/index'
 - name: Exemplos de Scripts
   items:
     - name: VMs Linux
