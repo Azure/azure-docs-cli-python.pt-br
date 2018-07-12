@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: ed8f8ac160dd8225170ffcfff9619d94b92e456a
-ms.sourcegitcommit: 8b4629a42ceecf30c1efbc6fdddf512f4dddfab0
+ms.openlocfilehash: 97fcd9d5b5a65480957734cec0ead68029918a49
+ms.sourcegitcommit: 64f2c628e83d687d0e172c01f13d71c8c39a8040
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34306158"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38967785"
 ---
 # <a name="use-jmespath-queries-with-azure-cli-20"></a>Usar consultas JMESPath com a CLI do Azure 2.0
 
@@ -67,7 +67,7 @@ Ao exibir as informações de formato de saída `table`, a exibição de dicion�
 
 ## <a name="work-with-list-output"></a>Trabalhar com saída de lista
 
-Os comandos da CLI que podem retornar mais de um valor sempre retornam uma matriz. As matrizes podem ter seus elementos acessados por índice, mas nunca há uma garantia de ordem da CLI. A melhor maneira de consultar uma matriz de valores é mesclando-os com o operador `[]`. O operador será gravado depois da chave para a matriz ou como o primeiro elemento na expressão. A mescla executa a consulta a seguindo em relação a cada elemento individual na matriz e coloca os valores resultantes em uma nova matriz. O exemplo a seguir imprime o nome e o sistema operacional em execução em cada VM em um grupo de recursos. 
+Os comandos da CLI que podem retornar mais de um valor sempre retornam uma matriz. As matrizes podem ter seus elementos acessados por índice, mas nunca há uma garantia de ordem da CLI. A melhor maneira de consultar uma matriz de valores é mesclando-os com o operador `[]`. O operador será gravado depois da chave para a matriz ou como o primeiro elemento na expressão. A mescla executa a consulta a seguindo em relação a cada elemento individual na matriz e coloca os valores resultantes em uma nova matriz. O exemplo a seguir imprime o nome e o sistema operacional em execução em cada VM em um grupo de recursos.
 
 ```azurecli-interactive
 az vm list -g QueryDemo --query '[].{name:name, image:storageProfile.imageReference.offer}'

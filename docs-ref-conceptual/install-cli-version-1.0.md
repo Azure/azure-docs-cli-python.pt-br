@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 92714f32736e0a1a0ea7c8dd4a615b158c955931
-ms.sourcegitcommit: ae72b6c8916aeb372a92188090529037e63930ba
+ms.openlocfilehash: 5f185e02217d6a3b54a9c252825c0f3fed3ab09e
+ms.sourcegitcommit: 64f2c628e83d687d0e172c01f13d71c8c39a8040
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32044002"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38967666"
 ---
 # <a name="install-the-azure-cli-10"></a>Instalar a CLI do Azure 1.0
 
@@ -33,6 +33,7 @@ Para obter mais opções e um histórico, consulte o repositório do projeto no 
 Depois que a CLI do Azure 1.0 for instalada, [conecte-a à sua assinatura do Azure](/cli/azure/authenticate-azure-cli) e execute os comandos **azure** na interface de linha de comando (Bash, Terminal, Prompt de comando e assim por diante) para trabalhar com os recursos do Azure.
 
 ## <a name="option-1-install-an-npm-package"></a>Opção 1: Instalar um pacote npm
+
 Para instalar a CLI de um pacote npm, você precisa baixar e instalar os [Node.js e o npm mais recentes](https://nodejs.org/en/download/package-manager/). Em seguida, execute **npm install** para instalar o pacote azure-cli:
 
 ```bash
@@ -55,6 +56,7 @@ npm install -g <path to downloaded tar file>
 ```
 
 ## <a name="option-2-use-an-installer"></a>Opção 2: Usar um instalador
+
 Se você usar um computador com Windows ou Mac, os instaladores de CLI a seguir estarão disponíveis para download:
 
 * [Instalador do Mac OS X][mac-installer]
@@ -64,6 +66,7 @@ Se você usar um computador com Windows ou Mac, os instaladores de CLI a seguir 
 > No Windows, você também pode baixar o [Web Platform Installer](https://go.microsoft.com/?linkid=9828653) para instalar a CLI. Esse instalador lhe dá a opção de instalar o SDK do Azure e ferramentas de linha de comando adicionais após a instalação da CLI.
 
 ## <a name="option-3-use-a-docker-container"></a>Opção 3: Usar um contêiner do Docker
+
 Se você tiver configurado o computador como um host do [Docker](https://docs.docker.com/engine/understanding-docker/), poderá executar a última CLI do Azure 1.0 em um contêiner do Docker. Execute o seguinte comando (em distribuições Linux, talvez você precise usar **sudo**):
 
 ```bash
@@ -71,6 +74,7 @@ docker run -it microsoft/azure-cli:0.10.17
 ```
 
 ## <a name="run-azure-cli-10-commands"></a>Executar comandos da CLI do Azure 1.0
+
 Depois que a CLI do Azure 1.0 for instalada, execute o comando **azure** na interface do usuário de linha de comando (Bash, Terminal, Prompt de comando e assim por diante). Por exemplo, para executar o comando de ajuda, digite o seguinte:
 
 ```azurecli
@@ -96,6 +100,7 @@ Agora você está pronto! Para acessar todos os comandos da CLI para trabalhar c
 > Ao usar a CLI do Azure pela primeira vez, você verá uma mensagem perguntando se deseja permitir que a Microsoft colete informações de uso. A participação é voluntária. Se optar por participar, você poderá parar a qualquer momento executando `azure telemetry --disable`. Para habilitar a participação a qualquer momento, execute `azure telemetry --enable`.
 
 ## <a name="update-the-cli"></a>Atualizar a CLI
+
 Com frequência, a Microsoft lança versões atualizadas da CLI do Azure. Reinstale a CLI usando o instalador do seu sistema operacional ou execute o contêiner do Docker mais recente. Ou, se tiver o Node.js e o npm mais recentes instalados, atualize-os digitando o seguinte (em distribuições Linux, talvez você precise usar **sudo**).
 
 ```bash
@@ -103,6 +108,7 @@ npm update -g azure-cli
 ```
 
 ## <a name="enable-tab-completion"></a>Ativar o recurso auto-completar com TAB
+
 Há suporte para o recurso auto-completar de comandos da CLI para Mac e Linux.
 
 Para habilitá-lo no zsh, execute:
@@ -118,12 +124,11 @@ azure --completion >> ~/azure.completion.sh
 echo 'source ~/azure.completion.sh' >> ~/.bash_profile
 ```
 
-
 ## <a name="next-steps"></a>Próximas etapas
+
 * [Conecte-se da CLI à sua assinatura do Azure](/cli/azure/authenticate-azure-cli) para criar e gerenciar recursos do Azure.
 * Para saber mais sobre a CLI do Azure, baixar o código-fonte, relatar problemas ou colaborar com o projeto, visite o [Repositório GitHub para a CLI do Azure](https://github.com/azure/azure-xplat-cli).
 * Se tiver dúvidas quanto ao uso da CLI do Azure ou do Azure, visite os [Fóruns do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurescripting).
-
 
 [mac-installer]: http://aka.ms/mac-azure-cli
 [windows-installer]: http://aka.ms/webpi-azure-cli

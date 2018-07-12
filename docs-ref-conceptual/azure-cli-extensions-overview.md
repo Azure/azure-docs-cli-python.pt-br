@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 1b983faef4c1678763b3483192e94a6c96e24f32
-ms.sourcegitcommit: 80189ff103c91f8c47ab8ebf586df815fff5dd5d
+ms.openlocfilehash: b503c51ffc55ceda30738e34171c7da92532f328
+ms.sourcegitcommit: 64f2c628e83d687d0e172c01f13d71c8c39a8040
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34479462"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38967717"
 ---
 # <a name="using-extensions-with-the-azure-cli-20"></a>Usar extensões com a CLI 2.0 do Azure
 
@@ -59,7 +59,7 @@ az extension update --name <extension-name>
 
 Caso contrário, uma extensão poderá ser atualizada a partir da origem seguindo as instruções em [Instalar extensões](#install-extensions).
 
-Se um nome de extensão não puder ser resolvido pela CLI, desinstalá-a e tente reinstalá-la. Também há a possibilidade da extensão ter sido movida do modo de versão prévia e ter se tornado um comando interno da CLI. Tente atualizar a CLI, conforme descrito em [Instalar a CLI do Azure 2.0](install-azure-cli.md) e verifique se os comandos da extensão foram adicionados. 
+Se um nome de extensão não puder ser resolvido pela CLI, desinstalá-a e tente reinstalá-la. Também há a possibilidade da extensão ter sido movida do modo de versão prévia e ter se tornado um comando interno da CLI. Tente atualizar a CLI, conforme descrito em [Instalar a CLI do Azure 2.0](install-azure-cli.md) e verifique se os comandos da extensão foram adicionados.
 
 ## <a name="uninstall-extensions"></a>Desinstalar as extensões
 
@@ -69,7 +69,8 @@ Caso você não precise mais de uma extensão, ela pode ser removida com [az ext
 az extension remove --name <extension-name>
 ```
 
-Também é possível remover uma extensão manualmente, excluindo-a do local onde foi instalada. Esse será o valor de variável do shell `$AZURE_EXTENSION_DIR`. Se essa variável tiver sua definição removida, por padrão, o valor é `$HOME/.azure/cliextensions` no Linux e macOS e `%USERPROFILE%\.azure\cliextensions` no Windows.
+Também é possível remover uma extensão manualmente, excluindo-a do local onde foi instalada. Esse será o valor de variável do shell `$AZURE_EXTENSION_DIR`.
+Se essa variável tiver sua definição removida, por padrão, o valor é `$HOME/.azure/cliextensions` no Linux e macOS e `%USERPROFILE%\.azure\cliextensions` no Windows.
 
 ```bash
 rm -rf $AZURE_EXTENSION_DIR/<extension-name>
@@ -95,8 +96,8 @@ Uma extensão deve indicar, por meio de sua própria documentação e controle d
 
 ### <a name="can-extensions-depend-upon-each-other"></a>As extensões podem depender umas das outras?
 
-Nº As extensões devem ser pacotes individuais que não dependem um do outro. Isso porque a CLI não oferece nenhuma garantia sobre quando as extensões são carregadas. Assim, não se pode garantir que as dependências sejam atendidas. Ao instalar uma extensão, apenas essa extensão é instalada e ela deve continuar a funcionar mesmo que outras extensões sejam removidas.
+Não. As extensões devem ser pacotes individuais que não dependem um do outro. Isso porque a CLI não oferece nenhuma garantia sobre quando as extensões são carregadas. Assim, não se pode garantir que as dependências sejam atendidas. Ao instalar uma extensão, apenas essa extensão é instalada e ela deve continuar a funcionar mesmo que outras extensões sejam removidas.
 
 ### <a name="are-extensions-updated-along-with-the-cli"></a>As extensões são atualizadas juntamente com a CLI?
 
-Nº As extensões devem ser atualizadas separadamente, conforme descrito em [Atualizar extensões](#update-extensions).
+Não. As extensões devem ser atualizadas separadamente, conforme descrito em [Atualizar extensões](#update-extensions).
