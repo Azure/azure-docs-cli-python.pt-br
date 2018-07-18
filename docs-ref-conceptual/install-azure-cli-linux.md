@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: dade772f178ed9fd321ff45727aea991acd6d311
-ms.sourcegitcommit: 308f9eb433a05b814999ac404f63d181169fffeb
+ms.openlocfilehash: 7e73ae8bbbba80bf48c6f01fc1c37a3c32c6eb31
+ms.sourcegitcommit: 64f2c628e83d687d0e172c01f13d71c8c39a8040
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37439628"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38967547"
 ---
 # <a name="install-azure-cli-20-on-linux-manually"></a>Instalar CLI do Azure 2.0 no Linux manualmente
 
@@ -39,17 +39,18 @@ Se você estiver instalando ou atualizando a CLI, precisa executar uma instalaç
 curl -L https://aka.ms/InstallAzureCli | bash
 ```
 
-Você também pode baixar o script e executá-lo localmente. Talvez você precise reiniciar o shell para que as alterações entrem em vigor. 
+Você também pode baixar o script e executá-lo localmente. Talvez você precise reiniciar o shell para que as alterações entrem em vigor.
 
 É possível executar a CLI do Azure com o comando `az`. Para entrar, use o comando [az login](/cli/azure/reference-index#az-login).
 
 [!INCLUDE [interactive-login](includes/interactive-login.md)]
 
-Para saber mais sobre os métodos de logon diferente, consulte [Fazer logon com a CLI do Azure 2.0](authenticate-azure-cli.md).
+Para saber mais sobre os diferentes métodos de autenticação, consulte [Conectar com a CLI do Azure 2.0](authenticate-azure-cli.md).
 
 ## <a name="troubleshooting"></a>solução de problemas
 
-Aqui estão alguns problemas comuns observados durante uma instalação manual. Se o problema não estiver listado aqui, [registre um problema no github](https://github.com/Azure/azure-cli/issues).
+Aqui estão alguns problemas comuns observados durante uma instalação manual. Se o problema não estiver listado aqui, [registre-o no github](https://github.com/Azure/azure-cli/issues).
+
 ### <a name="curl-object-moved-error"></a>Erro "Objeto movido" de cURL
 
 Se você receber um erro de `curl` relacionado ao parâmetro `-L` ou uma mensagem de erro incluindo o texto "Objeto movido", tente usar a URL completa em vez da `aka.ms` de redirecionamento:
@@ -86,6 +87,7 @@ Desinstale a CLI excluindo diretamente os arquivos do local escolhido no momento
   rm -r <install location>/lib/azure-cli
   rm <install location>/bin/az
   ```
+
 2. Modifique o arquivo `$HOME/.bash_profile` para remover a seguinte linha:
 
   ```text

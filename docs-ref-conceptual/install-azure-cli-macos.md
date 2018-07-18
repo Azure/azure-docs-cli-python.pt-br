@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: e8190ba91006bd6d83eb0ef90b492ee7df4dda4c
-ms.sourcegitcommit: 308f9eb433a05b814999ac404f63d181169fffeb
+ms.openlocfilehash: 76b9afec92aa3da916382b85d2261547b6877e03
+ms.sourcegitcommit: fb3fed8701aff6c46af856e8fdc3e56ff9a678bc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37439900"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38228913"
 ---
 # <a name="install-azure-cli-20-on-macos"></a>Instalar CLI do Azure 2.0 no macOS
 
@@ -35,11 +35,11 @@ brew update && brew install azure-cli
 
 [!INCLUDE [interactive-login](includes/interactive-login.md)]
 
-Para saber mais sobre os métodos de logon diferente, consulte [Fazer logon com a CLI do Azure 2.0](authenticate-azure-cli.md).
+Para saber mais sobre os diferentes métodos de autenticação, consulte [Conectar com a CLI do Azure 2.0](authenticate-azure-cli.md).
 
 ## <a name="troubleshooting"></a>solução de problemas
 
-Se você encontrar um problema ao instalar a CLI através do Homebrew, aqui estão alguns erros comuns. Se o problema não estiver listado aqui, [registre um problema no github](https://github.com/Azure/azure-cli/issues).
+Se você encontrar um problema ao instalar a CLI através do Homebrew, aqui estão alguns erros comuns. Se o problema não estiver listado aqui, [registre-o no github](https://github.com/Azure/azure-cli/issues).
 
 ### <a name="unable-to-find-python-or-installed-packages"></a>Não é possível localizar o Python ou os pacotes instalados
 

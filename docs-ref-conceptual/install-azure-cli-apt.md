@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 3f52f1545dc4bad44280c7e58ad17ec2302fd436
-ms.sourcegitcommit: 308f9eb433a05b814999ac404f63d181169fffeb
+ms.openlocfilehash: a0908c5b5bda7ec903b702eecb61eabbbedaf533
+ms.sourcegitcommit: 64f2c628e83d687d0e172c01f13d71c8c39a8040
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37439611"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38967836"
 ---
 # <a name="install-azure-cli-20-with-apt"></a>Instalar CLI do Azure 2.0 com o apt
 
@@ -25,7 +25,7 @@ Se você estiver executando uma distribuição que vem com `apt`, como o Ubuntu 
 
 ## <a name="install"></a>Instalar
 
-1. <a name="install-step-1"/> Modifique sua lista de fontes:
+1. <div id="install-step-1"/>Modifique sua lista de fontes:
 
     ```bash
     AZ_REPO=$(lsb_release -cs)
@@ -33,7 +33,7 @@ Se você estiver executando uma distribuição que vem com `apt`, como o Ubuntu 
         sudo tee /etc/apt/sources.list.d/azure-cli.list
     ```
 
-2. <a name="signingKey"></a>Obtenha a chave de assinatura da Microsoft:
+2. <div id="signingKey"/>Obtenha a chave de assinatura da Microsoft:
 
    ```bash
    curl -L https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
@@ -49,13 +49,13 @@ Se você estiver executando uma distribuição que vem com `apt`, como o Ubuntu 
    > [!WARNING]
    > A chave de assinatura foi atualizada em maio de 2018 e foi substituída. Se você receber erros da chave de assinatura, confirme se [adquiriu a chave de assinatura mais recente](#signingKey).
 
-É possível executar a CLI do Azure com o comando `az`. Para fazer logon, use o comando [az login](/cli/azure/reference-index#az-login).
+É possível executar a CLI do Azure com o comando `az`. Para entrar, use o comando [az login](/cli/azure/reference-index#az-login).
 
 [!INCLUDE [interactive-login](includes/interactive-login.md)]
 
-Para saber mais sobre os diferentes métodos de logon, consulte [Fazer logon com a CLI do Azure 2.0](authenticate-azure-cli.md).
+Para saber mais sobre os diferentes métodos de autenticação, consulte [Conectar com a CLI do Azure 2.0](authenticate-azure-cli.md).
 
-## <a name="troubleshooting"></a>Solução de problemas
+## <a name="troubleshooting"></a>solução de problemas
 
 Aqui estão alguns problemas comuns vistos durante a instalação com `apt`. Se o problema não estiver listado aqui, [registre-o no github](https://github.com/Azure/azure-cli/issues).
 
@@ -113,7 +113,7 @@ Use `apt-get upgrade` para atualizar o pacote da CLI.
 
 > [!WARNING]
 > A chave de assinatura foi atualizada em maio de 2018 e foi substituída. Se você receber erros da chave de assinatura, confirme se [adquiriu a chave de assinatura mais recente](#signingKey).
-   
+>
 > [!NOTE]
 > Esse comando atualiza todos os pacotes instalados no sistema que não tiveram uma alteração de dependência.
 > Para atualizar apenas a CLI, use `apt-get install`.

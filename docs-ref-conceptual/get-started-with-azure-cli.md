@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: c973d31312fbe0f9232bf3f0f3ed5f3b70b6559a
-ms.sourcegitcommit: 308f9eb433a05b814999ac404f63d181169fffeb
+ms.openlocfilehash: f45c3acfdb4edb82cde755472d240ae18d82aba2
+ms.sourcegitcommit: 64f2c628e83d687d0e172c01f13d71c8c39a8040
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37439934"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38967734"
 ---
 # <a name="get-started-with-azure-cli-20"></a>Introdução à CLI do Azure 2.0
 
@@ -29,7 +29,7 @@ Antes de usar os comandos da CLI com uma instalação local, é preciso entrar c
 
 [!INCLUDE [interactive-login](includes/interactive-login.md)]
 
-Há maneiras de entrar de modo não interativo, o que é apresentado em detalhes em [Fazer logon com a CLI do Azure 2.0](authenticate-azure-cli.md).
+Há maneiras de entrar de modo não interativo, como mostrado em detalhes em [Entrar com a CLI do Azure 2.0](authenticate-azure-cli.md).
 
 ## <a name="common-commands"></a>Comandos comuns
 
@@ -74,7 +74,6 @@ Há alguns argumentos disponíveis para cada comando.
 * `--query` usa o [linguagem de consulta JMESPath](http://jmespath.org/) para filtrar a saída retornada dos serviços do Azure. Para saber mais sobre consultas, consulte [Consultar resultados do comando com a CLI do Azure 2.0](query-azure-cli.md) e [tutorial do JMESPath](http://jmespath.org/tutorial.html).
 * `--verbose` imprime informações sobre recursos criados no Azure durante uma operação, além de outras informações úteis.
 * `--debug` imprime ainda mais informações sobre operações de CLI e é usado para fins de depuração. Se você encontrar um bug, forneça a saída gerada com o sinalizador `--debug` ao enviar um relatório de bugs.
-
 
 ## <a name="interactive-mode"></a>Modo interativo
 

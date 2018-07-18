@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.technology: azure-cli
 ms.devlang: azure-cli
 ms.service: role-based-access-control
-ms.openlocfilehash: cd9a41b66d18410afa091ede50ca24e7d4b5e9ed
-ms.sourcegitcommit: 308f9eb433a05b814999ac404f63d181169fffeb
+ms.openlocfilehash: 956a1c10c3e4321651df58f86f6f2c21ede5061f
+ms.sourcegitcommit: 64f2c628e83d687d0e172c01f13d71c8c39a8040
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37439951"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38967904"
 ---
 # <a name="create-an-azure-service-principal-with-azure-cli-20"></a>Criar uma entidade de serviço do Azure com a CLI do Azure 2.0
 
-Caso deseje criar um logon separado com restrições de acesso, é possível fazer isso por meio de uma entidade de serviço. Entidades de serviço são identidades separadas que podem ser associadas a uma conta. Entidades de serviço são úteis para trabalhar com aplicativos e tarefas que devem ser automatizadas. Este artigo guia você pelas etapas de criação de uma entidade de serviço.
+Caso queira criar uma conexão separada com restrições de acesso, é possível fazer isso com uma entidade de serviço. Entidades de serviço são identidades separadas que podem ser associadas a uma conta. Entidades de serviço são úteis para trabalhar com aplicativos e tarefas que devem ser automatizadas. Este artigo guia você pelas etapas de criação de uma entidade de serviço.
 
 ## <a name="create-the-service-principal"></a>Criar a entidade de serviço
 
@@ -33,7 +33,7 @@ Use o comando [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rb
 * `--cert` é usado para autenticação baseada em certificado para um certificado existente, como uma cadeia de caracteres pública PEM ou DER, ou `@{file}` para carregar um arquivo.
 
   ```azurecli-interactive
-  az ad sp create-for-rbac --name ServicePrincipalName --cert {CertStringOrFile} 
+  az ad sp create-for-rbac --name ServicePrincipalName --cert {CertStringOrFile}
   ```
 
   O argumento `--keyvault` pode ser adicionado para indicar que o certificado está armazenado no Azure Key Vault. Nesse caso, o valor `--cert` se refere ao nome do certificado no Key Vault.
@@ -73,7 +73,7 @@ Os valores `appId`, `tenant` e `password` são usados para autenticação. O `di
 > [!NOTE]
 > Se sua conta não tem permissões suficientes para criar um serviço principal, você verá uma mensagem de erro contendo “Privilégios insuficientes para concluir a operação”. Entre em contato com o administrador do Azure Active Directory para criar uma entidade de serviço.
 
-## <a name="manage-service-principal-roles"></a>Gerenciar funções da entidade de serviço 
+## <a name="manage-service-principal-roles"></a>Gerenciar funções da entidade de serviço
 
 A CLI do Azure 2.0 fornece os comandos a seguir para gerenciar atribuições de função.
 
@@ -98,20 +98,20 @@ As alterações podem ser verificadas, listando as funções atribuídas.
 az role assignment list --assignee APP_ID
 ```
 
-> [!NOTE] 
+> [!NOTE]
 > Caso sua conta não tiver permissões suficientes para atribuir uma função, você verá uma mensagem de erro informando que sua conta “não tem autorização para executar a ação ‘Microsoft.Authorization/roleAssignments/write' over scope '/subscriptions/{guid}’”. Entre em contato com o administrador do Azure Active Directory para gerenciar funções.
 
 ## <a name="sign-in-using-the-service-principal"></a>Entrar usando a entidade de serviço
 
-Você pode testar os novos logon e permissões da entidade de serviço fazendo logon nela dentro da CLI do Azure. Faça logon como a nova entidade de serviço usando os valores `appId`, `tenant` e de credenciais. As informações de autenticação fornecidas mudam conforme sua opção por criar a entidade de serviço com uma senha ou um certificado.
+Você pode testar as credenciais e as permissões e da nova entidade de serviço conectando na CLI do Azure. Entre como a nova entidade de serviço usando os valores `appId`, `tenant` e de credenciais. As informações de autenticação fornecidas mudam conforme sua opção por criar a entidade de serviço com uma senha ou um certificado.
 
-Para fazer logon com uma senha, forneça-o como um parâmetro de argumento.
+Para entrar com uma senha, forneça-a como um parâmetro de argumento.
 
 ```azurecli-interactive
 az login --service-principal --username APP_ID --password PASSWORD --tenant TENANT_ID
 ```
 
-Para fazer logon com um certificado, ele deve estar disponível localmente como um arquivo PEM ou DER.
+Para entrar com um certificado, ele deve estar disponível localmente como um arquivo PEM ou DER.
 
 ```azurecli-interactive
 az login --service-principal --username APP_ID --tenant TENANT_ID --password PATH_TO_CERT
