@@ -9,14 +9,83 @@ ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: b44a387a144b9d7daca8d87309d8a5e1a47b078a
-ms.sourcegitcommit: 64f2c628e83d687d0e172c01f13d71c8c39a8040
+ms.openlocfilehash: 8d4f0879a18d2cf99ea7a284155bec86413406f8
+ms.sourcegitcommit: da34d0eecf19c676826bd32ab254a92bd0976124
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38967870"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39138229"
 ---
 # <a name="azure-cli-20-release-notes"></a>Notas de versão da CLI do Azure 2.0
+
+## <a name="july-18-2018"></a>18 de julho de 2018
+
+Versão 2.0.42
+
+### <a name="core"></a>Núcleo
+
+* Adicionado suporte para logon baseado em navegador, na janela de bash WSL
+* O sinalizador `--force-string` foi adicionado a todos os comandos de atualização genérica
+* [ALTERAÇÃO SIGNIFICATIVA] Os comandos 'show' foram alterados para registrar mensagens de erro e falha com código de saída 3 quando um recurso está ausente
+
+### <a name="acr"></a>ACR
+
+* [ALTERAÇÃO SIGNIFICATIVA] '--no-push' foi atualizado para um sinalizador puro no comando 'acr build'
+* Foram adicionados os comandos `show` e `update` no grupo `acr repository`
+* Foi adicionado o sinalizador `--detail` a `show-manifests` e `show-tags` para mostrar informações mais detalhadas
+* Foi adicionado o parâmetro `--image` para dar suporte aos detalhes do build get ou aos logs por meio de uma imagem
+
+### <a name="acs"></a>ACS
+
+* `az aks create` foi alterado para excluir o erro se `--max-pods` for menor que 5
+
+### <a name="appservice"></a>AppService
+
+* Suporte adicionado para skus PremiumV2
+
+### <a name="batch"></a>Lote
+
+* Corrigido o bug sobre como usar a credencial de token no modo do Cloud Shell
+* Alterada a entrada JSON para diferenciar maiúsculas de minúsculas
+
+### <a name="batch-ai"></a>Lote AI
+
+* Corrigido o comando `az batchai job exec`
+
+### <a name="container"></a>Contêiner
+
+* Removido o requisito de nome de usuário e senha para os registros não dockerhub
+* Correção de erro durante a criação de grupos de contêineres de arquivo yaml
+
+### <a name="network"></a>Rede
+
+* Adicionado o suporte `--no-wait` para `network nic [create|update|delete]` 
+* Adicionado `network nic wait`
+* Preterido o argumento `--ids` para `network vnet [subnet|peering] list`
+* Adicionado o sinalizador `--include-default` para incluir regras de segurança padrão na saída do `network nsg rule list`  
+
+### <a name="resource"></a>Recurso
+
+* Adicionado o suporte `--no-wait` para `group deployment delete`
+* Adicionado o suporte `--no-wait` para `deployment delete`
+* Adicionado o comando `deployment wait`
+* Correção do problema em que os comandos de nível de assinatura `az deployment` erroneamente apareceram no perfil 2017-03-09-profile
+
+### <a name="sql"></a>SQL
+
+* O erro “O nome de grupo de recursos fornecido ... não correspondeu ao nome na Url” foi fixado ao especificar o nome do pool elástico para os comandos `sql db copy` e `sql db replica create`
+* Permitir a configuração do padrão do SQL Server, executando `az configure --defaults sql-server=<name>`
+* Os formatadores de tabela foram implementados aos comandos `sql server`, `sql server firewall-rule`, `sql list-usages` e `sql show-usage`
+
+### <a name="storage"></a>Armazenamento
+
+* Adicionada a propriedade `pageRanges` à saída `storage blob show` que será preenchida para blobs de página
+
+### <a name="vm"></a>VM
+
+* [ALTERAÇÃO SIGNIFICATIVA] Alterado `vmss create` para usar o `Standard_DS1_v2` como o tamanho de instância padrão
+* Adicionado o suporte `--no-wait` para `vm extension [set|delete]` e `vmss extension [set|delete]`
+* Adicionado `vm extension wait`
 
 ## <a name="july-3-2018"></a>3 de julho de 2018
 
