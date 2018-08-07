@@ -9,14 +9,72 @@ ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 8d4f0879a18d2cf99ea7a284155bec86413406f8
-ms.sourcegitcommit: da34d0eecf19c676826bd32ab254a92bd0976124
+ms.openlocfilehash: d0f8c01495cc95ecfbf6a41d510eb4bc54d47ba2
+ms.sourcegitcommit: 8019690502e9f89c083839d83a0a245cc812e8b6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39138229"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39392346"
 ---
 # <a name="azure-cli-20-release-notes"></a>Notas de versão da CLI do Azure 2.0
+
+## <a name="july-31-2018"></a>31 de julho de 2018
+
+Versão 2.0.43
+
+### <a name="acr"></a>ACR
+
+* Sinalizador `--with-secure-properties` adicionado ao comando `acr build-task show`
+* Adicionado o comando `acr build-task update-build`
+
+### <a name="acs"></a>ACS
+
+* Alterado para retornar 0 (êxito) ao terminar `az aks browse` pressionando [Ctrl+C]
+
+### <a name="batch"></a>Lote
+
+* Bug corrigido ao mostrar o token AAD no cloudshell
+
+### <a name="container"></a>Contêiner
+
+* Requisito removido de `--log-analytics-workspace-key` para o nome ou a ID ao definir assinatura
+
+### <a name="network"></a>Rede
+
+* Suporte a DNS adicionado a 2017-03-09-profile para o Azure Stack 
+
+### <a name="resource"></a>Recurso
+
+* `--rollback-on-error` a `group deployment create` adicionado para executar uma implantação válida no erro
+* Problema corrigido onde `--parameters {}` com `group deployment create` resultou em um erro
+
+### <a name="role"></a>Função
+
+* Suporte adicionado para o perfil da pilha 2017-03-09-profile
+* Problema corrigido onde os parâmetros de atualização genéricos para `app update` não funcionariam corretamente
+
+### <a name="search"></a>Search
+
+* Comandos adicionados para o serviço Azure Search
+
+### <a name="service-bus"></a>Barramento de Serviço
+
+* Grupo de comandos de migração adicionados para migrar um namespace do Barramento de Serviço Standard para Premium
+* Novas propriedades opcionais adicionadas à fila do Barramento de Serviço e à Assinatura
+  *  `--enable-batched-operations` e `--enable-dead-lettering-on-message-expiration` em `queue`
+  *  `--dead-letter-on-filter-exceptions` em `subscriptions`
+
+### <a name="storage"></a>Armazenamento
+
+* Suporte adicionado para o download de arquivos grandes usando uma única conexão
+* Comandos `show` convertidos que foram perdidos na falha com código de saída 3 mediante um recurso ausente
+
+### <a name="vm"></a>VM
+
+* Suporte adicionado para listar conjuntos de disponibilidade por assinatura
+* Suporte adicionado para o suporte `StandardSSD_LRS`
+* Suporte adicionado para o grupo de segurança do aplicativo ao criar um conjunto de dimensionamento da VM
+* [ALTERAÇÃO SIGNIFICATIVA] `[vm|vmss] create`, `[vm|vmss] identity assign` e `[vm|vmss] identity remove` alterados para produzir identidades de usuário atribuídas no formato de dicionário
 
 ## <a name="july-18-2018"></a>18 de julho de 2018
 
