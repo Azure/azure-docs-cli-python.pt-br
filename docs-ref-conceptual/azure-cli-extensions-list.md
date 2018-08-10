@@ -4,17 +4,17 @@ description: Uma lista completa das extensões com suporte oficial para a CLI do
 author: derekbekoe
 ms.author: debekoe
 manager: routlaw
-ms.date: 07/30/2018
+ms.date: 08/08/2018
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 92d2ac36d0176469f8f5a77e7a27d0b11ab6d947
-ms.sourcegitcommit: 70bb8b115f7b9079ca1fdb65c7f5582b060a466f
+ms.openlocfilehash: 36657d29f6708bc60f7d9386ffa0671a9639edc9
+ms.sourcegitcommit: 772aad0d9696156d6e87fa00e255dfd0b6394d23
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39356600"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39718024"
 ---
 # <a name="available-extensions-for-the-azure-cli-20"></a>Extensões disponíveis para a CLI do Azure 2.0
 
@@ -36,6 +36,7 @@ az extension list-available --output table
 | [dev-spaces-preview](https://github.com/Azure/azure-cli-extensions) | 0.1.6 | Os Espaços de Desenvolvimento fornecem uma experiência de desenvolvimento Kubernetes rápida e iterativa para equipes. | SIM |
 | [dns](https://github.com/Azure/azure-cli-extensions) | 0.0.2 | Uma extensão da CLI do Azure para zonas DNS |  |
 | [eventgrid](https://github.com/Azure/azure-cli-extensions) | 0.2.1 | Suporte para recursos do Azure EventGrid 2018-05-01-preview | SIM |
+| [express-route-cross-connection](https://github.com/Azure/azure-cli-extensions/tree/master/src/express-route-cross-connection) | 0.1.0 | Gerencie os circuitos do ExpressRoute de cliente usando uma conexão cruzada do ExpressRoute. |  |
 | [image-copy-extension](https://github.com/Azure/azure-cli-extensions) | 0.0.7 | Suporte para copiar imagens de vm gerenciadas entre regiões |  |
 | [keyvault-preview](https://github.com/Azure/azure-keyvault-cli-extension) | 0.1.3 | Visualizar comandos do Azure Key Vault. | SIM |
 | [log-analytics](https://github.com/Azure/azure-cli-extensions/tree/master/src/log-analytics) | 0.1.2 | Suporte para recursos de consulta do Log Analytics do Azure. | SIM |
@@ -46,4 +47,4 @@ az extension list-available --output table
 | [signalr](https://github.com/Azure/azure-cli-extensions) | 0.1.0 | Suporte à versão prévia de gerenciamento de signalr. | SIM |
 | [storage-preview](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview) | 0.1.3 | Fornece uma visualização para recursos de armazenamento futuras. | SIM |
 | [subscription](https://github.com/Azure/azure-cli-extensions) | 0.1.1 | Suporte à versão prévia de gerenciamento de assinatura. |  |
-| [webapp](https://github.com/Azure/azure-cli-extensions) | 0.2.6 | Uma extensão da CLI do Azure para gerenciar recursos de appservice | SIM |
+| [webapp](https://github.com/Azure/azure-cli-extensions) | 0.2.7 | Uma extensão da CLI do Azure para gerenciar recursos de appservice | SIM |
