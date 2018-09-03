@@ -4,19 +4,159 @@ description: Saiba mais sobre as últimas atualizações da CLI do Azure 2.0
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 07/03/2018
+ms.date: 08/28/2018
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 549317fb3ffffbe5f392e7a2bbc5cb4ed10b7e89
-ms.sourcegitcommit: 772aad0d9696156d6e87fa00e255dfd0b6394d23
+ms.openlocfilehash: 62e57d048666f478b670f182bb9348dba90de6a0
+ms.sourcegitcommit: 8f060bc009278eafc0ed448bad4b7d08c742ff63
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39718007"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43145083"
 ---
 # <a name="azure-cli-20-release-notes"></a>Notas de versão da CLI do Azure 2.0
+
+## <a name="auguest-28-2018"></a>28 de agosto de 2018
+
+Versão 2.0.45
+
+### <a name="core"></a>Núcleo
+
+* Corrigido o problema de carregamento de arquivo de configuração vazio
+* Adicionado suporte para o perfil `2018-03-01-hybrid` para o Azure Stack
+
+### <a name="acr"></a>ACR
+
+* Adicionada uma solução alternativa para operações de tempo de execução sem solicitações ARM
+* Alterado para excluir arquivos de controle de versão (por exemplo, .git, .gitignore) de tar carregados por padrão no comando `build`
+
+### <a name="acs"></a>ACS
+
+* Alterado `aks create` para os padrões para VMs `Standard_DS2_v2`
+* Alterado `aks get-credentials` para agora chamar novas APIs para obter credenciais de cluster
+
+### <a name="appservice"></a>AppService
+
+* Adicionado suporte para CORS no functionapp e webapp
+* Adicionado suporte a marcas ARM ao criar comandos
+* Alterado `[webapp|functionapp] identity show` para sair com o código 3 mediante um recurso ausente
+
+### <a name="backup"></a>Backup
+
+* Alterado `backup vault backup-properties show` para sair com o código 3 mediante um recurso ausente
+
+### <a name="bot-service"></a>Serviço de Bot
+
+* Versão da CLI do serviço de Bot inicial
+
+### <a name="cognitive-services"></a>Serviços Cognitivos
+
+* Adicionado novo parâmetro `--api-properties,` que é necessário para a criação de alguns dos serviços
+
+### <a name="iot"></a>IoT
+
+* Corrigido o problema com a associação de hubs vinculados
+
+### <a name="monitor"></a>Monitoramento
+
+* Adicionados comandos `monitor metrics alert` para alertas de métrica quase em tempo real
+* Comandos `monitor alert` preteridos
+
+### <a name="network"></a>Rede
+
+* Alterado `network application-gateway ssl-policy predefined show` para sair com o código 3 mediante um recurso ausente
+
+### <a name="resource"></a>Recurso
+
+* Alterado `provider operation show` para sair com o código 3 mediante um recurso ausente
+
+### <a name="storage"></a>Armazenamento
+
+* Alterado `storage share policy show` para sair com o código 3 mediante um recurso ausente
+
+### <a name="vm"></a>VM
+
+* Alterado `vm/vmss identity show` para sair com o código 3 mediante um recurso ausente 
+* Preterido `--storage-caching` para `vm create`
+
+## <a name="auguest-14-2018"></a>14 de agosto de 2018
+
+Versão 2.0.44
+
+### <a name="core"></a>Núcleo
+
+* Corrigida a exibição numérica na saída `table`
+* Adicionado o formato de saída YAML
+
+### <a name="telemetry"></a>Telemetria
+
+* Melhorias nos relatórios de telemetria
+
+### <a name="acr"></a>ACR
+
+* Adicionados os comandos `content-trust policy`
+* Corrigido o problema onde `.dockerignore` não foi tratado adequadamente
+
+### <a name="acs"></a>ACS
+
+* Alterado `az acs/aks install-cli` para instalar em `%USERPROFILE%\.azure-kubectl` no Windows
+* Alterado `az aks install-connector` para detectar se o cluster tem RBAC e configurar o conector ACI adequadamente
+* Alterado para atribuição de função à sub-rede quando ela é fornecida
+* Adicionada uma nova opção para “ignorar a atribuição de função” à sub-rede quando ela é fornecida                                 
+* Alterado para ignorar a atribuição de função à sub-rede quando a atribuição já existe                
+
+### <a name="appservice"></a>AppService
+
+* Corrigido um bug que impede a criação de um aplicativo de funções usando contas de armazenamento em grupos de recursos externos
+* Corrigida uma falha na implantação de zip
+
+### <a name="batchai"></a>BatchAI
+
+* Alterada a saída do agente para criação de conta de armazenamento automática para especificar “*grupo* de recurso”.        
+
+### <a name="container"></a>Contêiner
+
+* Adicionado `--secure-environment-variables` para passar as variáveis de ambiente seguras para um contêiner      
+
+### <a name="iot"></a>IoT
+
+* [ALTERAÇÃO SIGNIFICATIVA] Removidos os comandos preteridos que foram movidos para a extensão iot
+* Atualizados os elementos para não presumirem o domínio `azure-devices.net`
+
+### <a name="iot-central"></a>Central de IoT
+
+* Versão inicial do módulo do IoT Central
+
+### <a name="keyvault"></a>KeyVault
+
+
+* Comandos adicionados para gerenciar contas de armazenamento e as definições de sas
+* Comandos adicionados para regras de rede                                                           
+* Adicionado o parâmetro `--id` para operações de certificado, chave e segredo
+* Adicionado suporte para a versão de várias APIs de gerenciamento KV
+* Adicionado suporte para a versão de várias APIs do plano de dados KV
+
+### <a name="relay"></a>Retransmissão
+
+* Versão inicial
+
+### <a name="sql"></a>Sql
+
+* Adicionados os comandos `sql failover-group`
+
+### <a name="storage"></a>Armazenamento
+
+* [ALTERAÇÃO SIGNIFICATIVA] Alterado `storage account show-usage` para exigir o parâmetro `--location` e listará por região
+* Alterado o parâmetro `--resource-group` para ser opcional para comandos `storage account`
+* Removidos os avisos de “Falha na pré-condição” para as falhas individuais em comandos em lote para uma única mensagem agregada
+* Alterados os comandos `[blob|file] delete-batch` para não exibir mais matriz de nulos
+* Alterados os comandos `blob [download|upload|delete-batch]` para ler o token de sas da url do contêiner
+
+### <a name="vm"></a>VM
+
+* Adicionado filtros comuns à `vm list-skus` para facilidade de uso
 
 ## <a name="july-31-2018"></a>31 de julho de 2018
 
