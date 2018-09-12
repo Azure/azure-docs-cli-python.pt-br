@@ -9,16 +9,16 @@ ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 62e57d048666f478b670f182bb9348dba90de6a0
-ms.sourcegitcommit: 8f060bc009278eafc0ed448bad4b7d08c742ff63
+ms.openlocfilehash: 5d179a49ad64201270be7848a72535b871081125
+ms.sourcegitcommit: c90bc90c9a2b3adf2836d7cfb84951cd3ab51317
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43145083"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43828738"
 ---
 # <a name="azure-cli-20-release-notes"></a>Notas de versão da CLI do Azure 2.0
 
-## <a name="auguest-28-2018"></a>28 de agosto de 2018
+## <a name="august-28-2018"></a>28 de Agosto de 2018
 
 Versão 2.0.45
 

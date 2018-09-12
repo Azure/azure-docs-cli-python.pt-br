@@ -10,19 +10,19 @@ ms.technology: azure-cli
 ms.devlang: azurecli
 ms.service: active-directory
 ms.component: authentication
-ms.openlocfilehash: a0e05b3306cc273486b1b5fc887ceedbf78cb779
-ms.sourcegitcommit: 64f2c628e83d687d0e172c01f13d71c8c39a8040
+ms.openlocfilehash: a9476937af004609b35fae7a748d8c254f370541
+ms.sourcegitcommit: 252e5e1b5d0ab868044a9c03f2c9fefc22d362b4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38967751"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43380893"
 ---
 # <a name="sign-in-with-azure-cli-20"></a>Entrar com a CLI do Azure 2.0
 
 Há várias maneiras de se autenticar com a CLI do Azure. A maneira mais fácil de começar é entrar interativamente no navegador por meio do Azure Cloud Shell ou do comando `az login`.
 A abordagem recomendada é usar entidades de serviço, que são contas restritas a permissões. Ao conceder apenas as permissões apropriadas necessárias para uma entidade de serviço, você pode garantir que seus scripts de automação fiquem ainda mais seguros.
 
-Nenhuma informação de credencial privada é armazenada localmente. Em vez disso, um token de autenticação é gerado pelo Azure e armazenado. Após a conexão, seu token de autenticação fica válido por até 14 dias sem ser usado. Depois disso, você precisará autenticar novamente.
+Nenhuma informação de credencial privada é armazenada localmente. Em vez disso, um token de autenticação é gerado pelo Azure e armazenado. Após a conexão, seu token de autenticação fica válido por até 90 dias sem ser usado. Depois disso, você precisará autenticar novamente.
 
 Após a conexão, os Comandos da CLI são executados em sua assinatura padrão. Caso tenha mais de uma assinatura, é possível [alterar sua assinatura padrão](manage-azure-subscriptions-azure-cli.md).
 
