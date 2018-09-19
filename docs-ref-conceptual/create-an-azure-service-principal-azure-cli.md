@@ -4,17 +4,17 @@ description: Saiba como criar e usar uma entidade de serviço com a CLI do Azure
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 05/16/2018
+ms.date: 09/07/2018
 ms.topic: conceptual
 ms.technology: azure-cli
 ms.devlang: azure-cli
 ms.service: role-based-access-control
-ms.openlocfilehash: 3f20892e846bd07f8e97ccf788d05c4305fe3301
-ms.sourcegitcommit: 83826ca154c9f32c6091c63ce4b3e480694ba8d1
+ms.openlocfilehash: 5f98fd8d3897b11a9b37eefa6295b8b25b2b1c95
+ms.sourcegitcommit: 0e688704889fc88b91588bb6678a933c2d54f020
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "43144940"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44388432"
 ---
 # <a name="create-an-azure-service-principal-with-azure-cli-20"></a>Criar uma entidade de serviço do Azure com a CLI do Azure 2.0
 
@@ -81,7 +81,7 @@ A CLI do Azure 2.0 fornece os comandos a seguir para gerenciar atribuições de 
 * [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create)
 * [az role assignment delete](/cli/azure/role/assignment#az-role-assignment-delete)
 
-A função padrão para uma entidade de serviço é **Colaborador**. Essa função tem permissões completas para ler e gravar em uma conta do Azure e geralmente não é adequada para aplicativos. A função **Leitor** é mais restritiva, oferecendo acesso somente leitura.  Para obter mais informações sobre Controle de acesso baseado em função (RBAC) e funções, consulte [RBAC: funções internas](/azure/active-directory/role-based-access-built-in-roles).
+A função padrão para uma entidade de serviço é **Colaborador**. Essa função tem permissões completas para ler e gravar em uma conta do Azure e não é adequada para aplicativos. A função **Leitor** é mais restritiva, oferecendo acesso somente leitura.  Para obter mais informações sobre Controle de acesso baseado em função (RBAC) e funções, consulte [RBAC: funções internas](/azure/active-directory/role-based-access-built-in-roles).
 
 Esse exemplo adiciona a função **Leitor** e exclui a de **Colaborador**.
 
@@ -103,7 +103,7 @@ az role assignment list --assignee APP_ID
 
 ## <a name="sign-in-using-the-service-principal"></a>Entrar usando a entidade de serviço
 
-Você pode testar as credenciais e as permissões e da nova entidade de serviço conectando na CLI do Azure. Entre como a nova entidade de serviço usando os valores `appId`, `tenant` e de credenciais. As informações de autenticação fornecidas mudam conforme sua opção por criar a entidade de serviço com uma senha ou um certificado.
+Você pode testar as credenciais e as permissões e da nova entidade de serviço conectando na CLI do Azure. Entre como a nova entidade de serviço usando os valores `appId`, `tenant` e de credenciais. Use o tipo de autenticação criado com a entidade de serviço.
 
 Para entrar com uma senha, forneça-a como um parâmetro de argumento.
 
@@ -119,7 +119,7 @@ az login --service-principal --username APP_ID --tenant TENANT_ID --password PAT
 
 ## <a name="reset-credentials"></a>Redefinir credenciais
 
-Caso esqueça as credenciais de uma entidade de serviço, elas podem ser redefinidas com comando [az ad sp reset-credentials](https://docs.microsoft.com/en-us/cli/azure/ad/sp#az-ad-sp-reset-credentials). As mesmas restrições e opções para criar uma nova entidade de serviço também se aplicam aqui.
+Caso esqueça as credenciais de uma entidade de serviço, elas podem ser redefinidas com o comando [az ad sp credential reset](/cli/azure/ad/sp/credential#az-ad-sp-credential-reset). As mesmas restrições e opções para criar uma nova entidade de serviço também se aplicam aqui.
 
 ```azurecli-interactive
 az ad sp credential reset --name APP_ID --password NEW_PASSWORD

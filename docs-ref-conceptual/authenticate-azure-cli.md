@@ -4,35 +4,34 @@ description: Entrar com a CLI do Azure 2.0 interativamente ou com as credenciais
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 07/09/2018
+ms.date: 09/07/2018
 ms.topic: conceptual
 ms.technology: azure-cli
 ms.devlang: azurecli
 ms.service: active-directory
 ms.component: authentication
-ms.openlocfilehash: a9476937af004609b35fae7a748d8c254f370541
-ms.sourcegitcommit: 252e5e1b5d0ab868044a9c03f2c9fefc22d362b4
+ms.openlocfilehash: ef77f407284752ad4f4a1585f8a4036b32b3eb1b
+ms.sourcegitcommit: 0e688704889fc88b91588bb6678a933c2d54f020
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43380893"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44388313"
 ---
 # <a name="sign-in-with-azure-cli-20"></a>Entrar com a CLI do Azure 2.0
 
-Há várias maneiras de se autenticar com a CLI do Azure. A maneira mais fácil de começar é entrar interativamente no navegador por meio do Azure Cloud Shell ou do comando `az login`.
-A abordagem recomendada é usar entidades de serviço, que são contas restritas a permissões. Ao conceder apenas as permissões apropriadas necessárias para uma entidade de serviço, você pode garantir que seus scripts de automação fiquem ainda mais seguros.
+Há vários tipos de autenticação para a CLI do Azure. A maneira mais fácil de começar é com o [Azure Cloud Shell](/azure/cloud-shell/overview) que conecta você automaticamente. Localmente, você pode entrar no modo interativo pelo navegador com o comando `az login`. Ao escrever scripts, a abordagem recomendada é usar entidades de serviço. Ao conceder apenas as permissões apropriadas necessárias para uma entidade de serviço, você mantém sua automação segura.
 
-Nenhuma informação de credencial privada é armazenada localmente. Em vez disso, um token de autenticação é gerado pelo Azure e armazenado. Após a conexão, seu token de autenticação fica válido por até 90 dias sem ser usado. Depois disso, você precisará autenticar novamente.
+Nenhuma das suas informações de entrada é armazenada pela CLI. Em vez disso, um token de autenticação é gerado pelo Azure e armazenado. Após a conexão, seu token de autenticação fica válido por até 90 dias sem ser usado.
 
-Após a conexão, os Comandos da CLI são executados em sua assinatura padrão. Caso tenha mais de uma assinatura, é possível [alterar sua assinatura padrão](manage-azure-subscriptions-azure-cli.md).
+Após a conexão, os comandos da CLI são executados em sua assinatura padrão. Caso tenha várias assinaturas, é possível [alterar sua assinatura padrão](manage-azure-subscriptions-azure-cli.md).
 
-## <a name="interactive-sign-in"></a>Entrada interativa
+## <a name="sign-in-interactively"></a>Entrar no modo interativo
 
 O método de autenticação padrão da CLI do Azure usa um navegador da Web e token de acesso para entrar.
 
 [!INCLUDE [interactive_login](includes/interactive-login.md)]
 
-## <a name="command-line"></a>Linha de comando
+## <a name="sign-in-with-credentials-on-the-command-line"></a>Entrar com credenciais na linha de comando
 
 Forneça suas credenciais de usuário do Azure na linha de comando.
 
@@ -61,7 +60,7 @@ az login -u <username> -p <password>
 
 ## <a name="sign-in-with-a-specific-tenant"></a>Entrar com um locatário específico
 
-Se você trabalha com vários locatários, é possível selecionar seu locatário para entrar com o argumento `--tenant`. O valor desse argumento pode tanto ser um domínio `.onmicrosoft.com` como a ID de objeto do Azure para o locatário. É possível entrar interativamente ou fornecer suas credenciais com os argumentos `--user` e `--password`.
+Você pode selecionar um locatário para entrar com o argumento `--tenant`. O valor desse argumento pode tanto ser um domínio `.onmicrosoft.com` como a ID de objeto do Azure para o locatário. Os dois métodos de entrada, interativo e com linha de comando, funcionam com `--tenant`.
 
 ```azurecli
 az login --tenant <tenant>
@@ -71,17 +70,14 @@ az login --tenant <tenant>
 
 Entidades de serviço são contas que não estão associadas a nenhum usuário específico, as quais podem ter permissões atribuídas por meio de funções predefinidas. Autenticar com uma entidade de serviço é a melhor maneira de gravar scripts seguros ou programas, permitindo a aplicação de restrições de permissões e informações de credenciais estáticas armazenadas localmente. Para saber mais sobre entidades de serviço, consulte [Criar uma entidade de serviço do Azure com a CLI do Azure](create-an-azure-service-principal-azure-cli.md).
 
-Para entrar com uma entidade de serviço, você fornece o nome de usuário, senha ou arquivo PEM de certificado e o locatário associado à entidade de serviço:
+Para entrar com uma entidade de serviço, você precisa:
+
+* Da URL ou nome associado à entidade de serviço
+* A senha da entidade de serviço ou o certificado X509 usado para criar a entidade de serviço em formato PEM
+* O locatário associado à entidade de serviço, como um domínio `.onmicrosoft.com` ou ID de objeto do Azure
 
 ```azurecli
 az login --service-principal -u <app-url> -p <password-or-cert> --tenant <tenant>
-```
-
-O valor do locatário é um locatário do Azure Active Directory associado à entidade de serviço. Pode tanto ser um domínio `.onmicrosoft.com` como a ID de objeto do Azure para o locatário.
-Você pode obter a ID de objeto do locatário para sua conta ativa atualmente usando o seguinte comando:
-
-```azurecli-interactive
-az account show --query 'tenantId' -o tsv
 ```
 
 > [!IMPORTANT]

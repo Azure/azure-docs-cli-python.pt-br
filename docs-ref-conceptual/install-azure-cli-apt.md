@@ -4,17 +4,17 @@ description: Como instalar a CLI do Azure 2.0 com o gerenciador de pacotes apt
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 05/24/2018
+ms.date: 09/07/2018
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: a0908c5b5bda7ec903b702eecb61eabbbedaf533
-ms.sourcegitcommit: 64f2c628e83d687d0e172c01f13d71c8c39a8040
+ms.openlocfilehash: 88b4570f62858ec1e12898aea51a5dbce6d677b5
+ms.sourcegitcommit: 0e688704889fc88b91588bb6678a933c2d54f020
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38967836"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44388404"
 ---
 # <a name="install-azure-cli-20-with-apt"></a>Instalar CLI do Azure 2.0 com o apt
 
@@ -57,7 +57,7 @@ Para saber mais sobre os diferentes métodos de autenticação, consulte [Conect
 
 ## <a name="troubleshooting"></a>solução de problemas
 
-Aqui estão alguns problemas comuns vistos durante a instalação com `apt`. Se o problema não estiver listado aqui, [registre-o no github](https://github.com/Azure/azure-cli/issues).
+Aqui estão alguns problemas comuns vistos durante a instalação com `apt`. Se você tiver um problema não abordado aqui, [arquive um problema no github](https://github.com/Azure/azure-cli/issues).
 
 ### <a name="lsbrelease-fails-with-command-not-found"></a>lsb_release falha com "Comando não encontrado"
 
@@ -67,7 +67,7 @@ Ao executar o comando `lsb_release`, pode ser que você veja uma saída semelhan
 -bash: lsb_release: command not found
 ```
 
-O erro é devido a lsb_release não estar instalado. Você pode resolver isso instalando o pacote `lsb-release`.
+O erro é devido ao comando `lsb_release` não estar instalado. Você pode resolver isso instalando o pacote `lsb-release`.
 
 ```bash
 sudo apt-get install lsb-release
@@ -101,7 +101,7 @@ Quando atrás de um firewall que bloqueia as conexões de saída para a porta 11
 sudo apt-key adv --keyserver-options http-proxy=http://<USER>:<PASSWORD>@<PROXY-HOST>:<PROXY-PORT>/ --keyserver packages.microsoft.com --recv-keys 52E16F86FEE04B979B07E28DB02C46DF417A0893
 ```
 
-Se você não sabe se tem um proxy, entre em contato com o administrador do sistema. Se o proxy não precisar de logon, omita o usuário, a senha e o token `@`.
+Para determinar se você tem um proxy, entre em contato com o administrador do sistema. Se o proxy não precisar de logon, omita o usuário, a senha e o token `@`.
 
 ## <a name="update"></a>Atualizar
 

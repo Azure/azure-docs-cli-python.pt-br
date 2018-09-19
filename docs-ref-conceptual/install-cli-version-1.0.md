@@ -4,17 +4,17 @@ description: Instalar a CLI do Azure 1.0 para Mac, Linux e Windows para começar
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 03/20/2017
+ms.date: 09/09/2018
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 5f185e02217d6a3b54a9c252825c0f3fed3ab09e
-ms.sourcegitcommit: 64f2c628e83d687d0e172c01f13d71c8c39a8040
+ms.openlocfilehash: dd2d8658819c03742ae65c639717837ca940659e
+ms.sourcegitcommit: 0e688704889fc88b91588bb6678a933c2d54f020
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38967666"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44388602"
 ---
 # <a name="install-the-azure-cli-10"></a>Instalar a CLI do Azure 1.0
 
@@ -67,7 +67,7 @@ Se você usar um computador com Windows ou Mac, os instaladores de CLI a seguir 
 
 ## <a name="option-3-use-a-docker-container"></a>Opção 3: Usar um contêiner do Docker
 
-Se você tiver configurado o computador como um host do [Docker](https://docs.docker.com/engine/understanding-docker/), poderá executar a última CLI do Azure 1.0 em um contêiner do Docker. Execute o seguinte comando (em distribuições Linux, talvez você precise usar **sudo**):
+Se você tiver configurado o computador como um host do [Docker](https://docs.docker.com/engine/understanding-docker/), poderá executar a última CLI do Azure 1.0 em um contêiner do Docker. Execute o comando (em distribuições Linux, talvez você precise usar **sudo**):
 
 ```bash
 docker run -it microsoft/azure-cli:0.10.17
@@ -75,7 +75,7 @@ docker run -it microsoft/azure-cli:0.10.17
 
 ## <a name="run-azure-cli-10-commands"></a>Executar comandos da CLI do Azure 1.0
 
-Depois que a CLI do Azure 1.0 for instalada, execute o comando **azure** na interface do usuário de linha de comando (Bash, Terminal, Prompt de comando e assim por diante). Por exemplo, para executar o comando de ajuda, digite o seguinte:
+Depois que a CLI do Azure 1.0 for instalada, execute o comando **azure** na interface do usuário de linha de comando. Por exemplo, para executar o comando de ajuda:
 
 ```azurecli
 azure help
@@ -88,13 +88,13 @@ azure help
 sudo ln -s /usr/bin/nodejs /usr/bin/node
 ```
 
-Para ver a versão da CLI do Azure 1.0 instalada, digite o seguinte:
+Para ver a versão da CLI do Azure 1.0 instalada, digite o comando:
 
 ```azurecli
 azure --version
 ```
 
-Agora você está pronto! Para acessar todos os comandos da CLI para trabalhar com seus próprios recursos, [conecte-se à sua assinatura do Azure por meio da CLI do Azure](/cli/azure/authenticate-azure-cli).
+Para acessar todos os comandos da CLI, [conecte-se à sua assinatura do Azure por meio da CLI do Azure](/cli/azure/authenticate-azure-cli).
 
 > [!NOTE]
 > Ao usar a CLI do Azure pela primeira vez, você verá uma mensagem perguntando se deseja permitir que a Microsoft colete informações de uso. A participação é voluntária. Se optar por participar, você poderá parar a qualquer momento executando `azure telemetry --disable`. Para habilitar a participação a qualquer momento, execute `azure telemetry --enable`.
@@ -130,8 +130,8 @@ echo 'source ~/azure.completion.sh' >> ~/.bash_profile
 * Para saber mais sobre a CLI do Azure, baixar o código-fonte, relatar problemas ou colaborar com o projeto, visite o [Repositório GitHub para a CLI do Azure](https://github.com/azure/azure-xplat-cli).
 * Se tiver dúvidas quanto ao uso da CLI do Azure ou do Azure, visite os [Fóruns do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurescripting).
 
-[mac-installer]: http://aka.ms/mac-azure-cli
-[windows-installer]: http://aka.ms/webpi-azure-cli
-[linux-installer]: http://aka.ms/linux-azure-cli
+[mac-installer]: https://aka.ms/mac-azure-cli
+[windows-installer]: https://aka.ms/webpi-azure-cli
+[linux-installer]: https://aka.ms/linux-azure-cli
 [cliasm]: /cli/azure/get-started-with-az-cli2
 [cliarm]: ./virtual-machines/azure-cli-arm-commands.md

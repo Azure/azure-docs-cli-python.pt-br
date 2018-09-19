@@ -4,21 +4,21 @@ description: Como usar a extensão de alias da CLI do Azure 2.0
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 05/16/2018
+ms.date: 09/07/2018
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 39996693d6b796c2d9a45cd909121829f00291a8
-ms.sourcegitcommit: 8b4629a42ceecf30c1efbc6fdddf512f4dddfab0
+ms.openlocfilehash: a2cd277640ab0a55d2e1da5ecb491e72eee1e0df
+ms.sourcegitcommit: 0e688704889fc88b91588bb6678a933c2d54f020
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34306260"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44388619"
 ---
 # <a name="the-azure-cli-20-alias-extension"></a>A extensão de alias da CLI do Azure 2.0
 
-A extensão de alias permite que os usuários definam comandos personalizados para a CLI do Azure usando comandos existentes. Aliases ajudam a manter seu fluxo de trabalho simples e conciso permitindo atalhos e fornecendo a capacidade de usar argumentos posicionais. Como os aliases são ativados pelo mecanismo do modelo Jinja2, eles oferecem até mesmo o processamento avançado de argumento.
+A extensão de alias permite que os usuários definam comandos personalizados para a CLI do Azure usando comandos existentes. Os aliases ajudam a simplificar o fluxo de trabalho, permitindo atalhos. Como os aliases são ativados pelo mecanismo do modelo Jinja2, eles oferecem até mesmo o processamento avançado de argumento.
 
 > [!NOTE]
 > A Extensão do Alias está em versão prévia pública. Os recursos e o formato do arquivo de configuração podem mudar.
@@ -47,7 +47,7 @@ alias
 
 ## <a name="keep-the-extension-up-to-date"></a>Manter a extensão atualizada
 
-A extensão do alias está em desenvolvimento ativo, e novas versões são lançadas regularmente. Quando você atualiza a CLI, as novas versões não são instaladas automaticamente. Instale as atualizações para a extensão com [az extension update](/cli/azure/extension#az-extension-update).
+A extensão do alias está em desenvolvimento ativo, e novas versões são lançadas regularmente. Novas versões não são instaladas quando você atualiza a CLI. Instale as atualizações para a extensão com [az extension update](/cli/azure/extension#az-extension-update).
 
 ```azurecli-interactive
 az extension update --name alias
@@ -55,7 +55,7 @@ az extension update --name alias
 
 ## <a name="manage-aliases-for-the-azure-cli"></a>Gerenciar aliases para a CLI do Azure
 
-A extensão de alias fornece comandos familiares e convenientes para gerenciar aliases. Para exibir todos os comandos disponíveis e os detalhes de parâmetros, invoque o comando de alias com `--help`.
+A extensão do alias permite criar e gerenciar aliases para outros comandos da CLI. Para exibir todos os comandos disponíveis e os detalhes de parâmetros, execute o comando de alias com `--help`.
 
 ```azurecli-interactive
 az alias --help
@@ -115,7 +115,7 @@ Ao executar esse comando, você fornece valores para os argumentos posicionais.
 az get-vm-ip MyResourceGroup MyVM
 ```
 
-Você também pode usar variáveis de ambiente em comandos invocados pelo aliases, as quais são avaliadas em tempo de execução. O exemplo a seguir adiciona o alias `create-rg`, que cria um grupo de recursos em `eastus` e adiciona uma marca `owner`. Essa marca recebe o valor da variável de ambiente local `USER`.
+Você também pode usar variáveis de ambiente em comandos com alias, que são avaliadas no tempo de execução. O exemplo a seguir adiciona o alias `create-rg`, que cria um grupo de recursos em `eastus` e adiciona uma marca `owner`. Essa marca recebe o valor da variável de ambiente local `USER`.
 
 ```azurecli-interactive
 az alias create \
@@ -127,7 +127,7 @@ Para registrar as variáveis de ambiente no comando de alias, o sinal de cifrão
 
 ## <a name="process-arguments-using-jinja2-templates"></a>Processar argumentos usando modelos Jinja2
 
-A substituição de argumento na extensão de alias é executada por [Jinja2](http://jinja.pocoo.org/docs/2.10/), e fornece acesso completo aos recursos do mecanismo do modelo Jinja2. Os modelos permitem que você execute ações como extração de dados e substituição em cadeias de caracteres.
+A substituição de argumento na extensão de alias é executada por [Jinja2](http://jinja.pocoo.org/docs/2.10/). Os modelos Jinja2 permitem manipular os argumentos.
 
 Com modelos Jinja2, você pode escrever aliases que aceitam tipos diferentes de argumentos em comparação com o comando subjacente. Por exemplo, você pode criar um alias que usa uma URL de armazenamento. Em seguida, essa URL é analisada para passar os nomes de conta e do contêiner para o comando de armazenamento.
 
@@ -150,7 +150,7 @@ Outra maneira de criar e modificar aliases é alterando o arquivo de configuraç
 command = invoked_commands
 ```
 
-Para aliases que contêm argumentos posicionais, o formato para os comandos de alias é:
+Para aliases que possuem argumentos posicionais, o formato para os comandos de alias é:
 
 ```ini
 [alias_name {{ arg1 }} {{ arg2 }} ...]
@@ -159,7 +159,7 @@ command = invoked_commands_including_args
 
 ## <a name="create-an-alias-command-with-arguments-via-the-alias-configuration-file"></a>Criar um comando de alias com argumentos por meio do arquivo de configuração do alias
 
-Abaixo há um arquivo de configuração de alias que contém um comando de alias de exemplo com argumentos, o qual obtém o endereço IP público para uma VM. Verifique se o comando invocado está em uma única linha e contém os mesmos argumentos definidos no alias.
+O exemplo a seguir mostra um alias para um comando com argumentos. Esse comando obtém o endereço IP público para uma VM. Os comandos de um alias devem estar em uma única linha e usar todos os argumentos no nome do alias.
 
 ```ini
 [get-vm-ip {{ resourceGroup }} {{ vmName }}]
@@ -174,4 +174,4 @@ Para desinstalar a extensão, use o comando [az extension remove](/cli/azure/ext
 az extension remove --name alias
 ```
 
-Se você desinstalou devido a um bug ou outros problemas com a extensão, [arquive um problema do GitHub](https://github.com/Azure/azure-cli-extensions/issues) para que possamos fornecer uma correção.
+Se tiver desinstalado devido a um bug ou outros problemas com a extensão, [arquive um problema do GitHub](https://github.com/Azure/azure-cli-extensions/issues) para que possamos fornecer uma correção.

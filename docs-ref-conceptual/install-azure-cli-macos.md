@@ -4,21 +4,21 @@ description: Como instalar a CLI do Azure 2.0 no macOS
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 01/29/2018
+ms.date: 09/09/2018
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 76b9afec92aa3da916382b85d2261547b6877e03
-ms.sourcegitcommit: fb3fed8701aff6c46af856e8fdc3e56ff9a678bc
+ms.openlocfilehash: fd829c6ff9162b660a889d3e08615a76f42aeb97
+ms.sourcegitcommit: 0e688704889fc88b91588bb6678a933c2d54f020
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38228913"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44388466"
 ---
 # <a name="install-azure-cli-20-on-macos"></a>Instalar CLI do Azure 2.0 no macOS
 
-Para a plataforma macOS, você pode instalar a CLI do Azure com o [gerenciador de pacotes homebrew](http://brew.sh). O Homebrew torna mais fácil manter a instalação da CLI atualizada. O pacote da CLI foi testado em versões do macOS 10.9 e posteriores.
+Para a plataforma macOS, você pode instalar a CLI do Azure com o [gerenciador de pacotes homebrew](https://brew.sh). O Homebrew torna mais fácil manter a instalação da CLI atualizada. O pacote da CLI foi testado em versões do macOS 10.9 e posteriores.
 
 ## <a name="install"></a>Instalar
 
@@ -39,13 +39,14 @@ Para saber mais sobre os diferentes métodos de autenticação, consulte [Conect
 
 ## <a name="troubleshooting"></a>solução de problemas
 
-Se você encontrar um problema ao instalar a CLI através do Homebrew, aqui estão alguns erros comuns. Se o problema não estiver listado aqui, [registre-o no github](https://github.com/Azure/azure-cli/issues).
+Se você encontrar um problema ao instalar a CLI através do Homebrew, aqui estão alguns erros comuns. Se você tiver um problema não abordado aqui, [arquive um problema no github](https://github.com/Azure/azure-cli/issues).
 
 ### <a name="unable-to-find-python-or-installed-packages"></a>Não é possível localizar o Python ou os pacotes instalados
 
-Se a instalação não conseguir localizar o Python nem os pacotes instalados, poderá haver uma incompatibilidade de versão secundária ou outro problema que ocorreu durante a instalação do homebrew. Como a CLI não usa um ambiente virtual Python, ela depende de conseguir localizar as versões corretas do Python. Você pode corrigir esses problemas vinculando novamente a instalação do Python.
+Pode haver uma pequena incompatibilidade de versão ou outro problema durante a instalação do homebrew. A CLI não usa um ambiente virtual Python, portanto, ela se baseia em localizar a versão instalada do Python. Uma possível correção é instalar e revincular a dependência `python3` do Homebrew.
 
 ```bash
+brew update && brew install python3 && brew upgrade python3
 brew link --overwrite python3
 ```
 

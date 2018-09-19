@@ -4,22 +4,22 @@ description: Use a CLI 2.0 do Azure no modo interativo.
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 04/06/2017
+ms.date: 09/09/2018
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 1ee7da8dfdde402d4d536f7ab4bb0599a8f3fa1d
-ms.sourcegitcommit: fb3fed8701aff6c46af856e8fdc3e56ff9a678bc
+ms.openlocfilehash: f07689a323314c076f1eb2a8844875d9543d4b2e
+ms.sourcegitcommit: 0e688704889fc88b91588bb6678a933c2d54f020
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38229185"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44388568"
 ---
 # <a name="interactive-azure-cli-20"></a>CLI 2.0 interativa do Azure
 
 É possível usar a CLI 2.0 do Azure no modo interativo executando o comando `az interactive`.
-Isso coloca você em um shell interativo, no qual os comandos são preenchidos automaticamente e você tem acesso a descrições de comandos e a seus parâmetros e exemplos de comando.
+Esse modo coloca você em um shell interativo com preenchimento automático, descrições de comando e exemplos.
 
 ![modo interativo](./media/interactive-azure-cli/webapp-create.png)
 

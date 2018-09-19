@@ -10,16 +10,17 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: b0d26beac83a7ce3bba44d5e64d129a211c82836
-ms.sourcegitcommit: 8b4629a42ceecf30c1efbc6fdddf512f4dddfab0
+ms.openlocfilehash: 75ea347b0d4d018142a26bf985ee3639f2b79924
+ms.sourcegitcommit: 0e688704889fc88b91588bb6678a933c2d54f020
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34305869"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44388585"
 ---
 # <a name="azure-cli-20-configuration"></a>Configuração da CLI do Azure 2.0
 
-A CLI do Azure 2.0 permite que a configuração de usuário substitua configurações internas, como o registro em log e coleta de dados, e fornece opções padrão para alguns parâmetros necessários. A CLI fornece um comando de conveniência para gerenciar alguns desses valores, `az configure`, e outros valores podem ser definidos em um arquivo de configuração ou com variáveis de ambiente.
+A CLI do Azure 2.0 permite a configuração de usuário para configurações como registro em log, coleta de dados e valores de argumento padrão.
+A CLI oferece um comando de conveniência para gerenciar alguns padrões, `az configure`. Outros valores podem ser definidos em um arquivo de configuração ou com variáveis de ambiente.
 
 Os valores da configuração usados pela CLI são avaliados na seguinte precedência, com os itens na parte superior da lista sendo prioridade.
 
@@ -32,7 +33,7 @@ Os valores da configuração usados pela CLI são avaliados na seguinte precedê
 Você define padrões para a CLI com o comando [az configure](/cli/azure/reference-index#az-configure).
 Esse comando usa um argumento, `--defaults`, que é uma lista separada por espaços de pares `key=value`. Os valores fornecidos são usados pela CLI no lugar dos argumentos necessários.
 
-A seguir há uma lista de chaves disponíveis que você pode usar.
+A tabela a seguir contém uma lista de chaves de configuração disponíveis.
 
 | NOME | DESCRIÇÃO |
 |------|-------------|
@@ -40,9 +41,8 @@ A seguir há uma lista de chaves disponíveis que você pode usar.
 | location | O local padrão para usar para todos os comandos. |
 | web | O nome de aplicativo padrão para usar para os comandos `az webapp`. |
 | vm | O nome de VM padrão para usar para os comandos `az vm`. |
-| vmss | O nome de VMSS padrão para usar para os comandos `az vmss`. |
+| vmss | O nome do conjunto de dimensionamento de máquinas virtuais (VMSS) padrão que será usado em comandos `az vmss`. |
 | acr | O nome de registro de contêiner padrão para usar para os comandos `az acr`. |
-| acs | O nome de serviço de contêiner padrão para usar para os comandos `az acs`. |
 
 Como exemplo, a seguir você vê como poderia definir o grupo de recursos e local padrão para todos os comandos.
 
@@ -54,13 +54,18 @@ az configure --defaults location=westus2 group=MyResourceGroup
 
 O arquivo de configuração da CLI contém outras configurações que são usadas para gerenciar o comportamento da CLI. O arquivo de configuração em si está localizado em `$AZURE_CONFIG_DIR/config`. O valor padrão de `AZURE_CONFIG_DIR` é `$HOME/.azure` no Linux e macOS, e `%USERPROFILE%\.azure` no Windows.
 
-Os arquivos de configuração são gravados no formato de arquivo INI. Esses arquivos são compostos de seções que começam com um cabeçalho `[section-name]`, seguido por uma lista de entradas `key=value`. Os nomes de seção diferenciam maiúsculas de minúsculas, mas nomes de chave não.
-Os comentários são qualquer linha que comece com um `#` ou `;`. Não são permitidos comentários em linha. Os valores boolianos diferenciam maiúsculas de minúsculas e são representados pelos valores a seguir.
+Os arquivos de configuração são gravados no formato de arquivo INI. Esse formato de arquivo é definido por cabeçalhos de seção, seguidos por uma lista de entradas de chave-valor.
+
+* Os cabeçalhos de seção são gravados como `[section-name]`. Os nomes de seção diferenciam maiúsculas de minúsculas.
+* As entradas são gravadas como `key=value`. Os nomes de chave não diferenciam maiúsculas de minúsculas.
+* Os comentários são qualquer linha que comece com um `#` ou `;`. Não são permitidos comentários em linha.
+
+Os valores boolianos diferenciam maiúsculas de minúsculas e são representados pelos valores a seguir.
 
 * __Verdadeiro__: 1, yes, true, on
 * __Falso__: 0, no, false, off
 
-Aqui está um exemplo de um arquivo de configuração da CLI que desabilita quaisquer prompts de confirmação e define o log para o diretório `/var/log/azure`.
+Veja um exemplo de um arquivo de configuração da CLI que desabilita prompts de confirmação e define o log para o diretório `/var/log/azure`.
 
 ```ini
 [core]
@@ -75,17 +80,17 @@ Consulte a próxima seção para obter detalhes sobre todos os valores de config
 
 ## <a name="cli-configuration-values-and-environment-variables"></a>Valores de configuração da CLI e variáveis de ambiente
 
-A tabela a seguir contém todas as seções e as opções de nomes que podem ser colocadas em um arquivo de configuração. Suas variáveis de ambiente correspondentes podem ser definidas como `AZURE_{section}_{name}`, tudo em maiúsculas. Por exemplo, você pode definir a `storage_account` da seção `batchai` como padrão na variável `AZURE_BATCHAI_STORAGE_ACCOUNT`.
+A tabela a seguir contém todas as seções e as opções de nomes que podem ser colocadas em um arquivo de configuração. Suas variáveis de ambiente correspondentes estão definidas como `AZURE_{section}_{name}`, tudo em maiúsculas. Por exemplo, o padrão `storage_account` para `batchai` é definido na variável `AZURE_BATCHAI_STORAGE_ACCOUNT`.
 
-Valores com um padrão disponível não precisam estar presente nos argumentos de linha de comando, mesmo se for necessário.
+Quando você fornece um valor padrão, esse argumento já não é exigido pelos comandos. Em vez disso, o valor padrão é usado.
 
-| Seção | NOME      | type | DESCRIÇÃO|
+| Seção | NOME      | Tipo | DESCRIÇÃO|
 |---------|-----------|------|------------|
 | __core__ | output | string | O formato de saída padrão. Pode ser `json`, `jsonc`, `tsv` ou `table`. |
 | | disable\_confirm\_prompt | booleano | Ativa e desativa prompts de confirmação. |
-| | collect\_telemetry | booleano | Permitir que a Microsoft colete dados anônimos sobre o uso da CLI. Para obter informações de privacidade, consulte os [Termos de uso da CLI do Azure 2.0](http://aka.ms/AzureCliLegal). |
+| | collect\_telemetry | booleano | Permitir que a Microsoft colete dados anônimos sobre o uso da CLI. Para obter informações de privacidade, consulte os [Termos de uso da CLI do Azure 2.0](https://aka.ms/AzureCliLegal). |
 | __logging__ | enable\_log\_file | booleano | Ativar e desativar o registro em log. |
-| | log\_dir | string | O diretório no qual gravar os logs. Por padrão, é `${AZURE_CONFIG_DIR}/logs`. |
+| | log\_dir | string | O diretório no qual gravar os logs. Por padrão, esse valor é `${AZURE_CONFIG_DIR}/logs`. |
 | __storage__ | connection\_string | string | A cadeia de conexão padrão a ser usada para comandos `az storage`. |
 | | conta | string | O nome de conta padrão a ser usado para comandos `az storage`. |
 | | chave | string | A chave de conta padrão a ser usada para comandos `az storage`. |

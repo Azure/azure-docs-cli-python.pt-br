@@ -5,17 +5,17 @@ keywords: CLI do Azure, ajuda da CLI, ajuda do Azure, consulta, automação,
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 05/16/2018
+ms.date: 09/07/2018
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: f45c3acfdb4edb82cde755472d240ae18d82aba2
-ms.sourcegitcommit: 64f2c628e83d687d0e172c01f13d71c8c39a8040
+ms.openlocfilehash: 165da295d187edf7dbc19a332670fd49d8f8bdd5
+ms.sourcegitcommit: 0e688704889fc88b91588bb6678a933c2d54f020
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38967734"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44388551"
 ---
 # <a name="get-started-with-azure-cli-20"></a>Introdução à CLI do Azure 2.0
 
@@ -33,8 +33,7 @@ Há maneiras de entrar de modo não interativo, como mostrado em detalhes em [En
 
 ## <a name="common-commands"></a>Comandos comuns
 
-Esta tabela lista alguns dos comandos comuns usados nos links externos da CLI para suas páginas de documentação nas referências.
-Todos os subcomandos desses grupos e sua documentação podem ser pesquisados na referência online ou com o argumento `--help`.
+Esta tabela lista alguns comandos comuns usados na CLI e está vinculada à documentação de referência.
 
 | Tipo de recurso | Grupo de comando da CLI do Azure |
 |---------------|-------------------------|
@@ -48,8 +47,7 @@ Todos os subcomandos desses grupos e sua documentação podem ser pesquisados na
 
 ## <a name="finding-commands"></a>Encontrando comandos
 
-Comandos na CLI são fornecidos como _subcomandos_ de _grupos_.
-Cada grupo representa um serviço fornecido pelo Azure, e os subgrupos dividem os comandos para esses serviços em agrupamentos lógicos.
+Os comandos na CLI são organizados como _comandos_ de _grupos_. Cada grupo representa um serviço do Azure e os comandos operam nesse serviço.
 
 Para procurar comandos, use [az find](/cli/azure/reference-index#az-find). Por exemplo, para procurar nomes de comando que contenham `secret`, use o seguinte comando:
 
@@ -57,7 +55,7 @@ Para procurar comandos, use [az find](/cli/azure/reference-index#az-find). Por e
 az find -q secret
 ```
 
-Caso saiba com qual grupo de comandos deseja trabalhar, o argumento `--help` pode ser uma opção melhor. Ele exibe não apenas informações detalhadas de um comando, como também, quando usado com um grupo de comando, todos os subcomandos disponíveis. Por exemplo, ao trabalhar com Grupos de Segurança de Rede (NSGs), é possível encontrar os subgrupos de NSG e comandos disponíveis.
+Use o argumento `--help` para obter uma lista completa de comandos e subgrupos de um grupo. Por exemplo, para localizar os comandos da CLI para trabalhar com Grupos de Segurança de Rede (NSGs):
 
 ```azurecli-interactive
 az network nsg --help
@@ -85,7 +83,7 @@ az interactive
 
 Para obter mais informações sobre o modo interativo, consulte [Modo Interativo da CLI 2.0 do Azure](interactive-azure-cli.md).
 
-Também há um [Plug-in do Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli) que oferece uma experiência interativa, incluindo documentação de preenchimento automático e com o passar do mouse.
+Também há um [plug-in do Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli) que oferece uma experiência interativa, incluindo documentação de preenchimento automático e com o passar do mouse.
 
 ## <a name="learn-cli-basics-with-quickstarts-and-tutorials"></a>Aprenda as noções básica da CLI com os guias de início rápido e tutoriais
 
@@ -94,7 +92,7 @@ Para a introdução à CLI do Azure 2.0, experimente ver um tutorial aprofundado
 > [!div class="nextstepaction"]
 > [Tutorial Criar máquinas virtuais com a CLI do Azure 2.0](azure-cli-vm-tutorial.yml)
 
-Se você preferir se concentrar em outros serviços, há uma variedade de guias de início rápido para os serviços do Azure que usam a CLI.
+Também há guias de início rápido para outros serviços populares.
 
 * [Criar uma conta de armazenamento usando a CLI do Azure](/azure/storage/common/storage-quickstart-create-storage-account-cli)
 * [Transferir objetos de/para o Armazenamento de blobs do Azure usando a CLI](/azure/storage/blobs/storage-quickstart-blobs-cli)
