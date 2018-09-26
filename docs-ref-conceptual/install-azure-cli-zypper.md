@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: ed92443b6de4e538eaf5da41376e836aa2c771a0
-ms.sourcegitcommit: 0e688704889fc88b91588bb6678a933c2d54f020
+ms.openlocfilehash: d5197e1d62b89bc293970a85bcf976a38898862e
+ms.sourcegitcommit: d93b0a2bcfb0d164ef90d6d4618f0552609a8ea6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44388296"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46469905"
 ---
 # <a name="install-azure-cli-20-with-zypper"></a>Instalar CLI do Azure 2.0 com zypper
 
@@ -85,3 +85,10 @@ sudo zypper update azure-cli
   MSFT_KEY=`rpm -qa gpg-pubkey /* --qf "%{version}-%{release} %{summary}\n" | grep Microsoft | awk '{print $1}'`
   sudo rpm -e --allmatches gpg-pubkey-$MSFT_KEY
   ```
+
+## <a name="next-steps"></a>Próximas etapas
+
+Agora que você instalou a CLI do Azure, faça um tour breve de seus recursos e comandos comuns.
+
+> [!div class="nextstepaction"]
+> [Introdução à CLI do Azure](get-started-with-azure-cli.md)

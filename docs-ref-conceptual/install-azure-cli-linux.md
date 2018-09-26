@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: c5c7ea61a35e915760081897e88d8c43b80919e0
-ms.sourcegitcommit: 0e688704889fc88b91588bb6678a933c2d54f020
+ms.openlocfilehash: be0b21cf0dab0f884b7f2984f2c35314ac157c61
+ms.sourcegitcommit: d93b0a2bcfb0d164ef90d6d4618f0552609a8ea6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44388347"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46469939"
 ---
 # <a name="install-azure-cli-20-on-linux-manually"></a>Instalar CLI do Azure 2.0 no Linux manualmente
 
@@ -99,3 +99,10 @@ Desinstale a CLI excluindo diretamente os arquivos do local escolhido no momento
   ```bash
   hash -r
   ```
+
+## <a name="next-steps"></a>Próximas etapas
+
+Agora que você instalou a CLI do Azure, faça um tour breve de seus recursos e comandos comuns.
+
+> [!div class="nextstepaction"]
+> [Introdução à CLI do Azure](get-started-with-azure-cli.md)

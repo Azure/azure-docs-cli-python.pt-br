@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: fd829c6ff9162b660a889d3e08615a76f42aeb97
-ms.sourcegitcommit: 0e688704889fc88b91588bb6678a933c2d54f020
+ms.openlocfilehash: 1dab4d6aece78999e9d97ac5c8e3598c55a8a55d
+ms.sourcegitcommit: d93b0a2bcfb0d164ef90d6d4618f0552609a8ea6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44388466"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46469922"
 ---
 # <a name="install-azure-cli-20-on-macos"></a>Instalar CLI do Azure 2.0 no macOS
 
@@ -71,3 +71,10 @@ Use o homebrew para desinstalar o pacote `azure-cli`.
 ```bash
 brew uninstall azure-cli
 ```
+
+## <a name="next-steps"></a>Próximas etapas
+
+Agora que você instalou a CLI do Azure, faça um tour breve de seus recursos e comandos comuns.
+
+> [!div class="nextstepaction"]
+> [Introdução à CLI do Azure](get-started-with-azure-cli.md)
