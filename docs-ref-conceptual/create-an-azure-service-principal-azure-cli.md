@@ -1,6 +1,6 @@
 ---
-title: Usar entidades de serviço do Azure com a CLI do Azure 2.0
-description: Saiba como criar e usar uma entidade de serviço com a CLI do Azure 2.0.
+title: Usar entidades de serviço do Azure com a CLI do Azure
+description: Saiba como criar e usar uma entidade de serviço com a CLI do Azure.
 author: sptramer
 ms.author: sttramer
 manager: carmonm
@@ -8,15 +8,14 @@ ms.date: 09/07/2018
 ms.topic: conceptual
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.service: role-based-access-control
-ms.openlocfilehash: 5f98fd8d3897b11a9b37eefa6295b8b25b2b1c95
-ms.sourcegitcommit: 0e688704889fc88b91588bb6678a933c2d54f020
+ms.openlocfilehash: 5ba7d8b0bf313a8d8ea1b20fb861c2ac0086b2be
+ms.sourcegitcommit: f7554c00b5d5dca0ec716cbf996eb6654183ec37
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44388432"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47237605"
 ---
-# <a name="create-an-azure-service-principal-with-azure-cli-20"></a>Criar uma entidade de serviço do Azure com a CLI do Azure 2.0
+# <a name="create-an-azure-service-principal-with-azure-cli"></a>Criar uma entidade de serviço do Azure com a CLI do Azure
 
 Caso queira criar uma conexão separada com restrições de acesso, é possível fazer isso com uma entidade de serviço. Entidades de serviço são identidades separadas que podem ser associadas a uma conta. Entidades de serviço são úteis para trabalhar com aplicativos e tarefas que devem ser automatizadas. Este artigo guia você pelas etapas de criação de uma entidade de serviço.
 
@@ -75,7 +74,7 @@ Os valores `appId`, `tenant` e `password` são usados para autenticação. O `di
 
 ## <a name="manage-service-principal-roles"></a>Gerenciar funções da entidade de serviço
 
-A CLI do Azure 2.0 fornece os comandos a seguir para gerenciar atribuições de função.
+A CLI do Azure fornece os comandos a seguir para gerenciar atribuições de função.
 
 * [az role assignment list](/cli/azure/role/assignment#az-role-assignment-list)
 * [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create)

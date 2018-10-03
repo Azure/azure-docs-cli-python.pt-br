@@ -1,7 +1,7 @@
 ### YamlMime:Tutorial
-title: Criar máquinas virtuais com a CLI 2.0 do Azure
+title: Criar máquinas virtuais com a CLI do Azure
 metadata:
-  title: Criar máquinas virtuais com a CLI 2.0 do Azure
+  title: Criar máquinas virtuais com a CLI do Azure
   description: Inicie a CLI do Azure com a criação de máquinas virtuais.
   audience: Developer
   level: Beginner
@@ -16,16 +16,16 @@ metadata:
   ms.prod: azure
   ms.technology: azure-cli
   clicktale: true
-  ms.openlocfilehash: e680ad4fa42c22c1f36741e9353af3c9d6ffdcbe
-  ms.sourcegitcommit: 0e688704889fc88b91588bb6678a933c2d54f020
+  ms.openlocfilehash: 5f857681a647caa8b1c50be1bebb807cf0ef94ff
+  ms.sourcegitcommit: c4462456dfb17993f098d47c37bc19f4d78b8179
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 09/11/2018
-  ms.locfileid: "44388636"
+  ms.lasthandoff: 09/25/2018
+  ms.locfileid: "47178007"
 items:
 - durationInMinutes: 1
   content: >-
-    Neste tutorial, você aprenderá todas as etapas envolvidas na configuração de uma máquina virtual com a CLI 2.0 do Azure. O tutorial também abrange consultas de saída, a reutilização de recursos do Azure e a limpeza de recursos.
+    Neste tutorial, você aprenderá todas as etapas envolvidas na configuração de uma máquina virtual com a CLI do Azure. O tutorial também abrange consultas de saída, a reutilização de recursos do Azure e a limpeza de recursos.
 
 
     Este tutorial pode ser concluído com a experiência interativa oferecida por meio do Azure Cloud Shell, ou você pode [instalar a CLI](install-azure-cli.md) localmente.
@@ -157,9 +157,9 @@ items:
 
     * `az feedback` é um comando interno para a CLI que permite enviar comentários de formato livre para a equipe.
 
-    * Arquive uma solicitação de recurso ou um relatório de erros com a CLI no [repositório da CLI 2.0 do Azure](https://github.com/Azure/azure-cli).
+    * Crie uma solicitação de recurso ou um relatório de erros com a CLI no [repositório da CLI do Azure](https://github.com/Azure/azure-cli).
 
-    * Faça uma pergunta ou obtenha esclarecimentos preenchendo um formulário de problemas no [repositório de documentação da CLI 2.0 do Azure](https://github.com/Azure/azure-docs-cli-python).
+    * Faça uma pergunta ou obtenha esclarecimentos preenchendo um formulário de problemas no [repositório de documentação da CLI do Azure](https://github.com/Azure/azure-docs-cli-python).
 
 
     Esperamos que você aproveite a CLI do Azure!

@@ -1,6 +1,6 @@
 ---
-title: Formatos de saída da CLI do Azure 2.0
-description: Saiba como formatar a saída dos comandos da CLI do Azure 2.0 para tabelas, listas ou json.
+title: Formatos de saída da CLI do Azure
+description: Saiba como formatar a saída dos comandos da CLI do Azure para tabelas, listas ou json.
 author: sptramer
 ms.author: sttramer
 manager: carmonm
@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 1430d817a7e6c10a8f8021cf9d763f62d560ba71
-ms.sourcegitcommit: 8318ce761c279afa4cd45a81a58d83fc38c616bc
+ms.openlocfilehash: 5b5d962e244037d9c904fc5c75314661130d1910
+ms.sourcegitcommit: c4462456dfb17993f098d47c37bc19f4d78b8179
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45561551"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47178058"
 ---
-# <a name="output-formats-for-azure-cli-20-commands"></a>Formatos de saída dos comandos da CLI do Azure 2.0
+# <a name="output-formats-for-azure-cli-commands"></a>Formatos de saída dos comandos da CLI do Azure
 
-A CLI do Azure 2.0 usa JSON como formato de saída padrão, mas oferece outros formatos.  Use o parâmetro `--output` (`--out` ou `-o`) para formatar a saída da CLI. Os valores e tipos de argumentos de saída são:
+A CLI do Azure usa JSON como formato de saída padrão, mas oferece outros formatos.  Use o parâmetro `--output` (`--out` ou `-o`) para formatar a saída da CLI. Os valores e tipos de argumentos de saída são:
 
 --output | DESCRIÇÃO
 ---------|-------------------------------
@@ -137,7 +137,7 @@ RGDEMO001   KBDemo020
 > az vm list --query "[].{objectID:id}" -o table
 > ```
 
-Para obter mais informações sobre como usar consultas para filtrar dados, confira [Usar as consultas do JMESPath com a CLI 2.0 do Azure](/cli/azure/query-azure-cli).
+Para obter mais informações sobre como usar consultas para filtrar dados, confira [Usar as consultas JMESPath com a CLI do Azure](/cli/azure/query-azure-cli).
 
 ## <a name="tsv-output-format"></a>O formato de saída TSV
 
@@ -196,4 +196,4 @@ What default output format would you like?
 Please enter a choice [1]:
 ```
 
-Para saber mais sobre como configurar seu ambiente, confira [Configuração da CLI 2.0 do Azure](/cli/azure/azure-cli-configuration).
+Para saber mais sobre como configurar seu ambiente, confira [Configuração da CLI do Azure](/cli/azure/azure-cli-configuration).

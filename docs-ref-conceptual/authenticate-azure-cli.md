@@ -1,6 +1,6 @@
 ---
-title: Entrar com a CLI do Azure 2.0
-description: Entrar com a CLI do Azure 2.0 interativamente ou com as credenciais locais
+title: Entrar com a CLI do Azure
+description: Entrar com a CLI do Azure interativamente ou com as credenciais locais
 author: sptramer
 ms.author: sttramer
 manager: carmonm
@@ -8,16 +8,15 @@ ms.date: 09/07/2018
 ms.topic: conceptual
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.service: active-directory
 ms.component: authentication
-ms.openlocfilehash: f6f3e8bc015420795dda48da093bc92bbf246529
-ms.sourcegitcommit: 8e6e3129f8f4824a8acfa12edb5dae52466d4be8
+ms.openlocfilehash: 6176fbbbe58e72ae45fc9769514478ffe4a8fea5
+ms.sourcegitcommit: f7554c00b5d5dca0ec716cbf996eb6654183ec37
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45626917"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47237622"
 ---
-# <a name="sign-in-with-azure-cli-20"></a>Entrar com a CLI do Azure 2.0
+# <a name="sign-in-with-azure-cli"></a>Entrar com a CLI do Azure 
 
 Há vários tipos de autenticação para a CLI do Azure. A maneira mais fácil de começar é com o [Azure Cloud Shell](/azure/cloud-shell/overview) que conecta você automaticamente. Localmente, você pode entrar no modo interativo pelo navegador com o comando `az login`. Ao escrever scripts, a abordagem recomendada é usar entidades de serviço. Ao conceder apenas as permissões apropriadas necessárias para uma entidade de serviço, você mantém sua automação segura.
 
@@ -58,14 +57,6 @@ az login -u <username> -p <password>
 > $AzPass = ""
 > ```
 
-## <a name="sign-in-with-a-specific-tenant"></a>Entrar com um locatário específico
-
-Você pode selecionar um locatário para entrar com o argumento `--tenant`. O valor desse argumento pode tanto ser um domínio `.onmicrosoft.com` como a ID de objeto do Azure para o locatário. Os dois métodos de entrada, interativo e com linha de comando, funcionam com `--tenant`.
-
-```azurecli
-az login --tenant <tenant>
-```
-
 ## <a name="sign-in-with-a-service-principal"></a>Entrar com uma entidade de serviço
 
 Entidades de serviço são contas que não estão associadas a nenhum usuário específico, as quais podem ter permissões atribuídas por meio de funções predefinidas. Autenticar com uma entidade de serviço é a melhor maneira de gravar scripts seguros ou programas, permitindo a aplicação de restrições de permissões e informações de credenciais estáticas armazenadas localmente. Para saber mais sobre entidades de serviço, consulte [Criar uma entidade de serviço do Azure com a CLI do Azure](create-an-azure-service-principal-azure-cli.md).
@@ -95,3 +86,21 @@ az login --service-principal -u <app-url> -p <password-or-cert> --tenant <tenant
 > az login --service-principal -u <app-url> -p $AzPass --tenant <tenant>;
 > $AzPass = ""
 > ```
+
+## <a name="sign-in-with-a-different-tenant"></a>Entrar com um locatário diferente
+
+Você pode selecionar um locatário para entrar com o argumento `--tenant`. O valor desse argumento pode tanto ser um domínio `.onmicrosoft.com` como a ID de objeto do Azure para o locatário. Os dois métodos de entrada, interativo e com linha de comando, funcionam com `--tenant`.
+
+```azurecli
+az login --tenant <tenant>
+```
+
+## <a name="sign-in-with-a-managed-identity"></a>Entrar com uma identidade gerenciada
+
+Nos recursos configurados para identidades gerenciadas em recursos do Azure, você pode entrar usando a identidade gerenciada. A entrada com a identidade do recurso é feito por meio do sinalizador `--identity`.
+
+```azurecli
+az login --identity
+```
+
+Para saber mais sobre identidades gerenciadas em recursos do Azure, confira [Configurar identidades gerenciadas em recursos do Azure](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm) e [Usar identidades gerenciadas em recursos do Azure para fazer logon](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-sign-in).

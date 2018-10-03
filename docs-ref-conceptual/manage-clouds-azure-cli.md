@@ -1,6 +1,6 @@
 ---
-title: Selecionar nuvens com a CLI do Azure 2.0
-description: Criar, conectar e gerenciar várias nuvens com a CLI do Azure 2.0.
+title: Selecionar nuvens com a CLI do Azure
+description: Crie, gerencie e conecte-se a várias nuvens com a CLI do Azure.
 author: sptramer
 manager: carmonm
 ms.author: sttramer
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 26b9f414ddaba3cc3f834b4749dee9807d84aa79
-ms.sourcegitcommit: 0e688704889fc88b91588bb6678a933c2d54f020
+ms.openlocfilehash: 92910e68a52fad3b3577db1bd01e918b69a895d7
+ms.sourcegitcommit: c4462456dfb17993f098d47c37bc19f4d78b8179
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44388398"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47177701"
 ---
-# <a name="select-clouds-with-azure-cli-20"></a>Selecionar nuvens com a CLI do Azure 2.0
+# <a name="select-clouds-with-the-azure-cli"></a>Selecionar nuvens com a CLI do Azure 
 
 Se você trabalha em regiões diferentes ou usa o [Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/), talvez precise usar mais de uma nuvem. A Microsoft fornece nuvens para a conformidade com as leis regionais, que estão disponíveis seu uso. Este artigo mostra como obter informações sobre as nuvens, alterar a nuvem atual e registrar ou cancelar o registro de novas nuvens.
 
@@ -82,11 +82,11 @@ az cloud set --name AzureChinaCloud
 
 > [!IMPORTANT]
 > Se a autenticação para a nuvem ativada tiver expirado, você precisará autenticar novamente antes de realizar outras tarefas de CLI. Se esta for a primeira vez em que troca para a nova nuvem, você também precisará definir a assinatura ativa.
-> Para obter instruções sobre a autenticação, consulte [Entrar com a CLI do Azure 2.0](authenticate-azure-cli.md). Para obter informações sobre o gerenciamento de assinaturas, confira [Gerenciar assinaturas do Azure com a CLI do Azure 2.0](manage-azure-subscriptions-azure-cli.md)
+> Para obter instruções sobre a autenticação, confira [Entrar com a CLI do Azure](authenticate-azure-cli.md). Para obter informações sobre o gerenciamento de assinaturas, confira [Gerenciar assinaturas do Azure com a CLI do Azure](manage-azure-subscriptions-azure-cli.md)
 
 ## <a name="register-a-new-cloud"></a>Registrar uma nova nuvem
 
-Registre uma nova nuvem se tiver seus próprios pontos de extremidade do Azure Stack. Uma nuvem é criada com o comando [az cloud register](/cli/azure/cloud#az-cloud-register). Este comando requer um nome e um conjunto de pontos de extremidade de serviço. Para saber como registrar uma nuvem para usar com o Azure Stack, consulte [Usar perfis de versão da API com a CLI do Azure 2.0 no Azure Stack](/azure/azure-stack/user/azure-stack-version-profiles-azurecli2#connect-to-azure-stack).
+Registre uma nova nuvem se tiver seus próprios pontos de extremidade do Azure Stack. Uma nuvem é criada com o comando [az cloud register](/cli/azure/cloud#az-cloud-register). Este comando requer um nome e um conjunto de pontos de extremidade de serviço. Para saber como registrar uma nuvem para usar com o Azure Stack, confira [Usar perfis de versão da API com a CLI do Azure no Azure Stack](/azure/azure-stack/user/azure-stack-version-profiles-azurecli2#connect-to-azure-stack).
 
 Você não precisa registrar sua própria nuvem para regiões da Alemanha, China ou Governo dos EUA. Essas nuvens são gerenciadas pela Microsoft e ficam disponíveis por padrão.  Para obter mais informações sobre todas as configurações do ponto de extremidade disponíveis, confira a [documentação para `az cloud register`](/cli/azure/cloud#az-cloud-register).
 

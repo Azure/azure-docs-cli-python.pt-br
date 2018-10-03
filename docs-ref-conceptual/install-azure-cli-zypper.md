@@ -1,6 +1,6 @@
 ---
-title: Instalar a CLI do Azure 2.0 no Linux com zypper
-description: Como instalar a CLI do Azure 2.0 com o zypper
+title: Instalar a CLI do Azure no Linux com zypper
+description: Como instalar a CLI do Azure com o zypper
 author: sptramer
 ms.author: sttramer
 manager: carmonm
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: d5197e1d62b89bc293970a85bcf976a38898862e
-ms.sourcegitcommit: d93b0a2bcfb0d164ef90d6d4618f0552609a8ea6
+ms.openlocfilehash: 201cce81046d5039a313b918ac48b2849352995c
+ms.sourcegitcommit: c4462456dfb17993f098d47c37bc19f4d78b8179
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46469905"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47177667"
 ---
-# <a name="install-azure-cli-20-with-zypper"></a>Instalar CLI do Azure 2.0 com zypper
+# <a name="install-azure-cli-with-zypper"></a>Instalar CLI do Azure com zypper
 
 Para distribuições Linux com `zypper`, como o openSUSE ou SLES, há um pacote disponível para a CLI do Azure. Este pacote foi testado com openSUSE 42.2 e SLES 12 SP 2.
 
@@ -52,7 +52,7 @@ Para distribuições Linux com `zypper`, como o openSUSE ou SLES, há um pacote 
 
 [!INCLUDE [interactive-login](includes/interactive-login.md)]
 
-Para saber mais sobre os diferentes métodos de autenticação, consulte [Conectar com a CLI do Azure 2.0](authenticate-azure-cli.md).
+Para saber mais sobre os diferentes métodos de autenticação, confira [Entrar com a CLI do Azure](authenticate-azure-cli.md).
 
 ## <a name="update"></a>Atualizar
 
@@ -85,7 +85,6 @@ sudo zypper update azure-cli
   MSFT_KEY=`rpm -qa gpg-pubkey /* --qf "%{version}-%{release} %{summary}\n" | grep Microsoft | awk '{print $1}'`
   sudo rpm -e --allmatches gpg-pubkey-$MSFT_KEY
   ```
-
 ## <a name="next-steps"></a>Próximas etapas
 
 Agora que você instalou a CLI do Azure, faça um tour breve de seus recursos e comandos comuns.

@@ -1,6 +1,6 @@
 ---
-title: Instalar a CLI do Azure 2.0 no Linux com yum
-description: Como instalar a CLI do Azure 2.0 com o yum
+title: Instalar a CLI do Azure no Linux com yum
+description: Como instalar a CLI do Azure com o yum
 author: sptramer
 ms.author: sttramer
 manager: carmonm
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 25eb473aa56d3ddd34f8e1808b84ebb5f6324f2b
-ms.sourcegitcommit: d93b0a2bcfb0d164ef90d6d4618f0552609a8ea6
+ms.openlocfilehash: 787b773a8717ff36a0d0ea689b7770ed80aa9439
+ms.sourcegitcommit: c4462456dfb17993f098d47c37bc19f4d78b8179
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46470007"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47177633"
 ---
-# <a name="install-azure-cli-20-with-yum"></a>Instalar CLI do Azure 2.0 com o yum
+# <a name="install-azure-cli-with-yum"></a>Instalar a CLI do Azure com o yum
 
 Para distribuições Linux com `yum`, como o RHEL, Fedora ou CentOS há um pacote para a CLI do Azure. Este pacote foi testado com RHEL 7, Fedora 19 e posterior e CentOS 7.
 
@@ -46,7 +46,7 @@ Para distribuições Linux com `yum`, como o RHEL, Fedora ou CentOS há um pacot
 
 [!INCLUDE [interactive-login](includes/interactive-login.md)]
 
-Para saber mais sobre os diferentes métodos de autenticação, consulte [Conectar com a CLI do Azure 2.0](authenticate-azure-cli.md).
+Para saber mais sobre os diferentes métodos de autenticação, confira [Entrar com a CLI do Azure](authenticate-azure-cli.md).
 
 ## <a name="update"></a>Atualizar
 

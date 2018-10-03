@@ -1,6 +1,6 @@
 ---
-title: Resultados do comando de consulta com a CLI do Azure 2.0
-description: Saiba como realizar consultas JMESPath na saída dos comandos da CLI do Azure 2.0.
+title: Resultados de comando de consulta com a CLI do Azure
+description: Saiba como realizar consultas JMESPath na saída dos comandos da CLI do Azure.
 author: sptramer
 ms.author: sttramer
 manager: carmonm
@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 55880b87e1bffc37bbdeaeb84206deb5b9b7b227
-ms.sourcegitcommit: 0e688704889fc88b91588bb6678a933c2d54f020
+ms.openlocfilehash: 4522242952e5d257449c9c593885c62de2f56d0f
+ms.sourcegitcommit: c4462456dfb17993f098d47c37bc19f4d78b8179
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44388364"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47178024"
 ---
-# <a name="use-jmespath-queries-with-azure-cli-20"></a>Usar consultas JMESPath com a CLI do Azure 2.0
+# <a name="use-jmespath-queries-with-azure-cli"></a>Usar consultas JMESPath com a CLI do Azure 
 
-A CLI 2.0 do Azure usa o argumento `--query` para executar uma [consulta JMESPath](http://jmespath.org) nos resultados de comandos. JMESPath é uma linguagem de consulta para JSON, permitindo que você selecione e apresente dados de saída da CLI. Essas consultas são executadas na saída JSON antes de qualquer formatação de exibição.
+A CLI do Azure usa o argumento `--query` para executar uma [consulta JMESPath](http://jmespath.org) nos resultados dos comandos. JMESPath é uma linguagem de consulta para JSON, permitindo que você selecione e apresente dados de saída da CLI. Essas consultas são executadas na saída JSON antes de qualquer formatação de exibição.
 
 O argumento `--query` tem suporte de todos os comandos na CLI do Azure. Os exemplos deste artigo abrangem os casos de uso comum e demonstram como usar os recursos do JMESPath.
 
@@ -56,7 +56,7 @@ az vm show -g QueryDemo -n TestVM --query 'storageProfile.{image:imageReference.
 }
 ```
 
-Ao exibir as informações de formato de saída `table`, a exibição de dicionário permite configurar seus próprios cabeçalhos de coluna. Para obter mais informações sobre formatos de saída, confira [Formatos de saída para comandos da CLI 2.0 do Azure](/cli/azure/format-output-azure-cli).
+Ao exibir as informações de formato de saída `table`, a exibição de dicionário permite configurar seus próprios cabeçalhos de coluna. Para obter mais informações sobre formatos de saída, confira [Formatos de saída para comandos da CLI do Azure](/cli/azure/format-output-azure-cli).
 
 > [!NOTE]
 > Algumas chaves são filtradas e não são impressas na exibição da tabela. Essas chaves são `id`, `type` e `etag`. Caso precise ver essas informações, é possível alterar o nome da chave e evitar a filtragem.

@@ -1,6 +1,6 @@
 ---
-title: Extensões da CLI 2.0 do Azure
-description: Usar extensões com a CLI 2.0 do Azure
+title: Extensões da CLI do Azure
+description: Usando extensões com a CLI do Azure
 keywords: CLI do Azure, Extensões
 author: sptramer
 ms.author: sttramer
@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 8df4c82253e958fdad37ef1551c051f3d17fb191
-ms.sourcegitcommit: 0e688704889fc88b91588bb6678a933c2d54f020
+ms.openlocfilehash: 0ba204063c00bf706f6af5a14dc59ba317385f95
+ms.sourcegitcommit: c4462456dfb17993f098d47c37bc19f4d78b8179
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44388534"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47178109"
 ---
-# <a name="use-extensions-with-azure-cli-20"></a>Usar extensões com a CLI do Azure 2.0
+# <a name="use-extensions-with-azure-cli"></a>Usar extensões com a CLI do Azure 
 
-A CLI do Azure 2.0 oferece a capacidade de carregar extensões. As extensões são arquivos wheel Python que não são enviadas como parte da CLI, mas executadas como comandos da CLI.
+A CLI do Azure oferece a capacidade de carregar extensões. As extensões são arquivos wheel Python que não são enviadas como parte da CLI, mas executadas como comandos da CLI.
 Com as extensões, você recebe acesso a comandos experimentais e de pré-lançamento, juntamente com a capacidade de escrever suas próprias interfaces de CLI. Este artigo aborda como gerenciar extensões e responde a perguntas comuns sobre seu uso.
 
 ## <a name="find-extensions"></a>Localizar extensões
@@ -59,7 +59,7 @@ az extension update --name <extension-name>
 Caso contrário, uma extensão poderá ser atualizada a partir da origem seguindo as instruções em [Instalar extensões](#install-extensions).
 
 Se o nome de uma extensão não puder ser resolvido pela CLI, desinstale-a e tente reinstalá-la. A extensão também pode ter se tornado parte da CLI base.
-Tente atualizar a CLI, conforme descrito em [Instalar a CLI do Azure 2.0](install-azure-cli.md) e verifique se os comandos da extensão foram adicionados.
+Tente atualizar a CLI conforme descrito em [Instalar a CLI do Azure](install-azure-cli.md) e verifique se os comandos da extensão foram adicionados.
 
 ## <a name="uninstall-extensions"></a>Desinstalar as extensões
 
