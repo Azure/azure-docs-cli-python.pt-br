@@ -4,23 +4,85 @@ description: Saiba mais sobre as últimas atualizações da CLI do Azure
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 09/21/2018
+ms.date: 10/09/2018
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: f0ee84c3f70cf168818de447289d6c7ab5a40c9e
-ms.sourcegitcommit: c4462456dfb17993f098d47c37bc19f4d78b8179
+ms.openlocfilehash: 0aec9dce0eda007c71df3693b39c7ec8cc9856cd
+ms.sourcegitcommit: 0fc354c24454f5c9c5ff4b7296ad7b18ffdf31b1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47178075"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48904779"
 ---
 # <a name="azure-cli-release-notes"></a>Notas de versão da CLI do Azure
 
+## <a name="october-9-2018"></a>9 de outubro de 2018
+
+Versão 2.0.47
+
+### <a name="core"></a>Núcleo
+* Melhoria do tratamento de erro para os erros de "Solicitação Incorreta"
+
+### <a name="acr"></a>ACR
+* Suporte adicionado para o formato de tabela semelhante como cliente do helm
+
+### <a name="acs"></a>ACS
+* `aks [create|scale] --nodepool-name` adicionado para configurar o nome nodepool, truncado com 12 caracteres, padrão – nodepool1 
+* Corrigido para voltar para “scp” quando Parimiko falha
+* `aks create` alterado para não precisar mais de `--aad-tenant-id`
+* Melhoria da mesclagem das credenciais do Kubernetes quando houver entradas duplicadas
+
+### <a name="container"></a>Contêiner
+* `functionapp create` alterado para dar suporte à criação de um tipo de plano de consumo do Linux com um tempo de execução específico
+* [VERSÃO PRÉVIA] Suporte adicionado para hospedar aplicativos Web nos contêineres do Windows
+
+### <a name="event-hub"></a>Hub de evento
+* Corrigido o comando `eventhub update`
+* [ALTERAÇÃO SIGNIFICATIVA] `list` comandos alterados para lidar com os erros de recurso(s) NotFound(404) do modo típico, em vez de mostrar uma lista vazia
+
+### <a name="extensions"></a>Extensões
+* Corrigido o problema ao tentar adicionar uma extensão já instalada
+
+### <a name="hdinsight"></a>HDInsight
+* Versão inicial
+
+### <a name="iot"></a>IoT
+* Comando de instalação da extensão adicionado à faixa inicial
+
+### <a name="keyvault"></a>KeyVault
+* Alterado para restringir os comandos de armazenamento do keyvault ao perfil da API mais recente
+
+### <a name="network"></a>Rede
+* `network dns zone create` corrigido: o comando terá êxito mesmo se o usuário tiver configurado um local padrão. Veja o n° 6052
+* Preterido `--remote-vnet-id` para `network vnet peering create`
+* `--remote-vnet` a `network vnet peering create` adicionados, que aceita um nome ou uma ID
+* Suporte adicionado para vários prefixos de sub-rede a `network vnet create` com `--subnet-prefixes`
+* Suporte adicionado para vários prefixos de sub-rede a `network vnet subnet [create|update]` com `--address-prefixes`
+* Corrigido o problema com `network application-gateway create` que impedia a criação de gateways com a SKU `WAF_v2` ou `Standard_v2`
+* Argumento de conveniência `--service-endpoint-policy` adicionado a `network vnet subnet update`
+
+### <a name="role"></a>Função
+* Suporte adicionado para listar os proprietários de aplicativo do Azure AD para `ad app owner`
+* Suporte adicionado para listar os proprietários da entidade de serviço do Azure AD para `ad sp owner`
+* Alterado para garantir que os comandos para criar e atualizar a definição da função aceitem várias configurações de permissão
+* `ad sp create-for-rbac` alterado para garantir que a URI da home page sempre seja "https"
+
+### <a name="service-bus"></a>Barramento de Serviço
+* [ALTERAÇÃO SIGNIFICATIVA] `list` comandos alterados para lidar com os erros de recurso(s) NotFound(404) do modo típico, em vez de mostrar uma lista vazia
+
+### <a name="vm"></a>VM
+* Corrigido o campo `accessSas` vazio em `disk grant-access`
+* `vmss create` alterado para reservar um intervalo de portas de front-end grande o suficiente para lidar com excesso de provisionamento
+* Corrigidos os comandos de atualização para `sig`
+* Suporte `--no-wait` adicionado para gerenciar as versões da imagem em `sig`
+* `vm list-ip-addresses` alterado para mostrar a zona de disponibilidade dos endereços IP públicos
+* `[vm|vmss] disk attach` alterado para definir o LUN padrão do disco para o primeiro ponto disponível
+
 ## <a name="september-21-2018"></a>21 de setembro de 2018
 
-Versão 20.46
+Versão 2.0.46
 
 ### <a name="acr"></a>ACR
 * Adicionados comandos de tarefa de ACR
