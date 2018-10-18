@@ -4,17 +4,17 @@ description: Uma lista completa das extensões com suporte oficial para a CLI do
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 10/09/2018
+ms.date: 10/11/2018
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 44f640f59b8796d5778e20a0e013e69ce2546550
-ms.sourcegitcommit: 0fc354c24454f5c9c5ff4b7296ad7b18ffdf31b1
+ms.openlocfilehash: 76512c665728ada85edebc867edfcd772be6237c
+ms.sourcegitcommit: f0e00f09db87617328a081d43cd53bb8b16db0fb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48904711"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49113315"
 ---
 # <a name="available-extensions-for-the-azure-cli"></a>Extensões disponíveis para a CLI do Azure
 
@@ -35,7 +35,7 @@ az extension list-available --output table
 | [azure-firewall](https://github.com/Azure/azure-cli-extensions/tree/master/src/azure-firewall) | 0.1.0 | Gerenciar recursos do Firewall do Azure. | SIM |
 | [botservice](https://github.com/Azure/azure-cli-extensions) | 0.4.1 | Correções de bug para problemas no módulo de comando de CLI do botservice nativo. | SIM |
 | [dev-spaces-preview](https://github.com/Azure/azure-cli-extensions) | 0.1.6 | Os Espaços de Desenvolvimento fornecem uma experiência de desenvolvimento Kubernetes rápida e iterativa para equipes. | SIM |
-| [dms-preview](https://github.com/Azure/azure-cli-extensions/tree/master/src/dms-preview) | 0.4.0 | Suporte para novos cenários do Serviço de Migração de Banco de Dados. | SIM |
+| [dms-preview](https://github.com/Azure/azure-cli-extensions/tree/master/src/dms-preview) | 0.5.0 | Suporte para novos cenários do Serviço de Migração de Banco de Dados. | SIM |
 | [dns](https://github.com/Azure/azure-cli-extensions) | 0.0.2 | Uma extensão da CLI do Azure para zonas DNS |  |
 | [eventgrid](https://github.com/Azure/azure-cli-extensions) | 0.2.1 | Suporte para recursos do Azure EventGrid 2018-05-01-preview | SIM |
 | [express-route](https://github.com/Azure/azure-cli-extensions/tree/master/src/express-route) | 0.1.0 | Gerenciar ExpressRoute com versão prévia dos recursos. | SIM |
