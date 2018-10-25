@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 201cce81046d5039a313b918ac48b2849352995c
-ms.sourcegitcommit: c4462456dfb17993f098d47c37bc19f4d78b8179
+ms.openlocfilehash: a73576a9caeb7d016f49bb1d90f1903cbd515c63
+ms.sourcegitcommit: 6d9169ed547df151f99e5a3ac86578634486419a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47177667"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49652440"
 ---
 # <a name="install-azure-cli-with-zypper"></a>Instalar CLI do Azure com zypper
 
@@ -75,17 +75,17 @@ sudo zypper update azure-cli
 
 2. Se você não pretende reinstalar a CLI, remova as informações do repositório.
 
-  ```bash
-  sudo zypper removerepo azure-cli
-  ```
+   ```bash
+   sudo zypper removerepo azure-cli
+   ```
 
 3. Se você removeu as informações do repositório, remova também a chave de assinatura do Microsoft GPG.
 
-  ```bash
-  MSFT_KEY=`rpm -qa gpg-pubkey /* --qf "%{version}-%{release} %{summary}\n" | grep Microsoft | awk '{print $1}'`
-  sudo rpm -e --allmatches gpg-pubkey-$MSFT_KEY
-  ```
-## <a name="next-steps"></a>Próximas etapas
+   ```bash
+   MSFT_KEY=`rpm -qa gpg-pubkey /* --qf "%{version}-%{release} %{summary}\n" | grep Microsoft | awk '{print $1}'`
+   sudo rpm -e --allmatches gpg-pubkey-$MSFT_KEY
+   ```
+   ## <a name="next-steps"></a>Próximas etapas
 
 Agora que você instalou a CLI do Azure, faça um tour breve de seus recursos e comandos comuns.
 
