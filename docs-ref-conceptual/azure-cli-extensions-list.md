@@ -4,17 +4,17 @@ description: Uma lista completa das extensões com suporte oficial para a CLI do
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 10/11/2018
+ms.date: 10/21/2018
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 76512c665728ada85edebc867edfcd772be6237c
-ms.sourcegitcommit: f0e00f09db87617328a081d43cd53bb8b16db0fb
+ms.openlocfilehash: 0cf781f97e44b8752f5d03b9dbe4239489878856
+ms.sourcegitcommit: 6d9169ed547df151f99e5a3ac86578634486419a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49113315"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49652508"
 ---
 # <a name="available-extensions-for-the-azure-cli"></a>Extensões disponíveis para a CLI do Azure
 
@@ -38,11 +38,12 @@ az extension list-available --output table
 | [dms-preview](https://github.com/Azure/azure-cli-extensions/tree/master/src/dms-preview) | 0.5.0 | Suporte para novos cenários do Serviço de Migração de Banco de Dados. | SIM |
 | [dns](https://github.com/Azure/azure-cli-extensions) | 0.0.2 | Uma extensão da CLI do Azure para zonas DNS |  |
 | [eventgrid](https://github.com/Azure/azure-cli-extensions) | 0.2.1 | Suporte para recursos do Azure EventGrid 2018-05-01-preview | SIM |
-| [express-route](https://github.com/Azure/azure-cli-extensions/tree/master/src/express-route) | 0.1.0 | Gerenciar ExpressRoute com versão prévia dos recursos. | SIM |
+| [express-route](https://github.com/Azure/azure-cli-extensions/tree/master/src/express-route) | 0.1.2 | Gerenciar ExpressRoute com versão prévia dos recursos. | SIM |
 | [express-route-cross-connection](https://github.com/Azure/azure-cli-extensions/tree/master/src/express-route-cross-connection) | 0.1.0 | Gerencie os circuitos do ExpressRoute de cliente usando uma conexão cruzada do ExpressRoute. |  |
 | [find](https://github.com/Azure/azure-cli-extensions/tree/master/src/find) | 0.2.0 | Consultas inteligentes para obter informações de CLI. | SIM |
 | [front-door](https://github.com/Azure/azure-cli-extensions/tree/master/src/front-door) | 0.1.1 | Gerenciar FrontDoors de rede. | SIM |
 | [image-copy-extension](https://github.com/Azure/azure-cli-extensions) | 0.0.8 | Suporte para copiar imagens de vm gerenciadas entre regiões |  |
+| [interativo](https://github.com/Azure/azure-cli) | 0.4.0 | Shell interativo de linha de comando do Microsoft Azure | SIM |
 | [keyvault-preview](https://github.com/Azure/azure-keyvault-cli-extension) | 0.1.3 | Visualizar comandos do Azure Key Vault. | SIM |
 | [log-analytics](https://github.com/Azure/azure-cli-extensions/tree/master/src/log-analytics) | 0.1.3 | Suporte para recursos de consulta do Log Analytics do Azure. | SIM |
 | [managementgroups](https://github.com/Azure/azure-cli-extensions) | 0.1.0 | Uma extensão da CLI do Azure para grupos de gerenciamento |  |

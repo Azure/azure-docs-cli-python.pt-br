@@ -4,19 +4,90 @@ description: Saiba mais sobre as últimas atualizações da CLI do Azure
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 10/09/2018
+ms.date: 10/23/2018
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 0aec9dce0eda007c71df3693b39c7ec8cc9856cd
-ms.sourcegitcommit: 0fc354c24454f5c9c5ff4b7296ad7b18ffdf31b1
+ms.openlocfilehash: 65e34ab6014c47ae92a6d4bae8cdc30d4a1413dc
+ms.sourcegitcommit: aec89531c938781b4724f43b5bb4b878e106a26a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48904779"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49952478"
 ---
 # <a name="azure-cli-release-notes"></a>Notas de versão da CLI do Azure
+
+## <a name="october-23-2018"></a>23 de outubro de 2018
+
+Versão 2.0.49
+
+### <a name="core"></a>Núcleo
+* Corrigido o problema com `--ids` onde `--subscription` teria precedência sobre a assinatura em `--ids`
+* Adicionados avisos explícitos quando parâmetros seriam ignorados pelo uso de `--ids`
+
+### <a name="acr"></a>ACR
+* Corrigido um problema de codificação de ACR Build no Python2
+
+### <a name="cdn"></a>CDN
+* [ALTERAÇÃO SIGNIFICATIVA] Alterado o comportamento de armazenamento em cache da cadeia de caracteres de consulta padrão de `cdn endpoint create` para não assumir o padrão "IgnoreQueryString". Agora, ele é definido pelo serviço
+
+### <a name="container"></a>Contêiner
+* Adicionado `Private` como um tipo válido para passar para '--ip-address'
+* Alterado para permitir o uso somente de ID de sub-rede para configurar uma rede virtual para o grupo de contêineres
+* Alterado para permitir o uso de nome de rede virtual ou ID de recurso para habilitar o uso de redes virtuais de diferentes grupos de recursos
+* Adicionado `--assign-identity` para adicionar uma identidade MSI a um grupo de contêineres
+* Adicionado `--scope` para criar uma atribuição de função para a identidade MSI atribuída pelo sistema
+* Adicionado um aviso ao criar um grupo de contêineres com uma imagem sem um processo de execução longa
+* Corrigidos os problemas de saída da tabela para comandos `list` e `show`
+
+### <a name="cosmosdb"></a>CosmosDB
+* Adicionado o suporte `--enable-multiple-write-locations` para `cosmosdb create`
+
+### <a name="interactive"></a>Interativo
+* Alterado para garantir que o parâmetro de assinatura global seja exibido nos parâmetros
+
+### <a name="iot-central"></a>Central da IoT
+* Adicionadas opções de nome de exibição e modelo para criação de aplicativos de IoT Central
+* [ALTERAÇÃO SIGNIFICATIVA] Removido o suporte para a SKU F1; Use a SKU S1
+
+### <a name="monitor"></a>Monitoramento
+* Alterações para `monitor activity-log list`:
+  * Adicionado suporte para listar todos os eventos no nível da assinatura
+  * Adicionado o parâmetro `--offset` para criar consultas de tempo mais facilmente
+  * Melhorada a validação para `--start-time` e `--end-time` para usar um intervalo mais amplo de formatos ISO8601 e formatos de data/hora mais amigáveis ao usuário
+  * Adicionado `--namespace` como alias para a opção preterida `--resource-provider`
+  * Preterido `--filters` porque não há valores diferentes daqueles com opções fortemente tipadas compatíveis com o serviço
+* Alterações para `monitor metrics list`:
+  * Adicionado o parâmetro `--offset` para criar consultas de tempo mais facilmente
+  * Melhorada a validação para `--start-time` e `--end-time` para usar um intervalo mais amplo de formatos ISO8601 e formatos de data/hora mais amigáveis ao usuário
+* Melhorada a validação para os argumentos `--event-hub` e `--event-hub-rule` para `monitor diagnostic-settings create`
+
+### <a name="network"></a>Rede
+* Adicionados os argumentos `--app-gateway-address-pools` e `--gateway-name` para `nic create`, para dar suporte à adição de pools de endereços de back-end do gateway de aplicativo a um NIC
+* Adicionados os argumentos `--app-gateway-address-pools` e `--gateway-name` para `nic ip-config create/update`, para dar suporte à adição de pools de endereços de back-end do gateway de aplicativo a um NIC
+
+### <a name="servicebus"></a>ServiceBus
+* Adicionado `migration_state` somente leitura para MigrationConfigProperties para mostrar o atual estado de migração de namespace Standard para Premium do Barramento de Serviço
+
+### <a name="sql"></a>SQL
+* Corrigidos `sql failover-group create` e `sql failover-group update` para trabalhar com a política de failover Manual
+
+### <a name="storage"></a>Armazenamento
+* Corrigida a formatação de saída `az storage cors list`, todos os itens mostram a chave correta de "Serviço"
+* Adicionado o parâmetro `--bypass-immutability-policy` para a exclusão de contêiner bloqueado pela política de imutabilidade
+
+### <a name="vm"></a>VM
+* Aplicado o modo `None` de armazenamento em cache de disco para as séries Lv/Lv2 de computadores no `[vm|vmss] create`
+* Atualizada a lista de tamanhos com suporte compatíveis com a aceleração de rede para `vm create`
+* Adicionado argumentos fortemente tipados para configurações de iops e mbps de ultra ssd para `disk create`
+
+## <a name="october-16-2018"></a>16 de outubro de 2018
+
+Versão 2.0.48
+
+### <a name="vm"></a>VM
+* Corrigido o problema do SDK que causava falha durante a instalação do Homebrew
 
 ## <a name="october-9-2018"></a>9 de outubro de 2018
 
@@ -571,17 +642,17 @@ Versão 2.0.38
 * Foi adicionado suporte para configurar `/dev/shm` para trabalhos em execução em um contêiner de docker
 * Foram adicionados os comandos `batchai cluster node exec` e `batchai job node exec`. Esses comandos permitem executar qualquer comando diretamente nos nós e fornece a funcionalidade de encaminhamento de porta.
 * Foi adicionado suporte a `--ids` para os comandos `batchai`
-* [ALTERAÇÃO SIGNIFICATIVA] Todos os clusters e servidores de arquivos devem ser criados nos espaços de trabalho
+* [ALTERAÇÃO SIGNIFICATIVA] Todos os clusters e servidores de arquivos devem ser criados nos workspaces
 * [ALTERAÇÃO SIGNIFICATIVA] Os trabalhos devem ser criados nas experiências
 * [ALTERAÇÃO SIGNIFICATIVA] `--nfs-resource-group` foi removido dos comandos `cluster create` e `job create`. Para montar um NFS pertencente a outro workspace/grupo de recursos, forneça a ID de ARM do servidor de arquivos através da opção `--nfs`
 * [ALTERAÇÃO SIGNIFICATIVA] `--cluster-resource-group` foi removido do comando `job create`. Para enviar um trabalho em um cluster pertencente a outro workspace/grupo de recursos, forneça a ID de ARM do cluster através da opção `--cluster`
 * [ALTERAÇÃO SIGNIFICATIVA] O atributo `location` foi removido de trabalhos, cluster e servidores de arquivos. Agora, o local é um atributo de um workspace.
 * [ALTERAÇÃO SIGNIFICATIVA] `--location` foi removido dos comandos `job create` e `cluster create` e `file-server create`
 * [ALTERAÇÃO SIGNIFICATIVA] Os nomes das opções curtas foi alterado para tornar a interface mais consistente:
- - [`--config`, `-c`] foi renomeado para [`--config-file`, `-f`]
- - [`--cluster`, `-r`] foi renomeado para [`--cluster`, `-c`]
- - [`--cluster`, `-n`] foi renomeado para [`--cluster`, `-c`]
- - [`--job`, `-n`] foi renomeado para [`--job`, `-j`]
+  - [`--config`, `-c`] foi renomeado para [`--config-file`, `-f`]
+  - [`--cluster`, `-r`] foi renomeado para [`--cluster`, `-c`]
+  - [`--cluster`, `-n`] foi renomeado para [`--cluster`, `-c`]
+  - [`--job`, `-n`] foi renomeado para [`--job`, `-j`]
 
 ### <a name="maps"></a>Mapas
 
@@ -937,15 +1008,15 @@ Versão 2.0.31
 
 * Adição de suporte para a API 2018-03-01
 
- - Montagem de nível de trabalho
- - Variáveis de ambiente com valores secretos
- - Configurações de contadores de desempenho
- - Relatório de segmento de linha específico de trabalho
- - Suporte para subpastas na API de arquivos de lista
- - Relatório de uso e limites
- - Permitir a especificação do tipo de cache para servidores NFS
- - Suporte para imagens personalizadas
- - Adição de suporte para o kit de ferramentas pyTorch
+  - Montagem de nível de trabalho
+  - Variáveis de ambiente com valores secretos
+  - Configurações de contadores de desempenho
+  - Relatório de segmento de linha específico de trabalho
+  - Suporte para subpastas na API de arquivos de lista
+  - Relatório de uso e limites
+  - Permitir a especificação do tipo de cache para servidores NFS
+  - Suporte para imagens personalizadas
+  - Adição de suporte para o kit de ferramentas pyTorch
 
 * Adição do comando `job wait`, que permite aguardar a conclusão do trabalho e relata o código de saída de trabalho
 * Adição do comando `usage show` para listar o uso e os limites do IA do Lote atual para diferentes regiões
@@ -2666,7 +2737,7 @@ vm (2.0.2)
 * VM/VMSS: incorporar a lógica de validação de credenciais usada pelo portal ([#2537](https://github.com/Azure/azure-cli/pull/2537))
 * Adicionar comandos de espera e suporte --no-wait ([#2524](https://github.com/Azure/azure-cli/pull/2524))
 * Conjunto de dimensionamento de máquinas virtuais: suporte à * para listar a exibição de instâncias em vms ([#2467](https://github.com/Azure/azure-cli/pull/2467))
-* Adicionar: segredos da VM e do conjunto de dimensionamento de máquinas virtuais ([2212}(https://github.com/Azure/azure-cli/pull/2212))
+* Adicionar: segredos da VM e do conjunto de dimensionamento de máquinas virtuais ([#2212}(<https://github.com/Azure/azure-cli/pull/2212>))
 * Permitir a criação de VMs com VHD especializado ([#2256](https://github.com/Azure/azure-cli/pull/2256))
 
 ## <a name="february-27-2017"></a>27 de fevereiro de 2017
