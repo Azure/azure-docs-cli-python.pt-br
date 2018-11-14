@@ -4,19 +4,110 @@ description: Saiba mais sobre as últimas atualizações da CLI do Azure
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 10/23/2018
+ms.date: 11/06/2018
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 65e34ab6014c47ae92a6d4bae8cdc30d4a1413dc
-ms.sourcegitcommit: aec89531c938781b4724f43b5bb4b878e106a26a
+ms.openlocfilehash: 51b8b8cad6d25f916006b8e68b8f300587f5d45b
+ms.sourcegitcommit: 0d6b08048b5b35bf0bb3d7b91ff567adbaab2a8b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49952478"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51222558"
 ---
 # <a name="azure-cli-release-notes"></a>Notas de versão da CLI do Azure
+
+## <a name="november-6-2018"></a>6 de novembro de 2018
+
+Versão 2.0.50
+
+### <a name="core"></a>Núcleo
+* Foi adicionado suporte para o serviço principal sn + autenticação do emissor
+
+### <a name="acr"></a>ACR
+* Foi adicionado suporte para eventos de git de solicitação de pull e de confirmação para o gatilho de origem da tarefa
+* Alterado para usar o padrão do Dockerfile se ele não for especificado no comando de compilação
+
+### <a name="acs"></a>ACS
+* [ALTERAÇÃO SIGNIFICATIVA] `enable_cloud_console_aks_browse` foi removido para habilitar 'az aks browse' por padrão
+
+### <a name="advisor"></a>Supervisor
+* Versão de GA
+
+### <a name="ams"></a>AMS
+* Novos grupos de comandos adicionados:
+  *  `ams account-filter`
+  *  `ams asset-filter`
+  *  `ams content-key-policy`
+  *  `ams live-event`
+  *  `ams live-output`
+  *  `ams streaming-endpoint`
+  *  `ams mru`
+* Novos comandos adicionados:
+  * `ams account check-name`
+  * `ams job update`
+  * `ams asset get-encryption-key`
+  * `ams asset get-streaming-locators`
+  * `ams streaming-locator get-content-keys`
+* Adicionados parâmetros de criptografia com suporte para `ams streaming-policy create`
+* O suporte adicionado para `ams transform output remove` agora pode ser executado passando o índice de saída a ser removido
+* Adicionados os argumentos `--correlation-data` e `--label` ao grupo de comandos `ams job`
+* Adicionados os argumentos `--storage-account` e `--container` ao grupo de comandos `ams asset`
+* Foram adicionados valores padrões para o horário de expiração (agora +23h) e permissões (Leitura) no comando `ams asset get-sas-url` 
+* [ALTERAÇÃO SIGNIFICATIVA] O comando `ams streaming locator` foi substituído por `ams streaming-locator`
+* [ALTERAÇÃO SIGNIFICATIVA] O argumento `--content-keys` de `ams streaming locator` foi atualizado
+* [ALTERAÇÃO SIGNIFICATIVA] `--content-policy-name` foi renomeado como `--content-key-policy-name` no comando `ams streaming locator`
+* [ALTERAÇÃO SIGNIFICATIVA] O comando `ams streaming policy` foi substituído por `ams streaming-policy`
+* [ALTERAÇÃO SIGNIFICATIVA] O argumento `--preset-names` foi substituído por `--preset` no grupo de comandos `ams transform`. Agora, você só pode definir uma saída/predefinição de cada vez (para adicionar mais, é preciso executar `ams transform output add`). Além disso, você pode definir StandardEncoderPreset personalizado passando o caminho para seu JSON personalizado
+* [ALTERAÇÃO SIGNIFICATIVA] `--output-asset-names ` foi renomeado como `--output-assets` no comando `ams job start`. Agora, ele aceita uma lista separada por espaços dos ativos no formato 'assetName=label'. Um ativo sem rótulo pode ser enviado assim: 'assetName='
+
+### <a name="appservice"></a>AppService
+* Um bug no `az webapp config backup update` que impede a configuração de um agendamento de backup foi corrigido, caso ele ainda não tenha sido definido
+
+### <a name="configure"></a>Configurar
+* O YAML foi adicionado às opções de formato de saída
+
+### <a name="container"></a>Contêiner
+* Alterado para mostrar a identidade ao exportar um grupo de contêineres para yaml
+
+### <a name="eventhub"></a>EventHub
+* O sinalizador `--enable-kafka` foi adicionado para dar suporte ao Kafka no `eventhub namespace [create|update]`
+
+### <a name="interactive"></a>Interativo
+* O interativo agora instala a extensão `interactive` que permite atualizações e suporte mais rápidos
+
+### <a name="monitor"></a>Monitoramento
+* Foi adicionado suporte para nomes de métricas, que incluem os caracteres barra (/) e ponto (.) para `--condition` em `monitor metrics alert [create|update]`
+
+### <a name="network"></a>Rede
+* Os nomes de comandos `network interface-endpoint` foram preteridos em benefício de `network private-endpoint`
+* Foi corrigido um problema onde um argumento `--peer-circuit` em `express-route peering connection create` não aceitaria uma ID
+* Foi corrigido um problema onde `--ip-tags` não funcionava corretamente com `public-ip create` 
+
+### <a name="profile"></a>Perfil
+* `--use-cert-sn-issuer` foi adicionado a `az login` para logon da entidade de serviço com rolagens automáticas de certificado
+
+### <a name="rdbms"></a>RDBMS
+* Adicionados comandos da réplica mysql
+
+### <a name="resource"></a>Recurso
+* Adicionado suporte para grupos de gerenciamento e assinaturas aos comandos `policy definition|set-definition`
+
+### <a name="role"></a>Função
+* Adicionado suporte para gerenciamento de permissões de API, usuário conectado e gerenciamento de senhas dos aplicativos e certificados de credenciais
+* `ad sp create-for-rbac` foi alterado para esclarecer a confusão entre o displayName e o nome da entidade de serviço
+* Suporte adicionado para conceder permissões a aplicativos do AAD
+
+### <a name="storage"></a>Armazenamento
+* Suporte adicionado para se conectar aos serviços de armazenamento somente com SAS e pontos de extremidade (sem um nome de conta ou uma chave), conforme descrito em `Configure Azure Storage connection strings <https://docs.microsoft.com/azure/storage/common/storage-configure-connection-string>`
+
+### <a name="vm"></a>VM
+* O argumento `storage-sku` foi adicionado a `image create` para definir o tipo de conta de armazenamento padrão da imagem
+* O bug com `vm resize` onde a opção `--no-wait` faz com que o comando falhasse foi corrigido
+* O formato de saída da tabela `vm encryption show` para mostrar o status foi alterado
+* `vm secret format` foi alterado para exigir a saída json/jsonc. Avisa o usuário e assume como padrão a saída json se um formato de saída indesejado for escolhido
+* Validação de argumento aprimorado para `vm create --image`
 
 ## <a name="october-23-2018"></a>23 de outubro de 2018
 
