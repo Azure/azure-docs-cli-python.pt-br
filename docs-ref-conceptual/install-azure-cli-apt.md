@@ -4,17 +4,17 @@ description: Como instalar a CLI do Azure com o gerenciador de pacotes apt
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 09/07/2018
+ms.date: 11/12/2018
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: b388d3ecaf2d978aed11f925b9a479d8e95fb101
-ms.sourcegitcommit: c4462456dfb17993f098d47c37bc19f4d78b8179
+ms.openlocfilehash: 0d4311e88fec9903c1aab1410cc71328f896dc65
+ms.sourcegitcommit: 728a050f13d3682122be4a8993596cc4185a45ce
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47178092"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51680927"
 ---
 # <a name="install-azure-cli-with-apt"></a>Instalar CLI do Azure com o apt
 
@@ -28,6 +28,7 @@ Se você estiver executando uma distribuição que vem com `apt`, como o Ubuntu 
 1. <div id="install-step-1"/>Modifique sua lista de fontes:
 
     ```bash
+    sudo apt-get install apt-transport-https lsb-release software-properties-common -y
     AZ_REPO=$(lsb_release -cs)
     echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ $AZ_REPO main" | \
         sudo tee /etc/apt/sources.list.d/azure-cli.list
@@ -36,18 +37,20 @@ Se você estiver executando uma distribuição que vem com `apt`, como o Ubuntu 
 2. <div id="signingKey"/>Obtenha a chave de assinatura da Microsoft:
 
    ```bash
-   curl -L https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
+   sudo apt-key --keyring /etc/apt/trusted.gpg.d/Microsoft.gpg adv \
+        --keyserver packages.microsoft.com \
+        --recv-keys BC528686B50D79E339D3721CEB3E94ADBE1229CF
    ```
 
 3. Instalar a CLI:
 
    ```bash
    sudo apt-get update
-   sudo apt-get install apt-transport-https azure-cli
+   sudo apt-get install azure-cli
    ```
 
    > [!WARNING]
-   > A chave de assinatura foi atualizada em maio de 2018 e foi substituída. Se você receber erros da chave de assinatura, confirme se [adquiriu a chave de assinatura mais recente](#signingKey).
+   > A chave de assinatura foi atualizada em maio de 2018 e foi substituída. Se você receber erros de autenticação, verifique se tem [a chave de autenticação mais recente](#signingKey).
 
 É possível executar a CLI do Azure com o comando `az`. Para entrar, use o comando [az login](/cli/azure/reference-index#az-login).
 
@@ -58,20 +61,6 @@ Para saber mais sobre os diferentes métodos de autenticação, confira [Entrar 
 ## <a name="troubleshooting"></a>solução de problemas
 
 Aqui estão alguns problemas comuns vistos durante a instalação com `apt`. Se você tiver um problema não abordado aqui, [arquive um problema no github](https://github.com/Azure/azure-cli/issues).
-
-### <a name="lsbrelease-fails-with-command-not-found"></a>lsb_release falha com "Comando não encontrado"
-
-Ao executar o comando `lsb_release`, pode ser que você veja uma saída semelhante ao seguinte erro:
-
-```output
--bash: lsb_release: command not found
-```
-
-O erro é devido ao comando `lsb_release` não estar instalado. Você pode resolver isso instalando o pacote `lsb-release`.
-
-```bash
-sudo apt-get install lsb-release
-```
 
 ### <a name="lsbrelease-does-not-return-the-base-distribution-version"></a>lsb_release não retorna a versão da distribuição de base
 
@@ -95,13 +84,17 @@ sudo apt-get install dirmngr
 
 ### <a name="apt-key-hangs"></a>apt-key trava
 
-Quando atrás de um firewall que bloqueia as conexões de saída para a porta 11371, o comando `apt-key` pode travar indefinidamente. O firewall pode exigir o uso de um proxy HTTP para as conexões de saída:
+Quando atrás de um firewall que bloqueia as conexões de saída para a porta 11371, o comando `apt-key` pode travar indefinidamente.
+O firewall pode exigir um proxy HTTP para as conexões de saída:
 
 ```bash
-sudo apt-key adv --keyserver-options http-proxy=http://<USER>:<PASSWORD>@<PROXY-HOST>:<PROXY-PORT>/ --keyserver packages.microsoft.com --recv-keys 52E16F86FEE04B979B07E28DB02C46DF417A0893
+sudo apt-key --keyring /etc/apt/trusted.gpg.d/Microsoft.gpg adv \
+    --keyserver-options http-proxy=http://<USER>:<PASSWORD>@<PROXY-HOST>:<PROXY-PORT>/ \
+    --keyserver packages.microsoft.com \
+    --recv-keys BC528686B50D79E339D3721CEB3E94ADBE1229CF
 ```
 
-Para determinar se você tem um proxy, entre em contato com o administrador do sistema. Se o proxy não precisar de logon, omita o usuário, a senha e o token `@`.
+Para determinar se você tem um proxy, entre em contato com o administrador do sistema. Se o proxy não precisar de logon, omita as informações sobre usuário e senha.
 
 ## <a name="update"></a>Atualizar
 
@@ -112,11 +105,12 @@ Use `apt-get upgrade` para atualizar o pacote da CLI.
    ```
 
 > [!WARNING]
-> A chave de assinatura foi atualizada em maio de 2018 e foi substituída. Se você receber erros da chave de assinatura, confirme se [adquiriu a chave de assinatura mais recente](#signingKey).
+> A chave de assinatura foi atualizada em maio de 2018 e foi substituída. Se você receber erros de autenticação, verifique se tem [a chave de autenticação mais recente](#signingKey).
 >
 > [!NOTE]
 > Esse comando atualiza todos os pacotes instalados no sistema que não tiveram uma alteração de dependência.
 > Para atualizar apenas a CLI, use `apt-get install`.
+> 
 > ```bash
 > sudo apt-get update && sudo apt-get install --only-upgrade -y azure-cli
 > ```
@@ -125,19 +119,25 @@ Use `apt-get upgrade` para atualizar o pacote da CLI.
 
 [!INCLUDE [uninstall-boilerplate.md](includes/uninstall-boilerplate.md)]
 
-1. Desinstalar com `apt-get remove`.
+1. Desinstalar com `apt-get remove`:
 
     ```bash
     sudo apt-get remove -y azure-cli
     ```
 
-2. Se você não pretende reinstalar a CLI, remova as informações do repositório da CLI do Azure.
+2. Se você não pretender reinstalar a CLI, remova as informações do repositório da CLI do Azure:
 
    ```bash
    sudo rm /etc/apt/sources.list.d/azure-cli.list
    ```
 
-3. Remova quaisquer pacotes desnecessários.
+3. Remova a chave de autenticação:
+
+    ```bash
+    sudo rm /etc/apt/trusted.gpg.d/Microsoft.gpg
+    ```
+
+4. Remova quaisquer pacotes desnecessários:
 
    ```bash
    sudo apt autoremove
