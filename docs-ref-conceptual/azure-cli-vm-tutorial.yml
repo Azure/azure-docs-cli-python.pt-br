@@ -16,12 +16,12 @@ metadata:
   ms.prod: azure
   ms.technology: azure-cli
   clicktale: true
-  ms.openlocfilehash: bb487d24270ed3befb4208da329b089efc28e656
-  ms.sourcegitcommit: 0d6b08048b5b35bf0bb3d7b91ff567adbaab2a8b
+  ms.openlocfilehash: 60864e2a152f027fc5acf3a30a0bbf804ba09eca
+  ms.sourcegitcommit: f92d5b3ccd409be126f1e7c06b9f1adc98dad78b
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 11/07/2018
-  ms.locfileid: "51222490"
+  ms.lasthandoff: 11/20/2018
+  ms.locfileid: "52159313"
 items:
 - durationInMinutes: 1
   content: >-
@@ -48,13 +48,84 @@ items:
     ```
 - durationInMinutes: 4
   title: Criar uma máquina virtual
-  content: "As máquinas virtuais no Azure têm um grande número de dependências. A CLI cria esses recursos com base nos argumentos de linha de comando especificados por você.\n\nCrie uma nova máquina virtual executando o Ubuntu, que usa a autenticação SSH para fazer logon.\n\n```azurecli-interactive\naz vm create --resource-group TutorialResources \\\n  --name TutorialVM1 \\\n  --image UbuntuLTS \\\n  --generate-ssh-keys \\\n  --verbose \n```\n\n> [!NOTE]\n> Caso já tenha uma chave SSH chamada `id_rsa` disponível, ela será usada para autenticação em vez de ser preciso gerar uma nova chave.\n\nAssim que a VM é criada, você vê os valores locais utilizados e os recursos do Azure sendo criados devido à opção `--verbose`.\nQuando a VM estiver pronta, o JSON será retornado do serviço do Azure, incluindo o endereço IP público.\n\n```json\n{\n  \"fqdns\": \"\",\n  \"id\": \"...\",\n  \"location\": \"eastus\",\n  \"macAddress\": \"...\",\n  \"powerState\": \"VM running\",\n  \"privateIpAddress\": \"...\",\n  \"publicIpAddress\": <PUBLIC_IP_ADDRESS>,\n  \"resourceGroup\": \"TutorialResources\",\n  \"zones\": \"\"\n}\n```\n\nConecte-se via SSH para confirmar que a VM está em execução.\n\n```bash\nssh <PUBLIC_IP_ADDRESS>\n```\n\nContinue e faça logoff da VM.\n\nExistem outras maneiras de obter esse endereço IP depois que a VM for iniciada. Na próxima seção, você verá como obter informações detalhadas sobre a VM e como filtrá-las."
+  content: "As máquinas virtuais no Azure têm um grande número de dependências. A CLI cria esses recursos com base nos argumentos de linha de comando especificados por você.\n\nCrie uma nova máquina virtual executando o Ubuntu, que usa a autenticação SSH para fazer logon.\n\n```azurecli-interactive\naz vm create --resource-group TutorialResources \\\n  --name TutorialVM1 \\\n  --image UbuntuLTS \\\n  --generate-ssh-keys \\\n  --output json \\\n  --verbose \n```\n\n> [!NOTE]\n> Caso já tenha uma chave SSH chamada `id_rsa` disponível, ela será usada para autenticação em vez de ser preciso gerar uma nova chave.\n\nAssim que a VM é criada, você vê os valores locais utilizados e os recursos do Azure sendo criados devido à opção `--verbose`.\nQuando a VM estiver pronta, o JSON será retornado do serviço do Azure, incluindo o endereço IP público.\n\n```json\n{\n  \"fqdns\": \"\",\n  \"id\": \"...\",\n  \"location\": \"eastus\",\n  \"macAddress\": \"...\",\n  \"powerState\": \"VM running\",\n  \"privateIpAddress\": \"...\",\n  \"publicIpAddress\": <PUBLIC_IP_ADDRESS>,\n  \"resourceGroup\": \"TutorialResources\",\n  \"zones\": \"\"\n}\n```\n\nConecte-se via SSH para confirmar que a VM está em execução.\n\n```bash\nssh <PUBLIC_IP_ADDRESS>\n```\n\nContinue e faça logoff da VM.\n\nExistem outras maneiras de obter esse endereço IP depois que a VM for iniciada. Na próxima seção, você verá como obter informações detalhadas sobre a VM e como filtrá-las."
 - durationInMinutes: 3
   title: Obter informações de VM com consultas
   content: "Agora que uma VM foi criada, as informações detalhadas sobre ela podem ser recuperadas. O comando comum para obter informações de um recurso é `show`.\n\n```azurecli-interactive\naz vm show --name TutorialVM1 --resource-group TutorialResources\n```\n\nVocê verá muitas informações, cuja análise visual pode ser difícil. O JSON retornado contém informações sobre autenticação, adaptadores de rede, armazenamento e muito mais. Mais importante: ele contém as IDs de objeto do Azure para recursos aos quais a VM está conectada. As IDs de objeto permitem o acesso direto a esses recursos para se obter mais informações sobre a configuração e os recursos da VM. \n\nPara extrair a ID de objeto desejada, é usado o argumento `--query`. As consultas são gravadas na [linguagem de consulta JMESPath](http://jmespath.org). Comece obtendo a ID de objeto do controlador de interface de rede (NIC).\n\n```azurecli-interactive\naz vm show --name TutorialVM1 \\\n  --resource-group TutorialResources \\\n  --query 'networkProfile.networkInterfaces[].id' \\\n  --output tsv\n```\n\nMuita coisa está acontecendo por simplesmente adicionar a consulta. Cada parte dela faz referência a uma chave na saída do JSON, ou é um operador JMESPath.\n\n* `networkProfile` é uma chave JSON de nível superior que tem `networkInterfaces` como uma subchave. Se um valor JSON é um dicionário, suas chaves são referenciadas a partir da chave pai com o operador `.`.\n* O valor `networkInterfaces` é uma matriz, então ele é mesclado com o operador `[]`. Esse operador executa o restante da consulta em cada elemento da matriz. Nesse caso, ele obtém o valor `id` de todos os elementos da matriz.\n\nÉ garantido que o formato de saída `tsv` (valores separados por tabulação) incluirá apenas os dados de resultado e o espaço em branco que consiste em guias e novas linhas.\nUma vez que o valor retornado é uma única cadeia de caracteres vazia, é seguro atribuir diretamente a uma variável de ambiente.\n\nContinue e atribua a ID de objeto do NIC a uma variável de ambiente.\n\n```bash\nNIC_ID=$(az vm show -n TutorialVM1 -g TutorialResources \\\n  --query 'networkProfile.networkInterfaces[].id' \\\n  -o tsv)\n```\n\nEste exemplo também demonstra o uso de argumentos curtos. Você pode usar `-g` em vez de `--resource-group`, `-n` em vez de `--name` e `-o` em vez de `--output`."
 - durationInMinutes: 4
   title: Configurar variáveis de ambiente a partir da saída da CLI
-  content: "Agora que você tem a ID do NIC, execute `az network nic show` para obter suas informações.\n\n```azurecli-interactive\naz network nic show --ids $NIC_ID -g TutorialResources\n```\n\nEsse comando mostra todas as informações do adaptador de rede da VM. Entre esses dados estão configurações de DNS, informações de IP, configurações de segurança e o endereço MAC. Nesse momento, a meta é obter o endereço IP público e as IDs de objeto da sub-rede.\n\n```azurecli-interactive\naz network nic show --ids $NIC_ID \\\n  -g TutorialResources \\\n  --query '{IP:ipConfigurations[].publicIpAddress.id, Subnet:ipConfigurations[].subnet.id}' \n```\n\n```json\n{\n  \"IP\": [\n    \"/subscriptions/.../resourceGroups/TutorialResources/providers/Microsoft.Network/publicIPAddresses/TutorialVM1PublicIP\"\n  ],\n  \"Subnet\": [\n    \"/subscriptions/.../resourceGroups/TutorialResources/providers/Microsoft.Network/virtualNetworks/TutorialVM1VNET/subnets/TutorialVM1Subnet\"\n  ]\n}\n```\n\nEsse comando exibe um objeto JSON que tem chaves personalizadas ('IP' e 'Sub-rede') para os valores extraídos. Embora esse estilo de saída possa não ser útil para ferramentas de linha de comando, ele ajuda na legibilidade humana e pode ser usado com scripts personalizados.\n\nPara usar as ferramentas de linha de comando, altere o comando para remover as chaves e a saída do JSON personalizadas como `tsv`. Esse estilo de saída pode ser processado pelo comando `read` do shell para carregar resultados em diversas variáveis. Uma vez que dois valores em linhas separadas são exibidos, o comando delimitador `read` deve ser definido como a cadeia de caracteres vazia em vez do padrão de espaço em branco sem novas linhas.\n\n```bash\nread -d '' IP_ID SUBNET_ID <<< $(az network nic show \\\n  --ids $NIC_ID -g TutorialResources \\\n  --query '[ipConfigurations[].publicIpAddress.id, ipConfigurations[].subnet.id]' \\\n  -o tsv)\n```\n\nVocê não usará a ID de sub-rede imediatamente, mas agora ela deve ser armazenada para evitar ter de realizar uma segunda pesquisa mais tarde. Por enquanto, use a ID de objeto de IP público para pesquisar o endereço IP público e armazená-lo em uma variável do shell.\n\n```bash\nVM1_IP_ADDR=$(az network public-ip show --ids $IP_ID \\\n  -g TutorialResources \\\n  --query ipAddress \\\n  -o tsv)\n```\n\nAgora você tem o endereço IP da VM armazenado em uma variável do shell. Continue e verifique se é o mesmo valor usado por você para se conectar inicialmente à VM.\n\n```bash\necho $VM1_IP_ADDR\n```"
+  content: >-
+    Agora que você tem a ID do NIC, execute `az network nic show` para obter suas informações.
+
+
+    ```azurecli-interactive
+
+    az network nic show --ids $NIC_ID -g TutorialResources
+
+    ```
+
+
+    Esse comando mostra todas as informações do adaptador de rede da VM. Entre esses dados estão configurações de DNS, informações de IP, configurações de segurança e o endereço MAC. Nesse momento, a meta é obter o endereço IP público e as IDs de objeto da sub-rede.
+
+
+    ```azurecli-interactive
+
+    az network nic show --ids $NIC_ID \
+      -g TutorialResources \
+      --query '{IP:ipConfigurations[].publicIpAddress.id, Subnet:ipConfigurations[].subnet.id}' \
+      -o json
+    ```
+
+
+    ```json
+
+    {
+      "IP": [
+        "/subscriptions/.../resourceGroups/TutorialResources/providers/Microsoft.Network/publicIPAddresses/TutorialVM1PublicIP"
+      ],
+      "Subnet": [
+        "/subscriptions/.../resourceGroups/TutorialResources/providers/Microsoft.Network/virtualNetworks/TutorialVM1VNET/subnets/TutorialVM1Subnet"
+      ]
+    }
+
+    ```
+
+
+    Esse comando exibe um objeto JSON que tem chaves personalizadas ('IP' e 'Sub-rede') para os valores extraídos. Embora esse estilo de saída possa não ser útil para ferramentas de linha de comando, ele ajuda na legibilidade humana e pode ser usado com scripts personalizados.
+
+
+    Para usar as ferramentas de linha de comando, altere o comando para remover as chaves e a saída do JSON personalizadas como `tsv`. Esse estilo de saída pode ser processado pelo comando `read` do shell para carregar resultados em diversas variáveis. Uma vez que dois valores em linhas separadas são exibidos, o comando delimitador `read` deve ser definido como a cadeia de caracteres vazia em vez do padrão de espaço em branco sem novas linhas.
+
+
+    ```bash
+
+    read -d '' IP_ID SUBNET_ID <<< $(az network nic show \
+      --ids $NIC_ID -g TutorialResources \
+      --query '[ipConfigurations[].publicIpAddress.id, ipConfigurations[].subnet.id]' \
+      -o tsv)
+    ```
+
+
+    Você não usará a ID de sub-rede imediatamente, mas agora ela deve ser armazenada para evitar ter de realizar uma segunda pesquisa mais tarde. Por enquanto, use a ID de objeto de IP público para pesquisar o endereço IP público e armazená-lo em uma variável do shell.
+
+
+    ```bash
+
+    VM1_IP_ADDR=$(az network public-ip show --ids $IP_ID \
+      -g TutorialResources \
+      --query ipAddress \
+      -o tsv)
+    ```
+
+
+    Agora você tem o endereço IP da VM armazenado em uma variável do shell. Continue e verifique se é o mesmo valor usado por você para se conectar inicialmente à VM.
+
+
+    ```bash
+
+    echo $VM1_IP_ADDR
+
+    ```
 - durationInMinutes: 2
   title: Criando uma nova VM na sub-rede existente
   content: >-
