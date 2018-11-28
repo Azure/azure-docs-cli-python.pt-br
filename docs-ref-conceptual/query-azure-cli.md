@@ -4,125 +4,282 @@ description: Saiba como realizar consultas JMESPath na saída dos comandos da CL
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 09/09/2018
+ms.date: 11/12/2018
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 1736d1677fb6c7fc83a092493e8706c2d5edfccd
-ms.sourcegitcommit: 0d6b08048b5b35bf0bb3d7b91ff567adbaab2a8b
+ms.openlocfilehash: 53aa2d1011eb76c27a503e6b15c20aa05e13b448
+ms.sourcegitcommit: f92d5b3ccd409be126f1e7c06b9f1adc98dad78b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51222524"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52159381"
 ---
-# <a name="use-jmespath-queries-with-azure-cli"></a>Usar consultas JMESPath com a CLI do Azure 
+# <a name="query-azure-cli-command-output"></a>Consultar a saída do comando da CLI do Azure
 
-A CLI do Azure usa o argumento `--query` para executar uma [consulta JMESPath](http://jmespath.org) nos resultados dos comandos. JMESPath é uma linguagem de consulta para JSON, permitindo que você selecione e apresente dados de saída da CLI. Essas consultas são executadas na saída JSON antes de qualquer formatação de exibição.
+A CLI do Azure usa o argumento `--query` para executar uma [consulta JMESPath](http://jmespath.org) nos resultados dos comandos. JMESPath é uma linguagem de consulta do JSON, permitindo que você selecione e modifique os dados na saída da CLI. As consultas são executadas na saída do JSON antes de qualquer formatação da exibição.
 
-O argumento `--query` tem suporte de todos os comandos na CLI do Azure. Os exemplos deste artigo abrangem os casos de uso comum e demonstram como usar os recursos do JMESPath.
+O argumento `--query` tem suporte de todos os comandos na CLI do Azure. Este artigo aborda como usar os recursos do JMESPath com uma série de exemplos pequenos e simples.
 
-## <a name="work-with-dictionary-output"></a>Trabalhar com saída de dicionário
+## <a name="dictionary-and-list-cli-results"></a>Dicionário e lista dos resultados da CLI
 
-Comandos que retornam um dicionário em JSON só podem ser explorados por seus nomes de chave. Os caminhos de chave usam o caractere `.` como separador. O exemplo a seguir efetua pull de uma lista de chaves SSH públicas que têm permissão para se conectar a uma VM do Linux:
+Mesmo ao usar um formato de saída diferente do JSON, os resultados do comando da CLI são tratados primeiro como JSON para consultas. Os resultados da CLI são uma matriz JSON ou um dicionário. Matrizes são sequências de objetos que podem ser indexados, e dicionários são objetos não ordenados acessados com chaves. Os comandos que _poderiam_ apresentar mais de um objeto retornam uma matriz e os comandos que _sempre_ apresentam _apenas_ um objeto retornam um dicionário.
+
+## <a name="get-properties-in-a-dictionary"></a>Obter propriedades em um dicionário
+
+Trabalhando com os resultados do dicionário, você pode acessar as propriedades no nível superior com apenas a chave. O caractere `.` (__subexpressão__) é usado para acessar as propriedades dos dicionários aninhados. Antes de apresentar as consultas, examine a saída não modificada do comando `az vm show`:
 
 ```azurecli-interactive
-az vm show -g QueryDemo -n TestVM --query osProfile.linuxConfiguration.ssh.publicKeys
+az vm show -g QueryDemo -n TestVM -o json
 ```
 
-Vários valores podem ser colocados em uma matriz ordenada. O exemplo a seguir mostra como recuperar a imagem do Azure oferecendo o nome e o tamanho do disco do sistema operacional:
+O comando produzirá um dicionário. Parte do conteúdo foi omitida.
+
+```json
+{
+  "additionalCapabilities": null,
+  "availabilitySet": null,
+  "diagnosticsProfile": {
+    "bootDiagnostics": {
+      "enabled": true,
+      "storageUri": "https://xxxxxx.blob.core.windows.net/"
+    }
+  },
+  ...
+  "osProfile": {
+    "adminPassword": null,
+    "adminUsername": "azureuser",
+    "allowExtensionOperations": true,
+    "computerName": "TestVM",
+    "customData": null,
+    "linuxConfiguration": {
+      "disablePasswordAuthentication": true,
+      "provisionVmAgent": true,
+      "ssh": {
+        "publicKeys": [
+          {
+            "keyData": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDMobZNJTqgjWn/IB5xlilvE4Y+BMYpqkDnGRUcA0g9BYPgrGSQquCES37v2e3JmpfDPHFsaR+CPKlVr2GoVJMMHeRcMJhj50ZWq0hAnkJBhlZVWy8S7dwdGAqPyPmWM2iJDCVMVrLITAJCno47O4Ees7RCH6ku7kU86b1NOanvrNwqTHr14wtnLhgZ0gQ5GV1oLWvMEVg1YFMIgPRkTsSQKWCG5lLqQ45aU/4NMJoUxGyJTL9i8YxMavaB1Z2npfTQDQo9+womZ7SXzHaIWC858gWNl9e5UFyHDnTEDc14hKkf1CqnGJVcCJkmSfmrrHk/CkmF0ZT3whTHO1DhJTtV stramer@contoso",
+            "path": "/home/azureuser/.ssh/authorized_keys"
+          }
+        ]
+      }
+    },
+    "secrets": [],
+    "windowsConfiguration": null
+  },
+  ....
+}
+```
+
+O comando a seguir obtém as chaves SSH públicas autorizadas para conectar a VM adicionando uma consulta:
 
 ```azurecli-interactive
-az vm show -g QueryDemo -n TestVM --query 'storageProfile.[imageReference.offer, osDisk.diskSizeGb]'
+az vm show -g QueryDemo -n TestVM --query osProfile.linuxConfiguration.ssh.publicKeys -o json
 ```
 
 ```json
 [
-  "UbuntuServer",
-  30
+  {
+    "keyData": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDMobZNJTqgjWn/IB5xlilvE4Y+BMYpqkDnGRUcA0g9BYPgrGSQquCES37v2e3JmpfDPHFsaR+CPKlVr2GoVJMMHeRcMJhj50ZWq0hAnkJBhlZVWy8S7dwdGAqPyPmWM2iJDCVMVrLITAJCno47O4Ees7RCH6ku7kU86b1NOanvrNwqTHr14wtnLhgZ0gQ5GV1oLWvMEVg1YFMIgPRkTsSQKWCG5lLqQ45aU/4NMJoUxGyJTL9i8YxMavaB1Z2npfTQDQo9+womZ7SXzHaIWC858gWNl9e5UFyHDnTEDc14hKkf1CqnGJVcCJkmSfmrrHk/CkmF0ZT3whTHO1DhJTtV stramer@contoso",
+    "path": "/home/azureuser/.ssh/authorized_keys"
+  }
 ]
 ```
 
-Se quiser chaves em sua saída, você pode usar uma sintaxe de dicionário alternativa.  A escolha do elemento em um dicionário usa o formato `{displayKey:keyPath, ...}` para filtrar na expressão `keyPath` do JMESPath. Nos valores de saída, os pares chave/valor são alterados para `{displayKey: value}`. O exemplo a seguir usa a consulta do último exemplo e a torna mais clara com a atribuição de chaves para a saída:
+Para obter mais de uma propriedade, coloque as expressões entre colchetes `[ ]` (uma __lista de seleção múltipla__), como uma lista separada por vírgulas. Para obter o nome da VM, o usuário administrador e a chave SSH juntos, use o comando:
 
 ```azurecli-interactive
-az vm show -g QueryDemo -n TestVM --query 'storageProfile.{image:imageReference.offer, diskSize:osDisk.diskSizeGb}'
+az vm show -g QueryDemo -n TestVM --query '[name, osProfile.adminUsername, osProfile.linuxConfiguration.ssh.publicKeys[0].keyData]' -o json
+```
+
+```json
+[
+  "TestVM",
+  "azureuser",
+  "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDMobZNJTqgjWn/IB5xlilvE4Y+BMYpqkDnGRUcA0g9BYPgrGSQquCES37v2e3JmpfDPHFsaR+CPKlVr2GoVJMMHeRcMJhj50ZWq0hAnkJBhlZVWy8S7dwdGAqPyPmWM2iJDCVMVrLITAJCno47O4Ees7RCH6ku7kU86b1NOanvrNwqTHr14wtnLhgZ0gQ5GV1oLWvMEVg1YFMIgPRkTsSQKWCG5lLqQ45aU/4NMJoUxGyJTL9i8YxMavaB1Z2npfTQDQo9+womZ7SXzHaIWC858gWNl9e5UFyHDnTEDc14hKkf1CqnGJVcCJkmSfmrrHk/CkmF0ZT3whTHO1DhJTtV stramer@contoso"
+]
+```
+
+Esses valores são listados na matriz de resultados na ordem em que foram fornecidos na consulta. Como o resultado é uma matriz, não há nenhuma chave associada a ele.
+
+## <a name="rename-properties-in-a-query"></a>Renomear as propriedades em uma consulta
+
+Para obter um dicionário, em vez de uma matriz, ao consultar diversos valores, use o operador `{ }` (__hash de seleção múltipla__).
+O formato de um hash de seleção múltipla é `{displayName:JMESPathExpression, ...}`.
+`displayName` será a cadeia de caracteres mostrada na saída e `JMESPathExpression` é a expressão do JMESPath a avaliar. Modificando o exemplo da seção anterior alterando a lista de seleção múltipla para um hash:
+
+```azurecli-interactive
+az vm show -g QueryDemo -n TestVM --query '{VMName:name, admin:osProfile.adminUsername, sshKey:osProfile.linuxConfiguration.ssh.publicKeys[0].keyData }' -o json
 ```
 
 ```json
 {
-  "diskSize": 30,
-  "image": "UbuntuServer"
+  "VMName": "TestVM",
+  "admin": "azureuser",
+  "ssh-key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDMobZNJTqgjWn/IB5xlilvE4Y+BMYpqkDnGRUcA0g9BYPgrGSQquCES37v2e3JmpfDPHFsaR+CPKlVr2GoVJMMHeRcMJhj50ZWq0hAnkJBhlZVWy8S7dwdGAqPyPmWM2iJDCVMVrLITAJCno47O4Ees7RCH6ku7kU86b1NOanvrNwqTHr14wtnLhgZ0gQ5GV1oLWvMEVg1YFMIgPRkTsSQKWCG5lLqQ45aU/4NMJoUxGyJTL9i8YxMavaB1Z2npfTQDQo9+womZ7SXzHaIWC858gWNl9e5UFyHDnTEDc14hKkf1CqnGJVcCJkmSfmrrHk/CkmF0ZT3whTHO1DhJTtV stramer@contoso"
 }
 ```
 
-Ao exibir as informações de formato de saída `table`, a exibição de dicionário permite configurar seus próprios cabeçalhos de coluna. Para obter mais informações sobre formatos de saída, confira [Formatos de saída para comandos da CLI do Azure](/cli/azure/format-output-azure-cli).
+## <a name="get-properties-in-an-array"></a>Obter propriedades em uma matriz
+
+Uma matriz não tem nenhuma propriedade, mas pode ser indexada. Esse recurso é mostrado no último exemplo com a expressão `publicKeys[0]`, que obtém o primeiro elemento da matriz `publicKeys`. Não há nenhuma garantia de que a CLI de saída será ordenada, portanto, evite usar a indexação, a menos que tenha certeza da ordem ou não se importe com o elemento obtido. Para acessar as propriedades dos elementos em uma matriz, faça uma das duas operações: _nivelamento_ e _filtragem_. Esta seção aborda como nivelar uma matriz.
+
+O nivelamento de uma matriz é feito com o operador `[]` do JMESPath. Todas as expressões após o operador `[]` são aplicadas em cada elemento na matriz atual.
+Se `[]` aparecer no início da consulta, ele nivelará o resultado do comando da CLI. Os resultados de `az vm list` podem ser examinados com esse recurso.
+Para obter o nome, o SO e o nome do administrador para cada VM em um grupo de recursos:
+
+```azurecli-interactive
+az vm list -g QueryDemo --query '[].{Name:name, OS:storageProfile.osDisk.osType, admin:osProfile.adminUsername}' -o json
+```
+
+```json
+[
+  {
+    "Name": "Test-2",
+    "OS": "Linux",
+    "admin": "sttramer"
+  },
+  {
+    "Name": "TestVM",
+    "OS": "Linux",
+    "admin": "azureuser"
+  },
+  {
+    "Name": "WinTest",
+    "OS": "Windows",
+    "admin": "winadmin"
+  }
+]
+```
+
+Quando combinados com o formato de saída `--output table`, os nomes da coluna correspondem ao valor `displayKey` do hash de seleção múltipla:
+
+```azurecli-interactive
+az vm list -g QueryDemo --query '[].{Name:name, OS:storageProfile.osDisk.osType, Admin:osProfile.adminUsername}' --output table
+```
+
+```output
+Name     OS       Admin
+-------  -------  ---------
+Test-2   Linux    sttramer
+TestVM   Linux    azureuser
+WinTest  Windows  winadmin
+```
 
 > [!NOTE]
-> Algumas chaves são filtradas e não são impressas na exibição da tabela. Essas chaves são `id`, `type` e `etag`. Caso precise ver essas informações, é possível alterar o nome da chave e evitar a filtragem.
+>
+> Algumas chaves são filtradas e não são impressas na exibição da tabela. Essas chaves são `id`, `type` e `etag`. Para ver esses valores, você pode alterar o nome da chave em um hash de seleção múltipla.
 >
 > ```azurecli-interactive
 > az vm show -g QueryDemo -n TestVM --query "{objectID:id}" -o table
 > ```
 
-## <a name="work-with-list-output"></a>Trabalhar com saída de lista
-
-Os comandos da CLI que podem retornar mais de um valor retornam uma matriz. Os elementos da matriz são acessados por índice e não podem ser sempre retornados na mesma ordem. É possível consultar todos os elementos da matriz ao mesmo tempo mesclando-os com o operador `[]`. O operador é colocado depois da matriz ou como o primeiro elemento em uma expressão. Mesclar uma matriz executa a consulta depois dela em relação a cada elemento da matriz.
-
-O exemplo a seguir imprime o nome e o sistema operacional em execução em cada VM em um grupo de recursos.
+Qualquer matriz pode ser nivelada, não apenas o resultado de alto nível retornado pelo comando. Na última seção, a expressão `osProfile.linuxConfiguration.ssh.publicKeys[0].keyData` foi usada para obter a chave SSH pública para entrar. Para obter _cada_ chave SSH pública, a expressão pode ser escrita como `osProfile.linuxConfiguration.ssh.publicKeys[].keyData`.
+Esta expressão de consulta nivela a matriz `osProfile.linuxConfiguration.ssh.publicKeys` e executa a expressão `keyData` em cada elemento:
 
 ```azurecli-interactive
-az vm list -g QueryDemo --query '[].{name:name, image:storageProfile.imageReference.offer}'
+az vm show -g QueryDemo -n TestVM --query '{VMName:name, admin:osProfile.adminUsername, sshKeys:osProfile.linuxConfiguration.ssh.publicKeys[].keyData }' -o json
+```
+
+```json
+{
+  "VMName": "TestVM",
+  "admin": "azureuser",
+  "sshKeys": [
+    "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDMobZNJTqgjWn/IB5xlilvE4Y+BMYpqkDnGRUcA0g9BYPgrGSQquCES37v2e3JmpfDPHFsaR+CPKlVr2GoVJMMHeRcMJhj50ZWq0hAnkJBhlZVWy8S7dwdGAqPyPmWM2iJDCVMVrLITAJCno47O4Ees7RCH6ku7kU86b1NOanvrNwqTHr14wtnLhgZ0gQ5GV1oLWvMEVg1YFMIgPRkTsSQKWCG5lLqQ45aU/4NMJoUxGyJTL9i8YxMavaB1Z2npfTQDQo9+womZ7SXzHaIWC858gWNl9e5UFyHDnTEDc14hKkf1CqnGJVcCJkmSfmrrHk/CkmF0ZT3whTHO1DhJTtV stramer@contoso\n"
+  ]
+}
+```
+
+## <a name="filter-arrays"></a>Filtrar matrizes
+
+A outra operação usada para obter dados de uma matriz é a _filtragem_. A filtragem é feita com o operador `[?...]` do JMESPath.
+Esse operador usa um predicado como conteúdo. Um predicado é qualquer instrução que pode ser avaliada como `true` ou `false`. As expressões em que o predicado é avaliado como `true` são incluídas na saída.
+
+JMESPath oferece a comparação padrão e os operadores lógicos. Eles incluem `<`, `<=`, `>`, `>=`, `==` e `!=`. JMESPath também dá suporte às operações lógicas e (`&&`) ou (`||`), e não (`!`). Expressões podem ser agrupadas entre parênteses, permitindo expressões de predicado mais complexas. Para obter mais detalhes sobre predicados e operações lógicas, confira a [especificação do JMESPath](http://jmespath.org/specification.html).
+
+Na última seção, nivelamos uma matriz para obter a lista completa de todas as VMs em um grupo de recursos. Usando filtros, essa saída pode ser restrita apenas às VMs do Linux:
+
+```azurecli-interactive
+az vm list -g QueryDemo --query "[?storageProfile.osDisk.osType=='Linux'].{Name:name,  admin:osProfile.adminUsername}" --output table
+```
+
+```output
+Name    Admin
+------  ---------
+Test-2  sttramer
+TestVM  azureuser
+```
+
+> [!IMPORTANT]
+>
+> No JMESPath, as cadeias de caracteres sempre ficam entre aspas simples (`'`). Se você usar aspas duplas como parte de uma cadeia de caracteres em um predicado de filtro, obterá uma saída vazia.
+
+O JMESPath também tem funções internas que podem ajudar na filtragem. Uma dessas funções é `contains(string, substring)`, que verifica para saber se uma cadeia de caracteres contém uma subcadeia. As expressões são avaliadas antes de chamar a função, portanto, o primeiro argumento pode ser uma expressão completa do JMESPath. O exemplo a seguir localiza todas as VMs usando o armazenamento SSD para seu disco do SO:
+
+```azurecli-interactive
+az vm list -g QueryDemo --query "[?contains(storageProfile.osDisk.managedDisk.storageAccountType,'SSD')].{Name:name, Storage:storageProfile.osDisk.managedDisk.storageAccountType}" -o json
 ```
 
 ```json
 [
   {
-    "image": "CentOS",
-    "name": "CentBox"
+    "Name": "TestVM",
+    "Storage": "StandardSSD_LRS"
   },
   {
-    "image": "openSUSE-Leap",
-    "name": "SUSEBox"
-  },
-  {
-    "image": "UbuntuServer",
-    "name": "TestVM"
-  },
-  {
-    "image": "UbuntuServer",
-    "name": "Test2"
-  },
-  {
-    "image": "WindowsServer",
-    "name": "WinServ"
+    "Name": "WinTest",
+    "Storage": "StandardSSD_LRS"
   }
 ]
 ```
 
-As matrizes que fazem parte de um caminho de chave também podem ser mescladas. A consulta a seguir obtém as IDs de objeto do Azure para as NICs às quais uma VM está conectada.
+Essa consulta é um pouco longa. A chave `storageProfile.osDisk.managedDisk.storageAccountType` é mencionada duas vezes e rechaveada na saída. Uma maneira de reduzir é aplicar o filtro depois de nivelar e selecionar os dados.
 
 ```azurecli-interactive
-az vm show -g QueryDemo -n TestVM --query 'networkProfile.networkInterfaces[].id'
-```
-
-## <a name="filter-array-output-with-predicates"></a>Saída de matriz de filtro com predicados
-
-O JMESPath oferece [expressões de filtragem](http://jmespath.org/specification.html#filterexpressions) para filtrar os dados exibidos. Essas expressões são eficientes, especialmente quando combinadas com [funções internas do JMESPath](http://jmespath.org/specification.html#built-in-functions) para realizar correspondências parciais ou manipular dados em um formato padrão. As expressões de filtragem só funcionam em dados de matriz e, quando usadas em qualquer outra situação, retornam o valor `null`. Por exemplo, é possível usar a saída de comandos como a `vm list` e filtrá-la para procurar tipos específicos de VMs. O exemplo a seguir vai além do anterior, filtrando o tipo de VM para capturar somente VMs do Windows e imprimir seu nome.
-
-```azurecli-interactive
-az vm list --query '[?osProfile.windowsConfiguration!=null].name'
+az vm list -g QueryDemo --query "[].{Name:name, Storage:storageProfile.osDisk.managedDisk.storageAccountType}[?contains(Storage,'SSD')]" -o json
 ```
 
 ```json
 [
-  "WinServ"
+  {
+    "Name": "TestVM",
+    "Storage": "StandardSSD_LRS"
+  },
+  {
+    "Name": "WinTest",
+    "Storage": "StandardSSD_LRS"
+  }
 ]
 ```
 
+Para matrizes grandes, pode ser mais rápido aplicar o filtro antes de selecionar os dados.
+
+Confira a [Especificação do JMESPath - Funções Internas](http://jmespath.org/specification.html#built-in-functions) para obter a lista completa de funções.
+
+## <a name="change-output"></a>Alterar a saída
+
+As funções do JMESPath também têm outra finalidade, que é operar nos resultados de uma consulta. Qualquer função que retorna um valor booliano não altera o resultado de uma expressão.
+Por exemplo, você pode classificar os dados por um valor de propriedade com `sort_by(array, &sort_expression)`. O JMESPath usa um operador especial, `&`, para as expressões que devem ser avaliadas posteriormente como parte de uma função. O exemplo a seguir mostra como classificar uma lista de VMs pelo tamanho de disco do SO:
+
+```azurecli-interactive
+az vm list -g QueryDemo --query "sort_by([].{Name:name, Size:storageProfile.osDisk.diskSizeGb}, &Size)" --output table
+```
+
+```output
+Name     Size
+-------  ------
+TestVM   30
+Test-2   32
+WinTest  127
+```
+
+Confira a [Especificação do JMESPath - Funções Internas](http://jmespath.org/specification.html#built-in-functions) para obter a lista completa de funções.
+
 ## <a name="experiment-with-queries-interactively"></a>Experimentar consultas interativamente
 
-Para começar a aprender JMESPath, o pacote Python [JMESPath-terminal](https://github.com/jmespath/jmespath.terminal) oferece um ambiente interativo para testar as consultas. Os dados são inseridos como entrada e, em seguida, as consultas no programa são gravadas e editadas para extrair os dados.
+Para começar a experimentar o JMESPath, o pacote [JMESPath-terminal](https://github.com/jmespath/jmespath.terminal) do Python oferece um ambiente interativo para trabalhar com as consultas. Os dados são transferidos como entrada e as consultas são gravadas e executadas no editor.
 
 ```bash
 pip install jmespath-terminal

@@ -4,19 +4,69 @@ description: Saiba mais sobre as últimas atualizações da CLI do Azure
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 11/06/2018
+ms.date: 11/20/2018
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 51b8b8cad6d25f916006b8e68b8f300587f5d45b
-ms.sourcegitcommit: 0d6b08048b5b35bf0bb3d7b91ff567adbaab2a8b
+ms.openlocfilehash: 36b57d52a5851275fd317240e5c2c95171a99e7e
+ms.sourcegitcommit: 22b73d56602c1c4e647ed2c5af3d596a2f6a7ed5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51222558"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52267323"
 ---
 # <a name="azure-cli-release-notes"></a>Notas de versão da CLI do Azure
+## <a name="november-20-2018"></a>20 de novembro de 2018
+
+Versão 2.0.51
+### <a name="core"></a>Núcleo
+* Logon do MSI alterado para não reutilizar o nome da assinatura na identidade
+
+### <a name="acr"></a>ACR
+* Token de contexto adicionado à etapa da tarefa
+* Suporte adicionado para definir segredos na execução do acr para espelhar a tarefa do acr
+* Suporte aprimorado para `--top` e `--orderby` para os comandos `show-tags` e `show-manifests`
+
+### <a name="appservice"></a>AppService
+* Tempo limite padrão para a implantação do zip alterado para sondar o status aumentado para 5 minutos, também adicionando uma propriedade de tempo limite para personalizar esse valor
+* Padrão `node_version` atualizado. Redefinir a ação de troca de slots durante uma troca de duas fases preserva todas as configurações do aplicativo e cadeias de conexão
+* Verificação da SKU no lado do cliente removida para o Linux criar o plano do serviço de aplicativo
+* Erro corrigido ao tentar obter o status de implantação do zip
+
+### <a name="iotcentral"></a>Iot Central
+* Verificação de disponibilidade do subdomínio adicionada ao criar um aplicativo do IoT Central
+
+### <a name="keyvault"></a>KeyVault
+* Bug corrigido onde os erros podem ter sido ignorados
+
+### <a name="network"></a>Rede
+* Subcomandos `root-cert` adicionados a `application-gateway` para lidar com os certificados de raiz confiável
+* Opções `--min-capacity` e `--custom-error-pages` adicionadas a `application-gateway [create|update]`:
+* `--zones` adicionado para suporte da zona de disponibilidade a `application-gateway create` 
+* Argumentos `--file-upload-limit`, `--max-request-body-size` e `--request-body-check` a `application-gateway waf-config set` adicionados
+
+### <a name="rdbms"></a>Rdbms
+* Comandos vnet do mariadb adicionados
+
+### <a name="rbac"></a>Rbac
+* Um problema corrigido ao tentar atualizar credenciais inalteradas em `ad app update`
+* Avisos de saída adicionados para comunicar alterações de falha em um futuro próximo para `ad [app|sp] list` 
+
+### <a name="storage"></a>Armazenamento
+* Melhor manipulação de casos incomuns para os comandos da cópia de armazenamento
+* Corrigido o problema com `storage blob copy start-batch` não usando credenciais de logon quando as contas de origem e destino são iguais
+* Bug corrigido com `storage [blob|file] url` onde `sas_token` não foi incorporado na URL
+* Aviso de alteração da falha adicionado a `[blob|container] list`: produzirá apenas os primeiros 5.000 resultados por padrão
+
+### <a name="vm"></a>VM
+* Suporte adicionado a `[vm|vmss] create --storage-sku` para especificar a SKU da conta de armazenamento para o SO gerenciado e os discos de dados separadamente
+* Parâmetros do nome da versão alterados de `sig image-version` para `--image-version -e`
+* Argumento `sig image-version` preterido `--image-version-name`, substituído por `--image-version`
+* Suporte adicionado para usar o disco local do SO a `[vm|vmss] create --ephemeral-os-disk`
+* Adicionado o suporte ao `--no-wait` para `snapshot create/update`
+* Adicionado o comando `snapshot wait`
+* Suporte adicionado para usar o nome da instância com `[vm|vmss] extension set --extension-instance-name`
 
 ## <a name="november-6-2018"></a>6 de novembro de 2018
 
