@@ -4,125 +4,282 @@ description: Saiba como realizar consultas JMESPath na saída dos comandos da CL
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 09/09/2018
+ms.date: 11/12/2018
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 1736d1677fb6c7fc83a092493e8706c2d5edfccd
-ms.sourcegitcommit: 0d6b08048b5b35bf0bb3d7b91ff567adbaab2a8b
+ms.openlocfilehash: 53aa2d1011eb76c27a503e6b15c20aa05e13b448
+ms.sourcegitcommit: f92d5b3ccd409be126f1e7c06b9f1adc98dad78b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51222524"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52159381"
 ---
-# <a name="use-jmespath-queries-with-azure-cli"></a><span data-ttu-id="d16c0-103">Usar consultas JMESPath com a CLI do Azure</span><span class="sxs-lookup"><span data-stu-id="d16c0-103">Use JMESPath queries with Azure CLI</span></span> 
+# <a name="query-azure-cli-command-output"></a><span data-ttu-id="fed9b-103">Consultar a saída do comando da CLI do Azure</span><span class="sxs-lookup"><span data-stu-id="fed9b-103">Query Azure CLI command output</span></span>
 
-<span data-ttu-id="d16c0-104">A CLI do Azure usa o argumento `--query` para executar uma [consulta JMESPath](http://jmespath.org) nos resultados dos comandos.</span><span class="sxs-lookup"><span data-stu-id="d16c0-104">The Azure CLI uses the `--query` argument to execute a [JMESPath query](http://jmespath.org) on the results of commands.</span></span> <span data-ttu-id="d16c0-105">JMESPath é uma linguagem de consulta para JSON, permitindo que você selecione e apresente dados de saída da CLI.</span><span class="sxs-lookup"><span data-stu-id="d16c0-105">JMESPath is a query language for JSON, giving you the ability to select and present data from CLI output.</span></span> <span data-ttu-id="d16c0-106">Essas consultas são executadas na saída JSON antes de qualquer formatação de exibição.</span><span class="sxs-lookup"><span data-stu-id="d16c0-106">These queries are executed on the JSON output before any display formatting.</span></span>
+<span data-ttu-id="fed9b-104">A CLI do Azure usa o argumento `--query` para executar uma [consulta JMESPath](http://jmespath.org) nos resultados dos comandos.</span><span class="sxs-lookup"><span data-stu-id="fed9b-104">The Azure CLI uses the `--query` argument to execute a [JMESPath query](http://jmespath.org) on the results of commands.</span></span> <span data-ttu-id="fed9b-105">JMESPath é uma linguagem de consulta do JSON, permitindo que você selecione e modifique os dados na saída da CLI.</span><span class="sxs-lookup"><span data-stu-id="fed9b-105">JMESPath is a query language for JSON, giving you the ability to select and modify data from CLI output.</span></span> <span data-ttu-id="fed9b-106">As consultas são executadas na saída do JSON antes de qualquer formatação da exibição.</span><span class="sxs-lookup"><span data-stu-id="fed9b-106">Queries are executed on the JSON output before any display formatting.</span></span>
 
-<span data-ttu-id="d16c0-107">O argumento `--query` tem suporte de todos os comandos na CLI do Azure.</span><span class="sxs-lookup"><span data-stu-id="d16c0-107">The `--query` argument is supported by all commands in the Azure CLI.</span></span> <span data-ttu-id="d16c0-108">Os exemplos deste artigo abrangem os casos de uso comum e demonstram como usar os recursos do JMESPath.</span><span class="sxs-lookup"><span data-stu-id="d16c0-108">This article's examples cover common use cases and demonstrate how to use the features of JMESPath.</span></span>
+<span data-ttu-id="fed9b-107">O argumento `--query` tem suporte de todos os comandos na CLI do Azure.</span><span class="sxs-lookup"><span data-stu-id="fed9b-107">The `--query` argument is supported by all commands in the Azure CLI.</span></span> <span data-ttu-id="fed9b-108">Este artigo aborda como usar os recursos do JMESPath com uma série de exemplos pequenos e simples.</span><span class="sxs-lookup"><span data-stu-id="fed9b-108">This article covers how to use the features of JMESPath with a series of small, simple examples.</span></span>
 
-## <a name="work-with-dictionary-output"></a><span data-ttu-id="d16c0-109">Trabalhar com saída de dicionário</span><span class="sxs-lookup"><span data-stu-id="d16c0-109">Work with dictionary output</span></span>
+## <a name="dictionary-and-list-cli-results"></a><span data-ttu-id="fed9b-109">Dicionário e lista dos resultados da CLI</span><span class="sxs-lookup"><span data-stu-id="fed9b-109">Dictionary and list CLI results</span></span>
 
-<span data-ttu-id="d16c0-110">Comandos que retornam um dicionário em JSON só podem ser explorados por seus nomes de chave.</span><span class="sxs-lookup"><span data-stu-id="d16c0-110">Commands that return a JSON dictionary can be explored by their key names alone.</span></span> <span data-ttu-id="d16c0-111">Os caminhos de chave usam o caractere `.` como separador.</span><span class="sxs-lookup"><span data-stu-id="d16c0-111">Key paths use the `.` character as a separator.</span></span> <span data-ttu-id="d16c0-112">O exemplo a seguir efetua pull de uma lista de chaves SSH públicas que têm permissão para se conectar a uma VM do Linux:</span><span class="sxs-lookup"><span data-stu-id="d16c0-112">The following example pulls a list of the public SSH keys allowed to connect to a Linux VM:</span></span>
+<span data-ttu-id="fed9b-110">Mesmo ao usar um formato de saída diferente do JSON, os resultados do comando da CLI são tratados primeiro como JSON para consultas.</span><span class="sxs-lookup"><span data-stu-id="fed9b-110">Even when using an output format other than JSON, CLI command results are first treated as JSON for queries.</span></span> <span data-ttu-id="fed9b-111">Os resultados da CLI são uma matriz JSON ou um dicionário.</span><span class="sxs-lookup"><span data-stu-id="fed9b-111">CLI results are either a JSON array or dictionary.</span></span> <span data-ttu-id="fed9b-112">Matrizes são sequências de objetos que podem ser indexados, e dicionários são objetos não ordenados acessados com chaves.</span><span class="sxs-lookup"><span data-stu-id="fed9b-112">Arrays are sequences of objects that can be indexed, and dictionaries are unordered objects accessed with keys.</span></span> <span data-ttu-id="fed9b-113">Os comandos que _poderiam_ apresentar mais de um objeto retornam uma matriz e os comandos que _sempre_ apresentam _apenas_ um objeto retornam um dicionário.</span><span class="sxs-lookup"><span data-stu-id="fed9b-113">Commands that _could_ return more than one object return an array, and commands that _always_ return _only_ a single object return a dictionary.</span></span>
+
+## <a name="get-properties-in-a-dictionary"></a><span data-ttu-id="fed9b-114">Obter propriedades em um dicionário</span><span class="sxs-lookup"><span data-stu-id="fed9b-114">Get properties in a dictionary</span></span>
+
+<span data-ttu-id="fed9b-115">Trabalhando com os resultados do dicionário, você pode acessar as propriedades no nível superior com apenas a chave.</span><span class="sxs-lookup"><span data-stu-id="fed9b-115">Working with dictionary results, you can access properties from the top level with just the key.</span></span> <span data-ttu-id="fed9b-116">O caractere `.` (__subexpressão__) é usado para acessar as propriedades dos dicionários aninhados.</span><span class="sxs-lookup"><span data-stu-id="fed9b-116">The `.` (__subexpression__) character is used to access properties of nested dictionaries.</span></span> <span data-ttu-id="fed9b-117">Antes de apresentar as consultas, examine a saída não modificada do comando `az vm show`:</span><span class="sxs-lookup"><span data-stu-id="fed9b-117">Before introducing queries, take a look at the unmodified output of the `az vm show` command:</span></span>
 
 ```azurecli-interactive
-az vm show -g QueryDemo -n TestVM --query osProfile.linuxConfiguration.ssh.publicKeys
+az vm show -g QueryDemo -n TestVM -o json
 ```
 
-<span data-ttu-id="d16c0-113">Vários valores podem ser colocados em uma matriz ordenada.</span><span class="sxs-lookup"><span data-stu-id="d16c0-113">Multiple values can be put into an ordered array.</span></span> <span data-ttu-id="d16c0-114">O exemplo a seguir mostra como recuperar a imagem do Azure oferecendo o nome e o tamanho do disco do sistema operacional:</span><span class="sxs-lookup"><span data-stu-id="d16c0-114">The following example shows how to retrieve the Azure image offering name and the size of the OS disk:</span></span>
+<span data-ttu-id="fed9b-118">O comando produzirá um dicionário.</span><span class="sxs-lookup"><span data-stu-id="fed9b-118">The command will output a dictionary.</span></span> <span data-ttu-id="fed9b-119">Parte do conteúdo foi omitida.</span><span class="sxs-lookup"><span data-stu-id="fed9b-119">Some content has been omitted.</span></span>
+
+```json
+{
+  "additionalCapabilities": null,
+  "availabilitySet": null,
+  "diagnosticsProfile": {
+    "bootDiagnostics": {
+      "enabled": true,
+      "storageUri": "https://xxxxxx.blob.core.windows.net/"
+    }
+  },
+  ...
+  "osProfile": {
+    "adminPassword": null,
+    "adminUsername": "azureuser",
+    "allowExtensionOperations": true,
+    "computerName": "TestVM",
+    "customData": null,
+    "linuxConfiguration": {
+      "disablePasswordAuthentication": true,
+      "provisionVmAgent": true,
+      "ssh": {
+        "publicKeys": [
+          {
+            "keyData": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDMobZNJTqgjWn/IB5xlilvE4Y+BMYpqkDnGRUcA0g9BYPgrGSQquCES37v2e3JmpfDPHFsaR+CPKlVr2GoVJMMHeRcMJhj50ZWq0hAnkJBhlZVWy8S7dwdGAqPyPmWM2iJDCVMVrLITAJCno47O4Ees7RCH6ku7kU86b1NOanvrNwqTHr14wtnLhgZ0gQ5GV1oLWvMEVg1YFMIgPRkTsSQKWCG5lLqQ45aU/4NMJoUxGyJTL9i8YxMavaB1Z2npfTQDQo9+womZ7SXzHaIWC858gWNl9e5UFyHDnTEDc14hKkf1CqnGJVcCJkmSfmrrHk/CkmF0ZT3whTHO1DhJTtV stramer@contoso",
+            "path": "/home/azureuser/.ssh/authorized_keys"
+          }
+        ]
+      }
+    },
+    "secrets": [],
+    "windowsConfiguration": null
+  },
+  ....
+}
+```
+
+<span data-ttu-id="fed9b-120">O comando a seguir obtém as chaves SSH públicas autorizadas para conectar a VM adicionando uma consulta:</span><span class="sxs-lookup"><span data-stu-id="fed9b-120">The following command gets the SSH public keys authorized to connect to the VM by adding a query:</span></span>
 
 ```azurecli-interactive
-az vm show -g QueryDemo -n TestVM --query 'storageProfile.[imageReference.offer, osDisk.diskSizeGb]'
+az vm show -g QueryDemo -n TestVM --query osProfile.linuxConfiguration.ssh.publicKeys -o json
 ```
 
 ```json
 [
-  "UbuntuServer",
-  30
+  {
+    "keyData": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDMobZNJTqgjWn/IB5xlilvE4Y+BMYpqkDnGRUcA0g9BYPgrGSQquCES37v2e3JmpfDPHFsaR+CPKlVr2GoVJMMHeRcMJhj50ZWq0hAnkJBhlZVWy8S7dwdGAqPyPmWM2iJDCVMVrLITAJCno47O4Ees7RCH6ku7kU86b1NOanvrNwqTHr14wtnLhgZ0gQ5GV1oLWvMEVg1YFMIgPRkTsSQKWCG5lLqQ45aU/4NMJoUxGyJTL9i8YxMavaB1Z2npfTQDQo9+womZ7SXzHaIWC858gWNl9e5UFyHDnTEDc14hKkf1CqnGJVcCJkmSfmrrHk/CkmF0ZT3whTHO1DhJTtV stramer@contoso",
+    "path": "/home/azureuser/.ssh/authorized_keys"
+  }
 ]
 ```
 
-<span data-ttu-id="d16c0-115">Se quiser chaves em sua saída, você pode usar uma sintaxe de dicionário alternativa.</span><span class="sxs-lookup"><span data-stu-id="d16c0-115">If you want keys in your output, you can use an alternate dictionary syntax.</span></span>  <span data-ttu-id="d16c0-116">A escolha do elemento em um dicionário usa o formato `{displayKey:keyPath, ...}` para filtrar na expressão `keyPath` do JMESPath.</span><span class="sxs-lookup"><span data-stu-id="d16c0-116">Element selection into a dictionary uses the format `{displayKey:keyPath, ...}` to filter on the `keyPath` JMESPath expression.</span></span> <span data-ttu-id="d16c0-117">Nos valores de saída, os pares chave/valor são alterados para `{displayKey: value}`.</span><span class="sxs-lookup"><span data-stu-id="d16c0-117">In the output values, the key/value pairs are changed to `{displayKey: value}`.</span></span> <span data-ttu-id="d16c0-118">O exemplo a seguir usa a consulta do último exemplo e a torna mais clara com a atribuição de chaves para a saída:</span><span class="sxs-lookup"><span data-stu-id="d16c0-118">The next example takes the last example's query, and makes it clearer by assigning keys to the output:</span></span>
+<span data-ttu-id="fed9b-121">Para obter mais de uma propriedade, coloque as expressões entre colchetes `[ ]` (uma __lista de seleção múltipla__), como uma lista separada por vírgulas.</span><span class="sxs-lookup"><span data-stu-id="fed9b-121">To get more than one property, put expressions in square brackets  `[ ]` (a __multiselect list__) as a comma-separated list.</span></span> <span data-ttu-id="fed9b-122">Para obter o nome da VM, o usuário administrador e a chave SSH juntos, use o comando:</span><span class="sxs-lookup"><span data-stu-id="fed9b-122">To get the VM name, admin user, and SSH key all at once use the command:</span></span>
 
 ```azurecli-interactive
-az vm show -g QueryDemo -n TestVM --query 'storageProfile.{image:imageReference.offer, diskSize:osDisk.diskSizeGb}'
+az vm show -g QueryDemo -n TestVM --query '[name, osProfile.adminUsername, osProfile.linuxConfiguration.ssh.publicKeys[0].keyData]' -o json
+```
+
+```json
+[
+  "TestVM",
+  "azureuser",
+  "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDMobZNJTqgjWn/IB5xlilvE4Y+BMYpqkDnGRUcA0g9BYPgrGSQquCES37v2e3JmpfDPHFsaR+CPKlVr2GoVJMMHeRcMJhj50ZWq0hAnkJBhlZVWy8S7dwdGAqPyPmWM2iJDCVMVrLITAJCno47O4Ees7RCH6ku7kU86b1NOanvrNwqTHr14wtnLhgZ0gQ5GV1oLWvMEVg1YFMIgPRkTsSQKWCG5lLqQ45aU/4NMJoUxGyJTL9i8YxMavaB1Z2npfTQDQo9+womZ7SXzHaIWC858gWNl9e5UFyHDnTEDc14hKkf1CqnGJVcCJkmSfmrrHk/CkmF0ZT3whTHO1DhJTtV stramer@contoso"
+]
+```
+
+<span data-ttu-id="fed9b-123">Esses valores são listados na matriz de resultados na ordem em que foram fornecidos na consulta.</span><span class="sxs-lookup"><span data-stu-id="fed9b-123">These values are listed in the result array in the order they were given in the query.</span></span> <span data-ttu-id="fed9b-124">Como o resultado é uma matriz, não há nenhuma chave associada a ele.</span><span class="sxs-lookup"><span data-stu-id="fed9b-124">Since the result is an array, there are no keys associated with the results.</span></span>
+
+## <a name="rename-properties-in-a-query"></a><span data-ttu-id="fed9b-125">Renomear as propriedades em uma consulta</span><span class="sxs-lookup"><span data-stu-id="fed9b-125">Rename properties in a query</span></span>
+
+<span data-ttu-id="fed9b-126">Para obter um dicionário, em vez de uma matriz, ao consultar diversos valores, use o operador `{ }` (__hash de seleção múltipla__).</span><span class="sxs-lookup"><span data-stu-id="fed9b-126">To get a dictionary instead of an array when querying for multiple values, use the `{ }` (__multiselect hash__) operator.</span></span>
+<span data-ttu-id="fed9b-127">O formato de um hash de seleção múltipla é `{displayName:JMESPathExpression, ...}`.</span><span class="sxs-lookup"><span data-stu-id="fed9b-127">The format for a multiselect hash is `{displayName:JMESPathExpression, ...}`.</span></span>
+<span data-ttu-id="fed9b-128">`displayName` será a cadeia de caracteres mostrada na saída e `JMESPathExpression` é a expressão do JMESPath a avaliar.</span><span class="sxs-lookup"><span data-stu-id="fed9b-128">`displayName` will be the string shown in output, and `JMESPathExpression` is the JMESPath expression to evaluate.</span></span> <span data-ttu-id="fed9b-129">Modificando o exemplo da seção anterior alterando a lista de seleção múltipla para um hash:</span><span class="sxs-lookup"><span data-stu-id="fed9b-129">Modifying the example from the last section by changing the multiselect list to a hash:</span></span>
+
+```azurecli-interactive
+az vm show -g QueryDemo -n TestVM --query '{VMName:name, admin:osProfile.adminUsername, sshKey:osProfile.linuxConfiguration.ssh.publicKeys[0].keyData }' -o json
 ```
 
 ```json
 {
-  "diskSize": 30,
-  "image": "UbuntuServer"
+  "VMName": "TestVM",
+  "admin": "azureuser",
+  "ssh-key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDMobZNJTqgjWn/IB5xlilvE4Y+BMYpqkDnGRUcA0g9BYPgrGSQquCES37v2e3JmpfDPHFsaR+CPKlVr2GoVJMMHeRcMJhj50ZWq0hAnkJBhlZVWy8S7dwdGAqPyPmWM2iJDCVMVrLITAJCno47O4Ees7RCH6ku7kU86b1NOanvrNwqTHr14wtnLhgZ0gQ5GV1oLWvMEVg1YFMIgPRkTsSQKWCG5lLqQ45aU/4NMJoUxGyJTL9i8YxMavaB1Z2npfTQDQo9+womZ7SXzHaIWC858gWNl9e5UFyHDnTEDc14hKkf1CqnGJVcCJkmSfmrrHk/CkmF0ZT3whTHO1DhJTtV stramer@contoso"
 }
 ```
 
-<span data-ttu-id="d16c0-119">Ao exibir as informações de formato de saída `table`, a exibição de dicionário permite configurar seus próprios cabeçalhos de coluna.</span><span class="sxs-lookup"><span data-stu-id="d16c0-119">When displaying information in the `table` output format, dictionary display allows setting your own column headers.</span></span> <span data-ttu-id="d16c0-120">Para obter mais informações sobre formatos de saída, confira [Formatos de saída para comandos da CLI do Azure](/cli/azure/format-output-azure-cli).</span><span class="sxs-lookup"><span data-stu-id="d16c0-120">For more information on output formats, see [Output formats for Azure CLI commands](/cli/azure/format-output-azure-cli).</span></span>
+## <a name="get-properties-in-an-array"></a><span data-ttu-id="fed9b-130">Obter propriedades em uma matriz</span><span class="sxs-lookup"><span data-stu-id="fed9b-130">Get properties in an array</span></span>
+
+<span data-ttu-id="fed9b-131">Uma matriz não tem nenhuma propriedade, mas pode ser indexada.</span><span class="sxs-lookup"><span data-stu-id="fed9b-131">An array has no properties of its own, but it can be indexed.</span></span> <span data-ttu-id="fed9b-132">Esse recurso é mostrado no último exemplo com a expressão `publicKeys[0]`, que obtém o primeiro elemento da matriz `publicKeys`.</span><span class="sxs-lookup"><span data-stu-id="fed9b-132">This feature is shown in the last example with the expression `publicKeys[0]`, which gets the first element of the `publicKeys` array.</span></span> <span data-ttu-id="fed9b-133">Não há nenhuma garantia de que a CLI de saída será ordenada, portanto, evite usar a indexação, a menos que tenha certeza da ordem ou não se importe com o elemento obtido.</span><span class="sxs-lookup"><span data-stu-id="fed9b-133">There's no guarantee CLI output is ordered, so avoid using indexing unless you're sure of the order or don't care what element you get.</span></span> <span data-ttu-id="fed9b-134">Para acessar as propriedades dos elementos em uma matriz, faça uma das duas operações: _nivelamento_ e _filtragem_.</span><span class="sxs-lookup"><span data-stu-id="fed9b-134">To access the properties of elements in an array, you do one of two operations: _flattening_ and _filtering_.</span></span> <span data-ttu-id="fed9b-135">Esta seção aborda como nivelar uma matriz.</span><span class="sxs-lookup"><span data-stu-id="fed9b-135">This section covers how to flatten an array.</span></span>
+
+<span data-ttu-id="fed9b-136">O nivelamento de uma matriz é feito com o operador `[]` do JMESPath.</span><span class="sxs-lookup"><span data-stu-id="fed9b-136">Flattening an array is done with the `[]` JMESPath operator.</span></span> <span data-ttu-id="fed9b-137">Todas as expressões após o operador `[]` são aplicadas em cada elemento na matriz atual.</span><span class="sxs-lookup"><span data-stu-id="fed9b-137">All expressions after the `[]` operator are applied to each element in the current array.</span></span>
+<span data-ttu-id="fed9b-138">Se `[]` aparecer no início da consulta, ele nivelará o resultado do comando da CLI.</span><span class="sxs-lookup"><span data-stu-id="fed9b-138">If `[]` appears at the start of the query, it flattens the CLI command result.</span></span> <span data-ttu-id="fed9b-139">Os resultados de `az vm list` podem ser examinados com esse recurso.</span><span class="sxs-lookup"><span data-stu-id="fed9b-139">The results of `az vm list` can be inspected with this feature.</span></span>
+<span data-ttu-id="fed9b-140">Para obter o nome, o SO e o nome do administrador para cada VM em um grupo de recursos:</span><span class="sxs-lookup"><span data-stu-id="fed9b-140">To get the name, OS, and administrator name for each VM in a resource group:</span></span>
+
+```azurecli-interactive
+az vm list -g QueryDemo --query '[].{Name:name, OS:storageProfile.osDisk.osType, admin:osProfile.adminUsername}' -o json
+```
+
+```json
+[
+  {
+    "Name": "Test-2",
+    "OS": "Linux",
+    "admin": "sttramer"
+  },
+  {
+    "Name": "TestVM",
+    "OS": "Linux",
+    "admin": "azureuser"
+  },
+  {
+    "Name": "WinTest",
+    "OS": "Windows",
+    "admin": "winadmin"
+  }
+]
+```
+
+<span data-ttu-id="fed9b-141">Quando combinados com o formato de saída `--output table`, os nomes da coluna correspondem ao valor `displayKey` do hash de seleção múltipla:</span><span class="sxs-lookup"><span data-stu-id="fed9b-141">When combined with the `--output table` output format, the column names match up with the `displayKey` value of the multiselect hash:</span></span>
+
+```azurecli-interactive
+az vm list -g QueryDemo --query '[].{Name:name, OS:storageProfile.osDisk.osType, Admin:osProfile.adminUsername}' --output table
+```
+
+```output
+Name     OS       Admin
+-------  -------  ---------
+Test-2   Linux    sttramer
+TestVM   Linux    azureuser
+WinTest  Windows  winadmin
+```
 
 > [!NOTE]
-> <span data-ttu-id="d16c0-121">Algumas chaves são filtradas e não são impressas na exibição da tabela.</span><span class="sxs-lookup"><span data-stu-id="d16c0-121">Certain keys are filtered out and not printed in the table view.</span></span> <span data-ttu-id="d16c0-122">Essas chaves são `id`, `type` e `etag`.</span><span class="sxs-lookup"><span data-stu-id="d16c0-122">These keys are `id`, `type`, and `etag`.</span></span> <span data-ttu-id="d16c0-123">Caso precise ver essas informações, é possível alterar o nome da chave e evitar a filtragem.</span><span class="sxs-lookup"><span data-stu-id="d16c0-123">If you need to see this information, you can change the key name and avoid filtering.</span></span>
+>
+> <span data-ttu-id="fed9b-142">Algumas chaves são filtradas e não são impressas na exibição da tabela.</span><span class="sxs-lookup"><span data-stu-id="fed9b-142">Certain keys are filtered out and not printed in the table view.</span></span> <span data-ttu-id="fed9b-143">Essas chaves são `id`, `type` e `etag`.</span><span class="sxs-lookup"><span data-stu-id="fed9b-143">These keys are `id`, `type`, and `etag`.</span></span> <span data-ttu-id="fed9b-144">Para ver esses valores, você pode alterar o nome da chave em um hash de seleção múltipla.</span><span class="sxs-lookup"><span data-stu-id="fed9b-144">To see these values, you can change the key name in a multiselect hash.</span></span>
 >
 > ```azurecli-interactive
 > az vm show -g QueryDemo -n TestVM --query "{objectID:id}" -o table
 > ```
 
-## <a name="work-with-list-output"></a><span data-ttu-id="d16c0-124">Trabalhar com saída de lista</span><span class="sxs-lookup"><span data-stu-id="d16c0-124">Work with list output</span></span>
-
-<span data-ttu-id="d16c0-125">Os comandos da CLI que podem retornar mais de um valor retornam uma matriz.</span><span class="sxs-lookup"><span data-stu-id="d16c0-125">CLI commands that may return  more than one value return an array.</span></span> <span data-ttu-id="d16c0-126">Os elementos da matriz são acessados por índice e não podem ser sempre retornados na mesma ordem.</span><span class="sxs-lookup"><span data-stu-id="d16c0-126">Array elements are accessed by index and may not be returned in the same order every time.</span></span> <span data-ttu-id="d16c0-127">É possível consultar todos os elementos da matriz ao mesmo tempo mesclando-os com o operador `[]`.</span><span class="sxs-lookup"><span data-stu-id="d16c0-127">You can query all array elements at once by flattening them with the `[]` operator.</span></span> <span data-ttu-id="d16c0-128">O operador é colocado depois da matriz ou como o primeiro elemento em uma expressão.</span><span class="sxs-lookup"><span data-stu-id="d16c0-128">The operator is put after the array or as the first element in an expression.</span></span> <span data-ttu-id="d16c0-129">Mesclar uma matriz executa a consulta depois dela em relação a cada elemento da matriz.</span><span class="sxs-lookup"><span data-stu-id="d16c0-129">Flattening an array runs the query after it against each element of the array.</span></span>
-
-<span data-ttu-id="d16c0-130">O exemplo a seguir imprime o nome e o sistema operacional em execução em cada VM em um grupo de recursos.</span><span class="sxs-lookup"><span data-stu-id="d16c0-130">The following example prints out the name and OS running on each VM in a resource group.</span></span>
+<span data-ttu-id="fed9b-145">Qualquer matriz pode ser nivelada, não apenas o resultado de alto nível retornado pelo comando.</span><span class="sxs-lookup"><span data-stu-id="fed9b-145">Any array can be flattened, not just the top-level result returned by the command.</span></span> <span data-ttu-id="fed9b-146">Na última seção, a expressão `osProfile.linuxConfiguration.ssh.publicKeys[0].keyData` foi usada para obter a chave SSH pública para entrar.</span><span class="sxs-lookup"><span data-stu-id="fed9b-146">In the last section, the expression `osProfile.linuxConfiguration.ssh.publicKeys[0].keyData` was used to get the SSH public key for sign-in.</span></span> <span data-ttu-id="fed9b-147">Para obter _cada_ chave SSH pública, a expressão pode ser escrita como `osProfile.linuxConfiguration.ssh.publicKeys[].keyData`.</span><span class="sxs-lookup"><span data-stu-id="fed9b-147">To get _every_ SSH public key, the expression could instead be written as `osProfile.linuxConfiguration.ssh.publicKeys[].keyData`.</span></span>
+<span data-ttu-id="fed9b-148">Esta expressão de consulta nivela a matriz `osProfile.linuxConfiguration.ssh.publicKeys` e executa a expressão `keyData` em cada elemento:</span><span class="sxs-lookup"><span data-stu-id="fed9b-148">This query expression flattens the `osProfile.linuxConfiguration.ssh.publicKeys` array, and then runs the `keyData` expression on each element:</span></span>
 
 ```azurecli-interactive
-az vm list -g QueryDemo --query '[].{name:name, image:storageProfile.imageReference.offer}'
+az vm show -g QueryDemo -n TestVM --query '{VMName:name, admin:osProfile.adminUsername, sshKeys:osProfile.linuxConfiguration.ssh.publicKeys[].keyData }' -o json
+```
+
+```json
+{
+  "VMName": "TestVM",
+  "admin": "azureuser",
+  "sshKeys": [
+    "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDMobZNJTqgjWn/IB5xlilvE4Y+BMYpqkDnGRUcA0g9BYPgrGSQquCES37v2e3JmpfDPHFsaR+CPKlVr2GoVJMMHeRcMJhj50ZWq0hAnkJBhlZVWy8S7dwdGAqPyPmWM2iJDCVMVrLITAJCno47O4Ees7RCH6ku7kU86b1NOanvrNwqTHr14wtnLhgZ0gQ5GV1oLWvMEVg1YFMIgPRkTsSQKWCG5lLqQ45aU/4NMJoUxGyJTL9i8YxMavaB1Z2npfTQDQo9+womZ7SXzHaIWC858gWNl9e5UFyHDnTEDc14hKkf1CqnGJVcCJkmSfmrrHk/CkmF0ZT3whTHO1DhJTtV stramer@contoso\n"
+  ]
+}
+```
+
+## <a name="filter-arrays"></a><span data-ttu-id="fed9b-149">Filtrar matrizes</span><span class="sxs-lookup"><span data-stu-id="fed9b-149">Filter arrays</span></span>
+
+<span data-ttu-id="fed9b-150">A outra operação usada para obter dados de uma matriz é a _filtragem_.</span><span class="sxs-lookup"><span data-stu-id="fed9b-150">The other operation used to get data from an array is _filtering_.</span></span> <span data-ttu-id="fed9b-151">A filtragem é feita com o operador `[?...]` do JMESPath.</span><span class="sxs-lookup"><span data-stu-id="fed9b-151">Filtering is done with the `[?...]` JMESPath operator.</span></span>
+<span data-ttu-id="fed9b-152">Esse operador usa um predicado como conteúdo.</span><span class="sxs-lookup"><span data-stu-id="fed9b-152">This operator takes a predicate as its contents.</span></span> <span data-ttu-id="fed9b-153">Um predicado é qualquer instrução que pode ser avaliada como `true` ou `false`.</span><span class="sxs-lookup"><span data-stu-id="fed9b-153">A predicate is any statement that can be evaluated to either `true` or `false`.</span></span> <span data-ttu-id="fed9b-154">As expressões em que o predicado é avaliado como `true` são incluídas na saída.</span><span class="sxs-lookup"><span data-stu-id="fed9b-154">Expressions where the predicate evaluates to `true` are included in the output.</span></span>
+
+<span data-ttu-id="fed9b-155">JMESPath oferece a comparação padrão e os operadores lógicos.</span><span class="sxs-lookup"><span data-stu-id="fed9b-155">JMESPath offers the standard comparison and logical operators.</span></span> <span data-ttu-id="fed9b-156">Eles incluem `<`, `<=`, `>`, `>=`, `==` e `!=`.</span><span class="sxs-lookup"><span data-stu-id="fed9b-156">These include `<`, `<=`, `>`, `>=`, `==`, and `!=`.</span></span> <span data-ttu-id="fed9b-157">JMESPath também dá suporte às operações lógicas e (`&&`) ou (`||`), e não (`!`).</span><span class="sxs-lookup"><span data-stu-id="fed9b-157">JMESPath also supports logical and (`&&`), or (`||`), and not (`!`).</span></span> <span data-ttu-id="fed9b-158">Expressões podem ser agrupadas entre parênteses, permitindo expressões de predicado mais complexas.</span><span class="sxs-lookup"><span data-stu-id="fed9b-158">Expressions can be grouped within parenthesis, allowing for more complex predicate expressions.</span></span> <span data-ttu-id="fed9b-159">Para obter mais detalhes sobre predicados e operações lógicas, confira a [especificação do JMESPath](http://jmespath.org/specification.html).</span><span class="sxs-lookup"><span data-stu-id="fed9b-159">For the full details on predicates and logical operations, see the [JMESPath specification](http://jmespath.org/specification.html).</span></span>
+
+<span data-ttu-id="fed9b-160">Na última seção, nivelamos uma matriz para obter a lista completa de todas as VMs em um grupo de recursos.</span><span class="sxs-lookup"><span data-stu-id="fed9b-160">In the last section, we flattened an array to get the complete list of all VMs in a resource group.</span></span> <span data-ttu-id="fed9b-161">Usando filtros, essa saída pode ser restrita apenas às VMs do Linux:</span><span class="sxs-lookup"><span data-stu-id="fed9b-161">Using filters, this output can be restricted to only Linux VMs:</span></span>
+
+```azurecli-interactive
+az vm list -g QueryDemo --query "[?storageProfile.osDisk.osType=='Linux'].{Name:name,  admin:osProfile.adminUsername}" --output table
+```
+
+```output
+Name    Admin
+------  ---------
+Test-2  sttramer
+TestVM  azureuser
+```
+
+> [!IMPORTANT]
+>
+> <span data-ttu-id="fed9b-162">No JMESPath, as cadeias de caracteres sempre ficam entre aspas simples (`'`).</span><span class="sxs-lookup"><span data-stu-id="fed9b-162">In JMESPath, strings are always surrounded by single quotes (`'`).</span></span> <span data-ttu-id="fed9b-163">Se você usar aspas duplas como parte de uma cadeia de caracteres em um predicado de filtro, obterá uma saída vazia.</span><span class="sxs-lookup"><span data-stu-id="fed9b-163">If you use double quotes as part of a string in a filter predicate, you'll get empty output.</span></span>
+
+<span data-ttu-id="fed9b-164">O JMESPath também tem funções internas que podem ajudar na filtragem.</span><span class="sxs-lookup"><span data-stu-id="fed9b-164">JMESPath also has built-in functions that can help with filtering.</span></span> <span data-ttu-id="fed9b-165">Uma dessas funções é `contains(string, substring)`, que verifica para saber se uma cadeia de caracteres contém uma subcadeia.</span><span class="sxs-lookup"><span data-stu-id="fed9b-165">One such function is `contains(string, substring)`, which checks to see if a string contains a substring.</span></span> <span data-ttu-id="fed9b-166">As expressões são avaliadas antes de chamar a função, portanto, o primeiro argumento pode ser uma expressão completa do JMESPath.</span><span class="sxs-lookup"><span data-stu-id="fed9b-166">Expressions are evaluated before calling the function, so the first argument can be a full JMESPath expression.</span></span> <span data-ttu-id="fed9b-167">O exemplo a seguir localiza todas as VMs usando o armazenamento SSD para seu disco do SO:</span><span class="sxs-lookup"><span data-stu-id="fed9b-167">The next example finds all VMs using SSD storage for their OS disk:</span></span>
+
+```azurecli-interactive
+az vm list -g QueryDemo --query "[?contains(storageProfile.osDisk.managedDisk.storageAccountType,'SSD')].{Name:name, Storage:storageProfile.osDisk.managedDisk.storageAccountType}" -o json
 ```
 
 ```json
 [
   {
-    "image": "CentOS",
-    "name": "CentBox"
+    "Name": "TestVM",
+    "Storage": "StandardSSD_LRS"
   },
   {
-    "image": "openSUSE-Leap",
-    "name": "SUSEBox"
-  },
-  {
-    "image": "UbuntuServer",
-    "name": "TestVM"
-  },
-  {
-    "image": "UbuntuServer",
-    "name": "Test2"
-  },
-  {
-    "image": "WindowsServer",
-    "name": "WinServ"
+    "Name": "WinTest",
+    "Storage": "StandardSSD_LRS"
   }
 ]
 ```
 
-<span data-ttu-id="d16c0-131">As matrizes que fazem parte de um caminho de chave também podem ser mescladas.</span><span class="sxs-lookup"><span data-stu-id="d16c0-131">Arrays that are part of a key path can be flattened as well.</span></span> <span data-ttu-id="d16c0-132">A consulta a seguir obtém as IDs de objeto do Azure para as NICs às quais uma VM está conectada.</span><span class="sxs-lookup"><span data-stu-id="d16c0-132">The following query gets the Azure object IDs for the NICs a VM is connected to.</span></span>
+<span data-ttu-id="fed9b-168">Essa consulta é um pouco longa.</span><span class="sxs-lookup"><span data-stu-id="fed9b-168">This query is a little long.</span></span> <span data-ttu-id="fed9b-169">A chave `storageProfile.osDisk.managedDisk.storageAccountType` é mencionada duas vezes e rechaveada na saída.</span><span class="sxs-lookup"><span data-stu-id="fed9b-169">The `storageProfile.osDisk.managedDisk.storageAccountType` key is mentioned twice, and rekeyed in the output.</span></span> <span data-ttu-id="fed9b-170">Uma maneira de reduzir é aplicar o filtro depois de nivelar e selecionar os dados.</span><span class="sxs-lookup"><span data-stu-id="fed9b-170">One way to shorten it is to apply the filter after flattening and selecting data.</span></span>
 
 ```azurecli-interactive
-az vm show -g QueryDemo -n TestVM --query 'networkProfile.networkInterfaces[].id'
-```
-
-## <a name="filter-array-output-with-predicates"></a><span data-ttu-id="d16c0-133">Saída de matriz de filtro com predicados</span><span class="sxs-lookup"><span data-stu-id="d16c0-133">Filter array output with predicates</span></span>
-
-<span data-ttu-id="d16c0-134">O JMESPath oferece [expressões de filtragem](http://jmespath.org/specification.html#filterexpressions) para filtrar os dados exibidos.</span><span class="sxs-lookup"><span data-stu-id="d16c0-134">JMESPath offers [filtering expressions](http://jmespath.org/specification.html#filterexpressions) to filter out the data displayed.</span></span> <span data-ttu-id="d16c0-135">Essas expressões são eficientes, especialmente quando combinadas com [funções internas do JMESPath](http://jmespath.org/specification.html#built-in-functions) para realizar correspondências parciais ou manipular dados em um formato padrão.</span><span class="sxs-lookup"><span data-stu-id="d16c0-135">These expressions are powerful, especially when combined with [JMESPath built-in functions](http://jmespath.org/specification.html#built-in-functions) to do partial matches or manipulate data into a standard format.</span></span> <span data-ttu-id="d16c0-136">As expressões de filtragem só funcionam em dados de matriz e, quando usadas em qualquer outra situação, retornam o valor `null`.</span><span class="sxs-lookup"><span data-stu-id="d16c0-136">Filtering expressions only work on array data, and when used in any other situation, return the `null` value.</span></span> <span data-ttu-id="d16c0-137">Por exemplo, é possível usar a saída de comandos como a `vm list` e filtrá-la para procurar tipos específicos de VMs.</span><span class="sxs-lookup"><span data-stu-id="d16c0-137">For example, you can take the output of commands like `vm list` and filter on it to look for specific types of VMs.</span></span> <span data-ttu-id="d16c0-138">O exemplo a seguir vai além do anterior, filtrando o tipo de VM para capturar somente VMs do Windows e imprimir seu nome.</span><span class="sxs-lookup"><span data-stu-id="d16c0-138">The following example expands on the previous by filtering out the VM type to capture only Windows VMs and print their name.</span></span>
-
-```azurecli-interactive
-az vm list --query '[?osProfile.windowsConfiguration!=null].name'
+az vm list -g QueryDemo --query "[].{Name:name, Storage:storageProfile.osDisk.managedDisk.storageAccountType}[?contains(Storage,'SSD')]" -o json
 ```
 
 ```json
 [
-  "WinServ"
+  {
+    "Name": "TestVM",
+    "Storage": "StandardSSD_LRS"
+  },
+  {
+    "Name": "WinTest",
+    "Storage": "StandardSSD_LRS"
+  }
 ]
 ```
 
-## <a name="experiment-with-queries-interactively"></a><span data-ttu-id="d16c0-139">Experimentar consultas interativamente</span><span class="sxs-lookup"><span data-stu-id="d16c0-139">Experiment with queries interactively</span></span>
+<span data-ttu-id="fed9b-171">Para matrizes grandes, pode ser mais rápido aplicar o filtro antes de selecionar os dados.</span><span class="sxs-lookup"><span data-stu-id="fed9b-171">For large arrays, it may be faster to apply the filter before selecting data.</span></span>
 
-<span data-ttu-id="d16c0-140">Para começar a aprender JMESPath, o pacote Python [JMESPath-terminal](https://github.com/jmespath/jmespath.terminal) oferece um ambiente interativo para testar as consultas.</span><span class="sxs-lookup"><span data-stu-id="d16c0-140">To start learning JMESPath, the [JMESPath-terminal](https://github.com/jmespath/jmespath.terminal) Python package offers an interactive environment to experiment with queries.</span></span> <span data-ttu-id="d16c0-141">Os dados são inseridos como entrada e, em seguida, as consultas no programa são gravadas e editadas para extrair os dados.</span><span class="sxs-lookup"><span data-stu-id="d16c0-141">Data is piped as input, and then in-program queries are written and edited to extract the data.</span></span>
+<span data-ttu-id="fed9b-172">Confira a [Especificação do JMESPath - Funções Internas](http://jmespath.org/specification.html#built-in-functions) para obter a lista completa de funções.</span><span class="sxs-lookup"><span data-stu-id="fed9b-172">See the [JMESPath specification - Built-in Functions](http://jmespath.org/specification.html#built-in-functions) for the full list of functions.</span></span>
+
+## <a name="change-output"></a><span data-ttu-id="fed9b-173">Alterar a saída</span><span class="sxs-lookup"><span data-stu-id="fed9b-173">Change output</span></span>
+
+<span data-ttu-id="fed9b-174">As funções do JMESPath também têm outra finalidade, que é operar nos resultados de uma consulta.</span><span class="sxs-lookup"><span data-stu-id="fed9b-174">JMESPath functions also have another purpose, which is to operate on the results of a query.</span></span> <span data-ttu-id="fed9b-175">Qualquer função que retorna um valor booliano não altera o resultado de uma expressão.</span><span class="sxs-lookup"><span data-stu-id="fed9b-175">Any function that returns a non-boolean value changes the result of an expression.</span></span>
+<span data-ttu-id="fed9b-176">Por exemplo, você pode classificar os dados por um valor de propriedade com `sort_by(array, &sort_expression)`.</span><span class="sxs-lookup"><span data-stu-id="fed9b-176">For example, you can sort data by a property value with `sort_by(array, &sort_expression)`.</span></span> <span data-ttu-id="fed9b-177">O JMESPath usa um operador especial, `&`, para as expressões que devem ser avaliadas posteriormente como parte de uma função.</span><span class="sxs-lookup"><span data-stu-id="fed9b-177">JMESPath uses a special operator, `&`, for expressions that should be evaluated later as part of a function.</span></span> <span data-ttu-id="fed9b-178">O exemplo a seguir mostra como classificar uma lista de VMs pelo tamanho de disco do SO:</span><span class="sxs-lookup"><span data-stu-id="fed9b-178">The next example shows how to sort a VM list by OS disk size:</span></span>
+
+```azurecli-interactive
+az vm list -g QueryDemo --query "sort_by([].{Name:name, Size:storageProfile.osDisk.diskSizeGb}, &Size)" --output table
+```
+
+```output
+Name     Size
+-------  ------
+TestVM   30
+Test-2   32
+WinTest  127
+```
+
+<span data-ttu-id="fed9b-179">Confira a [Especificação do JMESPath - Funções Internas](http://jmespath.org/specification.html#built-in-functions) para obter a lista completa de funções.</span><span class="sxs-lookup"><span data-stu-id="fed9b-179">See the [JMESPath specification - Built-in Functions](http://jmespath.org/specification.html#built-in-functions) for the full list of functions.</span></span>
+
+## <a name="experiment-with-queries-interactively"></a><span data-ttu-id="fed9b-180">Experimentar consultas interativamente</span><span class="sxs-lookup"><span data-stu-id="fed9b-180">Experiment with queries interactively</span></span>
+
+<span data-ttu-id="fed9b-181">Para começar a experimentar o JMESPath, o pacote [JMESPath-terminal](https://github.com/jmespath/jmespath.terminal) do Python oferece um ambiente interativo para trabalhar com as consultas.</span><span class="sxs-lookup"><span data-stu-id="fed9b-181">To start experimenting with JMESPath, the [JMESPath-terminal](https://github.com/jmespath/jmespath.terminal) Python package offers an interactive environment to work with queries.</span></span> <span data-ttu-id="fed9b-182">Os dados são transferidos como entrada e as consultas são gravadas e executadas no editor.</span><span class="sxs-lookup"><span data-stu-id="fed9b-182">Data is piped as input, and then queries are written and run in the editor.</span></span>
 
 ```bash
 pip install jmespath-terminal
