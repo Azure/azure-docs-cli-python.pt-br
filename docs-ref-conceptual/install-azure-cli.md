@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: fa900424d30f7b7cc1e3da4f0a0ea2cf86383cbd
-ms.sourcegitcommit: 22b73d56602c1c4e647ed2c5af3d596a2f6a7ed5
+ms.openlocfilehash: 29baa488bfe6e71dbd3b95220a6562a216d038ae
+ms.sourcegitcommit: a8aac038e6ede0b1b352ca6163a04b61ff4eed5b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52267289"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52450234"
 ---
 # <a name="install-the-azure-cli"></a>Instalar a CLI do Azure
 
@@ -25,7 +25,7 @@ A versão atual da CLI é __2.0.51__. Para saber mais sobre a versão mais recen
 
 * [Instalar no Windows](install-azure-cli-windows.md)
 * [Instalar no macOS](install-azure-cli-macos.md)
-* Instalar no Subsistema de Windows ou Linux para Linux (WSL)
+* Instalar no Linux ou [Subsistema Windows para Linux (WSL)](/windows/wsl/about)
   * [Instalar com apt no Debian ou Ubuntu](install-azure-cli-apt.md)
   * [Instalar com yum no RHEL, Fedora ou CentOS](install-azure-cli-yum.md)
   * [Instalar com zypper no openSUSE ou SLE](install-azure-cli-zypper.md)
