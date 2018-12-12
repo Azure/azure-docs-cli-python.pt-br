@@ -9,14 +9,37 @@ ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 36b57d52a5851275fd317240e5c2c95171a99e7e
-ms.sourcegitcommit: 22b73d56602c1c4e647ed2c5af3d596a2f6a7ed5
+ms.openlocfilehash: 7a2ab41dd6696d658d05ab76e44abf97626761aa
+ms.sourcegitcommit: 14aa16beeec59e51890a6cba4906bdc8e19b94d0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52267323"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52892676"
 ---
 # <a name="azure-cli-release-notes"></a>Notas de versão da CLI do Azure
+## <a name="december-4-2018"></a>4 de dezembro de 2018
+
+Versão 2.0.52
+### <a name="core"></a>Núcleo
+* Adicionado suporte para provisionamento de recursos de locatários cruzados para a entidade de serviço de multilocatários
+* Corrigido o bug onde as ids enviadas por pipe de um comando com a saída tsv eram analisados incorretamente
+
+### <a name="appservice"></a>AppService
+* [VERSÃO PRÉVIA] Adicionado o comando `webapp up` que ajuda a criar e implantar conteúdo em aplicativo
+* Corrigido um bug no aplicativo com base em contêiner do Windows devido à alteração de back-end
+
+### <a name="network"></a>Rede
+* Adicionado o argumento `--exclusion` a `application-gateway waf-config set` para dar suporte a exclusões de WAF
+
+### <a name="role"></a>Função
+* Adicionado suporte para identificadores personalizados para a credencial de senha 
+
+### <a name="vm"></a>VM
+* [PRETERIDO] Parâmetro preterido `vm extension [show|wait] --expand`
+* Adicionado parâmetro `--force` a `vm restart` para reimplantar as VMs sem resposta
+* Alterado `[vm|vmss] create --authentication-type` para aceitar "todos" para criar uma VM com senha e autenticação SSH
+* Adicionado parâmetro `image create --os-disk-caching` para definir o cache de disco do sistema operacional para uma imagem
+
 ## <a name="november-20-2018"></a>20 de novembro de 2018
 
 Versão 2.0.51
