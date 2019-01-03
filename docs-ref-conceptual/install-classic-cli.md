@@ -8,13 +8,13 @@ ms.date: 06/11/2018
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
-ms.devlang: azure-cli
-ms.openlocfilehash: 78043f9c070626545030971dea2a8fd155ac76c2
-ms.sourcegitcommit: 0d6b08048b5b35bf0bb3d7b91ff567adbaab2a8b
+ms.devlang: azurecli
+ms.openlocfilehash: 65bf8cdc4ee5d74a778d29cd96e51bad5dc6b22e
+ms.sourcegitcommit: f40bd067ece4e6ec13e259782ed8db3e33b61a75
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51222456"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53593363"
 ---
 # <a name="install-the-azure-classic-cli"></a>Instalar a CLI clássica do Azure
 
