@@ -8,13 +8,13 @@ ms.date: 11/27/2018
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
-ms.devlang: azure-cli
-ms.openlocfilehash: c33c3e75991979a72a7b82183dd88b87715907ae
-ms.sourcegitcommit: a8aac038e6ede0b1b352ca6163a04b61ff4eed5b
+ms.devlang: azurecli
+ms.openlocfilehash: 1973c933cbffa494cbe9c0749346450251feefcb
+ms.sourcegitcommit: 9bd90875a324908ec7195fc4c4f63ebf124760f9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52450251"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53982579"
 ---
 # <a name="install-azure-cli-with-apt"></a>Instalar CLI do Azure com o apt
 
@@ -25,16 +25,21 @@ Se você estiver executando uma distribuição que vem com `apt`, como o Ubuntu 
 
 ## <a name="install"></a>Instalar
 
-1. <div id="install-step-1"/>Modifique sua lista de fontes:
+1. Instale os pacotes de pré-requisito:
 
     ```bash
-    sudo apt-get install apt-transport-https lsb-release software-properties-common -y
+    sudo apt-get install apt-transport-https lsb-release software-properties-common dirmngr -y
+    ```
+
+2. <div id="set-release"/>Modifique sua lista de fontes:
+
+    ```bash
     AZ_REPO=$(lsb_release -cs)
     echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ $AZ_REPO main" | \
         sudo tee /etc/apt/sources.list.d/azure-cli.list
     ```
 
-2. <div id="signingKey"/>Obtenha a chave de assinatura da Microsoft:
+3. <div id="signingKey"/>Obtenha a chave de assinatura da Microsoft:
 
    ```bash
    sudo apt-key --keyring /etc/apt/trusted.gpg.d/Microsoft.gpg adv \
@@ -42,7 +47,7 @@ Se você estiver executando uma distribuição que vem com `apt`, como o Ubuntu 
         --recv-keys BC528686B50D79E339D3721CEB3E94ADBE1229CF
    ```
 
-3. Instalar a CLI:
+4. Instalar a CLI:
 
    ```bash
    sudo apt-get update
@@ -64,7 +69,7 @@ Aqui estão alguns problemas comuns vistos durante a instalação com `apt`. Se 
 
 ### <a name="lsbrelease-does-not-return-the-correct-base-distribution-version"></a>lsb_release não retorna a versão correta da distribuição de base
 
-Algumas distribuições derivadas do Ubuntu ou do Debian, como o Linux Mint, podem não retornar o nome correto da versão de `lsb_release`. Esse valor é usado no processo de instalação para determinar o pacote de instalação. Se você souber o nome da versão da qual sua distribuição é derivada, poderá definir o `AZ_REPO` valor manualmente em [instalar etapa 1](#install-step-1). Caso contrário, procure informações para sua distribuição sobre como determinar o nome da distribuição de base e defina `AZ_REPO` para o valor correto.
+Algumas distribuições derivadas do Ubuntu ou do Debian, como o Linux Mint, podem não retornar o nome correto da versão de `lsb_release`. Esse valor é usado no processo de instalação para determinar o pacote de instalação. Se você souber o nome da versão da qual sua distribuição é derivada, poderá definir o `AZ_REPO` valor manualmente em [instalar etapa 2](#set-release). Caso contrário, procure informações para sua distribuição sobre como determinar o nome da distribuição de base e defina `AZ_REPO` para o valor correto.
 
 ### <a name="no-package-for-your-distribution"></a>Nenhum pacote para distribuição
 
@@ -87,6 +92,8 @@ O erro ocorre devido a um componente ausente requerido por `apt-key`. Você pode
 ```bash
 sudo apt-get install dirmngr
 ```
+
+Se você estiver usando o subsistema do Windows para Linux (WSL), esse erro também aparece nas versões do Windows anteriores ao Windows 10 1809. Para resolver o problema, atualize sua versão do Windows.
 
 ### <a name="apt-key-hangs"></a>apt-key trava
 
