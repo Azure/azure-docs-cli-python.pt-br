@@ -4,19 +4,88 @@ description: Saiba mais sobre as últimas atualizações da CLI do Azure
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 11/20/2018
+ms.date: 12/18/2018
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
-ms.devlang: azure-cli
-ms.openlocfilehash: 7a2ab41dd6696d658d05ab76e44abf97626761aa
-ms.sourcegitcommit: 14aa16beeec59e51890a6cba4906bdc8e19b94d0
+ms.devlang: azurecli
+ms.openlocfilehash: 10663ad8e85a15b8fedb5ac12c5d17256d07e523
+ms.sourcegitcommit: 614811ea63ceb0e71bd99323846dc1b754e15255
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52892676"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53805951"
 ---
 # <a name="azure-cli-release-notes"></a>Notas de versão da CLI do Azure
+
+## <a name="december-20-2018"></a>20 de dezembro de 2018
+
+Versão 2.0.54
+### <a name="appservice"></a>AppService
+* Corrigido o problema que causava falha na reimplantação do `webapp up`
+* Adicionado suporte para listar e restaurar instantâneos de aplicativos Web
+* Adicionado suporte para o sinalizador `--runtime` para aplicativos de funções do Windows
+
+### <a name="iotcentral"></a>IoT Central
+* Corrigida a chamada à API do comando de atualização
+
+### <a name="role"></a>Função
+* [ALTERAÇÃO SIGNIFICATIVA] `ad [app|sp] list` alterado para listar somente os 100 primeiros objetos por padrão
+
+### <a name="sql"></a>SQL
+* Adicionado suporte para ordenação personalizada nas instâncias gerenciadas
+
+### <a name="vm"></a>VM
+* Parâmetro `---os-type` adicionado a `disk create`
+
+## <a name="december-18-2018"></a>18 de dezembro de 2018
+
+Versão 2.0.53
+### <a name="acr"></a>ACR
+* Adicionado suporte para importação de imagem de Registros de Contêiner externos
+* Simplificado o layout da tabela para a lista de tarefas
+* Adicionado suporte para URLs do Azure DevOps
+
+### <a name="acs"></a>ACS
+* Adicionada visualização dos nós virtuais
+* Removido “(VISUALIZAÇÃO)” de argumentos do AAD para `aks create`
+* [PRETERIDO] Comandos `az acs` preteridos. O serviço ACS será desativado em 31 de janeiro de 2020
+* Adicionado suporte da Política de Rede durante a criação de novos clusters AKS
+* Removido o requisito do argumento `--nodepool-name` para `aks scale` se houver apenas um pool de nós
+
+### <a name="appservice"></a>AppService
+* Corrigido o problema em que `webapp config container` não honra o parâmetro `--slot`
+
+### <a name="botservice"></a>Serviço de bot
+* Suporte adicionado para análise do arquivo `.bot` ao chamar `bot show`
+* Corrigido o bug de provisionamento do AppInsights
+* Corrigido o bug de espaço em branco ao lidar com caminhos de arquivo
+* Reduzidas as chamadas de rede do Kudu
+* Melhorias de UX para comandos gerais
+
+### <a name="consumption"></a>Consumo
+* Corrigidos os bugs da API de orçamento ao mostrar notificações
+
+### <a name="cosmosdb"></a>CosmosDB
+* Suporte adicionado para atualizar a conta de vários mestres para mestre único
+
+### <a name="maps"></a>Mapas
+* Adicionado suporte ao SKU S1 para `maps account [create|update]`
+
+### <a name="network"></a>Rede
+* Adicionado suporte para `--format` e `--log-version` para `watcher flow-log configure`
+* Corrigido o problema com `dns zone update` em que usar "" para limpar a resolução e o registro de redes virtuais não funcionava
+
+### <a name="resource"></a>Recurso
+* Corrigido o tratamento do parâmetro de escopo para grupos de gerenciamento do `policy assignment [create|list|delete|show|update]` 
+* Adicionado o novo comando `resource wait`
+
+### <a name="storage"></a>Armazenamento
+*  Adicionada a capacidade de atualizar a versão do esquema de log para serviços de armazenamento no `storage logging update`
+
+### <a name="vm"></a>VM
+* Corrigida a falha em `vm identity remove` quando a VM especificada não tem nenhuma identidade de serviço gerenciado atribuída
+
 ## <a name="december-4-2018"></a>4 de dezembro de 2018
 
 Versão 2.0.52
@@ -290,7 +359,7 @@ Versão 2.0.47
 * Alterado para restringir os comandos de armazenamento do keyvault ao perfil da API mais recente
 
 ### <a name="network"></a>Rede
-* `network dns zone create` corrigido: o comando terá êxito mesmo se o usuário tiver configurado um local padrão. Veja o n° 6052
+* Corrigido `network dns zone create`: O comando terá êxito mesmo se o usuário tiver configurado um local padrão. Veja o n° 6052
 * Preterido `--remote-vnet-id` para `network vnet peering create`
 * `--remote-vnet` a `network vnet peering create` adicionados, que aceita um nome ou uma ID
 * Suporte adicionado para vários prefixos de sub-rede a `network vnet create` com `--subnet-prefixes`
@@ -1336,7 +1405,7 @@ Versão 2.0.30
 ### <a name="monitor"></a>Monitoramento
 
 * Adição de suporte para `--top`, `--orderby` e `--namespace` para `metrics list` [#5785](https://github.com/Azure/azure-cli/issues/5785)
-* [#4529](https://github.com/Azure/azure-cli/issues/5785) corrigido: `metrics list` aceita uma lista separada por espaços de métricas para recuperação
+* Corrigido [#4529](https://github.com/Azure/azure-cli/issues/5785): `metrics list` aceita uma lista separada por espaços de métricas para recuperação
 * Adição de suporte para `--namespace` para `metrics list-definitions` [#5785](https://github.com/Azure/azure-cli/issues/5785)
 
 ### <a name="network"></a>Rede
@@ -1366,7 +1435,7 @@ Versão 2.0.30
 ### <a name="storage"></a>Armazenamento
 
 * Correção de problema ao carregar um arquivo com tamanho entre 195 e 200 GB
-* [4049#](https://github.com/Azure/azure-cli/issues/4049) corrigido: problemas com o acréscimo de uploads de blob ignorando os parâmetros da condição
+* Corrigido [#4049](https://github.com/Azure/azure-cli/issues/4049): problemas com o acréscimo de uploads de blob ignorando os parâmetros da condição
 
 ### <a name="vm"></a>VM
 
@@ -1413,9 +1482,9 @@ Versão 2.0.29
 
 ### <a name="interactive"></a>Interativo
 
-* [5625](https://github.com/Azure/azure-cli/issues/5625) corrigido: manter histórico em sessões diferentes
-* [3016](https://github.com/Azure/azure-cli/issues/3016) corrigido: histórico não registrado no escopo
-* [5688](https://github.com/Azure/azure-cli/issues/5688) corrigido: as conclusões não aparecerão se o carregamento da tabela de comando encontrou uma exceção
+* Corrigido [#5625](https://github.com/Azure/azure-cli/issues/5625): manter histórico em sessões diferentes
+* Corrigido [#3016](https://github.com/Azure/azure-cli/issues/3016): histórico não registrado no escopo
+* Corrigido [#5688](https://github.com/Azure/azure-cli/issues/5688): as conclusões não aparecerão se o carregamento da tabela de comando encontrar uma exceção
 * Medidor de progresso corrigido para operações de longa execução
 
 ### <a name="monitor"></a>Monitoramento
@@ -1453,7 +1522,7 @@ Versão 2.0.29
 ### <a name="storage"></a>Armazenamento
 
 * [#4971](https://github.com/Azure/azure-cli/issues/4971) corrigido: `storage blob copy` agora dá suporte a outras nuvens do Azure
-* [5286](https://github.com/Azure/azure-cli/issues/5286) corrigido: os comandos em lotes `storage blob [delete-batch|download-batch|upload-batch]` não geram mais um erro após falhas da pré-condição
+* Corrigido [#5286](https://github.com/Azure/azure-cli/issues/5286): os comandos em lotes `storage blob [delete-batch|download-batch|upload-batch]` não geram mais um erro após falhas da pré-condição
 
 ### <a name="vm"></a>VM
 
@@ -1468,14 +1537,14 @@ Versão 2.0.28
 
 ### <a name="core"></a>Núcleo
 
-* Correção [#5184](https://github.com/Azure/azure-cli/issues/5184): problema de instalação do Homebrew
+* Corrigido [#5184](https://github.com/Azure/azure-cli/issues/5184): problema de instalação do Homebrew
 * Adição de suporte para telemetria de extensão com chaves personalizadas
 * Adição de log HTTP em `--debug`
 
 ### <a name="acs"></a>ACS
 
 * Alteração para usa o gráfico `virtual-kubelet-for-aks` do Helm para `aks install-connector` por padrão
-* Correção do problema de permissão insuficiente para entidades de serviço criarem um grupo de contêiner ACI
+* Problema corrigido: permissão insuficiente para entidades de serviço criarem um grupo de contêiner ACI
 * Adição dos parâmetros `--aci-container-group`, `--location` e `--image-tag` ao `aks install-connector`
 * Remoção do aviso de reprovação de `aks get-versions`
 
@@ -1499,7 +1568,7 @@ Versão 2.0.28
 
 ### <a name="network"></a>Rede
 
-* Correção [#5559](https://github.com/Azure/azure-cli/issues/5559): cliente ausente em `network vnet-gateway vpn-client generate`
+* Corrigido [#5559](https://github.com/Azure/azure-cli/issues/5559): cliente ausente em `network vnet-gateway vpn-client generate`
 
 ### <a name="resource"></a>Recurso
 
@@ -2187,8 +2256,8 @@ Versão 2.0.17
 
 ### <a name="vm"></a>VM
 
-* Corrigido: Não atribuir acesso, a menos que `--scope` seja fornecido
-* Corrigido: Usar a mesma nomenclatura de extensão do que o portal
+* Corrigido: não atribuir acesso, a menos que `--scope` seja fornecido
+* Corrigido: usar a mesma nomenclatura de extensão do que o portal
 * Foi removido `subscription` da saída de `[vm|vmss] create`
 * Corrigido: SKU de armazenamento do `[vm|vmss] create` não é aplicada em discos de dados com uma imagem
 * Corrigido: `vm format-secret --secrets` não aceita IDs de separados de nova linha
@@ -2230,11 +2299,11 @@ Versão 2.0.15
 * Adicionado um novo alias de `-i` para `az webapp config container set --docker-custom-image-name`
 * Exposto `az webapp log show`
 * Expostos novos argumentos de `az webapp delete` para manter o plano, as métricas ou o registro de DNS do serviço de aplicativo
-* Correção: detectar as configurações de slot corretamente
+* Corrigido: detectar as configurações de slot corretamente
 
 ### <a name="iot"></a>IoT
 
-* Correção #3934: Criação de política não limpa as políticas existentes
+* Corrigido #3934: a criação de uma política não limpa mais as políticas existentes
 
 ### <a name="network"></a>Rede
 
@@ -2313,7 +2382,7 @@ Versão 2.0.13
 
 ### <a name="container"></a>Contêiner
 
-* `create`: corrigido o problema onde o sinal de igual não era permitido dentro de uma variável de ambiente
+* `create`: corrigido o problema em que o sinal de igual não era permitido dentro de uma variável de ambiente
 
 
 ### <a name="data-lake-store"></a>Data Lake Store
@@ -2326,9 +2395,9 @@ Versão 2.0.13
 
 ### <a name="network"></a>Rede
 
-* `lb`: corrigido o problema onde os nomes de recursos filhos específicos não eram resolvidos corretamente quando omitidos
-* `application-gateway {subresource} delete`: corrigido o problema onde `--no-wait` não foi liquidado
-* `application-gateway http-settings update`: Corrigido o problema onde `--connection-draining-timeout` não podia ser desativado
+* `lb`: corrigido o problema em que os nomes de recursos filhos específicos não eram resolvidos corretamente quando omitidos
+* `application-gateway {subresource} delete`: corrigido o problema em que `--no-wait` não foi liquidado
+* `application-gateway http-settings update`: corrigido o problema em que `--connection-draining-timeout` não podia ser desativado
 * Corrigido o erro de argumento de palavra-chave inesperado `sa_data_size_kilobyes` com `az network vpn-connection ipsec-policy add`
 
 ### <a name="profile"></a>Perfil
@@ -2543,7 +2612,7 @@ vm (2.0.11)
 * Adicionado o argumento `--redirect-config` para `application-gateway rule create` e `application-gateway rule update`
 * Adicionado o suporte ao `--accelerated-networking` para `nic create` e `nic update`
 * Removido o argumento `--internal-dns-name-suffix` de `nic create`
-* Adicionado suporte ao `--dns-servers` para `nic update` e `nic create`: Adicionar suporte para servidores DNS
+* Adicionado o suporte ao `--dns-servers` para `nic update` e `nic create`: Adicionar suporte para --dns-servers
 * Corrigido o bug onde `local-gateway create` ignorava `--local-address-prefixes`
 * Adicionado o suporte ao `--dns-servers` para `vnet update`
 * Corrigido o bug ao criar um emparelhamento sem filtragem de rotas com `express-route peering create`
@@ -2679,10 +2748,10 @@ vm (2.0.6)
 * Adição da localização do Python a “az —version” ([nº 2986](https://github.com/Azure/azure-cli/issues/2986))
 * logon: suporte ao logon quando não há nenhuma assinatura ([nº 2929](https://github.com/Azure/azure-cli/issues/2929))
 * núcleo: correção de uma falha ao fazer logon usando uma entidade de serviço duas vezes ([nº 2800](https://github.com/Azure/azure-cli/issues/2800))
-* núcleo: permissão ao caminho do arquivo accessTokens.json para ser configurável por meio de um env var ([nº 2605](https://github.com/Azure/azure-cli/issues/2605))
-* núcleo: permissão aos padrões configurados para serem aplicados em argumentos opcionais ([nº 2703](https://github.com/Azure/azure-cli/issues/2703))
-* núcleo: melhoria do desempenho
-* núcleo: Certificados de AC personalizados – suporte à configuração da variável de ambiente REQUESTS_CA_BUNDLE
+* núcleo: permitir que o caminho do arquivo accessTokens.json seja configurável por meio de uma variável de ambiente ([#2605](https://github.com/Azure/azure-cli/issues/2605))
+* núcleo: permitir que padrões configurados sejam aplicados em argumentos opcionais ([#2703](https://github.com/Azure/azure-cli/issues/2703))
+* núcleo: desempenho aprimorado
+* núcleo: certificados de AC personalizados – suporte à configuração da variável de ambiente REQUESTS_CA_BUNDLE
 * núcleo: configuração na nuvem – uso do ponto de extremidade do “Resource Manager” caso o ponto de extremidade de “Gerenciamento” não esteja definido
 
 ### <a name="acs"></a>ACS
@@ -2735,7 +2804,7 @@ vm (2.0.6)
 ### <a name="keyvault"></a>KeyVault
 
 * BC:`az keyvault certificate download` alteração de -e da cadeia de caracteres ou do binário para PEM ou DER a fim de representar melhor as opções
-* BC: remoção de --expires e --not-before de `keyvault certificate create`, pois esses parâmetros não têm suporte no serviço
+* BC: remoção de --expires e --not-before de `keyvault certificate create`, pois estes parâmetros não têm suporte no serviço
 * Adição do parâmetro --validity a `keyvault certificate create` para substituir seletivamente o valor em --policy
 * Correção do problema em `keyvault certificate get-default-policy`, em que “expires” e “not_before” eram expostos, ao contrário de “validity_in_months”
 * Correção do cofre de chaves para importação de PEM e PFX ([nº 2754](https://github.com/Azure/azure-cli/issues/2754))
@@ -2750,7 +2819,7 @@ vm (2.0.6)
 
 ### <a name="monitor"></a>Monitoramento
 
-* Correção de bug: modelagem de `--actions` de `az alert-rules create` para consumir a cadeia de caracteres JSON ([nº 3009](https://github.com/Azure/azure-cli/issues/3009))
+* Correção de bug: modelagem de `--actions` de `az alert-rules create` para consumir a cadeia de caracteres JSON ([#3009](https://github.com/Azure/azure-cli/issues/3009))
 * Correção de bug – as configurações de diagnóstico criam, mas não aceitam logs e métrica de comandos show ([nº 2913](https://github.com/Azure/azure-cli/issues/2913))
 
 ### <a name="network"></a>Rede
@@ -2766,7 +2835,7 @@ vm (2.0.6)
 * Correção de um bug com `vpn-connection create` ao usar os parâmetros `--no-wait` ou `--validate`
 * Adição de suporte para gateways de VNet ativos/ativos
 * Remoção de valores nulos na saída de comandos `network vpn-connection list/show`
-* BC: correção de um bug na saída de `vpn-connection create`
+* BC: corrigido um bug na saída de `vpn-connection create`
 * Correção de um bug em que o argumento “--key-length” de “vpn-connection create” não é analisado corretamente
 * Correção de um bug em `dns zone import`, em que os registros não são importados corretamente
 * Correção de um bug em que `traffic-manager endpoint update` não funciona
@@ -2816,7 +2885,7 @@ vm (2.0.6)
 
 * avail-set: as contagens de domínio de UD e FD agora são opcionais
 
-  observação: comandos da VM em nuvens soberanas Evite recursos relacionados ao disco gerenciado, incluindo os seguintes:
+  observação: em comandos da VM em nuvens soberanas, evite recursos relacionados ao disco gerenciado, incluindo os seguintes:
   1. az disk/snapshot/image
   2. az vm/vmss disk
   3. Em “az vm/vmss create”, use “—use-unmanaged-disk” para evitar o disco gerenciado Outros comandos deverão funcionar
@@ -2892,7 +2961,7 @@ vm (2.0.2)
 
 ### <a name="docuemntdb"></a>DocuemntDB
 
-* DocumentDB: Adicionar suporte para a listagem de cadeias de conexão ([#2580](https://github.com/Azure/azure-cli/pull/2580))
+* DocumentDB: adicionado suporte para a listagem de cadeias de conexão ([#2580](https://github.com/Azure/azure-cli/pull/2580))
 
 ### <a name="vm"></a>VM
 
