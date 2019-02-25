@@ -6,15 +6,15 @@ ms.author: sttramer
 manager: carmonm
 ms.date: 09/09/2018
 ms.topic: conceptual
-ms.produdct: azure
+ms.product: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 27f094b68812cb68a6a33a6977d4fd58e4178731
-ms.sourcegitcommit: f40bd067ece4e6ec13e259782ed8db3e33b61a75
+ms.openlocfilehash: 4c196b8376b0044e315cfee2b3958f2f4b476df7
+ms.sourcegitcommit: 7f79860c799e78fd8a591d7a5550464080e07aa9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53593652"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56157977"
 ---
 # <a name="use-multiple-azure-subscriptions"></a>Usar várias assinaturas do Azure
 
@@ -28,7 +28,7 @@ Um usuário pode ter acesso a várias _assinaturas_, que são contratos com a Mi
 Para saber mais sobre as diferenças entre locatários, usuários e assinaturas, confira o [dicionário de terminologia de nuvem do Azure](/azure/azure-glossary-cloud-terminology).  Para saber como adicionar uma nova assinatura ao seu locatário do Azure Active Directory, confira [Como adicionar uma assinatura do Azure ao Azure Active Directory](/azure/active-directory/active-directory-how-subscriptions-associated-directory).
 Para saber como entrar em um locatário específico, confira [Entrar com a CLI do Azure](/cli/azure/authenticate-azure-cli).
 
-## <a name="change-the-active-subscription"></a>Alterar a assinatura ativa 
+## <a name="change-the-active-subscription"></a>Alterar a assinatura ativa
 
 Para acessar os recursos de uma assinatura, você precisa trocar sua assinatura ativa ou usar o argumento `--subscription`. A troca da assinatura de todos os comandos é feita com [az account set](/cli/azure/account#az-account-set).
 

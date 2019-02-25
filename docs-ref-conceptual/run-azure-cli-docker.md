@@ -10,11 +10,11 @@ ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
 ms.openlocfilehash: 2a4515f5301daca68f6e1a161fb2327f6caa0cf5
-ms.sourcegitcommit: f40bd067ece4e6ec13e259782ed8db3e33b61a75
+ms.sourcegitcommit: 7f79860c799e78fd8a591d7a5550464080e07aa9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53593822"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56157963"
 ---
 # <a name="run-azure-cli-in-a-docker-container"></a>Executar a CLI do Azure em um contêiner do Docker
 

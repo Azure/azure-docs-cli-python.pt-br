@@ -11,11 +11,11 @@ ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
 ms.openlocfilehash: d23f576a1f7447ffab0606b4554a81ae5c536e85
-ms.sourcegitcommit: f40bd067ece4e6ec13e259782ed8db3e33b61a75
+ms.sourcegitcommit: 7f79860c799e78fd8a591d7a5550464080e07aa9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53593771"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56157954"
 ---
 # <a name="azure-cli-configuration"></a>Configuração da CLI do Azure
 
@@ -84,7 +84,7 @@ A tabela a seguir contém todas as seções e as opções de nomes que podem ser
 
 Quando você fornece um valor padrão, esse argumento já não é exigido pelos comandos. Em vez disso, o valor padrão é usado.
 
-| Seção | NOME      | Tipo | DESCRIÇÃO|
+| Seção | NOME      | Type | DESCRIÇÃO|
 |---------|-----------|------|------------|
 | __core__ | output | string | O formato de saída padrão. Pode ser `json`, `jsonc`, `tsv` ou `table`. |
 | | disable\_confirm\_prompt | booleano | Ativa e desativa prompts de confirmação. |

@@ -9,17 +9,19 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: ff4ed838351167410c75c046dc8f615faa0930f5
-ms.sourcegitcommit: f40bd067ece4e6ec13e259782ed8db3e33b61a75
+ms.openlocfilehash: ffd9c279302377de6eca1b64c45749196bd99096
+ms.sourcegitcommit: 1987a39809f9865034b27130e56f30b2bd1eb72c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53593210"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56421858"
 ---
 # <a name="install-azure-cli-on-windows"></a>Instalar a CLI do Azure no Windows
 
 Para Windows, a CLI do Azure é instalada por meio de um MSI, o que fornece acesso à CLI por meio do Prompt de Comando do Windows (CMD) ou o PowerShell.
 Ao instalar o Subsistema do Windows para Linux (WSL), há pacotes disponíveis para a distribuição do Linux. Consulte a [página instalação principal](install-azure-cli.md) para ver a lista de gerenciadores de pacotes com suporte ou como instalar manualmente no WSL.
+
+[!INCLUDE [current-version](includes/current-version.md)]
 
 ## <a name="install-or-update"></a>Instalar ou atualizar
 

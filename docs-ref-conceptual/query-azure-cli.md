@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 1605b072a68d9aa781290fd862f1d67a847f571e
-ms.sourcegitcommit: f40bd067ece4e6ec13e259782ed8db3e33b61a75
+ms.openlocfilehash: eed121ce7ce8f8c1eba5079eb438190d3e4d13db
+ms.sourcegitcommit: 7f79860c799e78fd8a591d7a5550464080e07aa9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53593295"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56157997"
 ---
 # <a name="query-azure-cli-command-output"></a>Consultar a saída do comando da CLI do Azure
 
@@ -24,7 +24,7 @@ O argumento `--query` tem suporte de todos os comandos na CLI do Azure. Este art
 
 ## <a name="dictionary-and-list-cli-results"></a>Dicionário e lista dos resultados da CLI
 
-Mesmo ao usar um formato de saída diferente do JSON, os resultados do comando da CLI são tratados primeiro como JSON para consultas. Os resultados da CLI são uma matriz JSON ou um dicionário. Matrizes são sequências de objetos que podem ser indexados, e dicionários são objetos não ordenados acessados com chaves. Os comandos que _poderiam_ apresentar mais de um objeto retornam uma matriz e os comandos que _sempre_ apresentam _apenas_ um objeto retornam um dicionário.
+Mesmo ao usar um formato de saída diferente do JSON, os resultados do comando da CLI são tratados primeiro como JSON para consultas. Os resultados da CLI são uma matriz JSON ou um dicionário. Matrizes são sequências de objetos que podem ser indexados, e dicionários são objetos não ordenados acessados com chaves. Os comandos que _poderiam_ retornar mais de um objeto retornam uma matriz, e os comandos que _sempre_ retornam _apenas_ um objeto retornam um dicionário.
 
 ## <a name="get-properties-in-a-dictionary"></a>Obter propriedades em um dicionário
 
@@ -123,11 +123,11 @@ az vm show -g QueryDemo -n TestVM --query '{VMName:name, admin:osProfile.adminUs
 
 ## <a name="get-properties-in-an-array"></a>Obter propriedades em uma matriz
 
-Uma matriz não tem nenhuma propriedade, mas pode ser indexada. Esse recurso é mostrado no último exemplo com a expressão `publicKeys[0]`, que obtém o primeiro elemento da matriz `publicKeys`. Não há nenhuma garantia de que a CLI de saída será ordenada, portanto, evite usar a indexação, a menos que tenha certeza da ordem ou não se importe com o elemento obtido. Para acessar as propriedades dos elementos em uma matriz, faça uma das duas operações: _nivelamento_ e _filtragem_. Esta seção aborda como nivelar uma matriz.
+Uma matriz não tem nenhuma propriedade, mas pode ser indexada. Esse recurso é mostrado no último exemplo com a expressão `publicKeys[0]`, que obtém o primeiro elemento da matriz `publicKeys`. Não há nenhuma garantia de que a CLI de saída será ordenada, portanto, evite usar a indexação, a menos que tenha certeza da ordem ou não se importe com o elemento obtido. Para acessar as propriedades dos elementos em uma matriz, execute uma das duas operações: _nivelamento_ e _filtragem_. Esta seção aborda como nivelar uma matriz.
 
 O nivelamento de uma matriz é feito com o operador `[]` do JMESPath. Todas as expressões após o operador `[]` são aplicadas em cada elemento na matriz atual.
 Se `[]` aparecer no início da consulta, ele nivelará o resultado do comando da CLI. Os resultados de `az vm list` podem ser examinados com esse recurso.
-Para obter o nome, o SO e o nome do administrador para cada VM em um grupo de recursos:
+Para obter o nome, o SO e o nome do administrador de cada VM em um grupo de recursos:
 
 ```azurecli-interactive
 az vm list -g QueryDemo --query '[].{Name:name, OS:storageProfile.osDisk.osType, admin:osProfile.adminUsername}' -o json
@@ -153,7 +153,7 @@ az vm list -g QueryDemo --query '[].{Name:name, OS:storageProfile.osDisk.osType,
 ]
 ```
 
-Quando combinados com o formato de saída `--output table`, os nomes da coluna correspondem ao valor `displayKey` do hash de seleção múltipla:
+Quando combinados com o formato de saída `--output table`, os nomes de colunas correspondem ao valor `displayKey` do hash de seleção múltipla:
 
 ```azurecli-interactive
 az vm list -g QueryDemo --query '[].{Name:name, OS:storageProfile.osDisk.osType, Admin:osProfile.adminUsername}' --output table
@@ -197,7 +197,8 @@ az vm show -g QueryDemo -n TestVM --query '{VMName:name, admin:osProfile.adminUs
 A outra operação usada para obter dados de uma matriz é a _filtragem_. A filtragem é feita com o operador `[?...]` do JMESPath.
 Esse operador usa um predicado como conteúdo. Um predicado é qualquer instrução que pode ser avaliada como `true` ou `false`. As expressões em que o predicado é avaliado como `true` são incluídas na saída.
 
-JMESPath oferece a comparação padrão e os operadores lógicos. Eles incluem `<`, `<=`, `>`, `>=`, `==` e `!=`. JMESPath também dá suporte às operações lógicas e (`&&`) ou (`||`), e não (`!`). Expressões podem ser agrupadas entre parênteses, permitindo expressões de predicado mais complexas. Para obter mais detalhes sobre predicados e operações lógicas, confira a [especificação do JMESPath](http://jmespath.org/specification.html).
+JMESPath oferece a comparação padrão e os operadores lógicos. Eles incluem `<`, `<=`, `>`, `>=`, `==` e `!=`.
+JMESPath também dá suporte às operações lógicas e (`&&`) ou (`||`), e não (`!`). Expressões podem ser agrupadas entre parênteses, permitindo expressões de predicado mais complexas. Para obter mais detalhes sobre predicados e operações lógicas, confira a [especificação do JMESPath](http://jmespath.org/specification.html).
 
 Na última seção, nivelamos uma matriz para obter a lista completa de todas as VMs em um grupo de recursos. Usando filtros, essa saída pode ser restrita apenas às VMs do Linux:
 
@@ -216,7 +217,7 @@ TestVM  azureuser
 >
 > No JMESPath, as cadeias de caracteres sempre ficam entre aspas simples (`'`). Se você usar aspas duplas como parte de uma cadeia de caracteres em um predicado de filtro, obterá uma saída vazia.
 
-O JMESPath também tem funções internas que podem ajudar na filtragem. Uma dessas funções é `contains(string, substring)`, que verifica para saber se uma cadeia de caracteres contém uma subcadeia. As expressões são avaliadas antes de chamar a função, portanto, o primeiro argumento pode ser uma expressão completa do JMESPath. O exemplo a seguir localiza todas as VMs usando o armazenamento SSD para seu disco do SO:
+O JMESPath também tem funções internas que podem ajudar na filtragem. Uma dessas funções é `contains(string, substring)`, que verifica se uma cadeia de caracteres contém uma subcadeia. As expressões são avaliadas antes de chamar a função, portanto, o primeiro argumento pode ser uma expressão completa do JMESPath. O exemplo a seguir localiza todas as VMs usando o armazenamento SSD para seu disco do SO:
 
 ```azurecli-interactive
 az vm list -g QueryDemo --query "[?contains(storageProfile.osDisk.managedDisk.storageAccountType,'SSD')].{Name:name, Storage:storageProfile.osDisk.managedDisk.storageAccountType}" -o json
@@ -235,7 +236,7 @@ az vm list -g QueryDemo --query "[?contains(storageProfile.osDisk.managedDisk.st
 ]
 ```
 
-Essa consulta é um pouco longa. A chave `storageProfile.osDisk.managedDisk.storageAccountType` é mencionada duas vezes e rechaveada na saída. Uma maneira de reduzir é aplicar o filtro depois de nivelar e selecionar os dados.
+Essa consulta é um pouco longa. A chave `storageProfile.osDisk.managedDisk.storageAccountType` é mencionada duas vezes e rechaveada na saída. Uma maneira de reduzi-la é aplicar o filtro depois de nivelar e selecionar os dados.
 
 ```azurecli-interactive
 az vm list -g QueryDemo --query "[].{Name:name, Storage:storageProfile.osDisk.managedDisk.storageAccountType}[?contains(Storage,'SSD')]" -o json
@@ -260,7 +261,7 @@ Confira a [Especificação do JMESPath - Funções Internas](http://jmespath.org
 
 ## <a name="change-output"></a>Alterar a saída
 
-As funções do JMESPath também têm outra finalidade, que é operar nos resultados de uma consulta. Qualquer função que retorna um valor booliano não altera o resultado de uma expressão.
+As funções do JMESPath também têm outra finalidade, que é operar nos resultados de uma consulta. Qualquer função que retorna um valor não booliano altera o resultado de uma expressão.
 Por exemplo, você pode classificar os dados por um valor de propriedade com `sort_by(array, &sort_expression)`. O JMESPath usa um operador especial, `&`, para as expressões que devem ser avaliadas posteriormente como parte de uma função. O exemplo a seguir mostra como classificar uma lista de VMs pelo tamanho de disco do SO:
 
 ```azurecli-interactive
