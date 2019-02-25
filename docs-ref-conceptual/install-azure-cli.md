@@ -5,32 +5,32 @@ keywords: CLI do Azure, Instalar CLI do Azure
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 11/16/2018
+ms.date: 02/12/2019
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: a4ffdc9e3788c19dae963de35a7183ddc7950886
-ms.sourcegitcommit: 614811ea63ceb0e71bd99323846dc1b754e15255
+ms.openlocfilehash: cacaa77845708f318b3743024d7f87e658368069
+ms.sourcegitcommit: 1987a39809f9865034b27130e56f30b2bd1eb72c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53805883"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56421891"
 ---
-# <a name="install-the-azure-cli"></a><span data-ttu-id="e6094-104">Instalar a CLI do Azure</span><span class="sxs-lookup"><span data-stu-id="e6094-104">Install the Azure CLI</span></span>
+# <a name="install-the-azure-cli"></a><span data-ttu-id="31694-104">Instalar a CLI do Azure</span><span class="sxs-lookup"><span data-stu-id="31694-104">Install the Azure CLI</span></span>
 
-<span data-ttu-id="e6094-105">A CLI do Azure é uma ferramenta de linha de comando que oferece um ótima experiência para gerenciar recursos do Azure.</span><span class="sxs-lookup"><span data-stu-id="e6094-105">The Azure CLI is a command-line tool providing a great experience for managing Azure resources.</span></span> <span data-ttu-id="e6094-106">A CLI é projetada para facilitar o script, dados de consulta, dar suporte a operações de longa execução e muito mais.</span><span class="sxs-lookup"><span data-stu-id="e6094-106">The CLI is designed to make scripting easy, query data, support long-running operations, and more.</span></span> <span data-ttu-id="e6094-107">Experimente hoje e descubra o que a CLI tem a oferecer!</span><span class="sxs-lookup"><span data-stu-id="e6094-107">Try it today and find out what the CLI has to offer!</span></span>
+<span data-ttu-id="31694-105">A CLI do Azure é uma ferramenta de linha de comando que oferece um ótima experiência para gerenciar recursos do Azure.</span><span class="sxs-lookup"><span data-stu-id="31694-105">The Azure CLI is a command-line tool providing a great experience for managing Azure resources.</span></span> <span data-ttu-id="31694-106">A CLI é projetada para facilitar o script, dados de consulta, dar suporte a operações de longa execução e muito mais.</span><span class="sxs-lookup"><span data-stu-id="31694-106">The CLI is designed to make scripting easy, query data, support long-running operations, and more.</span></span> <span data-ttu-id="31694-107">Experimente hoje e descubra o que a CLI tem a oferecer!</span><span class="sxs-lookup"><span data-stu-id="31694-107">Try it today and find out what the CLI has to offer!</span></span>
 
-<span data-ttu-id="e6094-108">A versão atual da CLI é __2.0.54__.</span><span class="sxs-lookup"><span data-stu-id="e6094-108">The current version of the CLI is __2.0.54__.</span></span> <span data-ttu-id="e6094-109">Para saber mais sobre a versão mais recente, veja as [notas de versão](release-notes-azure-cli.md).</span><span class="sxs-lookup"><span data-stu-id="e6094-109">For information about the latest release, see the [release notes](release-notes-azure-cli.md).</span></span>
+[!INCLUDE [current-version](includes/current-version.md)]
 
-* [<span data-ttu-id="e6094-110">Instalar no Windows</span><span class="sxs-lookup"><span data-stu-id="e6094-110">Install on Windows</span></span>](install-azure-cli-windows.md)
-* [<span data-ttu-id="e6094-111">Instalar no macOS</span><span class="sxs-lookup"><span data-stu-id="e6094-111">Install on macOS</span></span>](install-azure-cli-macos.md)
-* <span data-ttu-id="e6094-112">Instalar no Linux ou [Subsistema Windows para Linux (WSL)](/windows/wsl/about)</span><span class="sxs-lookup"><span data-stu-id="e6094-112">Install on Linux or [Windows Subsystem for Linux (WSL)](/windows/wsl/about)</span></span>
-  * [<span data-ttu-id="e6094-113">Instalar com apt no Debian ou Ubuntu</span><span class="sxs-lookup"><span data-stu-id="e6094-113">Install with apt on Debian or Ubuntu</span></span>](install-azure-cli-apt.md)
-  * [<span data-ttu-id="e6094-114">Instalar com yum no RHEL, Fedora ou CentOS</span><span class="sxs-lookup"><span data-stu-id="e6094-114">Install with yum on RHEL, Fedora, or CentOS</span></span>](install-azure-cli-yum.md)
-  * [<span data-ttu-id="e6094-115">Instalar com zypper no openSUSE ou SLE</span><span class="sxs-lookup"><span data-stu-id="e6094-115">Install with zypper on openSUSE or SLE</span></span>](install-azure-cli-zypper.md)
-  * [<span data-ttu-id="e6094-116">Instalar do script</span><span class="sxs-lookup"><span data-stu-id="e6094-116">Install from script</span></span>](install-azure-cli-linux.md)
-* [<span data-ttu-id="e6094-117">Executar um contêiner do Docker</span><span class="sxs-lookup"><span data-stu-id="e6094-117">Run in Docker container</span></span>](run-azure-cli-docker.md)
+* [<span data-ttu-id="31694-108">Instalar no Windows</span><span class="sxs-lookup"><span data-stu-id="31694-108">Install on Windows</span></span>](install-azure-cli-windows.md)
+* [<span data-ttu-id="31694-109">Instalar no macOS</span><span class="sxs-lookup"><span data-stu-id="31694-109">Install on macOS</span></span>](install-azure-cli-macos.md)
+* <span data-ttu-id="31694-110">Instalar no Linux ou [Subsistema Windows para Linux (WSL)](/windows/wsl/about)</span><span class="sxs-lookup"><span data-stu-id="31694-110">Install on Linux or [Windows Subsystem for Linux (WSL)](/windows/wsl/about)</span></span>
+  * [<span data-ttu-id="31694-111">Instalar com apt no Debian ou Ubuntu</span><span class="sxs-lookup"><span data-stu-id="31694-111">Install with apt on Debian or Ubuntu</span></span>](install-azure-cli-apt.md)
+  * [<span data-ttu-id="31694-112">Instalar com yum no RHEL, Fedora ou CentOS</span><span class="sxs-lookup"><span data-stu-id="31694-112">Install with yum on RHEL, Fedora, or CentOS</span></span>](install-azure-cli-yum.md)
+  * [<span data-ttu-id="31694-113">Instalar com zypper no openSUSE ou SLE</span><span class="sxs-lookup"><span data-stu-id="31694-113">Install with zypper on openSUSE or SLE</span></span>](install-azure-cli-zypper.md)
+  * [<span data-ttu-id="31694-114">Instalar do script</span><span class="sxs-lookup"><span data-stu-id="31694-114">Install from script</span></span>](install-azure-cli-linux.md)
+* [<span data-ttu-id="31694-115">Executar um contêiner do Docker</span><span class="sxs-lookup"><span data-stu-id="31694-115">Run in Docker container</span></span>](run-azure-cli-docker.md)
 
 > [!NOTE]
-> <span data-ttu-id="e6094-118">Se você estiver usando o modelo de implantação clássico do Azure, [instale a CLI clássica do Azure](install-classic-cli.md).</span><span class="sxs-lookup"><span data-stu-id="e6094-118">If you're using the Azure classic deployment model, [install the Azure classic CLI](install-classic-cli.md).</span></span>
+> <span data-ttu-id="31694-116">Se você estiver usando o modelo de implantação clássico do Azure, [instale a CLI clássica do Azure](install-classic-cli.md).</span><span class="sxs-lookup"><span data-stu-id="31694-116">If you're using the Azure classic deployment model, [install the Azure classic CLI](install-classic-cli.md).</span></span>
