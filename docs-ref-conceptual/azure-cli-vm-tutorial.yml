@@ -16,12 +16,12 @@ metadata:
   ms.prod: azure
   ms.technology: azurecli
   clicktale: true
-  ms.openlocfilehash: d936f451bf29bae5513da16fb86bfd1b31b9727d
-  ms.sourcegitcommit: f40bd067ece4e6ec13e259782ed8db3e33b61a75
+  ms.openlocfilehash: e2c3c1a181105a86ccb8882b647f1984e32c8246
+  ms.sourcegitcommit: 7f79860c799e78fd8a591d7a5550464080e07aa9
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 12/18/2018
-  ms.locfileid: "53593142"
+  ms.lasthandoff: 02/12/2019
+  ms.locfileid: "56157967"
 items:
 - durationInMinutes: 1
   content: >-
@@ -55,14 +55,15 @@ items:
 - durationInMinutes: 4
   title: Configurar variáveis de ambiente a partir da saída da CLI
   content: >-
-    Agora que você tem a ID do NIC, execute `az network nic show` para obter suas informações.
+    Agora que você tem a ID do NIC, execute `az network nic show` para obter suas informações. Observe que você não precisa de um grupo de recursos aqui, pois o nome do grupo de recursos está contido na ID do recurso do Azure.
 
 
     ```azurecli-interactive
 
-    az network nic show --ids $NIC_ID -g TutorialResources
+    az network nic show --ids $NIC_ID
 
     ```
+
 
 
     Esse comando mostra todas as informações do adaptador de rede da VM. Entre esses dados estão configurações de DNS, informações de IP, configurações de segurança e o endereço MAC. Nesse momento, a meta é obter o endereço IP público e as IDs de objeto da sub-rede.
@@ -71,7 +72,6 @@ items:
     ```azurecli-interactive
 
     az network nic show --ids $NIC_ID \
-      -g TutorialResources \
       --query '{IP:ipConfigurations[].publicIpAddress.id, Subnet:ipConfigurations[].subnet.id}' \
       -o json
     ```
@@ -100,7 +100,7 @@ items:
     ```bash
 
     read -d '' IP_ID SUBNET_ID <<< $(az network nic show \
-      --ids $NIC_ID -g TutorialResources \
+      --ids $NIC_ID \
       --query '[ipConfigurations[].publicIpAddress.id, ipConfigurations[].subnet.id]' \
       -o tsv)
     ```
@@ -112,7 +112,6 @@ items:
     ```bash
 
     VM1_IP_ADDR=$(az network public-ip show --ids $IP_ID \
-      -g TutorialResources \
       --query ipAddress \
       -o tsv)
     ```
@@ -230,7 +229,7 @@ items:
 
     * Crie uma solicitação de recurso ou um relatório de erros com a CLI no [repositório da CLI do Azure](https://github.com/Azure/azure-cli).
 
-    * Faça uma pergunta ou obtenha esclarecimentos preenchendo um formulário de problemas no [repositório de documentação da CLI do Azure](https://github.com/Azure/azure-docs-cli-python).
+    * Faça uma pergunta ou obtenha esclarecimentos preenchendo um formulário de problemas no [repositório de documentação da CLI do Azure](https://github.com/MicrosoftDocs/azure-docs-cli/issues).
 
 
     Esperamos que você aproveite a CLI do Azure!

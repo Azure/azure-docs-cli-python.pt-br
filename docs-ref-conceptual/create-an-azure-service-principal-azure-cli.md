@@ -1,130 +1,173 @@
 ---
 title: Usar entidades de serviço do Azure com a CLI do Azure
-description: Saiba como criar e usar uma entidade de serviço com a CLI do Azure.
+description: Saiba como criar e usar entidades de serviço com a CLI do Azure.
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 09/07/2018
+ms.date: 02/15/2019
 ms.topic: conceptual
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 6cce8fb47dd2b57180487441055333343fff8330
-ms.sourcegitcommit: 614811ea63ceb0e71bd99323846dc1b754e15255
+ms.openlocfilehash: 7ead12b35cefd7cba9e06f7905c9267c569d98dd
+ms.sourcegitcommit: 014d89aa21f90561eb69792ad01947e481ea640a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53805866"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56741710"
 ---
 # <a name="create-an-azure-service-principal-with-azure-cli"></a>Criar uma entidade de serviço do Azure com a CLI do Azure
 
-Caso queira criar uma conexão separada com restrições de acesso, é possível fazer isso com uma entidade de serviço. Entidades de serviço são identidades separadas que podem ser associadas a uma conta. Entidades de serviço são úteis para trabalhar com aplicativos e tarefas que devem ser automatizadas. Este artigo guia você pelas etapas de criação de uma entidade de serviço.
+Ferramentas automatizadas que usam os serviços do Azure devem sempre ter permissões restritas. Em vez de os aplicativos entrarem como um usuário com privilégio total, o Azure oferece as entidades de serviço.
 
-## <a name="create-the-service-principal"></a>Criar a entidade de serviço
+Uma entidade de serviço do Azure é uma identidade criada para uso com aplicativos, serviços hospedados e ferramentas automatizadas para acessar os recursos do Azure. Esse acesso é restrito pelas funções atribuídas à entidade de serviço, oferecendo a você o controle sobre quais recursos poderão ser acessados e em qual nível. Por motivos de segurança, é sempre recomendado usar entidades de serviço com ferramentas automatizadas em vez de permitir a entrada com uma identidade de usuário.
 
-Use o comando [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) para criar uma entidade de serviço. O nome da entidade de serviço não está vinculado a nenhum aplicativo ou nome de usuário existente. Você pode criar uma entidade de serviço com a escolha do tipo de autenticação.
+Este artigo mostra as etapas para criar, obter informações e redefinir uma entidade de serviço com a CLI do Azure.
 
-* `--password` é usado para autenticação baseada em senha. Se um argumento que indica o tipo de autenticação não for incluído, --senha é usada por padrão e uma é criada para você. Se você quiser usar a autenticação baseada em senha, é recomendável usar esse comando, portanto, a senha é criada para você.  
+## <a name="create-a-service-principal"></a>Criar uma entidade de serviço
+
+Crie uma entidade de serviço com o comando [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac). Ao criar uma entidade de serviço, você pode escolher o tipo de autenticação de entrada usada. 
+
+> [!NOTE]
+>
+> Se sua conta não tiver permissão para criar uma entidade de serviço, `az ad sp create-for-rbac` mostrará uma mensagem de erro “Privilégios insuficientes para concluir a operação”. Entre em contato com o administrador do Azure Active Directory para criar uma entidade de serviço.
+
+Há dois tipos de autenticação disponíveis para as entidades de serviço: A autenticação baseada em senha e em certificado.
+
+### <a name="password-based-authentication"></a>Autenticação baseada em senha
+
+Sem parâmetros de autenticação, a autenticação baseada em senha é usada com uma senha aleatória criada para você. Caso queira uma autenticação baseada em senha, esse método é recomendado.
 
   ```azurecli-interactive
-  az ad sp create-for-rbac --name ServicePrincipalName 
+  az ad sp create-for-rbac --name ServicePrincipalName
   ```
-  Se você quiser escolher a senha, em vez de ela ser criada para você (não recomendado, por motivos de segurança), você pode usar esse comando. Verifique se você criou uma senha forte, seguindo as [regras e restrições de senha do Azure Active Directory](/azure/active-directory/active-directory-passwords-policy). A opção de escolher senha deixa a chance de uma senha fraca ser escolhida ou da senha ser usada novamente. Essa opção está planejada para ser substituída em uma versão futura da CLI do Azure. 
+
+Para uma senha fornecida pelo usuário, use o argumento `--password`. Quando criar uma senha, certifique-se de seguir as [Regras e restrições de senha do Azure Active Directory](/azure/active-directory/active-directory-passwords-policy). Não use uma senha fraca, nem reutilize uma senha.
 
   ```azurecli-interactive
   az ad sp create-for-rbac --name ServicePrincipalName --password <Choose a strong password>
   ```
 
-* `--cert` é usado para autenticação baseada em certificado para um certificado existente, como uma cadeia de caracteres pública PEM ou DER, ou `@{file}` para carregar um arquivo.
+  > [!IMPORTANT]
+  >
+  > Por motivos de segurança, o argumento `--password` para a criação da entidade de serviço será preterido em uma versão futura. Se você quiser usar a autenticação baseada em senha, evite `--password` e deixe a CLI gerar uma senha segura para você.
 
-  ```azurecli-interactive
-  az ad sp create-for-rbac --name ServicePrincipalName --cert {CertStringOrFile}
-  ```
+A saída para uma entidade de serviço com a autenticação por senha inclui a chave `password`. __Certifique-se de__ que tenha copiado esse valor já que não será possível recuperá-lo posteriormente. Se você esquecer a senha, [redefina as credenciais da entidade de serviço](#reset-credentials).
 
-  O argumento `--keyvault` pode ser adicionado para indicar que o certificado está armazenado no Azure Key Vault. Nesse caso, o valor `--cert` se refere ao nome do certificado no Key Vault.
+As chaves `appId` e `tenant` aparecem na saída do `az ad sp create-for-rbac` e são usadas na autenticação da entidade de serviço.
+Registre seus valores, mas eles podem ser recuperados a qualquer momento com o comando [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list).
 
-  ```azurecli-interactive
-  az ad sp create-for-rbac --name ServicePrincipalName --cert CertName --keyvault VaultName
-  ```
+### <a name="certificate-based-authentication"></a>Autenticação baseada em certificado
 
-* `--create-cert` cria um certificado _autoassinado_ para autenticação. Se o argumento `--cert` não for fornecido, será gerado um nome de certificado aleatório.
+Para a autenticação baseada em certificado, use o argumento `--cert`. Esse argumento exige que você mantenha um certificado existente. Certifique-se de que todas as ferramentas que usam essa entidade de serviço tenham acesso à chave privada do certificado. Os certificados devem estar no formato ASCII, como PEM, CER ou DER. Transmita o certificado como uma cadeia de caracteres ou use o formato `@path` para carregar o certificado de um arquivo.
 
-  ```azurecli-interactive
-  az ad sp create-for-rbac --name ServicePrincipalName --create-cert
-  ```
-
-  O argumento `--keyvault` pode ser adicionado para armazenar o certificado no Azure Key Vault. Ao usar `--keyvault`, o argumento `--cert` também é necessário.
-
-  ```azurecli-interactive
-  az ad sp create-for-rbac --name ServicePrincipalName --create-cert --cert CertName --keyvault VaultName
-  ```
-
-Se um argumento que indica o tipo de autenticação não for incluído, `--password` é usado por padrão.
-
-A saída JSON do comando `create-for-rbac` está no seguinte formato:
-
-```json
-{
-  "appId": "APP_ID",
-  "displayName": "ServicePrincipalName",
-  "name": "http://ServicePrincipalName",
-  "password": ...,
-  "tenant": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
-}
+```azurecli-interactive
+az ad sp create-for-rbac --name ServicePrincipalName --cert "-----BEGIN CERTIFICATE-----
+...
+-----END CERTIFICATE-----"
 ```
 
-Os valores `appId`, `tenant` e `password` são usados para autenticação. O `displayName` é usado ao procurar por uma entidade de serviço existente.
+```azurecli-interactive
+az ad sp create-for-rbac --name ServicePrincipalName --cert @/path/to/cert.pem
+```
 
-> [!NOTE]
-> Se sua conta não tem permissões suficientes para criar um serviço principal, você verá uma mensagem de erro contendo “Privilégios insuficientes para concluir a operação”. Entre em contato com o administrador do Azure Active Directory para criar uma entidade de serviço.
+O argumento `--keyvault` pode ser adicionado para usar o certificado no Azure Key Vault. Nesse caso, o valor `--cert` é o nome do certificado.
+
+```azurecli-interactive
+az ad sp create-for-rbac --name ServicePrincipalName --cert CertName --keyvault VaultName
+```
+
+Para criar um certificado _autoassinado_ para autenticação, use o argumento `--create-cert`:
+
+```azurecli-interactive
+az ad sp create-for-rbac --name ServicePrincipalName --create-cert
+```
+
+O argumento `--keyvault` pode ser adicionado para armazenar o certificado no Azure Key Vault. Ao usar `--keyvault`, o argumento `--cert` também será __necessário__.
+
+```azurecli-interactive
+az ad sp create-for-rbac --name ServicePrincipalName --create-cert --cert CertName --keyvault VaultName
+```
+
+A menos que você armazene o certificado no cofre de chaves, a saída incluirá a chave `fileWithCertAndPrivateKey`. O valor dessa chave informa onde o certificado gerado é armazenado.
+__Certifique-se__ de copiar o certificado para um local seguro ou não será possível entrar com essa entidade de serviço.
+
+Para certificados armazenados no Key Vault, recupere a chave privada do certificado com o comando [az keyvault secret show](/cli/azure/keyvault/secret#az-keyvault-secret-show). No Key Vault, o nome do segredo do certificado é igual ao nome do certificado. Se você perder o acesso à chave privada de um certificado, [redefina as credenciais da entidade de serviço](#reset-credentials).
+
+As chaves `appId` e `tenant` aparecem na saída do `az ad sp create-for-rbac` e são usadas na autenticação da entidade de serviço.
+Registre seus valores, mas eles podem ser recuperados a qualquer momento com o comando [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list).
+
+## <a name="get-an-existing-service-principal"></a>Obter uma entidade de serviço existente
+
+Uma lista das entidades de serviço em um locatário pode ser recuperada com o comando [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list). Por padrão, esse comando retorna as 100 primeiras entidades de serviço do locatário. Para obter todas as entidades de serviço de um locatário, use o argumento `--all`. Obter essa lista pode levar muito tempo, portanto, é recomendável que você filtre a lista com um dos argumentos a seguir:
+
+* `--display-name` envia solicitações às entidades de serviço que têm um _prefixo_ que corresponda ao nome fornecido. O nome de exibição de uma entidade de serviço é o valor definido com o parâmetro `--name` durante a criação. Se você não definiu `--name` durante a criação da entidade de serviço, o prefixo do nome será `azure-cli-`.
+* `--spn` filtra a correspondência do nome exato da entidade de serviço. O nome da entidade de serviço sempre começa com `https://`.
+  se o valor usado para `--name` não era um URI, esse valor é `https://` seguido do nome de exibição.
+* `--show-mine` só envia solicitações às entidades de serviço criadas pelo usuário conectado.
+* `--filter` usa um filtro OData e realiza a filtragem _do lado do servidor_. Esse método é recomendado para a filtragem do lado do cliente com o argumento `--query` da CLI. Para saber mais sobre os filtros do OData, confira [Sintaxe de expressão do OData para filtros](/rest/api/searchservice/odata-expression-syntax-for-azure-search).
+
+As informações retornadas para objetos da entidade de serviço são detalhadas. Para obter apenas as informações necessárias para entrar, use a cadeia de consulta `[].{"id":"appId", "tenant":"appOwnerTenantId"}`. Por exemplo, para obter as informações de logon para todas as entidades de serviço criadas pelo usuário conectado no momento:
+
+```azurecli-interactive
+az ad sp list --show-mine --query '[].{"id":"appId", "tenant":"appOwnerTenantId"}'
+```
+
+> [!IMPORTANT]
+>
+> `az ad sp list` ou [az ad sp show](/cli/azure/ad/sp#az-ad-sp-show) obtêm o usuário e o locatário, mas não os segredos de autenticação _nem_ o método de autenticação.
+> Os segredos para certificados no Key Vault podem ser recuperados com o comando [az keyvault secret show](/cli/azure/keyvault/secret#az-keyvault-secret-show), mas, por padrão, nenhum outro segredo será armazenado.
+> Se você esquecer o método de autenticação ou o segredo, [redefina as credenciais da entidade de serviço](#reset-credentials).
 
 ## <a name="manage-service-principal-roles"></a>Gerenciar funções da entidade de serviço
 
-A CLI do Azure fornece os comandos a seguir para gerenciar atribuições de função.
+A CLI do Azure oferece os seguintes comandos para gerenciar as atribuições de função:
 
 * [az role assignment list](/cli/azure/role/assignment#az-role-assignment-list)
 * [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create)
 * [az role assignment delete](/cli/azure/role/assignment#az-role-assignment-delete)
 
-A função padrão para uma entidade de serviço é **Colaborador**. Essa função tem permissões completas para ler e gravar em uma conta do Azure e não é adequada para aplicativos. A função **Leitor** é mais restritiva, oferecendo acesso somente leitura.  Para obter mais informações sobre o Controle de Acesso Baseado em Função (RBAC) e funções, confira [RBAC: funções internas](/azure/active-directory/role-based-access-built-in-roles).
+A função padrão para uma entidade de serviço é **Colaborador**. Essa função tem permissões completas para ler e gravar em uma conta do Azure. A função **Leitor** é mais restritiva, com acesso somente leitura.  Para obter mais informações sobre o Controle de Acesso Baseado em Função (RBAC) e funções, confira [RBAC: funções internas](/azure/active-directory/role-based-access-built-in-roles).
 
-Esse exemplo adiciona a função **Leitor** e exclui a de **Colaborador**.
+Esse exemplo adiciona a função **Leitor** e exclui a função **Colaborador**:
 
 ```azurecli-interactive
 az role assignment create --assignee APP_ID --role Reader
 az role assignment delete --assignee APP_ID --role Contributor
 ```
 
-Adicionar uma função _não_ altera as permissões atribuídas anteriormente. Ao restringir as permissões da entidade de serviço, a função __Colaborador__ sempre deve ser removida.
+> [!NOTE]
+> Caso sua conta não tenha permissão para atribuir uma função, você verá uma mensagem de erro informando que sua conta “não tem autorização para executar a ação ‘Microsoft.Authorization/roleAssignments/write’”. Entre em contato com o administrador do Azure Active Directory para gerenciar funções.
 
-As alterações podem ser verificadas, listando as funções atribuídas.
+Adicionar uma função _não_ restringe as permissões atribuídas anteriormente. Ao restringir as permissões da entidade de serviço, a função __Colaborador__ deverá ser removida.
+
+Para verificar as alterações, liste as funções atribuídas:
 
 ```azurecli-interactive
 az role assignment list --assignee APP_ID
 ```
 
-> [!NOTE]
-> Caso sua conta não tiver permissões suficientes para atribuir uma função, você verá uma mensagem de erro informando que sua conta “não tem autorização para executar a ação ‘Microsoft.Authorization/roleAssignments/write' over scope '/subscriptions/{guid}’”. Entre em contato com o administrador do Azure Active Directory para gerenciar funções.
+## <a name="sign-in-using-a-service-principal"></a>Entrar usando uma entidade de serviço
 
-## <a name="sign-in-using-the-service-principal"></a>Entrar usando a entidade de serviço
+Teste as novas credenciais e permissões da entidade de serviço iniciando a sessão. Para entrar com uma entidade de serviço, você precisa de `appId`, `tenant` e das credenciais.
 
-Você pode testar as credenciais e as permissões e da nova entidade de serviço conectando na CLI do Azure. Entre como a nova entidade de serviço usando os valores `appId`, `tenant` e de credenciais. Use o tipo de autenticação criado com a entidade de serviço.
-
-Para entrar com uma senha, forneça-a como um parâmetro de argumento.
+Para entrar com uma entidade de serviço usando a senha:
 
 ```azurecli-interactive
 az login --service-principal --username APP_ID --password PASSWORD --tenant TENANT_ID
 ```
 
-Para entrar com um certificado, ele deve estar disponível localmente como um arquivo PEM ou DER.
+Para entrar com um certificado, ele deve estar disponível localmente como um arquivo PEM ou DER, no formato ASCII:
 
 ```azurecli-interactive
-az login --service-principal --username APP_ID --tenant TENANT_ID --password PATH_TO_CERT
+az login --service-principal --username APP_ID --tenant TENANT_ID --password /path/to/cert
 ```
+
+Para saber mais sobre como entrar com uma entidade de serviço, confira [Entrar com a CLI do Azure](authenticate-azure-cli.md).
 
 ## <a name="reset-credentials"></a>Redefinir credenciais
 
-Caso esqueça as credenciais de uma entidade de serviço, elas podem ser redefinidas com o comando [az ad sp credential reset](/cli/azure/ad/sp/credential#az-ad-sp-credential-reset). As mesmas restrições e opções para criar uma nova entidade de serviço também se aplicam aqui.
+Se você esquecer as credenciais de uma entidade de serviço, use o comando [az ad sp credencial reset](/cli/azure/ad/sp/credential#az-ad-sp-credential-reset). O comando reset tem os mesmos argumentos que `az ad sp create-for-rbac`.
 
 ```azurecli-interactive
-az ad sp credential reset --name APP_ID 
+az ad sp credential reset --name APP_ID
 ```

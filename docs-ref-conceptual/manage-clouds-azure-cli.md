@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: e62523ba310f071020f0d66042e39e6f1867c56b
-ms.sourcegitcommit: f40bd067ece4e6ec13e259782ed8db3e33b61a75
+ms.openlocfilehash: 14f51e068c4d2b332b0de93406822e148d734701
+ms.sourcegitcommit: 032f35d553754fbac78b218259a8d6a697ac220e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53593839"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56458681"
 ---
-# <a name="select-clouds-with-the-azure-cli"></a>Selecionar nuvens com a CLI do Azure 
+# <a name="select-clouds-with-the-azure-cli"></a>Selecionar nuvens com a CLI do Azure
 
 Se você trabalha em regiões diferentes ou usa o [Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/), talvez precise usar mais de uma nuvem. A Microsoft fornece nuvens para a conformidade com as leis regionais, que estão disponíveis seu uso. Este artigo mostra como obter informações sobre as nuvens, alterar a nuvem atual e registrar ou cancelar o registro de novas nuvens.
 
@@ -88,7 +88,7 @@ az cloud set --name AzureChinaCloud
 
 Registre uma nova nuvem se tiver seus próprios pontos de extremidade do Azure Stack. Uma nuvem é criada com o comando [az cloud register](/cli/azure/cloud#az-cloud-register). Este comando requer um nome e um conjunto de pontos de extremidade de serviço. Para saber como registrar uma nuvem para usar com o Azure Stack, confira [Usar perfis de versão da API com a CLI do Azure no Azure Stack](/azure/azure-stack/user/azure-stack-version-profiles-azurecli2#connect-to-azure-stack).
 
-Você não precisa registrar sua própria nuvem para regiões da Alemanha, China ou Governo dos EUA. Essas nuvens são gerenciadas pela Microsoft e ficam disponíveis por padrão.  Para obter mais informações sobre todas as configurações do ponto de extremidade disponíveis, confira a [documentação para `az cloud register`](/cli/azure/cloud#az-cloud-register).
+Você não precisa registrar informações para regiões da Alemanha, China ou US Government. Essas nuvens são gerenciadas pela Microsoft e ficam disponíveis por padrão.  Para obter mais informações sobre todas as configurações do ponto de extremidade disponíveis, confira a [documentação para `az cloud register`](/cli/azure/cloud#az-cloud-register).
 
 Você não é automaticamente migrado para uma nuvem ao registrá-la. Use o comando `az cloud set` para escolher a nuvem recém-criada.
 

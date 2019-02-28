@@ -9,16 +9,18 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: b57ddd04d41b09eb145349179e3be48d3fdd5907
-ms.sourcegitcommit: f40bd067ece4e6ec13e259782ed8db3e33b61a75
+ms.openlocfilehash: 229b109b307453c87abf260a66084c94ced33d81
+ms.sourcegitcommit: 1987a39809f9865034b27130e56f30b2bd1eb72c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53593669"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56421993"
 ---
 # <a name="install-azure-cli-on-linux-manually"></a>Instalar CLI do Azure no Linux manualmente
 
 Se não houver nenhum pacote da CLI do Azure para a sua distribuição, instale a CLI manualmente executando um script.
+
+[!INCLUDE [current-version](includes/current-version.md)]
 
 > [!NOTE]
 > É altamente recomendável instalar a CLI com um gerenciador de pacotes. Um gerenciador de pacotes garante que você sempre obtenha as atualizações mais recentes, além da estabilidade dos componentes da CLI. Verifique e veja se há um pacote de distribuição antes de instalar manualmente.
@@ -27,9 +29,13 @@ Se não houver nenhum pacote da CLI do Azure para a sua distribuição, instale 
 
 A CLI requer o seguinte software:
 
-* [Python 2.7 ou Python 3. x](https://www.python.org/downloads/)
+* [Python 3.6.x ou 3.7.x](https://www.python.org/downloads/). 
 * [libffi](https://sourceware.org/libffi/)
 * [OpenSSL 1.0.2](https://www.openssl.org/source/)
+
+> [!IMPORTANT]
+>
+> A CLI também é compatível com o Python 2.7.x, que será retirado do mercado em 1º de janeiro de 2020. Por esse motivo, é recomendável que você instale o Python 3 para executar a CLI.
 
 ## <a name="install-or-update"></a>Instalar ou atualizar
 
@@ -49,7 +55,7 @@ Para saber mais sobre os diferentes métodos de autenticação, confira [Entrar 
 
 ## <a name="troubleshooting"></a>solução de problemas
 
-Aqui estão alguns problemas comuns observados durante uma instalação manual. Se você tiver um problema não abordado aqui, [arquive um problema no github](https://github.com/Azure/azure-cli/issues).
+Aqui estão alguns problemas comuns observados durante uma instalação manual. Se você tiver um problema não abordado aqui, [arquive um problema no GitHub](https://github.com/Azure/azure-cli/issues).
 
 ### <a name="curl-object-moved-error"></a>Erro "Objeto movido" de cURL
 
