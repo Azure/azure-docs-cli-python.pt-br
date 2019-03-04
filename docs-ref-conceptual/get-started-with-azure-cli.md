@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: b018f41824946dca36d0b806de0dd32a335a15b5
-ms.sourcegitcommit: 1987a39809f9865034b27130e56f30b2bd1eb72c
+ms.openlocfilehash: ddee71f39500b63065a3f71d01b3bed1a7311a52
+ms.sourcegitcommit: 943598f8bf05ee058593ca0d72aec507aa26c242
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56422010"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56963452"
 ---
 # <a name="get-started-with-azure-cli"></a>Introdução à CLI do Azure
 
@@ -34,6 +34,8 @@ Depois de instalar a CLI pela primeira vez, verifique se ela está instalada e s
 Antes de usar os comandos da CLI com uma instalação local, é preciso entrar com [az login](/cli/azure/reference-index#az-login).
 
 [!INCLUDE [interactive-login](includes/interactive-login.md)]
+
+Depois de entrar, você deve ver uma lista de assinaturas associadas à sua conta do Azure. A informação de assinatura com `isDefault: true` é a assinatura ativada no momento depois de entrar. Para selecionar outra assinatura, use o comando [az account set](/cli/azure/account#az-account-set) com a ID da assinatura para a qual alternar. Para obter mais informações sobre a seleção da assinatura, confira [Usar várias assinaturas do Azure](manage-azure-subscriptions-azure-cli.md).
 
 Há maneiras de entrar de modo não interativo, como mostrado em detalhes em [Entrar com a CLI do Azure](authenticate-azure-cli.md).
 
