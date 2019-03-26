@@ -4,21 +4,21 @@ description: Como instalar a CLI do Azure com o gerenciador de pacotes apt
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 11/27/2018
+ms.date: 03/19/2019
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 45e1e7468e5817d0138c9b87da83c5a5228e4965
-ms.sourcegitcommit: 1987a39809f9865034b27130e56f30b2bd1eb72c
+ms.openlocfilehash: fa2e1db439b4836d7506409b3abcce74fb6e6695
+ms.sourcegitcommit: 5864f72b9a6fbf82a4d98bf805b3a16a7da18556
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56421925"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58343138"
 ---
 # <a name="install-azure-cli-with-apt"></a>Instalar CLI do Azure com o apt
 
-Se você estiver executando uma distribuição que vem com `apt`, como o Ubuntu ou o Debian, haverá um pacote de 64 bits disponível para a CLI do Azure. Esse pacote foi testado com:
+Se você estiver executando uma distribuição fornecida com `apt`, como Ubuntu ou Debian, há um pacote x86_64 disponível para a CLI do Azure. Esse pacote foi testado com:
 
 * Ubuntu trusty, xenial, artful e bionic
 * Debian wheezy, jessie e stretch
@@ -27,17 +27,26 @@ Se você estiver executando uma distribuição que vem com `apt`, como o Ubuntu 
 
 > [!NOTE]
 >
-> O pacote `.deb` para a CLI do Azure instala seu próprio interpretador Python e não usa o sistema de Python, portanto, não há nenhum requisito explícito para uma versão local do Python.
+> O pacote para a CLI do Azure instala seu próprio interpretador de Python e não usa o Python do sistema.
 
 ## <a name="install"></a>Instalar
 
-1. Instale os pacotes de pré-requisito:
+1. Obtenha os pacotes necessários para o processo de instalação:
 
     ```bash
-    sudo apt-get install apt-transport-https lsb-release software-properties-common dirmngr -y
+    sudo apt-get update
+    sudo apt-get install curl apt-transport-https lsb-release gpg
     ```
 
-2. <div id="set-release"/>Modifique sua lista de fontes:
+2. Baixe e instale a chave de autenticação da Microsoft:
+
+    ```bash
+    curl -sL https://packages.microsoft.com/keys/microsoft.asc | \
+        gpg --dearmor | \
+        sudo tee /etc/apt/trusted.gpg.d/microsoft.asc.gpg > /dev/null
+    ```
+
+3. <div id="set-release"/>Adicione o repositório de software da CLI do Azure:
 
     ```bash
     AZ_REPO=$(lsb_release -cs)
@@ -45,25 +54,14 @@ Se você estiver executando uma distribuição que vem com `apt`, como o Ubuntu 
         sudo tee /etc/apt/sources.list.d/azure-cli.list
     ```
 
-3. <div id="signingKey"/>Obtenha a chave de assinatura da Microsoft:
+4. Atualize as informações do repositório e instale o pacote `azure-cli`:
 
-   ```bash
-   sudo apt-key --keyring /etc/apt/trusted.gpg.d/Microsoft.gpg adv \
-        --keyserver packages.microsoft.com \
-        --recv-keys BC528686B50D79E339D3721CEB3E94ADBE1229CF
-   ```
+    ```bash
+    sudo apt-get update
+    sudo apt-get install azure-cli
+    ```
 
-4. Instalar a CLI:
-
-   ```bash
-   sudo apt-get update
-   sudo apt-get install azure-cli
-   ```
-
-   > [!WARNING]
-   > A chave de assinatura foi atualizada em maio de 2018 e foi substituída. Se você receber erros de autenticação, verifique se tem [a chave de autenticação mais recente](#signingKey).
-
-É possível executar a CLI do Azure com o comando `az`. Para entrar, use o comando [az login](/cli/azure/reference-index#az-login).
+Execute a CLI do Azure com o comando `az`. Para entrar, use o comando [az login](/cli/azure/reference-index#az-login).
 
 [!INCLUDE [interactive-login](includes/interactive-login.md)]
 
@@ -75,45 +73,13 @@ Aqui estão alguns problemas comuns vistos durante a instalação com `apt`. Se 
 
 ### <a name="lsbrelease-does-not-return-the-correct-base-distribution-version"></a>lsb_release não retorna a versão correta da distribuição de base
 
-Algumas distribuições derivadas do Ubuntu ou do Debian, como o Linux Mint, podem não retornar o nome correto da versão de `lsb_release`. Esse valor é usado no processo de instalação para determinar o pacote de instalação. Se você souber o nome da versão da qual sua distribuição é derivada, poderá definir o `AZ_REPO` valor manualmente em [instalar etapa 2](#set-release). Caso contrário, procure informações para sua distribuição sobre como determinar o nome da distribuição de base e defina `AZ_REPO` para o valor correto.
+Algumas distribuições derivadas do Ubuntu ou do Debian, como o Linux Mint, podem não retornar o nome correto da versão de `lsb_release`. Esse valor é usado no processo de instalação para determinar o pacote de instalação. Se você souber o nome do código da versão do Ubuntu ou do Debian da qual sua distribuição é derivada, poderá definir o valor de `AZ_REPO` manualmente ao [adicionar o repositório](#set-release). Caso contrário, procure informações para sua distribuição sobre como determinar o nome do código da distribuição de base e defina `AZ_REPO` com o valor correto.
 
 ### <a name="no-package-for-your-distribution"></a>Nenhum pacote para distribuição
 
-Às vezes, um pacote da CLI do Azure pode ficar disponível somente um tempo depois de uma distribuição do Ubuntu ser lançada. A CLI do Azure é projetada para ser resiliente em relação a versões futuras das dependências e precisam da menor quantidade possível delas. Se não houver pacotes disponíveis para sua distribuição de base, tente um pacote de uma distribuição anterior.
+Às vezes, um pacote da CLI do Azure pode ser disponibilizado somente um tempo depois do lançamento da distribuição. A CLI do Azure é projetada para ser resiliente em relação a versões futuras das dependências e precisam da menor quantidade possível delas. Se não houver pacotes disponíveis para sua distribuição de base, tente um pacote de uma distribuição anterior.
 
-Para isso, defina o valor `AZ_REPO` manualmente na [etapa 1 de instalação](#install-step-1). Para as distribuições do Ubuntu, use o repositório `bionic`; para as distribuições do Debian, use `stretch`. Não há suporte para as distribuições lançadas antes do Ubuntu Trusty e do Debian Wheezy.
-
-### <a name="apt-key-fails-with-no-dirmngr"></a>apt-key falha com “Sem dirmngr”
-
-Ao executar o comando `apt-key`, pode ser que você veja uma saída semelhante ao seguinte erro:
-
-```output
-gpg: failed to start the dirmngr '/usr/bin/dirmngr': No such file or directory
-gpg: connecting dirmngr at '/tmp/apt-key-gpghome.kt5zo27tp1/S.dirmngr' failed: No such file or directory
-gpg: keyserver receive failed: No dirmngr
-```
-
-O erro ocorre devido a um componente ausente requerido por `apt-key`. Você pode resolver isso instalando o pacote `dirmngr`.
-
-```bash
-sudo apt-get install dirmngr
-```
-
-Se você estiver usando o subsistema do Windows para Linux (WSL), esse erro também aparece nas versões do Windows anteriores ao Windows 10 1809. Para resolver o problema, atualize sua versão do Windows.
-
-### <a name="apt-key-hangs"></a>apt-key trava
-
-Quando atrás de um firewall que bloqueia as conexões de saída para a porta 11371, o comando `apt-key` pode travar indefinidamente.
-O firewall pode exigir um proxy HTTP para as conexões de saída:
-
-```bash
-sudo apt-key --keyring /etc/apt/trusted.gpg.d/Microsoft.gpg adv \
-    --keyserver-options http-proxy=http://<USER>:<PASSWORD>@<PROXY-HOST>:<PROXY-PORT>/ \
-    --keyserver packages.microsoft.com \
-    --recv-keys BC528686B50D79E339D3721CEB3E94ADBE1229CF
-```
-
-Para determinar se você tem um proxy, entre em contato com o administrador do sistema. Se o proxy não precisar de logon, omita as informações sobre usuário e senha.
+Para isso, defina o valor de `AZ_REPO` manualmente ao [adicionar o repositório](#set-release). Para as distribuições do Ubuntu, use o repositório `bionic`; para as distribuições do Debian, use `stretch`. Não há suporte para as distribuições lançadas antes do Ubuntu Trusty e do Debian Wheezy.
 
 [!INCLUDE[troubleshoot-wsl.md](includes/troubleshoot-wsl.md)]
 
@@ -125,9 +91,6 @@ Use `apt-get upgrade` para atualizar o pacote da CLI.
    sudo apt-get update && sudo apt-get upgrade
    ```
 
-> [!WARNING]
-> A chave de assinatura foi atualizada em maio de 2018 e foi substituída. Se você receber erros de autenticação, verifique se tem [a chave de autenticação mais recente](#signingKey).
->
 > [!NOTE]
 > Esse comando atualiza todos os pacotes instalados no sistema que não tiveram uma alteração de dependência.
 > Para atualizar apenas a CLI, use `apt-get install`.
@@ -155,7 +118,7 @@ Use `apt-get upgrade` para atualizar o pacote da CLI.
 3. Remova a chave de autenticação:
 
     ```bash
-    sudo rm /etc/apt/trusted.gpg.d/Microsoft.gpg
+    sudo rm /etc/apt/trusted.gpg.d/microsoft.asc.gpg
     ```
 
 4. Remova quaisquer pacotes desnecessários:
