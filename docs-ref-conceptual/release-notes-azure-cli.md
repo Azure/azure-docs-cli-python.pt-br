@@ -4,19 +4,88 @@ description: Saiba mais sobre as últimas atualizações da CLI do Azure
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 02/15/2019
+ms.date: 03/26/2019
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 4337f2203841d6247e4b487d245138424c63e448
-ms.sourcegitcommit: 71c0ccd475524cf4d6db45bba8139fef3262d764
+ms.openlocfilehash: d8307ca9797a9a780d7e08d6d21cb66446c7e289
+ms.sourcegitcommit: 6d9e8ee6dd07cfd07239a2948304d7f50ef781cc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58175126"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58508895"
 ---
 # <a name="azure-cli-release-notes"></a>Notas de versão da CLI do Azure
+## <a name="march-26-2019"></a>26 de março de 2019
+
+### <a name="core"></a>Núcleo
+* Correção de problemas com incompatibilidade da extensão de desenvolvimento
+* Agora o tratamento de erros encaminha os clientes para a página de problemas
+
+### <a name="cloud"></a>Nuvem
+* Erro de “assinatura não encontrada” corrigido em `cloud set`
+
+### <a name="acr"></a>ACR
+* Corrigidas fontes redundantes na importação de imagem.
+* `--auth-mode` adicionado aos comandos `acr build`, `acr run`, `acr task create` e `acr task update`
+* Grupo de comandos “acr task credential” adicionado para gerenciar as credenciais de uma Tarefa
+* “--no-wait” adicionado ao comando `acr build`
+
+### <a name="appservice"></a>AppService
+* Bug corrigido onde `webapp up` não estava lidando corretamente com a execução do diretório vazio ou do cenário de código desconhecido
+* Bug corrigido onde os slots não funcionavam para `[webapp|functionapp] config ssl bind`
+
+### <a name="bot-service"></a>Serviço de BOT
+* `bot prepare-deploy` adicionado para se preparar para a implantação de bots via `webapp`
+* `bot create --kind registration` alterado para mostrar a senha se ela não for fornecida
+* [ALTERAÇÃO SIGNIFICATIVA] `--endpoint` alterado em `bot create --kind registration` como padrão para uma cadeia de caracteres vazia, em vez de ser requerido
+* Adicionado `SCM_DO_BUILD_DURING_DEPLOYMENT` às Configurações de Aplicativo do modelo ARM para Bots de Aplicativo Web v4.
+
+### <a name="cdn"></a>CDN
+* Adicionado o suporte ao `--no-wait` para `cdn endpoint [create|update|start|stop|delete|load|purge]`  
+* [ALTERAÇÃO SIGNIFICATIVA]: `cdn endpoint create` alterado para o comportamento de cache da cadeia de consulta padrão. Não há mais padrão para "IgnoreQueryString". Agora, ele é definido pelo serviço
+
+### <a name="cosmosdb"></a>Cosmosdb
+* Suporte adicionado para `--enable-multiple-write-locations` na atualização da conta
+* O subgrupo `network-rule` foi adicionado com os comandos `add`, `remove` e `list` para gerenciar as regras de VNET de uma conta do Cosmos DB
+
+### <a name="interactive"></a>Interativo
+* Incompatibilidade corrigida com a extensão Interativa instalada por meio do azdev
+
+### <a name="monitor"></a>Monitoramento
+* Alterado para permitir o valor de dimensão `*` para `monitor metrics alert [create|update]`
+
+### <a name="network"></a>Rede
+* Grupo de comandos `rewrite-rule` adicionado em `application-gateway`
+
+### <a name="profile"></a>Perfil
+* Suporte de conta no nível do locatário para a identidade de serviço gerenciado adicionado em `login`
+
+### <a name="postgres"></a>Postgres 
+* Adicionados os comandos postgresql `replica` e `restart server`
+* Alterado para obter o local padrão do grupo de recursos quando não fornecido para criar servidores e adicionar validação para os dias de retenção
+
+### <a name="resource"></a>Recurso
+* Saída da tabela aperfeiçoada para `deployment [create|list|show]`
+* Corrigido o problema com `deployment [create|validate]` onde o tipo secureObject não era reconhecido
+
+### <a name="graph"></a>Grafo
+* Adicionado o suporte ao `--end-date` para `ad [app|sp] credential reset`
+* Suporte adicionado para acrescentar permissões com `ad app permission add`
+* Bug corrigido com `ad app permission list` quando não havia nenhuma permissão
+* `ad sp delete` alterado para ignorar a exclusão da atribuição de função se a conta atual não tem nenhuma assinatura
+* `ad app create` alterado para `--identifier-uris` passar para lista vazia como padrão se não fornecido
+
+### <a name="storage"></a>storage
+* `--snapshot` adicionado a `storage file download-batch` para baixar de um instantâneo de compartilhamento
+* Barra de progresso `storage blob [download-batch|upload-batch]` alterada para ser menos detalhada e indicar o blob atual
+* Problema corrigido com `storage account update` ao atualizar os parâmetros de criptografia
+* Problema corrigido onde `storage blob show` falharia ao usar o oauth (`--auth-mode=login`)
+
+### <a name="vm"></a>VM
+* Adicionado o comando `image update`
+
 ## <a name="march-12-2019"></a>12 de março de 2019
 
 Versão 2.0.60
