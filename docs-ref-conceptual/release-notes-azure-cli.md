@@ -4,27 +4,87 @@ description: Saiba mais sobre as últimas atualizações da CLI do Azure
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 03/26/2019
+ms.date: 04/09/2019
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: d8307ca9797a9a780d7e08d6d21cb66446c7e289
-ms.sourcegitcommit: 6d9e8ee6dd07cfd07239a2948304d7f50ef781cc
+ms.openlocfilehash: df665565130322504c4794462098980b1064a6c7
+ms.sourcegitcommit: c6dff58438d256647d4aa29a53eef4bf93a0cd24
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58508895"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59479990"
 ---
 # <a name="azure-cli-release-notes"></a>Notas de versão da CLI do Azure
+## <a name="april-9-2019"></a>9 de abril de 2019
+
+### <a name="core"></a>Núcleo
+* Correção do problema em que algumas extensões mostraram uma versão do `Unknown` e não podiam ser atualizadas
+
+### <a name="acr"></a>ACR
+* Adição de suporte para execução de uma imagem sem contexto
+
+### <a name="ams"></a>AMS
+* [PRETERIDO]: Deprecated the `--bitrate` parameter of `account-filter` and `asset-filter`
+* [ALTERAÇÃO DA FALHA]: Renamed the `--bitrate` parameter to `--first-quality`
+* Adição de suporte para novos parâmetros de criptografia em `ams streaming-policy create`
+* Adição de novo parâmetro `--filters` a `ams streaming-locator create`
+
+### <a name="appservice"></a>AppService
+* Adicionado suporte `--logs` a `webapp up`
+* Correção de problemas do comando `functionapp devops-build create` de geração de `azure-pipelines.yml`
+* Melhoria do tratamento de erros e indicadores `unctionapp devops-build create`
+* [ALTERAÇÃO DA FALHA] Remoção do sinalizador `--local-git` para o comando `devops-build`; a detecção de git local e a manipulação são obrigatórias para a criação de pipelines do Azure DevOps
+* Adição de suporte para a criação de planos de funções do Linux
+* Adição da capacidade de trocar um plano abaixo de um aplicativo de funções usando `functionapp update --plan`
+* Adição de suporte para configurações de expansão de plano Premium do Azure Functions
+
+### <a name="cdn"></a>CDN
+* Adição de suporte para `Microsoft_Standard` e `Standard_ChinaCdn`
+
+### <a name="feedback"></a>Comentários
+* Alteração de `feedback` para mostrar metadados em comandos executados recentemente
+* Alteração de `feedback` para solicitar o auxílio do usuário no processo de criação de problema abrindo um navegador e usando um modelo de problema
+* Alteração do `feedback` para imprimir o corpo do problema ao executar com '--verbose'
+
+### <a name="monitor"></a>Monitoramento
+* Correção de um problema em que “count” não era um valor permitido com `metrics alert [create|update]` 
+
+### <a name="network"></a>Rede
+* Correção do formato de tabela que não estava sendo exibido com `vnet-gateway list-bgp-peer-status`
+* Adição dos comandos `list-request-headers` e `list-response-headers` ao `application-gateway rewrite-rule`
+* Adição do comando `list-server-variables` ao `application-gateway rewrite-rule condition`
+* Correção de um problema em que a atualização do estado do link em uma porta express-route geraria uma exceção de atributo desconhecido `express-route port update`
+
+### <a name="privatedns"></a>PrivateDNS
+* Adição de `network private-dns` para zonas de DNS privado
+
+### <a name="resource"></a>Recurso
+* Correção do problema com `deployment create` e `group deployment create`, em que um arquivo de parâmetros com um conjunto vazio de parâmetros não funcionaria
+
+### <a name="role"></a>Função
+* Correção de `create-for-rbac` para lidar corretamente com `--years`
+* [ALTERAÇÃO DA FALHA] Alteração de `role assignment delete` para solicitar ao excluir todas as atribuições na assinatura incondicionalmente
+
+### <a name="sql"></a>SQL
+* Atualização de `sql mi [create|update]` com as propriedades proxyOverride e publicDataEndpointEnabled
+
+### <a name="storage"></a>Armazenamento
+* [ALTERAÇÃO DA FALHA] Remoção do resultado de `storage blob delete`
+* Adição de `--full-uri` a `storage blob generate-sas` para criar o URI completo para o blob com SAS
+* Adição de `--file-snapshot` a `storage file copy start` para copiar arquivo do instantâneo
+* Alteração de `storage blob copy cancel` para mostrar apenas o erro em vez da exceção para NoPendingCopyOperation
+
 ## <a name="march-26-2019"></a>26 de março de 2019
+
 
 ### <a name="core"></a>Núcleo
 * Correção de problemas com incompatibilidade da extensão de desenvolvimento
 * Agora o tratamento de erros encaminha os clientes para a página de problemas
 
 ### <a name="cloud"></a>Nuvem
-* Erro de “assinatura não encontrada” corrigido em `cloud set`
+* Correção do erro de “assinatura não encontrada” em `cloud set`
 
 ### <a name="acr"></a>ACR
 * Corrigidas fontes redundantes na importação de imagem.
@@ -34,17 +94,17 @@ ms.locfileid: "58508895"
 
 ### <a name="appservice"></a>AppService
 * Bug corrigido onde `webapp up` não estava lidando corretamente com a execução do diretório vazio ou do cenário de código desconhecido
-* Bug corrigido onde os slots não funcionavam para `[webapp|functionapp] config ssl bind`
+* Correção do bug em que os slots não funcionavam para `[webapp|functionapp] config ssl bind`
 
 ### <a name="bot-service"></a>Serviço de BOT
-* `bot prepare-deploy` adicionado para se preparar para a implantação de bots via `webapp`
+* Adição de `bot prepare-deploy` para se preparar para a implantação de bots via `webapp`
 * `bot create --kind registration` alterado para mostrar a senha se ela não for fornecida
-* [ALTERAÇÃO SIGNIFICATIVA] `--endpoint` alterado em `bot create --kind registration` como padrão para uma cadeia de caracteres vazia, em vez de ser requerido
+* [ALTERAÇÃO DA FALHA] `--endpoint` alterado em `bot create --kind registration` como padrão para uma cadeia de caracteres vazia, em vez de ser requerido
 * Adicionado `SCM_DO_BUILD_DURING_DEPLOYMENT` às Configurações de Aplicativo do modelo ARM para Bots de Aplicativo Web v4.
 
 ### <a name="cdn"></a>CDN
-* Adicionado o suporte ao `--no-wait` para `cdn endpoint [create|update|start|stop|delete|load|purge]`  
-* [ALTERAÇÃO SIGNIFICATIVA]: `cdn endpoint create` alterado para o comportamento de cache da cadeia de consulta padrão. Não há mais padrão para "IgnoreQueryString". Agora, ele é definido pelo serviço
+* Adição do suporte para `--no-wait` a `cdn endpoint [create|update|start|stop|delete|load|purge]`  
+* [ALTERAÇÃO DA FALHA]: `cdn endpoint create` alterado para o comportamento de cache da cadeia de consulta padrão. Não há mais padrão para "IgnoreQueryString". Agora, ele é definido pelo serviço
 
 ### <a name="cosmosdb"></a>Cosmosdb
 * Suporte adicionado para `--enable-multiple-write-locations` na atualização da conta
@@ -54,25 +114,25 @@ ms.locfileid: "58508895"
 * Incompatibilidade corrigida com a extensão Interativa instalada por meio do azdev
 
 ### <a name="monitor"></a>Monitoramento
-* Alterado para permitir o valor de dimensão `*` para `monitor metrics alert [create|update]`
+* Alteração para permitir o valor de dimensão `*` para `monitor metrics alert [create|update]`
 
 ### <a name="network"></a>Rede
-* Grupo de comandos `rewrite-rule` adicionado em `application-gateway`
+* Adição do grupo de comandos `rewrite-rule` a `application-gateway`
 
 ### <a name="profile"></a>Perfil
-* Suporte de conta no nível do locatário para a identidade de serviço gerenciado adicionado em `login`
+* Adição de suporte de conta no nível do locatário para a identidade de serviço gerenciado a `login`
 
 ### <a name="postgres"></a>Postgres 
 * Adicionados os comandos postgresql `replica` e `restart server`
 * Alterado para obter o local padrão do grupo de recursos quando não fornecido para criar servidores e adicionar validação para os dias de retenção
 
 ### <a name="resource"></a>Recurso
-* Saída da tabela aperfeiçoada para `deployment [create|list|show]`
+* Melhoria da saída da tabela para `deployment [create|list|show]`
 * Corrigido o problema com `deployment [create|validate]` onde o tipo secureObject não era reconhecido
 
 ### <a name="graph"></a>Grafo
-* Adicionado o suporte ao `--end-date` para `ad [app|sp] credential reset`
-* Suporte adicionado para acrescentar permissões com `ad app permission add`
+* Adição do suporte para `--end-date` a `ad [app|sp] credential reset`
+* Adição de suporte para adicionar permissões com `ad app permission add`
 * Bug corrigido com `ad app permission list` quando não havia nenhuma permissão
 * `ad sp delete` alterado para ignorar a exclusão da atribuição de função se a conta atual não tem nenhuma assinatura
 * `ad app create` alterado para `--identifier-uris` passar para lista vazia como padrão se não fornecido
@@ -100,12 +160,12 @@ Versão 2.0.60
 
 ### <a name="acs"></a>ACS
 
-* Alterado para ignorar o argumento `--listen-address` para `aks browse` se `kubectl` não lhe dar suporte.
+* Alteração para ignorar o parâmetro `--listen-address` para `aks browse` se ele não for compatível com kubectl 
 
 ### <a name="appservice"></a>AppService
 
 * Adicionado `[webapp|functionapp] deployment list-publishing-credentials` para obter a URL de publicação do Kudu e suas credenciais.
-* Removida a instrução de impressão errônea de `webapp auth update`.
+* Removida a instrução de impressão errônea de `webapp auth update`
 * Corrigido `functionapp` para definir a imagem correta do tempo de execução nos planos do Serviço de Aplicativo no Linux.
 * Removida a marca de versão prévia do `webapp up` e adicionadas melhorias ao comando.
 
@@ -113,12 +173,12 @@ Versão 2.0.60
 
 * Adicionado `SCM_DO_BUILD_DURING_DEPLOYMENT` às Configurações de Aplicativo do modelo ARM para Bots de Aplicativo Web v4.
 * Adicionados `Microsoft-BotFramework-AppId` e `Microsoft-BotFramework-AppPassword` às Configurações de Aplicativo do modelo ARM para Bots de Aplicativo Web v4.
-* Removidas as aspas simples da saída de comando `bot publish`, no final de `bot create`.
+* Removidas as aspas simples da saída de comando `bot publish` no final de `bot create`
 * Alterado `bot publish` para que seja assíncrono.
 
 ### <a name="container"></a>Contêiner
 
-* Adicionado o argumento `--no-wait` para `container [start|restart]`
+* Adicionado argumento `--no-wait` a `container [start|restart]`
 
 ### <a name="eventhub"></a>EventHub
 
@@ -164,17 +224,17 @@ Versão 2.0.59
 
 ### <a name="acs"></a>ACS
 
-* Opção `--listen-address` adicionada a `aks port-forward`
+* Adição da opção `--listen-address` a `aks port-forward`
 
 ### <a name="appservice"></a>AppService
 
 * Adicionado o comando `functionapp devops-build`
 
 ### <a name="batch"></a>Lote
-* [ALTERAÇÃO SIGNIFICATIVA] Comando `batch pool upgrade os` removido
-* [ALTERAÇÃO SIGNIFICATIVA] Propriedade `Pacakges` removida das respostas `Application`
+* [ALTERAÇÃO DA FALHA] Comando `batch pool upgrade os` removido
+* [ALTERAÇÃO DA FALHA] Propriedade `Pacakges` removida das respostas `Application`
 * Comando `batch application package list` adicionado para listar os pacotes de um aplicativo
-* [ALTERAÇÃO SIGNIFICATIVA] `--application-id` alterado para `--application-name` em todos os comandos `batch application`, 
+* [ALTERAÇÃO DA FALHA] `--application-id` alterado para `--application-name` em todos os comandos `batch application`, 
 * O argumento `--json-file` foi adicionado aos comandos para a solicitação de resposta da API bruta
 * Validação atualizada para incluir automaticamente `https://` em todos os pontos de extremidade, se ausente
 
@@ -184,29 +244,29 @@ Versão 2.0.59
 
 ### <a name="kusto"></a>Kusto
 
-* [ALTERAÇÃO SIGNIFICATIVA] Os tipos `hot_cache_period` e `soft_delete_period` foram alterados do banco de dados para o formato de duração ISO8601
+* [ALTERAÇÃO DA FALHA] Os tipos `hot_cache_period` e `soft_delete_period` foram alterados do banco de dados para o formato de duração ISO8601
 
 ### <a name="network"></a>Rede
 
-* Adicionado o argumento `--express-route-gateway-bypass` para `vpn-connection [create|update]`
+* Adicionado argumento `--express-route-gateway-bypass` a `vpn-connection [create|update]`
 * Foram adicionados os grupos de comando a partir das extensões `express-route`
 * Os grupos de comando `express-route gateway` e `express-route port` foram adicionados
-* Adicionado o argumento `--legacy-mode` para `express-route peering [create|update]` 
+* Adicionado argumento `--legacy-mode` a `express-route peering [create|update]` 
 * Os argumentos `--allow-classic-operations` e `--express-route-port` foram adicionados a `express-route [create|update]`
-* Adicionado o argumento `--gateway-default-site` para `vnet-gateway [create|update]`
-* Os comandos `ipsec-policy` foram adicionados a `vnet-gateway`
+* Adicionado argumento `--gateway-default-site` a `vnet-gateway [create|update]`
+* Adicionados comandos `ipsec-policy` a `vnet-gateway`
 
 ### <a name="resource"></a>Recurso
 
 * Foi corrigido o problema com `deployment create` em que o campo do tipo diferencia letras maiúsculas e minúsculas
-* Foi adicionado o suporte para arquivo de parâmetros de URI a `policy assignment create`
-* Foi adicionado o suporte para parâmetros de URI e definições a `policy set-definition update`
-* Foi corrigido o tratamento de parâmetros e regras para `policy definition update`
+* Adicionado suporte para arquivo de parâmetros de URI a `policy assignment create`
+* Adicionado suporte para parâmetros de URI e definições a `policy set-definition update`
+* Corrigido o tratamento de parâmetros e regras para `policy definition update`
 * Foi corrigido o problema com `resource show/update/delete/tag/invoke-action` em que as IDs de assinatura cruzada não respeitaram corretamente a ID da assinatura
 
 ### <a name="role"></a>Função
 
-* Foi adicionado o suporte para as funções do aplicativo a `ad app [create|update]`
+* Adicionado suporte para as funções do aplicativo a `ad app [create|update]`
 
 ### <a name="vm"></a>VM
 
@@ -222,13 +282,13 @@ Versão 2.0.58
 * A regressão em que `--ids` não pode ser usado com a saída JSON foi corrigida
 
 ### <a name="acr"></a>ACR
-* [ALTERAÇÃO SIGNIFICATIVA] O grupo de comandos `acr build-task` foi removido
-* [ALTERAÇÃO SIGNIFICATIVA] As opções `--tag` e `--manifest` de `acr repository delete` foram removidas
+* [ALTERAÇÃO DA FALHA] O grupo de comandos `acr build-task` foi removido
+* [ALTERAÇÃO DA FALHA] As opções `--tag` e `--manifest` foram removidas de `acr repository delete`
 
 ### <a name="acs"></a>ACS
-* Suporte adicionado a `aks [enable-addons|disable-addons]` para nomes que não diferenciam maiúsculas de minúsculas
+* Suporte adicionado para nomes que não diferenciam maiúsculas de minúsculas a `aks [enable-addons|disable-addons]`
 * Suporte adicionado para a operação de atualização do Azure Active Directory usando `aks update-credentials --reset-aad`
-* Um esclarecimento informando que `--output` é ignorado para `aks get-credentials` foi adicionado
+* Adicionado um esclarecimento informando que `--output` é ignorado para `aks get-credentials`
 
 ### <a name="ams"></a>AMS
 * Adicionados os comandos `ams streaming-endpoint [start | stop | create | update] wait`
@@ -242,11 +302,11 @@ Versão 2.0.58
 * Os problemas com o SSH do aplicativo Web foram corrigidos
 
 ### <a name="botservice"></a>Serviço de bot
-* A experiência do usuário para `bot publish` foi aprimorada
-* Foram adicionados avisos de tempos limite ao executar `npm install` durante `az bot publish`
-* O caractere inválido `.` de `--name` em `az bot create` foi removido
+* A experiência do usuário foi aprimorada para `bot publish`
+* Adicionados avisos de tempos limite ao executar `npm install` durante `az bot publish`
+* O caractere inválido `.` de `--name` foi removido em `az bot create`
 * Alteração para interromper a geração aleatória de nomes de recursos durante a criação do Armazenamento do Azure, Plano do Serviço de Aplicativo, Aplicativo Web/de funções e Application Insights
-* [PRETERIDO] O argumento `--proj-name` em favor de `--proj-file-path` foi preterido
+* [PRETERIDO] O argumento `--proj-name` foi preterido em favor de `--proj-file-path`
 * `az bot publish` foi alterado para remover arquivos de implantação do Node.js do IIS buscados, caso eles já não existissem
 * Foi adicionado o argumento `--keep-node-modules` para `az bot publish` para não excluir a pasta `node_modules` no Serviço de Aplicativo
 * O par chave-valor `"publishCommand"` foi adicionado à saída de `az bot create` durante a criação de uma função do Azure ou bot de aplicativo Web
@@ -254,7 +314,7 @@ Versão 2.0.58
 * O `"WEBSITE_NODE_DEFAULT_VERSION"` foi atualizado no modelo do ARM para que os bots de SDK v4 usem 10.14.1 em vez de 8.9.4
 
 ### <a name="key-vault"></a>Key Vault
-* Foi corrigido o problema com `keyvault secret backup`, em que alguns usuários recebiam um erro `unexpected_keyword` ao usar `--id`
+* Corrigido o problema com `keyvault secret backup`, em que alguns usuários recebiam um erro `unexpected_keyword` ao usar `--id`
 
 ### <a name="monitor"></a>Monitoramento
 * `monitor metrics alert [create|update]` foi alterado para permitir o valor dimensional `*`
@@ -262,7 +322,7 @@ Versão 2.0.58
 ### <a name="network"></a>Rede
 * `dns zone export` foi alterado para garantir que CNAMEs exportados fossem FQDNs
 * O parâmetro `--gateway-name` foi adicionado a `nic ip-config address-pool [add|remove]` para dar suporte a pools de endereços de back-end de gateway de aplicativo
-* Os argumentos `--traffic-analytics` e `--workspace` foram adicionados a `network watcher flow-log configure` para dar suporte à análise de tráfego por meio de um workspace do Log Analytics
+* Os argumentos `--traffic-analytics` e `--workspace` foram adicionados a `network watcher flow-log configure` para dar suporte à análise de tráfego por meio de um espaço de trabalho do Log Analytics
 * `--idle-timeout` e `--floating-ip` foram adicionados a `lb inbound-nat-pool [create|update]`
 
 ### <a name="policy-insights"></a>Informações sobre a Política
@@ -276,21 +336,21 @@ Versão 2.0.58
 * Foram adicionados comandos para gerenciar links do servidor (criar, excluir, mostrar, listar)
 * Foram adicionados comandos para gerenciar o agendamento de patches (criar, atualizar, excluir, mostrar)
 * Suporte adicionado para Zonas de Disponibilidade e versão mínima de TLS para criar Redis
-* [ALTERAÇÃO SIGNIFICATIVA] Os comandos `redis update-settings` e `redis list-all` foram removidos
-* [ALTERAÇÃO SIGNIFICATIVA] Parâmetro para `redis create`: “configurações de locatário” não é aceito no formato chave[=valor]
+* [ALTERAÇÃO DA FALHA] Os comandos `redis update-settings` e `redis list-all` foram removidos
+* [ALTERAÇÃO DA FALHA] Parâmetro para `redis create`: “configurações de locatário” não é aceito no formato chave[=valor]
 * [PRETERIDO] Uma mensagem de aviso foi adicionada para preterir o comando `redis import-method`
 
 ### <a name="role"></a>Função
-* [ALTERAÇÃO SIGNIFICATIVA] O comando `az identity` foi movido dos comandos `vm` para esta localização
+* [ALTERAÇÃO DA FALHA] O comando `az identity` foi movido dos comandos `vm` para esta localização
 
 ### <a name="sql-vm"></a>SQL VM
 * [PRETERIDO] O argumento `--boostrap-acc-pwd` foi preterido devido a um erro de digitação
 
 ### <a name="vm"></a>VM
 * `vm list-skus` foi alterado para permitir o uso de `--all` no lugar de `--all true`
-* Adicionado `vmss run-command [invoke | list | show]`
+* Added `vmss run-command [invoke | list | show]`
 * Foi corrigido o bug em que `vmss encryption enable` falhava se fosse executado anteriormente
-* [ALTERAÇÃO SIGNIFICATIVA] O comando `az identity` foi movido para os comandos `role`
+* [ALTERAÇÃO DA FALHA] O comando `az identity` foi movido para os comandos `role`
 
 ## <a name="january-31-2019"></a>31 de janeiro de 2019
 
@@ -313,8 +373,8 @@ Versão 2.0.56
 * Suporte adicionado para operações de atualização da entidade de serviço com `aks update-credentials -reset-service-principal`
 
 ### <a name="ams"></a>AMS
-* [ALTERAÇÃO SIGNIFICATIVA] `ams asset get-streaming-locators` renomeado para `ams asset list-streaming-locators`
-* [ALTERAÇÃO SIGNIFICATIVA] `ams streaming-locator get-content-keys` renomeado para `ams streaming-locator list-content-keys`
+* [ALTERAÇÃO DA FALHA] `ams asset get-streaming-locators` renomeado para `ams asset list-streaming-locators`
+* [ALTERAÇÃO DA FALHA] `ams streaming-locator get-content-keys` renomeado para `ams streaming-locator list-content-keys`
 
 ### <a name="appservice"></a>AppService
 * Suporte adicionado para o App Insights no `functionapp create`
@@ -333,10 +393,10 @@ Versão 2.0.56
 * O parâmetro source-resource-id foi adicionado para todos os comandos relacionados a eventos e marcar todos os outros parâmetros relacionados ao recurso de origem como preteridos
 
 ### <a name="hdinsight"></a>HDInsight
-* [ALTERAÇÃO SIGNIFICATIVA] Os parâmetros `--virtual-network` e `--subnet-name` de `hdinsight [application] create` foram removidos
-* [ALTERAÇÃO SIGNIFICATIVA] `hdinsight create --storage-account` foi alterado para aceitar o nome ou ID da conta de armazenamento, em vez de pontos de extremidade de blob
+* [ALTERAÇÃO DA FALHA] Os parâmetros `--virtual-network` e `--subnet-name` foram removidos de `hdinsight [application] create`
+* [ALTERAÇÃO DA FALHA] `hdinsight create --storage-account` foi alterado para aceitar o nome ou ID da conta de armazenamento, em vez de pontos de extremidade de blob
 * Parâmetros `--vnet-name` e `--subnet-name` adicionados a `hdinsight create`
-* Suporte adicionado para a criptografia de disco e Enterprise Security Package ao `hdinsight create` 
+* Suporte adicionado para a criptografia de disco e Enterprise Security Package a `hdinsight create` 
 * Adicionado o comando `hdinsight rotate-disk-encryption-key`
 * Adicionado o comando `hdinsight update`
 
@@ -405,23 +465,23 @@ Versão 2.0.55
 * Foram adicionados comandos para o gerenciamento de aplicativos
 * Foram adicionados comandos para o gerenciamento de ações de script
 * Foram adicionados comandos para o gerenciamento do Operations Management Suite (OMS)
-* Suporte adicionado para listar a utilização regional ao `hdinsight list-usage`
-* [ALTERAÇÃO SIGNIFICATIVA] O tipo de cluster padrão de `hdinsight create` foi removido
+* Suporte adicionado para listar a utilização regional a `hdinsight list-usage`
+* [ALTERAÇÃO DA FALHA] Removido o tipo de cluster padrão de `hdinsight create`
 
 ### <a name="network"></a>Rede
-* Adicionados os argumentos `--custom-headers` e `--status-code-ranges` para `traffic-manager profile [create|update]`
+* Adicionados argumentos `--custom-headers` e `--status-code-ranges` a `traffic-manager profile [create|update]`
 * Novos tipos de roteamento foram adicionados: Subrede e múltiplos valores
-* Adicionados os argumentos `--custom-headers` e `--subnets` para `traffic-manager endpoint [create|update]`  
+* Adicionados argumentos `--custom-headers` e `--subnets` a `traffic-manager endpoint [create|update]`  
 * Foi corrigido o problema no qual fornecer `--vnets ""` a `ddos-protection update` causava um erro
 
 ### <a name="role"></a>Função
-* [PRETERIDO] O argumento `--password` para `create-for-rbac` foi preterido. Como alternativa, use senhas seguras geradas pela CLI
+* [PRETERIDO] O argumento `--password` foi preterido para `create-for-rbac`. Como alternativa, use senhas seguras geradas pela CLI
 
 ### <a name="security"></a>Segurança
 * Versão Inicial
 
 ### <a name="storage"></a>Armazenamento
-* [ALTERAÇÃO SIGNIFICATIVA] O número padrão de resultados de `storage [blob|file|container|share] list` foi alterado para 5.000. Use `--num-results *` para o comportamento original de retornar todos os resultados
+* [ALTERAÇÃO DA FALHA] O número padrão de resultados de `storage [blob|file|container|share] list` foi alterado para 5.000. Use `--num-results *` para o comportamento original de retornar todos os resultados
 * Parâmetro `--marker` adicionado a `storage [blob|file|container|share] list`
 * Um marcador de log foi adicionado para a próxima página ao STDERR de `storage [blob|file|container|share] list` 
 * O comando `storage blob service-properties update` foi adicionado com suporte para sites estáticos
@@ -446,7 +506,7 @@ Versão 2.0.54
 * Corrigida a chamada à API do comando de atualização
 
 ### <a name="role"></a>Função
-* [ALTERAÇÃO SIGNIFICATIVA] `ad [app|sp] list` alterado para listar somente os 100 primeiros objetos por padrão
+* [ALTERAÇÃO DA FALHA] `ad [app|sp] list` alterado para listar somente os 100 primeiros objetos por padrão
 
 ### <a name="sql"></a>SQL
 * Adicionado suporte para ordenação personalizada nas instâncias gerenciadas
@@ -464,7 +524,7 @@ Versão 2.0.53
 
 ### <a name="acs"></a>ACS
 * Adicionada visualização dos nós virtuais
-* Removido “(VISUALIZAÇÃO)” de argumentos do AAD para `aks create`
+* Removido “(VERSÃO PRÉVIA)” de argumentos do AAD para `aks create`
 * [PRETERIDO] Comandos `az acs` preteridos. O serviço ACS será desativado em 31 de janeiro de 2020
 * Adicionado suporte da Política de Rede durante a criação de novos clusters AKS
 * Removido o requisito do argumento `--nodepool-name` para `aks scale` se houver apenas um pool de nós
@@ -486,15 +546,15 @@ Versão 2.0.53
 * Suporte adicionado para atualizar a conta de vários mestres para mestre único
 
 ### <a name="maps"></a>Mapas
-* Adicionado suporte ao SKU S1 para `maps account [create|update]`
+* Adicionado suporte para o SKU S1 a `maps account [create|update]`
 
 ### <a name="network"></a>Rede
-* Adicionado suporte para `--format` e `--log-version` para `watcher flow-log configure`
+* Adicionado suporte para `--format` e `--log-version` a `watcher flow-log configure`
 * Corrigido o problema com `dns zone update` em que usar "" para limpar a resolução e o registro de redes virtuais não funcionava
 
 ### <a name="resource"></a>Recurso
 * Corrigido o tratamento do parâmetro de escopo para grupos de gerenciamento do `policy assignment [create|list|delete|show|update]` 
-* Adicionado o novo comando `resource wait`
+* Adicionado novo comando `resource wait`
 
 ### <a name="storage"></a>Armazenamento
 *  Adicionada a capacidade de atualizar a versão do esquema de log para serviços de armazenamento no `storage logging update`
@@ -520,7 +580,7 @@ Versão 2.0.52
 * Adicionado suporte para identificadores personalizados para a credencial de senha 
 
 ### <a name="vm"></a>VM
-* [PRETERIDO] Parâmetro preterido `vm extension [show|wait] --expand`
+* [PRETERIDO] Parâmetro `vm extension [show|wait] --expand` preterido
 * Adicionado parâmetro `--force` a `vm restart` para reimplantar as VMs sem resposta
 * Alterado `[vm|vmss] create --authentication-type` para aceitar "todos" para criar uma VM com senha e autenticação SSH
 * Adicionado parâmetro `image create --os-disk-caching` para definir o cache de disco do sistema operacional para uma imagem
@@ -552,13 +612,13 @@ Versão 2.0.51
 * Subcomandos `root-cert` adicionados a `application-gateway` para lidar com os certificados de raiz confiável
 * Opções `--min-capacity` e `--custom-error-pages` adicionadas a `application-gateway [create|update]`:
 * `--zones` adicionado para suporte da zona de disponibilidade a `application-gateway create` 
-* Argumentos `--file-upload-limit`, `--max-request-body-size` e `--request-body-check` a `application-gateway waf-config set` adicionados
+* Os argumentos `--file-upload-limit`, `--max-request-body-size` e `--request-body-check` foram adicionados a `application-gateway waf-config set`
 
 ### <a name="rdbms"></a>Rdbms
 * Comandos vnet do mariadb adicionados
 
 ### <a name="rbac"></a>Rbac
-* Um problema corrigido ao tentar atualizar credenciais inalteradas em `ad app update`
+* Problema corrigido ao tentar atualizar credenciais inalteradas em `ad app update`
 * Avisos de saída adicionados para comunicar alterações de falha em um futuro próximo para `ad [app|sp] list` 
 
 ### <a name="storage"></a>Armazenamento
@@ -569,10 +629,10 @@ Versão 2.0.51
 
 ### <a name="vm"></a>VM
 * Suporte adicionado a `[vm|vmss] create --storage-sku` para especificar a SKU da conta de armazenamento para o SO gerenciado e os discos de dados separadamente
-* Parâmetros do nome da versão alterados de `sig image-version` para `--image-version -e`
+* Parâmetros do nome da versão de `sig image-version` alterados para `--image-version -e`
 * Argumento `sig image-version` preterido `--image-version-name`, substituído por `--image-version`
 * Suporte adicionado para usar o disco local do SO a `[vm|vmss] create --ephemeral-os-disk`
-* Adicionado o suporte ao `--no-wait` para `snapshot create/update`
+* Adição do suporte para `--no-wait` a `snapshot create/update`
 * Adicionado o comando `snapshot wait`
 * Suporte adicionado para usar o nome da instância com `[vm|vmss] extension set --extension-instance-name`
 
@@ -588,7 +648,7 @@ Versão 2.0.50
 * Alterado para usar o padrão do Dockerfile se ele não for especificado no comando de compilação
 
 ### <a name="acs"></a>ACS
-* [ALTERAÇÃO SIGNIFICATIVA] `enable_cloud_console_aks_browse` foi removido para habilitar 'az aks browse' por padrão
+* [ALTERAÇÃO DA FALHA] `enable_cloud_console_aks_browse` foi removido para habilitar 'az aks browse' por padrão
 
 ### <a name="advisor"></a>Supervisor
 * Versão de GA
@@ -608,17 +668,17 @@ Versão 2.0.50
   * `ams asset get-encryption-key`
   * `ams asset get-streaming-locators`
   * `ams streaming-locator get-content-keys`
-* Adicionados parâmetros de criptografia com suporte para `ams streaming-policy create`
+* Adicionado suporte aos parâmetros de criptografia a `ams streaming-policy create`
 * O suporte adicionado para `ams transform output remove` agora pode ser executado passando o índice de saída a ser removido
 * Adicionados os argumentos `--correlation-data` e `--label` ao grupo de comandos `ams job`
 * Adicionados os argumentos `--storage-account` e `--container` ao grupo de comandos `ams asset`
 * Foram adicionados valores padrões para o horário de expiração (agora +23h) e permissões (Leitura) no comando `ams asset get-sas-url` 
-* [ALTERAÇÃO SIGNIFICATIVA] O comando `ams streaming locator` foi substituído por `ams streaming-locator`
-* [ALTERAÇÃO SIGNIFICATIVA] O argumento `--content-keys` de `ams streaming locator` foi atualizado
-* [ALTERAÇÃO SIGNIFICATIVA] `--content-policy-name` foi renomeado como `--content-key-policy-name` no comando `ams streaming locator`
-* [ALTERAÇÃO SIGNIFICATIVA] O comando `ams streaming policy` foi substituído por `ams streaming-policy`
-* [ALTERAÇÃO SIGNIFICATIVA] O argumento `--preset-names` foi substituído por `--preset` no grupo de comandos `ams transform`. Agora, você só pode definir uma saída/predefinição de cada vez (para adicionar mais, é preciso executar `ams transform output add`). Além disso, você pode definir StandardEncoderPreset personalizado passando o caminho para seu JSON personalizado
-* [ALTERAÇÃO SIGNIFICATIVA] `--output-asset-names ` foi renomeado como `--output-assets` no comando `ams job start`. Agora, ele aceita uma lista separada por espaços dos ativos no formato 'assetName=label'. Um ativo sem rótulo pode ser enviado assim: 'assetName='
+* [ALTERAÇÃO DA FALHA] O comando `ams streaming locator` foi substituído por `ams streaming-locator`
+* [ALTERAÇÃO DA FALHA] O argumento `--content-keys` foi atualizado de `ams streaming locator`
+* [ALTERAÇÃO DA FALHA] `--content-policy-name` foi renomeado como `--content-key-policy-name` no comando `ams streaming locator`
+* [ALTERAÇÃO DA FALHA] O comando `ams streaming policy` foi substituído por `ams streaming-policy`
+* [ALTERAÇÃO DA FALHA] O argumento `--preset-names` foi substituído por `--preset` no grupo de comandos `ams transform`. Agora, você só pode definir uma saída/predefinição de cada vez (para adicionar mais, é preciso executar `ams transform output add`). Além disso, você pode definir StandardEncoderPreset personalizado passando o caminho para seu JSON personalizado
+* [ALTERAÇÃO DA FALHA] `--output-asset-names ` foi renomeado como `--output-assets` no comando `ams job start`. Agora, ele aceita uma lista separada por espaços dos ativos no formato 'assetName=label'. Um ativo sem rótulo pode ser enviado assim: 'assetName='
 
 ### <a name="appservice"></a>AppService
 * Um bug no `az webapp config backup update` que impede a configuração de um agendamento de backup foi corrigido, caso ele ainda não tenha sido definido
@@ -636,12 +696,12 @@ Versão 2.0.50
 * O interativo agora instala a extensão `interactive` que permite atualizações e suporte mais rápidos
 
 ### <a name="monitor"></a>Monitoramento
-* Foi adicionado suporte para nomes de métricas, que incluem os caracteres barra (/) e ponto (.) para `--condition` em `monitor metrics alert [create|update]`
+* Foi adicionado suporte para nomes de métricas, que incluem os caracteres barra (/) e ponto (.) a `--condition` em `monitor metrics alert [create|update]`
 
 ### <a name="network"></a>Rede
-* Os nomes de comandos `network interface-endpoint` foram preteridos em benefício de `network private-endpoint`
+* Os nomes de comandos `network interface-endpoint` foram preteridos em favor de `network private-endpoint`
 * Foi corrigido um problema onde um argumento `--peer-circuit` em `express-route peering connection create` não aceitaria uma ID
-* Foi corrigido um problema onde `--ip-tags` não funcionava corretamente com `public-ip create` 
+* Corrigido problema em que `--ip-tags` não funcionava corretamente com `public-ip create` 
 
 ### <a name="profile"></a>Perfil
 * `--use-cert-sn-issuer` foi adicionado a `az login` para logon da entidade de serviço com rolagens automáticas de certificado
@@ -665,21 +725,21 @@ Versão 2.0.50
 * O bug com `vm resize` onde a opção `--no-wait` faz com que o comando falhasse foi corrigido
 * O formato de saída da tabela `vm encryption show` para mostrar o status foi alterado
 * `vm secret format` foi alterado para exigir a saída json/jsonc. Avisa o usuário e assume como padrão a saída json se um formato de saída indesejado for escolhido
-* Validação de argumento aprimorado para `vm create --image`
+* Validação de argumento aprimorada para `vm create --image`
 
 ## <a name="october-23-2018"></a>23 de outubro de 2018
 
 Versão 2.0.49
 
 ### <a name="core"></a>Núcleo
-* Corrigido o problema com `--ids` onde `--subscription` teria precedência sobre a assinatura em `--ids`
-* Adicionados avisos explícitos quando parâmetros seriam ignorados pelo uso de `--ids`
+* Corrigido o problema com `--ids` em que `--subscription` teria precedência sobre a assinatura em `--ids`
+* Adicionados avisos explícitos quando os parâmetros seriam ignorados pelo uso de `--ids`
 
 ### <a name="acr"></a>ACR
 * Corrigido um problema de codificação de ACR Build no Python2
 
 ### <a name="cdn"></a>CDN
-* [ALTERAÇÃO SIGNIFICATIVA] Alterado o comportamento de armazenamento em cache da cadeia de caracteres de consulta padrão de `cdn endpoint create` para não assumir o padrão "IgnoreQueryString". Agora, ele é definido pelo serviço
+* [ALTERAÇÃO DA FALHA] Alterado o comportamento de armazenamento em cache da cadeia de caracteres de consulta padrão de `cdn endpoint create` para não assumir o padrão "IgnoreQueryString". Agora, ele é definido pelo serviço
 
 ### <a name="container"></a>Contêiner
 * Adicionado `Private` como um tipo válido para passar para '--ip-address'
@@ -691,14 +751,14 @@ Versão 2.0.49
 * Corrigidos os problemas de saída da tabela para comandos `list` e `show`
 
 ### <a name="cosmosdb"></a>CosmosDB
-* Adicionado o suporte `--enable-multiple-write-locations` para `cosmosdb create`
+* Adicionado suporte `--enable-multiple-write-locations` a `cosmosdb create`
 
 ### <a name="interactive"></a>Interativo
 * Alterado para garantir que o parâmetro de assinatura global seja exibido nos parâmetros
 
 ### <a name="iot-central"></a>Central da IoT
 * Adicionadas opções de nome de exibição e modelo para criação de aplicativos de IoT Central
-* [ALTERAÇÃO SIGNIFICATIVA] Removido o suporte para a SKU F1; Use a SKU S1
+* [ALTERAÇÃO DA FALHA] Removido o suporte para a SKU F1; Use a SKU S1
 
 ### <a name="monitor"></a>Monitoramento
 * Alterações para `monitor activity-log list`:
@@ -784,8 +844,8 @@ Versão 2.0.47
 * Argumento de conveniência `--service-endpoint-policy` adicionado a `network vnet subnet update`
 
 ### <a name="role"></a>Função
-* Suporte adicionado para listar os proprietários de aplicativo do Azure AD para `ad app owner`
-* Suporte adicionado para listar os proprietários da entidade de serviço do Azure AD para `ad sp owner`
+* Suporte adicionado para listar os proprietários de aplicativo do Azure Active Directory a `ad app owner`
+* Suporte adicionado para listar os proprietários da entidade de serviço do Azure Active Directory a `ad sp owner`
 * Alterado para garantir que os comandos para criar e atualizar a definição da função aceitem várias configurações de permissão
 * `ad sp create-for-rbac` alterado para garantir que a URI da home page sempre seja "https"
 
@@ -834,10 +894,10 @@ Versão 2.0.46
 
 ### <a name="cognitive-services"></a>Serviços Cognitivos
 * Adicionado o complemento para os argumentos `--sku`, `--kind`, `--location`
-* Adicionado o comando `cognitiveservices account list-usage`
-* Adicionado o comando `cognitiveservices account list-kinds`
-* Adicionado o comando `cognitiveservices account list`
-* Preterido `cognitiveservices list`
+* Adicionado comando `cognitiveservices account list-usage`
+* Adicionado comando `cognitiveservices account list-kinds`
+* Adicionado comando `cognitiveservices account list`
+* Preteridos `cognitiveservices list`
 * Alterado `--name` para que seja opcional para `cognitiveservices account list-skus`
 
 ### <a name="container"></a>Contêiner
@@ -902,7 +962,7 @@ Versão 2.0.46
 
 ### <a name="vm"></a>VM
 * Corrigido o problema em que `vm create --generate-ssh-keys` sobrescreve o arquivo de chave privada se o arquivo de chave pública estiver ausente (#4725, #6780)
-* Adicionado suporte para galeria de imagem compartilhada através de `az sig`
+* Adicionado suporte para galeria de imagem compartilhada por meio de `az sig`
 
 ## <a name="august-28-2018"></a>28 de Agosto de 2018
 
@@ -1088,7 +1148,7 @@ Versão 2.0.43
 * Grupo de comandos de migração adicionados para migrar um namespace do Barramento de Serviço Standard para Premium
 * Novas propriedades opcionais adicionadas à fila do Barramento de Serviço e à Assinatura
   *  `--enable-batched-operations` e `--enable-dead-lettering-on-message-expiration` em `queue`
-  *  `--dead-letter-on-filter-exceptions` em `subscriptions`
+  *  `--dead-letter-on-filter-exceptions` mergulhar `subscriptions`
 
 ### <a name="storage"></a>Armazenamento
 
@@ -1098,9 +1158,9 @@ Versão 2.0.43
 ### <a name="vm"></a>VM
 
 * Suporte adicionado para listar conjuntos de disponibilidade por assinatura
-* Adicionado o suporte para `StandardSSD_LRS`
+* Adicionado suporte para `StandardSSD_LRS`
 * Suporte adicionado para o grupo de segurança do aplicativo ao criar um conjunto de dimensionamento da VM
-* [ALTERAÇÃO SIGNIFICATIVA] `[vm|vmss] create`, `[vm|vmss] identity assign` e `[vm|vmss] identity remove` alterados para produzir identidades de usuário atribuídas no formato de dicionário
+* [ALTERAÇÃO DA FALHA] `[vm|vmss] create`, `[vm|vmss] identity assign` e `[vm|vmss] identity remove` alterados para produzir identidades de usuário atribuídas no formato de dicionário
 
 ## <a name="july-18-2018"></a>18 de julho de 2018
 
@@ -1143,15 +1203,15 @@ Versão 2.0.42
 
 ### <a name="network"></a>Rede
 
-* Adicionado o suporte `--no-wait` para `network nic [create|update|delete]` 
-* Adicionado `network nic wait`
-* Preterido o argumento `--ids` para `network vnet [subnet|peering] list`
-* Adicionado o sinalizador `--include-default` para incluir regras de segurança padrão na saída do `network nsg rule list`  
+* Adicionado suporte `--no-wait` a `network nic [create|update|delete]` 
+* Added `network nic wait`
+* Preterido argumento `--ids` para `network vnet [subnet|peering] list`
+* Adicionado sinalizador `--include-default` para incluir regras de segurança padrão na saída do `network nsg rule list`  
 
 ### <a name="resource"></a>Recurso
 
-* Adicionado o suporte `--no-wait` para `group deployment delete`
-* Adicionado o suporte `--no-wait` para `deployment delete`
+* Adicionado suporte `--no-wait` a `group deployment delete`
+* Adicionado suporte `--no-wait` a `deployment delete`
 * Adicionado o comando `deployment wait`
 * Correção do problema em que os comandos de nível de assinatura `az deployment` erroneamente apareceram no perfil 2017-03-09-profile
 
@@ -1168,8 +1228,8 @@ Versão 2.0.42
 ### <a name="vm"></a>VM
 
 * [ALTERAÇÃO SIGNIFICATIVA] Alterado `vmss create` para usar o `Standard_DS1_v2` como o tamanho de instância padrão
-* Adicionado o suporte `--no-wait` para `vm extension [set|delete]` e `vmss extension [set|delete]`
-* Adicionado `vm extension wait`
+* Adicionado suporte `--no-wait` a `vm extension [set|delete]` e `vmss extension [set|delete]`
+* Added `vm extension wait`
 
 ## <a name="july-3-2018"></a>3 de julho de 2018
 
@@ -1221,7 +1281,7 @@ Versão 2.0.40
 ### <a name="container"></a>Contêiner
 
 * `container create` alterado para padrão para a operação de longa execução
-* Parâmetros `--log-analytics-workspace` e `--log-analytics-workspace-key` adicionados do Log Analytics
+* Adicionados parâmetros do Log Analytics `--log-analytics-workspace` e `--log-analytics-workspace-key`
 * Parâmetro `--protocol` adicionado para especificar qual protocolo de rede usar
 
 ### <a name="extension"></a>Extensão
@@ -1238,7 +1298,7 @@ Versão 2.0.40
 
 ### <a name="resource"></a>Recurso
 
-* Novo grupo de operação `deployment` adicionado
+* Novo grupo de operação adicionado `deployment`
 
 ### <a name="vm"></a>VM
 
@@ -1271,9 +1331,9 @@ Versão 2.0.38
 * `aks get-credentials --admin` foi alterado para substituir o contexto do usuário em `$HOME/.kube/config`
 * A propriedade `nodeResourceGroup` somente leitura foi exposta em clusters gerenciados
 * O erro de comando `acs browse` foi corrigido
-* Foram feitas `--connector-name` opcional para `aks install-connector`, `aks upgrade-connector` e `aks remove-connector`
+* `--connector-name` tornou-se opcional para `aks install-connector`, `aks upgrade-connector` e `aks remove-connector`
 * Novas regiões de Instância de Contêiner do Azure foram adicionadas para `aks install-connector`
-* O local normalizado foi adicionado no nome de versão do comando e no nome do nó para `aks install-connector`
+* O local normalizado no nome de versão do helm e no nome do nó foi adicionado a `aks install-connector`
 
 ### <a name="appservice"></a>AppService
 
@@ -1291,13 +1351,13 @@ Versão 2.0.38
 * Foi adicionado suporte para configurar `/dev/shm` para trabalhos em execução em um contêiner de docker
 * Foram adicionados os comandos `batchai cluster node exec` e `batchai job node exec`. Esses comandos permitem executar qualquer comando diretamente nos nós e fornece a funcionalidade de encaminhamento de porta.
 * Foi adicionado suporte a `--ids` para os comandos `batchai`
-* [ALTERAÇÃO SIGNIFICATIVA] Todos os clusters e servidores de arquivos devem ser criados nos workspaces
-* [ALTERAÇÃO SIGNIFICATIVA] Os trabalhos devem ser criados nas experiências
-* [ALTERAÇÃO SIGNIFICATIVA] `--nfs-resource-group` foi removido dos comandos `cluster create` e `job create`. Para montar um NFS pertencente a outro workspace/grupo de recursos, forneça a ID de ARM do servidor de arquivos através da opção `--nfs`
-* [ALTERAÇÃO SIGNIFICATIVA] `--cluster-resource-group` foi removido do comando `job create`. Para enviar um trabalho em um cluster pertencente a outro workspace/grupo de recursos, forneça a ID de ARM do cluster através da opção `--cluster`
-* [ALTERAÇÃO SIGNIFICATIVA] O atributo `location` foi removido de trabalhos, cluster e servidores de arquivos. Agora, o local é um atributo de um workspace.
-* [ALTERAÇÃO SIGNIFICATIVA] `--location` foi removido dos comandos `job create` e `cluster create` e `file-server create`
-* [ALTERAÇÃO SIGNIFICATIVA] Os nomes das opções curtas foi alterado para tornar a interface mais consistente:
+* [ALTERAÇÃO CRÍTICA] Todos os clusters e servidores de arquivos devem ser criados nos workspaces
+* [ALTERAÇÃO CRÍTICA] Os trabalhos devem ser criados nas experiências
+* [ALTERAÇÃO CRÍTICA] `--nfs-resource-group` foi removido dos comandos `cluster create` e `job create`. Para montar um NFS pertencente a outro workspace/grupo de recursos, forneça a ID de ARM do servidor de arquivos através da opção `--nfs`
+* [ALTERAÇÃO CRÍTICA] `--cluster-resource-group` foi removido do comando `job create`. Para enviar um trabalho em um cluster pertencente a outro workspace/grupo de recursos, forneça a ID de ARM do cluster através da opção `--cluster`
+* [ALTERAÇÃO CRÍTICA] O atributo `location` foi removido de trabalhos, cluster e servidores de arquivos. Agora, o local é um atributo de um workspace.
+* [ALTERAÇÃO CRÍTICA] `--location` foi removido dos comandos `job create` e `cluster create` e `file-server create`
+* [ALTERAÇÃO CRÍTICA] Os nomes das opções curtas foi alterado para tornar a interface mais consistente:
   - [`--config`, `-c`] foi renomeado para [`--config-file`, `-f`]
   - [`--cluster`, `-r`] foi renomeado para [`--cluster`, `-c`]
   - [`--cluster`, `-n`] foi renomeado para [`--cluster`, `-c`]
@@ -1305,7 +1365,7 @@ Versão 2.0.38
 
 ### <a name="maps"></a>Mapas
 
-* [ALTERAÇÃO SIGNIFICATIVA] `maps account create` foi alterado para exigir a aceitação dos Termos de Serviço pelo prompt interativo ou sinalizador `--accept-tos`
+* [ALTERAÇÃO CRÍTICA] `maps account create` foi alterado para exigir a aceitação dos Termos de Serviço pelo prompt interativo ou sinalizador `--accept-tos`
 
 ### <a name="network"></a>Rede
 
@@ -1314,11 +1374,11 @@ Versão 2.0.38
 
 ### <a name="reservations"></a>Reservas
 
-* [ALTERAÇÃO SIGNIFICATIVA] Foi adicionado o parâmetro `ReservedResourceType` necessário a `reservations catalog show`
+* [ALTERAÇÃO DA FALHA] Adicionado parâmetro `ReservedResourceType` necessário a `reservations catalog show`
 * Parâmetro `Location` adicionado a `reservations catalog show`
-* [ALTERAÇÃO SIGNIFICATIVA] `kind` foi removido de `ReservationProperties`
-* [ALTERAÇÃO SIGNIFICATIVA] `capabilities` foi renomeado para `sku_properties` em `Catalog`
-* [ALTERAÇÃO SIGNIFICATIVA] As propriedades `size` e `tier` foram removidas de `Catalog`
+* [ALTERAÇÃO DA FALHA] Removido `kind` de `ReservationProperties`
+* [ALTERAÇÃO DA FALHA] `capabilities` foi renomeado para `sku_properties` em `Catalog`
+* [ALTERAÇÃO DA FALHA] As propriedades `size` e `tier` foram removidas de `Catalog`
 * Parâmetro `InstanceFlexibility` adicionado a `reservations reservation update`
 
 ### <a name="role"></a>Função
@@ -1336,7 +1396,7 @@ Versão 2.0.38
 ### <a name="vm"></a>VM
 
 * A verificação da refinação do tamanho da VM foi aprimorada para o suporte de rede acelerada em `vm create`
-* Foi adicionado um aviso para `vmss create` informando que o tamanho padrão da VM será alternado de `Standard_D1_v2` para `Standard_DS1_v2`
+* Adicionado aviso para `vmss create` informando que o tamanho padrão da VM será alternado de `Standard_D1_v2` para `Standard_DS1_v2`
 * Foi adicionado `--force-update` a `[vm|vmss] extension set` para atualizar a extensão mesmo quando a configuração não foi alterada
 
 ## <a name="june-13-2018"></a>13 de junho de 2018
@@ -1353,11 +1413,11 @@ Versão 2.0.36
 
 ### <a name="aks"></a>AKS
 
-* Foram adicionadas opções avançadas de rede para `aks create`
+* Adicionadas opções de rede avançada a `aks create`
 * Foram adicionados argumentos para `aks create` para habilitar o monitoramento e roteamento de HTTP
-* Adicionado o argumento `--no-ssh-key` para `aks create`
-* Adicionado o argumento `--enable-rbac` para `aks create`
-* [VERSÃO PRÉVIA] Suporte adicionado para a autenticação do Azure Active Directory no `aks create`
+* Adicionado argumento `--no-ssh-key` a `aks create`
+* Adicionado argumento `--enable-rbac` a `aks create`
+* [VERSÃO PRÉVIA] Suporte adicionado para a autenticação do Azure Active Directory a `aks create`
 
 ### <a name="appservice"></a>AppService
 
@@ -1399,7 +1459,7 @@ Versão 2.0.34
 
 ### <a name="network"></a>Rede
 
-* `network vnet peering` melhorado
+* Melhoria de `network vnet peering`
 
 ### <a name="policy-insights"></a>Informações sobre a Política
 
@@ -1431,7 +1491,7 @@ Versão 2.0.34
 ### <a name="vm"></a>VM
 
 * `vm list-skus` foi alterado para usar colunas fixas e adicionar o aviso de que `Tier` e `Size` serão removidos
-* Opção `--accelerated-networking` adicionada a `vm create`
+* Adição da opção `--accelerated-networking` a `vm create`
 * `--tags` foi adicionado a `identity create`
 
 ## <a name="may-22-2018"></a>22 de maio de 2018
@@ -1444,7 +1504,7 @@ Versão 2.0.33
 
 ### <a name="acs"></a>ACS
 
-* Novos comandos de espaços de desenvolvimento `aks use-dev-spaces` e `aks remove-dev-spaces` foram adicionados
+* Adicionados novos comandos de espaços de desenvolvimento `aks use-dev-spaces` e `aks remove-dev-spaces`
 * Erro de digitação corrigido na mensagem de ajuda
 
 ### <a name="appservice"></a>AppService
@@ -1477,15 +1537,15 @@ Versão 2.0.33
 
 ### <a name="sql"></a>SQL
 
-* [ALTERAÇÃO SIGNIFICATIVA] Objetos de resposta alterados retornados dos comandos `db` e `dw`:
+* [ALTERAÇÃO DA FALHA] Objetos de resposta alterados retornados dos comandos `db` e `dw`:
     * A propriedade `serviceLevelObjective` foi renomeada para `currentServiceObjectiveName`
     * As propriedades `currentServiceObjectiveId` e `requestedServiceObjectiveId` foram removidas
     * A propriedade `maxSizeBytes` foi alterada para ser um valor inteiro em vez de uma cadeia de caracteres
-* [ALTERAÇÃO SIGNIFICATIVA] As propriedades `db` e `dw` a seguir foram alteradas para somente leitura:
+* [ALTERAÇÃO DA FALHA] As propriedades `db` e `dw` a seguir foram alteradas para somente leitura:
     * `requestedServiceObjectiveName`.  Para atualizar, use o parâmetro `--service-objective` ou defina a propriedade `sku.name`
     * `edition`. Para atualizar, use o parâmetro `--edition` ou defina a propriedade `sku.tier`
     * `elasticPoolName`. Para atualizar, use o parâmetro `--elastic-pool` ou defina a propriedade `elasticPoolId`
-* [ALTERAÇÃO SIGNIFICATIVA] As propriedades `elastic-pool` a seguir foram alteradas para somente leitura:
+* [ALTERAÇÃO DA FALHA] As propriedades `elastic-pool` a seguir foram alteradas para somente leitura:
     * `edition`. Para atualizar, use o parâmetro `--edition`
     * `dtu`. Para atualizar, use o parâmetro `--capacity`
     *  `databaseDtuMin`. Para atualizar, use o parâmetro `--db-min-capacity`
@@ -1496,12 +1556,12 @@ Versão 2.0.33
 ### <a name="storage"></a>Armazenamento
 
 * Complemento adicionado ao argumento `--account-name`
-* O problema com `storage entity query` foi corrigido
+* Corrigido problema com `storage entity query`
 
 ### <a name="vm"></a>VM
 
-* [ALTERAÇÃO SIGNIFICATIVA] Removeu `--write-accelerator` de `vm create`. O mesmo suporte pode ser acessado por meio de `vm update` ou `vm disk attach`
-* Imagem de extensão fixa correspondente em `[vm|vmss] extension`
+* [ALTERAÇÃO DA FALHA] Removeu `--write-accelerator` de `vm create`. O mesmo suporte pode ser acessado por meio de `vm update` ou `vm disk attach`
+* Corrigida correspondência de imagem de extensão em `[vm|vmss] extension`
 * `--boot-diagnostics-storage` foi adicionado a `vm create` para capturar o log de inicialização
 * `--license-type` foi adicionado a `[vm|vmss] update`
 
@@ -1516,7 +1576,7 @@ Versão 2.0.32
 * Corrigir problema no qual `--query` não pôde ser usado com `--ids`. [#5591](https://github.com/Azure/azure-cli/issues/5591)
 * Foram melhorados os cenários de redirecionamento de comandos ao usar `--ids`. Oferece suporte a `-o tsv` com uma consulta especificada ou `-o json` sem especificar uma consulta
 * Foram adicionadas sugestões de comando sobre o erro se os usuários cometeram algum erro de digitação em seus comandos
-* Erro corrigido quando os usuários digitam `az ''`
+* Erro aprimorado durante a digitação dos usuários `az ''`
 * Foram adicionados tipos de recursos personalizados com suporte para módulos de comando e extensões
 
 ### <a name="acr"></a>ACR
@@ -1540,7 +1600,7 @@ Versão 2.0.32
 ### <a name="appservice"></a>AppService
 
 * Correção de bug no `webapp delete` quando `--slot` é fornecido
-* `--runtime-version` foi removido de `webapp auth update`
+* Removido `--runtime-version` de `webapp auth update`
 * Foi adicionado suporte para min\_tls\_versão e https2.0
 * Suporte adicionado para vários contêineres
 
@@ -1585,7 +1645,7 @@ Versão 2.0.32
 
 ### <a name="network"></a>Rede
 
-* [ALTERAÇÃO SIGNIFICATIVA] Parâmetro `--ids` removido de:
+* [ALTERAÇÃO DA FALHA] Parâmetro `--ids` removido de:
   * `express-route auth list`
   * `express-route peering list`
   * `nic ip-config list`
@@ -1597,7 +1657,7 @@ Versão 2.0.32
 ### <a name="profile"></a>Perfil
 
 * Detecção de origem do `disk create` corrigida
-* [ALTERAÇÃO SIGNIFICATIVA] `--msi-port` e `--identity-port` removidos porque não são mais usados
+* [ALTERAÇÃO DA FALHA] `--msi-port` e `--identity-port` removidos porque não são mais usados
 * Erro de digitação corrigido no resumo do `account get-access-token`
 
 ### <a name="redis"></a>Redis
@@ -1609,7 +1669,7 @@ Versão 2.0.32
 
 ### <a name="role"></a>Função
 
-* [ALTERAÇÃO SIGNIFICATIVA] Remoção de `ad sp reset-credentials` preterido
+* [ALTERAÇÃO DA FALHA] Remoção de preterido `ad sp reset-credentials`
 
 ### <a name="storage"></a>Armazenamento
 
@@ -1623,15 +1683,15 @@ Versão 2.0.32
 
 * Uma lógica de detecção inválida foi corrigida no URI do blob não gerenciado
 * Adicionada criptografia de disco de suporte sem entidades de serviço fornecidas pelo usuário
-* [ALTERAÇÃO SIGNIFICATIVA] Não usar a VM 'ManagedIdentityExtension' para suporte de MSI
+* [ALTERAÇÃO DA FALHA] Não usar a VM 'ManagedIdentityExtension' para suporte de MSI
 * Suporte adicionado para a política de remoção em `vmss`
-* [ALTERAÇÃO SIGNIFICATIVA] Removeu `--ids` de:
+* [ALTERAÇÃO DA FALHA] Removeu `--ids` de:
   * `vm extension list`
   * `vm secret list`
   * `vm unmanaged-disk list`
   * `vmss nic list`
 * Foi adicionado suporte do acelerador de gravação
-* Adicionado `vmss perform-maintenance`
+* Added `vmss perform-maintenance`
 * `vm diagnostics set` foi corrigido para detectar o tipo de sistema operacional da VM de forma confiável
 * `vm resize` foi alterado para verificar se o tamanho solicitado é diferente daquele definido no momento e atualizar somente na alteração
 
@@ -1650,7 +1710,7 @@ Versão 2.0.31
 
 ### <a name="appservice"></a>AppService
 
-* [ALTERAÇÃO SIGNIFICATIVA]: Removed `assign-identity`
+* [ALTERAÇÃO DA FALHA]: Removed `assign-identity`
 * Correção da exceção não identificada de planos de webapp inexistentes
 
 ### <a name="batchai"></a>BatchAI
@@ -1677,7 +1737,7 @@ Versão 2.0.31
 * O comando do fluxo de arquivo de trabalho agora é preenchido automaticamente quando o trabalho é concluído (com êxito, com falha, encerrado ou excluído)
 * Melhoria da saída de `table` para operações de `show`
 * Adição da opção `--use-auto-storage` para a criação de cluster. Essa opção simplifica o gerenciamento de contas de armazenamento e a montagem do Compartilhamento de arquivos do Azure e dos Contêineres de Blob do Azure para clusters
-* Adição da opção `--generate-ssh-keys` para `cluster create` e `file-server create`
+* Adição da opção `--generate-ssh-keys` a `cluster create` e `file-server create`
 * Adição da capacidade de fornecer a tarefa de configuração de nó por meio da linha de comando
 * [ALTERAÇÃO SIGNIFICATIVA] Comandos `job stream-file` e `job list-files` movidos para o grupo `job file`
 * [ALTERAÇÃO SIGNIFICATIVA] `--admin-user-name` renomeado para `--user-name` no comando `file-server create` para ser consistente com o comando `cluster create`
@@ -1689,15 +1749,15 @@ Versão 2.0.31
 ### <a name="consumption"></a>Consumo
 
 * Adicionados os comandos `marketplace`
-* [ALTERAÇÃO SIGNIFICATIVA] `reservations summaries` renomeado para `reservation summary`
-* [ALTERAÇÃO SIGNIFICATIVA] `reservations details` renomeado para `reservation detail`
+* [ALTERAÇÃO DA FALHA] `reservations summaries` renomeado para `reservation summary`
+* [ALTERAÇÃO DA FALHA] `reservations details` renomeado para `reservation detail`
 * [ALTERAÇÃO SIGNIFICATIVA] Removidas as opções abreviadas `--reservation-order-id` e `--reservation-id` para os comandos `reservation`
 * [ALTERAÇÃO SIGNIFICATIVA] Removidas as opções abreviadas `--grain` para os comandos `reservation summary`
 * [ALTERAÇÃO SIGNIFICATIVA] Removidas as opções abreviadas `--include-meter-details` para os comandos `pricesheet`
 
 ### <a name="container"></a>Contêiner
 
-* Adição dos parâmetros de montagem de volume de repositório git `--gitrepo-url`, `--gitrepo-dir`, `--gitrepo-revision` e `--gitrepo-mount-path`
+* Adição dos parâmetros de montagem de volume do Repositório Git `--gitrepo-url`, `--gitrepo-dir`, `--gitrepo-revision` e `--gitrepo-mount-path`
 * Correção de [#5926](https://github.com/Azure/azure-cli/issues/5926): `az container exec` com falha com --container-name especificado
 
 ### <a name="extension"></a>Extensão
@@ -1718,7 +1778,7 @@ Versão 2.0.31
 * Adição de suporte de `--ddos-protection-plan` a `vnet [create|update]` para associar uma VNET a um plano de proteção contra DDoS
 * Correção do problema com o sinalizador `--disable-bgp-route-propagation` em `network route-table [create|update]`
 * Remoção de argumentos fictícios `--public-ip-address-type` e `--subnet-type` para `network lb [create|update]`
-* Adição de suporte para registros TXT com sequências de escape RFC 1035 para `network dns zone [import|export]` e `network dns record-set txt add-record`
+* Adição de suporte para registros TXT com sequências de escape RFC 1035 a `network dns zone [import|export]` e `network dns record-set txt add-record`
 
 ### <a name="profile"></a>Perfil
 
@@ -1732,8 +1792,8 @@ Versão 2.0.31
 
 ### <a name="resource"></a>Recurso
 
-* Adicionado o suporte ao `--metadata` para `policy definition create`
-* Adição de suporte para `--metadata`, `--set`, `--add`, `--remove` para `policy definition update`
+* Adição do suporte para `--metadata` a `policy definition create`
+* Adição de suporte para `--metadata`, `--set`, `--add`, `--remove` a `policy definition update`
 
 ### <a name="sql"></a>SQL
 
@@ -1745,10 +1805,10 @@ Versão 2.0.31
 
 ### <a name="vm"></a>VM
 
-* Adição de suporte para configurar a contagem de domínios de falha da plataforma para `vmss create`
+* Adição de suporte para configurar a contagem de domínios de falha da plataforma a `vmss create`
 * Alteração de `vmss create` para balanceador de carga padrão para um conjunto de dimensionamento desabilitado zonal, grande ou de único grupo de posicionamento
-* [ALTERAÇÃO SIGNIFICATIVA]: Removed `vm assign-identity`, `vm remove-identity and `vm format-secret`
-* Adição de suporte para a SKU de IP público para `vm create`
+* [ALTERAÇÃO DA FALHA]: Removed `vm assign-identity`, `vm remove-identity and `vm format-secret`
+* Adição de suporte para a SKU de IP público a `vm create`
 * Adição dos argumentos `--keyvault` e `--resource-group` para `vm secret format` para oferecer suporte a cenários em que o comando não é capaz de resolver a ID do cofre. [#5718](https://github.com/Azure/azure-cli/issues/5718)
 * Melhoria de erros de `[vm|vmss create]` quando um local do grupo de recursos não tem suporte de zona
 
@@ -1767,8 +1827,8 @@ Versão 2.0.30
 
 ### <a name="appservice"></a>AppService
 
-* Adição do suporte somente para HTTPS para `webapp update`
-* Adição do suporte para os slots `az webapp identity [assign|show]` e `az functionapp identity [assign|show]`
+* Adição de suporte somente para HTTPS a `webapp update`
+* Adição de suporte para os slots a `az webapp identity [assign|show]` e `az functionapp identity [assign|show]`
 
 ### <a name="backup"></a>Backup
 
@@ -1830,7 +1890,7 @@ Versão 2.0.30
 
 ### <a name="profile"></a>Perfil
 
-* Adição de avisos para `--identity-port` e `--msi-port` para `login`
+* Adição de avisos para `--identity-port` e `--msi-port` a `login`
 
 ### <a name="rdbms"></a>RDBMS
 
@@ -1838,15 +1898,15 @@ Versão 2.0.30
 
 ### <a name="resource"></a>Recurso
 
-* [ALTERAÇÃO SIGNIFICATIVA]: Changed `provider operation [list|show]` to not require `--api-version`
+* [ALTERAÇÃO DA FALHA]: Changed `provider operation [list|show]` to not require `--api-version`
 
 ### <a name="role"></a>Função
 
-* Adição de suporte para configurações de acesso necessário e clientes nativos para `az ad app create`
+* Adição de suporte para configurações de acesso necessário e clientes nativos a `az ad app create`
 * `rbac` comandos alterados para retornar menos de 1000 IDs na resolução do objeto
 * Adição de comandos de gerenciamento de credencial `ad sp credential [reset|list|delete]`
 * [ALTERAÇÃO SIGNIFICATIVA] "Propriedades" removidas da saída `az role assignment [list|show]`
-* Adição de suporte para as permissões `dataActions` e `notDataActions` para `role definition`
+* Adição de suporte para as permissões `dataActions` e `notDataActions` a `role definition`
 
 ### <a name="storage"></a>Armazenamento
 
@@ -1856,7 +1916,7 @@ Versão 2.0.30
 ### <a name="vm"></a>VM
 
 * Adição de aviso para `vmss create` para alterações de falha futuras para conjuntos com mais de 100 instâncias
-* Adição de suporte com flexibilidade de região para `vm [snapshot|image]`
+* Adição de suporte com flexibilidade de zona a `vm [snapshot|image]`
 * Alteração no modo de exibição de instância de disco para reportar status de criptografia mais adequados
 * [ALTERAÇÃO SIGNIFICATIVA] `vm extension delete` alterado para não retornar mais a saída
 
@@ -1866,7 +1926,7 @@ Versão 2.0.29
 
 ### <a name="acr"></a>ACR
 
-* Suporte adicionado do parâmetro `--image` a `repository delete`
+* Suporte adicionado para o parâmetro `--image` a `repository delete`
 * Parâmetros `--manifest` e `--tag` preteridos do comando `repository delete`
 * Comando `repository untag` adicionado para remover uma marcação sem excluir dados
 
@@ -1877,16 +1937,16 @@ Versão 2.0.29
 
 ### <a name="advisor"></a>Supervisor
 
-* [ALTERAÇÃO SIGNIFICATIVA] `advisor configuration get` renomeado para `advisor configuration list`
-* [ALTERAÇÃO SIGNIFICATIVA] `advisor configuration set` renomeado para `advisor configuration update`
-* [ALTERAÇÃO SIGNIFICATIVA] `advisor recommendation generate` removido
+* [ALTERAÇÃO DA FALHA] `advisor configuration get` renomeado para `advisor configuration list`
+* [ALTERAÇÃO DA FALHA] `advisor configuration set` renomeado para `advisor configuration update`
+* [ALTERAÇÃO DA FALHA] Removido `advisor recommendation generate`
 * Parâmetro `--refresh` adicionado a `advisor recommendation list`
 * Adicionado o comando `advisor recommendation show`
 
 ### <a name="appservice"></a>AppService
 
-* Preterido `[webapp|functionapp] assign-identity`
-* Comandos de identidade gerenciada `webapp identity [assign|show]` e `functionapp identity [assign|show]` adicionados
+* Preteridos `[webapp|functionapp] assign-identity`
+* Adicionados comandos de identidade gerenciada `webapp identity [assign|show]` e `functionapp identity [assign|show]`
 
 ### <a name="eventhubs"></a>Hubs de eventos
 
@@ -1912,7 +1972,7 @@ Versão 2.0.29
 
 ### <a name="network"></a>Rede
 
-* [ALTERAÇÃO SIGNIFICATIVA] Parâmetro `--tags` removido de `route-filter rule create`
+* [ALTERAÇÃO DA FALHA] Parâmetro `--tags` removido de  `route-filter rule create`
 * Valores padrão incorretos removidos dos seguintes comandos:
   * `network express-route update`
   * `network nsg rule update`
@@ -1943,7 +2003,7 @@ Versão 2.0.29
 ### <a name="vm"></a>VM
 
 * Suporte adicionado a `[vm|vmss] create` anexar discos de dados não gerenciados e configurar o cache
-* `[vm|vmss] assign-identity` e `[vm|vmss] remove-identity` preteridos
+* Preteridos `[vm|vmss] assign-identity` e `[vm|vmss] remove-identity`
 * Comandos `vm identity [assign|remove|show]` e `vmss identity [assign|remove|show]` adicionados para substituir comandos preteridos
 * Prioridade padrão alterada em `vmss create` para None
 
@@ -1955,7 +2015,7 @@ Versão 2.0.28
 
 * Corrigido [#5184](https://github.com/Azure/azure-cli/issues/5184): problema de instalação do Homebrew
 * Adição de suporte para telemetria de extensão com chaves personalizadas
-* Adição de log HTTP em `--debug`
+* Adição de log HTTP a `--debug`
 
 ### <a name="acs"></a>ACS
 
@@ -1984,7 +2044,7 @@ Versão 2.0.28
 
 ### <a name="network"></a>Rede
 
-* Corrigido [#5559](https://github.com/Azure/azure-cli/issues/5559): cliente ausente em `network vnet-gateway vpn-client generate`
+* Corrigido [#5559](https://github.com/Azure/azure-cli/issues/5559): Cliente ausente em `network vnet-gateway vpn-client generate`
 
 ### <a name="resource"></a>Recurso
 
@@ -2024,7 +2084,7 @@ Versão 2.0.27
 * Alterados os tamanhos de nó padrão para `aks create` de “Standard\_D1\_v2” para “Standard\_DS1\_v2”
 * Aumentada a confiabilidade ao localizar o pod de painel para `az aks browse`
 * `aks get-credentials` corrigido para tratar de erros de Unicode ao carregar arquivos de configuração do Kubernetes
-* Adicionada uma mensagem para `az aks install-cli` para ajudar a obter `kubectl` em `$PATH`
+* Adicionada uma mensagem a `az aks install-cli` para ajudar a obter `kubectl` em `$PATH`
 
 ### <a name="appservice"></a>AppService
 
@@ -2062,7 +2122,7 @@ Versão 2.0.27
 
 * Correção do problema em que `iot dps access policy [create|update]` retornaria um erro ‘não encontrado’ em caso de sucesso
 * Correção do problema em que `iot dps linked-hub [create|update]` retornaria um erro ‘não encontrado’ em caso de sucesso
-* Adicionado o suporte `--no-wait` para `iot dps access policy [create|update]` e `iot dps linked-hub [create|update]`
+* Adicionado suporte `--no-wait` a `iot dps access policy [create|update]` e `iot dps linked-hub [create|update]`
 * `iot hub create` alterado para permitir a especificação do número de partições
 
 ### <a name="monitor"></a>Monitoramento
@@ -2085,16 +2145,16 @@ Versão 2.0.27
 
 ### <a name="resource"></a>Recurso
 
-* `feature show` adicionado novamente
+* Adicionado novamente `feature show`
 
 ### <a name="role"></a>Função
 
-* Adicionado o argumento `--available-to-other-tenants` para `ad app update`
+* Adicionado argumento `--available-to-other-tenants` a `ad app update`
 
 ### <a name="sql"></a>SQL
 
 * Adicionados os comandos `sql server dns-alias`
-* Adicionado `sql db rename`
+* Added `sql db rename`
 * Adicionado suporte para o argumento `--ids` para todos os comandos sql
 
 ### <a name="storage"></a>Armazenamento
@@ -2105,7 +2165,7 @@ Versão 2.0.27
 
 * Corrigida uma falha quando a criptografia de VM não pode ser totalmente inicializada
 * Adicionada saída de ID de entidade de segurança ao habilitar o MSI
-* `vm boot-diagnostics get-boot-log` fixo
+* Correção `vm boot-diagnostics get-boot-log`
 
 
 ## <a name="january-31-2018"></a>31 de janeiro de 2018
@@ -2126,7 +2186,7 @@ Versão 2.0.26
 
 ### <a name="appservice"></a>AppService
 
-* `webapp log [tail|download]` fixo
+* Correção `webapp log [tail|download]`
 * Removida a verificação de `kind` em aplicativos Web e funções
 
 ### <a name="cdn"></a>CDN
@@ -2143,11 +2203,11 @@ Versão 2.0.26
 
 ### <a name="network"></a>Rede
 
-* Adicionada a proteção para `--cert-password` para `application-gateway create`
+* Adicionada proteção para `--cert-password` a `application-gateway create`
 * Corrigido o problema com `application-gateway update` em que `--sku` aplicou um valor padrão de forma errada
-* Adicionada proteção para `--shared-key` e `--authorization-key` para `vpn-connection create`
+* Adicionada proteção para `--shared-key` e `--authorization-key` a `vpn-connection create`
 * Corrigido o problema de cliente ausente com `asg create`
-* Adicionado o parâmetro `--file-name / -f` para nomes exportados para `dns zone export`
+* Adicionado parâmetro `--file-name / -f` para nomes exportados a `dns zone export`
 * Os seguintes problemas foram corrigidos com `dns zone export`:
   * Corrigido o problema em que registros TXT longos foram exportados incorretamente
   * Corrigido o problema em que registros TXT entre aspas foram exportados incorretamente sem as aspas com caracteres de escape
@@ -2175,7 +2235,7 @@ Versão 2.0.26
 * Adicionado o comando `vm image accept-terms` para permitir a criação de VMs a partir de imagens com encargos adicionais
 * `[vm|vmss create]` corrigido para garantir que comandos possam ser executados sob o proxy com certificados não assinados
 * [VERSÃO PRÉVIA] Adicionado suporte para “baixa” prioridade para VMSS
-* Adicionada a proteção para `--admin-password` para `[vm|vmss] create`
+* Adicionada proteção para `--admin-password` a `[vm|vmss] create`
 
 
 ## <a name="january-17-2018"></a>17 de janeiro de 2018
@@ -2195,7 +2255,7 @@ Versão 2.0.25
 ### <a name="appservice"></a>AppService
 
 * Corrigido o bug com `config ssl upload` onde `hosting_environment_profile` era nulo
-* Adicionado suporte para URLs personalizadas para `browse`
+* Adicionado suporte para URLs personalizadas a `browse`
 * Corrigido o suporte de slot para `log tail`
 
 ### <a name="backup"></a>Backup
@@ -2220,11 +2280,11 @@ Versão 2.0.25
 
 ### <a name="event-grid"></a>Grade de Eventos
 
-* [ALTERAÇÃO SIGNIFICATIVA] Comandos `az eventgrid topic event-subscription` transferidos para `eventgrid event-subscription`
-* [ALTERAÇÃO SIGNIFICATIVA] Comandos `az eventgrid resource event-subscription` transferidos para `eventgrid event-subscription`
+* [ALTERAÇÃO DA FALHA] Comandos `az eventgrid topic event-subscription` transferidos para `eventgrid event-subscription`
+* [ALTERAÇÃO DA FALHA] Comandos `az eventgrid resource event-subscription` transferidos para `eventgrid event-subscription`
 * [ALTERAÇÃO SIGNIFICATIVA] Comando `eventgrid event-subscription show-endpoint-url` removido. Usar `eventgrid event-subscription show --include-full-endpoint-url`
-* Adicionado o comando `eventgrid topic update`
-* Adicionado o comando `eventgrid event-subscription update`
+* Adicionado comando `eventgrid topic update`
+* Adicionado comando `eventgrid event-subscription update`
 * Adicionado o parâmetro `--ids` para comandos `eventgrid topic`
 * Adicionado o suporte de conclusão de guia para nomes de tópico
 
@@ -2248,7 +2308,7 @@ Versão 2.0.25
 ### <a name="network"></a>Rede
 
 * Corrigido o problema ao tentar alterar de/para o modo ativo-em espera com `vnet-gateway update`
-* Adicionado o suporte para HTTP2 para `application-gateway [create|update]`
+* Adicionado suporte para HTTP2 a `application-gateway [create|update]`
 
 ### <a name="profile"></a>Perfil
 
@@ -2270,7 +2330,7 @@ Versão 2.0.25
 * [ALTERAÇÃO SIGNIFICATIVA] `externalIdentities` alterado para `userAssignedIdentities` para EMSI
 * [VERSÃO PRÉVIA] Adicionado o suporte para a troca de disco do sistema operacional
 * Adicionado o suporte para o uso de imagens da VM de outras assinaturas
-* Adicionados os argumentos `--plan-name`, `--plan-product`, `--plan-promotion-code` e `--plan-publisher` para `[vm|vmss] create`
+* Adicionados argumentos `--plan-name`, `--plan-product`, `--plan-promotion-code` e `--plan-publisher` a `[vm|vmss] create`
 * Corrigidos os problemas de erro com `[vm|vmss] create`
 * Corrigido o uso excessivo de recursos causados por `vm image list --all`
 
@@ -2286,8 +2346,8 @@ Versão 2.0.23
 
 ### <a name="network"></a>Rede
 
-* Adicionado o argumento `--disable-bgp-route-propagation` para `route-table [create|update]`
-* Adicionado o argumento `--ip-tags` para `public-ip [create|update]`
+* Adicionado argumento `--disable-bgp-route-propagation` a `route-table [create|update]`
+* Adicionado argumento `--ip-tags` a `public-ip [create|update]`
 
 ### <a name="storage"></a>Armazenamento
 
@@ -2338,11 +2398,11 @@ Versão 2.0.22
 
 ### <a name="resource"></a>Recurso
 
-* Adicionado o argumento `--include-response-body` para `resource show`
+* Adicionado argumento `--include-response-body` a `resource show`
 
 ### <a name="role"></a>Função
 
-* Exibição de atribuições padrão adicionada dos administradores "clássicos" para `role assignment list`
+* Exibição de atribuições padrão adicionada dos administradores "clássicos" a `role assignment list`
 * Suporte adicionado a `ad sp reset-credentials` para adicionar as credenciais em vez de substituir
 * Relatório de erros aprimorado para `ad sp create-for-rbac`
 
@@ -2369,18 +2429,18 @@ Versão 2.0.21
 
 * Alteradas todas as palavras "agente" para "nó" no AKS
 * Opção `--orchestrator-release` preterida para `acs create`
-* Tamanho alterado da VM padrão do AKS para `Standard_D1_v2`
+* Alterado tamanho padrão da VM do AKS para `Standard_D1_v2`
 * `az aks browse` corrigido no Windows
 * `az aks get-credentials` corrigido no Windows
 
 ### <a name="appservice"></a>AppService
 
 * Origem da implantação adicional `config-zip` para webapps e aplicativos de funções
-* Opção `--docker-container-logging` adicionada a `az webapp log config`
+* Adição da opção `--docker-container-logging` a `az webapp log config`
 * Removida a opção `storage` do parâmetro `--web-server-logging` de `az webapp log config`
 * Mensagens de erro aprimoradas para `deployment user set`
 * Suporte adicionado para criar aplicativos de funções do Linux
-* `list-locations` fixo
+* Correção `list-locations`
 
 ### <a name="batch"></a>Lote
 
@@ -2428,9 +2488,9 @@ Versão 2.0.21
 ### <a name="network"></a>Rede
 
 * Suporte adicionado para registros DNS da CAA
-* Problema corrigido onde os pontos de extremidade não podem ser atualizados com `traffic-manager profile update`
+* Problema corrigido em que os pontos de extremidade não podiam ser atualizados com `traffic-manager profile update`
 * Problema corrigido onde `vnet update --dns-servers` não funcionou dependendo de como a VNET foi criada
-* Problema corrigido onde os nomes DNS relativos foram importados incorretamente por`dns zone import`
+* Problema corrigido em que os nomes DNS relativos eram importados incorretamente por `dns zone import`
 
 ### <a name="reservations"></a>Reservas
 
@@ -2452,7 +2512,7 @@ Versão 2.0.21
 * Comandos adicionados para usar o glob e excluir vários objetos com `storage [blob|file] delete-batch`
 * Problema corrigido ao habilitar métricas com `storage metrics update`
 * Problema corrigido com arquivos acima de 200 GB ao usar `storage blob upload-batch`
-* Problema corrigido onde `--bypass` e `--default-action` foram ignorados por `storage account [create|update]`
+* Problema corrigido em que `--bypass` e `--default-action` foram ignorados por `storage account [create|update]`
 
 ### <a name="vm"></a>VM
 
@@ -2460,7 +2520,7 @@ Versão 2.0.21
 * Argumentos `--plan` adicionados a `[vm|vmss] create` para ter imagens personalizadas com informações de cobrança
 * Comandos `vm secret `[add|remove|list]` adicionados
 * `vm format-secret` renomeado para `vm secret format`
-* Adicionado o argumento `--encrypt format` para `vm encryption enable`
+* Adicionado argumento `--encrypt format` a `vm encryption enable`
 
 ## <a name="october-24-2017"></a>24 de outubro de 2017
 
@@ -2468,7 +2528,7 @@ Versão 2.0.20
 
 ### <a name="core"></a>Núcleo
 
-* Atualizado `2017-03-09-profile` para usar a `MGMT_STORAGE` versão da API`2016-01-01`
+* Atualizado `2017-03-09-profile` para usar a `MGMT_STORAGE` versão da API `2016-01-01`
 
 ### <a name="acr"></a>ACR
 
@@ -2479,7 +2539,7 @@ Versão 2.0.20
 ### <a name="acs"></a>ACS
 
 * [VERSÃO PRÉVIA] Comandos `az aks` adicionados
-* Kubernetes `get-credentials` corrigido
+* Kubernetes corrigido `get-credentials`
 
 ### <a name="appservice"></a>AppService
 
@@ -2500,7 +2560,7 @@ Versão 2.0.20
 
 ### <a name="vm"></a>VM
 
-* Adicionado o argumento `--accelerated-networking` para `vmss create`
+* Adicionado argumento `--accelerated-networking` a `vmss create`
 
 
 ## <a name="october-9-2017"></a>9 de outubro de 2017
@@ -2537,7 +2597,7 @@ Versão 2.0.19
 
 ### <a name="resource"></a>Recurso
 
-* Suporte adicionado para `--resource-group/-g` opções do nome do grupo de recursos para `group`
+* Suporte adicionado para opções `--resource-group/-g` do nome do grupo de recursos a `group`
 * Comandos adicionados a `account lock` para funcionar com bloqueios no nível da assinatura
 * Comandos adicionados a `group lock` para funcionar com bloqueios no nível do grupo
 * Comandos adicionados a `resource lock` para funcionar com bloqueios no nível do recurso
@@ -2555,10 +2615,10 @@ Versão 2.0.19
 ### <a name="vm"></a>VM
 
 * Correção de um bug em `vm show` onde o uso de `-d` causou uma falha nos endereços IP privados ausentes
-* [VERSÃO PRÉVIA] Suporte adicionado para atualização sem interrupção para `vmss create`
+* [VERSÃO PRÉVIA] Suporte adicionado para atualização sem interrupção a `vmss create`
 * Suporte adicionado para atualizar as configurações de criptografia com `vm encryption enable`
 * Parâmetro `--os-disk-size-gb` adicionado a `vm create`
-* Parâmetro `--license-type` adicionado ao Windows para `vmss create`
+* Parâmetro `--license-type` para Windows adicionado a `vmss create`
 
 
 ## <a name="september-22-2017"></a>22 de setembro de 2017
@@ -2569,17 +2629,17 @@ Versão 2.0.1.8
 
 * Suporte adicionado para mostrar as definições de políticas internas
 * Parâmetro de modo de suporte adicionado para a criação de definições de política
-* Suporte adicionado para definições de interface do usuário e modelos em `managedapp definition create`
-* [ALTERAÇÃO SIGNIFICATIVA] Tipo de recurso `managedapp` alterado de `appliances` para `applications` e de `applianceDefinitions` para `applicationDefinitions`
+* Suporte adicionado para definições de interface do usuário e modelos a `managedapp definition create`
+* [ALTERAÇÃO DA FALHA] Tipo de recurso `managedapp` alterado de `appliances` para `applications` e de `applianceDefinitions` para `applicationDefinitions`
 
 ### <a name="network"></a>Rede
 
 * Suporte adicionado para a zona de disponibilidade para os subcomandos `network lb` e `network public-ip`
-* Suporte adicionado ao Emparelhamento IPv6 da Microsoft para `express-route`
+* Suporte adicionado para Emparelhamento IPv6 da Microsoft a `express-route`
 * Adicionados `asg` comandos de grupo de segurança do aplicativo
-* Adicionado o argumento `--application-security-groups` para `nic [create|ip-config create|ip-config update]`
-* Adicionados os argumentos `--source-asgs` e `--destination-asgs` para `nsg rule [create|update]`
-* Adicionados os argumentos `--ddos-protection` e `--vm-protection` para `vnet [create|update]`
+* Adicionado argumento `--application-security-groups` a `nic [create|ip-config create|ip-config update]`
+* Adicionados argumentos `--source-asgs` e `--destination-asgs` a `nsg rule [create|update]`
+* Adicionados argumentos `--ddos-protection` e `--vm-protection` a `vnet [create|update]`
 * Adicionados os comandos `network [vnet-gateway|vpn-client|show-url]`
 
 ### <a name="storage"></a>Armazenamento
@@ -2593,7 +2653,7 @@ Versão 2.0.1.8
 ### <a name="sql"></a>SQL
 
 * Alterado o `sql server list` argumento `--resource-group` para ser opcional. Se não for especificado, todos os servidores sql na assinatura serão retornados
-* Adicionado o `--no-wait` parâmetro para `db [create|copy|restore|update|replica create|create|update]` e `dw [create|update]`
+* Adicionado parâmetro `--no-wait` a `db [create|copy|restore|update|replica create|create|update]` e `dw [create|update]`
 
 ### <a name="keyvault"></a>Keyvault
 
@@ -2601,12 +2661,12 @@ Versão 2.0.1.8
 
 ### <a name="vm"></a>VM
 
-* Adicionado suporte à zona de disponibilidade para `[vm|vmss|disk] create`
+* Adicionado suporte para zona de disponibilidade a `[vm|vmss|disk] create`
 * Correção do problema onde usar`--app-gateway ID` com `vmss create` poderia causar uma falha
-* Adicionado o argumento `--asgs` para `vm create`
+* Adicionado argumento `--asgs` a `vm create`
 * Suporte adicionado para executar comandos em VMs com `vm run-command`
 * [VERSÃO PRÉVIA] Adicionado suporte para criptografia de disco VMSS com `vmss encryption`
-* Suporte adicionado para realizar a manutenção em VMs com `vm perform-maintenance`
+* Suporte adicionado para realizar a manutenção nas máquinas virtuais com `vm perform-maintenance`
 
 ### <a name="acs"></a>ACS
 
@@ -2641,7 +2701,7 @@ Versão 2.0.17
 
 ### <a name="cdn"></a>CDN
 
-* Foi corrigido o bug 'Não é possível interar CustomDomain' para `cdn custom-domain create`
+* Bug “Não é possível interar CustomDomain” corrigido para `cdn custom-domain create`
 
 ### <a name="extension"></a>Extensão
 
@@ -2649,20 +2709,20 @@ Versão 2.0.17
 
 ### <a name="keyvault"></a>Keyvault
 
-* Foi corrigido o problema onde permissões diferenciavam maiúsculas de minúsculas para `keyvault set-policy`
+* Correção de problema em que as permissões diferenciam maiúsculas e minúsculas para `keyvault set-policy`
 
 ### <a name="network"></a>Rede
 
 * `vnet list-private-access-services` renomeado para `vnet list-endpoint-services`
-* Foi renomeado o argumento `--private-access-services` para `--service-endpoints` para `vnet subnet create/update`
-* Foi adicionado suporte a vários intervalos de IP e intervalos de portas para `nsg rule create/update`
-* Adicionado suporte ao SKU para `lb create`
-* Adicionado suporte ao SKU para `public-ip create`
+* Argumento `--private-access-services` renomeado para `--service-endpoints` de `vnet subnet create/update`
+* Adição de suporte para intervalos de IP múltiplos e intervalos de porta a `nsg rule create/update`
+* Adição de suporte para SKU a `lb create`
+* Adição de suporte para SKU a `public-ip create`
 
 ### <a name="resource"></a>Recurso
 
-* Permitir a passagem de definições de parâmetro de políticas de recursos em `policy definition create` e`policy definition update`
-* Permitir a passagem de valores de parâmetro para`policy assignment create`
+* Permitir a passagem de definições de parâmetro de políticas de recursos em `policy definition create` e `policy definition update`
+* Permitir a passagem de valores de parâmetro para `policy assignment create`
 * Permitir a passagem de JSON ou arquivo para todos os parâmetros
 * Versão da API incrementada
 
@@ -2684,7 +2744,7 @@ Versão 2.0.16
 
 ### <a name="keyvault"></a>Keyvault
 
-* Correção do bug ao tentar resolver automaticamente a codificação secreta com `secret download`
+* Correção de bug ao tentar resolver automaticamente a codificação secreta com `secret download`
 
 ### <a name="sf"></a>Sf
 
@@ -2711,7 +2771,7 @@ Versão 2.0.15
 
 ### <a name="appservice"></a>AppService
 
-* [ALTERAÇÃO SIGNIFICATIVA] Corrigidas as inconsistências na saída de `az webapp config appsettings [delete|set]`
+* [ALTERAÇÃO DA FALHA] Corrigidas as inconsistências na saída de `az webapp config appsettings [delete|set]`
 * Adicionado um novo alias de `-i` para `az webapp config container set --docker-custom-image-name`
 * Exposto `az webapp log show`
 * Expostos novos argumentos de `az webapp delete` para manter o plano, as métricas ou o registro de DNS do serviço de aplicativo
@@ -2723,11 +2783,11 @@ Versão 2.0.15
 
 ### <a name="network"></a>Rede
 
-* [ALTERAÇÃO SIGNIFICATIVA] `vnet list-private-access-services` renomeado para `vnet list-endpoint-services`
-* [ALTERAÇÃO SIGNIFICATIVA] Opção `--private-access-services` renomeada como `--service-endpoints` para `vnet subnet [create|update]`
-* Adicionado suporte para vários  intervalos de IP e portas para `nsg rule [create|update]`
-* Adicionado suporte ao SKU para `lb create`
-* Adicionado suporte ao SKU para `public-ip create`
+* [ALTERAÇÃO DA FALHA] `vnet list-private-access-services` renomeado para `vnet list-endpoint-services`
+* [ALTERAÇÃO DA FALHA] Opção `--private-access-services` renomeada como `--service-endpoints` para `vnet subnet [create|update]`
+* Adicionado suporte para vários intervalos de IP e portas a `nsg rule [create|update]`
+* Adição de suporte para SKU a `lb create`
+* Adição de suporte para SKU a `public-ip create`
 
 ### <a name="profile"></a>Perfil
 
@@ -2738,13 +2798,13 @@ Versão 2.0.15
 * Versão prévia
 * Simplificadas as regras de registro de usuário/senha para comando
 * Corrigido o prompt de senha para o usuário mesmo após a passagem do parâmetro
-* Adicionado suporte para `registry_cred` vazio
+* Adicionado suporte para vazio de `registry_cred`
 
 ### <a name="storage"></a>Armazenamento
 
 * Habilitada a camada de blob de configuração
 * Adicionados os argumentos `--bypass` e `--default-action` ao `storage account [create|update]` para dar suporte ao serviço de túnel
-* Comandos adicionados ao `storage account network-rule` para adicionar as regras de rede virtual e regras baseadas em IP
+* Adicionados comandos para adicionar regras de rede virtual e regras baseadas em IP a `storage account network-rule`
 * Habilitada a criptografia de serviço por chave gerenciada de cliente
 * [ALTERAÇÃO SIGNIFICATIVA] Opção `--encryption` renomeada como `--encryption-services` para o comando `az storage account create and az storage account update`
 * Correção #4220: `az storage account update encryption` - incompatibilidade de sintaxe
@@ -2753,10 +2813,10 @@ Versão 2.0.15
 
 * Corrigido o problema em que informações incorretas extras eram exibidas para `vmss get-instance-view` ao usar `--instance-id *`
 * Adicionado suporte ao `--lb-sku` para `vmss create`:
-* Removidos nomes humanos da lista de bloqueio de nome de administrador para `[vm|vmss] create`
+* Removidos nomes humanos da lista de bloqueio de nomes de administrador para `[vm|vmss] create`
 * Corrigido o problema onde `[vm|vmss] create` geraria um erro se não for possível extrair informações do plano de uma imagem
 * Corrigida uma falha ao criar um conjunto de dimensionamento de máquinas virtuais com um balanceamento de carga interno
-* Corrigido o problema onde o argumento `--no-wait` não funcionava com `vm availability-set create`
+* Corrigido o problema em que o argumento `--no-wait` não funcionava com `vm availability-set create`
 
 
 ## <a name="august-15-2017"></a>15 de agosto de 2017
@@ -2928,7 +2988,7 @@ vm (2.0.11)
 
 * Atualizado para o Lote SDK 3.0.0 com suporte para VMs de baixa prioridade em pools
 * Opção `pool create` renomeada como `--target-dedicated` para `--target-dedicated-nodes`
-* Adicionadas as opções `pool create` e `--target-low-priority-nodes` de `--application-licenses`
+* Adicionadas opções `pool create` e `--target-low-priority-nodes` de `--application-licenses`
 
 ### <a name="cdn"></a>CDN
 
@@ -2950,12 +3010,12 @@ vm (2.0.11)
 ### <a name="data-lake-analytics"></a>Data Lake Analytics
 
 * Adicionados comandos para gerenciamento de política de computação sob o título `dla account compute-policy`
-* Adicionado `dla job pipeline show`
-* Adicionado `dla job recurrence list`
+* Added `dla job pipeline show`
+* Added `dla job recurrence list`
 
 ### <a name="data-lake-store"></a>Data Lake Store
 
-* Adicionado suporte para a rotação de chave de cofre de chaves gerenciado do usuário em `dls account update`
+* Adicionado suporte para a rotação de chaves gerenciadas do usuário do cofre de chaves em `dls account update`
 * Atualizada a versão SDK do sistema de arquivos do Data Lake Store subjacente para resolver um problema de desempenho
 * Adicionado o comando `dls enable-key-vault`. Esse comando tenta permitir que um Cofre de Chaves fornecido pelo usuário use a criptografia de dados em uma conta do Data Lake Store
 
@@ -2979,17 +3039,17 @@ vm (2.0.11)
 ### <a name="key-vault"></a>Cofre de chaves
 
 * Comandos adicionados para recursos de recuperação do cofre de chaves:
-  * Subcomandos `purge`, `recover`, `keyvault list-deleted` de `keyvault`
-  * Subcomandos `backup`, `restore`, `purge`, `recover`, `list-deleted` de `keyvault secret`
-  * Subcomandos `purge`, `recover`, `list-deleted` de `keyvault certificate`
-  * Subcomandos `purge`, `recover`, `list-deleted` de `keyvault key`
+  * `keyvault` subcomandos `purge`, `recover`, `keyvault list-deleted`
+  * `keyvault secret` subcomandos `backup`, `restore`, `purge`, `recover`, `list-deleted`
+  * `keyvault certificate` subcomandos `purge`, `recover`, `list-deleted`
+  * `keyvault key` subcomandos `purge`, `recover`, `list-deleted`
 * Adicionada a integração do cofre de chaves da entidade de serviço (#3133)
 * Atualizado o plano de dados de cofre de chaves para 0.3.2. (#3307)
 
 ### <a name="lab"></a>Laboratório
 
-* Adicionado o suporte para reivindicar qualquer VM no laboratório através de `az lab vm claim`
-* Adicionado o formatador de saída da tabela para `az lab vm list` e `az lab vm show`
+* Adicionado suporte para reivindicar qualquer VM no laboratório por meio de `az lab vm claim`
+* Adicionado formatador de saída da tabela para `az lab vm list` e `az lab vm show`
 
 ### <a name="monitor"></a>Monitoramento
 
@@ -2999,13 +3059,13 @@ vm (2.0.11)
 * `monitor metric-defintions list` renomeado para `monitor metrics list-definitions`
 * `monitor alert-rules` renomeado para `monitor alert`
 * Alterado `monitor alert create`:
-  * Os subcomandos `condition` e `action` não aceitarão mais JSON
+  * `condition` e JSON não será mais aceito pelos subcomandos `action`
   * Adicionar vários parâmetros para simplificar o processo de criação de regra
   * `location` não é mais necessário
   * Adicionar nome e o suporte a ID de destino
   * Remover `--alert-rule-resource-name`
   * Renomear `is-enabled` para `enabled` não é mais necessário
-  * Padrões de `description` agora baseados na condição fornecida
+  * `description` agora os padrões são baseados na condição fornecida
   *  Adicionar exemplos para ajudar a esclarecer o novo formato
 * Suporte para nomes ou IDs para comandos `monitor metric`
 * Exemplos e argumentos de conveniência adicionados ao `monitor alert rule update`
@@ -3013,26 +3073,26 @@ vm (2.0.11)
 ### <a name="network"></a>Rede
 
 * Adicionado o comando `list-private-access-services`
-* Adicionado argumento `--private-access-services` para `vnet subnet create` e `vnet subnet update`
+* Adicionado argumento `--private-access-services` a `vnet subnet create` e `vnet subnet update`
 * Corrigido o problema onde `application-gateway redirect-config create` falhava
 * Corrigido o problema onde `application-gateway redirect-config update` com `--no-wait` não funcionava
-* Corrigido o bug ao usar o argumento `--servers` com `application-gateway address-pool create` e `application-gateway address-pool update`
+* Corrigido bug ao usar o argumento `--servers` com `application-gateway address-pool create` e `application-gateway address-pool update`
 * Adicionados os comandos `application-gateway redirect-config`
-* Adicionados os comandos para `application-gateway ssl-policy`: `list-options`, `predefined list`, `predefined show`
-* Adicionados os argumentos para `application-gateway ssl-policy set`: `--name`, `--cipher-suites`, `--min-protocol-version`
+* Adicionados comandos a `application-gateway ssl-policy`: `list-options`, `predefined list`, `predefined show`
+* Adicionados argumentos a `application-gateway ssl-policy set`: `--name`, `--cipher-suites`, `--min-protocol-version`
 * Adicionados os argumentos para `application-gateway http-settings create` e `application-gateway http-settings update`: `--host-name-from-backend-pool`, `--affinity-cookie-name`, `--enable-probe`, `--path`
-* Adicionados os argumentos para `application-gateway url-path-map create` e `application-gateway url-path-map update`: `--default-redirect-config`, `--redirect-config`
-* Adicionado o argumento `--redirect-config` para `application-gateway url-path-map rule create`
-* Adicionado o suporte ao `--no-wait` para `application-gateway url-path-map rule delete`
-* Adicionados os argumentos para `application-gateway probe create` e `application-gateway probe update`: `--host-name-from-http-settings`, `--min-servers`, `--match-body`, `--match-status-codes`
-* Adicionado o argumento `--redirect-config` para `application-gateway rule create` e `application-gateway rule update`
-* Adicionado o suporte ao `--accelerated-networking` para `nic create` e `nic update`
-* Removido o argumento `--internal-dns-name-suffix` de `nic create`
+* Adicionados argumentos a `application-gateway url-path-map create` e `application-gateway url-path-map update`: `--default-redirect-config`, `--redirect-config`
+* Adicionado argumento `--redirect-config` a `application-gateway url-path-map rule create`
+* Adição do suporte para `--no-wait` a `application-gateway url-path-map rule delete`
+* Adicionados argumentos a `application-gateway probe create` e `application-gateway probe update`: `--host-name-from-http-settings`, `--min-servers`, `--match-body`, `--match-status-codes`
+* Adicionado argumento `--redirect-config` a `application-gateway rule create` e `application-gateway rule update`
+* Adicionado suporte para `--accelerated-networking` a `nic create` e `nic update`
+* Removido argumento `--internal-dns-name-suffix` de `nic create`
 * Adicionado o suporte ao `--dns-servers` para `nic update` e `nic create`: Adicionar suporte para --dns-servers
-* Corrigido o bug onde `local-gateway create` ignorava `--local-address-prefixes`
-* Adicionado o suporte ao `--dns-servers` para `vnet update`
-* Corrigido o bug ao criar um emparelhamento sem filtragem de rotas com `express-route peering create`
-* Corrigido o bug onde os argumentos `--provider` e `--bandwidth` não funcionavam com `express-route update`
+* Corrigido bug em que `local-gateway create` ignorava `--local-address-prefixes`
+* Adição do suporte para `--dns-servers` a `vnet update`
+* Corrigido bug ao criar um emparelhamento sem filtragem de rotas com `express-route peering create`
+* Corrigido bug em que os argumentos `--provider` e `--bandwidth` não funcionavam com `express-route update`
 * Corrigido o bug com a lógica padrão de `network watcher show-topology`
 * Aprimorada a formatação de saída para `network list-usages`
 * Usar IP de front-end padrão para `application-gateway http-listener create` se existir apenas um
@@ -3071,7 +3131,7 @@ vm (2.0.11)
 * Suporte à saída no formato de arquivo de autenticação do SDK para `create-for-rbac`
 * Limpar as atribuições de função e aplicativos relacionados ao AAD ao excluir uma entidade de serviço (#3610)
 * Incluir o formato de hora nos argumentos `app create` e descrições `--start-date` e `--end-date`
-* Mostrar avisos de código obsoleto ao usar `--expanded-view`
+* Mostrar avisos de reprovação ao usar `--expanded-view`
 * Adicionada a integração do cofre de chaves para os comandos `create-for-rbac` e `reset-credentials`
 
 ### <a name="service-fabric"></a>Service Fabric
@@ -3083,7 +3143,7 @@ vm (2.0.11)
 
 * Removido o parâmetro `sql server create` `--identity`
 * Remover os valores de senha da saída dos comandos `sql server create` e `sql server update`
-* Adicionados os comandos para `sql db list-editions` e `sql elastic-pool list-editions`
+* Adicionados comandos `sql db list-editions` e `sql elastic-pool list-editions`
 
 ### <a name="storage"></a>Armazenamento
 
@@ -3099,7 +3159,7 @@ vm (2.0.11)
 * Suporte para configuração de NSG
 * Corrigido o bug onde o servidor DNS não era configurado corretamente
 * Suporte às identidades de serviço gerenciado
-* Corrigido o problema onde `cmss create` com um balanceador de carga existente exigia `--backend-pool-name`
+* Corrigido o problema em que `cmss create` com um balanceador de carga existente exigia `--backend-pool-name`
 * Os discos de dados criados com LUN do `vm image create` agora começam com 0
 
 
@@ -3251,7 +3311,7 @@ vm (2.0.6)
 * Correção de um bug com `vpn-connection create` ao usar os parâmetros `--no-wait` ou `--validate`
 * Adição de suporte para gateways de VNet ativos/ativos
 * Remoção de valores nulos na saída de comandos `network vpn-connection list/show`
-* BC: corrigido um bug na saída de `vpn-connection create`
+* BC: Corrigido bug na saída de `vpn-connection create`
 * Correção de um bug em que o argumento “--key-length” de “vpn-connection create” não é analisado corretamente
 * Correção de um bug em `dns zone import`, em que os registros não são importados corretamente
 * Correção de um bug em que `traffic-manager endpoint update` não funciona

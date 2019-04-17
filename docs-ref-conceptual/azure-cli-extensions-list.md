@@ -4,17 +4,17 @@ description: Uma lista completa das extensões com suporte oficial para a CLI do
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 04/03/2019
+ms.date: 04/11/2019
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 859a318ac7705812550a259ea160105256cdeab8
-ms.sourcegitcommit: cf9a1d3d89095238078c9303aaa3bfeaa0cdfdf1
+ms.openlocfilehash: 225c0acbdb8ab4665d8e169d012496d44b1c1a07
+ms.sourcegitcommit: b8dd3e56e86ef7c76714b3677f7c80d3f8aed3f5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58913328"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59508362"
 ---
 # <a name="available-extensions-for-the-azure-cli"></a>Extensões disponíveis para a CLI do Azure
 
@@ -47,9 +47,9 @@ az extension list-available --output table
 | [express-route](https://github.com/Azure/azure-cli-extensions/tree/master/src/express-route) | 0.1.3 | Gerenciar ExpressRoute com versão prévia dos recursos. | Sim |
 | [express-route-cross-connection](https://github.com/Azure/azure-cli-extensions/tree/master/src/express-route-cross-connection) | 0.1.1 | Gerencie os circuitos do ExpressRoute de cliente usando uma conexão cruzada do ExpressRoute. |  |
 | [find](https://github.com/Azure/azure-cli-extensions/tree/master/src/find) | 0.3.0 | Consultas inteligentes para obter informações de CLI. | Sim |
-| [front-door](https://github.com/Azure/azure-cli-extensions/tree/master/src/front-door) | 0.1.4 | Gerenciar FrontDoors de rede. | Sim |
+| [front-door](https://github.com/Azure/azure-cli-extensions/tree/master/src/front-door) | 0.1.5 | Gerenciar FrontDoors de rede. | Sim |
 | [image-copy-extension](https://github.com/Azure/azure-cli-extensions) | 0.0.9 | Suporte para copiar imagens de vm gerenciadas entre regiões |  |
-| [Interativo](https://github.com/Azure/azure-cli) | 0.4.1 | Shell interativo de linha de comando do Microsoft Azure | Sim |
+| [Interativo](https://github.com/Azure/azure-cli) | 0.4.2 | Shell interativo de linha de comando do Microsoft Azure | Sim |
 | [keyvault-preview](https://github.com/Azure/azure-keyvault-cli-extension) | 0.1.3 | Visualizar comandos do Azure Key Vault. | Sim |
 | [log-analytics](https://github.com/Azure/azure-cli-extensions/tree/master/src/log-analytics) | 0.1.3 | Suporte para recursos de consulta do Log Analytics do Azure. | Sim |
 | [managementgroups](https://github.com/Azure/azure-cli-extensions) | 0.1.0 | Uma extensão da CLI do Azure para grupos de gerenciamento |  |

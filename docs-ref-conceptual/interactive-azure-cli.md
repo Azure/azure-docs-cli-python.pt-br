@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 7a6b89953d60fe98910f8141a606ac1fcba318ae
-ms.sourcegitcommit: 7f79860c799e78fd8a591d7a5550464080e07aa9
+ms.openlocfilehash: a325b799c7384037ae336093aa5274c7cbf53cbc
+ms.sourcegitcommit: cf47338210116437d7dc0f6037d2dabd5c5e6a4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56157951"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59429006"
 ---
 # <a name="azure-cli-interactive-mode"></a>Modo interativo da CLI do Azure
 
@@ -82,18 +82,20 @@ az>>
 
 ## <a name="query"></a>Consultar
 
-É possível executar uma consulta JMESPath nos resultados do último comando executado.
-Por exemplo, depois de criar uma VM, garanta que ela foi totalmente provisionada.
+É possível executar uma consulta JMESPath nos resultados do último comando executado usando `??` seguido de uma consulta JMESPath.
+Por exemplo, depois de criar um grupo, você pode recuperar a ID do novo grupo.
+
+```azurecli
+az>> group create -n myRG -l westEurope
+az>> "?? id"
+```
+
+Você também pode aproveitar essa sintaxe para usar o resultado do comando anterior como um argumento do próximo comando.* Por exemplo, depois de ter listado todos os grupos, liste todos os recursos do tipo `virtualMachine` no primeiro grupo cuja localização seja westeurope. 
 
 ```azurecli
 az>> vm create --name myVM --resource-group myRG --image UbuntuLTS --no-wait -o json
-az>> ? [*].provisioningState
-```
-
-```json
-[
-  "Creating"
-]
+az>> group list -o json
+az>> resource list -g "?? [?location=='westeurope'].name | [0]" --query "[?type=='Microsoft.Compute/virtualMachines'].name
 ```
 
 Para saber mais sobre como consultar os resultados dos comandos, confira [Consultar os resultados de comandos com a CLI do Azure](query-azure-cli.md).
