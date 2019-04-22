@@ -11,10 +11,10 @@ ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
 ms.openlocfilehash: 003576ba22cdc4fc64977b653d0fb6859cd38446
-ms.sourcegitcommit: cf47338210116437d7dc0f6037d2dabd5c5e6a4b
+ms.sourcegitcommit: 334a1da92a73e42e715e33470057f4194f10b2ea
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59429023"
 ---
 # <a name="get-started-with-azure-cli"></a>Introdução à CLI do Azure
@@ -77,7 +77,7 @@ Há alguns argumentos disponíveis para cada comando.
 
 * `--help` imprime as informações de referência da CLI sobre comandos e seus argumentos, além de listar os comandos e subgrupos disponíveis.
 * `--output` altera o formato de saída. Os formatos de saída disponíveis são `json`, `jsonc`(JSON colorido), `tsv` (valores separados por tabulação), `table` (tabelas ASCII legível por humanos) e `yaml`. Por padrão, a CLI gera `json`. Para saber mais sobre os formatos de saída disponíveis, confira [Formatos de saída da CLI do Azure](format-output-azure-cli.md).
-* `--query` usa a [linguagem de consulta JMESPath](http://jmespath.org/) para filtrar a saída retornada dos serviços do Azure. Para saber mais sobre as consultas, confira [Consultar resultados do comando com a CLI do Azure](query-azure-cli.md) e [Tutorial do JMESPath](http://jmespath.org/tutorial.html).
+* `--query` usa o [linguagem de consulta JMESPath](http://jmespath.org/) para filtrar a saída retornada dos serviços do Azure. Para saber mais sobre as consultas, confira [Consultar resultados do comando com a CLI do Azure](query-azure-cli.md) e [Tutorial do JMESPath](http://jmespath.org/tutorial.html).
 * `--verbose` imprime informações sobre recursos criados no Azure durante uma operação, além de outras informações úteis.
 * `--debug` imprime ainda mais informações sobre operações de CLI e é usado para fins de depuração. Se você encontrar um bug, forneça a saída gerada com o sinalizador `--debug` ao enviar um relatório de bugs.
 
@@ -98,7 +98,7 @@ Também há um [plug-in do Visual Studio Code](https://marketplace.visualstudio.
 Para a introdução à CLI do Azure, experimente ver um tutorial aprofundado para configurar máquinas virtuais e usar o poder da CLI para consultar recursos do Azure.
 
 > [!div class="nextstepaction"]
-> [Tutorial sobre como criar máquinas virtuais com a CLI do Azure](azure-cli-vm-tutorial.yml)
+> [Tutorial Criar máquinas virtuais com a CLI do Azure](azure-cli-vm-tutorial.yml)
 
 Também há guias de início rápido para outros serviços populares.
 
@@ -106,7 +106,7 @@ Também há guias de início rápido para outros serviços populares.
 * [Transferir objetos de/para o Armazenamento de blobs do Azure usando a CLI](/azure/storage/blobs/storage-quickstart-blobs-cli)
 * [Criar um único banco de dados SQL do Azure usando a CLI do Azure](/azure/sql-database/sql-database-get-started-cli)
 * [Criar um servidor de Banco de Dados do Azure para MySQL usando a CLI do Azure](/azure/mysql/quickstart-create-mysql-server-database-using-azure-cli)
-* [Criar um servidor de Banco de Dados do Azure para PostgreSQL usando a CLI do Azure](/azure/postgresql/quickstart-create-server-database-azure-cli)
+* [Criar um servidor de Banco de Dados do Azure para PostgreSQL usando a CLI Azure](/azure/postgresql/quickstart-create-server-database-azure-cli)
 * [Criar um aplicativo Web do Python no Azure](/azure/app-service/app-service-web-get-started-python)
 * [Executar uma imagem personalizada do Hub do Docker nos Aplicativos Web para Contêineres do Azure](/azure/app-service/containers/quickstart-custom-docker-image)
 
