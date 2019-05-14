@@ -4,23 +4,23 @@ description: Como instalar a CLI do Azure com o gerenciador de pacotes apt
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 03/19/2019
+ms.date: 05/08/2019
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: fa2e1db439b4836d7506409b3abcce74fb6e6695
-ms.sourcegitcommit: 5864f72b9a6fbf82a4d98bf805b3a16a7da18556
+ms.openlocfilehash: af82eea3fd549cbca85699a3030a19bc82574b73
+ms.sourcegitcommit: c65c69bd08fd6b7632ba60dc7c8e9f2b57a9d0b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58343138"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65476269"
 ---
 # <a name="install-azure-cli-with-apt"></a>Instalar CLI do Azure com o apt
 
-Se você estiver executando uma distribuição fornecida com `apt`, como Ubuntu ou Debian, há um pacote x86_64 disponível para a CLI do Azure. Esse pacote foi testado com:
+Se você estiver executando uma distribuição fornecida com `apt`, como Ubuntu ou Debian, há um pacote x86_64 disponível para a CLI do Azure. Este pacote foi testado e é compatível com:
 
-* Ubuntu trusty, xenial, artful e bionic
+* Ubuntu trusty, xenial, artful, bionic e disco
 * Debian wheezy, jessie e stretch
 
 [!INCLUDE [current-version](includes/current-version.md)]
@@ -31,11 +31,29 @@ Se você estiver executando uma distribuição fornecida com `apt`, como Ubuntu 
 
 ## <a name="install"></a>Instalar
 
+Oferecemos duas maneiras de instalar a CLI do Azure com distribuições que dão suporte a `apt`: Como um script tudo-em-um que executa os comandos de instalação para você, e instruções que podem ser executadas como um processo passo a passo por conta própria.
+
+### <a name="install-with-one-command"></a>Instalar com um comando
+
+Oferecemos e mantemos um script que executa todos os comandos de instalação em uma única etapa. Executá-lo usando `curl` e redirecione diretamente para `bash`, ou baixe o script para um arquivo e inspecione-o antes da execução.
+
+> [!IMPORTANT]
+> Esse script é verificado somente para o Ubuntu 16.04+ e Debian 8+. Ele pode não funcionar em outras distribuições.
+> Se você estiver usando uma distribuição derivada como Linux Mint, siga as instruções de instalação manual e execute qualquer solução de problemas necessária.
+
+```bash
+curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+```
+
+### <a name="manual-install-instructions"></a>Instruções para instalação manual
+
+Se você não quiser executar um script como superusuário, siga estas etapas manuais para instalar a CLI do Azure.
+
 1. Obtenha os pacotes necessários para o processo de instalação:
 
     ```bash
     sudo apt-get update
-    sudo apt-get install curl apt-transport-https lsb-release gpg
+    sudo apt-get install curl apt-transport-https lsb-release gnupg
     ```
 
 2. Baixe e instale a chave de autenticação da Microsoft:
@@ -79,7 +97,7 @@ Algumas distribuições derivadas do Ubuntu ou do Debian, como o Linux Mint, pod
 
 Às vezes, um pacote da CLI do Azure pode ser disponibilizado somente um tempo depois do lançamento da distribuição. A CLI do Azure é projetada para ser resiliente em relação a versões futuras das dependências e precisam da menor quantidade possível delas. Se não houver pacotes disponíveis para sua distribuição de base, tente um pacote de uma distribuição anterior.
 
-Para isso, defina o valor de `AZ_REPO` manualmente ao [adicionar o repositório](#set-release). Para as distribuições do Ubuntu, use o repositório `bionic`; para as distribuições do Debian, use `stretch`. Não há suporte para as distribuições lançadas antes do Ubuntu Trusty e do Debian Wheezy.
+Para isso, defina o valor de `AZ_REPO` manualmente ao [adicionar o repositório](#set-release). Para as distribuições do Ubuntu, use o repositório `disco`; para as distribuições do Debian, use `stretch`. Não há suporte para as distribuições lançadas antes do Ubuntu Trusty e do Debian Wheezy.
 
 [!INCLUDE[troubleshoot-wsl.md](includes/troubleshoot-wsl.md)]
 

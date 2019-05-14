@@ -4,17 +4,17 @@ description: Como instalar a CLI do Azure no Windows
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 09/09/2018
+ms.date: 05/01/2019
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: ffd9c279302377de6eca1b64c45749196bd99096
-ms.sourcegitcommit: 1987a39809f9865034b27130e56f30b2bd1eb72c
+ms.openlocfilehash: c5c499800e49dcdc536337e7655ec1ee280d48f2
+ms.sourcegitcommit: 65bf8561a6e047e4eab52186e066a2e8c21f1d40
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56421858"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65240553"
 ---
 # <a name="install-azure-cli-on-windows"></a>Instalar a CLI do Azure no Windows
 
@@ -25,7 +25,7 @@ Ao instalar o Subsistema do Windows para Linux (WSL), há pacotes disponíveis p
 
 ## <a name="install-or-update"></a>Instalar ou atualizar
 
-O MSI distribuível é usado para instalar, atualizar e desinstalar o comando `az` no Windows.
+O MSI distribuível é usado para instalar ou atualizar a CLI do Azure no Windows. Você não precisa desinstalar as versões atuais antes de usar o instalador MSI.
 
 > [!div class="nextstepaction"]
 > [Baixe o instalador MSI](https://aka.ms/installazurecliwindows)
@@ -42,10 +42,14 @@ Para saber mais sobre os diferentes métodos de autenticação, confira [Entrar 
 
 [!INCLUDE [uninstall-boilerplate.md](includes/uninstall-boilerplate.md)]
 
-A desinstalação pode ser feita executando o MSI novamente e escolhendo a opção "Desinstalar".
+Desinstale a CLI do Azure da lista de "Aplicativos e recursos" do Windows. Para desinstalar:
 
-> [!div class="nextstepaction"]
-> [Baixe o instalador MSI](https://aka.ms/installazurecliwindows)
+| Plataforma | Instruções |
+|---|---|
+| Windows 10 | Iniciar > Configurações > Aplicativos |
+| Windows 8<br/>Windows 7 | Iniciar > Painel de Controle > Programas > Desinstalar um programa |
+
+Uma vez nessa tela, digite __CLI do Azure__ na barra de pesquisa do programa. O programa de desinstalação aparece como __Microsoft CLI 2.0 para Azure__. Selecione este aplicativo e clique no botão `Uninstall`.
 
 ## <a name="next-steps"></a>Próximas etapas
 
