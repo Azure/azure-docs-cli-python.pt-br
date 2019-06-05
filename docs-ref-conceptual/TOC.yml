@@ -1,63 +1,53 @@
 - name: CLI do Azure
   href: index.md
+- name: Instalar
   items:
     - name: Instalar
       href: install-azure-cli.md
-      items:
-        - name: macOS
-          href: install-azure-cli-macos.md
-        - name: ' Windows'
-          href: install-azure-cli-windows.md
-        - name: Linux via apt
-          href: install-azure-cli-apt.md
-        - name: Linux via yum
-          href: install-azure-cli-yum.md
-        - name: Linux via zypper
-          href: install-azure-cli-zypper.md
-        - name: Linux
-          href: install-azure-cli-linux.md
-        - name: Executar no Docker
-          href: run-azure-cli-docker.md
-    - name: Introdução
-      href: get-started-with-azure-cli.md
-    - name: Cloud Shell
-      href: /azure/cloud-shell/overview
-    - name: Entrar
+    - name: macOS
+      href: install-azure-cli-macos.md
+    - name: Windows
+      href: install-azure-cli-windows.md
+    - name: Linux via apt
+      href: install-azure-cli-apt.md
+    - name: Linux via yum
+      href: install-azure-cli-yum.md
+    - name: Linux via zypper
+      href: install-azure-cli-zypper.md
+    - name: Linux
+      href: install-azure-cli-linux.md
+    - name: Executar no Docker
+      href: run-azure-cli-docker.md
+- name: Introdução
+  href: get-started-with-azure-cli.md
+- name: Cloud Shell
+  href: /azure/cloud-shell/overview
+- name: Entrar
+  items:
+    - name: Métodos de autenticação
       href: authenticate-azure-cli.md
-      items:
-        - name: Criar uma entidade de serviço
-          href: create-an-azure-service-principal-azure-cli.md
-    - name: Modo interativo
-      href: interactive-azure-cli.md
-    - name: Modelos de implantação
-      items:
-        - name: Usar modelos de implantação
-          href: /azure/azure-resource-manager/resource-group-template-deploy-cli?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
-        - name: Exportar modelos de implantação
-          href: /azure/azure-resource-manager/resource-manager-export-template-cli?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
-        - name: Implantar a partir de modelos particulares
-          href: /azure/azure-resource-manager/resource-manager-cli-sas-token?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
-    - name: Gerenciar Assinaturas
-      href: manage-azure-subscriptions-azure-cli.md
-    - name: Trabalhar com várias nuvens
-      href: manage-clouds-azure-cli.md?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
-    - name: Formatos de saída
-      href: format-output-azure-cli.md
-    - name: Consultar
-      href: query-azure-cli.md
-    - name: Extensões
-      href: azure-cli-extensions-overview.md
-      items:
-        - name: Extensões disponíveis
-          href: azure-cli-extensions-list.md
-        - name: Extensão de alias
-          href: azure-cli-extension-alias.md
-    - name: Definições de configuração
-      href: azure-cli-Configuration.md
-    - name: Notas de versão
-      href: release-notes-azure-cli.md?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
-    - name: Controle de versão da CLI
-      href: cli-versioning-identifiers.md
+    - name: Criar uma entidade de serviço
+      href: create-an-azure-service-principal-azure-cli.md
+- name: Modo interativo
+  href: interactive-azure-cli.md
+- name: Modelos de implantação
+  items:
+    - name: Usar modelos de implantação
+      href: /azure/azure-resource-manager/resource-group-template-deploy-cli?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
+    - name: Exportar modelos de implantação
+      href: /azure/azure-resource-manager/resource-manager-export-template-cli?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
+    - name: Implantar a partir de modelos particulares
+      href: /azure/azure-resource-manager/resource-manager-cli-sas-token?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
+- name: Gerenciar Assinaturas
+  href: manage-azure-subscriptions-azure-cli.md
+- name: Trabalhar com várias nuvens
+  href: manage-clouds-azure-cli.md?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
+- name: Formatos de saída
+  href: format-output-azure-cli.md
+- name: Consultar
+  href: query-azure-cli.md
+- name: Definições de configuração
+  href: azure-cli-Configuration.md
 - name: Tutoriais
   items:
     - name: Criar máquinas virtuais
@@ -82,3 +72,15 @@
       href: /azure/cosmos-db/cli-samples?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
     - name: Lote
       href: /azure/batch/cli-samples?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
+- name: Extensões
+  items:
+    - name: Visão geral
+      href: azure-cli-extensions-overview.md
+    - name: Extensões disponíveis
+      href: azure-cli-extensions-list.md
+    - name: Extensão de alias
+      href: azure-cli-extension-alias.md
+- name: Notas de versão
+  href: release-notes-azure-cli.md?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
+- name: Controle de versão da CLI
+  href: cli-versioning-identifiers.md
