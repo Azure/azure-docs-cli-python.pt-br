@@ -6,28 +6,38 @@
       href: install-azure-cli.md
     - name: macOS
       href: install-azure-cli-macos.md
+      displayName: 'install, macos, brew, homebrew, osx, os x, mac'
     - name: Windows
       href: install-azure-cli-windows.md
+      displayName: 'install, powershell, cmd, command prompt'
     - name: Linux via apt
       href: install-azure-cli-apt.md
+      displayName: 'ubuntu, debian, mint, linux, install, wsl'
     - name: Linux via yum
       href: install-azure-cli-yum.md
+      displayName: 'rhel, redhat, red hat, fedora, linux, install, wsl'
     - name: Linux via zypper
       href: install-azure-cli-zypper.md
+      displayName: 'opensuse, suse, sles, leap, tumbleweed, linux, install, wsl'
     - name: Linux
       href: install-azure-cli-linux.md
+      displayName: 'install, script, unix, bsd, linux, lfs, wsl, slackware'
     - name: Executar no Docker
       href: run-azure-cli-docker.md
+      displayName: 'linux, unix, container, image'
 - name: Introdução
   href: get-started-with-azure-cli.md
+  displayName: 'intro, introduction, sign in, signin, log in, login, find, interactive, feedback'
 - name: Cloud Shell
   href: /azure/cloud-shell/overview
 - name: Entrar
   items:
     - name: Métodos de autenticação
       href: authenticate-azure-cli.md
+      displayName: 'sign in, signin, log in, login, credentials, msi, managed identity, tenant, subscription, region, certificate, service principal, authenticate'
     - name: Criar uma entidade de serviço
       href: create-an-azure-service-principal-azure-cli.md
+      displayName: 'automation, application, web app, script, certificate, sign in, signin, log in, login, devops, dev ops, itpro, it pro, role, aad, authentication, authenticate'
 - name: Modo interativo
   href: interactive-azure-cli.md
 - name: Modelos de implantação
@@ -40,14 +50,19 @@
       href: /azure/azure-resource-manager/resource-manager-cli-sas-token?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
 - name: Gerenciar Assinaturas
   href: manage-azure-subscriptions-azure-cli.md
+  displayName: 'tenant, user, sign in, signin, log in, login, authenticate, authentication, accounts'
 - name: Trabalhar com várias nuvens
   href: manage-clouds-azure-cli.md?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
+  displayName: 'region, china, germany, government, governance, stack'
 - name: Formatos de saída
   href: format-output-azure-cli.md
+  displayName: 'table, yaml, json, jsonc, tsv, ascii, configure, default'
 - name: Consultar
   href: query-azure-cli.md
+  displayName: 'filter, search, format, output, variable, scripting, array, dictionary, map, object, json, jsonc, jmespath'
 - name: Definições de configuração
   href: azure-cli-Configuration.md
+  displayName: 'configure, defaults, environment, variables'
 - name: Tutoriais
   items:
     - name: Criar máquinas virtuais
@@ -56,12 +71,15 @@
   items:
     - name: VMs Linux
       href: /azure/virtual-machines/linux/cli-samples?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
+      displayName: virtual machines
     - name: VMs Windows
       href: /azure/virtual-machines/windows/cli-samples?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
+      displayName: virtual machines
     - name: Aplicativos Web
       href: /azure/app-service-web/app-service-cli-samples?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
     - name: Funções
       href: /azure/azure-functions/functions-cli-samples?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
+      displayName: 'serverless, lambda'
     - name: Banco de dados SQL
       href: /azure/sql-database/sql-database-cli-samples?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
     - name: PostgreSQL
@@ -70,6 +88,7 @@
       href: /azure/mysql/sample-scripts-azure-cli?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
     - name: Cosmos DB
       href: /azure/cosmos-db/cli-samples?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
+      displayName: 'database, nosql, mongodb, couchdb'
     - name: Lote
       href: /azure/batch/cli-samples?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
 - name: Extensões
@@ -84,3 +103,4 @@
   href: release-notes-azure-cli.md?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
 - name: Controle de versão da CLI
   href: cli-versioning-identifiers.md
+  displayName: 'version, classic, 2.0, 1.0, xplat'
