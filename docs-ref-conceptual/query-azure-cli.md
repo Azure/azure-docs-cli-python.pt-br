@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: eed121ce7ce8f8c1eba5079eb438190d3e4d13db
-ms.sourcegitcommit: 7f79860c799e78fd8a591d7a5550464080e07aa9
+ms.openlocfilehash: 5e187025e97b1d882bc575fd51970a8250f6210e
+ms.sourcegitcommit: bf69c95abf3ed3d589b202c7ff04d8782e2a81ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56157997"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65993040"
 ---
 # <a name="query-azure-cli-command-output"></a>Consultar a saída do comando da CLI do Azure
 
@@ -102,6 +102,41 @@ az vm show -g QueryDemo -n TestVM --query '[name, osProfile.adminUsername, osPro
 ```
 
 Esses valores são listados na matriz de resultados na ordem em que foram fornecidos na consulta. Como o resultado é uma matriz, não há nenhuma chave associada a ele.
+
+## <a name="get-a-single-value"></a>Obter um valor único
+
+Um caso comum é precisar obter somente _um_ valor de um comando da CLI, como uma ID do recurso do Azure, um nome de recurso, um nome de usuário ou uma senha. Nesse caso, muitas vezes você também quer armazenar o valor em uma variável de ambiente local. Para obter uma propriedade única, primeiro, verifique se você está recebendo somente uma propriedade da consulta. Ao modificar o último exemplo para obter somente o nome de usuário do administrador:
+
+```azurecli-interactive
+az vm show -g QueryDemo -n TestVM --query 'osProfile.adminUsername' -o json
+```
+
+```JSON
+"azureuser"
+```
+
+Parece um valor único válido, mas observe que os caracteres `"` são retornados como parte da saída. Isso indica que o objeto é uma cadeia de caracteres JSON. É importante observar que ao atribuir esse valor diretamente à variável de ambiente como saída do comando, as aspas podem __não__ ser interpretadas pelo shell:
+
+```bash
+USER=$(az vm show -g QueryDemo -n TestVM --query 'osProfile.adminUsername' -o json)
+echo $USER
+```
+
+```output
+"azureuser"
+```
+
+Certamente, isso não é desejado. Nesse caso, você quer usar um formato de saída que não inclua os valores retornados com as informações de tipo. A melhor opção de saída oferecida pela CLI para este fim é `tsv`, valores separados por tabulações. Em especial, ao recuperar um valor que é somente um valor único (e não um dicionário ou uma lista), garante-se que a saída `tsv` não tenha aspas.
+
+```azurecli-interactive
+az vm show -g QueryDemo -n TestVM --query 'osProfile.adminUsername' -o tsv
+```
+
+```output
+azureuser
+```
+
+Para saber mais sobre o formato de saída `tsv`, confira [Formatos de saída – Formato de saída TSV](format-output-azure-cli.md#tsv-output-format)
 
 ## <a name="rename-properties-in-a-query"></a>Renomear as propriedades em uma consulta
 

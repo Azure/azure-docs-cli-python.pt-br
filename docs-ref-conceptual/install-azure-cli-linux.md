@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 229b109b307453c87abf260a66084c94ced33d81
-ms.sourcegitcommit: 1987a39809f9865034b27130e56f30b2bd1eb72c
+ms.openlocfilehash: 13edb9954678aca627529714aeee02062c720219
+ms.sourcegitcommit: 08043c47d3ccf23522b91e6bba3932e312c04c7f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56421993"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66516315"
 ---
 # <a name="install-azure-cli-on-linux-manually"></a>Instalar CLI do Azure no Linux manualmente
 
@@ -80,6 +80,17 @@ O problema também pode ocorrer se você não reiniciou o shell após a instala�
 ```bash
 <install path>/bin
 ```
+
+### <a name="proxy-blocks-connection"></a>Conexão de blocos de proxy
+
+[!INCLUDE[configure-proxy](includes/configure-proxy.md)]
+
+Para obter os scripts de instalação, o proxy precisa permitir conexões HTTPS com os seguintes endereços:
+
+* `https://aka.ms/`
+* `https://azurecliprod.blob.core.windows.net/`
+* `https://pypi.python.org`
+* Pontos de extremidade usados pelo gerenciador de pacotes da distribuição (se houver) para pacotes essenciais
 
 [!INCLUDE[troubleshoot-wsl.md](includes/troubleshoot-wsl.md)]
 

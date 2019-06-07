@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: c5c499800e49dcdc536337e7655ec1ee280d48f2
-ms.sourcegitcommit: 65bf8561a6e047e4eab52186e066a2e8c21f1d40
+ms.openlocfilehash: 40810b25bf776025c82b48ba7aa424369483ceeb
+ms.sourcegitcommit: 08043c47d3ccf23522b91e6bba3932e312c04c7f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65240553"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66516267"
 ---
 # <a name="install-azure-cli-on-windows"></a>Instalar a CLI do Azure no Windows
 
@@ -37,6 +37,27 @@ Agora, você pode executar a CLI do Azure com o comando `az` no Prompt de Comand
 [!INCLUDE [interactive-login](includes/interactive-login.md)]
 
 Para saber mais sobre os diferentes métodos de autenticação, confira [Entrar com a CLI do Azure](authenticate-azure-cli.md).
+
+## <a name="troubleshooting"></a>solução de problemas
+
+Veja alguns problemas comuns que ocorrem durante a instalação no Windows. Se você tiver um problema não abordado aqui, [arquive um problema no GitHub](https://github.com/Azure/azure-cli/issues).
+
+### <a name="proxy-blocks-connection"></a>Conexão de blocos de proxy
+
+Se não for possível baixar o instalador do MSI porque o proxy está bloqueando a conexão, verifique se o proxy foi configurado corretamente. No Windows 10, essas configurações são gerenciadas no painel `Settings > Network & Internet > Proxy`. Entre em contato com o administrador do sistema para saber as configurações exigidas ou em situações em que o computador pode ser gerenciado por configuração ou precise de configurações avançadas.
+
+> [!IMPORTANT]
+> Essas configurações também precisam ser capazes de acessar os serviços do Azure com a CLI, tanto do PowerShell quanto do prompt de comando. No PowerShell, faça isso com o seguinte comando:
+>
+> ```powershell
+> (New-Object System.Net.WebClient).Proxy.Credentials = `
+>   [System.Net.CredentialCache]::DefaultNetworkCredentials
+> ```
+
+Para obter o MSI, o proxy precisa permitir conexões HTTPS com os seguintes endereços:
+
+* `https://aka.ms/`
+* `https://azurecliprod.blob.core.windows.net/`
 
 ## <a name="uninstall"></a>Desinstalar
 

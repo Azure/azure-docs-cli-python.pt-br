@@ -4,26 +4,86 @@ description: Saiba mais sobre as últimas atualizações da CLI do Azure
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 05/06/2019
+ms.date: 05/21/2019
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: ce11abccc23ee1f150916ef2f91dc895d4664d31
-ms.sourcegitcommit: 65bf8561a6e047e4eab52186e066a2e8c21f1d40
+ms.openlocfilehash: 5b4bcde8c4a66ccc378abc00468cbdb423f07fa4
+ms.sourcegitcommit: 3fe3502ec5af89939155285bb5e741b08af604cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65240513"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66197793"
 ---
 # <a name="azure-cli-release-notes"></a>Notas de versão da CLI do Azure
+
+## <a name="may-21-2019"></a>21 de maio de 2019
+
+Versão 2.0.65
+
+### <a name="core"></a>Núcleo
+* Foram adicionados comentários melhores para erros de autenticação
+* Corrigido um problema em que a CLI carregava extensões que não eram compatíveis com a versão do núcleo
+* Corrigido um problema com a inicialização quando `clouds.config` está corrompido
+
+### <a name="acr"></a>ACR
+* Foi adicionado suporte das Identidades Gerenciadas para Tarefas
+
+### <a name="acs"></a>ACS
+* Corrigido o comando `openshift create` quando usado com o cliente AAD do consumidor
+
+### <a name="appservice"></a>AppService
+* [PRETERIDO] Preterido o comando `functionapp devops-build` – Será removido na próxima versão
+* `functionapp devops-pipeline` foi alterado para buscar o log de build do Azure DevOps no modo detalhado
+* [ALTERAÇÃO SIGNIFICATIVA] O sinalizador `--use_local_settings` foi removido do comando `functionapp devops-pipeline` – não estava operacional
+* `webapp up` foi alterado para retornar uma saída JSON se `--logs` não for usado
+* Foi adicionado suporte para escrever recursos padrão para a configuração local de `webapp up`
+* Foi adicionado suporte para `webapp up` reimplantar um aplicativo sem usar o argumento `--location`
+* Corrigido um problema em que o valor do SKU gratuito não funcionava na criação do ASP do SKU gratuito do Linux
+
+### <a name="botservice"></a>BotService
+* Alterado para permitir todas as capitalizações para parâmetros `--lang` em todos os comandos
+* Descrição atualizada do módulo de comando
+
+### <a name="consumption"></a>Consumo
+* O parâmetro obrigatório ausente foi adicionado para executar `consumption usage list --billing-period-name`
+
+### <a name="iot"></a>IoT
+* Suporte adicionado para listar todas as chaves
+
+### <a name="network"></a>Rede
+* [ALTERAÇÃO SIGNIFICATIVA]: Removed `network interface-endpoints` command group - use `network private-endpoints` 
+* O argumento `--nat-gateway` foi adicionado a `network vnet subnet [create|update]` para anexar a um gateway NAT
+* Corrigido o problema de `dns zone import`, em que os nomes de registro não correspondiam ao tipo de registro
+
+### <a name="rdbms"></a>RDBMS
+* Suporte a postgres e mysql adicionado para replicação geográfica
+
+### <a name="rbac"></a>RBAC
+* Suporte ao escopo de grupo de gerenciamento adicionado a `role assignment`
+
+### <a name="storage"></a>Armazenamento
+* `storage blob sync`: adicionar um comando de sincronização ao armazenamento de blobs
+
+### <a name="compute"></a>Computação
+* `--computer-name` foi adicionado a `vm create` para configurar o nome do computador da VM
+* `--ssh-key-value` foi renomeado para `--ssh-key-values` para `[vm|vmss] create` – Agora, pode aceitar vários valores de chave pública ou caminhos ssh
+  * __Observação__: Isso **não** é uma alteração da falha – `--ssh-key-value` será analisado corretamente, pois corresponde somente a `--ssh-key-values`
+* O argumento `--type` de `ppg create` foi alterado para ser opcional
 
 ## <a name="may-6-2019"></a>6 de maio de 2019
 
 Versão 2.0.64
 
+### <a name="acs"></a>ACS
+* [ALTERAÇÃO SIGNIFICATIVA] O sinalizador `--fqdn` foi removido dos comandos `openshift`
+* Alterado para usar a versão da API do Red Hat OpenShift no Azure em disponibilidade geral
+* O sinalizador `customer-admin-group-id` foi adicionado a `openshift create`
+* [GA] `(PREVIEW)` foi removido da opção `aks create` `--network-policy`
+
 ### <a name="appservice"></a>AppService
-* Comando `functionapp devops-build` preterido
+* [PRETERIDO] O comando `functionapp devops-build` foi preterido
   * Renomeado para `functionapp devops-pipeline`
 * Corrigido ao obter o nome de usuário correto para cloudshell que estava causando a falha em `webapp up`
 * Documentação `appservice plan --sku` atualizada para refletir o appserviceplans com suporte
@@ -34,8 +94,61 @@ Versão 2.0.64
 * Adicionado suporte para tempo de execução `powershell` a `functionapp create` no Windows
 * Adicionado o comando `create-remote-connection`
 
+### <a name="batch"></a>Lote
+* Corrigido o bug no validador para as opções `--application-package-references`
+
+### <a name="botservice"></a>Serviço de bot
+* [ALTERAÇÃO SIGNIFICATIVA] O `bot create -v v4 -k webapp` foi alterado para criar um Bot de Aplicativo Web vazio por padrão (ou seja, nenhum bot será implantado no Serviço de Aplicativo)
+* O sinalizador `--echo` foi adicionado ao `bot create` para usar o comportamento antigo com `-v v4`
+* [ALTERAÇÃO SIGNIFICATIVA] O valor padrão de `--version` foi alterado para `v4`
+  * __OBSERVAÇÃO:__ `bot prepare-publish` ainda usa o padrão antigo
+* [ALTERAÇÃO SIGNIFICATIVA] `--lang` foi alterado para não definir mais `Csharp` como padrão. Se o comando exigir `--lang` e ele não for fornecido, o comando será um erro
+* [ALTERAÇÃO SIGNIFICATIVA] Os argumentos `--appid` e `--password` foram alterados para `bot create` ser obrigatório e agora podem ser criados por meio de `ad app create`
+* Foi adicionada validação a `--appid` e `--password`
+* [ALTERAÇÃO SIGNIFICATIVA] O `bot create -v v4` foi alterado para não criar ou usar uma Conta de Armazenamento ou o Application Insights
+* [ALTERAÇÃO SIGNIFICATIVA] O `bot create -v v3` foi alterado para exigir uma região em que o Application Insights está disponível
+* [ALTERAÇÃO SIGNIFICATIVA] O `bot update` foi alterado para afetar somente as propriedades específicas de um bot
+* [ALTERAÇÃO SIGNIFICATIVA] Os sinalizadores `--lang` foram alterados para aceitar `Javascript` em vez de `Node`
+* [ALTERAÇÃO SIGNIFICATIVA] O `Node` foi removido como um valor `--lang` permitido
+* [ALTERAÇÃO SIGNIFICATIVA] O `bot create -v v4 -k webapp` foi alterado para não definir mais `SCM_DO_BUILD_DURING_DEPLOYMENT` como verdadeiro. Todas as implantações por meio do Kudu atuarão de acordo com o comportamento padrão
+* O `bot download` foi alterado para os bots sem arquivos `.bot` para criar o arquivo de configuração específico a um idioma com os valores das Configurações de Aplicativo do bot
+* Adicionado o suporte `Typescript` para `bot prepare-deploy`
+* Uma mensagem de aviso foi adicionada a `bot prepare-deploy` para os bots `Javascript` e `Typescript` para quando `--code-dir` não contiver `package.json`
+* O `bot prepare-deploy` foi alterado para retornar `true`, se bem-sucedido
+* O log detalhado foi adicionado a `bot prepare-deploy`
+* Mais regiões disponíveis do Application Insights foram adicionadas ao `az bot create -v v3`
+
+### <a name="configure"></a>Configurar
+* Adicionado suporte para configurações de valor padrão do argumento baseado em pasta
+
+### <a name="eventhubs"></a>Hubs de eventos
+* Adicionados os comandos `namespace network-rule`
+* O argumento `--default-action` foi adicionado às regras de rede de `namespace [create|update]`
+
+### <a name="network"></a>Rede
+* [ALTERAÇÃO SIGNIFICATIVA] O argumento `--cache` foi substituído por `--defer` para `vnet [create|update]` 
+
+### <a name="policy-insights"></a>Informações sobre a Política
+* Suporte adicionado a `--expand PolicyEvaluationDetails` para detalhes de avaliação de política de consulta no recurso
+
 ### <a name="role"></a>Função
 * [PRETERIDO] Alterado argumento ocultar '--password' `create-for-rbac` - suporte será removido em maio de 2019
+
+### <a name="service-bus"></a>Barramento de Serviço
+* Adicionados os comandos `namespace network-rule`
+* O argumento `--default-action` foi adicionado às regras de rede de `namespace [create|update]`
+* `topic [create|update]` foi fixado para permitir suporte a `--max-size` para valores de 10, 20, 40 e 80 GB com a SKU Premium
+
+### <a name="sql"></a>SQL
+* Adicionados os comandos `sql virtual-cluster [list|show|delete]`
+
+### <a name="vm"></a>VM
+* O `--protect-from-scale-in` e o `--protect-from-scale-set-actions` foram adicionados a `vmss update` para habilitar atualizações à política de proteção das instâncias de VM VMSS
+* Adicionado a `--instance-id` e `vmss update` para habilitar atualização genérica das instâncias de VM VMSS
+* `--instance-id` foi adicionado a `vmss wait`
+* Adicionado um novo grupo de comandos `ppg` para gerenciar grupos de posicionamento de proximidade
+* Adicionado a `--ppg`, `[vm|vmss] create` e `vm availability-set create` para gerenciar PPGs
+* Parâmetro `--hyper-v-generation` adicionado a `image create`
 
 ## <a name="april-23-2019"></a>23 de abril de 2019
 
@@ -2919,7 +3032,7 @@ Versão 2.0.13
 * Atualizado para o Lote SDK 3.1.0 e Gerenciamento de Lote SDK 4.1.0
 * Adicionado um novo comando que mostra as contagens de tarefas de um trabalho
 * Corrigido o bug no processamento de URL de SAS do arquivo de recurso
-* Ponto de extremidade da conta de lote agora dá suporte ao prefixo opcional “https://” 
+* Ponto de extremidade da conta de lote agora dá suporte ao prefixo opcional “https://”
 * Suporte para adicionar listas de mais de 100 tarefas a um trabalho
 * Adicionado log de depuração para carregar o módulo do comando de Extensões
 
