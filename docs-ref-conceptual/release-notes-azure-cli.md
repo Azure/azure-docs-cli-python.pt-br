@@ -4,19 +4,52 @@ description: Saiba mais sobre as últimas atualizações da CLI do Azure
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 05/21/2019
+ms.date: 06/05/2019
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 5b4bcde8c4a66ccc378abc00468cbdb423f07fa4
-ms.sourcegitcommit: 3fe3502ec5af89939155285bb5e741b08af604cd
+ms.openlocfilehash: b79d76480c3e6619427d6a7e3960f53b691889cc
+ms.sourcegitcommit: 6aca5a788b9731e6cbeeb497c83a9197ebb7d36e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66197793"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66750241"
 ---
 # <a name="azure-cli-release-notes"></a>Notas de versão da CLI do Azure
+
+## <a name="june-4-2019"></a>4 de junho de 2019
+
+Versão 2.0.66
+
+### <a name="core"></a>Núcleo
+* Foi corrigido o bug em que os comandos falhavam quando `--output yaml` era usado com `--query`
+
+### <a name="acr"></a>ACR
+* Foi adicionado o grupo de comando 'pack acr' para a criação de Tarefas de build rápida usando Buildpacks.
+
+### <a name="acs"></a>ACS
+* Permitir a opção de habilitar/desabilitar o complemento kube-dashboard do AKS
+* Imprimir uma mensagem amigável quando a assinatura não estiver na lista de permissões para usar o Red Hat OpenShift no Azure
+
+### <a name="batch"></a>Lote
+* Melhoria no tratamento de erro quando você não está conectado a uma conta \[[#9165](https://github.com/Azure/azure-cli/issues/9165)\]\[[#8978](https://github.com/Azure/azure-cli/issues/8978)\]
+
+### <a name="iot"></a>IoT
+* Foi adicionado o suporte para failover manual
+
+### <a name="network"></a>Rede
+* Foram adicionados os comandos `network application-gateway waf-policy` para oferecer suporte às regras de WAF personalizadas.
+* Adicionados os argumentos `--waf-policy` e `--max-capacity` para `network application-gateway [create|update]` 
+
+### <a name="resource"></a>Recurso
+* Melhoria da mensagem de erro do `deployment create` quando não há nenhum TTY disponível
+
+### <a name="role"></a>Função
+* O texto da Ajuda foi atualizado.
+
+### <a name="compute"></a>Computação
+* Foi adicionado o suporte para `vm create` para as VMs de uma imagem gerenciada com LUNs de disco de dados que não começam em 0 ou que ignoram números
 
 ## <a name="may-21-2019"></a>21 de maio de 2019
 
