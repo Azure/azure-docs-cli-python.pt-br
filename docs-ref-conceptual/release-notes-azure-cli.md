@@ -4,19 +4,104 @@ description: Saiba mais sobre as últimas atualizações da CLI do Azure
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 06/05/2019
+ms.date: 06/18/2019
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: b79d76480c3e6619427d6a7e3960f53b691889cc
-ms.sourcegitcommit: 6aca5a788b9731e6cbeeb497c83a9197ebb7d36e
+ms.openlocfilehash: 8431946b169b550bfd3f5120cf26e2feeb5c9f2c
+ms.sourcegitcommit: 399f0a2997675fbb280243e4234cf63c3bbca819
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66750241"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67194857"
 ---
 # <a name="azure-cli-release-notes"></a>Notas de versão da CLI do Azure
+
+## <a name="june-18-2019"></a>18 de junho de 2019
+
+Versão 2.0.67
+
+### <a name="core"></a>Núcleo
+
+Esta versão apresenta uma nova marca [Versão prévia] para comunicar com mais clareza aos clientes quando um comando, um grupo de comandos ou um argumento está no status de versão prévia. Anteriormente, essa informação era transmitida no texto de ajuda ou, implicitamente, pelo número da versão do módulo de comando.
+A CLI removerá os números de versão dos pacotes individuais no futuro. Se um comando estiver em versão prévia, todos os seus argumentos também estarão. Se um grupo de comandos for rotulado com o status de versão prévia, então todos os seus comandos e argumentos também serão considerados em versão prévia.
+
+Como resultado dessa alteração, diversos grupos de comandos podem parecer surgir "de repente" com o status de versão prévia com esta liberação. O que realmente aconteceu é que a maioria dos pacotes já estava com status de versão prévia, mas estão sendo consideradas GA com esta liberação
+
+### <a name="acr"></a>ACR
+* Adicionado o comando 'acr check-health'
+* Melhorado o tratamento de erro para tokens do AAD e para recuperar comandos externos
+
+### <a name="acs"></a>ACS
+* Comandos preteridos do ACS agora ficam ocultos da exibição da ajuda
+
+### <a name="ams"></a>AMS
+* [ALTERAÇÃO SIGNIFICATIVA] Alterada para retornar cadeias de caracteres de tempo da ISO 8601 para archive-window-length e key-frame-interval-duration
+
+### <a name="appservice"></a>AppService
+* Adicionado roteamento com base no local para `webapp deleted list` e `webapp deleted restore`
+* Corrigido problema em que a URL de destino registrada do webapp ("Não é possível iniciar o aplicativo em...") não era clicável no Azure Cloud Shell
+* Corrigido um problema em que a criação de aplicativos com algumas SKUs falhava com um erro de AlwaysOn
+* Adicionada a pré-validação para o `[appservice|webapp] create`
+* Corrigido o `[webapp|functionapp] traffic-routing` para usar o actionHostName correto
+* Adicionado o suporte de slot para comandos `functionapp`
+
+### <a name="batch"></a>Lote
+* Corrigida a regressão de autenticação do AAD causada pela geração de relatórios de erros superagressiva para autenticação de chave compartilhada
+
+### <a name="batchai"></a>BatchAI
+* Agora os comandos do BatchAI estão preteridos e ocultos
+
+### <a name="botservice"></a>BotService
+* Adição das mensagens de aviso "suporte descontinuado"/"modo de manutenção" para os comandos compatíveis com a v3 do SDK
+
+### <a name="cosmosdb"></a>CosmosDB
+* [PRETERIDO] Preterido o comando `cosmosdb list-keys`
+* Adicionado o comando `cosmosdb keys list` – substitui o `cosmosdb list-keys`
+* `cosmsodb create/update`: Adicionado novo formato para --location a fim de permitir a configuração da propriedade "isZoneRedundant". Formato antigo preterido
+
+### <a name="eventgrid"></a>EventGrid
+* Adicionados comandos do `eventgrid domain` para operações de CRUD no domínio
+* Adicionados comandos do `eventgrid domain topic` para operações de CRUD nos tópicos do domínio
+* Adicionado argumento do `--odata-query` ao `eventgrid [topic|event-subscription] list` para filtrar os resultados usando a sintaxe do OData
+* `event-subscription create/update`: Adicionado o servicebusqueue como novos valores para o parâmetro `--endpoint-type`
+* [ALTERAÇÃO SIGNIFICATIVA] Removido o suporte para `--included-event-types All` com `eventgrid event-subscription [create|update]`
+
+### <a name="hdinsight"></a>HDInsight
+* Adicionado suporte para o parâmetro `--ssh-public-key` no comando `hdinsight create`
+
+### <a name="iot"></a>IoT
+* Adicionado suporte para regenerar as chaves da política de autorização
+* Adicionados SDK e suporte para o serviço de provisionamento de repositórios do DigitalTwin
+
+### <a name="network"></a>Rede
+* Adicionado suporte de zona para o Gateway da NAT
+* Adicionado o comando `network list-service-tags`
+* Corrigido o problema com o `dns zone import` em que os usuários não conseguiam importar registros do curinga A
+* Corrigido o problema com o `watcher flow-log configure` em que o registro de fluxo não podia ser habilitado em determinadas regiões
+
+### <a name="resource"></a>Recurso
+* Adicionado o comando do `az rest` para fazer chamadas REST
+* Corrigido o erro ao usar o `policy assignment list` com um grupo de recursos ou o nível de assinatura `--scope`
+
+### <a name="servicebus"></a>ServiceBus
+* Corrigido o problema com o `servicebus topic create --max-size` [#9319](https://github.com/azure/azure-cli/issues/9319)
+
+### <a name="sql"></a>SQL
+* Alterado o `--location` para ser opcional para `sql [server|mi] create` – usa o local do grupo de recursos se não especificado
+* Corrigido o erro "objeto 'NoneType' não é iterável" para `sql db list-editions --available`
+
+### <a name="sqlvm"></a>SQLVm
+* [ALTERAÇÃO DA FALHA] Alterado `sql vm create` para exigir o parâmetro `--license-type`
+* Alterado para permitir a configuração da SKU da imagem do SQL ao criar ou atualizar uma VM do SQL
+
+### <a name="storage"></a>Armazenamento
+* Corrigido o problema com a chave de conta ignorada para `storage container generate-sas`
+* Corrigido o problema com o `storage blob sync` no Linux
+
+### <a name="vm"></a>VM
+* [VERSÃO PRÉVIA] Adicionados os comandos `vm image template` para criar imagens de VM
 
 ## <a name="june-4-2019"></a>4 de junho de 2019
 
