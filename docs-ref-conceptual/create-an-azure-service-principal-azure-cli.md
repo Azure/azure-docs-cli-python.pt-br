@@ -8,12 +8,12 @@ ms.date: 02/15/2019
 ms.topic: conceptual
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 7ead12b35cefd7cba9e06f7905c9267c569d98dd
-ms.sourcegitcommit: 014d89aa21f90561eb69792ad01947e481ea640a
+ms.openlocfilehash: 6d88400b8d7070cf2f9dba2f3e124edfe2e3163d
+ms.sourcegitcommit: e06d34682710e77840b0c51f4718184101bd8a03
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56741710"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67527332"
 ---
 # <a name="create-an-azure-service-principal-with-azure-cli"></a>Criar uma entidade de serviço do Azure com a CLI do Azure
 
@@ -35,21 +35,14 @@ Há dois tipos de autenticação disponíveis para as entidades de serviço: A a
 
 ### <a name="password-based-authentication"></a>Autenticação baseada em senha
 
-Sem parâmetros de autenticação, a autenticação baseada em senha é usada com uma senha aleatória criada para você. Caso queira uma autenticação baseada em senha, esse método é recomendado.
+Sem parâmetros de autenticação, a autenticação baseada em senha é usada com uma senha aleatória criada para você.
 
   ```azurecli-interactive
   az ad sp create-for-rbac --name ServicePrincipalName
   ```
 
-Para uma senha fornecida pelo usuário, use o argumento `--password`. Quando criar uma senha, certifique-se de seguir as [Regras e restrições de senha do Azure Active Directory](/azure/active-directory/active-directory-passwords-policy). Não use uma senha fraca, nem reutilize uma senha.
-
-  ```azurecli-interactive
-  az ad sp create-for-rbac --name ServicePrincipalName --password <Choose a strong password>
-  ```
-
-  > [!IMPORTANT]
-  >
-  > Por motivos de segurança, o argumento `--password` para a criação da entidade de serviço será preterido em uma versão futura. Se você quiser usar a autenticação baseada em senha, evite `--password` e deixe a CLI gerar uma senha segura para você.
+> [!IMPORTANT]
+> Desde a CLI do Azure 2.0.68, o parâmetro `--password` para criar uma entidade de serviço com uma senha definida pelo usuário __não tem mais suporte__ para evitar o uso acidental de senhas fracas.
 
 A saída para uma entidade de serviço com a autenticação por senha inclui a chave `password`. __Certifique-se de__ que tenha copiado esse valor já que não será possível recuperá-lo posteriormente. Se você esquecer a senha, [redefina as credenciais da entidade de serviço](#reset-credentials).
 
