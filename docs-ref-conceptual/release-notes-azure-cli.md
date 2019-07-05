@@ -4,19 +4,96 @@ description: Saiba mais sobre as últimas atualizações da CLI do Azure
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 06/18/2019
+ms.date: 07/02/2019
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 8431946b169b550bfd3f5120cf26e2feeb5c9f2c
-ms.sourcegitcommit: 399f0a2997675fbb280243e4234cf63c3bbca819
+ms.openlocfilehash: 26757193628cff65603a04e440f9e2aa7bf5a248
+ms.sourcegitcommit: e06d34682710e77840b0c51f4718184101bd8a03
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67194857"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67527309"
 ---
 # <a name="azure-cli-release-notes"></a>Notas de versão da CLI do Azure
+
+## <a name="july-2-2019"></a>2 de julho de 2019
+
+Versão 2.0.68
+
+### <a name="core"></a>Núcleo
+
+* Agora, os módulos de comando são consolidados em um único Python distribuível. Isso substitui o uso direto de muitos pacotes `azure-cli-` no PyPI.
+  Assim, o tamanho da instalação será reduzido e apenas os usuários que tiverem instalado diretamente por meio do `pip` serão afetados.
+
+### <a name="acr"></a>ACR
+
+* Foi adicionado o suporte para gatilhos de temporizador para tarefa
+
+### <a name="appservice"></a>AppService
+
+* O `functionapp create` foi alterado para habilitar o Application Insights por padrão
+* [ALTERAÇÃO SIGNIFICATIVA] Foi removido o comando `functionapp devops-build` preterido.
+  *  Agora, use o novo comando `az functionapp devops-pipeline`
+* Foi adicionado o suporte ao plano de aplicativo de funções Consumo em Linux ao `functionapp deployment config-zip`
+
+### <a name="cosmos-db"></a>Cosmos DB
+
+* Foi adicionado o suporte para desabilitar a TTL
+
+### <a name="dls"></a>DLS
+
+* Versão atualizada do ADLS (0.0.45)
+
+### <a name="feedback"></a>Comentários
+
+* Ao relatar um comando de extensão com falha, agora, o `az feedback` tenta abrir o navegador na URL do projeto/repositório da extensão por meio do índice
+
+### <a name="hdinsight"></a>HDInsight
+
+* [ALTERAÇÃO SIGNIFICATIVA] O nome do grupo de comandos `oms` foi alterado para `monitor`
+* [ALTERAÇÃO SIGNIFICATIVA] `--http-password/-p` tornou-se um parâmetro obrigatório 
+* Foram adicionados preenchedores para o preenchedor dos parâmetros `--cluster-admin-account` e `cluster-users-group-dns` 
+* O parâmetro `cluster-users-group-dns` foi alterado para ser obrigatório quando `—esp` estiver presente
+* Foi adicionado um tempo limite para todos os preenchedores automáticos de argumento existentes
+* Foi adicionado um tempo limite para transformar o nome do recurso na ID de recurso
+* Os preenchedores automáticos foram alterados para selecionar recursos de qualquer grupo de recursos. Pode ser um grupo de recursos diferente daquele especificado com `-g`
+* Foi adicionado o suporte para os parâmetros `--sub-domain-suffix` e `--disable_gateway_auth` no comando `hdinsight application create`
+
+### <a name="managed-services"></a>Serviços gerenciados
+
+* Introdução ao módulo de comando de serviço gerenciado em versão prévia
+
+### <a name="profile"></a>Perfil
+* Suprimir o argumento `--subscription` para o comando de logoff
+
+### <a name="rbac"></a>RBAC
+
+* [ALTERAÇÃO SIGNIFICATIVA] O argumento `--password` foi removido de `create-for-rbac`
+* Foi adicionado o parâmetro `--assignee-principal-type` ao comando `create` para evitar falhas intermitentes causadas pela latência de replicação do servidor do AAD Graph
+* Foi corrigida uma falha em `ad signed-in-user` ao listar objetos de propriedade
+* Foi corrigido um problema em que o `ad sp` não localizava o aplicativo certo de uma entidade de serviço
+
+### <a name="rdbms"></a>RDBMS
+
+* Foi adicionado o suporte à replicação para o MariaDB
+
+### <a name="sql"></a>SQL
+
+* Valores permitidos documentados para `sql db create --sample-name`
+
+### <a name="storage"></a>Armazenamento
+
+* Foi adicionado o suporte ao token SAS de delegação de usuário com `--as-user` para `storage blob generate-sas` 
+* Foi adicionado o suporte ao token SAS de delegação de usuário com `--as-user` para `storage container generate-sas` 
+
+### <a name="vm"></a>VM
+
+* Foi corrigido o bug em que o `vmss create` retornava uma mensagem de erro quando era executado com `--no-wait`
+* Foi removida a validação do lado do cliente de `vmss create --single-placement-group`. Não falha quando `--single-placement-group` é definido como `true` e `--instance-count` é maior que 100 ou quando são especificadas zonas de disponibilidade, mas deixa essa validação para o serviço de computação
+* Foi corrigido o bug em que o `[vm|vmss] extension image list` falhava quando era usado com `--latest`
+
 
 ## <a name="june-18-2019"></a>18 de junho de 2019
 
