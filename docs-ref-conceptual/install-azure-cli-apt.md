@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: f22ada48502602cb4d9b502cb887412a6ddcf5cf
-ms.sourcegitcommit: 08043c47d3ccf23522b91e6bba3932e312c04c7f
+ms.openlocfilehash: af20c31f6b387768e93158f1116b3f486f4aedfc
+ms.sourcegitcommit: 52f0a62892c68b5728090f1bfceef7a612104529
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66516336"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68415154"
 ---
 # <a name="install-azure-cli-with-apt"></a>Instalar CLI do Azure com o apt
 
@@ -47,13 +47,13 @@ curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 
 ### <a name="manual-install-instructions"></a>Instruções para instalação manual
 
-Se você não quiser executar um script como superusuário, siga estas etapas manuais para instalar a CLI do Azure.
+Se você não quiser executar um script como superusuário ou se o script tudo-em-um falhar, siga estas etapas para instalar a CLI do Azure.
 
 1. Obtenha os pacotes necessários para o processo de instalação:
 
     ```bash
     sudo apt-get update
-    sudo apt-get install curl apt-transport-https lsb-release gnupg
+    sudo apt-get install ca-certificates curl apt-transport-https lsb-release gnupg
     ```
 
 2. Baixe e instale a chave de autenticação da Microsoft:
