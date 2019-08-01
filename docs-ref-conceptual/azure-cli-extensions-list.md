@@ -4,17 +4,17 @@ description: Uma lista completa das extensões com suporte oficial para a CLI do
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 07/19/2019
+ms.date: 07/29/2019
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 18d36a1690be97d2c2a3b823d1ad4d38c4df93d3
-ms.sourcegitcommit: 52f0a62892c68b5728090f1bfceef7a612104529
+ms.openlocfilehash: cc65cffdb77abcfca764aa474dd1089a4c80c0f1
+ms.sourcegitcommit: d29d86d33916d5551b4aeb984b06d7a85c4f6b06
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68415118"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68658968"
 ---
 # <a name="available-extensions-for-the-azure-cli"></a>Extensões disponíveis para a CLI do Azure
 
@@ -33,9 +33,9 @@ az extension list-available --output table
 | [alias](https://github.com/Azure/azure-cli-extensions) | 0.5.2 | Suporte para aliases de comando | Sim |
 | [appconfig](https://github.com/Azure/azure-cli-extensions) | 0.5.0 | Fornece uma versão prévia para os futuros recursos de Configuração do Aplicativo. | Sim |
 | [application-insights](https://github.com/Azure/azure-cli-extensions/tree/master/src/application-insights) | 0.1.1 | Suporte para gerenciar componentes do Application Insights e consultar as métricas, os eventos e os logs de tais componentes. | Sim |
-| [azure-batch-cli-extensions](https://github.com/Azure/azure-batch-cli-extensions) | 3.0.4 | Comandos adicionais para trabalhar com o serviço de Lote do Azure |  |
+| [azure-batch-cli-extensions](https://github.com/Azure/azure-batch-cli-extensions) | 4.0.0 | Comandos adicionais para trabalhar com o serviço de Lote do Azure |  |
 | [azure-cli-iot-ext](https://github.com/azure/azure-iot-cli-extension) | 0.7.1 | Fornece a camada de comandos do plano de dados para o Azure Hub IoT, IoT Edge e o Serviço de Provisionamento de Dispositivos |  |
-| [azure-cli-ml](https://docs.microsoft.com/en-us/azure/machine-learning/service/) | 1.0.48 | Módulo de Comando do AzureML para as Ferramentas da Linha de Comando do Microsoft Azure |  |
+| [azure-cli-ml](https://docs.microsoft.com/en-us/azure/machine-learning/service/) | 1.0.53.1 | Módulo de Comando do AzureML para as Ferramentas da Linha de Comando do Microsoft Azure |  |
 | [azure-devops](https://github.com/Microsoft/azure-devops-cli-extension) | 0.11.0 | Ferramentas para gerenciar o Azure DevOps. |  |
 | [azure-firewall](https://github.com/Azure/azure-cli-extensions/tree/master/src/azure-firewall) | 0.1.3 | Gerenciar recursos do Firewall do Azure. | Sim |
 | [db-up](https://github.com/Azure/azure-cli-extensions/tree/master/src/db-up) | 0.1.13 | Comandos adicionais para simplificar os fluxos de trabalho do Banco de Dados do Azure. | Sim |
@@ -65,4 +65,4 @@ az extension list-available --output table
 | [virtual-network-tap](https://github.com/Azure/azure-cli-extensions/tree/master/src/virtual-network-tap) | 0.1.0 | Gerenciar TAPs de rede virtual (VTAP). | Sim |
 | [virtual-wan](https://github.com/Azure/azure-cli-extensions/tree/master/src/virtual-wan) | 0.1.0 | Gerencie WAN virtual, hubs, gateways de VPN e sites VPN. | Sim |
 | [vm-repair](https://github.com/Azure/azure-cli-extensions/tree/master/src/vm-repair) | 0.1.2 | Comandos de reparo automático para corrigir as VMs. |  |
-| [webapp](https://github.com/Azure/azure-cli-extensions/tree/master/src/webapp) | 0.2.20 | Comandos adicionais para o Serviço de Aplicativo do Azure. | Sim |
+| [webapp](https://github.com/Azure/azure-cli-extensions/tree/master/src/webapp) | 0.2.23 | Comandos adicionais para o Serviço de Aplicativo do Azure. | Sim |

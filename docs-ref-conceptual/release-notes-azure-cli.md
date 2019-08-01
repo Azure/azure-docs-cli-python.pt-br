@@ -4,19 +4,64 @@ description: Saiba mais sobre as últimas atualizações da CLI do Azure
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 07/16/2019
+ms.date: 07/30/2019
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 8cb0e2f43a3f40fdf15a00ebc7bdb931bf8f41f0
-ms.sourcegitcommit: 49e1dea60942fce02d9c3ce249ac633a83f303e7
+ms.openlocfilehash: 673014c3fd86e20148fe5ffa9fa5160e490da0cb
+ms.sourcegitcommit: d29d86d33916d5551b4aeb984b06d7a85c4f6b06
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68246916"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68658930"
 ---
 # <a name="azure-cli-release-notes"></a>Notas de versão da CLI do Azure
+
+## <a name="july-30-2019"></a>30 de julho de 2019
+
+Versão 2.0.70
+
+### <a name="acr"></a>ACR
+
+* Corrigido o problema #9952 (uma regressão no comando `acr pack build`)
+* Removido o nome da imagem do construtor padrão em `acr pack build`
+
+### <a name="appservice"></a>AppService
+
+* Alterado `webapp config ssl` para mostrar uma mensagem se um recurso não for encontrado
+* Corrigido o problema em que `functionapp create` não aceita o tipo de conta de armazenamento `Standard_RAGRS`
+* Corrigido um problema em que `webapp up` falharia se fosse executado usando versões mais antigas do Python
+
+### <a name="network"></a>Rede
+
+* Removido parâmetro inválido `--ids` de `network nic ip-config add` (corrige o #9861)
+* Corrige o #9604. Adicionado o parâmetro `--root-certs` ao `network application-gateway http-settings [create|update]` para dar suporte a certificados raiz confiáveis associados ao usuário.
+* Fixado argumento `--subscription` para `network dns record-set ns create` (#9965)
+
+### <a name="rbac"></a>RBAC
+
+* Adicionado o comando `user update`
+* [PRETERIDO] Preterido `--upn-or-object-id` de comandos relacionados ao usuário
+    * Usar argumento de substituição `--id`
+* Adicionado argumento `--id` para comandos relacionados ao usuário
+
+### <a name="sql"></a>SQL
+
+* Adicionados comandos de gerenciamento para chaves de instância gerenciada e protetor de TDE
+
+### <a name="storage"></a>Armazenamento
+
+* Adicionado o comando `storage remove`
+* Corrigido um problema com `storage blob update`
+
+### <a name="vm"></a>VM
+
+* Alterado `list-skus` para usar versão de API mais recente a fim de externar detalhes de zona
+* Alterado o padrão de `--single-placement-group` para `false` para `vmss create`
+* Adicionada a capacidade de selecionar SKUs de armazenamento ZRS para `[snapshot|disk] create`
+* Adicionado novo grupo de comandos `vm host` para dar suporte a hosts dedicados
+* Adicionados parâmetros `--host` e `--host-group` em `vm create` para definir o host dedicado da VM
 
 ## <a name="july-16-2019"></a>16 de julho de 2019
 
