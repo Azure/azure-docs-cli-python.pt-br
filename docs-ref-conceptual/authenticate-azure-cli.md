@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.technology: azure-cli
 ms.devlang: azurecli
 ms.component: authentication
-ms.openlocfilehash: 234c53f27ba365550e6502b8410aced57eb9ff4e
-ms.sourcegitcommit: 334a1da92a73e42e715e33470057f4194f10b2ea
+ms.openlocfilehash: 3c25f648fe01f788521394af09350f9468aa8b46
+ms.sourcegitcommit: 4daaac4e3629e0467bf15c561f0f437158482e06
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59724567"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68917673"
 ---
 # <a name="sign-in-with-azure-cli"></a>Entrar com a CLI do Azure 
 
 Há vários tipos de autenticação para a CLI do Azure. A maneira mais fácil de começar é com o [Azure Cloud Shell](/azure/cloud-shell/overview) que conecta você automaticamente.
 Localmente, você pode entrar no modo interativo pelo navegador com o comando [az login](/cli/azure/reference-index#az-login). Ao escrever scripts, a abordagem recomendada é usar entidades de serviço. Ao conceder apenas as permissões apropriadas necessárias para uma entidade de serviço, você mantém sua automação segura.
 
-Nenhuma das suas informações de entrada é armazenada pela CLI. Em vez disso, um [token de atualização de autenticação](https://docs.microsoft.com/en-us/azure/active-directory/develop/v1-id-and-access-tokens#refresh-tokens) é gerado pelo Azure e depois é armazenado. A partir de agosto de 2018, esse token será revogado após 90 dias de inatividade, mas esse valor poderá ser alterado pela Microsoft ou seu administrador de locatários. Depois que o token for revogado, você receberá uma mensagem da CLI dizendo que você precisa entrar novamente.
+Nenhuma das suas informações de entrada é armazenada pela CLI. Em vez disso, um [token de atualização de autenticação](https://docs.microsoft.com/azure/active-directory/develop/v1-id-and-access-tokens#refresh-tokens) é gerado pelo Azure e depois é armazenado. A partir de agosto de 2018, esse token será revogado após 90 dias de inatividade, mas esse valor poderá ser alterado pela Microsoft ou seu administrador de locatários. Depois que o token for revogado, você receberá uma mensagem da CLI dizendo que você precisa entrar novamente.
 
 Após a conexão, os comandos da CLI são executados em sua assinatura padrão. Caso tenha várias assinaturas, é possível [alterar sua assinatura padrão](manage-azure-subscriptions-azure-cli.md).
 
@@ -104,4 +104,4 @@ Nos recursos configurados para identidades gerenciadas em recursos do Azure, voc
 az login --identity
 ```
 
-Para saber mais sobre identidades gerenciadas em recursos do Azure, confira [Configurar identidades gerenciadas em recursos do Azure](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm) e [Usar identidades gerenciadas em recursos do Azure para fazer logon](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-sign-in).
+Para saber mais sobre identidades gerenciadas em recursos do Azure, confira [Configurar identidades gerenciadas em recursos do Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm) e [Usar identidades gerenciadas em recursos do Azure para fazer logon](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-sign-in).
