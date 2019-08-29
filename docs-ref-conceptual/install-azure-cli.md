@@ -19,7 +19,7 @@ ms.locfileid: "56421891"
 ---
 # <a name="install-the-azure-cli"></a>Instalar a CLI do Azure
 
-A CLI do Azure é uma ferramenta de linha de comando que oferece um ótima experiência para gerenciar recursos do Azure. A CLI é projetada para facilitar o script, dados de consulta, dar suporte a operações de longa execução e muito mais. Experimente hoje e descubra o que a CLI tem a oferecer!
+A CLI do Azure é uma ferramenta de linha de comando que oferece uma ótima experiência para gerenciar recursos do Azure. A CLI é projetada para facilitar o script, dados de consulta, dar suporte a operações de longa execução e muito mais. Experimente hoje e descubra o que a CLI tem a oferecer!
 
 [!INCLUDE [current-version](includes/current-version.md)]
 
