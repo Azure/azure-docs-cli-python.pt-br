@@ -1,0 +1,115 @@
+### YamlMime:Landing
+title: A CLI (interface de linha de comando) do Azure
+summary: >
+  A CLI (interface de linha de comando) do Azure é a experiência da linha de comando de plataforma cruzada da Microsoft para gerenciar os recursos do Azure.
+
+  A CLI do Azure foi projetada para ser fácil de aprender e começar a usar, mas eficiente o bastante para ser uma ótima ferramenta para a criação de automação personalizada para uso de recursos do Azure.
+metadata:
+  title: Visão geral da CLI do Azure
+  description: Instruções para instalar a CLI do Azure e aprender a usá-la.
+  ms.topic: landing-page
+  ms.collection: collection
+  author: sptramer
+  ms.author: sttramer
+  ms.date: 09/09/2019
+  ms.openlocfilehash: e42601468fe40d346ca91d6a95b6f37d377863d0
+  ms.sourcegitcommit: f9bfb4b063151434b3a9bff936a73b251666e775
+  ms.translationtype: HT
+  ms.contentlocale: pt-BR
+  ms.lasthandoff: 09/10/2019
+  ms.locfileid: "70886131"
+landingContent:
+- title: Instalar a CLI do Azure
+  linkLists:
+  - linkListType: download
+    links:
+    - text: Visão geral da instalação
+      url: install-azure-cli.md
+    - text: Instalação no Windows
+      url: install-azure-cli-windows.md
+    - text: Instalação no macOS
+      url: install-azure-cli-macos.md
+    - text: Instalação no Linux com apt
+      url: install-azure-cli-apt.md
+    - text: Instalação no Linux com yum
+      url: install-azure-cli-yum.md
+    - text: Instalação no Linux com zypper
+      url: install-azure-cli-zypper.md
+    - text: Instalação no Linux sem um gerenciador de pacotes
+      url: install-azure-cli-linux.md
+    - text: Executar no Docker
+      url: run-azure-cli-docker.md
+    - text: Execução no Azure Cloud Shell
+      url: https://shell.azure.com
+- title: Conheça os recursos da CLI do Azure
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Introdução à CLI do Azure
+      url: get-started-with-azure-cli.md
+  - linkListType: how-to-guide
+    links:
+    - text: Métodos de entrada
+      url: authenticate-azure-cli.md
+    - text: Criar uma entidade de serviço
+      url: create-an-azure-service-principal-azure-cli.md
+    - text: Consultar os resultados de comando da CLI
+      url: query-azure-cli.md
+- title: Usar a CLI do Azure para gerenciar recursos da nuvem
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Implantar um aplicativo Web por meio do GitHub
+      url: /azure/app-service/scripts/cli-deploy-github?toc=%2fcli%2fazure%2ftoc.json
+    - text: Criar um banco de dados Postgres SQL
+      url: /azure/postgresql/quickstart-create-server-up-azure-cli?toc=%2fcli%2fazure%2ftoc.json
+    - text: Criar um cluster Kubernetes
+      url: /azure/aks/kubernetes-walkthrough?toc=%2fcli%2fazure%2ftoc.json
+  - linkListType: learn
+    links:
+    - text: Gerenciar máquinas virtuais com a CLI do Azure
+      url: /learn/modules/manage-virtual-machines-with-azure-cli
+    - text: Controlar os serviços do Azure com a CLI
+      url: /learn/modules/control-azure-services-with-cli
+    - text: Conectar um aplicativo ao Armazenamento do Azure
+      url: /learn/modules/connect-an-app-to-azure-storage
+  - linkListType: tutorial
+    links:
+    - text: Criar máquinas virtuais na mesma sub-rede com a CLI do Azure
+      url: azure-cli-vm-tutorial.yml
+- title: Extensões da CLI do Azure
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Sobre as extensões da CLI
+      url: azure-cli-extensions-overview.md
+  - linkListType: reference
+    links:
+    - text: Extensões disponíveis
+      url: azure-cli-extensions-list.md
+- title: Referência da CLI do Azure
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Referência completa de comandos
+      url: /cli/azure/reference-index
+    - text: Formatos de saída
+      url: format-output-azure-cli.md
+    - text: Definições de configuração
+      url: azure-cli-configuration.md
+    - text: Notas de versão
+      url: release-notes-azure-cli.md
+    - text: Linguagem de consulta JMESPath
+      url: http://jmespath.org/
+    - text: Filtros de consulta OData
+      url: https://www.odata.org/getting-started/basic-tutorial/#queryData
+- title: Fornecer comentários e obter suporte
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Solicitar um novo recurso
+      url: https://github.com/Azure/azure-cli/issues/new?template=Feature_request.md
+    - text: Relatar um bug do produto
+      url: https://github.com/Azure/azure-cli/issues/new?template=Bug_report.md
+    - text: Obter ajuda da comunidade
+      url: https://stackoverflow.com/questions/tagged/azure-cli
