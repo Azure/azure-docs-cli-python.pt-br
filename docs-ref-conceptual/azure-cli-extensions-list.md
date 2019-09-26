@@ -4,17 +4,17 @@ description: Uma lista completa das extensões com suporte oficial para a CLI do
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 09/06/2019
+ms.date: 09/22/2019
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: b567247b1f427845769e11641a4176dbf872c598
-ms.sourcegitcommit: f9bfb4b063151434b3a9bff936a73b251666e775
+ms.openlocfilehash: 056d3d1375a99b180aceedfbf9e462508bd74c6f
+ms.sourcegitcommit: 5b9b4446c08b94256ced7f63c145b493ba8b50df
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70878255"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71217461"
 ---
 # <a name="available-extensions-for-the-azure-cli"></a>Extensões disponíveis para a CLI do Azure
 
@@ -29,13 +29,13 @@ az extension list-available --output table
 | NOME | Versão | Resumo | Visualização |
 |------|---------|---------|---------|
 | [aem](https://github.com/Azure/azure-cli-extensions) | 0.1.1 | Gerenciar Extensões de Monitoramento Aprimorado do Azure para SAP |  |
-| [versão prévia do aks](https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview) | 0.4.14 | Fornece uma versão prévia para futuros recursos do AKS | Sim |
+| [versão prévia do aks](https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview) | 0.4.16 | Fornece uma versão prévia para futuros recursos do AKS | Sim |
 | [alias](https://github.com/Azure/azure-cli-extensions) | 0.5.2 | Suporte para aliases de comando | Sim |
 | [appconfig](https://github.com/Azure/azure-cli-extensions) | 0.5.0 | Fornece uma versão prévia para os futuros recursos de Configuração do Aplicativo. | Sim |
 | [application-insights](https://github.com/Azure/azure-cli-extensions/tree/master/src/application-insights) | 0.1.1 | Suporte para gerenciar componentes do Application Insights e consultar as métricas, os eventos e os logs de tais componentes. | Sim |
-| [azure-batch-cli-extensions](https://github.com/Azure/azure-batch-cli-extensions) | 4.0.0 | Comandos adicionais para trabalhar com o serviço de Lote do Azure |  |
-| [azure-cli-iot-ext](https://github.com/azure/azure-iot-cli-extension) | 0.8.0 | Fornece a camada de comandos do plano de dados para o Azure Hub IoT, IoT Edge e o Serviço de Provisionamento de Dispositivos |  |
-| [azure-cli-ml](https://docs.microsoft.com/azure/machine-learning/service/) | 1.0.60.1 | Módulo de Comando do AzureML para as Ferramentas da Linha de Comando do Microsoft Azure |  |
+| [azure-batch-cli-extensions](https://github.com/Azure/azure-batch-cli-extensions) | 5.0.0 | Comandos adicionais para trabalhar com o serviço de Lote do Azure |  |
+| [azure-cli-iot-ext](https://github.com/azure/azure-iot-cli-extension) | 0.8.2 | Fornece a camada de comandos do plano de dados para o Azure Hub IoT, IoT Edge e o Serviço de Provisionamento de Dispositivos |  |
+| [azure-cli-ml](https://docs.microsoft.com/azure/machine-learning/service/) | 1.0.62 | Módulo de Comando do AzureML para as Ferramentas da Linha de Comando do Microsoft Azure |  |
 | [azure-devops](https://github.com/Microsoft/azure-devops-cli-extension) | 0.12.0 | Ferramentas para gerenciar o Azure DevOps. |  |
 | [azure-firewall](https://github.com/Azure/azure-cli-extensions/tree/master/src/azure-firewall) | 0.1.3 | Gerenciar recursos do Firewall do Azure. | Sim |
 | [db-up](https://github.com/Azure/azure-cli-extensions/tree/master/src/db-up) | 0.1.13 | Comandos adicionais para simplificar os fluxos de trabalho do Banco de Dados do Azure. | Sim |
@@ -48,7 +48,7 @@ az extension list-available --output table
 | [express-route-cross-connection](https://github.com/Azure/azure-cli-extensions/tree/master/src/express-route-cross-connection) | 0.1.1 | Gerencie os circuitos do ExpressRoute de cliente usando uma conexão cruzada do ExpressRoute. |  |
 | [find](https://github.com/Azure/azure-cli-extensions/tree/master/src/find) | 0.3.0 | Consultas inteligentes para obter informações de CLI. | Sim |
 | [front-door](https://github.com/Azure/azure-cli-extensions/tree/master/src/front-door) | 1.0.0 | Gerenciar FrontDoors de rede. |  |
-| [healthcareapis](https://github.com/Azure/azure-cli-extensions) | 0.1.0 | Extensão de Serviços de Saúde das Ferramentas de Linha de Comando do Microsoft Azure | Sim |
+| [healthcareapis](https://github.com/Azure/azure-cli-extensions) | 0.1.1 | Extensão HealthCareApis das Ferramentas de Linha de Comando do Microsoft Azure | Sim |
 | [image-copy-extension](https://github.com/Azure/azure-cli-extensions) | 0.2.1 | Suporte para copiar imagens de vm gerenciadas entre regiões |  |
 | [interativo](https://github.com/Azure/azure-cli) | 0.4.3 | Shell interativo de linha de comando do Microsoft Azure | Sim |
 | [keyvault-preview](https://github.com/Azure/azure-keyvault-cli-extension) | 0.1.3 | Visualizar comandos do Azure Key Vault. | Sim |
@@ -58,9 +58,9 @@ az extension list-available --output table
 | [malha](https://github.com/Azure/azure-cli-extensions) | 0.10.6 | Suporte para a Malha do Microsoft Azure Service Fabric - Visualização Pública | Sim |
 | [mixed-reality](https://github.com/Azure/azure-cli-extensions) | 0.0.1 | Extensão da CLI da Realidade Misturada do Azure. |  |
 | [netappfiles-preview](https://github.com/Azure/azure-cli-extensions/tree/master/src/netappfiles-preview) | 0.3.2 | Fornece uma versão prévia para os futuros recursos do ANF (Azure NetApp Files). | Sim |
-| [privatedns](https://github.com/Azure/azure-cli-extensions) | 0.1.0 | Comandos para gerenciar zonas DNS privadas | Sim |
+| [privatedns](https://github.com/Azure/azure-cli-extensions) | 0.1.1 | Comandos para gerenciar zonas DNS privadas | Sim |
 | [resource-graph](https://github.com/Azure/azure-cli-extensions/tree/master/src/resource-graph) | 1.0.0 | Suporte para consultar recursos do Azure com o Resource Graph. |  |
-| [sap-hana](https://github.com/Azure/azure-hanaonazure-cli-extension) | 0.5.4 | Comandos adicionais para trabalhar com instâncias do SAP HanaOnAzure. |  |
+| [sap-hana](https://github.com/Azure/azure-hanaonazure-cli-extension) | 0.5.5 | Comandos adicionais para trabalhar com instâncias do SAP HanaOnAzure. |  |
 | [storage-preview](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview) | 0.2.8 | Fornece uma visualização para recursos de armazenamento futuras. | Sim |
 | [subscription](https://github.com/Azure/azure-cli-extensions) | 0.1.3 | Suporte à versão prévia de gerenciamento de assinatura. |  |
 | [virtual-network-tap](https://github.com/Azure/azure-cli-extensions/tree/master/src/virtual-network-tap) | 0.1.0 | Gerenciar TAPs de rede virtual (VTAP). | Sim |

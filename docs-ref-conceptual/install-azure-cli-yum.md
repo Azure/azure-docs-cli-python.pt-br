@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: bc3ae41ea04ae8d7f62242b2bfe415c8a3bfea33
-ms.sourcegitcommit: 08043c47d3ccf23522b91e6bba3932e312c04c7f
+ms.openlocfilehash: 270be4c41bdb3c913e41ef1b2bb0c7c0b393aa20
+ms.sourcegitcommit: 5a29ce9c0a3d7b831f22b1a13b1ae2e239e5549f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66516292"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71144032"
 ---
 # <a name="install-azure-cli-with-yum"></a>Instalar a CLI do Azure com o yum
 
@@ -35,7 +35,12 @@ Para distribuições Linux com `yum`, como o RHEL, Fedora ou CentOS há um pacot
 2. Crie informações sobre o repositório do local `azure-cli`.
 
    ```bash
-   sudo sh -c 'echo -e "[azure-cli]\nname=Azure CLI\nbaseurl=https://packages.microsoft.com/yumrepos/azure-cli\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/azure-cli.repo'
+   sudo sh -c 'echo -e "[azure-cli]
+   name=Azure CLI
+   baseurl=https://packages.microsoft.com/yumrepos/azure-cli
+   enabled=1
+   gpgcheck=1
+   gpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/azure-cli.repo'
    ```
 
 3. Instale com o comando `yum install`.
@@ -44,7 +49,7 @@ Para distribuições Linux com `yum`, como o RHEL, Fedora ou CentOS há um pacot
    sudo yum install azure-cli
    ```
 
-É possível executar a CLI do Azure com o comando `az`. Para entrar, use o comando [az login](/cli/azure/reference-index#az-login).
+Execute a CLI do Azure com o comando `az`. Para entrar, use o comando [az login](/cli/azure/reference-index#az-login).
 
 [!INCLUDE [interactive-login](includes/interactive-login.md)]
 
@@ -98,7 +103,7 @@ sudo yum update azure-cli
    sudo rm /etc/yum.repos.d/azure-cli.repo
    ```
 
-3. Se você removeu as informações do repositório, remova também a chave de assinatura do Microsoft GPG.
+3. Se você não usa outros pacotes da Microsoft, remova a chave de assinatura.
 
    ```bash
    MSFT_KEY=`rpm -qa gpg-pubkey /* --qf "%{version}-%{release} %{summary}\n" | grep Microsoft | awk '{print $1}'`

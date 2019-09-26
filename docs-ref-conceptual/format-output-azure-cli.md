@@ -4,17 +4,17 @@ description: Saiba como formatar a saída dos comandos da CLI do Azure para tabe
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 09/07/2018
+ms.date: 09/23/2019
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 0b90e6375beccafee88b2a1d1b7896275dc14407
-ms.sourcegitcommit: 1987a39809f9865034b27130e56f30b2bd1eb72c
+ms.openlocfilehash: 125055eec956e56c95af9a1c24ee4254e77556e6
+ms.sourcegitcommit: 5b9b4446c08b94256ced7f63c145b493ba8b50df
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56421942"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71217458"
 ---
 # <a name="output-formats-for-azure-cli-commands"></a>Formatos de saída dos comandos da CLI do Azure
 
@@ -154,21 +154,37 @@ None    None        /subscriptions/.../resourceGroups/DEMORG1/providers/Microsof
 None    None        /subscriptions/.../resourceGroups/DEMORG1/providers/Microsoft.Compute/virtualMachines/demovm212    None    None    westus    demovm212            None    Succeeded    DEMORG1    None            Microsoft.Compute/virtualMachines    4bdac85d-c2f7-410f-9907-ca7921d930b4
 None    None        /subscriptions/.../resourceGroups/DEMORG1/providers/Microsoft.Compute/virtualMachines/demovm213    None    None    westus    demovm213            None    Succeeded    DEMORG1    None            Microsoft.Compute/virtualMachines    2131c664-221a-4b7f-9653-f6d542fbfa34
 None    None        /subscriptions/.../resourceGroups/RGDEMO001/providers/Microsoft.Compute/virtualMachines/KBDemo001VM    None    None    westus    KBDemo001VM            None    Succeeded    RGDEMO001    None            Microsoft.Compute/virtualMachines    14e74761-c17e-4530-a7be-9e4ff06ea74b
-None    None        /subscriptions/.../resourceGroups/RGDEMO001/providers/Microsoft.Compute/virtualMachines/KBDemo02None    None    westus    KBDemo020            None    Succeeded    RGDEMO001    None            Microsoft.Compute/virtualMachines    36baa9-9b80-48a8-b4a9-854c7a858ece
+None    None        /subscriptions/.../resourceGroups/RGDEMO001/providers/Microsoft.Compute/virtualMachines/KBDemo020   None    None    westus    KBDemo020            None    Succeeded    RGDEMO001    None            Microsoft.Compute/virtualMachines    36baa9-9b80-48a8-b4a9-854c7a858ece
 ```
 
-O exemplo a seguir mostra como a saída `tsv` pode ser transportada para outros comandos no bash. `grep` seleciona os itens que têm o texto “RGD” e, em seguida, o comando `cut` marca o oitavo campo para mostrar o nome da VM na saída.
+Uma restrição do formato de saída TSV é que não há uma garantia de ordem na saída. A CLI realiza todos os esforços para preservar a ordem classificando alfabeticamente as chaves na resposta JSON e, em seguida, imprimindo os valores em ordem para a saída TSV. No entanto, isso não é uma garantia de que a ordem sempre será idêntica, pois o formato de resposta do serviço do Azure pode ser alterado.
+
+Para impor uma ordem consistente, é necessário usar o parâmetro `--query` e o formato de [lista de multisseleção](query-azure-cli.md#get-multiple-values). Quando um comando de CLI retorna um único dicionário JSON, use o formato geral `[key1, key2, ..., keyN]` para forçar uma ordem de chave.  Para comandos de CLI que retornam uma matriz, use o formato geral `[].[key1, key2, ..., keyN]` para ordenar os valores de coluna.
+
+Por exemplo, para ordenar as informações exibidas acima da ID, do local, do grupo de recursos e do nome da VM:
+
+```azurecli-interactive
+az vm list --out tsv --query '[].[id, location, resourceGroup, name]'
+```
+
+```output
+/subscriptions/.../resourceGroups/DEMORG1/providers/Microsoft.Compute/virtualMachines/DemoVM010    westus    DEMORG1    DemoVM010
+/subscriptions/.../resourceGroups/DEMORG1/providers/Microsoft.Compute/virtualMachines/demovm212    westus    DEMORG1    demovm212
+/subscriptions/.../resourceGroups/DEMORG1/providers/Microsoft.Compute/virtualMachines/demovm213    westus    DEMORG1    demovm213
+/subscriptions/.../resourceGroups/RGDEMO001/providers/Microsoft.Compute/virtualMachines/KBDemo001VM     westus  RGDEMO001       KBDemo001VM
+/subscriptions/.../resourceGroups/RGDEMO001/providers/Microsoft.Compute/virtualMachines/KBDemo020       westus  RGDEMO001       KBDemo020
+```
+
+O exemplo a seguir mostra como a saída `tsv` pode ser transportada para outros comandos no bash. A consulta é usada para filtrar a saída e forçar o ordenamento, `grep` seleciona itens com o texto "RGD" e o comando `cut` seleciona o quarto campo para mostrar o nome da VM na saída.
 
 ```bash
-az vm list --out tsv | grep RGD | cut -f8
+az vm list --out tsv --query '[].[id, location, resourceGroup, name]' | grep RGD | cut -f4
 ```
 
 ```output
 KBDemo001VM
 KBDemo020
 ```
-
-Para fins de processamento de campos separados por tabulação, os valores estão na mesma ordem em que aparecem no objeto JSON impresso. Essa ordem garante a consistência entre as execuções do comando.
 
 ## <a name="set-the-default-output-format"></a>Definir o formato de saída padrão
 
