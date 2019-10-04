@@ -4,17 +4,17 @@ description: Uma lista completa das extensões com suporte oficial para a CLI do
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 09/26/2019
+ms.date: 10/01/2019
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: e429fb30bdfeb7eb1bb9d93b21e9b02a7f25aca9
-ms.sourcegitcommit: 6fb38e801096708c4922b10778d6582776a8ac91
+ms.openlocfilehash: 1c8fdb6355ee7411f7fbcef21caa0c0d2c734c2c
+ms.sourcegitcommit: 62a7c105818d6e7f0b1829de20bc935ccac5a740
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71317938"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71720857"
 ---
 # <a name="available-extensions-for-the-azure-cli"></a>Extensões disponíveis para a CLI do Azure
 
@@ -29,13 +29,13 @@ az extension list-available --output table
 | NOME | Versão | Resumo | Visualização |
 |------|---------|---------|---------|
 | [aem](https://github.com/Azure/azure-cli-extensions) | 0.1.1 | Gerenciar Extensões de Monitoramento Aprimorado do Azure para SAP |  |
-| [versão prévia do aks](https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview) | 0.4.16 | Fornece uma versão prévia para futuros recursos do AKS | Sim |
+| [versão prévia do aks](https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview) | 0.4.17 | Fornece uma versão prévia para futuros recursos do AKS | Sim |
 | [alias](https://github.com/Azure/azure-cli-extensions) | 0.5.2 | Suporte para aliases de comando | Sim |
 | [appconfig](https://github.com/Azure/azure-cli-extensions) | 0.5.0 | Fornece uma versão prévia para os futuros recursos de Configuração do Aplicativo. | Sim |
 | [application-insights](https://github.com/Azure/azure-cli-extensions/tree/master/src/application-insights) | 0.1.1 | Suporte para gerenciar componentes do Application Insights e consultar as métricas, os eventos e os logs de tais componentes. | Sim |
 | [azure-batch-cli-extensions](https://github.com/Azure/azure-batch-cli-extensions) | 5.0.0 | Comandos adicionais para trabalhar com o serviço de Lote do Azure |  |
 | [azure-cli-iot-ext](https://github.com/azure/azure-iot-cli-extension) | 0.8.2 | Fornece a camada de comandos do plano de dados para o Azure Hub IoT, IoT Edge e o Serviço de Provisionamento de Dispositivos |  |
-| [azure-cli-ml](https://docs.microsoft.com/azure/machine-learning/service/) | 1.0.62 | Módulo de Comando do AzureML para as Ferramentas da Linha de Comando do Microsoft Azure |  |
+| [azure-cli-ml](https://docs.microsoft.com/azure/machine-learning/service/) | 1.0.65 | Módulo de Comando do AzureML para as Ferramentas da Linha de Comando do Microsoft Azure |  |
 | [azure-devops](https://github.com/Microsoft/azure-devops-cli-extension) | 0.12.0 | Ferramentas para gerenciar o Azure DevOps. |  |
 | [azure-firewall](https://github.com/Azure/azure-cli-extensions/tree/master/src/azure-firewall) | 0.1.3 | Gerenciar recursos do Firewall do Azure. | Sim |
 | [db-up](https://github.com/Azure/azure-cli-extensions/tree/master/src/db-up) | 0.1.13 | Comandos adicionais para simplificar os fluxos de trabalho do Banco de Dados do Azure. | Sim |
@@ -65,5 +65,5 @@ az extension list-available --output table
 | [subscription](https://github.com/Azure/azure-cli-extensions) | 0.1.3 | Suporte à versão prévia de gerenciamento de assinatura. |  |
 | [virtual-network-tap](https://github.com/Azure/azure-cli-extensions/tree/master/src/virtual-network-tap) | 0.1.0 | Gerenciar TAPs de rede virtual (VTAP). | Sim |
 | [virtual-wan](https://github.com/Azure/azure-cli-extensions/tree/master/src/virtual-wan) | 0.1.0 | Gerencie WAN virtual, hubs, gateways de VPN e sites VPN. | Sim |
-| [vm-repair](https://github.com/Azure/azure-cli-extensions/tree/master/src/vm-repair) | 0.2.1 | Comandos de reparo automático para corrigir as VMs. |  |
+| [vm-repair](https://github.com/Azure/azure-cli-extensions/tree/master/src/vm-repair) | 0.2.2 | Comandos de reparo automático para corrigir as VMs. |  |
 | [webapp](https://github.com/Azure/azure-cli-extensions/tree/master/src/webapp) | 0.2.24 | Comandos adicionais para o Serviço de Aplicativo do Azure. | Sim |
