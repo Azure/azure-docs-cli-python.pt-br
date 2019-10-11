@@ -8,12 +8,12 @@ ms.date: 02/15/2019
 ms.topic: conceptual
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 6d88400b8d7070cf2f9dba2f3e124edfe2e3163d
-ms.sourcegitcommit: e06d34682710e77840b0c51f4718184101bd8a03
+ms.openlocfilehash: 45374a29c45d8e9fa2d39aebf2d9bab556ef3b50
+ms.sourcegitcommit: b42ce26476b135bb2047c8d9d787580c858f8b6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67527332"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72163827"
 ---
 # <a name="create-an-azure-service-principal-with-azure-cli"></a>Criar uma entidade de serviço do Azure com a CLI do Azure
 
@@ -99,10 +99,10 @@ Uma lista das entidades de serviço em um locatário pode ser recuperada com o c
 * `--show-mine` só envia solicitações às entidades de serviço criadas pelo usuário conectado.
 * `--filter` usa um filtro OData e realiza a filtragem _do lado do servidor_. Esse método é recomendado para a filtragem do lado do cliente com o argumento `--query` da CLI. Para saber mais sobre os filtros do OData, confira [Sintaxe de expressão do OData para filtros](/rest/api/searchservice/odata-expression-syntax-for-azure-search).
 
-As informações retornadas para objetos da entidade de serviço são detalhadas. Para obter apenas as informações necessárias para entrar, use a cadeia de consulta `[].{"id":"appId", "tenant":"appOwnerTenantId"}`. Por exemplo, para obter as informações de logon para todas as entidades de serviço criadas pelo usuário conectado no momento:
+As informações retornadas para objetos da entidade de serviço são detalhadas. Para obter apenas as informações necessárias para entrar, use a cadeia de consulta `[].{id:appId, tenant:appOwnerTenantId}`. Por exemplo, para obter as informações de logon para todas as entidades de serviço criadas pelo usuário conectado no momento:
 
 ```azurecli-interactive
-az ad sp list --show-mine --query '[].{"id":"appId", "tenant":"appOwnerTenantId"}'
+az ad sp list --show-mine --query "[].{id:appId, tenant:appOwnerTenantId}"
 ```
 
 > [!IMPORTANT]

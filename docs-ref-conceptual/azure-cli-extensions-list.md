@@ -4,17 +4,17 @@ description: Uma lista completa das extensões com suporte oficial para a CLI do
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 10/01/2019
+ms.date: 10/06/2019
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 1c8fdb6355ee7411f7fbcef21caa0c0d2c734c2c
-ms.sourcegitcommit: 62a7c105818d6e7f0b1829de20bc935ccac5a740
+ms.openlocfilehash: 921d3d48e4be466335d2e8dc85cdc57853fc2eb9
+ms.sourcegitcommit: b42ce26476b135bb2047c8d9d787580c858f8b6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71720857"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72163868"
 ---
 # <a name="available-extensions-for-the-azure-cli"></a>Extensões disponíveis para a CLI do Azure
 
@@ -36,7 +36,7 @@ az extension list-available --output table
 | [azure-batch-cli-extensions](https://github.com/Azure/azure-batch-cli-extensions) | 5.0.0 | Comandos adicionais para trabalhar com o serviço de Lote do Azure |  |
 | [azure-cli-iot-ext](https://github.com/azure/azure-iot-cli-extension) | 0.8.2 | Fornece a camada de comandos do plano de dados para o Azure Hub IoT, IoT Edge e o Serviço de Provisionamento de Dispositivos |  |
 | [azure-cli-ml](https://docs.microsoft.com/azure/machine-learning/service/) | 1.0.65 | Módulo de Comando do AzureML para as Ferramentas da Linha de Comando do Microsoft Azure |  |
-| [azure-devops](https://github.com/Microsoft/azure-devops-cli-extension) | 0.12.0 | Ferramentas para gerenciar o Azure DevOps. |  |
+| [azure-devops](https://github.com/Microsoft/azure-devops-cli-extension) | 0.13.0 | Ferramentas para gerenciar o Azure DevOps. |  |
 | [azure-firewall](https://github.com/Azure/azure-cli-extensions/tree/master/src/azure-firewall) | 0.1.3 | Gerenciar recursos do Firewall do Azure. | Sim |
 | [db-up](https://github.com/Azure/azure-cli-extensions/tree/master/src/db-up) | 0.1.13 | Comandos adicionais para simplificar os fluxos de trabalho do Banco de Dados do Azure. | Sim |
 | [dev-spaces](https://github.com/Azure/azure-cli-extensions) | 1.0.3 | Os Espaços de Desenvolvimento fornecem uma experiência de desenvolvimento Kubernetes rápida e iterativa para equipes. |  |
