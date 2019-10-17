@@ -4,24 +4,24 @@ description: Como instalar a CLI do Azure com o gerenciador de pacotes apt
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 05/08/2019
+ms.date: 10/14/2019
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 923629d53983f7dbbd34bf7e79f28380a05937c2
-ms.sourcegitcommit: 5a29ce9c0a3d7b831f22b1a13b1ae2e239e5549f
+ms.openlocfilehash: 782d88bc2487c24bd0574b6a106f109368191f6b
+ms.sourcegitcommit: 69f52b032167a01509fdf15431e3e4e89a7e20ef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71144085"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72324030"
 ---
 # <a name="install-azure-cli-with-apt"></a>Instalar CLI do Azure com o apt
 
 Se você estiver executando uma distribuição fornecida com `apt`, como Ubuntu ou Debian, há um pacote x86_64 disponível para a CLI do Azure. Este pacote foi testado e é compatível com:
 
 * Ubuntu trusty, xenial, artful, bionic e disco
-* Debian wheezy, jessie e stretch
+* Debian wheezy, jessie, stretch e buster
 
 [!INCLUDE [current-version](includes/current-version.md)]
 

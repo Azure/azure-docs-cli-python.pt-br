@@ -4,19 +4,78 @@ description: Saiba mais sobre as últimas atualizações da CLI do Azure
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 09/05/2019
+ms.date: 10/15/2019
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 1f829ba3d9ecdb158e96512bde5bcf1565cc205c
-ms.sourcegitcommit: 5b9b4446c08b94256ced7f63c145b493ba8b50df
+ms.openlocfilehash: 32137c5e6ef403461114b0e09970f93c9248c100
+ms.sourcegitcommit: 69f52b032167a01509fdf15431e3e4e89a7e20ef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71217419"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72324012"
 ---
 # <a name="azure-cli-release-notes"></a>Notas de versão da CLI do Azure
+
+## <a name="october-15-2019"></a>15 de outubro de 2019
+
+Versão 2.0.75
+
+### <a name="aks"></a>AKS
+
+* Alteração do valor padrão `--load-balancer-sku` para `standard` se for compatível com a versão do Kubernetes
+* Alteração do valor padrão `--vm-set-type` para `virtualmachinescalesets` se for compatível com a versão do Kubernetes
+
+### <a name="ams"></a>AMS
+
+* [ALTERAÇÃO SIGNIFICATIVA] Alteração do nome de `job start` para `job create`
+* [ALTERAÇÃO SIGNIFICATIVA] Alteração do parâmetro `--ask` de `content-key-policy create` para usar uma cadeia de 32 caracteres hexadecimais em vez do UTF8
+
+### <a name="appservice"></a>AppService
+
+* Adição dos comandos `webapp config access-restriction show|set|add|remove`
+* Adição de um melhor tratamento de erro a `webapp up`
+* Adição de suporte do SKU `Isolated` para `appservice plan update`
+
+### <a name="arm"></a>ARM
+
+* Adição do parâmetro `--handle-extended-json-format` `deployment create` para dar suporte a várias linhas e a comentários no modelo json
+
+### <a name="compute"></a>Computação
+
+* Parâmetro `--enable-agent` adicionado a `vm create`
+* Alteração de `vm create` para usar um SKU de IP público padrão automaticamente ao usar zonas
+* Alteração de `vm create` para criar automaticamente um nome de computador válido para uma VM, caso nenhum tenha sido fornecido
+* Adição do parâmetro `--computer-name-prefix` a `vmss create` para dar suporte ao prefixo de nome de computador personalizado de máquinas virtuais no VMSS
+* Adicione o parâmetro `--workspace` a `vm create` para habilitar o workspace de análise de logs automaticamente
+* Versão de API de galerias atualizadas para 2019-07-01
+
+### <a name="core"></a>Núcleo
+
+* Adição da verificação de sintaxe para o parâmetro `--set` no comando de atualização genérica
+
+### <a name="iot"></a>IoT
+
+* Correção de um problema em que o `iot hub show` retornaria incorretamente um erro com "recurso não encontrado"
+
+### <a name="monitor"></a>Monitoramento
+
+* Adição de suporte para CRUD a `monitor log-analytics workspace`
+
+### <a name="network"></a>Rede
+
+* Adição de suporte para vinculação virtual entre locatários para `network private-dns link vnet [create|update]`
+* [ALTERAÇÃO SIGNIFICATIVA] Alteração de `network vnet subnet list` para exigir os parâmetros `--resource-group` e `--vnet-name`
+
+### <a name="sql"></a>SQL
+
+* Adição de comandos a `sql mi ad-admin` que dão suporte à configuração de um administrador do AAD em instâncias gerenciadas
+
+### <a name="storage"></a>Armazenamento
+
+* Adição do parâmetro `--preserve-s2s-access-tier` `storage copy` para preservar a camada de acesso durante a cópia do serviço para serviço
+* Adição do parâmetro `--enable-large-file-share` a `storage account [create|update]` para dar suporte a compartilhamentos de arquivos grandes para a conta de armazenamento
 
 ## <a name="september-24-2019"></a>24 de setembro de 2019
 
