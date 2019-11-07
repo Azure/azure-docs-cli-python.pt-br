@@ -4,19 +4,129 @@ description: Saiba mais sobre as últimas atualizações da CLI do Azure
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 10/15/2019
+ms.date: 11/04/2019
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 0eb1ccccdeff8c3d9b97167ee74f3380d983a552
-ms.sourcegitcommit: e99b39e2f14a38c9bcae1b2b5921c6d8b464ef31
+ms.openlocfilehash: 3061d4b5519cfafbde92df68ecdee4d88d0bddff
+ms.sourcegitcommit: b854f9b6acfdb814ba1d6ba87aac03e2d547d998
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72549694"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73536777"
 ---
 # <a name="azure-cli-release-notes"></a>Notas de versão da CLI do Azure
+
+## <a name="november-4-2019"></a>4 de novembro de 2019
+
+Versão 2.0.76
+
+### <a name="acr"></a>ACR
+
+* O parâmetro de versão prévia `--pack-image-tag` foi adicionado ao comando `az acr pack build`.
+* Suporte à habilitação da auditoria na criação de um registro
+* RBAC com escopo de repositório com suporte
+
+### <a name="aks"></a>AKS
+
+* `--enable-cluster-autoscaler`, `--min-count` e `--max-count` foram adicionados ao comando `az aks create`, que habilita o dimensionamento automático do cluster para o pool de nós.
+* Foram adicionados os sinalizadores acima, bem como `--update-cluster-autoscaler` e `--disable-cluster-autoscaler` ao comando `az aks update`, permitindo atualizações do cluster de dimensionamento automático.
+
+### <a name="appconfig"></a>AppConfig
+
+* O grupo de comandos do recurso AppConfig foi adicionado para gerenciar os sinalizadores de recurso armazenados em uma Configuração de Aplicativos.
+* Foi corrigido um bug secundário do comando de exportação para arquivo appconfig kv. Foi interrompida a leitura de conteúdo do arquivo de destino durante a exportação.
+
+### <a name="appservice"></a>AppService
+
+* `az appservice plan create`: Foi adicionado o suporte para definir 'persitecalling' no comando appservice plan create.
+* Foi corrigido um problema em que a operação webapp config ssl bind estava removendo as marcas existentes do recurso
+* Foi adicionado o sinalizador `--build-remote` para `az functionapp deployment source config-zip` para dar suporte à ação de build remoto durante a implantação do aplicativo de funções.
+* Foi alterada a versão do nó padrão em aplicativos de funções para ~10 para Windows
+* A propriedade `--runtime-version` foi adicionada a `az functionapp create`
+
+### <a name="arm"></a>ARM
+
+* `az deployment/group deployment validate`: Foi adicionado o parâmetro `--handle-extended-json-format` para dar suporte a várias linhas e comentários no modelo JSON durante a implantação.
+* O azure-mgmt-resource passou a usar a 2019-07-01
+
+### <a name="backup"></a>Backup
+
+* Foi adicionado o suporte de backup aos Arquivos do Azure
+
+### <a name="compute"></a>Computação
+
+* `az vm create`: foi adicionado um aviso ao especificar a rede acelerada e um adaptador de rede existente juntos.
+* `az vm create`: foi adicionado `--vmss` para especificar um conjunto de dimensionamento de máquinas virtuais existente ao qual a máquina virtual deve ser atribuída.
+* `az vm/vmss create`: foi adicionada uma cópia local do arquivo de alias de imagem para que ele possa ser acessado em um ambiente de rede restrita.
+* `az vmss create`: foi adicionado `--orchestration-mode` para especificar como as máquinas virtuais são gerenciadas pelo conjunto de dimensionamento.
+* `az vm/vmss update`: foi adicionado `--ultra-ssd-enabled` para permitir a atualização da configuração de SSD Ultra.
+* [ALTERAÇÃO DA FALHA] `az vm extension set`: foi corrigido o bug em que os usuários não podiam definir uma extensão em uma VM com `--ids`.
+* Foram adicionados os novos comandos `az vm image terms accept/cancel/show` para gerenciar os termos de imagem do Azure Marketplace.
+* O VMAccessForLinux foi atualizado para a versão 1.5
+
+### <a name="cosmosdb"></a>CosmosDB
+
+* [ALTERAÇÃO DA FALHA] `az sql container create`: `--partition-key-path` foi alterado para parâmetro obrigatório
+* [ALTERAÇÃO DA FALHA] `az gremlin graph create`: `--partition-key-path` foi alterado para parâmetro obrigatório
+* `az sql container create`: Adição de `--unique-key-policy` e `--conflict-resolution-policy`
+* `az sql container create/update`: o esquema padrão `--idx` foi atualizado
+* `gremlin graph create`: Adicionado `--conflict-resolution-policy`
+* `gremlin graph create/update`: o esquema padrão `--idx` foi atualizado
+* Erro de digitação corrigido na mensagem de ajuda
+* banco de dados: foram adicionadas informações sobre preteridos
+* coleção: foram adicionadas informações sobre preteridos
+
+### <a name="iot"></a>IoT
+
+* Um novo tipo de fonte de roteamento foi adicionado: DigitalTwinChangeEvents
+* Foi corrigido o erro de recursos ausentes no `az iot hub create`
+
+### <a name="key-vault"></a>Key Vault
+
+* Foi corrigido um erro inesperado quando o arquivo de certificado não existe
+* Foi corrigido o problema em que o `az keyvault recover/purge` não funcionava
+
+### <a name="netappfiles"></a>NetAppFiles
+
+* O azure-mgmt-netapp foi atualizado para 0.6.0 para usar a versão da API 2019-07-01. Essa nova versão da API inclui:
+
+    - A criação de volume `--protocol-types` agora aceita "NFSv4.1" não "NFSv4"
+    - A propriedade da política de exportação de volume agora é chamada 'nfsv41' não 'nfsv4'
+    - O volume `--creation-token` foi renomeado para `--file-path`
+    - A data de criação do instantâneo agora é chamada apenas de 'criação'
+
+### <a name="network"></a>Rede
+
+* `az network private-dns link vnet create/update`: suporte à vinculação de rede virtual entre locatários.
+* [ALTERAÇÃO DA FALHA] `az network vnet subnet list`: `--resource-group` e `--vnet-name` foram alterados para serem obrigatórios agora.
+* `az network public-ip prefix create`: suporte para especificar a versão do endereço IP (IPv4, IPv6) durante a criação
+* O azure-mgmt-network foi atualizado para 7.0.0 e a api-version para 2019-09-01
+* `az network vrouter`: novo roteador virtual de serviço e emparelhamento de roteador virtual com suporte
+* `az network express-route gateway connection`: `--internet-security` com suporte
+
+### <a name="profile"></a>Perfil
+
+* Foi corrigido o problema em que o `az account get-access-token --resource-type ms-graph` não funcionava
+* O aviso foi removido de `az login`
+
+### <a name="rbac"></a>RBAC
+
+* Foi corrigido o problema em que o `az ad app update --id {} --display-name {}` não funcionava
+
+### <a name="servicefabric"></a>ServiceFabric
+
+* `az sf cluster create`: foi corrigido um problema que ocorria ao modificar o VMSS de computação do template.json do Linux e do Windows, do Service Fabric, de discos Standard para discos gerenciados
+
+### <a name="sql"></a>SQL
+
+* Os parâmetros `--compute-model`, `--auto-pause-delay` e `--min-capacity` foram adicionados para dar suporte a operações CRUD para a nova oferta de Banco de Dados SQL: Modelo de computação sem servidor.
+
+### <a name="storage"></a>Armazenamento
+
+* `az storage account create/update`: Foram adicionados o parâmetro --enable-files-adds e o grupo Argumentos de Propriedades do Azure Active Directory para dar suporte à Autenticação do Serviço de Domínio do Active Directory do Arquivos do Azure
+* O `az storage account keys list/renew` foi expandido para dar suporte à listagem ou à regeneração de chaves Kerberos da conta de armazenamento.
 
 ## <a name="october-15-2019"></a>15 de outubro de 2019
 
@@ -666,7 +776,7 @@ Versão 2.0.64
 * Adicionado suporte a `webapp ssh` para respeitar a variável de ambiente `AZURE_CLI_DISABLE_CONNECTION_VERIFICATION`
 * Adicionado suporte `appserviceplan create` para a SKU gratuita do Linux
 * Alterado `webapp up` para ter uma suspensão de 30 segundos depois de definir appsetting `SCM_DO_BUILD_DURING_DEPLOYMENT=true` para lidar com a inicialização a frio kudu
-* Adicionado suporte para tempo de execução `powershell` a `functionapp create` no Windows
+* Adicionado suporte para runtime `powershell` a `functionapp create` no Windows
 * Adicionado o comando `create-remote-connection`
 
 ### <a name="batch"></a>Lote
@@ -925,7 +1035,7 @@ Versão 2.0.60
 
 * Adicionado `[webapp|functionapp] deployment list-publishing-credentials` para obter a URL de publicação do Kudu e suas credenciais.
 * Removida a instrução de impressão errônea de `webapp auth update`.
-* Corrigido `functionapp` para definir a imagem correta do tempo de execução nos planos do Serviço de Aplicativo no Linux.
+* Corrigido `functionapp` para definir a imagem correta do runtime nos planos do Serviço de Aplicativo no Linux.
 * Removida a marca de versão prévia do `webapp up` e adicionadas melhorias ao comando.
 
 ### <a name="botservice"></a>Serviço de bot
@@ -1196,7 +1306,7 @@ Versão 2.0.55
 
 ### <a name="acr"></a>ACR
 * Alteração para permitir forçar o envio por push de um gráfico Helm que não existe
-* Alteração para permitir operações de tempo de execução sem solicitações ARM
+* Alteração para permitir operações de runtime sem solicitações ARM
 * [PRETERIDO] O parâmetro `--resource-group` foi preterido nos comandos:
   * `acr login`
   * `acr repository`
@@ -1574,7 +1684,7 @@ Versão 2.0.47
 * Melhoria da mesclagem das credenciais do Kubernetes quando houver entradas duplicadas
 
 ### <a name="container"></a>Contêiner
-* `functionapp create` alterado para dar suporte à criação de um tipo de plano de consumo do Linux com um tempo de execução específico
+* `functionapp create` alterado para dar suporte à criação de um tipo de plano de consumo do Linux com um runtime específico
 * [VERSÃO PRÉVIA] Suporte adicionado para hospedar aplicativos Web nos contêineres do Windows
 
 ### <a name="event-hub"></a>Hub de evento
@@ -1734,7 +1844,7 @@ Versão 2.0.45
 
 ### <a name="acr"></a>ACR
 
-* Adicionada uma solução alternativa para operações de tempo de execução sem solicitações ARM
+* Adicionada uma solução alternativa para operações de runtime sem solicitações ARM
 * Alterado para excluir arquivos de controle de versão (por exemplo, .git, .gitignore) de tar carregados por padrão no comando `build`
 
 ### <a name="acs"></a>ACS
@@ -4001,7 +4111,7 @@ vm (2.0.6)
 * functionapp: adição de suportes completos a functionapp, incluindo create, show, list, delete, hostname, ssl, etc.
 * Adição do VSTS (Team Services) como uma opção de entrega contínua a “appservice web source-control config”
 * Criação de “az webapp” para substituição de “az appservice web” (para compatibilidade com versões anteriores, “az appservice web” permanecerá por duas versões)
-* Exposição de argumentos para configurar a implantação e as “pilhas em tempo de execução” em webapp create
+* Exposição de argumentos para configurar a implantação e as “pilhas em runtime” em webapp create
 * Exposição de “webapp list-runtimes”
 * suporte à configuração de cadeias de conexão ([nº 2647](https://github.com/Azure/azure-cli/issues/2647))
 * suporte à permuta de slots com visualização
