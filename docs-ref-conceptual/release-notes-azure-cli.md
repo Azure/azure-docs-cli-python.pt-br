@@ -4,19 +4,130 @@ description: Saiba mais sobre as últimas atualizações da CLI do Azure
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 11/04/2019
+ms.date: 11/26/2019
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 3061d4b5519cfafbde92df68ecdee4d88d0bddff
-ms.sourcegitcommit: b854f9b6acfdb814ba1d6ba87aac03e2d547d998
+ms.openlocfilehash: 75a3a3ee800edc20bd1c8ed7ab1ff542f5935c6c
+ms.sourcegitcommit: 443e14098d6643cdb2e178847d1c79b1b95146ce
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73536777"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74543461"
 ---
 # <a name="azure-cli-release-notes"></a>Notas de versão da CLI do Azure
+
+## <a name="november-26-2019"></a>26 de novembro de 2019
+
+Versão 2.0.77
+
+### <a name="acr"></a>ACR
+
+* Parâmetro `--branch` preterido de acr task create/update
+
+### <a name="azure-red-hat-openshift"></a>Red Hat OpenShift no Azure
+
+* Sinalizador `--workspace-resource-id` adicionado para permitir a criação do cluster do Red Hat OpenShift no Azure com monitoramento
+* `monitor_profile` adicionado para criar o cluster do Red Hat OpenShift no Azure com monitoramento
+
+### <a name="aks"></a>AKS
+
+* Operação de rotação de certificado de cluster de suporte adicionada usando "az aks rotate-certs".
+
+### <a name="appconfig"></a>AppConfig
+
+* Suporte adicionado para usar ":" para o separador `as az appconfig kv import`
+* Problema corrigido para listar valores de chave com vários rótulos incluindo o rótulo nulo. 
+* SDK do plano de gerenciamento atualizado, azure-mgmt-appconfiguration, para a versão 0.3.0. 
+
+### <a name="appservice"></a>AppService
+
+* Problema corrigido nº 11100: AttributeError para az webapp up ao criar o plano de serviço
+* az webapp up: Forçar a criação ou a implantação em um site para linguagens com suporte, nenhum padrão usado.
+* Suporte adicionado para o Ambiente do Serviço de Aplicativo: az appservice ase show | list | list-addresses | list-plans | create | update | delete
+
+### <a name="backup"></a>Backup
+
+* Problema corrigido em list-associated-items da política de backup az. Parâmetro BackupManagementType opcional adicionado.
+
+### <a name="compute"></a>Computação
+
+* Versão de API de computação, discos e instantâneos atualizados para 2019-07-01
+* vmss create: melhoria para --orchestration-mode
+* sig image-definition create: --os-state adicionado para permitir a especificação se as máquinas virtuais criadas nessa imagem são 'Generalizadas' ou 'Especializadas'
+* sig image-definition create: --hyper-v-generation adicionado para permitir a especificação da geração do hipervisor
+* sig image-version create: --os-snapshot e --data-snapshots de suporte adicionados
+* image create: --data-disk-caching adicionado para permitir a especificação da configuração de cache de discos de dados
+* SDK de computação do Python atualizado para 10.0.0
+* vm/vmss create: 'Spot' adicionado à propriedade de enumeração 'Priority'
+* [ALTERAÇÃO SIGNIFICATIVA] Parâmetro '--max-billing' renomeado para '--max-price', para a VM e o VMSS, a fim de que seja consistente com os cmdlets do Swagger e do PowerShell
+* vm monitor log show: suporte adicionado para consultar o log pelo workspace do Log Analytics vinculado.
+
+### <a name="iot"></a>IOT
+
+* Correção nº 2531: argumentos de conveniência adicionados para a atualização do hub.
+* Correção nº 8323: parâmetros ausentes adicionados para criar o ponto de extremidade personalizado de armazenamento.
+* Corrigir bug de regressão: as alterações que substituem o ponto de extremidade de armazenamento padrão foram revertidas.
+
+### <a name="key-vault"></a>Key Vault
+
+* Correção nº 11121: ao usar `az keyvault certificate list`, passar `--include-pending` agora não exige um valor de `true` ou `false`
+
+### <a name="netappfiles"></a>NetAppFiles
+
+* azure-mgmt-netapp atualizado para 0.7.0 que inclui algumas propriedades de volume adicionais associadas a operações de replicação futuras
+
+### <a name="network"></a>Rede
+
+* application-gateway waf-config: preterido
+* application-gateway waf-policy: subgrupo managed-rules adicionado para gerenciar os conjuntos de regras e regras de exclusão gerenciados
+* application-gateway waf-policy: subgrupo policy-setting adicionado para gerenciar a configuração global de um waf-policy
+* [ALTERAÇÃO SIGNIFICATIVA] application-gateway waf-policy: subgrupo rule renomeado para custom-rule
+* application-gateway http-listener: --firewall-policy adicionado durante a criação
+* application-gateway url-path-map rule: --firewall-policy adicionado durante a criação
+
+### <a name="packaging"></a>Empacotamento
+
+* Wrapper az reescrito no Python
+* Suporte adicionado para Python 3.8
+* Alterado para Python 3 para o pacote RPM
+
+### <a name="profile"></a>Perfil
+
+* Erro aperfeiçoado ao executar `az login -u {} -p {}` com a conta Microsoft
+* `SSLError` aperfeiçoado ao executar `az login` atrás de um proxy com o certificado raiz autoassinado
+* Correção nº 10578: `az login` trava quando mais de uma instância é iniciada ao mesmo tempo no Windows ou WSL
+* Correção nº 11059: `az login --allow-no-subscriptions` falhará se houver assinaturas no locatário
+* Correção nº 11238: após renomear uma assinatura, fazer logon com a MSI fará a mesma assinatura aparecer duas vezes
+
+### <a name="rbac"></a>RBAC
+
+* Correção nº 10996: erro aperfeiçoado para `--force-change-password-next-login` em `az ad user update` quando `--password` não for especificado
+
+### <a name="redis"></a>Redis
+
+* Correção nº 2902: evite definir configurações de memória ao atualizar o cache do SKU básico
+
+### <a name="reservations"></a>Reservas
+
+* Versão do SDK atualizada para 0.6.0
+* Informações de detalhes do plano de cobrança atualizadas após chamar Get-Gatalogs
+* Novo comando `az reservations reservation-order calculate` adicionado para calcular o preço de uma reserva
+* Novo comando `az reservations reservation-order purchase` adicionado para comprar uma nova reserva
+
+### <a name="rest"></a>Rest
+* `az rest` alterado para GA
+
+### <a name="sql"></a>SQL
+
+* azure-mgmt-sql atualizado para 0.15.0.
+
+### <a name="storage"></a>Armazenamento
+
+* storage account create: --enable-hierarchical-namespace adicionado para dar suporte à semântica do sistema de arquivos no serviço Blob.
+* Exceção não relacionada removida da mensagem de erro
+* Problemas corrigidos com a mensagem de erro incorreta "Você não tem as permissões necessárias para executar essa operação." quando bloqueado pelas regras de rede ou AuthenticationFailed.
 
 ## <a name="november-4-2019"></a>4 de novembro de 2019
 
@@ -25,8 +136,8 @@ Versão 2.0.76
 ### <a name="acr"></a>ACR
 
 * O parâmetro de versão prévia `--pack-image-tag` foi adicionado ao comando `az acr pack build`.
-* Suporte à habilitação da auditoria na criação de um registro
-* RBAC com escopo de repositório com suporte
+* Suporte adicionado para habilitar a auditoria na criação de um registro
+* Suporte adicionado para o RBAC com escopo de repositório
 
 ### <a name="aks"></a>AKS
 
@@ -101,10 +212,10 @@ Versão 2.0.76
 
 * `az network private-dns link vnet create/update`: suporte à vinculação de rede virtual entre locatários.
 * [ALTERAÇÃO DA FALHA] `az network vnet subnet list`: `--resource-group` e `--vnet-name` foram alterados para serem obrigatórios agora.
-* `az network public-ip prefix create`: suporte para especificar a versão do endereço IP (IPv4, IPv6) durante a criação
+* `az network public-ip prefix create`: Suporte adicionado para especificar a versão do endereço IP (IPv4, IPv6) durante a criação
 * O azure-mgmt-network foi atualizado para 7.0.0 e a api-version para 2019-09-01
-* `az network vrouter`: novo roteador virtual de serviço e emparelhamento de roteador virtual com suporte
-* `az network express-route gateway connection`: `--internet-security` com suporte
+* `az network vrouter`: Suporte adicionado para o novo roteador virtual de serviço e o emparelhamento do roteador virtual
+* `az network express-route gateway connection`: Adicionado o suporte para `--internet-security`
 
 ### <a name="profile"></a>Perfil
 
@@ -260,8 +371,8 @@ Versão 2.0.74
 ### <a name="batch"></a>Lote
 
 * Adição de novas definições de configuração JSON de `--json-file` para `batch pool create`:
-  * Adição de `MountConfigurations` para montagens do sistema de arquivos (confira https://docs.microsoft.com/en-us/rest/api/batchservice/pool/add#request-body para obter detalhes)
-  * Adição da propriedade opcional `publicIPs` a `NetworkConfiguration` para IPs públicos em pools (confira https://docs.microsoft.com/en-us/rest/api/batchservice/pool/add#request-body para obter detalhes)
+  * Adição de `MountConfigurations` para montagens do sistema de arquivos (confira https://docs.microsoft.com/rest/api/batchservice/pool/add#request-body para obter detalhes)
+  * Adição da propriedade opcional `publicIPs` a `NetworkConfiguration` para IPs públicos em pools (confira https://docs.microsoft.com/rest/api/batchservice/pool/add#request-body para obter detalhes)
 * Adição de suporte para galerias de imagens compartilhadas a `--image`
 * [ALTERAÇÃO SIGNIFICATIVA] Alteração do valor padrão de `--start-task-wait-for-success` em `batch pool create` para `true`
 * [ALTERAÇÃO SIGNIFICATIVA] Alteração do valor padrão de `Scope` em `AutoUserSpecification` para sempre ser Pool (anteriormente, `Task` em nós do Windows e `Pool` em nós do Linux)

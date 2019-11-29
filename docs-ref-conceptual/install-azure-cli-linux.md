@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 13edb9954678aca627529714aeee02062c720219
-ms.sourcegitcommit: 08043c47d3ccf23522b91e6bba3932e312c04c7f
+ms.openlocfilehash: caca30ec186f302e47f2978b9bfe616d4b2a5c02
+ms.sourcegitcommit: 443e14098d6643cdb2e178847d1c79b1b95146ce
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66516315"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74543633"
 ---
 # <a name="install-azure-cli-on-linux-manually"></a>Instalar CLI do Azure no Linux manualmente
 
@@ -35,7 +35,7 @@ A CLI requer o seguinte software:
 
 > [!IMPORTANT]
 >
-> A CLI também é compatível com o Python 2.7.x, que será retirado do mercado em 1º de janeiro de 2020. Por esse motivo, é recomendável que você instale o Python 3 para executar a CLI.
+> A CLI também é compatível com o Python 2.7.x, que será retirado do mercado em 1º de janeiro de 2020. Uma versão futura da CLI do Azure removerá o suporte para Python 2.7. Por esse motivo, é recomendável que você instale o Python 3 para executar a CLI. 
 
 ## <a name="install-or-update"></a>Instalar ou atualizar
 
