@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: a33b5850abc40e91a1ffbeacd49d56169f67d282
-ms.sourcegitcommit: 443e14098d6643cdb2e178847d1c79b1b95146ce
+ms.openlocfilehash: f65240524942c2534f61b9cc51101812c8d09351
+ms.sourcegitcommit: 0088160bdb1ea520724d3e1efe71a4a66f29753d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74543620"
+ms.lasthandoff: 12/19/2019
+ms.locfileid: "75216915"
 ---
 # <a name="install-azure-cli-with-yum"></a>Instalar a CLI do Azure com o yum
 
@@ -59,6 +59,17 @@ Para saber mais sobre os diferentes métodos de autenticação, confira [Entrar 
 
 Aqui estão alguns problemas comuns vistos durante a instalação com `yum`. Se você tiver um problema não abordado aqui, [arquive um problema no github](https://github.com/Azure/azure-cli/issues).
 
+### <a name="install-on-rhel-76-or-other-systems-without-python-3"></a>Instalar no RHEL 7.6 ou em outros sistemas sem Python 3
+
+Se puder, atualize seu sistema para uma versão com suporte oficial para o pacote `python3`. Caso contrário, você precisará instalar primeiro um pacote `python3`, ou [build da origem](https://github.com/linux-on-ibm-z/docs/wiki/Building-Python-3.6.x) ou instalar por meio de algum [repositório adicional](https://developers.redhat.com/blog/2018/08/13/install-python3-rhel/). Em seguida, você poderá baixar o pacote e instalá-lo sem dependência.
+```bash
+$ sudo yum install yum-utils
+$ sudo yumdownloader azure-cli
+$ sudo rpm -ivh --nodeps azure-cli-*.rpm
+```
+
+A opção menos recomendada ainda é usar o Python 2 e seguir as [instruções de instalação manual](install-azure-cli-linux.md), pois o Python 2 está sendo encerrado em 1º de janeiro de 2020. Uma versão futura da CLI do Azure removerá o suporte para Python 2.7.
+
 ### <a name="proxy-blocks-connection"></a>Conexão de blocos de proxy
 
 [!INCLUDE[configure-proxy](includes/configure-proxy.md)]
@@ -78,12 +89,6 @@ Para obter a chave de assinatura da Microsoft e o pacote do nosso repositório, 
 * `https://packages.microsoft.com`
 
 [!INCLUDE[troubleshoot-wsl.md](includes/troubleshoot-wsl.md)]
-
-### <a name="install-on-rhel-76-or-other-systems-without-python-3"></a>Instalar no RHEL 7.6 ou em outros sistemas sem Python 3
-
-Se puder, atualize seu sistema para uma versão com suporte oficial para o pacote `python3`. Caso contrário, você precisará instalar primeiro um pacote `python3`, ou [build da origem](https://github.com/linux-on-ibm-z/docs/wiki/Building-Python-3.6.x) ou instalar por meio de algum [repositório adicional](https://developers.redhat.com/blog/2018/08/13/install-python3-rhel/). Em seguida, você poderá seguir as [instruções da instalação manual](install-azure-cli-linux.md).
-
-A opção menos recomendada ainda é usar o Python 2 e seguir as [instruções de instalação manual](install-azure-cli-linux.md), pois o Python 2 está sendo encerrado em 1º de janeiro de 2020. Uma versão futura da CLI do Azure removerá o suporte para Python 2.7.
 
 ## <a name="update"></a>Atualizar
 

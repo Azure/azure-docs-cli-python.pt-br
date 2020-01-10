@@ -1,22 +1,202 @@
 ---
 title: Notas de versão da CLI do Azure
 description: Saiba mais sobre as últimas atualizações da CLI do Azure
-author: sptramer
-ms.author: sttramer
-manager: carmonm
-ms.date: 11/26/2019
+author: dbradish-microsoft
+ms.author: dbradish
+manager: barbkess
+ms.date: 01/07/2020
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 75a3a3ee800edc20bd1c8ed7ab1ff542f5935c6c
-ms.sourcegitcommit: 443e14098d6643cdb2e178847d1c79b1b95146ce
+ms.openlocfilehash: 9fc54add3bfb2a75d1912c47f0a2571d9d065ec0
+ms.sourcegitcommit: 5646008e7a521dd9a8a627418f57bd92ee180352
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74543461"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75694267"
 ---
 # <a name="azure-cli-release-notes"></a>Notas de versão da CLI do Azure
+
+## <a name="january-07-2020"></a>07 de janeiro de 2020
+
+Versão 2.0.79
+
+### <a name="acr"></a>ACR
+
+* [ALTERAÇÃO SIGNIFICATIVA] Remover o parâmetro '--os' para 'acr build', 'acr task create/update', 'acr run' e 'acr pack'. Em vez disso, use '--platform'.
+
+### <a name="appconfig"></a>AppConfig
+
+* Adicionar suporte para importar/exportar sinalizadores de recurso
+* Adicione o novo comando 'az appconfig kv set-keyvault' para criar a referência do keyvault
+* Suporte a várias convenções de nomenclatura ao exportar os sinalizadores de recurso para o arquivo
+
+### <a name="appservice"></a>AppService
+
+* Corrigir o problema #7154: Atualizar a documentação para o comando <> para usar acentos grave em vez de aspas simples
+* Corrigir o problema #11287: webapp up: Por padrão, faça o aplicativo criado usando 'should be 'SSL enabled'
+* Corrigir o problema #11592: Adicionar o sinalizador az webapp up para sites HTML estáticos
+
+### <a name="arm"></a>ARM
+
+* Corrigir `az resource tag`: As marcas do Cofre dos Serviços de Recuperação não podem ser atualizadas
+
+### <a name="backup"></a>Backup
+
+* Novo comando 'backup protection undelete' adicionado para habilitar o recurso de exclusão reversível para carga de trabalho IaasVM
+* Novo parâmetro '--soft-delete-feature-state' adicionado para definir o comando propriedades do backup
+* Suporte de exclusão de disco adicionado para carga de trabalho IaasVM
+
+### <a name="compute"></a>Computação
+
+* Corrigir a falha `vm create` no perfil do Azure Stack.
+* parte final/listar definições de métricas de monitor de vm: suporte a métricas de consulta e definições de lista para uma vm.
+* Adicionar nova ação de comando de reaplicação para az vm
+
+### <a name="misc"></a>Diversos.
+
+* Adicionar comando de visualização `az version show` para mostrar as versões dos módulos e das extensões da CLI do Azure no formato JSON por padrão ou no formato configurado por --output
+
+### <a name="event-hubs"></a>Hubs de Eventos
+
+* [ALTERAÇÃO SIGNIFICATIVA] Remover a opção de status 'ReceiveDisabled' do comando 'az eventhubs eventhub update' e 'az eventhubs eventhub create'. Essa opção não é válida para entidades do Hub de Eventos.
+
+### <a name="service-bus"></a>Barramento de Serviço
+
+* [ALTERAÇÃO SIGNIFICATIVA] Remover a opção de status 'ReceiveDisabled' do comando 'az servicebus topic create', 'az servicebus topic update', 'az servicebus queue create' e 'az servicebus queue update'. Essa opção não é válida para tópicos e filas do Barramento de Serviço.
+
+### <a name="rbac"></a>RBAC
+
+* Correção #11712: `az ad app/sp show` não devolve o código de saída 3 quando o aplicativo ou a entidade de serviço não existir
+
+### <a name="storage"></a>Armazenamento
+
+* `az storage account create`: Remover o sinalizador de visualização do parâmetro --enable-hierarchical-namespace
+* Atualizar a versão azure-mgmt-storage para 7.0.0 para usar a versão de API 2019-06-01
+* Adicionar novos parâmetros `--enable-delete-retention` e `--delete-retention-days` para dar suporte ao gerenciamento da política de retenção de exclusão para a conta de armazenamento blob-service-properties.
+
+## <a name="december-17-2019"></a>17 de dezembro de 2019
+
+2.0.78
+
+### <a name="acr"></a>ACR
+
+* Contexto local de suporte adicionado na execução da tarefa acr
+
+### <a name="acs"></a>ACS
+
+* [ALTERAÇÃO SIGNIFICATIVA]criar az openshift: renomear `--workspace-resource-id` para `--workspace-id`.
+
+### <a name="ams"></a>AMS
+
+* Comandos de exibição atualizados para devolver 3 quando o recurso não for encontrado
+
+### <a name="appconfig"></a>AppConfig
+
+* Bug corrigido ao acrescentar a versão de API à URL de solicitação. A solução existente não funciona com a paginação.
+* Suporte adicionado para a exibição de idiomas além do inglês, pois nosso serviço de back-end é compatível com unicode para globalização.
+
+### <a name="appservice"></a>AppService
+
+* Problema corrigido nº 11217: webapp: o upload ssl de configuração do az webapp deve ser compatível com o parâmetro do slot
+* Problema corrigido nº 10965: Erro: O nome não pode estar vazio. Permitir remoção por ip_address e sub-rede
+* Suporte adicionado para importar certificados do Key Vault `az webapp config ssl import`
+
+### <a name="arm"></a>ARM
+
+* Pacote azure-mgmt-resource atualizado para usar 6.0.0
+* Suporte entre locatários para o comando `az group deployment create` adicionando o novo parâmetro `--aux-subs`
+* Novo parâmetro `--metadata` adicionado para dar suporte à adição de informações de metadados para definições de conjunto de políticas.
+
+### <a name="backup"></a>Backup
+
+* Suporte de backup adicionado para carga de trabalho SQL e SAP Hana.
+
+### <a name="botservice"></a>BotService
+
+* [ALTERAÇÃO SIGNIFICATIVA] Remover o sinalizador '--version ' do comando de visualização 'az bot create'. Somente os bots do SDK v4 são compatíveis.
+* Verificação de disponibilidade de nome adicionada para 'az bot create'.
+* Suporte adicionado para atualizar a URL do ícone para um bot por meio de 'az bot update'.
+* Suporte adicionado para atualizar um canal Direct Line por meio de 'az bot directline update'.
+* Suporte ao sinalizador '--enable-enhanced-auth' adicionado para 'az bot directline create'.
+* Os seguintes grupos de comandos estão em GA e não estão em versão prévia: 'az bot authsetting'.
+* Os seguintes comandos em 'az bot' estão em GA e não na versão prévia: 'criar', 'preparar-implantar', 'mostrar', 'excluir', 'atualizar'.
+* Correção do valor 'az bot prepare-deploy' alterando '--proj-file-path ' para letras minúsculas (por exemplo, "Test. csproj" para "Test. csproj").
+
+### <a name="compute"></a>Computação
+
+* Criar/atualizar vmss: --scale-in-policy adicionado, que decide quais máquinas virtuais são escolhidas para remoção quando um VMSS é dimensionado.
+* atualização de vm/vmss: --priority adicionado.
+* atualização de vm/vmss: --max-price adicionado.
+* Grupo de comandos do conjunto de criptografia de disco adicionado (criar, mostrar, atualizar, excluir e listar).
+* criação de disco: --encryption-type e --disk-encryption-set adicionados.
+* vm/vmss create: --os-disk-encryption-set e --data-disk-encryption-sets adicionados.
+
+### <a name="core"></a>Núcleo
+
+* Suporte para Python 3.4 removido
+* Pesquisa de funções de plug-in em vários comandos
+
+### <a name="dls"></a>DLS
+
+* Versão atualizada do SDK do ADLS (0.0.48).
+
+### <a name="install"></a>Instalar
+
+* Instalar suporte de script Python 3.8
+
+### <a name="iot"></a>IOT
+
+* [ALTERAÇÃO SIGNIFICATIVA] Parâmetro--failover-region removido de failover manual. Agora ele fará failover para a região secundária emparelhada atribuída geograficamente.
+
+### <a name="key-vault"></a>Key Vault
+
+* Nº 8095 corrigido: `az keyvault storage remove`: melhorar a mensagem de ajuda
+* Nº 8921 corrigido: `az keyvault key/secret/certificate list/list-deleted/list-versions`: corrigir o bug de validação no parâmetro `--maxresults`
+* Nº 10512 corrigido: `az keyvault set-policy`: melhorar a mensagem de erro quando nenhuma das `--object-id`, `--spn` ou `--upn` for especificada
+* Nº 10846 corrigido: `az keyvault secret show-deleted`: quando `--id` for especificado, `--name/-n` não será necessário
+* Nº 11084 corrigido: `az keyvault secret download`: melhorar a mensagem de ajuda do parâmetro `--encoding`
+
+### <a name="network"></a>Rede
+
+* Investigação de gateway de aplicativo de rede az: Suporte --port option adicionado para especificar uma porta para sondar servidores de back-end ao criar e atualizar
+* az network application-gateway url-path-map create/update: correção de bug para `--waf-policy`
+* az network application-gateway: Suporte `--rewrite-rule-set` adicionado
+* az network list-service-aliases: Foram adicionados aliases de serviço da lista de suporte que podem ser usados para políticas de ponto de extremidade de serviço
+* importar zona dns da rede az: Suporte adicionado. @ no nome do registro
+
+### <a name="packaging"></a>Empacotamento
+
+* Compilações de back edge adicionadas para instalação de pip
+* Pacote eoan do Ubuntu adicionado
+
+### <a name="policy"></a>Política
+
+* Inclusão de compatibilidade com a API de Política, versão de 01/09/2019.
+* az policy set-definition: Agrupamento de suporte adicionado nas definições do conjunto de políticas com `--definition-groups` parâmetro
+
+### <a name="redis"></a>Redis
+
+* Adicionado o parâmetro de visualização `--replicas-per-master` ao comando `az redis create`
+* Azure-MGMT-Redis adicionado do 6.0.0 para o 7.0.0rc1
+
+### <a name="servicefabric"></a>ServiceFabric
+
+* Corrigido em nó-tipo adicionar lógica, incluindo #10963: A adição do novo tipo de nó com nível de durabilidade Gold sempre gerará erro da CLI
+* Versão do ServiceFabricNodeVmExt atualizada para 1.1 no modelo de criação
+
+### <a name="sql"></a>SQL
+
+* Adicionados os parâmetros "--read-scale" e "--read-replicas" aos comandos criar e atualizar do BD SQL para dar suporte ao gerenciamento de escala de leitura.
+
+### <a name="storage"></a>Armazenamento
+
+* Propriedade de compartilhamentos de arquivos grandes da versão GA para o comando criar e atualizar da conta de armazenamento
+* Suporte ao token SAS de delegação de usuário da versão GA
+* Novos comandos adicionados `az storage account blob-service-properties show` e `az storage account blob-service-properties update --enable-change-feed` para gerenciar Propriedades do serviço blob para a conta de armazenamento.
+* [PRÓXIMA ALTERAÇÃO DA FALHA] `az storage copy`: `*` não há mais suporte para o caractere de como um curinga na URL, mas novos parâmetros--include-pattern e --exclude-pattern serão adicionados com suporte a curinga `*`.
+* Problema corrigido nº 11043: Suporte adicionado para remover contêiner/compartilhamento inteiro no comando `az storage remove`
 
 ## <a name="november-26-2019"></a>26 de novembro de 2019
 
@@ -24,7 +204,7 @@ Versão 2.0.77
 
 ### <a name="acr"></a>ACR
 
-* Parâmetro `--branch` preterido de acr task create/update
+* Parâmetro `--branch` preterido da criação/atualização da tarefa ACR
 
 ### <a name="azure-red-hat-openshift"></a>Red Hat OpenShift no Azure
 
@@ -261,7 +441,7 @@ Versão 2.0.75
 
 ### <a name="arm"></a>ARM
 
-* Adição do parâmetro `--handle-extended-json-format` `deployment create` para dar suporte a várias linhas e a comentários no modelo json
+* Adição do parâmetro `--handle-extended-json-format``deployment create` para dar suporte a várias linhas e a comentários no modelo json
 
 ### <a name="compute"></a>Computação
 
@@ -295,7 +475,7 @@ Versão 2.0.75
 
 ### <a name="storage"></a>Armazenamento
 
-* Adição do parâmetro `--preserve-s2s-access-tier` `storage copy` para preservar a camada de acesso durante a cópia do serviço para serviço
+* Adição do parâmetro `--preserve-s2s-access-tier``storage copy` para preservar a camada de acesso durante a cópia do serviço para serviço
 * Adição do parâmetro `--enable-large-file-share` a `storage account [create|update]` para dar suporte a compartilhamentos de arquivos grandes para a conta de armazenamento
 
 ## <a name="september-24-2019"></a>24 de setembro de 2019
@@ -496,7 +676,7 @@ Esta versão contém um grande número de alterações da falha.
 * [ALTERAÇÃO SIGNIFICATIVA] Todos os comandos no grupo `hdinsight script-action` foram alterados para usar o parâmetro `--name` como o nome da ação de script.
 * O argumento `--cluster-name` foi adicionado a todos os comandos `hdinsight script-action` para substituir a funcionalidade `--name` antiga
 * [ALTERAÇÃO SIGNIFICATIVA] Renomeado de `--script-execution-id` para `--execution-id` para todos os comandos `hdinsight script-action`
-* [ALTERAÇÃO SIGNIFICATIVA] `hdinsight script-action show` renomeado para `hdinsight script-action show-execution-details`
+* [ALTERAÇÃO SIGNIFICATIVA]`hdinsight script-action show` renomeado para `hdinsight script-action show-execution-details`
 * [ALTERAÇÃO DA FALHA] Os parâmetros foram alterados para `hdinsight script-action execute --roles` para serem separados por espaços em vez de separados por vírgula
 * [ALTERAÇÃO SIGNIFICATIVA] O parâmetro `--persisted` de `hdinsight script-action list` foi removido
 * O parâmetro `hdinsight create --cluster-configurations` foi alterado para aceitar um caminho para um arquivo JSON local ou uma cadeia de caracteres JSON
@@ -509,7 +689,7 @@ Esta versão contém um grande número de alterações da falha.
 
 * Um erro no carregamento foi corrigido
 
-### <a name="kubernetes"></a>kubernetes
+### <a name="kubernetes"></a>Kubernetes
 
 * Alterado para usar `https` se a porta do contêiner do painel estiver usando `https`
 
@@ -591,7 +771,7 @@ Versão 2.0.69
 
 ### <a name="batch"></a>Lote
 
-* [ALTERAÇÃO SIGNIFICATIVA] `batch pool node-agent-skus list` foi substituído por `batch pool supported-images list`
+* [ALTERAÇÃO SIGNIFICATIVA]`batch pool node-agent-skus list` foi substituído por `batch pool supported-images list`
 * Adicionado suporte para regras de segurança bloqueando o acesso de rede a um pool com base na porta de origem do tráfego ao usar a opção `--json-file` de `batch pool create network`
 * Suporte adicionado para executar a tarefa no diretório de trabalho de contêiner ou no diretório de trabalho de tarefa em lotes ao usar a opção `--json-file` de `batch task create`
 * Corrigido o erro na opção `--application-package-references` de `batch pool create` em que ela funcionaria apenas com padrões
@@ -654,7 +834,7 @@ Versão 2.0.68
 ### <a name="hdinsight"></a>HDInsight
 
 * [ALTERAÇÃO SIGNIFICATIVA] O nome do grupo de comandos `oms` foi alterado para `monitor`
-* [ALTERAÇÃO SIGNIFICATIVA] `--http-password/-p` tornou-se um parâmetro obrigatório 
+* [ALTERAÇÃO SIGNIFICATIVA]`--http-password/-p` tornou-se um parâmetro obrigatório 
 * Foram adicionados preenchedores para o preenchedor dos parâmetros `--cluster-admin-account` e `cluster-users-group-dns` 
 * O parâmetro `cluster-users-group-dns` foi alterado para ser obrigatório quando `—esp` estiver presente
 * Foi adicionado um tempo limite para todos os preenchedores automáticos de argumento existentes
@@ -764,7 +944,7 @@ Como resultado dessa alteração, diversos grupos de comandos podem parecer surg
 * Corrigido o erro ao usar o `policy assignment list` com um grupo de recursos ou o nível de assinatura `--scope`
 
 ### <a name="servicebus"></a>ServiceBus
-* Corrigido o problema com o `servicebus topic create --max-size` [#9319](https://github.com/azure/azure-cli/issues/9319)
+* Corrigido o problema com o `servicebus topic create --max-size`[nº9319](https://github.com/azure/azure-cli/issues/9319)
 
 ### <a name="sql"></a>SQL
 * Alterado o `--location` para ser opcional para `sql [server|mi] create` – usa o local do grupo de recursos se não especificado
@@ -876,7 +1056,7 @@ Versão 2.0.64
 * [ALTERAÇÃO SIGNIFICATIVA] O sinalizador `--fqdn` foi removido dos comandos `openshift`
 * Alterado para usar a versão da API do Red Hat OpenShift no Azure em disponibilidade geral
 * O sinalizador `customer-admin-group-id` foi adicionado a `openshift create`
-* [GA] `(PREVIEW)` foi removido da opção `aks create` `--network-policy`
+* [GA] `(PREVIEW)` foi removido da opção `aks create``--network-policy`
 
 ### <a name="appservice"></a>AppService
 * [PRETERIDO] O comando `functionapp devops-build` foi preterido
@@ -898,7 +1078,7 @@ Versão 2.0.64
 * O sinalizador `--echo` foi adicionado ao `bot create` para usar o comportamento antigo com `-v v4`
 * [ALTERAÇÃO SIGNIFICATIVA] O valor padrão de `--version` foi alterado para `v4`
   * __OBSERVAÇÃO:__ `bot prepare-publish` ainda usa o padrão antigo
-* [ALTERAÇÃO SIGNIFICATIVA] `--lang` foi alterado para não definir mais `Csharp` como padrão. Se o comando exigir `--lang` e ele não for fornecido, o comando será um erro
+* [ALTERAÇÃO SIGNIFICATIVA]`--lang` foi alterado para não definir mais `Csharp` como padrão. Se o comando exigir `--lang` e ele não for fornecido, o comando será um erro
 * [ALTERAÇÃO SIGNIFICATIVA] Os argumentos `--appid` e `--password` foram alterados para `bot create` ser obrigatório e agora podem ser criados por meio de `ad app create`
 * Foi adicionada validação a `--appid` e `--password`
 * [ALTERAÇÃO SIGNIFICATIVA] O `bot create -v v4` foi alterado para não criar ou usar uma Conta de Armazenamento ou o Application Insights
@@ -1079,7 +1259,7 @@ Versão 2.0.63
 ### <a name="bot-service"></a>Serviço de BOT
 * `bot prepare-deploy` adicionado para se preparar para a implantação de bots via `webapp`
 * `bot create --kind registration` alterado para mostrar a senha se ela não for fornecida
-* [ALTERAÇÃO SIGNIFICATIVA] `--endpoint` alterado em `bot create --kind registration` como padrão para uma cadeia de caracteres vazia, em vez de ser requerido
+* [ALTERAÇÃO SIGNIFICATIVA]`--endpoint` alterado em `bot create --kind registration` como padrão para uma cadeia de caracteres vazia, em vez de ser requerido
 * Adicionado `SCM_DO_BUILD_DURING_DEPLOYMENT` às Configurações de Aplicativo do modelo ARM para Bots de Aplicativo Web v4.
 
 ### <a name="cdn"></a>CDN
@@ -1117,7 +1297,7 @@ Versão 2.0.63
 * `ad sp delete` alterado para ignorar a exclusão da atribuição de função se a conta atual não tem nenhuma assinatura
 * `ad app create` alterado para `--identifier-uris` passar para lista vazia como padrão se não fornecido
 
-### <a name="storage"></a>storage
+### <a name="storage"></a>armazenamento
 * `--snapshot` adicionado a `storage file download-batch` para baixar de um instantâneo de compartilhamento
 * Barra de progresso `storage blob [download-batch|upload-batch]` alterada para ser menos detalhada e indicar o blob atual
 * Problema corrigido com `storage account update` ao atualizar os parâmetros de criptografia
@@ -1214,7 +1394,7 @@ Versão 2.0.59
 * [ALTERAÇÃO SIGNIFICATIVA] Comando `batch pool upgrade os` removido
 * [ALTERAÇÃO SIGNIFICATIVA] Propriedade `Pacakges` removida das respostas `Application`
 * Comando `batch application package list` adicionado para listar os pacotes de um aplicativo
-* [ALTERAÇÃO SIGNIFICATIVA] `--application-id` alterado para `--application-name` em todos os comandos `batch application`, 
+* [ALTERAÇÃO SIGNIFICATIVA]`--application-id` alterado para `--application-name` em todos os comandos `batch application`, 
 * O argumento `--json-file` foi adicionado aos comandos para a solicitação de resposta da API bruta
 * Validação atualizada para incluir automaticamente `https://` em todos os pontos de extremidade, se ausente
 
@@ -1353,8 +1533,8 @@ Versão 2.0.56
 * Suporte adicionado para operações de atualização da entidade de serviço com `aks update-credentials -reset-service-principal`
 
 ### <a name="ams"></a>AMS
-* [ALTERAÇÃO SIGNIFICATIVA] `ams asset get-streaming-locators` renomeado para `ams asset list-streaming-locators`
-* [ALTERAÇÃO SIGNIFICATIVA] `ams streaming-locator get-content-keys` renomeado para `ams streaming-locator list-content-keys`
+* [ALTERAÇÃO SIGNIFICATIVA]`ams asset get-streaming-locators` renomeado para `ams asset list-streaming-locators`
+* [ALTERAÇÃO SIGNIFICATIVA]`ams streaming-locator get-content-keys` renomeado para `ams streaming-locator list-content-keys`
 
 ### <a name="appservice"></a>AppService
 * Suporte adicionado para o App Insights no `functionapp create`
@@ -1374,7 +1554,7 @@ Versão 2.0.56
 
 ### <a name="hdinsight"></a>HDInsight
 * [ALTERAÇÃO SIGNIFICATIVA] Os parâmetros `--virtual-network` e `--subnet-name` de `hdinsight [application] create` foram removidos
-* [ALTERAÇÃO SIGNIFICATIVA] `hdinsight create --storage-account` foi alterado para aceitar o nome ou ID da conta de armazenamento, em vez de pontos de extremidade de blob
+* [ALTERAÇÃO SIGNIFICATIVA]`hdinsight create --storage-account` foi alterado para aceitar o nome ou ID da conta de armazenamento, em vez de pontos de extremidade de blob
 * Parâmetros `--vnet-name` e `--subnet-name` adicionados a `hdinsight create`
 * Suporte adicionado para a criptografia de disco e Enterprise Security Package ao `hdinsight create` 
 * Adicionado o comando `hdinsight rotate-disk-encryption-key`
@@ -1458,7 +1638,7 @@ Versão 2.0.55
 * [PRETERIDO] O argumento `--password` foi preterido para `create-for-rbac`. Como alternativa, use senhas seguras geradas pela CLI
 
 ### <a name="security"></a>Segurança
-* Versão Inicial
+* Versão inicial
 
 ### <a name="storage"></a>Armazenamento
 * [ALTERAÇÃO SIGNIFICATIVA] O número padrão de resultados de `storage [blob|file|container|share] list` foi alterado para 5.000. Use `--num-results *` para o comportamento original de retornar todos os resultados
@@ -1486,7 +1666,7 @@ Versão 2.0.54
 * Corrigida a chamada à API do comando de atualização
 
 ### <a name="role"></a>Função
-* [ALTERAÇÃO SIGNIFICATIVA] `ad [app|sp] list` alterado para listar somente os 100 primeiros objetos por padrão
+* [ALTERAÇÃO SIGNIFICATIVA]`ad [app|sp] list` alterado para listar somente os 100 primeiros objetos por padrão
 
 ### <a name="sql"></a>SQL
 * Adicionado suporte para ordenação personalizada nas instâncias gerenciadas
@@ -1628,7 +1808,7 @@ Versão 2.0.50
 * Alterado para usar o padrão do Dockerfile se ele não for especificado no comando de compilação
 
 ### <a name="acs"></a>ACS
-* [ALTERAÇÃO SIGNIFICATIVA] `enable_cloud_console_aks_browse` foi removido para habilitar 'az aks browse' por padrão
+* [ALTERAÇÃO SIGNIFICATIVA]`enable_cloud_console_aks_browse` foi removido para habilitar 'az aks browse' por padrão
 
 ### <a name="advisor"></a>Supervisor
 * Versão de GA
@@ -1655,10 +1835,10 @@ Versão 2.0.50
 * Foram adicionados valores padrões para o horário de expiração (agora +23h) e permissões (Leitura) no comando `ams asset get-sas-url` 
 * [ALTERAÇÃO SIGNIFICATIVA] O comando `ams streaming locator` foi substituído por `ams streaming-locator`
 * [ALTERAÇÃO SIGNIFICATIVA] O argumento `--content-keys` de `ams streaming locator` foi atualizado
-* [ALTERAÇÃO SIGNIFICATIVA] `--content-policy-name` foi renomeado como `--content-key-policy-name` no comando `ams streaming locator`
+* [ALTERAÇÃO SIGNIFICATIVA]`--content-policy-name` foi renomeado como `--content-key-policy-name` no comando `ams streaming locator`
 * [ALTERAÇÃO SIGNIFICATIVA] O comando `ams streaming policy` foi substituído por `ams streaming-policy`
 * [ALTERAÇÃO SIGNIFICATIVA] O argumento `--preset-names` foi substituído por `--preset` no grupo de comandos `ams transform`. Agora, você só pode definir uma saída/predefinição de cada vez (para adicionar mais, é preciso executar `ams transform output add`). Além disso, você pode definir StandardEncoderPreset personalizado passando o caminho para seu JSON personalizado
-* [ALTERAÇÃO SIGNIFICATIVA] `--output-asset-names ` foi renomeado como `--output-assets` no comando `ams job start`. Agora, ele aceita uma lista separada por espaços dos ativos no formato 'assetName=label'. Um ativo sem rótulo pode ser enviado assim: 'assetName='
+* [ALTERAÇÃO SIGNIFICATIVA]`--output-asset-names ` foi renomeado como `--output-assets` no comando `ams job start`. Agora, ele aceita uma lista separada por espaços dos ativos no formato 'assetName=label'. Um ativo sem rótulo pode ser enviado assim: 'assetName='
 
 ### <a name="appservice"></a>AppService
 * Um bug no `az webapp config backup update` que impede a configuração de um agendamento de backup foi corrigido, caso ele ainda não tenha sido definido
@@ -1800,7 +1980,7 @@ Versão 2.0.47
 
 ### <a name="event-hub"></a>Hub de evento
 * Corrigido o comando `eventhub update`
-* [ALTERAÇÃO SIGNIFICATIVA] `list` comandos alterados para lidar com os erros de recurso(s) NotFound(404) do modo típico, em vez de mostrar uma lista vazia
+* [ALTERAÇÃO SIGNIFICATIVA]`list` comandos alterados para lidar com os erros de recurso(s) NotFound(404) do modo típico, em vez de mostrar uma lista vazia
 
 ### <a name="extensions"></a>Extensões
 * Corrigido o problema ao tentar adicionar uma extensão já instalada
@@ -1830,7 +2010,7 @@ Versão 2.0.47
 * `ad sp create-for-rbac` alterado para garantir que a URI da home page sempre seja "https"
 
 ### <a name="service-bus"></a>Barramento de Serviço
-* [ALTERAÇÃO SIGNIFICATIVA] `list` comandos alterados para lidar com os erros de recurso(s) NotFound(404) do modo típico, em vez de mostrar uma lista vazia
+* [ALTERAÇÃO SIGNIFICATIVA]`list` comandos alterados para lidar com os erros de recurso(s) NotFound(404) do modo típico, em vez de mostrar uma lista vazia
 
 ### <a name="vm"></a>VM
 * Corrigido o campo `accessSas` vazio em `disk grant-access`
@@ -2140,7 +2320,7 @@ Versão 2.0.43
 * Suporte adicionado para listar conjuntos de disponibilidade por assinatura
 * Adicionado o suporte para `StandardSSD_LRS`
 * Suporte adicionado para o grupo de segurança do aplicativo ao criar um conjunto de dimensionamento da VM
-* [ALTERAÇÃO SIGNIFICATIVA] `[vm|vmss] create`, `[vm|vmss] identity assign` e `[vm|vmss] identity remove` alterados para produzir identidades de usuário atribuídas no formato de dicionário
+* [ALTERAÇÃO SIGNIFICATIVA]`[vm|vmss] create`, `[vm|vmss] identity assign` e `[vm|vmss] identity remove` alterados para produzir identidades de usuário atribuídas no formato de dicionário
 
 ## <a name="july-18-2018"></a>18 de julho de 2018
 
@@ -2333,10 +2513,10 @@ Versão 2.0.38
 * Foi adicionado suporte a `--ids` para os comandos `batchai`
 * [ALTERAÇÃO SIGNIFICATIVA] Todos os clusters e servidores de arquivos devem ser criados nos workspaces
 * [ALTERAÇÃO SIGNIFICATIVA] Os trabalhos devem ser criados nas experiências
-* [ALTERAÇÃO SIGNIFICATIVA] `--nfs-resource-group` foi removido dos comandos `cluster create` e `job create`. Para montar um NFS pertencente a outro workspace/grupo de recursos, forneça a ID de ARM do servidor de arquivos através da opção `--nfs`
-* [ALTERAÇÃO SIGNIFICATIVA] `--cluster-resource-group` foi removido do comando `job create`. Para enviar um trabalho em um cluster pertencente a outro workspace/grupo de recursos, forneça a ID de ARM do cluster através da opção `--cluster`
+* [ALTERAÇÃO SIGNIFICATIVA]`--nfs-resource-group` foi removido dos comandos `cluster create` e `job create`. Para montar um NFS pertencente a outro workspace/grupo de recursos, forneça a ID de ARM do servidor de arquivos através da opção `--nfs`
+* [ALTERAÇÃO SIGNIFICATIVA]`--cluster-resource-group` foi removido do comando `job create`. Para enviar um trabalho em um cluster pertencente a outro workspace/grupo de recursos, forneça a ID de ARM do cluster através da opção `--cluster`
 * [ALTERAÇÃO SIGNIFICATIVA] O atributo `location` foi removido de trabalhos, cluster e servidores de arquivos. Agora, o local é um atributo de um workspace.
-* [ALTERAÇÃO SIGNIFICATIVA] `--location` foi removido dos comandos `job create` e `cluster create` e `file-server create`
+* [ALTERAÇÃO SIGNIFICATIVA]`--location` foi removido dos comandos `job create` e `cluster create` e `file-server create`
 * [ALTERAÇÃO SIGNIFICATIVA] Os nomes das opções curtas foi alterado para tornar a interface mais consistente:
   - [`--config`, `-c`] foi renomeado para [`--config-file`, `-f`]
   - [`--cluster`, `-r`] foi renomeado para [`--cluster`, `-c`]
@@ -2345,19 +2525,19 @@ Versão 2.0.38
 
 ### <a name="maps"></a>Mapas
 
-* [ALTERAÇÃO SIGNIFICATIVA] `maps account create` foi alterado para exigir a aceitação dos Termos de Serviço pelo prompt interativo ou sinalizador `--accept-tos`
+* [ALTERAÇÃO SIGNIFICATIVA]`maps account create` foi alterado para exigir a aceitação dos Termos de Serviço pelo prompt interativo ou sinalizador `--accept-tos`
 
 ### <a name="network"></a>Rede
 
-* Foi adicionado suporte a `https` para `network lb probe create` [#6571](https://github.com/Azure/azure-cli/issues/6571)
+* Suporte adicionado para `https` a `network lb probe create` [nº6571](https://github.com/Azure/azure-cli/issues/6571)
 * Foi corrigido o problema em que `--endpoint-status` diferenciava maiúsculas de minúsculas. [#6502](https://github.com/Azure/azure-cli/issues/6502)
 
 ### <a name="reservations"></a>Reservas
 
 * [ALTERAÇÃO SIGNIFICATIVA] Foi adicionado o parâmetro `ReservedResourceType` necessário a `reservations catalog show`
 * Parâmetro `Location` adicionado a `reservations catalog show`
-* [ALTERAÇÃO SIGNIFICATIVA] `kind` foi removido de `ReservationProperties`
-* [ALTERAÇÃO SIGNIFICATIVA] `capabilities` foi renomeado para `sku_properties` em `Catalog`
+* [ALTERAÇÃO SIGNIFICATIVA]`kind` foi removido de `ReservationProperties`
+* [ALTERAÇÃO SIGNIFICATIVA]`capabilities` foi renomeado para `sku_properties` em `Catalog`
 * [ALTERAÇÃO SIGNIFICATIVA] As propriedades `size` e `tier` foram removidas de `Catalog`
 * Parâmetro `InstanceFlexibility` adicionado a `reservations reservation update`
 
@@ -2443,7 +2623,7 @@ Versão 2.0.34
 
 ### <a name="policy-insights"></a>Informações sobre a Política
 
-* Versão Inicial
+* Versão inicial
 
 ### <a name="arm"></a>ARM
 
@@ -2590,7 +2770,7 @@ Versão 2.0.32
 
 ### <a name="cognitive-services"></a>Serviços Cognitivos
 
-* Foi corrigido um erro de digitação no exemplo para `cognitiveservices account create` [#5603](https://github.com/Azure/azure-cli/issues/5603)
+* Foi corrigido um erro de digitação no exemplo para `cognitiveservices account create`[#5603](https://github.com/Azure/azure-cli/issues/5603)
 
 ### <a name="consumption"></a>Consumo
 
@@ -2637,7 +2817,7 @@ Versão 2.0.32
 ### <a name="profile"></a>Perfil
 
 * Detecção de origem do `disk create` corrigida
-* [ALTERAÇÃO SIGNIFICATIVA] `--msi-port` e `--identity-port` removidos porque não são mais usados
+* [ALTERAÇÃO SIGNIFICATIVA]`--msi-port` e `--identity-port` removidos porque não são mais usados
 * Erro de digitação corrigido no resumo do `account get-access-token`
 
 ### <a name="redis"></a>Redis
@@ -2720,7 +2900,7 @@ Versão 2.0.31
 * Adição da opção `--generate-ssh-keys` para `cluster create` e `file-server create`
 * Adição da capacidade de fornecer a tarefa de configuração de nó por meio da linha de comando
 * [ALTERAÇÃO SIGNIFICATIVA] Comandos `job stream-file` e `job list-files` movidos para o grupo `job file`
-* [ALTERAÇÃO SIGNIFICATIVA] `--admin-user-name` renomeado para `--user-name` no comando `file-server create` para ser consistente com o comando `cluster create`
+* [ALTERAÇÃO SIGNIFICATIVA]`--admin-user-name` renomeado para `--user-name` no comando `file-server create` para ser consistente com o comando `cluster create`
 
 ### <a name="billing"></a>Cobrança
 
@@ -2729,15 +2909,15 @@ Versão 2.0.31
 ### <a name="consumption"></a>Consumo
 
 * Adicionados os comandos `marketplace`
-* [ALTERAÇÃO SIGNIFICATIVA] `reservations summaries` renomeado para `reservation summary`
-* [ALTERAÇÃO SIGNIFICATIVA] `reservations details` renomeado para `reservation detail`
+* [ALTERAÇÃO SIGNIFICATIVA]`reservations summaries` renomeado para `reservation summary`
+* [ALTERAÇÃO SIGNIFICATIVA]`reservations details` renomeado para `reservation detail`
 * [ALTERAÇÃO SIGNIFICATIVA] Removidas as opções abreviadas `--reservation-order-id` e `--reservation-id` para os comandos `reservation`
 * [ALTERAÇÃO SIGNIFICATIVA] Removidas as opções abreviadas `--grain` para os comandos `reservation summary`
 * [ALTERAÇÃO SIGNIFICATIVA] Removidas as opções abreviadas `--include-meter-details` para os comandos `pricesheet`
 
 ### <a name="container"></a>Contêiner
 
-* Adição dos parâmetros de montagem de volume de repositório git `--gitrepo-url`, `--gitrepo-dir`, `--gitrepo-revision` e `--gitrepo-mount-path`
+* Adição dos parâmetros de montagem de volume do Repositório Git `--gitrepo-url` `--gitrepo-dir` `--gitrepo-revision` e `--gitrepo-mount-path`
 * Correção de [#5926](https://github.com/Azure/azure-cli/issues/5926): `az container exec` com falha com --container-name especificado
 
 ### <a name="extension"></a>Extensão
@@ -2845,7 +3025,7 @@ Versão 2.0.30
 
 * Mensagem adicionada para `extension add`, se a extensão estiver no modo de versão prévia
 * `extension list-available` alterado para mostrar dados de extensão total com `--show-details`
-* [ALTERAÇÃO SIGNIFICATIVA] `extension list-available` alterado para mostrar dados de extensão simplificados por padrão
+* [ALTERAÇÃO SIGNIFICATIVA]`extension list-available` alterado para mostrar dados de extensão simplificados por padrão
 
 ### <a name="interactive"></a>Interativo
 
@@ -2860,9 +3040,9 @@ Versão 2.0.30
 
 ### <a name="monitor"></a>Monitoramento
 
-* Adição de suporte para `--top`, `--orderby` e `--namespace` para `metrics list` [#5785](https://github.com/Azure/azure-cli/issues/5785)
+* Adicionado suporte para `--top`, `--orderby` e `--namespace` para `metrics list` [nº5785](https://github.com/Azure/azure-cli/issues/5785)
 * Corrigido [#4529](https://github.com/Azure/azure-cli/issues/5785): `metrics list` aceita uma lista separada por espaços de métricas para recuperação
-* Adição de suporte para `--namespace` para `metrics list-definitions` [#5785](https://github.com/Azure/azure-cli/issues/5785)
+* Suporte adicionado para `--namespace` a `metrics list-definitions` [nº5785](https://github.com/Azure/azure-cli/issues/5785)
 
 ### <a name="network"></a>Rede
 
@@ -2898,7 +3078,7 @@ Versão 2.0.30
 * Adição de aviso para `vmss create` para alterações de falha futuras para conjuntos com mais de 100 instâncias
 * Adição de suporte com flexibilidade de região para `vm [snapshot|image]`
 * Alteração no modo de exibição de instância de disco para reportar status de criptografia mais adequados
-* [ALTERAÇÃO SIGNIFICATIVA] `vm extension delete` alterado para não retornar mais a saída
+* [ALTERAÇÃO SIGNIFICATIVA]`vm extension delete` alterado para não retornar mais a saída
 
 ## <a name="march-13-2018"></a>13 de março de 2018
 
@@ -2917,9 +3097,9 @@ Versão 2.0.29
 
 ### <a name="advisor"></a>Supervisor
 
-* [ALTERAÇÃO SIGNIFICATIVA] `advisor configuration get` renomeado para `advisor configuration list`
-* [ALTERAÇÃO SIGNIFICATIVA] `advisor configuration set` renomeado para `advisor configuration update`
-* [ALTERAÇÃO SIGNIFICATIVA] `advisor recommendation generate` removido
+* [ALTERAÇÃO SIGNIFICATIVA]`advisor configuration get` renomeado para `advisor configuration list`
+* [ALTERAÇÃO SIGNIFICATIVA]`advisor configuration set` renomeado para `advisor configuration update`
+* [ALTERAÇÃO SIGNIFICATIVA]`advisor recommendation generate` removido
 * Parâmetro `--refresh` adicionado a `advisor recommendation list`
 * Adicionado o comando `advisor recommendation show`
 
@@ -3057,7 +3237,7 @@ Versão 2.0.27
 
 ### <a name="acs"></a>ACS
 
-* [ALTERAÇÃO SIGNIFICATIVA] `aks get-versions` renomeado para `aks get-upgrades` para fins de precisão
+* [ALTERAÇÃO SIGNIFICATIVA]`aks get-versions` renomeado para `aks get-upgrades` para fins de precisão
 * `aks get-versions` alterado para mostrar versões do Kubernetes disponíveis para `aks create`
 * Alterados os padrões de `aks create` para permitir que o servidor escolha a versão do Kubernetes
 * Atualizadas as mensagens de ajuda sobre a entidade de serviço gerada pelo AKS
@@ -3307,7 +3487,7 @@ Versão 2.0.25
 
 * [VERSÃO PRÉVIA] Suporte entre zonas para `vmss`
 * [ALTERAÇÃO SIGNIFICATIVA] Alterada única zona `vmss` padrão para o balanceador de carga "Padrão"
-* [ALTERAÇÃO SIGNIFICATIVA] `externalIdentities` alterado para `userAssignedIdentities` para EMSI
+* [ALTERAÇÃO SIGNIFICATIVA]`externalIdentities` alterado para `userAssignedIdentities` para EMSI
 * [VERSÃO PRÉVIA] Adicionado o suporte para a troca de disco do sistema operacional
 * Adicionado o suporte para o uso de imagens da VM de outras assinaturas
 * Adicionados os argumentos `--plan-name`, `--plan-product`, `--plan-promotion-code` e `--plan-publisher` para `[vm|vmss] create`
@@ -3685,7 +3865,7 @@ Versão 2.0.17
 
 ### <a name="extension"></a>Extensão
 
-* Versão Inicial
+* Versão inicial
 
 ### <a name="keyvault"></a>Keyvault
 
@@ -3763,7 +3943,7 @@ Versão 2.0.15
 
 ### <a name="network"></a>Rede
 
-* [ALTERAÇÃO SIGNIFICATIVA] `vnet list-private-access-services` renomeado para `vnet list-endpoint-services`
+* [ALTERAÇÃO SIGNIFICATIVA]`vnet list-private-access-services` renomeado para `vnet list-endpoint-services`
 * [ALTERAÇÃO SIGNIFICATIVA] Opção `--private-access-services` renomeada como `--service-endpoints` para `vnet subnet [create|update]`
 * Adicionado suporte para vários  intervalos de IP e portas para `nsg rule [create|update]`
 * Adicionado suporte ao SKU para `lb create`
@@ -4121,7 +4301,7 @@ vm (2.0.11)
 
 ### <a name="sql"></a>SQL
 
-* Removido o parâmetro `sql server create` `--identity`
+* Removido o parâmetro `sql server create` `--identity` desfeito
 * Remover os valores de senha da saída dos comandos `sql server create` e `sql server update`
 * Adicionados os comandos para `sql db list-editions` e `sql elastic-pool list-editions`
 

@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 84946fc0562e396ef296cbe8dede5e6a65cd6614
-ms.sourcegitcommit: 5a29ce9c0a3d7b831f22b1a13b1ae2e239e5549f
+ms.openlocfilehash: 7e5897fe545527aa2708432e0ad0cf626584c785
+ms.sourcegitcommit: 0088160bdb1ea520724d3e1efe71a4a66f29753d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71143984"
+ms.lasthandoff: 12/19/2019
+ms.locfileid: "75216864"
 ---
 # <a name="install-azure-cli-with-zypper"></a>Instalar CLI do Azure com zypper
 
-Para distribuições Linux com `zypper`, como o openSUSE ou SLES, há um pacote disponível para a CLI do Azure. Este pacote foi testado com openSUSE 42.2 e posteriores, e SLES 12 SP 2 e posteriores.
+Para distribuições Linux com `zypper`, como o openSUSE ou SLES, há um pacote disponível para a CLI do Azure. Este pacote foi testado com openSUSE Leap 15.1 e SLES 15.
 
 [!INCLUDE [current-version](includes/current-version.md)]
 
@@ -59,6 +59,26 @@ Para saber mais sobre os diferentes métodos de autenticação, confira [Entrar 
 ## <a name="troubleshooting"></a>solução de problemas
 
 Aqui estão alguns problemas comuns vistos durante a instalação com `zypper`. Se você tiver um problema não abordado aqui, [arquive um problema no github](https://github.com/Azure/azure-cli/issues).
+
+### <a name="install-on-sles-12-or-other-other-systems-without-python-36"></a>Instalar no SLES 12 ou em outros sistemas sem Python 3.6
+
+No SLES 12, o pacote python3 padrão é 3.4 e não é compatível com a CLI do Azure. É possível criar primeiro uma versão superior do python3 da origem. Em seguida, você poderá baixar o pacote da CLI do Azure e instalá-lo sem dependência.
+```bash
+$ sudo zypper install -y gcc gcc-c++ make ncurses patch wget tar zlib-devel zlib
+# Download Python source code
+$ PYTHON_VERSION="3.6.9"
+$ PYTHON_SRC_DIR=$(mktemp -d)
+$ wget -qO- https://www.python.org/ftp/python/$PYTHON_VERSION/Python-$PYTHON_VERSION.tgz | tar -xz -C "$PYTHON_SRC_DIR"
+# Build Python
+$ $PYTHON_SRC_DIR/*/configure --with-ssl
+$ make
+$ sudo make install
+#Download azure-cli package 
+$ AZ_VERSION=$(zypper --no-refresh info azure-cli |grep Version | awk -F': ' '{print $2}' | awk '{$1=$1;print}')
+$ wget https://packages.microsoft.com/yumrepos/azure-cli/azure-cli-$AZ_VERSION.x86_64.rpm
+#Install without dependency
+$ sudo rpm -ivh --nodeps azure-cli-$AZ_VERSION.x86_64.rpm
+```
 
 ### <a name="proxy-blocks-connection"></a>Conexão de blocos de proxy
 

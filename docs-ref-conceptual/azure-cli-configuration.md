@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: d23f576a1f7447ffab0606b4554a81ae5c536e85
-ms.sourcegitcommit: 7f79860c799e78fd8a591d7a5550464080e07aa9
+ms.openlocfilehash: 792a4bde1876bda620d31bccb7abcfc8e880332f
+ms.sourcegitcommit: 503cf343422ab8d2a587d2ccb795953b8ad66376
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56157954"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75559987"
 ---
 # <a name="azure-cli-configuration"></a>Configuração da CLI do Azure
 
@@ -35,10 +35,10 @@ Esse comando usa um argumento, `--defaults`, que é uma lista separada por espa�
 
 A tabela a seguir contém uma lista de chaves de configuração disponíveis.
 
-| NOME | DESCRIÇÃO |
+| Nome | DESCRIÇÃO |
 |------|-------------|
 | group | O grupo de recursos padrão para usar para todos os comandos. |
-| location | O local padrão para usar para todos os comandos. |
+| local | O local padrão para usar para todos os comandos. |
 | web | O nome de aplicativo padrão para usar para os comandos `az webapp`. |
 | vm | O nome de VM padrão para usar para os comandos `az vm`. |
 | vmss | O nome do conjunto de dimensionamento de máquinas virtuais (VMSS) padrão que será usado em comandos `az vmss`. |
@@ -62,8 +62,8 @@ Os arquivos de configuração são gravados no formato de arquivo INI. Esse form
 
 Os valores boolianos diferenciam maiúsculas de minúsculas e são representados pelos valores a seguir.
 
-* __Verdadeiro__: 1, yes, true, on
-* __Falso__: 0, no, false, off
+* __True__: 1, yes, true, on
+* __False__: 0, no, false, off
 
 Veja um exemplo de um arquivo de configuração da CLI que desabilita prompts de confirmação e define o log para o diretório `/var/log/azure`.
 
@@ -84,7 +84,7 @@ A tabela a seguir contém todas as seções e as opções de nomes que podem ser
 
 Quando você fornece um valor padrão, esse argumento já não é exigido pelos comandos. Em vez disso, o valor padrão é usado.
 
-| Seção | NOME      | Type | DESCRIÇÃO|
+| Seção | Nome      | Type | DESCRIÇÃO|
 |---------|-----------|------|------------|
 | __core__ | output | string | O formato de saída padrão. Pode ser `json`, `jsonc`, `tsv` ou `table`. |
 | | disable\_confirm\_prompt | booleano | Ativa e desativa prompts de confirmação. |
@@ -92,15 +92,16 @@ Quando você fornece um valor padrão, esse argumento já não é exigido pelos 
 | __logging__ | enable\_log\_file | booleano | Ativar e desativar o registro em log. |
 | | log\_dir | string | O diretório no qual gravar os logs. Por padrão, esse valor é `${AZURE_CONFIG_DIR}/logs`. |
 | __storage__ | connection\_string | string | A cadeia de conexão padrão a ser usada para comandos `az storage`. |
-| | conta | string | O nome de conta padrão a ser usado para comandos `az storage`. |
+| | account | string | O nome de conta padrão a ser usado para comandos `az storage`. |
 | | chave | string | A chave de conta padrão a ser usada para comandos `az storage`. |
 | | sas\_token | string | O token SAS padrão a ser usado para comandos `az storage`. |
 | __batchai__ | storage\_account | string | A conta de armazenamento padrão a ser usada para comandos `az batchai`. |
 | | storage\_key | string | A chave de armazenamento padrão a ser usada para comandos `az batchai`. |
-| __batch__ | conta | string | O nome de conta do Lote do Azure a ser usado para comandos `az batch`. |
+| __batch__ | account | string | O nome de conta do Lote do Azure a ser usado para comandos `az batch`. |
 | | access\_key | string | A chave de acesso padrão a ser usada para comandos `az batch`. Usado somente com autorização `aad`. |
 | | endpoint | string | O ponto de extremidade padrão ao qual se conectar para comandos `az batch`. |
 | | auth\_mode | string | O modo de autorização a ser usado para comandos `az batch`. Pode ser `shared_key` ou `aad`. |
+| __nuvem__ | name | string | A nuvem padrão para todos os comandos `az`.  Os valores possíveis são `AzureCloud` (padrão), `AzureChinaCloud`, `AzureUSGovernment` e `AzureGermanCloud`. Para alterar as nuvens é possível usar o comando `az cloud set –name`.  Para obter um exemplo, consulte [Gerenciar Nuvens com a CLI do Azure](manage-clouds-azure-cli.md). |
 
 > [!NOTE]
 > Você pode ver outros valores em seu arquivo de configuração, mas eles são gerenciados diretamente por meio de comandos da CLI, incluindo `az configure`. Os valores listados na tabela acima são os únicos que você mesmo deve alterar.
