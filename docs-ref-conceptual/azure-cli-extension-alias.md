@@ -1,20 +1,20 @@
 ---
 title: Extensão de alias da CLI do Azure
 description: Como usar a extensão de alias da CLI do Azure
-author: sptramer
-ms.author: sttramer
-manager: carmonm
+author: dbradish-microsoft
+ms.author: dbradish
+manager: barbkess
 ms.date: 09/07/2018
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 3cd812a0e0e61d50883ca9efd762d6fc05617b76
-ms.sourcegitcommit: 7f79860c799e78fd8a591d7a5550464080e07aa9
+ms.openlocfilehash: cc6192c3e78f7bc895ed8f4c2f640aa1bf0e883c
+ms.sourcegitcommit: 18973ac471bbd12af2c8f8fa32a233b0abe5b020
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56157964"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75913676"
 ---
 # <a name="the-azure-cli-alias-extension"></a>A extensão de alias da CLI do Azure
 
@@ -115,7 +115,7 @@ Ao executar esse comando, você fornece valores para os argumentos posicionais.
 az get-vm-ip MyResourceGroup MyVM
 ```
 
-Você também pode usar variáveis de ambiente em comandos com alias, que são avaliadas no tempo de execução. O exemplo a seguir adiciona o alias `create-rg`, que cria um grupo de recursos em `eastus` e adiciona uma marca `owner`. Essa marca recebe o valor da variável de ambiente local `USER`.
+Você também pode usar variáveis de ambiente em comandos com alias, que são avaliadas no runtime. O exemplo a seguir adiciona o alias `create-rg`, que cria um grupo de recursos em `eastus` e adiciona uma marca `owner`. Essa marca recebe o valor da variável de ambiente local `USER`.
 
 ```azurecli-interactive
 az alias create \

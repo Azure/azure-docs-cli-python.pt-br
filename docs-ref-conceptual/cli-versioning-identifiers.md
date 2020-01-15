@@ -1,19 +1,19 @@
 ---
 title: Diferenças entre os produtos da CLI do Azure
 description: Entenda como os produtos da CLI do Azure são nomeados e têm a versão controlada, e como atualizá-los.
-author: sptramer
-ms.author: sttramer
-manager: carmonm
+author: dbradish-microsoft
+ms.author: dbradish
+manager: barbkess
 ms.date: 07/12/2018
 ms.topic: conceptual
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: a39f6b0fbccf937aec2b227ed4e3f4ff8d92137f
-ms.sourcegitcommit: 7f79860c799e78fd8a591d7a5550464080e07aa9
+ms.openlocfilehash: 77b3629d0cc79d2b329007fd93b49022d5f29783
+ms.sourcegitcommit: 18973ac471bbd12af2c8f8fa32a233b0abe5b020
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56158009"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75913596"
 ---
 # <a name="differences-between-azure-cli-products"></a>Diferenças entre os produtos da CLI do Azure
 
