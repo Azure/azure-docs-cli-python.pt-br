@@ -1,5 +1,5 @@
 ### YamlMime:Tutorial
-title: <span data-ttu-id="5932c-101">Criar máquinas virtuais com a CLI do Azure</span><span class="sxs-lookup"><span data-stu-id="5932c-101">Create virtual machines with the Azure CLI</span></span>
+title: Criar máquinas virtuais com a CLI do Azure
 metadata:
   title: Criar máquinas virtuais com a CLI do Azure
   description: Inicie a CLI do Azure com a criação de máquinas virtuais.
@@ -8,37 +8,37 @@ metadata:
   displayType: two-column
   interactive: azurecli
   ms.date: 07/09/2018
-  ms.author: sttramer
-  author: sptramer
-  manager: carmonm
+  ms.author: dbradish
+  author: dbradish-microsoft
+  manager: barbkess
   ms.devlang: azure-cli
   ms.topic: tutorial
   ms.prod: azure
   ms.technology: azurecli
   clicktale: true
-  ms.openlocfilehash: e2c3c1a181105a86ccb8882b647f1984e32c8246
-  ms.sourcegitcommit: 7f79860c799e78fd8a591d7a5550464080e07aa9
+  ms.openlocfilehash: fb231b99b0f25760b84683d160a63e62c4f36276
+  ms.sourcegitcommit: 18973ac471bbd12af2c8f8fa32a233b0abe5b020
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 02/12/2019
-  ms.locfileid: "56157967"
+  ms.lasthandoff: 01/13/2020
+  ms.locfileid: "75913619"
 items:
 - durationInMinutes: 1
   content: >-
-    <span data-ttu-id="5932c-104">Neste tutorial, você aprenderá todas as etapas envolvidas na configuração de uma máquina virtual com a CLI do Azure.</span><span class="sxs-lookup"><span data-stu-id="5932c-104">In this tutorial, you learn all of the steps involved in setting up a virtual machine with the Azure CLI.</span></span> <span data-ttu-id="5932c-105">O tutorial também abrange consultas de saída, a reutilização de recursos do Azure e a limpeza de recursos.</span><span class="sxs-lookup"><span data-stu-id="5932c-105">The tutorial also covers output queries, Azure resource reuse, and resource cleanup.</span></span>
+    Neste tutorial, você aprenderá todas as etapas envolvidas na configuração de uma máquina virtual com a CLI do Azure. O tutorial também abrange consultas de saída, a reutilização de recursos do Azure e a limpeza de recursos.
 
 
-    <span data-ttu-id="5932c-106">Este tutorial pode ser concluído com a experiência interativa oferecida por meio do Azure Cloud Shell, ou você pode [instalar a CLI](install-azure-cli.md) localmente.</span><span class="sxs-lookup"><span data-stu-id="5932c-106">This tutorial can be completed with the interactive experienced offered through Azure Cloud Shell, or you may [install the CLI](install-azure-cli.md) locally.</span></span>
+    Este tutorial pode ser concluído com a experiência interativa oferecida por meio do Azure Cloud Shell, ou você pode [instalar a CLI](install-azure-cli.md) localmente.
 
 
-    <span data-ttu-id="5932c-107">Use __ctrl-shift-v__ (__cmd-shift-v__ no macOS) para colar o texto do tutorial no Azure Cloud Shell.</span><span class="sxs-lookup"><span data-stu-id="5932c-107">Use __ctrl-shift-v__ (__cmd-shift-v__ on macOS) to paste tutorial text into Azure Cloud Shell.</span></span>
+    Use __ctrl-shift-v__ (__cmd-shift-v__ no macOS) para colar o texto do tutorial no Azure Cloud Shell.
 - durationInMinutes: 1
-  title: <span data-ttu-id="5932c-108">Entrar</span><span class="sxs-lookup"><span data-stu-id="5932c-108">Sign in</span></span>
-  content: "<span data-ttu-id=\"5932c-109\">Se você estiver usando uma instalação local da CLI, precisará conectar antes de executar qualquer outra etapa.</span><span class=\"sxs-lookup\"><span data-stu-id=\"5932c-109\">If you're using a local install of the CLI, you need to sign in before performing any other steps.</span></span>\n\n```azurecli-interactive\naz login\n```\n\n<span data-ttu-id=\"5932c-110\">Conclua o processo de autenticação seguindo as etapas exibidas no terminal.</span><span class=\"sxs-lookup\"><span data-stu-id=\"5932c-110\">Complete the authentication process by following the steps displayed in your terminal.</span></span> "
+  title: Entrar
+  content: "Se você estiver usando uma instalação local da CLI, precisará conectar antes de executar qualquer outra etapa.\n\n```azurecli-interactive\naz login\n```\n\nConclua o processo de autenticação seguindo as etapas exibidas no terminal. "
 - durationInMinutes: 1
-  title: <span data-ttu-id="5932c-111">Criar um grupo de recursos</span><span class="sxs-lookup"><span data-stu-id="5932c-111">Create a resource group</span></span>
+  title: Criar um grupo de recursos
   content: >-
-    <span data-ttu-id="5932c-112">No Azure, todos os recursos são alocados em um grupo de gerenciamento de recursos.</span><span class="sxs-lookup"><span data-stu-id="5932c-112">In Azure, all resources are allocated in a resource management group.</span></span> <span data-ttu-id="5932c-113">Os grupos de recursos fornecem agrupamentos lógicos de recursos que os tornam mais fáceis de trabalhar como uma coleção.</span><span class="sxs-lookup"><span data-stu-id="5932c-113">Resource groups provide logical groupings of resources that make them easier to work with as a collection.</span></span> <span data-ttu-id="5932c-114">Para este tutorial, todos os recursos criados entram em um único grupo chamado `TutorialResources`.</span><span class="sxs-lookup"><span data-stu-id="5932c-114">For this tutorial, all of the created resources go into a single group named `TutorialResources`.</span></span>
+    No Azure, todos os recursos são alocados em um grupo de gerenciamento de recursos. Os grupos de recursos fornecem agrupamentos lógicos de recursos que os tornam mais fáceis de trabalhar como uma coleção. Para este tutorial, todos os recursos criados entram em um único grupo chamado `TutorialResources`.
 
 
     ```azurecli
@@ -47,15 +47,15 @@ items:
 
     ```
 - durationInMinutes: 4
-  title: <span data-ttu-id="5932c-115">Criar uma máquina virtual</span><span class="sxs-lookup"><span data-stu-id="5932c-115">Create a virtual machine</span></span>
-  content: "<span data-ttu-id=\"5932c-116\">As máquinas virtuais no Azure têm um grande número de dependências.</span><span class=\"sxs-lookup\"><span data-stu-id=\"5932c-116\">Virtual machines in Azure have a large number of dependencies.</span></span> <span data-ttu-id=\"5932c-117\">A CLI cria esses recursos com base nos argumentos de linha de comando especificados por você.</span><span class=\"sxs-lookup\"><span data-stu-id=\"5932c-117\">The CLI creates these resources for you based on the command-line arguments you specify.</span></span>\n\n<span data-ttu-id=\"5932c-118\">Crie uma nova máquina virtual executando o Ubuntu, que usa a autenticação SSH para fazer logon.</span><span class=\"sxs-lookup\"><span data-stu-id=\"5932c-118\">Create a new virtual machine running Ubuntu, which uses SSH authentication for login.</span></span>\n\n```azurecli-interactive\naz vm create --resource-group TutorialResources \\\n  --name TutorialVM1 \\\n  --image UbuntuLTS \\\n  --generate-ssh-keys \\\n  --output json \\\n  --verbose \n```\n\n> [!NOTE]\n> <span data-ttu-id=\"5932c-119\">Caso já tenha uma chave SSH chamada `id_rsa` disponível, ela será usada para autenticação em vez de ser preciso gerar uma nova chave.</span><span class=\"sxs-lookup\"><span data-stu-id=\"5932c-119\">If you have an SSH key named `id_rsa` already available, this key is used for authentication rather than having a new key generated.</span></span>\n\n<span data-ttu-id=\"5932c-120\">Assim que a VM é criada, você vê os valores locais utilizados e os recursos do Azure sendo criados devido à opção `--verbose`.</span><span class=\"sxs-lookup\"><span data-stu-id=\"5932c-120\">As the VM is created, you see the local values used and Azure resources being created due to the `--verbose` option.</span></span>\n<span data-ttu-id=\"5932c-121\">Quando a VM estiver pronta, o JSON será retornado do serviço do Azure, incluindo o endereço IP público.</span><span class=\"sxs-lookup\"><span data-stu-id=\"5932c-121\">Once the VM is ready, JSON is returned from the Azure service including the public IP address.</span></span>\n\n```json\n{\n  \"fqdns\": \"\",\n  \"id\": \"...\",\n  \"location\": \"eastus\",\n  \"macAddress\": \"...\",\n  \"powerState\": \"VM running\",\n  \"privateIpAddress\": \"...\",\n  \"publicIpAddress\": <PUBLIC_IP_ADDRESS>,\n  \"resourceGroup\": \"TutorialResources\",\n  \"zones\": \"\"\n}\n```\n\n<span data-ttu-id=\"5932c-122\">Conecte-se via SSH para confirmar que a VM está em execução.</span><span class=\"sxs-lookup\"><span data-stu-id=\"5932c-122\">Confirm that the VM is running by connecting over SSH.</span></span>\n\n```bash\nssh <PUBLIC_IP_ADDRESS>\n```\n\n<span data-ttu-id=\"5932c-123\">Continue e faça logoff da VM.</span><span class=\"sxs-lookup\"><span data-stu-id=\"5932c-123\">Go ahead and log out from the VM.</span></span>\n\n<span data-ttu-id=\"5932c-124\">Existem outras maneiras de obter esse endereço IP depois que a VM for iniciada.</span><span class=\"sxs-lookup\"><span data-stu-id=\"5932c-124\">There are other ways to get this IP address after the VM has started.</span></span> <span data-ttu-id=\"5932c-125\">Na próxima seção, você verá como obter informações detalhadas sobre a VM e como filtrá-las.</span><span class=\"sxs-lookup\"><span data-stu-id=\"5932c-125\">In the next section you will see how to get detailed information on the VM, and how to filter it.</span></span>"
+  title: Criar uma máquina virtual
+  content: "As máquinas virtuais no Azure têm um grande número de dependências. A CLI cria esses recursos com base nos argumentos de linha de comando especificados por você.\n\nCrie uma nova máquina virtual executando o Ubuntu, que usa a autenticação SSH para fazer logon.\n\n```azurecli-interactive\naz vm create --resource-group TutorialResources \\\n  --name TutorialVM1 \\\n  --image UbuntuLTS \\\n  --generate-ssh-keys \\\n  --output json \\\n  --verbose \n```\n\n> [!NOTE]\n> Caso já tenha uma chave SSH chamada `id_rsa` disponível, ela será usada para autenticação em vez de ser preciso gerar uma nova chave.\n\nAssim que a VM é criada, você vê os valores locais utilizados e os recursos do Azure sendo criados devido à opção `--verbose`.\nQuando a VM estiver pronta, o JSON será retornado do serviço do Azure, incluindo o endereço IP público.\n\n```json\n{\n  \"fqdns\": \"\",\n  \"id\": \"...\",\n  \"location\": \"eastus\",\n  \"macAddress\": \"...\",\n  \"powerState\": \"VM running\",\n  \"privateIpAddress\": \"...\",\n  \"publicIpAddress\": <PUBLIC_IP_ADDRESS>,\n  \"resourceGroup\": \"TutorialResources\",\n  \"zones\": \"\"\n}\n```\n\nConecte-se via SSH para confirmar que a VM está em execução.\n\n```bash\nssh <PUBLIC_IP_ADDRESS>\n```\n\nContinue e faça logoff da VM.\n\nExistem outras maneiras de obter esse endereço IP depois que a VM for iniciada. Na próxima seção, você verá como obter informações detalhadas sobre a VM e como filtrá-las."
 - durationInMinutes: 3
-  title: <span data-ttu-id="5932c-126">Obter informações de VM com consultas</span><span class="sxs-lookup"><span data-stu-id="5932c-126">Get VM information with queries</span></span>
-  content: "<span data-ttu-id=\"5932c-127\">Agora que uma VM foi criada, as informações detalhadas sobre ela podem ser recuperadas.</span><span class=\"sxs-lookup\"><span data-stu-id=\"5932c-127\">Now that a VM has been created, detailed information about it can be retrieved.</span></span> <span data-ttu-id=\"5932c-128\">O comando comum para obter informações de um recurso é `show`.</span><span class=\"sxs-lookup\"><span data-stu-id=\"5932c-128\">The common command for getting information from a resource is `show`.</span></span>\n\n```azurecli-interactive\naz vm show --name TutorialVM1 --resource-group TutorialResources\n```\n\n<span data-ttu-id=\"5932c-129\">Você verá muitas informações, cuja análise visual pode ser difícil.</span><span class=\"sxs-lookup\"><span data-stu-id=\"5932c-129\">You'll see a lot of information, which can be difficult to parse visually.</span></span> <span data-ttu-id=\"5932c-130\">O JSON retornado contém informações sobre autenticação, adaptadores de rede, armazenamento e muito mais.</span><span class=\"sxs-lookup\"><span data-stu-id=\"5932c-130\">The returned JSON contains information on authentication, network interfaces, storage, and more.</span></span> <span data-ttu-id=\"5932c-131\">Mais importante: ele contém as IDs de objeto do Azure para recursos aos quais a VM está conectada.</span><span class=\"sxs-lookup\"><span data-stu-id=\"5932c-131\">Most importantly, it contains the Azure object IDs for resources that the VM is connected to.</span></span> <span data-ttu-id=\"5932c-132\">As IDs de objeto permitem o acesso direto a esses recursos para se obter mais informações sobre a configuração e os recursos da VM.</span><span class=\"sxs-lookup\"><span data-stu-id=\"5932c-132\">Object IDs allow accessing these resources directly to get more information about the VM's configuration and capabilities.</span></span> \n\n<span data-ttu-id=\"5932c-133\">Para extrair a ID de objeto desejada, é usado o argumento `--query`.</span><span class=\"sxs-lookup\"><span data-stu-id=\"5932c-133\">In order to extract the object ID we want, the `--query` argument is used.</span></span> <span data-ttu-id=\"5932c-134\">As consultas são gravadas na [linguagem de consulta JMESPath](http://jmespath.org).</span><span class=\"sxs-lookup\"><span data-stu-id=\"5932c-134\">Queries are written in the [JMESPath query language](http://jmespath.org).</span></span> <span data-ttu-id=\"5932c-135\">Comece obtendo a ID de objeto do controlador de interface de rede (NIC).</span><span class=\"sxs-lookup\"><span data-stu-id=\"5932c-135\">Start with getting the network interface controller (NIC) object ID.</span></span>\n\n```azurecli-interactive\naz vm show --name TutorialVM1 \\\n  --resource-group TutorialResources \\\n  --query 'networkProfile.networkInterfaces[].id' \\\n  --output tsv\n```\n\n<span data-ttu-id=\"5932c-136\">Muita coisa está acontecendo por simplesmente adicionar a consulta.</span><span class=\"sxs-lookup\"><span data-stu-id=\"5932c-136\">There's a lot going on here, just by adding the query.</span></span> <span data-ttu-id=\"5932c-137\">Cada parte dela faz referência a uma chave na saída do JSON, ou é um operador JMESPath.</span><span class=\"sxs-lookup\"><span data-stu-id=\"5932c-137\">Each part of it references a key in the output JSON, or is a JMESPath operator.</span></span>\n\n* <span data-ttu-id=\"5932c-138\">`networkProfile` é uma chave JSON de nível superior que tem `networkInterfaces` como uma subchave.</span><span class=\"sxs-lookup\"><span data-stu-id=\"5932c-138\">`networkProfile` is a key of the top-level JSON, which has `networkInterfaces` as a subkey.</span></span> <span data-ttu-id=\"5932c-139\">Se um valor JSON é um dicionário, suas chaves são referenciadas a partir da chave pai com o operador `.`.</span><span class=\"sxs-lookup\"><span data-stu-id=\"5932c-139\">If a JSON value is a dictionary, its keys are referenced from the parent key with the `.` operator.</span></span>\n* <span data-ttu-id=\"5932c-140\">O valor `networkInterfaces` é uma matriz, então ele é mesclado com o operador `[]`.</span><span class=\"sxs-lookup\"><span data-stu-id=\"5932c-140\">The `networkInterfaces` value is an array, so it is flattened with the `[]` operator.</span></span> <span data-ttu-id=\"5932c-141\">Esse operador executa o restante da consulta em cada elemento da matriz.</span><span class=\"sxs-lookup\"><span data-stu-id=\"5932c-141\">This operator runs the remainder of the query on each array element.</span></span> <span data-ttu-id=\"5932c-142\">Nesse caso, ele obtém o valor `id` de todos os elementos da matriz.</span><span class=\"sxs-lookup\"><span data-stu-id=\"5932c-142\">In this case, it gets the `id` value of every array element.</span></span>\n\n<span data-ttu-id=\"5932c-143\">É garantido que o formato de saída `tsv` (valores separados por tabulação) incluirá apenas os dados de resultado e o espaço em branco que consiste em guias e novas linhas.</span><span class=\"sxs-lookup\"><span data-stu-id=\"5932c-143\">The output format `tsv` (tab-separated values) is guaranteed to only include the result data and whitespace consisting of tabs and newlines.</span></span>\n<span data-ttu-id=\"5932c-144\">Uma vez que o valor retornado é uma única cadeia de caracteres vazia, é seguro atribuir diretamente a uma variável de ambiente.</span><span class=\"sxs-lookup\"><span data-stu-id=\"5932c-144\">Since the returned value is a single bare string, it's safe to assign directly to an environment variable.</span></span>\n\n<span data-ttu-id=\"5932c-145\">Continue e atribua a ID de objeto do NIC a uma variável de ambiente.</span><span class=\"sxs-lookup\"><span data-stu-id=\"5932c-145\">Go ahead and assign the NIC object ID to an environment variable now.</span></span>\n\n```bash\nNIC_ID=$(az vm show -n TutorialVM1 -g TutorialResources \\\n  --query 'networkProfile.networkInterfaces[].id' \\\n  -o tsv)\n```\n\n<span data-ttu-id=\"5932c-146\">Este exemplo também demonstra o uso de argumentos curtos.</span><span class=\"sxs-lookup\"><span data-stu-id=\"5932c-146\">This example also demonstrates the use of short arguments.</span></span> <span data-ttu-id=\"5932c-147\">Você pode usar `-g` em vez de `--resource-group`, `-n` em vez de `--name` e `-o` em vez de `--output`.</span><span class=\"sxs-lookup\"><span data-stu-id=\"5932c-147\">You may use `-g` instead of `--resource-group`, `-n` instead of `--name`, and `-o` instead of `--output`.</span></span>"
+  title: Obter informações de VM com consultas
+  content: "Agora que uma VM foi criada, as informações detalhadas sobre ela podem ser recuperadas. O comando comum para obter informações de um recurso é `show`.\n\n```azurecli-interactive\naz vm show --name TutorialVM1 --resource-group TutorialResources\n```\n\nVocê verá muitas informações, cuja análise visual pode ser difícil. O JSON retornado contém informações sobre autenticação, adaptadores de rede, armazenamento e muito mais. Mais importante: ele contém as IDs de objeto do Azure para recursos aos quais a VM está conectada. As IDs de objeto permitem o acesso direto a esses recursos para se obter mais informações sobre a configuração e os recursos da VM. \n\nPara extrair a ID de objeto desejada, é usado o argumento `--query`. As consultas são gravadas na [linguagem de consulta JMESPath](http://jmespath.org). Comece obtendo a ID de objeto do controlador de interface de rede (NIC).\n\n```azurecli-interactive\naz vm show --name TutorialVM1 \\\n  --resource-group TutorialResources \\\n  --query 'networkProfile.networkInterfaces[].id' \\\n  --output tsv\n```\n\nMuita coisa está acontecendo por simplesmente adicionar a consulta. Cada parte dela faz referência a uma chave na saída do JSON, ou é um operador JMESPath.\n\n* `networkProfile` é uma chave JSON de nível superior que tem `networkInterfaces` como uma subchave. Se um valor JSON é um dicionário, suas chaves são referenciadas a partir da chave pai com o operador `.`.\n* O valor `networkInterfaces` é uma matriz, então ele é mesclado com o operador `[]`. Esse operador executa o restante da consulta em cada elemento da matriz. Nesse caso, ele obtém o valor `id` de todos os elementos da matriz.\n\nÉ garantido que o formato de saída `tsv` (valores separados por tabulação) incluirá apenas os dados de resultado e o espaço em branco que consiste em guias e novas linhas.\nUma vez que o valor retornado é uma única cadeia de caracteres vazia, é seguro atribuir diretamente a uma variável de ambiente.\n\nContinue e atribua a ID de objeto do NIC a uma variável de ambiente.\n\n```bash\nNIC_ID=$(az vm show -n TutorialVM1 -g TutorialResources \\\n  --query 'networkProfile.networkInterfaces[].id' \\\n  -o tsv)\n```\n\nEste exemplo também demonstra o uso de argumentos curtos. Você pode usar `-g` em vez de `--resource-group`, `-n` em vez de `--name` e `-o` em vez de `--output`."
 - durationInMinutes: 4
-  title: <span data-ttu-id="5932c-148">Configurar variáveis de ambiente a partir da saída da CLI</span><span class="sxs-lookup"><span data-stu-id="5932c-148">Set environment variables from CLI output</span></span>
+  title: Configurar variáveis de ambiente a partir da saída da CLI
   content: >-
-    <span data-ttu-id="5932c-149">Agora que você tem a ID do NIC, execute `az network nic show` para obter suas informações.</span><span class="sxs-lookup"><span data-stu-id="5932c-149">Now that you have the NIC ID, run `az network nic show` to get its information.</span></span> <span data-ttu-id="5932c-150">Observe que você não precisa de um grupo de recursos aqui, pois o nome do grupo de recursos está contido na ID do recurso do Azure.</span><span class="sxs-lookup"><span data-stu-id="5932c-150">Note that you don't need a resource group here, since the resource group name is contained within the Azure resource ID.</span></span>
+    Agora que você tem a ID do NIC, execute `az network nic show` para obter suas informações. Observe que você não precisa de um grupo de recursos aqui, pois o nome do grupo de recursos está contido na ID do recurso do Azure.
 
 
     ```azurecli-interactive
@@ -66,7 +66,7 @@ items:
 
 
 
-    <span data-ttu-id="5932c-151">Esse comando mostra todas as informações do adaptador de rede da VM.</span><span class="sxs-lookup"><span data-stu-id="5932c-151">This command shows all of the information for the network interface of the VM.</span></span> <span data-ttu-id="5932c-152">Entre esses dados estão configurações de DNS, informações de IP, configurações de segurança e o endereço MAC.</span><span class="sxs-lookup"><span data-stu-id="5932c-152">This data includes DNS settings, IP information, security settings, and the MAC address.</span></span> <span data-ttu-id="5932c-153">Nesse momento, a meta é obter o endereço IP público e as IDs de objeto da sub-rede.</span><span class="sxs-lookup"><span data-stu-id="5932c-153">Right now the goal is to obtain the public IP address and subnet object IDs.</span></span>
+    Esse comando mostra todas as informações do adaptador de rede da VM. Entre esses dados estão configurações de DNS, informações de IP, configurações de segurança e o endereço MAC. Nesse momento, a meta é obter o endereço IP público e as IDs de objeto da sub-rede.
 
 
     ```azurecli-interactive
@@ -91,10 +91,10 @@ items:
     ```
 
 
-    <span data-ttu-id="5932c-154">Esse comando exibe um objeto JSON que tem chaves personalizadas ('IP' e 'Sub-rede') para os valores extraídos.</span><span class="sxs-lookup"><span data-stu-id="5932c-154">This command displays a JSON object that has custom keys ('IP' and 'Subnet') for the extracted values.</span></span> <span data-ttu-id="5932c-155">Embora esse estilo de saída possa não ser útil para ferramentas de linha de comando, ele ajuda na legibilidade humana e pode ser usado com scripts personalizados.</span><span class="sxs-lookup"><span data-stu-id="5932c-155">While this style of output might not be useful for command-line tools, it helps with human readability and can be used with custom scripts.</span></span>
+    Esse comando exibe um objeto JSON que tem chaves personalizadas ('IP' e 'Sub-rede') para os valores extraídos. Embora esse estilo de saída possa não ser útil para ferramentas de linha de comando, ele ajuda na legibilidade humana e pode ser usado com scripts personalizados.
 
 
-    <span data-ttu-id="5932c-156">Para usar as ferramentas de linha de comando, altere o comando para remover as chaves e a saída do JSON personalizadas como `tsv`.</span><span class="sxs-lookup"><span data-stu-id="5932c-156">In order to use command-line tools, change the command to remove the custom JSON keys and output as `tsv`.</span></span> <span data-ttu-id="5932c-157">Esse estilo de saída pode ser processado pelo comando `read` do shell para carregar resultados em diversas variáveis.</span><span class="sxs-lookup"><span data-stu-id="5932c-157">This style of output can be processed by the shell `read` command to load results into multiple variables.</span></span> <span data-ttu-id="5932c-158">Uma vez que dois valores em linhas separadas são exibidos, o comando delimitador `read` deve ser definido como a cadeia de caracteres vazia em vez do padrão de espaço em branco sem novas linhas.</span><span class="sxs-lookup"><span data-stu-id="5932c-158">Since two values on separate lines are displayed, the `read` command delimiter must be set to the empty string rather than the default of non-newline whitespace.</span></span>
+    Para usar as ferramentas de linha de comando, altere o comando para remover as chaves e a saída do JSON personalizadas como `tsv`. Esse estilo de saída pode ser processado pelo comando `read` do shell para carregar resultados em diversas variáveis. Uma vez que dois valores em linhas separadas são exibidos, o comando delimitador `read` deve ser definido como a cadeia de caracteres vazia em vez do padrão de espaço em branco sem novas linhas.
 
 
     ```bash
@@ -106,7 +106,7 @@ items:
     ```
 
 
-    <span data-ttu-id="5932c-159">Você não usará a ID de sub-rede imediatamente, mas agora ela deve ser armazenada para evitar ter de realizar uma segunda pesquisa mais tarde.</span><span class="sxs-lookup"><span data-stu-id="5932c-159">You won't use the subnet ID right away, but it should be stored now to avoid having to perform a second lookup later.</span></span> <span data-ttu-id="5932c-160">Por enquanto, use a ID de objeto de IP público para pesquisar o endereço IP público e armazená-lo em uma variável do shell.</span><span class="sxs-lookup"><span data-stu-id="5932c-160">For now, use the public IP object ID to look up the public IP address and store it in a shell variable.</span></span>
+    Você não usará a ID de sub-rede imediatamente, mas agora ela deve ser armazenada para evitar ter de realizar uma segunda pesquisa mais tarde. Por enquanto, use a ID de objeto de IP público para pesquisar o endereço IP público e armazená-lo em uma variável do shell.
 
 
     ```bash
@@ -117,7 +117,7 @@ items:
     ```
 
 
-    <span data-ttu-id="5932c-161">Agora você tem o endereço IP da VM armazenado em uma variável do shell.</span><span class="sxs-lookup"><span data-stu-id="5932c-161">Now you have the IP address of the VM stored in a shell variable.</span></span> <span data-ttu-id="5932c-162">Continue e verifique se é o mesmo valor usado por você para se conectar inicialmente à VM.</span><span class="sxs-lookup"><span data-stu-id="5932c-162">Go ahead and check that it is the same value that you used to initially connect to the VM.</span></span>
+    Agora você tem o endereço IP da VM armazenado em uma variável do shell. Continue e verifique se é o mesmo valor usado por você para se conectar inicialmente à VM.
 
 
     ```bash
@@ -126,9 +126,9 @@ items:
 
     ```
 - durationInMinutes: 2
-  title: <span data-ttu-id="5932c-163">Criando uma nova VM na sub-rede existente</span><span class="sxs-lookup"><span data-stu-id="5932c-163">Creating a new VM on the existing subnet</span></span>
+  title: Criando uma nova VM na sub-rede existente
   content: >-
-    <span data-ttu-id="5932c-164">A segunda VM usa a sub-rede existente.</span><span class="sxs-lookup"><span data-stu-id="5932c-164">The second VM uses the existing subnet.</span></span> <span data-ttu-id="5932c-165">Você pode ignorar agora algumas etapas para obter o endereço IP público da nova VM armazenada em uma variável de ambiente, pois ele é retornado nas informações de criação de VM.</span><span class="sxs-lookup"><span data-stu-id="5932c-165">You can skip a few steps to get the public IP address of the new VM stored into an environment variable right away, since it's returned in the VM creation information.</span></span> <span data-ttu-id="5932c-166">Se você precisar de outras informações sobre a VM, elas podem sempre ser obtidas a partir do comando `az vm show`.</span><span class="sxs-lookup"><span data-stu-id="5932c-166">If you'd need other information about the VM later, it can always be obtained from the `az vm show` command.</span></span>
+    A segunda VM usa a sub-rede existente. Você pode ignorar agora algumas etapas para obter o endereço IP público da nova VM armazenada em uma variável de ambiente, pois ele é retornado nas informações de criação de VM. Se você precisar de outras informações sobre a VM, elas podem sempre ser obtidas a partir do comando `az vm show`.
 
 
     ```bash
@@ -143,7 +143,7 @@ items:
     ```
 
 
-    <span data-ttu-id="5932c-167">Usando o endereço IP armazenado, SSH para a VM recém-criada.</span><span class="sxs-lookup"><span data-stu-id="5932c-167">Using the stored IP address, SSH into the newly created VM.</span></span>
+    Usando o endereço IP armazenado, SSH para a VM recém-criada.
 
 
     ```bash
@@ -153,11 +153,11 @@ items:
     ```
 
 
-    <span data-ttu-id="5932c-168">Continue e faça logoff da VM.</span><span class="sxs-lookup"><span data-stu-id="5932c-168">Go ahead and log out from the VM.</span></span>
+    Continue e faça logoff da VM.
 - durationInMinutes: 2
-  title: <span data-ttu-id="5932c-169">Limpeza</span><span class="sxs-lookup"><span data-stu-id="5932c-169">Cleanup</span></span>
+  title: Limpeza
   content: >-
-    <span data-ttu-id="5932c-170">Agora que o tutorial está completo, é hora de limpar os recursos criados.</span><span class="sxs-lookup"><span data-stu-id="5932c-170">Now that the tutorial is complete, it's time to clean up the created resources.</span></span> <span data-ttu-id="5932c-171">Você pode excluir recursos individuais com o comando `delete`, mas a maneira mais segura de remover todos os recursos em um grupo de recursos é com `group delete`.</span><span class="sxs-lookup"><span data-stu-id="5932c-171">You can delete individual resources with the `delete` command, but the safest way to remove all resources in a resource group is with `group delete`.</span></span>
+    Agora que o tutorial está completo, é hora de limpar os recursos criados. Você pode excluir recursos individuais com o comando `delete`, mas a maneira mais segura de remover todos os recursos em um grupo de recursos é com `group delete`.
 
 
     ```azurecli-interactive
@@ -167,7 +167,7 @@ items:
     ```
 
 
-    <span data-ttu-id="5932c-172">Esse comando exclui os recursos criados durante o tutorial e é garantido que eles serão desalocados na ordem correta.</span><span class="sxs-lookup"><span data-stu-id="5932c-172">This command deletes the resources created during the tutorial, and is guaranteed to deallocate them in the correct order.</span></span> <span data-ttu-id="5932c-173">O parâmetro `--no-wait` evita o bloqueio da CLI enquanto ocorre a exclusão.</span><span class="sxs-lookup"><span data-stu-id="5932c-173">The `--no-wait` parameter keeps the CLI from blocking while the deletion takes place.</span></span> <span data-ttu-id="5932c-174">Se você quiser esperar até que a exclusão seja concluída ou acompanhar o andamento, use o comando `group wait`.</span><span class="sxs-lookup"><span data-stu-id="5932c-174">If you want to wait until the deletion is complete or watch it progress, use the `group wait` command.</span></span>
+    Esse comando exclui os recursos criados durante o tutorial e é garantido que eles serão desalocados na ordem correta. O parâmetro `--no-wait` evita o bloqueio da CLI enquanto ocorre a exclusão. Se você quiser esperar até que a exclusão seja concluída ou acompanhar o andamento, use o comando `group wait`.
 
 
     ```azurecli-interactive
@@ -177,59 +177,59 @@ items:
     ```
 
 
-    <span data-ttu-id="5932c-175">Com a limpeza concluída, o tutorial está encerrado.</span><span class="sxs-lookup"><span data-stu-id="5932c-175">With cleanup completed, the tutorial is finished.</span></span> <span data-ttu-id="5932c-176">Continue para obter um resumo de tudo o que você aprendeu e links para recursos que ajudarão nas próximas etapas.</span><span class="sxs-lookup"><span data-stu-id="5932c-176">Continue on for a summary of everything you learned and links to resources that will help you with your next steps.</span></span>
+    Com a limpeza concluída, o tutorial está encerrado. Continue para obter um resumo de tudo o que você aprendeu e links para recursos que ajudarão nas próximas etapas.
 - durationInMinutes: 1
-  title: <span data-ttu-id="5932c-177">Resumo</span><span class="sxs-lookup"><span data-stu-id="5932c-177">Summary</span></span>
+  title: Resumo
   content: >-
-    <span data-ttu-id="5932c-178">Parabéns!</span><span class="sxs-lookup"><span data-stu-id="5932c-178">Congratulations!</span></span> <span data-ttu-id="5932c-179">Você aprendeu a criar VMs com recursos novos ou existentes, usou argumentos `--query` e `--output` para capturar dados a serem armazenados em variáveis do shell e analisou alguns dos recursos que são criados para VMs do Azure.</span><span class="sxs-lookup"><span data-stu-id="5932c-179">You learned how to create VMs with new or existing resources, used the `--query` and `--output` arguments to capture data to be stored in shell variables, and looked at some of the resources that get created for Azure VMs.</span></span>
+    Parabéns! Você aprendeu a criar VMs com recursos novos ou existentes, usou argumentos `--query` e `--output` para capturar dados a serem armazenados em variáveis do shell e analisou alguns dos recursos que são criados para VMs do Azure.
 
 
-    <span data-ttu-id="5932c-180">O que você vai fazer a seguir depende de como você planeja usar a CLI.</span><span class="sxs-lookup"><span data-stu-id="5932c-180">Where you go from here depends on what you plan to use the CLI for.</span></span> <span data-ttu-id="5932c-181">Há uma variedade de materiais que se aprofundam nos recursos abordados neste tutorial.</span><span class="sxs-lookup"><span data-stu-id="5932c-181">There are a variety of materials that go further in depth on the features covered in this tutorial.</span></span>
+    O que você vai fazer a seguir depende de como você planeja usar a CLI. Há uma variedade de materiais que se aprofundam nos recursos abordados neste tutorial.
 
 
-    ### <a name="samples"></a><span data-ttu-id="5932c-182">Exemplos</span><span class="sxs-lookup"><span data-stu-id="5932c-182">Samples</span></span>
+    ### <a name="samples"></a>Exemplos
 
 
-    <span data-ttu-id="5932c-183">Se você quiser iniciar imediatamente com tarefas específicas, examine alguns scripts de exemplo.</span><span class="sxs-lookup"><span data-stu-id="5932c-183">If you want to get started right away with specific tasks, look at some sample scripts.</span></span>
+    Se você quiser iniciar imediatamente com tarefas específicas, examine alguns scripts de exemplo.
 
 
-    * <span data-ttu-id="5932c-184">Trabalhando com [VMs do Linux](/azure/virtual-machines/linux/cli-samples?toc=%2fcli%2fazure%2ftoc.json) e [VMs do Windows](/azure/virtual-machines/windows/cli-samples?toc=%2fcli%2fazure%2ftoc.json)</span><span class="sxs-lookup"><span data-stu-id="5932c-184">Working with [Linux VMs](/azure/virtual-machines/linux/cli-samples?toc=%2fcli%2fazure%2ftoc.json) and [Windows VMs](/azure/virtual-machines/windows/cli-samples?toc=%2fcli%2fazure%2ftoc.json)</span></span>
+    * Trabalhando com [VMs do Linux](/azure/virtual-machines/linux/cli-samples?toc=%2fcli%2fazure%2ftoc.json) e [VMs do Windows](/azure/virtual-machines/windows/cli-samples?toc=%2fcli%2fazure%2ftoc.json)
 
-    * <span data-ttu-id="5932c-185">Trabalhando com [webapps](/azure/app-service/app-service-cli-samples?toc=%2Fcli%2Fazure%2Ftoc.json) e [Azure Functions](/azure/azure-functions/functions-cli-samples?toc=%2fcli%2fazure%2ftoc.json)</span><span class="sxs-lookup"><span data-stu-id="5932c-185">Working with [webapps](/azure/app-service/app-service-cli-samples?toc=%2Fcli%2Fazure%2Ftoc.json) and [Azure Functions](/azure/azure-functions/functions-cli-samples?toc=%2fcli%2fazure%2ftoc.json)</span></span>
+    * Trabalhando com [webapps](/azure/app-service/app-service-cli-samples?toc=%2Fcli%2Fazure%2Ftoc.json) e [Azure Functions](/azure/azure-functions/functions-cli-samples?toc=%2fcli%2fazure%2ftoc.json)
 
-    * <span data-ttu-id="5932c-186">Trabalhando com bancos de dados – [Bancos de dados do SQL Azure](/azure/sql-database/sql-database-cli-samples?toc=%2fcli%2fazure%2ftoc.json), [PostgreSQL](/azure/postgresql/sample-scripts-azure-cli?toc=%2fcli%2fazure%2ftoc.json), [MySQL](/azure/mysql/sample-scripts-azure-cli?toc=%2fcli%2fazure%2ftoc.json) e [CosmosDB](/azure/cosmos-db/cli-samples?toc=%2fcli%2fazure%2ftoc.json).</span><span class="sxs-lookup"><span data-stu-id="5932c-186">Working with databases - [Azure SQL databases](/azure/sql-database/sql-database-cli-samples?toc=%2fcli%2fazure%2ftoc.json), [PostgreSQL](/azure/postgresql/sample-scripts-azure-cli?toc=%2fcli%2fazure%2ftoc.json), [MySQL](/azure/mysql/sample-scripts-azure-cli?toc=%2fcli%2fazure%2ftoc.json), and [CosmosDB](/azure/cosmos-db/cli-samples?toc=%2fcli%2fazure%2ftoc.json).</span></span>
-
-
-    ### <a name="in-depth-cli-documentation"></a><span data-ttu-id="5932c-187">Documentação aprofundada da CLI</span><span class="sxs-lookup"><span data-stu-id="5932c-187">In-depth CLI documentation</span></span>
+    * Trabalhando com bancos de dados – [Bancos de dados SQL do Azure](/azure/sql-database/sql-database-cli-samples?toc=%2fcli%2fazure%2ftoc.json), [PostgreSQL](/azure/postgresql/sample-scripts-azure-cli?toc=%2fcli%2fazure%2ftoc.json), [MySQL](/azure/mysql/sample-scripts-azure-cli?toc=%2fcli%2fazure%2ftoc.json) e [CosmosDB](/azure/cosmos-db/cli-samples?toc=%2fcli%2fazure%2ftoc.json).
 
 
-    <span data-ttu-id="5932c-188">Também há tópicos que se aprofundam nos recursos da CLI que foram mostrados no tutorial.</span><span class="sxs-lookup"><span data-stu-id="5932c-188">There are also topics that go deeper into the CLI features that were shown in the tutorial.</span></span>
+    ### <a name="in-depth-cli-documentation"></a>Documentação aprofundada da CLI
 
 
-    * <span data-ttu-id="5932c-189">Saiba mais sobre [formatos de saída](format-output-azure-cli.md)</span><span class="sxs-lookup"><span data-stu-id="5932c-189">Learn more about [output formats](format-output-azure-cli.md)</span></span>
-
-    * <span data-ttu-id="5932c-190">Saiba mais sobre [consultas de saída](query-azure-cli.md)</span><span class="sxs-lookup"><span data-stu-id="5932c-190">Learn more about [output queries](query-azure-cli.md)</span></span>
-
-    * <span data-ttu-id="5932c-191">Saiba mais sobre a [autorização no Azure](authenticate-azure-cli.md)</span><span class="sxs-lookup"><span data-stu-id="5932c-191">Learn more about [authorization in Azure](authenticate-azure-cli.md)</span></span>
+    Também há tópicos que se aprofundam nos recursos da CLI que foram mostrados no tutorial.
 
 
-    ### <a name="other-useful-documentation"></a><span data-ttu-id="5932c-192">Outras documentações úteis</span><span class="sxs-lookup"><span data-stu-id="5932c-192">Other useful documentation</span></span>
+    * Saiba mais sobre [formatos de saída](format-output-azure-cli.md)
+
+    * Saiba mais sobre [consultas de saída](query-azure-cli.md)
+
+    * Saiba mais sobre a [autorização no Azure](authenticate-azure-cli.md)
 
 
-    <span data-ttu-id="5932c-193">Talvez você queira reservar um tempo para explorar recursos mais avançados da CLI, como [padrões de configuração](azure-cli-configuration.md) ou [extensões](azure-cli-extensions-overview.md).</span><span class="sxs-lookup"><span data-stu-id="5932c-193">You might want to take time to explore more advanced features of the CLI, like [configuring defaults](azure-cli-configuration.md) or [extensions](azure-cli-extensions-overview.md).</span></span>
+    ### <a name="other-useful-documentation"></a>Outras documentações úteis
 
 
-    ### <a name="feedback"></a><span data-ttu-id="5932c-194">Comentários</span><span class="sxs-lookup"><span data-stu-id="5932c-194">Feedback</span></span>
+    Talvez você queira reservar um tempo para explorar recursos mais avançados da CLI, como [padrões de configuração](azure-cli-configuration.md) ou [extensões](azure-cli-extensions-overview.md).
 
 
-    <span data-ttu-id="5932c-195">Caso queira enviar comentários, sugestões ou perguntas sobre a CLI, há várias maneiras de entrar em contato.</span><span class="sxs-lookup"><span data-stu-id="5932c-195">If you'd like to give feedback, suggestions, or ask questions about the CLI, there are a number of ways for you to get in touch.</span></span>
+    ### <a name="feedback"></a>Comentários
 
 
-    * <span data-ttu-id="5932c-196">`az feedback` é um comando interno para a CLI que permite enviar comentários de formato livre para a equipe.</span><span class="sxs-lookup"><span data-stu-id="5932c-196">`az feedback` is a built-in command for the CLI that allows providing free-form feedback to the team.</span></span>
-
-    * <span data-ttu-id="5932c-197">Crie uma solicitação de recurso ou um relatório de erros com a CLI no [repositório da CLI do Azure](https://github.com/Azure/azure-cli).</span><span class="sxs-lookup"><span data-stu-id="5932c-197">File a feature request or a bug report with the CLI in the [Azure CLI repository](https://github.com/Azure/azure-cli).</span></span>
-
-    * <span data-ttu-id="5932c-198">Faça uma pergunta ou obtenha esclarecimentos preenchendo um formulário de problemas no [repositório de documentação da CLI do Azure](https://github.com/MicrosoftDocs/azure-docs-cli/issues).</span><span class="sxs-lookup"><span data-stu-id="5932c-198">Ask a question or get clarification by filing an issue in the [Azure CLI documentation repository](https://github.com/MicrosoftDocs/azure-docs-cli/issues).</span></span>
+    Caso queira enviar comentários, sugestões ou perguntas sobre a CLI, há várias maneiras de entrar em contato.
 
 
-    <span data-ttu-id="5932c-199">Esperamos que você aproveite a CLI do Azure!</span><span class="sxs-lookup"><span data-stu-id="5932c-199">We hope that you enjoy using the Azure CLI!</span></span>
+    * `az feedback` é um comando interno para a CLI que permite enviar comentários de formato livre para a equipe.
+
+    * Crie uma solicitação de recurso ou um relatório de erros com a CLI no [repositório da CLI do Azure](https://github.com/Azure/azure-cli).
+
+    * Faça uma pergunta ou obtenha esclarecimentos preenchendo um formulário de problemas no [repositório de documentação da CLI do Azure](https://github.com/MicrosoftDocs/azure-docs-cli/issues).
+
+
+    Esperamos que você aproveite a CLI do Azure!
