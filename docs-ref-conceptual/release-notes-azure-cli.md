@@ -4,19 +4,33 @@ description: Saiba mais sobre as últimas atualizações da CLI do Azure
 author: dbradish-microsoft
 ms.author: dbradish
 manager: barbkess
-ms.date: 01/07/2020
+ms.date: 01/13/2020
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 9fc54add3bfb2a75d1912c47f0a2571d9d065ec0
-ms.sourcegitcommit: 5646008e7a521dd9a8a627418f57bd92ee180352
+ms.openlocfilehash: 3ecb6fb41ee0ae60af58a02c934f2c295133f998
+ms.sourcegitcommit: 18973ac471bbd12af2c8f8fa32a233b0abe5b020
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75694267"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75913714"
 ---
 # <a name="azure-cli-release-notes"></a>Notas de versão da CLI do Azure
+
+## <a name="january-13-2020"></a>13 de janeiro de 2020
+
+Versão 2.0.80
+
+### <a name="compute"></a>Computação
+
+* atualização do disco: Adicionar --disk-encryption-set e --encryption-type
+* criação/atualização do instantâneo: Adicionar --disk-encryption-set e --encryption-type
+
+### <a name="storage"></a>Armazenamento
+
+* Atualizar a versão do azure-mgmt-storage para 7.1.0
+* `az storage account create`: Adicionar `--encryption-key-type-for-table` e `--encryption-key-type-for-queue` para dar suporte ao Serviço de Criptografia de Tabela e de Fila
 
 ## <a name="january-07-2020"></a>07 de janeiro de 2020
 
@@ -53,6 +67,11 @@ Versão 2.0.79
 * Corrigir a falha `vm create` no perfil do Azure Stack.
 * parte final/listar definições de métricas de monitor de vm: suporte a métricas de consulta e definições de lista para uma vm.
 * Adicionar nova ação de comando de reaplicação para az vm
+
+### <a name="hdinsight"></a>HDInsight
+
+* Suporte para criar um cluster Kafka com o Proxy REST do Kafka
+* Atualizar azure-mgmt-hdinsight para 1.3.0
 
 ### <a name="misc"></a>Diversos.
 
