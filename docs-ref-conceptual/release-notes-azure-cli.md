@@ -4,19 +4,137 @@ description: Saiba mais sobre as últimas atualizações da CLI do Azure
 author: dbradish-microsoft
 ms.author: dbradish
 manager: barbkess
-ms.date: 01/13/2020
+ms.date: 02/04/2020
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 3ecb6fb41ee0ae60af58a02c934f2c295133f998
-ms.sourcegitcommit: 18973ac471bbd12af2c8f8fa32a233b0abe5b020
+ms.openlocfilehash: eafd18344ac4c1c0124ff53864a45510070b6fe7
+ms.sourcegitcommit: d0b2763cc856eef44a6ecb78f6b8c64291625750
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75913714"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "77013277"
 ---
 # <a name="azure-cli-release-notes"></a>Notas de versão da CLI do Azure
+
+## <a name="february-04-2020"></a>4 de fevereiro de 2020
+
+Versão 2.0.81
+
+### <a name="acs"></a>ACS
+
+* Adicionar suporte para definir portas alocadas de saída e tempos limite ociosos no balanceador de carga standard
+* Atualizar para a versão da API 2019-11-01
+
+### <a name="acr"></a>ACR
+
+* A [ALTERAÇÃO DA FALHA] `az acr delete` será exibida
+* A [ALTERAÇÃO SIGNIFICATIVA] 'az acr task delete’ será exibida
+* Adicionar um novo grupo de comandos ‘az acr taskrun show/list/delete’ para o gerenciamento de taskrun
+
+### <a name="aks"></a>AKS
+
+* Cada cluster obtém uma entidade de serviço separada para aprimorar o isolamento
+
+### <a name="appconfig"></a>AppConfig
+
+* Dar suporte à importação/exportação de referências keyvault de/a appservice
+* Dar suporte à importação/exportação de todos os rótulos de appconfig para appconfig
+* Validar nomes de chave e recursos antes de configurar e importar
+* Exponha a modificação do sku para o repositório de configurações.
+* Adicione o grupo de comandos à identidade gerenciada.
+
+### <a name="appservice"></a>AppService
+
+* Azure Stack: comandos de superfície no perfil de 2019-03-01-hybrid
+* functionapp: adicionar a capacidade de criar aplicativos de funções Java no Linux
+
+### <a name="arm"></a>ARM
+
+* Correção de problema nº 10246: `az resource tag` falha quando o parâmetro `--ids` passado é a ID do grupo de recursos
+* Correção de problema nº 11658: o comando `az group export` não é compatível com os parâmetros `--query` e `--output`
+* Correção de problema nº 10279: O código de saída `az group deployment validate` é 0 quando a verificação falha
+* Correção de problema nº 9916: aprimorar a mensagem de erro do conflito entre a marca e outras condições de filtro para o comando `az resource list`
+* Adicionar novo parâmetro `--managed-by` para dar suporte à adição de informações managedBy para o comando `az group create`
+
+### <a name="azure-red-hat-openshift"></a>Red Hat OpenShift no Azure
+
+* Adicionar o subgrupo `monitor` para gerenciar o monitoramento do Log Analytics no cluster do Red Hat OpensShift no Azure
+
+### <a name="botservice"></a>BotService
+
+* Correção de problema nº 11697: `az bot create` não é idempotente
+* Alterar testes de correção de nomes para serem executados somente em modo Ao vivo
+
+### <a name="cdn"></a>CDN
+
+* Adicionar suporte ao recurso rulesEngine
+* Adicionar o novo grupo de comandos ‘cdn endpoint rule’ para gerenciar regras
+* Atualizar a versão azure-mgmt-cdn para a 4.0.0 para usar a versão da API 2019-04-15
+
+### <a name="deployment-manager"></a>Gerenciador de Implantação
+
+* Adicione a operação de lista para todos os recursos.
+* Aprimore o recurso de etapa do novo tipo de etapa.
+* Atualize o pacote azure-mgmt-deploymentmanager para usar a versão 0.2.0.
+
+### <a name="iot"></a>IoT
+
+* Substitua os comandos ‘IoT hub Job’.
+
+### <a name="iot-central"></a>Central da IoT
+
+* Dê suporte à atualização/criação de aplicativos com o novo nome do SKU ST0, ST1, ST2.
+
+### <a name="key-vault"></a>Key Vault
+
+* Adicione um novo comando `az keyvault key download` para baixar chaves.
+
+### <a name="misc"></a>Diversos
+
+* Correção nº 6371: dar suporte à conclusão da variável de nome de arquivo e de ambiente em Bash
+
+### <a name="network"></a>Rede
+
+* Correção nº 2092: az network dns record-set add/remove: adicione um aviso quando record-set não é encontrado. No futuro, haverá suporte para um argumento extra para confirmar essa criação automática.
+
+### <a name="policy"></a>Política
+
+* Adicionar o novo comando `az policy metadata` para recuperar recursos avançados de metadados de política
+* `az policy remediation create`: Especifique se a conformidade deve ser reavaliada antes da correção com o parâmetro `--resource-discovery-mode`
+
+### <a name="profile"></a>Perfil
+
+* `az account get-access-token`: Adicionar parâmetro `--tenant` para adquirir o token do locatário diretamente, sem a necessidade de especificar uma assinatura
+
+### <a name="rbac"></a>RBAC
+
+* [ALTERAÇÃO SIGNIFICATIVA] Correção nº 11883: `az role assignment create`: o escopo vazio exibirá erro
+
+### <a name="security"></a>Segurança
+
+* Adicione novos comandos `az atp show` e `az atp update` para exibir e gerenciar configurações avançadas de proteção contra ameaças para contas de armazenamento.
+
+### <a name="sql"></a>SQL
+
+* `sql dw create`: substitua os parâmetros `--zone-redundant` e `--read-replica-count`. Esses parâmetros não se aplicam ao DataWarehouse.
+* [ALTERAÇÃO DA FALHA] `az sql db create`: Remova "WideWorldImportersStd" e "WideWorldImportersFull" como valores permitidos documentados para "az sql db create --sample-name". Esses bancos de dados de exemplo sempre farão a criação falhar.
+* Adicione os novos comandos `sql db classification show/list/update/delete` e `sql db classification recommendation list/enable/disable` para gerenciar classificações de confidencialidade para bancos de dados SQL.
+* `az sql db audit-policy`: Correção para ações e grupos de auditoria vazios
+
+### <a name="storage"></a>Armazenamento
+
+* Adicione um novo grupo de comandos `az storage share-rm` para usar o provedor de recursos Microsoft.Storage para operações de gerenciamento de compartilhamento de arquivo do Azure.
+* Correção de problema nº 11415: erro de permissão para `az storage blob update`
+* Integre Azcopy 10.3.3 e dê suporte a Win32.
+* `az storage copy`: Adicione os parâmetros `--include-path`, `--include-pattern`, `--exclude-path` e `--exclude-pattern`
+* `az storage remove`: Altere os parâmetros `--inlcude` e `--exclude` para os parâmetros `--include-path`, `--include-pattern`, `--exclude-path` e `--exclude-pattern`
+* `az storage sync`: Adicione os parâmetros `--include-pattern`, `--exclude-path` e `--exclude-pattern`
+
+### <a name="servicefabric"></a>ServiceFabric
+
+* Adicione novos comandos para gerenciar o aplicativo e os serviços.
 
 ## <a name="january-13-2020"></a>13 de janeiro de 2020
 

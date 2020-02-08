@@ -9,24 +9,25 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 7bc31ba89234dbdb7b939f3a09886f31184ac65f
-ms.sourcegitcommit: 18973ac471bbd12af2c8f8fa32a233b0abe5b020
+ms.openlocfilehash: adb488081076715eb080d1972bba18d285402e95
+ms.sourcegitcommit: a233bb75e27a5c8772c173f195e74d12381b7a64
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75913547"
+ms.lasthandoff: 01/30/2020
+ms.locfileid: "76890449"
 ---
 # <a name="output-formats-for-azure-cli-commands"></a>Formatos de saída dos comandos da CLI do Azure
 
 A CLI do Azure usa JSON como formato de saída padrão, mas oferece outros formatos.  Use o parâmetro `--output` (`--out` ou `-o`) para formatar a saída da CLI. Os valores e tipos de argumentos de saída são:
 
---output | DESCRIÇÃO
+--output | Descrição
 ---------|-------------------------------
-`json`   | cadeia de caracteres JSON. Esta é a configuração padrão.
-`jsonc`  | JSON colorido.
-`yaml`   | YAML, uma alternativa legível por computador para JSON.
-`table`  | A tabela ASCII com as chaves como títulos de coluna.
+`json`   | cadeia de caracteres JSON. Essa configuração é a padrão
+`jsonc`  | JSON colorido
+`yaml`   | YAML, uma alternativa ao JSON legível por computador
+`table`  | A tabela ASCII com chaves como títulos de colunas
 `tsv`    | Valores separados por tabulação, sem chaves
+`none`   | Nenhuma saída diferente de erros e avisos
 
 ## <a name="json-output-format"></a>Formato da saída JSON
 
@@ -177,7 +178,7 @@ az vm list --out tsv --query '[].[id, location, resourceGroup, name]'
 
 O exemplo a seguir mostra como a saída `tsv` pode ser transportada para outros comandos no bash. A consulta é usada para filtrar a saída e forçar o ordenamento, `grep` seleciona itens com o texto "RGD" e o comando `cut` seleciona o quarto campo para mostrar o nome da VM na saída.
 
-```bash
+```azurecli-interactive
 az vm list --out tsv --query '[].[id, location, resourceGroup, name]' | grep RGD | cut -f4
 ```
 
