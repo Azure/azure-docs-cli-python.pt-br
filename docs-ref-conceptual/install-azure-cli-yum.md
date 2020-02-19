@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: f65240524942c2534f61b9cc51101812c8d09351
-ms.sourcegitcommit: 0088160bdb1ea520724d3e1efe71a4a66f29753d
+ms.openlocfilehash: 53d480c24e624d87ff0cc67ac143c2172344edf4
+ms.sourcegitcommit: 91c1e5423bd054a948620999b559bc3a9828a688
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2019
-ms.locfileid: "75216915"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77453712"
 ---
 # <a name="install-azure-cli-with-yum"></a>Instalar a CLI do Azure com o yum
 
@@ -55,7 +55,7 @@ Execute a CLI do Azure com o comando `az`. Para entrar, use o comando [az login]
 
 Para saber mais sobre os diferentes métodos de autenticação, confira [Entrar com a CLI do Azure](authenticate-azure-cli.md).
 
-## <a name="troubleshooting"></a>solução de problemas
+## <a name="troubleshooting"></a>Solução de problemas
 
 Aqui estão alguns problemas comuns vistos durante a instalação com `yum`. Se você tiver um problema não abordado aqui, [arquive um problema no github](https://github.com/Azure/azure-cli/issues).
 
@@ -67,8 +67,6 @@ $ sudo yum install yum-utils
 $ sudo yumdownloader azure-cli
 $ sudo rpm -ivh --nodeps azure-cli-*.rpm
 ```
-
-A opção menos recomendada ainda é usar o Python 2 e seguir as [instruções de instalação manual](install-azure-cli-linux.md), pois o Python 2 está sendo encerrado em 1º de janeiro de 2020. Uma versão futura da CLI do Azure removerá o suporte para Python 2.7.
 
 ### <a name="proxy-blocks-connection"></a>Conexão de blocos de proxy
 
