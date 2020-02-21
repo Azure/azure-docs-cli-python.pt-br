@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 790c63a60a5d23863b48227dcc99462bbf950d80
-ms.sourcegitcommit: b42ce26476b135bb2047c8d9d787580c858f8b6b
+ms.openlocfilehash: 9a5026634691f49d960f383c90e139754c862cb4
+ms.sourcegitcommit: 91c1e5423bd054a948620999b559bc3a9828a688
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72163844"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77453745"
 ---
 # <a name="install-azure-cli-on-macos"></a>Instalar a CLI do Azure no macOS
 
@@ -44,9 +44,13 @@ brew update && brew install azure-cli
 
 Para saber mais sobre os diferentes métodos de autenticação, confira [Entrar com a CLI do Azure](authenticate-azure-cli.md).
 
-## <a name="troubleshooting"></a>solução de problemas
+## <a name="troubleshooting"></a>Solução de problemas
 
 Se você encontrar um problema ao instalar a CLI através do Homebrew, aqui estão alguns erros comuns. Se você tiver um problema não abordado aqui, [arquive um problema no github](https://github.com/Azure/azure-cli/issues).
+
+### <a name="completion-is-not-working"></a>A conclusão não está funcionando
+
+A fórmula Homebrew da CLI do Azure instala um arquivo de conclusão chamado `az` no diretório de conclusões gerenciado pelo Homebrew (o local padrão é `/usr/local/etc/bash_completion.d/`). Para habilitar a conclusão, siga as instruções do Homebrew [aqui](https://docs.brew.sh/Shell-Completion).
 
 ### <a name="unable-to-find-python-or-installed-packages"></a>Não é possível localizar o Python ou os pacotes instalados
 

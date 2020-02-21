@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: caca30ec186f302e47f2978b9bfe616d4b2a5c02
-ms.sourcegitcommit: 443e14098d6643cdb2e178847d1c79b1b95146ce
+ms.openlocfilehash: 03b7d6d5ac157b3f22daa1b9be61fd1daecb9992
+ms.sourcegitcommit: 91c1e5423bd054a948620999b559bc3a9828a688
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74543633"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77453660"
 ---
 # <a name="install-azure-cli-on-linux-manually"></a>Instalar CLI do Azure no Linux manualmente
 
@@ -29,13 +29,13 @@ Se não houver nenhum pacote da CLI do Azure para a sua distribuição, instale 
 
 A CLI requer o seguinte software:
 
-* [Python 3.6.x ou 3.7.x](https://www.python.org/downloads/). 
+* [Python 3.6.x, 3.7.x ou 3.8.x](https://www.python.org/downloads/). 
 * [libffi](https://sourceware.org/libffi/)
 * [OpenSSL 1.0.2](https://www.openssl.org/source/)
 
 > [!IMPORTANT]
 >
-> A CLI também é compatível com o Python 2.7.x, que será retirado do mercado em 1º de janeiro de 2020. Uma versão futura da CLI do Azure removerá o suporte para Python 2.7. Por esse motivo, é recomendável que você instale o Python 3 para executar a CLI. 
+> A CLI não é mais compatível com o Python 2.7 desde a versão `2.1.0`. Não há garantia de que as novas versões serão executadas com o Python 2.7 corretamente.
 
 ## <a name="install-or-update"></a>Instalar ou atualizar
 
@@ -53,7 +53,7 @@ O script também pode ser baixado e executado localmente. Talvez você precise r
 
 Para saber mais sobre os diferentes métodos de autenticação, confira [Entrar com a CLI do Azure](authenticate-azure-cli.md).
 
-## <a name="troubleshooting"></a>solução de problemas
+## <a name="troubleshooting"></a>Solução de problemas
 
 Aqui estão alguns problemas comuns observados durante uma instalação manual. Se você tiver um problema não abordado aqui, [arquive um problema no GitHub](https://github.com/Azure/azure-cli/issues).
 

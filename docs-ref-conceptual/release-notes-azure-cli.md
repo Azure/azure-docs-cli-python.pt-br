@@ -4,19 +4,108 @@ description: Saiba mais sobre as últimas atualizações da CLI do Azure
 author: dbradish-microsoft
 ms.author: dbradish
 manager: barbkess
-ms.date: 02/04/2020
+ms.date: 02/18/2020
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: eafd18344ac4c1c0124ff53864a45510070b6fe7
-ms.sourcegitcommit: d0b2763cc856eef44a6ecb78f6b8c64291625750
+ms.openlocfilehash: 6c07b93752df2dab6ca0b210675a48b5c7b85c1c
+ms.sourcegitcommit: 91c1e5423bd054a948620999b559bc3a9828a688
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "77013277"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77453470"
 ---
 # <a name="azure-cli-release-notes"></a>Notas de versão da CLI do Azure
+
+## <a name="february-18-2020"></a>18 de fevereiro de 2020
+
+Versão 2.1.0
+
+### <a name="acr"></a>ACR
+
+* Adicionar um novo argumento `--expose-token` a `az acr login`
+* Corrigir a saída incorreta de `az acr task identity show -n Name -r Registry -o table`
+* az acr login: Gerar CLIError se erros forem retornados pelo comando docker
+
+### <a name="acs"></a>ACS
+
+* aks create/update: adicionar a validação `--vnet-subnet-id`
+
+### <a name="aladdin"></a>Aladdin
+
+* Analisar os exemplos gerados no _help.py do comando
+
+### <a name="ams"></a>AMS
+
+* az ams já está em GA
+
+### <a name="appconfig"></a>AppConfig
+
+* Revisar a mensagem de ajuda para excluir o filtro de chave/rótulo não compatível
+* Remover a marca de versão prévia da maioria dos comandos que excluem a identidade gerenciada e têm sinalizadores
+* Adicionar a chave gerenciada do cliente ao atualizar os repositórios
+
+### <a name="appservice"></a>AppService
+
+* az webapp list-runtimes: Corrigir o bug de list-runtimes
+* Adicionar az webapp|functionapp config ssl create
+* Adicionar compatibilidade com aplicativos de funções v3 e nó 12
+
+### <a name="arm"></a>ARM
+
+* az policy assignment create: Corrigir a mensagem de erro quando o parâmetro `--policy` for inválido
+* az group deployment create: Corrigir o erro "stat: o caminho é muito longo para o Windows" ao usar o arquivo grande parameters.json
+
+### <a name="backup"></a>Backup
+
+* Corrigir o fluxo de recuperação de nível de item no OLR
+* Adicionar compatibilidade com restauração como arquivo aos bancos de dados SQL e SAP
+
+### <a name="compute"></a>Computação
+
+* vm/vmss/availability-set update: adicionar --ppg para permitir a atualização de ProximityPlacementGroup
+* vmss create: adicionar --data-disk-iops e --data-disk-mbps
+* az vm host: remover a marca de versão prévia de `vm host` e `vm host group`
+* [ALTERAÇÃO SIGNIFICATIVA] Correção nº 10.728: `az vm create`: criar uma sub-rede automaticamente quando a vnet for especificada e não houver uma sub-rede
+* Aumentar a robustez da lista de imagens de VM
+
+### <a name="eventhub"></a>Eventhub
+
+* Compatibilidade com o Azure Stack para o perfil 2019-03-01-hybrid
+
+### <a name="keyvault"></a>KeyVault
+
+* az keyvault key create: adicionar um novo valor `import` ao parâmetro `--ops`
+* az keyvault key list-versions: compatibilidade com o parâmetro `--id` para especificar chaves
+* Compatibilidade com conexões de ponto de extremidade privado
+
+### <a name="network"></a>Rede
+
+* Avançar para azure-mgmt-network 9.0.0
+* az network private-link-service update/create: dá suporte a --enable-proxy-protocol
+* Adicionar o recurso de Monitor de conexão V2
+
+### <a name="packaging"></a>Empacotamento
+
+* [ALTERAÇÃO SIGNIFICATIVA] Fim da compatibilidade com o Python 2.7
+
+### <a name="profile"></a>Perfil
+
+* Visualização: Adicionar novos atributos `homeTenantId` e `managedByTenants` às contas de assinatura. Executar `az login` novamente para as alterações entrarem em vigor
+* az login: Mostrar um aviso quando uma assinatura estiver listada de mais de um locatário e definir a primeira como padrão. Para selecionar um locatário específico ao acessar essa assinatura, inclua `--tenant` em `az login`
+
+### <a name="role"></a>Função
+
+* az role assignment create: Corrigir o erro em que atribuir uma função a uma entidade de serviço pelo nome de exibição gera um HTTP 400
+
+### <a name="sql"></a>SQL
+
+* Atualizar o cmdlet da Instância Gerenciada do SQL `az sql mi update` com dois novos parâmetros: nível e família
+
+### <a name="storage"></a>Armazenamento
+
+* [ALTERAÇÃO DA FALHA] `az storage account create`: Alterar o tipo de conta de armazenamento padrão para StorageV2
 
 ## <a name="february-04-2020"></a>4 de fevereiro de 2020
 
