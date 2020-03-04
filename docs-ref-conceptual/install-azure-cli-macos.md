@@ -1,20 +1,19 @@
 ---
 title: Instalar a CLI do Azure para macOS
 description: Como instalar a CLI do Azure no macOS
-author: sptramer
-ms.author: sttramer
-manager: carmonm
+author: dbradish-microsoft
+ms.author: dbradish
+manager: barbkess
 ms.date: 11/05/2018
 ms.topic: conceptual
-ms.prod: azure
-ms.technology: azure-cli
+ms.service: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 9a5026634691f49d960f383c90e139754c862cb4
-ms.sourcegitcommit: 91c1e5423bd054a948620999b559bc3a9828a688
+ms.openlocfilehash: 862ebf9144d7e81be6dda550eba108198f38d397
+ms.sourcegitcommit: 7caa6673f65e61deb8d6def6386e4eb9acdac923
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77453745"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77780087"
 ---
 # <a name="install-azure-cli-on-macos"></a>Instalar a CLI do Azure no macOS
 

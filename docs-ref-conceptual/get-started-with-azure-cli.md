@@ -1,21 +1,19 @@
 ---
 title: Introdução à CLI do Azure
 description: Comece a usar a CLI do Azure aprendendo as noções básicas de comando.
-keywords: CLI do Azure, ajuda da CLI, ajuda do Azure, consulta, automação,
 author: dbradish-microsoft
 ms.author: dbradish
 manager: barbkess
 ms.date: 01/30/2020
 ms.topic: conceptual
-ms.prod: azure
-ms.technology: azure-cli
+ms.service: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 741d092121bbd448595301000acb9a5f51d87ace
-ms.sourcegitcommit: d0b2763cc856eef44a6ecb78f6b8c64291625750
+ms.openlocfilehash: bef8ef96ffefd6214bc924d7378971348d528304
+ms.sourcegitcommit: 7caa6673f65e61deb8d6def6386e4eb9acdac923
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "77013243"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77779628"
 ---
 # <a name="get-started-with-azure-cli"></a>Introdução à CLI do Azure
 
@@ -32,6 +30,9 @@ A maneira mais fácil começar a usar a CLI do Azure é executando-a em um ambie
 Quando você estiver pronto para instalar a CLI, confira as [instruções de instalação](install-azure-cli.md).
 
 Depois de instalar a CLI pela primeira vez, verifique se ela está instalada e se você tem a versão correta, executando `az --version`.
+
+> [!NOTE]
+> Se você estiver usando o modelo de implantação clássico do Azure, [instale a CLI clássica do Azure](install-classic-cli.md).
 
 ## <a name="sign-in"></a>Entrar
 

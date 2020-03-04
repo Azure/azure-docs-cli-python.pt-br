@@ -1,20 +1,19 @@
 ---
 title: Modo interativo da CLI do Azure
 description: Use a CLI do Azure no modo interativo.
-author: sptramer
-ms.author: sttramer
-manager: carmonm
+author: dbradish-microsoft
+ms.author: dbradish
+manager: barbkess
 ms.date: 09/09/2018
 ms.topic: conceptual
-ms.prod: azure
-ms.technology: azure-cli
+ms.service: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: a325b799c7384037ae336093aa5274c7cbf53cbc
-ms.sourcegitcommit: 334a1da92a73e42e715e33470057f4194f10b2ea
+ms.openlocfilehash: 7b3ee1e284e7f771c661bb65bf8b8ab53dafd77f
+ms.sourcegitcommit: 7caa6673f65e61deb8d6def6386e4eb9acdac923
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59429006"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77779509"
 ---
 # <a name="azure-cli-interactive-mode"></a>Modo interativo da CLI do Azure
 
@@ -80,7 +79,7 @@ az vm image>> %%
 az>>
 ```
 
-## <a name="query"></a>Consultar
+## <a name="query"></a>Consulta
 
 É possível executar uma consulta JMESPath nos resultados do último comando executado usando `??` seguido de uma consulta JMESPath.
 Por exemplo, depois de criar um grupo, você pode recuperar a ID do novo grupo.
