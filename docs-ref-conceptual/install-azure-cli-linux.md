@@ -24,7 +24,7 @@ Se não houver nenhum pacote da CLI do Azure para a sua distribuição, instale 
 > [!NOTE]
 > É altamente recomendável instalar a CLI com um gerenciador de pacotes. Um gerenciador de pacotes garante que você sempre obtenha as atualizações mais recentes, além da estabilidade dos componentes da CLI. Verifique e veja se há um pacote de distribuição antes de instalar manualmente.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 A CLI requer o seguinte software:
 
