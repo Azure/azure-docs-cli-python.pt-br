@@ -1,20 +1,19 @@
 ---
 title: Gerenciar assinaturas do Azure com a CLI do Azure
 description: Gerencie as assinaturas do Azure com a CLI do Azure.
-author: sptramer
-ms.author: sttramer
-manager: carmonm
+author: dbradish-microsoft
+ms.author: dbradish
+manager: barbkess
 ms.date: 09/09/2018
 ms.topic: conceptual
-ms.product: azure
-ms.technology: azure-cli
+ms.service: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 37ef0c1d7cca90c99aa6f832c6dc6dc29a1806a3
-ms.sourcegitcommit: 08043c47d3ccf23522b91e6bba3932e312c04c7f
+ms.openlocfilehash: dad217dff159baa39bd1361258fb308eea872564
+ms.sourcegitcommit: 7caa6673f65e61deb8d6def6386e4eb9acdac923
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66516203"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77780053"
 ---
 # <a name="use-multiple-azure-subscriptions"></a>Usar várias assinaturas do Azure
 

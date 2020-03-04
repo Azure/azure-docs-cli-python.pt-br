@@ -1,21 +1,19 @@
 ---
 title: Opções de configuração da CLI do Azure
 description: Como configurar a CLI do Azure
-keywords: CLI do Azure, definição, configurações, Azure
 author: dbradish-microsoft
 ms.author: dbradish
 manager: barbkess
 ms.date: 06/11/2018
 ms.topic: conceptual
-ms.prod: azure
-ms.technology: azure-cli
+ms.service: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: ffdcbda500bc148e661ee4422b76ec51ff4603eb
-ms.sourcegitcommit: 18973ac471bbd12af2c8f8fa32a233b0abe5b020
+ms.openlocfilehash: ff5f9f5a5add52bc05009a42aeb00855eb2703fa
+ms.sourcegitcommit: 7caa6673f65e61deb8d6def6386e4eb9acdac923
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75913681"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77779645"
 ---
 # <a name="azure-cli-configuration"></a>Configuração da CLI do Azure
 
@@ -35,7 +33,7 @@ Esse comando usa um argumento, `--defaults`, que é uma lista separada por espa�
 
 A tabela a seguir contém uma lista de chaves de configuração disponíveis.
 
-| Nome | DESCRIÇÃO |
+| Nome | Descrição |
 |------|-------------|
 | group | O grupo de recursos padrão para usar para todos os comandos. |
 | local | O local padrão para usar para todos os comandos. |
@@ -84,11 +82,11 @@ A tabela a seguir contém todas as seções e as opções de nomes que podem ser
 
 Quando você fornece um valor padrão, esse argumento já não é exigido pelos comandos. Em vez disso, o valor padrão é usado.
 
-| Seção | Nome      | Type | DESCRIÇÃO|
+| Seção | Nome      | Type | Descrição|
 |---------|-----------|------|------------|
 | __core__ | output | string | O formato de saída padrão. Pode ser `json`, `jsonc`, `tsv` ou `table`. |
 | | disable\_confirm\_prompt | booleano | Ativa e desativa prompts de confirmação. |
-| | collect\_telemetry | booleano | Permitir que a Microsoft colete dados anônimos sobre o uso da CLI. Para obter informações de privacidade, confira os [Termos de uso da CLI do Azure](http://aka.ms/AzureCliLegal). |
+| | collect\_telemetry | booleano | Permitir que a Microsoft colete dados anônimos sobre o uso da CLI. Para obter informações de privacidade, confira os [Termos de uso da CLI do Azure](https://aka.ms/AzureCliLegal). |
 | __logging__ | enable\_log\_file | booleano | Ativar e desativar o registro em log. |
 | | log\_dir | string | O diretório no qual gravar os logs. Por padrão, esse valor é `${AZURE_CONFIG_DIR}/logs`. |
 | __storage__ | connection\_string | string | A cadeia de conexão padrão a ser usada para comandos `az storage`. |
