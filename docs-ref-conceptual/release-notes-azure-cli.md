@@ -6,15 +6,14 @@ ms.author: dbradish
 manager: barbkess
 ms.date: 02/18/2020
 ms.topic: article
-ms.prod: azure
-ms.technology: azure-cli
+ms.service: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 6c07b93752df2dab6ca0b210675a48b5c7b85c1c
-ms.sourcegitcommit: 91c1e5423bd054a948620999b559bc3a9828a688
+ms.openlocfilehash: 49bb108372225146be8ffc6bb38cf793da8cdb74
+ms.sourcegitcommit: 7caa6673f65e61deb8d6def6386e4eb9acdac923
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77453470"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77779934"
 ---
 # <a name="azure-cli-release-notes"></a>Notas de versão da CLI do Azure
 
@@ -592,8 +591,8 @@ Versão 2.0.76
 * `gremlin graph create`: Adicionado `--conflict-resolution-policy`
 * `gremlin graph create/update`: o esquema padrão `--idx` foi atualizado
 * Erro de digitação corrigido na mensagem de ajuda
-* banco de dados: foram adicionadas informações sobre preteridos
-* coleção: foram adicionadas informações sobre preteridos
+* banco de dados: Foram adicionadas informações sobre preteridos
+* coleção: Foram adicionadas informações sobre preteridos
 
 ### <a name="iot"></a>IoT
 
@@ -711,7 +710,7 @@ Versão 2.0.74
 ### <a name="acr"></a>ACR
 
 * Inclusão de um parâmetro `--type` obrigatório em `acr config retention update`
-* [ALTERAÇÃO DE FALHA] O parâmetro renomeado `--name -n` foi alterado para `--registry -r ` para o grupo de comando `acr config`
+* [ALTERAÇÃO SIGNIFICATIVA] O parâmetro renomeado `--name -n` foi alterado para `--registry -r ` para o grupo de comando `acr config`
 
 ### <a name="aks"></a>AKS
 
