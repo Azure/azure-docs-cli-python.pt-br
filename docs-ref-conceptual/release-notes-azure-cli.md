@@ -4,18 +4,143 @@ description: Saiba mais sobre as últimas atualizações da CLI do Azure
 author: dbradish-microsoft
 ms.author: dbradish
 manager: barbkess
-ms.date: 02/18/2020
+ms.date: 03/10/2020
 ms.topic: article
 ms.service: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 49bb108372225146be8ffc6bb38cf793da8cdb74
-ms.sourcegitcommit: 7caa6673f65e61deb8d6def6386e4eb9acdac923
+ms.openlocfilehash: ff3a1da2343b96bfd78b20742c2c15707932f3d7
+ms.sourcegitcommit: 21bc2a7125b6c38bf1c4def0a0e66e6673de4805
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77779934"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79037941"
 ---
 # <a name="azure-cli-release-notes"></a>Notas de versão da CLI do Azure
+
+## <a name="march-10-2020"></a>10 de março de 2020
+
+Versão 2.2.0
+
+### <a name="acr"></a>ACR
+
+* Correção: `az acr login` gerava erro incorretamente
+* Adicionou o novo comando `az acr helm install-cli`
+* Adicionou link privado e suporte do CMK
+* Adicionou o comando 'private-link-resource list'
+
+### <a name="aks"></a>AKS
+
+* correção da busca do AKS no Cloud Shell
+* az aks: correção dos erros de complemento de monitoramento e de agentpool NoneType
+* Adicionou --nodepool-tags ao pool de nós ao criar o cluster do Kubernetes do Azure
+* Adicionou --tags ao adicionar ou atualizar um pool de nós para o cluster
+* AKS create: adicionou `--enable-private-cluster`
+* Adicionou --nodepool-labels ao criar o cluster do Kubernetes do Azure
+* Adicionou --labels ao adicionar um novo pool de nós ao cluster do Kubernetes do Azure
+* Adicionou / ausente na URL do painel
+* Suporte para criar clusters do AKS habilitando identidade gerenciada
+* az aks: validou o plug-in de rede como "Azure" ou "Kubenet"
+* az aks: adicionou suporte da chave da sessão do AAD
+* [ALTERAÇÃO SIGNIFICATIVA] AZ AKS: suporte para alterações de MSI para GF e BF para omsagent (Monitoramento de contêiner) (#1)
+* az aks use-dev-spaces: adicionou a opção de tipo de ponto de extremidade ao comando use-dev-spaces para personalizar o ponto de extremidade criado em um controlador Azure Dev Spaces
+
+### <a name="appconfig"></a>AppConfig
+
+* Desbloqueou usando "KV set" para adicionar o recurso e a referência do keyvault...
+
+### <a name="appservice"></a>AppService
+
+* az webapp create: correção do problema ao executar o comando com --runtime
+* az functionapp deployment source config-zip: adicionou uma mensagem de erro se o grupo de recursos ou o nome da função forem inválidos/não existirem
+* functionapp create: correção da mensagem de aviso que aparece com `functionapp create` hoje, que cita um sinalizador de `--functions_version`, mas usa erroneamente `_` em vez de `-` no nome do sinalizador
+* az functionapp create: atualizou o modo como linuxFxVersion e o nome da imagem de contêiner eram definidos para aplicativos de funções do Linux
+* az functionapp deployment source config-zip: correção de um problema causado pelas configurações do aplicativo que alterava a condição de corrida durante a implantação do zip, provocando erros 5xx durante a implantação
+* Correção #5720946: AZ WebApp backup falha ao definir o nome
+
+### <a name="arm"></a>ARM
+
+* az resource: aprimorou os exemplos do módulo de recurso
+* az policy assignment list: suporte à listagem de atribuições de política no escopo do Grupo de Gerenciamento
+* Adicionou `az deployment group` e `az deployment operation group` para a implantação de modelos nos grupos de recursos. Esta é uma duplicata de `az group deployment` e `az group deployment operation`
+* Adicionou `az deployment sub` e `az deployment operation sub` para a implantação de modelos no escopo da assinatura. Esta é uma duplicata de `az deployment` e `az deployment operation`
+* Adicionou `az deployment mg` e `az deployment operation mg` para implantação de modelos nos grupos de gerenciamento.
+* Adicionou `az deployment tenant` e `az deployment operation tenant` para implantação de modelos no escopo do locatário.
+* az policy assignment create: adicionou descrição ao parâmetro `--location`
+* az group deployment create: adicionou o parâmetro `--aux-tenants` para dar suporte a locatários cruzados
+
+### <a name="cdn"></a>CDN
+
+* Adicionou comandos do WAF da CDN
+
+### <a name="compute"></a>Computação
+
+* az sig image-version: adicionar --data-snapshot-luns
+* AZ PPG show: adicionou --outlocation-status para habilitar a busca do status de colocalização de todos os recursos no grupo de posicionamento por proximidade
+* az vmss create/update: suporte a reparos automáticos
+* [ALTERAÇÃO SIGNIFICATIVA] modelo de imagem AZ: renomear modelo para builder
+* AZ Image Builder Create: adicionou --Image-template
+
+### <a name="cosmos-db"></a>Cosmos DB
+
+* Adicionou procedimento armazenado do SQL, UDF e disparar cmdlets
+* az cosmosdb create: adicionou --key-uri para dar suporte à adição de informações de criptografia do cofre de chaves
+
+### <a name="keyvault"></a>KeyVault
+
+* keyvault create: habilitou a exclusão reversível por padrão
+
+### <a name="monitor"></a>Monitoramento
+
+* az monitor metrics alert create: suporte a `~` em `--condition`
+
+### <a name="network"></a>Rede
+
+* az network application-gateway rewrite-rule create: suporte à configuração de URL
+* az network dns zone import: --zone-name não diferenciará maiúsculas de minúsculas no futuro
+* az network private-endpoint/private-link-service: removeu rótulo de visualização
+* az network bastion: suporte a bastions
+* az network vnet list-available-ips: dar suporte à lista de IPs disponíveis em uma vnet
+* az network watcher flow-log create/list/delete/update: adicionou novos comandos para gerenciar o log de fluxo do Inspetor e expor o --local para identificá-lo explicitamente
+* az network watcher flow-log configure: preterido
+* az network watcher flow-log show: dá suporte a --location e --name para obter o resultado formatado por ARM, saída formatada antiga preterida
+
+### <a name="policy"></a>Política
+
+* az policy assignment create: correção do bug que gerou automaticamente o nome da atribuição de política, que excede o limite
+
+### <a name="rbac"></a>RBAC
+
+* az ad group show: correção do valor --group, que é tratado como um problema de regex
+
+### <a name="rdbms"></a>RDBMS
+
+* Trocou a versão do zure-mgmt-rdbms SDK para 2.0.0
+* az postgres private-endpoint-connection: gerenciou conexões de ponto de extremidade privado do Postgres
+* az postgres private-link-resource: gerenciou recursos de link privado do Postgres
+* az mysql private-endpoint-connection: gerenciar conexões de ponto de extremidade privado do MySQL
+* az mysql private-link-resource: gerenciou recursos de link privado do MySQL
+* az mariadb private-endpoint-connection: gerenciou conexões de ponto de extremidade privado do MariaDB
+* az mariadb private-link-resource: gerenciou recursos de link privado do MariaDB
+* Atualizando testes de ponto de extremidade privado do RDBMS
+
+### <a name="sql"></a>SQL
+
+* Sql midb Add: list-deleted, show-deleted, update-retention, show-retention
+* (sql server create:) adicionou o sinalizador ' habilitar '/' desabilitar ' opcional public-network-access ao SQL Server create
+* (sql server update:) fez algumas alterações voltadas para o cliente
+* adicionou a propriedade minimal_tls_version para o banco de BD de MI e SQL
+
+### <a name="storage"></a>Armazenamento
+
+* az storage blob delete-batch: sinalizador `--dryrun` de comportamento inadequado
+* az storage account network-rule add (correção de bug): a operação de adição deve ser idempotente
+* az storage account create/update: Adicionou suporte de preferência de roteamento
+* Atualizou a versão do azure-mgmt-storage para 8.0.0
+* az storage container immutability create: adicionou o parâmetro --allow-protected-append-write
+* az storage account private-link-resource list: Adicionou suporte para lista de recursos de link privado para a conta de armazenamento
+* az storage account private-endpoint-connection approve/reject/show/delete: Suporte para gerenciar conexões de ponto de extremidade privado
+* az storage account blob-service-properties update: adicionou --enable-restore-policy e --restore-days
+* az storage blob restore: adicionou suporte para restaurar intervalos de blob
 
 ## <a name="february-18-2020"></a>18 de fevereiro de 2020
 

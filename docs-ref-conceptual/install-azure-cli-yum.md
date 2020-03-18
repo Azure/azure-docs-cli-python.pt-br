@@ -8,12 +8,12 @@ ms.date: 11/26/2019
 ms.topic: conceptual
 ms.service: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: ad773a58cf784c46a1c605e7e7eca58de8a4a722
-ms.sourcegitcommit: 7caa6673f65e61deb8d6def6386e4eb9acdac923
+ms.openlocfilehash: a98a51e4dc3ac85d27e27ef9b9164a7f98431d31
+ms.sourcegitcommit: 465f2402b71e3de8c699798dc2a766fc90df241a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77780104"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78953327"
 ---
 # <a name="install-azure-cli-with-yum"></a>Instalar a CLI do Azure com o yum
 
@@ -65,6 +65,11 @@ Se puder, atualize seu sistema para uma versão com suporte oficial para o pacot
 $ sudo yum install yum-utils
 $ sudo yumdownloader azure-cli
 $ sudo rpm -ivh --nodeps azure-cli-*.rpm
+```
+
+Se você instalou o python3 mas ainda está tendo um erro `python3: command not found` ao tentar executar o CLI, você precisa adicioná-lo ao seu caminho.
+```bash
+$ scl enable rh-python36 bash
 ```
 
 ### <a name="proxy-blocks-connection"></a>Conexão de blocos de proxy
