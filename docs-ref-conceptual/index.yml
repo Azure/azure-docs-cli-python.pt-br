@@ -1,23 +1,20 @@
 ### YamlMime:Landing
-title: A CLI (interface de linha de comando) do Azure
-summary: >
-  A CLI (interface de linha de comando) do Azure é a experiência da linha de comando de plataforma cruzada da Microsoft para gerenciar os recursos do Azure.
-
-  A CLI do Azure foi projetada para ser fácil de aprender e começar a usar, mas eficiente o bastante para ser uma ótima ferramenta para a criação de automação personalizada para uso de recursos do Azure.
+title: Documentação da CLI (Interface de Linha de Comando) do Azure
+summary: "A CLI do Azure (interface de linha de comando do Azure) é um conjunto de comandos usado para criar e gerenciar recursos do Azure.  \nA CLI do Azure está disponível nos serviços do Azure e foi criada para ajudar você a trabalhar de maneira rápida com o Azure, com ênfase na automação.\n"
 metadata:
   title: Visão geral da CLI do Azure
   description: Instruções para instalar a CLI do Azure e aprender a usá-la.
   ms.topic: landing-page
   ms.collection: collection
-  author: sptramer
-  ms.author: sttramer
+  author: dbradish-microsoft
+  ms.author: dbradish
   ms.date: 09/09/2019
-  ms.openlocfilehash: e42601468fe40d346ca91d6a95b6f37d377863d0
-  ms.sourcegitcommit: f9bfb4b063151434b3a9bff936a73b251666e775
+  ms.openlocfilehash: 804cf4efdcf88674f67f0d5e2afd2619ba1b892a
+  ms.sourcegitcommit: 93d8137f37e974f7d314a0b1deb65ac563c2e2c5
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 09/10/2019
-  ms.locfileid: "70886131"
+  ms.lasthandoff: 03/21/2020
+  ms.locfileid: "79990112"
 landingContent:
 - title: Instalar a CLI do Azure
   linkLists:
@@ -47,6 +44,10 @@ landingContent:
     links:
     - text: Introdução à CLI do Azure
       url: get-started-with-azure-cli.md
+    - text: Serviços que a CLI do Azure pode gerenciar
+      url: azure-services-the-azure-cli-can-manage.md
+    - text: Artigos populares que usam a CLI do Azure
+      url: popular-articles-using-the-azure-cli.md
   - linkListType: how-to-guide
     links:
     - text: Métodos de entrada
@@ -63,7 +64,7 @@ landingContent:
       url: /azure/app-service/scripts/cli-deploy-github?toc=%2fcli%2fazure%2ftoc.json
     - text: Criar um banco de dados Postgres SQL
       url: /azure/postgresql/quickstart-create-server-up-azure-cli?toc=%2fcli%2fazure%2ftoc.json
-    - text: Criar um cluster Kubernetes
+    - text: Criar um cluster do Kubernetes
       url: /azure/aks/kubernetes-walkthrough?toc=%2fcli%2fazure%2ftoc.json
   - linkListType: learn
     links:
