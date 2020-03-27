@@ -1,6 +1,6 @@
 ---
 title: O que é CLI do Azure?
-description: A Visão geral da CLI do Azure, uma ferramenta de interface de linha de comando projetada para criar e gerenciar recursos do Azure, agora está disponível em ambientes Windows, maxOS e Linux.
+description: A Visão Geral da CLI do Azure, uma ferramenta de interface de linha de comando projetada para criar e gerenciar recursos do Azure, agora está disponível em ambientes Windows, macOS e Linux.
 author: dbradish-microsoft
 ms.author: dbradish
 manager: barbkess
@@ -8,39 +8,38 @@ ms.date: 01/30/2020
 ms.topic: overview
 ms.service: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 6aeb296c635d3efa35af08af227f165c7bd8f7d2
-ms.sourcegitcommit: 7caa6673f65e61deb8d6def6386e4eb9acdac923
+ms.openlocfilehash: f3f78f152a80fa1b9d10f3865f659c24767e4a1b
+ms.sourcegitcommit: 93d8137f37e974f7d314a0b1deb65ac563c2e2c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77779798"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "79989978"
 ---
 # <a name="what-is-azure-cli"></a>O que é CLI do Azure
 
-A CLI do Azure (interface de linha de comando) do Azure é um ambiente para criar e gerenciar recursos do Azure.  A CLI do Azure está disponível nos serviços do Azure e foi criada para ajudar você a trabalhar de forma rápida com o Azure, com ênfase na automação.
+A CLI do Azure (interface de linha de comando do Azure) é um conjunto de comandos usado para criar e gerenciar recursos do Azure.  A CLI do Azure está disponível nos serviços do Azure e foi criada para ajudar você a trabalhar de maneira rápida com o Azure, com ênfase na automação.
 
 ## <a name="key-characteristics"></a>Principais características
 
 As funcionalidades da CLI do Azure facilitam o trabalho com diferentes linguagens de programação e ambientes de software.  Por exemplo, a CLI do Azure:
 
-- Está disponível para instalação em ambientes Windows, macOS e Linux.
+- está disponível para instalação em ambientes Windows, macOS e Linux.
 
 - Também pode ser executada no Docker e no Azure Cloud Shell.
 - Oferece flexibilidade de linha de comando ao gerenciar uma solução do Azure.
-
 - Dá suporte a operações de execução longa.
 - Tem a capacidade de usar uma assinatura para todos os comandos ou variar as assinaturas de acordo com o comando.
 - Permite consultar resultados de linha de comando com a saída da consulta retornada no formato de sua escolha.
 - Tem a flexibilidade de trabalhar com várias nuvens.
-- Fornece definições configuráveis.
+- Fornece configurações configuráveis para registro em log, coleta de dados e valores de argumento padrão.
 - É implantada com os modelos de implantação do Resource Manager.
 
 ## <a name="current-version"></a>Versão atual
 
 [!INCLUDE [current-version](includes/current-version.md)]
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="see-also"></a>Consulte Também
 
-- Confira [Introdução à CLI do Azure](get-started-with-azure-cli.md) para começar.
-
-- Para obter uma lista de comandos da CLI do Azure, confira a [Lista Completa de Referências de Comando da CLI do Azure](/cli/azure/reference-index).
+- [Introdução à CLI do Azure](get-started-with-azure-cli.md)
+- [Lista de referência completa de comandos da CLI do Azure](/cli/azure/reference-index)
+- [Serviços que a CLI do Azure pode gerenciar](azure-services-the-azure-cli-can-manage.md)

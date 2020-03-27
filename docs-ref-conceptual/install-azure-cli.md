@@ -8,16 +8,16 @@ ms.date: 02/12/2019
 ms.topic: conceptual
 ms.service: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 438adc67b6c43b8cd0a452a522657dc7f336bd9c
-ms.sourcegitcommit: 7caa6673f65e61deb8d6def6386e4eb9acdac923
+ms.openlocfilehash: 1f5d9a4e3c83f7c498fb381f5d458c9ca9addde6
+ms.sourcegitcommit: 93d8137f37e974f7d314a0b1deb65ac563c2e2c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77779492"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "79989957"
 ---
 # <a name="install-the-azure-cli"></a>Instalar a CLI do Azure
 
-A CLI do Azure está disponível para instalação em ambientes Windows, maxOS e Linux.  Ela também pode ser executada em um contêiner do Docker e no Azure Cloud Shell.
+A CLI do Azure está disponível para instalação em ambientes Windows, macOS e Linux.  Ela também pode ser executada em um contêiner do Docker e no Azure Cloud Shell.
 
 ## <a name="install"></a>Instalar
 
