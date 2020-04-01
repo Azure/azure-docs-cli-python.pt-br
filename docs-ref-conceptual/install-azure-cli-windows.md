@@ -8,12 +8,12 @@ ms.date: 05/01/2019
 ms.topic: conceptual
 ms.service: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: f88e9d6650354ace9d9e03a33a6bbb2642069bbd
-ms.sourcegitcommit: 7caa6673f65e61deb8d6def6386e4eb9acdac923
+ms.openlocfilehash: c5e9118a04b0dc608309093866307fdc7083f591
+ms.sourcegitcommit: b5ecfc168489cd0d96462d6decf83e8b26a10194
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77779560"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80417834"
 ---
 # <a name="install-azure-cli-on-windows"></a>Instalar a CLI do Azure no Windows
 
@@ -34,7 +34,7 @@ Quando o instalador perguntar se pode fazer alterações no computador, clique n
 Também é possível instalar a CLI do Azure usando o PowerShell. Inicie o PowerShell como administrador e execute o seguinte comando:
 
    ```PowerShell
-   Invoke-WebRequest -Uri https://aka.ms/installazurecliwindows -OutFile .\AzureCLI.msi; Start-Process msiexec.exe -Wait -ArgumentList '/I AzureCLI.msi /quiet'
+   Invoke-WebRequest -Uri https://aka.ms/installazurecliwindows -OutFile .\AzureCLI.msi; Start-Process msiexec.exe -Wait -ArgumentList '/I AzureCLI.msi /quiet'; rm .\AzureCLI.msi
    ```
 Isso baixará e instalará a versão mais recente da CLI do Azure para Windows. Se você já tiver uma versão instalada, ela atualizará a versão existente. Após a conclusão da instalação, será preciso reabrir o PowerShell para usar a CLI do Azure.
 
