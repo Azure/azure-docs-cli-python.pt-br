@@ -4,18 +4,143 @@ description: Saiba mais sobre as últimas atualizações da CLI do Azure
 author: dbradish-microsoft
 ms.author: dbradish
 manager: barbkess
-ms.date: 03/10/2020
+ms.date: 03/31/2020
 ms.topic: article
 ms.service: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: ff3a1da2343b96bfd78b20742c2c15707932f3d7
-ms.sourcegitcommit: 21bc2a7125b6c38bf1c4def0a0e66e6673de4805
+ms.openlocfilehash: aed043bcb900937a405fd71dafe24016fa0972d7
+ms.sourcegitcommit: b5ecfc168489cd0d96462d6decf83e8b26a10194
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79037941"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80417820"
 ---
 # <a name="azure-cli-release-notes"></a>Notas de versão da CLI do Azure
+
+## <a name="march-31-2020"></a>31 de março de 2020
+
+Versão 2.3.0
+
+### <a name="acr"></a>ACR
+
+* 'az acr task update': exceção de ponteiro nulo
+* `az acr import`: Modificar a mensagem de ajuda e de erro para esclarecer o uso de --source e --registry
+* Adicionar um validador para o argumento 'registry_name'
+* `az acr login`: remover o sinalizador de visualização em '--expose-token'
+* O parâmetro de branch 'az acr task create/update' de [ALTERAÇÃO SIGNIFICATIVA] foi removido
+* O cliente 'az acr task update' agora pode atualizar o contexto, o token do git e/ou os gatilhos individualmente
+* 'az acr agentpool': novo recurso
+
+### <a name="aks"></a>AKS
+
+* Corrigir apiServerAccessProfile ao atualizar --api-server-authorized-ip-ranges
+* aks update: Substituir IPs de saída por valores de entrada ao atualizar
+* Não criar SPN para clusters MSI e dar suporte à anexação de ACR a clusters MSI
+
+### <a name="ams"></a>AMS
+
+* Correção nº. 12469: a adição da política de chave de conteúdo Fairplay falha devido a problemas com o parâmetro 'ask'
+
+### <a name="appconfig"></a>AppConfig
+
+* Adicionar --skip-keyvault a kv export
+
+### <a name="appservice"></a>AppService
+
+* Correção nº 12509: remover a marca para az webapp up por padrão
+* az functionapp create: o menu de ajuda de --runtime-version foi atualizado e um aviso foi adicionado quando o usuário especifica --runtime-version para dotnet
+* az functionapp create: atualizado o modo como o javaVersion estava sendo definido para aplicativos de funções do Windows
+
+### <a name="arm"></a>ARM
+
+* az deployment create/validate: usar --handle-extended-json-format por padrão
+* az lock create: adicionar exemplos de criação de subrecurso na documentação da ajuda
+* az deployment {group/mg/sub/tenant} list: dar suporte à filtragem de provisioningState
+* az deployment: corrigir o bug de análise para o comentário no último argumento
+
+### <a name="backup"></a>Backup
+
+* Adicionadas várias funcionalidades de restauração de arquivo
+* Adicionado suporte para backup somente de discos do SO
+* Adicionado o parâmetro restore-as-unmanaged-disk para especificar a restauração não gerenciada
+
+### <a name="compute"></a>Computação
+
+* az vm create: adicionar opção NONE de --nsg-rule
+* az vmss create/update: remover a marca de visualização de reparos automáticos do vmss
+* az vm update: dar suporte a --workspace
+* Corrigir um bug no código de inicialização de VirtualMachineScaleSetExtension
+* Atualizar a versão do VMAccessAgent para 2.4
+* az vmss set-orchestration-service-state: dar suporte para o estado de definição do serviço de orquestração do vmss
+* Atualizar a API do disco para a versão 2019-11-01
+* az disk create: add --disk-iops-read-only, --disk-mbps-read-only, --max-shares, --image-reference, --image-reference-lun, --gallery-image-reference, --gallery-image-reference-lun
+
+### <a name="cosmos-db"></a>Cosmos DB
+
+* Corrigir a ausência da opção --type para redirecionamentos de preterimento
+
+### <a name="docker"></a>Docker
+
+* Atualizar para Alpine 3.11 e Python 3.6.10
+
+### <a name="extension"></a>Extensão
+
+* Permitir carregar extensões no caminho do sistema por meio de pacotes
+
+### <a name="hdinsight"></a>HDInsight
+
+* (az hdinsight create:) dar suporte à especificação da versão de TLS mínima pelos clientes usando o parâmetro `--minimal-tls-version`. O valor permitido é 1.0,1.1,1.2
+
+### <a name="iot"></a>IoT
+
+* Adicionar codeowner
+* az iot hub create : alterar o SKU padrão de F1 para S1
+* iot hub: dar suporte a IotHub no perfil de 2019-03-01-hybrid
+
+### <a name="iotcentral"></a>IoT Central
+
+* Atualizar detalhes do erro, atualizar modelo de aplicativo padrão e a mensagem de aviso
+
+### <a name="keyvault"></a>KeyVault
+
+* Suporte para backup/restauração de certificado
+* keyvault create/update: Suporte a --retention-days
+* Não exibir mais chaves/segredos gerenciados durante a listagem
+* az keyvault create: suporte a `--network-acls`, `--network-acls-ips` e `--network-acls-vnets` para especificar regras de rede ao criar o cofre
+
+### <a name="lock"></a>Bloqueio
+
+* az lock delete fix bug: az lock delete não funciona no Microsoft.DocumentDB
+
+### <a name="monitor"></a>Monitoramento
+
+* az monitor clone: suporte a regras de métrica de clone de um recurso para outro
+* Corrigir IcM179210086: não é possível criar um alerta de métrica personalizado para a métrica de Application Insights
+
+### <a name="netappfiles"></a>NetAppFiles
+
+* az volume create: permitir volumes de proteção de dados adicionando operações de replicação: approve, suspend, resume, status, remove
+
+### <a name="network"></a>Rede
+
+* az network application-gateway waf-policy managed-rule rule-set add: dar suporte a Microsoft_BotManagerRuleSet
+* network watcher flow-log show: corrigir informações erradas em preterimento
+* dar suporte a nomes de host no ouvinte do gateway de aplicativo
+* az network nat gateway: dar suporte para criar um recurso vazio sem IP público nem prefixo de IP público
+* Dar suporte à geração de gateway de VPN
+* Dar suporte a `--if-none-match` em `az network dns record-set {} add-record`
+
+### <a name="packaging"></a>Empacotamento
+
+* Remover o suporte ao Python 3.5
+
+### <a name="profile"></a>Perfil
+
+* az login: Mostrar aviso para erro de MFA
+
+### <a name="rdbms"></a>RDBMS
+
+* Adicionar comandos de gerenciamento de chaves de criptografia de dados do servidor para PostgreSQL e MySQL
 
 ## <a name="march-10-2020"></a>10 de março de 2020
 

@@ -8,12 +8,12 @@ ms.date: 02/22/2019
 ms.topic: conceptual
 ms.service: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 2027741c4fac1ffaeaf6099e18b9729df2e84beb
-ms.sourcegitcommit: 7caa6673f65e61deb8d6def6386e4eb9acdac923
+ms.openlocfilehash: 9c01c0e42edc0c4199349e0bc5d454d7cd3ddc71
+ms.sourcegitcommit: b5ecfc168489cd0d96462d6decf83e8b26a10194
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77780019"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80417943"
 ---
 # <a name="sign-in-with-azure-cli"></a>Entrar com a CLI do Azure 
 
@@ -57,13 +57,17 @@ az login -u <username> -p <password>
 
 ## <a name="sign-in-with-a-service-principal"></a>Entrar com uma entidade de serviço
 
-Entidades de serviço são contas que não estão associadas a nenhum usuário específico, as quais podem ter permissões atribuídas por meio de funções predefinidas. Autenticar com uma entidade de serviço é a melhor maneira de gravar scripts seguros ou programas, permitindo a aplicação de restrições de permissões e informações de credenciais estáticas armazenadas localmente. Para saber mais sobre entidades de serviço, consulte [Criar uma entidade de serviço do Azure com a CLI do Azure](create-an-azure-service-principal-azure-cli.md).
+Entidades de serviço são contas que não estão associadas a nenhum usuário específico, as quais podem ter permissões atribuídas por meio de funções predefinidas. Autenticar com uma entidade de serviço é a melhor maneira de gravar scripts seguros ou programas, permitindo a aplicação de restrições de permissões e informações de credenciais estáticas armazenadas localmente. Para saber mais sobre entidades de serviço, consulte [Criar uma entidade de serviço do Azure com a CLI do Azure](/cli/azure/create-an-azure-service-principal-azure-cli.md).
 
 Para entrar com uma entidade de serviço, você precisa:
 
 * Da URL ou nome associado à entidade de serviço
 * A senha da entidade de serviço ou o certificado X509 usado para criar a entidade de serviço em formato PEM
 * O locatário associado à entidade de serviço, como um domínio `.onmicrosoft.com` ou ID de objeto do Azure
+
+> [!NOTE]
+> Um **CERTIFICADO** precisa ser anexado à **CHAVE PRIVADA** dentro de um arquivo PEM.  Para obter um exemplo do formato de arquivo PEM, confira [Criar uma entidade de serviço do Azure com a CLI do Azure](create-an-azure-service-principal-azure-cli#sign-in-using-a-service-principal). 
+>
 
 > [!IMPORTANT]
 >

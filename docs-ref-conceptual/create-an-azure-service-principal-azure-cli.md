@@ -8,14 +8,14 @@ ms.date: 02/15/2019
 ms.topic: conceptual
 ms.service: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 1bde944f1c443ef1a8d5aa918575fa09e6bb4714
-ms.sourcegitcommit: 7caa6673f65e61deb8d6def6386e4eb9acdac923
+ms.openlocfilehash: c18adbee84fd3e5c73367b07bbd0b03ac61008cd
+ms.sourcegitcommit: b5ecfc168489cd0d96462d6decf83e8b26a10194
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77779611"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80417865"
 ---
-# <a name="create-an-azure-service-principal-with-azure-cli"></a>Criar uma entidade de serviço do Azure com a CLI do Azure
+# <a name="create-an-azure-service-principal-with-the-azure-cli"></a>Criar uma entidade de serviço do Azure com a CLI do Azure
 
 Ferramentas automatizadas que usam os serviços do Azure devem sempre ter permissões restritas. Em vez de os aplicativos entrarem como um usuário com privilégio total, o Azure oferece as entidades de serviço.
 
@@ -25,7 +25,7 @@ Este artigo mostra as etapas para criar, obter informações e redefinir uma ent
 
 ## <a name="create-a-service-principal"></a>Criar uma entidade de serviço
 
-Crie uma entidade de serviço com o comando [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac). Ao criar uma entidade de serviço, você pode escolher o tipo de autenticação de entrada usada. 
+Crie uma entidade de serviço com o comando [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac). Ao criar uma entidade de serviço, você pode escolher o tipo de autenticação de entrada usada.
 
 > [!NOTE]
 >
@@ -53,6 +53,9 @@ Registre seus valores, mas eles podem ser recuperados a qualquer momento com o c
 
 Para a autenticação baseada em certificado, use o argumento `--cert`. Esse argumento exige que você mantenha um certificado existente. Certifique-se de que todas as ferramentas que usam essa entidade de serviço tenham acesso à chave privada do certificado. Os certificados devem estar no formato ASCII, como PEM, CER ou DER. Transmita o certificado como uma cadeia de caracteres ou use o formato `@path` para carregar o certificado de um arquivo.
 
+> [!NOTE]
+> Ao usar um arquivo PEM, o **CERTIFICADO** precisa ser anexado à **CHAVE PRIVADA** dentro do arquivo.
+
 ```azurecli-interactive
 az ad sp create-for-rbac --name ServicePrincipalName --cert "-----BEGIN CERTIFICATE-----
 ...
@@ -74,6 +77,35 @@ Para criar um certificado _autoassinado_ para autenticação, use o argumento `-
 ```azurecli-interactive
 az ad sp create-for-rbac --name ServicePrincipalName --create-cert
 ```
+
+Saída do console:
+
+```
+Creating a role assignment under the scope of "/subscriptions/myId"
+Please copy C:\myPath\myNewFile.pem to a safe place.
+When you run 'az login', provide the file path in the --password argument
+{
+  "appId": "myAppId",
+  "displayName": "myDisplayName",
+  "fileWithCertAndPrivateKey": "C:\\myPath\\myNewFile.pem",
+  "name": "http://myName",
+  "password": null,
+  "tenant": "myTenantId"
+}
+```
+
+Conteúdo do novo arquivo PEM:
+```
+-----BEGIN PRIVATE KEY-----
+myPrivateKeyValue
+-----END PRIVATE KEY-----
+-----BEGIN CERTIFICATE-----
+myCertificateValue
+-----END CERTIFICATE-----
+```
+
+> [!NOTE]
+> O comando `az ad sp create-for-rbac --create-cert` cria a entidade de serviço e um arquivo PEM. O arquivo PEM contém uma **CHAVE PRIVADA** e um **CERTIFICADO** formatados corretamente.
 
 O argumento `--keyvault` pode ser adicionado para armazenar o certificado no Azure Key Vault. Ao usar `--keyvault`, o argumento `--cert` também será __necessário__.
 
@@ -149,7 +181,7 @@ Para entrar com uma entidade de serviço usando a senha:
 az login --service-principal --username APP_ID --password PASSWORD --tenant TENANT_ID
 ```
 
-Para entrar com um certificado, ele deve estar disponível localmente como um arquivo PEM ou DER, no formato ASCII:
+Para entrar com um certificado, ele precisa estar disponível localmente como um arquivo PEM ou DER, no formato ASCII. Ao usar um arquivo PEM, a **CHAVE PRIVADA** e o **CERTIFICADO** precisam ser anexados juntos dentro do arquivo.
 
 ```azurecli-interactive
 az login --service-principal --username APP_ID --tenant TENANT_ID --password /path/to/cert
