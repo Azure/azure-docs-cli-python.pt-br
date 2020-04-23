@@ -4,18 +4,129 @@ description: Saiba mais sobre as últimas atualizações da CLI do Azure
 author: dbradish-microsoft
 ms.author: dbradish
 manager: barbkess
-ms.date: 04/01/2020
+ms.date: 04/21/2020
 ms.topic: article
 ms.service: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: cca6f42f29467126553c6e8a332907b1ad1ebc74
-ms.sourcegitcommit: 712c8ca6457552b6b7a8866c1370a6ec51d07f2c
+ms.openlocfilehash: 10dfdc316ba00f8a7019f0724aab231e344c1c6d
+ms.sourcegitcommit: 89ec9fa7ebd2170b55201cd51fb386fd9351d7ca
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80525254"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81728612"
 ---
 # <a name="azure-cli-release-notes"></a>Notas de versão da CLI do Azure
+
+## <a name="april-21-2020"></a>21 de abril de 2020
+
+Versão 2.4.0
+
+### <a name="acr"></a>ACR
+
+* `az acr run --cmd`: desabilitar a substituição do diretório de trabalho
+* Suporte ao ponto de extremidade dos dados dedicados
+
+### <a name="aks"></a>AKS
+
+* `az aks list -o table` deve mostrar privateFqdn como fqdn para clusters privados
+* Adicionar --uptime-sla
+* Atualizar pacote containerservice
+* Adicionar suporte ao IP público do nó
+* Corrigir erros de digitação no comando de ajuda
+
+### <a name="appconfig"></a>AppConfig
+
+* Resolver referência do cofre de chaves para os comandos kv list e export
+* Correção de bug para valores de chave da lista
+
+### <a name="appservice"></a>AppService
+
+* `az functionapp create`: Mudou a maneira como o linuxFxVersion estava sendo definido para os aplicativos de funções dotnet linux. Isso deve corrigir um bug que estava impedindo a criação de aplicativos de consumo em dotnet linux
+* [ALTERAÇÃO DA FALHA] `az webapp create`: correção para manter o AppSettings existente com o az webapp create
+* [ALTERAÇÃO DA FALHA] `az webapp up`: correção para criar o RG para o comando az webapp up ao usar o sinalizador-g
+* [ALTERAÇÃO DA FALHA] `az webapp config`: correção para mostrar valores de saída não JSON com o az webapp config connection-string list
+
+### <a name="arm"></a>ARM
+
+* `az deployment create/validate`: Adicionar o parâmetro `--no-prompt` para dar suporte à ação de ignorar o prompt de parâmetros ausentes para o modelo do Resource Manager
+* `az deployment group/mg/sub/tenant validate`: Dar suporte aos comentários no arquivo de parâmetro de implantação
+* `az deployment`: Remover `is_preview` para o parâmetro `--handle-extended-json-format`
+* `az deployment group/mg/sub/tenant cancel`: Dar suporte para cancelar a implantação do modelo do Resource Manager
+* `az deployment group/mg/sub/tenant validate`: Melhorar a mensagem de erro quando a verificação de implantação falhar
+* `az deployment-scripts`: Adicionar novos comandos para DeploymentScripts
+* `az resource tag`: Adicionar o parâmetro `--is-incremental` para dar suporte à adição de marcas ao recurso de maneira incremental
+
+### <a name="aro"></a>ARO
+
+* `az aro`:  Adicionar módulo de comando aro do Azure RedHat OpenShift V4
+
+### <a name="batch"></a>Lote
+
+* Atualizar a API do lote
+
+### <a name="compute"></a>Computação
+
+* `az sig image-version create`: Adicionar o tipo da conta de armazenamento Premium_LRS
+* `az vmss update`: Corrigir problema de atualização de notificação de encerramento
+* `az vm/vmss create`: Adicionar suporte para a versão de imagem especializada
+* Versão da API SIG 2019-12-01
+* `az sig image-version create`: Adicionar --target-region-encryption
+* Os testes de correção falham quando executados em série, pois o nome do keyvault está duplicado no cache global da memória
+
+### <a name="cosmosdb"></a>CosmosDB
+
+* Dar suporte a `az cosmosdb private-link-resource/private-endpoint-connection`
+
+### <a name="iot-central"></a>Central da IoT
+
+* Preterir `az iotcentral`
+* Adicionar o módulo de comando `az iot central`
+
+### <a name="monitor"></a>Monitoramento
+
+* Dar suporte ao cenário de link privado para monitoramento
+* Corrigir a maneira incorreta de simulação em test_monitor_general_operations.py
+
+### <a name="network"></a>Rede
+
+* Preterir a sku para o comando de atualização de ip público
+* `az network private-endpoint`: Dar suporte ao grupo de zona dns privada
+* Habilitar o recurso de contexto local para o parâmetro vnet/sub-rede
+* Corrigir o exemplo de uso incorreto em test_nw_flow_log_delete
+
+### <a name="packaging"></a>Empacotamento
+
+* Descartar o suporte para o pacote Ubuntu/Disco
+
+### <a name="rbac"></a>RBAC
+
+* `az ad app create/update`: dar suporte a --optional-claims como um parâmetro
+
+### <a name="rdbms"></a>RDBMS
+
+* Adicionar comandos do administrador do Azure Active Directory para PostgreSQL e MySQL
+
+### <a name="service-fabric"></a>Service Fabric
+
+* Correção no 12891: `az sf application update --application-parameters` remove parâmetros antigos que não estão na solicitação
+* Correção no 12470 az sf create cluster, corrija bugs na atualização de durabilidade e confiabilidade e encontre vmss corretamente por meio do código, dado um nome de tipo de nó
+
+### <a name="sql"></a>SQL
+
+* Adicionar `az sql mi op list`, `az sql mi op get`, `az sql mi op cancel`
+* `az sql midb`: atualizar/mostrar política de retenção de longo prazo, mostrar/excluir backups de retenção de longo prazo, restaurar backup de retenção de longo prazo
+
+### <a name="storage"></a>Armazenamento
+
+* Atualizar azure-mgmt-storage para 9.0.0
+* `az storage logging off`: Dar suporte para desativar o registro em log de uma conta de armazenamento
+* `az storage account update`: Habilitar rotação automática de chave para CMK
+* `az storage account encryption-scope create/update/list/show`: Adicionar suporte para personalizar o escopo de criptografia
+* `az storage container create`: Adicionar --default-encryption-scope e --deny-encryption-scope-override a fim de definir o escopo de criptografia para o nível de contêiner
+
+### <a name="survey"></a>Pesquisa
+
+* Adicionar opção para desligar o link de pesquisa
 
 ## <a name="april-01-2020"></a>1º de abril de 2020
 
