@@ -2,13 +2,13 @@
 author: dbradish-microsoft
 ms.author: dbradish
 manager: barbkess
-ms.date: 04/01/2020
+ms.date: 04/21/2020
 ms.topic: include
-ms.openlocfilehash: 259a544efb1a0e52e0233ef2882b28fc74ce89bb
-ms.sourcegitcommit: 712c8ca6457552b6b7a8866c1370a6ec51d07f2c
+ms.openlocfilehash: 49a4d59d4efd1f9e7d7ff011daac815dfefa5ec2
+ms.sourcegitcommit: 89ec9fa7ebd2170b55201cd51fb386fd9351d7ca
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80573206"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81735094"
 ---
-<span data-ttu-id="e5be7-101">A versão atual da CLI do Azure é a __2.3.1__.</span><span class="sxs-lookup"><span data-stu-id="e5be7-101">The current version of the Azure CLI is __2.3.1__.</span></span> <span data-ttu-id="e5be7-102">Para saber mais sobre a versão mais recente, veja as [notas de versão](../release-notes-azure-cli.md).</span><span class="sxs-lookup"><span data-stu-id="e5be7-102">For information about the latest release, see the [release notes](../release-notes-azure-cli.md).</span></span> <span data-ttu-id="e5be7-103">Para localizar sua versão instalada e ver se você precisar atualizá-la, execute `az --version`.</span><span class="sxs-lookup"><span data-stu-id="e5be7-103">To find your installed version and see if you need to update, run `az --version`.</span></span>
+<span data-ttu-id="03f4d-101">A versão atual da CLI do Azure é a __2.4.0__.</span><span class="sxs-lookup"><span data-stu-id="03f4d-101">The current version of the Azure CLI is __2.4.0__.</span></span> <span data-ttu-id="03f4d-102">Para saber mais sobre a versão mais recente, veja as [notas de versão](../release-notes-azure-cli.md).</span><span class="sxs-lookup"><span data-stu-id="03f4d-102">For information about the latest release, see the [release notes](../release-notes-azure-cli.md).</span></span> <span data-ttu-id="03f4d-103">Para localizar sua versão instalada e ver se você precisar atualizá-la, execute `az --version`.</span><span class="sxs-lookup"><span data-stu-id="03f4d-103">To find your installed version and see if you need to update, run `az --version`.</span></span>
