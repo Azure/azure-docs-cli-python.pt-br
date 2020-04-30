@@ -4,18 +4,72 @@ description: Saiba mais sobre as últimas atualizações da CLI do Azure
 author: dbradish-microsoft
 ms.author: dbradish
 manager: barbkess
-ms.date: 04/21/2020
+ms.date: 04/28/2020
 ms.topic: article
 ms.service: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 10dfdc316ba00f8a7019f0724aab231e344c1c6d
-ms.sourcegitcommit: 89ec9fa7ebd2170b55201cd51fb386fd9351d7ca
+ms.openlocfilehash: 032039cc5a51f0d158fbd3616a30263df139f53b
+ms.sourcegitcommit: 1e5d8f04091803d68ac6833d2e2af37a863486ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81728612"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82199386"
 ---
 # <a name="azure-cli-release-notes"></a>Notas de versão da CLI do Azure
+
+## <a name="april-28-2020"></a>28 de abril de 2020
+
+Versão 2.5.0
+
+### <a name="acs"></a>ACS
+
+* [ALTERAÇÃO SIGNIFICATIVA] az openshift create: remove o parâmetro --vnet-peer.
+* `az openshift create`: adição de sinalizadores para dar suporte a clusters privados.
+* `az openshift`: atualização para a versão `2019-10-27-preview` da API.
+* `az openshift`: adição do comando `update`.
+
+### <a name="aks"></a>AKS
+
+* `az aks create`: adição do suporte para Windows
+
+### <a name="appservice"></a>AppService
+
+* `az webapp deployment source config-zip`: remoção da suspensão após request.get()
+
+### <a name="arm"></a>ARM
+
+* Adição de comandos What-If de implantação de modelo
+
+### <a name="aro"></a>ARO
+
+* `az aro`: correção da saída da tabela
+
+### <a name="ci"></a>CI
+
+* Integração do pytest e preterição do nose para o teste de automação
+
+### <a name="compute"></a>Computação
+
+* `az vmss disk detach`: correção do problema de NoneType do disco de dados
+* `az vm availability-set list`: suporte à exibição da lista de VM
+* `az vm list-skus`: correção do problema de exibição do formato de tabela
+
+### <a name="keyvault"></a>KeyVault
+
+* Adição de novo parâmetro `--enable-rbac-authorization` durante a criação ou atualização
+
+### <a name="monitor"></a>Monitoramento
+
+* Suporte aos recursos de CMK do cluster de LA
+* `az monitor log-analytics workspace linked-storage`: dá suporte aos recursos BYOS
+
+### <a name="network"></a>Rede
+
+* `az network security-partner`: suporte para provedor de segurança de parceiros
+
+### <a name="privatedns"></a>Privatedns
+
+* Adição do recurso na zona DNS privada para importar o arquivo da zona de exportação
 
 ## <a name="april-21-2020"></a>21 de abril de 2020
 
@@ -41,41 +95,41 @@ Versão 2.4.0
 
 ### <a name="appservice"></a>AppService
 
-* `az functionapp create`: Mudou a maneira como o linuxFxVersion estava sendo definido para os aplicativos de funções dotnet linux. Isso deve corrigir um bug que estava impedindo a criação de aplicativos de consumo em dotnet linux
+* `az functionapp create`: mudou a maneira como o linuxFxVersion estava sendo definido para os aplicativos de funções dotnet linux. Isso deve corrigir um bug que estava impedindo a criação de aplicativos de consumo em dotnet linux
 * [ALTERAÇÃO DA FALHA] `az webapp create`: correção para manter o AppSettings existente com o az webapp create
-* [ALTERAÇÃO DA FALHA] `az webapp up`: correção para criar o RG para o comando az webapp up ao usar o sinalizador-g
+* [ALTERAÇÃO DA FALHA] `az webapp up`: correção para criar o RG para o comando az webapp up ao usar o sinalizador -g
 * [ALTERAÇÃO DA FALHA] `az webapp config`: correção para mostrar valores de saída não JSON com o az webapp config connection-string list
 
 ### <a name="arm"></a>ARM
 
-* `az deployment create/validate`: Adicionar o parâmetro `--no-prompt` para dar suporte à ação de ignorar o prompt de parâmetros ausentes para o modelo do Resource Manager
-* `az deployment group/mg/sub/tenant validate`: Dar suporte aos comentários no arquivo de parâmetro de implantação
-* `az deployment`: Remover `is_preview` para o parâmetro `--handle-extended-json-format`
-* `az deployment group/mg/sub/tenant cancel`: Dar suporte para cancelar a implantação do modelo do Resource Manager
-* `az deployment group/mg/sub/tenant validate`: Melhorar a mensagem de erro quando a verificação de implantação falhar
-* `az deployment-scripts`: Adicionar novos comandos para DeploymentScripts
-* `az resource tag`: Adicionar o parâmetro `--is-incremental` para dar suporte à adição de marcas ao recurso de maneira incremental
+* `az deployment create/validate`: adicionar o parâmetro `--no-prompt` para dar suporte à ação de ignorar o prompt de parâmetros ausentes para o modelo do Resource Manager
+* `az deployment group/mg/sub/tenant validate`: dar suporte aos comentários no arquivo de parâmetro de implantação
+* `az deployment`: remover `is_preview` para o parâmetro `--handle-extended-json-format`
+* `az deployment group/mg/sub/tenant cancel`: dar suporte para cancelar a implantação do modelo do Resource Manager
+* `az deployment group/mg/sub/tenant validate`: melhorar a mensagem de erro quando a verificação de implantação falhar
+* `az deployment-scripts`: adicionar novos comandos para DeploymentScripts
+* `az resource tag`: adicionar o parâmetro `--is-incremental` para dar suporte à adição de marcas ao recurso de maneira incremental
 
 ### <a name="aro"></a>ARO
 
-* `az aro`:  Adicionar módulo de comando aro do Azure RedHat OpenShift V4
+* `az aro`:  adicionar módulo de comando aro do Azure RedHat OpenShift V4
 
 ### <a name="batch"></a>Lote
 
-* Atualizar a API do lote
+* Atualizar a API do Lote
 
 ### <a name="compute"></a>Computação
 
-* `az sig image-version create`: Adicionar o tipo da conta de armazenamento Premium_LRS
-* `az vmss update`: Corrigir problema de atualização de notificação de encerramento
-* `az vm/vmss create`: Adicionar suporte para a versão de imagem especializada
+* `az sig image-version create`: adicionar o tipo da conta de armazenamento Premium_LRS
+* `az vmss update`: corrigir problema de atualização de notificação de término
+* `az vm/vmss create`: adicionar suporte para a versão de imagem especializada
 * Versão da API SIG 2019-12-01
 * `az sig image-version create`: Adicionar --target-region-encryption
-* Os testes de correção falham quando executados em série, pois o nome do keyvault está duplicado no cache global da memória
+* Os testes de correção falham quando executados em série, pois o nome do keyvault está duplicado no cache global na memória
 
 ### <a name="cosmosdb"></a>CosmosDB
 
-* Dar suporte a `az cosmosdb private-link-resource/private-endpoint-connection`
+* Dar suporte à `az cosmosdb private-link-resource/private-endpoint-connection`
 
 ### <a name="iot-central"></a>Central da IoT
 
@@ -89,8 +143,8 @@ Versão 2.4.0
 
 ### <a name="network"></a>Rede
 
-* Preterir a sku para o comando de atualização de ip público
-* `az network private-endpoint`: Dar suporte ao grupo de zona dns privada
+* Preterir o sku para o comando de atualização de ip público
+* `az network private-endpoint`: dar suporte ao grupo de zona dns privada
 * Habilitar o recurso de contexto local para o parâmetro vnet/sub-rede
 * Corrigir o exemplo de uso incorreto em test_nw_flow_log_delete
 
@@ -108,8 +162,8 @@ Versão 2.4.0
 
 ### <a name="service-fabric"></a>Service Fabric
 
-* Correção no 12891: `az sf application update --application-parameters` remove parâmetros antigos que não estão na solicitação
-* Correção no 12470 az sf create cluster, corrija bugs na atualização de durabilidade e confiabilidade e encontre vmss corretamente por meio do código, dado um nome de tipo de nó
+* Correção nº 12891: `az sf application update --application-parameters` remove parâmetros antigos que não estão na solicitação
+* Correção nº 12470 az sf create cluster, corrigir bugs na atualização de durabilidade e confiabilidade e encontrar vmss corretamente por meio do código, dado um nome de tipo de nó
 
 ### <a name="sql"></a>SQL
 
@@ -119,10 +173,10 @@ Versão 2.4.0
 ### <a name="storage"></a>Armazenamento
 
 * Atualizar azure-mgmt-storage para 9.0.0
-* `az storage logging off`: Dar suporte para desativar o registro em log de uma conta de armazenamento
-* `az storage account update`: Habilitar rotação automática de chave para CMK
-* `az storage account encryption-scope create/update/list/show`: Adicionar suporte para personalizar o escopo de criptografia
-* `az storage container create`: Adicionar --default-encryption-scope e --deny-encryption-scope-override a fim de definir o escopo de criptografia para o nível de contêiner
+* `az storage logging off`: dar suporte à desativação do registro em log de uma conta de armazenamento
+* `az storage account update`: habilitar rotação automática de chave para CMK
+* `az storage account encryption-scope create/update/list/show`: adicionar suporte para personalizar o escopo de criptografia
+* `az storage container create`: adicionar --default-encryption-scope e --deny-encryption-scope-override a fim de definir o escopo de criptografia para o nível de contêiner
 
 ### <a name="survey"></a>Pesquisa
 
@@ -1279,7 +1333,7 @@ Esta versão contém um grande número de alterações da falha.
 * [ALTERAÇÃO SIGNIFICATIVA] O parâmetro `--persisted` de `hdinsight script-action list` foi removido
 * O parâmetro `hdinsight create --cluster-configurations` foi alterado para aceitar um caminho para um arquivo JSON local ou uma cadeia de caracteres JSON
 * Adicionado o comando `hdinsight script-action list-execution-history`
-* Alterado `hdinsight monitor enable --workspace` para aceitar uma ID do workspace ou nome do workspace do Log Analytics
+* Alterado `hdinsight monitor enable --workspace` para aceitar uma ID do workspace ou nome do workspace do Log Analytics 
 * O argumento `hdinsight monitor enable --primary-key`, que será necessário caso uma ID do workspace seja fornecida como o parâmetro, foi adicionado
 * Foram adicionados mais exemplos e atualização das descrições das mensagens de erro
 
@@ -4606,7 +4660,7 @@ Versão 2.0.13
 * Atualizado para o Lote SDK 3.1.0 e Gerenciamento de Lote SDK 4.1.0
 * Adicionado um novo comando que mostra as contagens de tarefas de um trabalho
 * Corrigido o bug no processamento de URL de SAS do arquivo de recurso
-* Ponto de extremidade da conta de lote agora dá suporte ao prefixo opcional “https://”
+* Ponto de extremidade da conta de lote agora dá suporte ao prefixo opcional “https://” 
 * Suporte para adicionar listas de mais de 100 tarefas a um trabalho
 * Adicionado log de depuração para carregar o módulo do comando de Extensões
 
