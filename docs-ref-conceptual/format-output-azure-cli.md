@@ -9,34 +9,34 @@ ms.topic: conceptual
 ms.service: azure-cli
 ms.devlang: azurecli
 ms.openlocfilehash: 7f28a5cc7acd7e5d41e1ab91424a9f360a25b702
-ms.sourcegitcommit: 21bc2a7125b6c38bf1c4def0a0e66e6673de4805
+ms.sourcegitcommit: ee64dc738cfe689a2a479e32a87bf420f96c31c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2020
+ms.lasthandoff: 05/06/2020
 ms.locfileid: "79134034"
 ---
-# <a name="output-formats-for-azure-cli-commands"></a><span data-ttu-id="3b011-103">Formatos de saída dos comandos da CLI do Azure</span><span class="sxs-lookup"><span data-stu-id="3b011-103">Output formats for Azure CLI commands</span></span>
+# <a name="output-formats-for-azure-cli-commands"></a><span data-ttu-id="27715-103">Formatos de saída dos comandos da CLI do Azure</span><span class="sxs-lookup"><span data-stu-id="27715-103">Output formats for Azure CLI commands</span></span>
 
-<span data-ttu-id="3b011-104">A CLI do Azure usa JSON como formato de saída padrão, mas oferece outros formatos.</span><span class="sxs-lookup"><span data-stu-id="3b011-104">The Azure CLI uses JSON as its default output format, but offers other formats.</span></span>  <span data-ttu-id="3b011-105">Use o parâmetro `--output` (`--out` ou `-o`) para formatar a saída da CLI.</span><span class="sxs-lookup"><span data-stu-id="3b011-105">Use the `--output` (`--out` or `-o`) parameter to format CLI output.</span></span> <span data-ttu-id="3b011-106">Os valores e tipos de argumentos de saída são:</span><span class="sxs-lookup"><span data-stu-id="3b011-106">The argument values and types of output are:</span></span>
+<span data-ttu-id="27715-104">A CLI do Azure usa JSON como formato de saída padrão, mas oferece outros formatos.</span><span class="sxs-lookup"><span data-stu-id="27715-104">The Azure CLI uses JSON as its default output format, but offers other formats.</span></span>  <span data-ttu-id="27715-105">Use o parâmetro `--output` (`--out` ou `-o`) para formatar a saída da CLI.</span><span class="sxs-lookup"><span data-stu-id="27715-105">Use the `--output` (`--out` or `-o`) parameter to format CLI output.</span></span> <span data-ttu-id="27715-106">Os valores e tipos de argumentos de saída são:</span><span class="sxs-lookup"><span data-stu-id="27715-106">The argument values and types of output are:</span></span>
 
-<span data-ttu-id="3b011-107">--output</span><span class="sxs-lookup"><span data-stu-id="3b011-107">--output</span></span> | <span data-ttu-id="3b011-108">Descrição</span><span class="sxs-lookup"><span data-stu-id="3b011-108">Description</span></span>
+<span data-ttu-id="27715-107">--output</span><span class="sxs-lookup"><span data-stu-id="27715-107">--output</span></span> | <span data-ttu-id="27715-108">DESCRIÇÃO</span><span class="sxs-lookup"><span data-stu-id="27715-108">Description</span></span>
 ---------|-------------------------------
-`json`   | <span data-ttu-id="3b011-109">cadeia de caracteres JSON.</span><span class="sxs-lookup"><span data-stu-id="3b011-109">JSON string.</span></span> <span data-ttu-id="3b011-110">Essa configuração é a padrão</span><span class="sxs-lookup"><span data-stu-id="3b011-110">This setting is the default</span></span>
-`jsonc`  | <span data-ttu-id="3b011-111">JSON colorido</span><span class="sxs-lookup"><span data-stu-id="3b011-111">Colorized JSON</span></span>
-`yaml`   | <span data-ttu-id="3b011-112">YAML, uma alternativa ao JSON legível por computador</span><span class="sxs-lookup"><span data-stu-id="3b011-112">YAML, a machine-readable alternative to JSON</span></span>
-`table`  | <span data-ttu-id="3b011-113">A tabela ASCII com chaves como títulos de colunas</span><span class="sxs-lookup"><span data-stu-id="3b011-113">ASCII table with keys as column headings</span></span>
-`tsv`    | <span data-ttu-id="3b011-114">Valores separados por tabulação, sem chaves</span><span class="sxs-lookup"><span data-stu-id="3b011-114">Tab-separated values, with no keys</span></span>
-`none`   | <span data-ttu-id="3b011-115">Nenhuma saída diferente de erros e avisos</span><span class="sxs-lookup"><span data-stu-id="3b011-115">No output other than errors and warnings</span></span>
+`json`   | <span data-ttu-id="27715-109">cadeia de caracteres JSON.</span><span class="sxs-lookup"><span data-stu-id="27715-109">JSON string.</span></span> <span data-ttu-id="27715-110">Essa configuração é a padrão</span><span class="sxs-lookup"><span data-stu-id="27715-110">This setting is the default</span></span>
+`jsonc`  | <span data-ttu-id="27715-111">JSON colorido</span><span class="sxs-lookup"><span data-stu-id="27715-111">Colorized JSON</span></span>
+`yaml`   | <span data-ttu-id="27715-112">YAML, uma alternativa ao JSON legível por computador</span><span class="sxs-lookup"><span data-stu-id="27715-112">YAML, a machine-readable alternative to JSON</span></span>
+`table`  | <span data-ttu-id="27715-113">A tabela ASCII com chaves como títulos de colunas</span><span class="sxs-lookup"><span data-stu-id="27715-113">ASCII table with keys as column headings</span></span>
+`tsv`    | <span data-ttu-id="27715-114">Valores separados por tabulação, sem chaves</span><span class="sxs-lookup"><span data-stu-id="27715-114">Tab-separated values, with no keys</span></span>
+`none`   | <span data-ttu-id="27715-115">Nenhuma saída diferente de erros e avisos</span><span class="sxs-lookup"><span data-stu-id="27715-115">No output other than errors and warnings</span></span>
 
-## <a name="json-output-format"></a><span data-ttu-id="3b011-116">Formato da saída JSON</span><span class="sxs-lookup"><span data-stu-id="3b011-116">JSON output format</span></span>
+## <a name="json-output-format"></a><span data-ttu-id="27715-116">Formato da saída JSON</span><span class="sxs-lookup"><span data-stu-id="27715-116">JSON output format</span></span>
 
-<span data-ttu-id="3b011-117">O exemplo a seguir exibe a lista de máquinas virtuais em suas assinaturas no formato JSON padrão.</span><span class="sxs-lookup"><span data-stu-id="3b011-117">The following example displays the list of virtual machines in your subscriptions in the default JSON format.</span></span>
+<span data-ttu-id="27715-117">O exemplo a seguir exibe a lista de máquinas virtuais em suas assinaturas no formato JSON padrão.</span><span class="sxs-lookup"><span data-stu-id="27715-117">The following example displays the list of virtual machines in your subscriptions in the default JSON format.</span></span>
 
 ```azurecli-interactive
 az vm list --output json
 ```
 
-<span data-ttu-id="3b011-118">A saída a seguir tem alguns campos omitidos para fins de brevidade e informações de identificação substituídas.</span><span class="sxs-lookup"><span data-stu-id="3b011-118">The following output has some fields omitted for brevity, and identifying information replaced.</span></span>
+<span data-ttu-id="27715-118">A saída a seguir tem alguns campos omitidos para fins de brevidade e informações de identificação substituídas.</span><span class="sxs-lookup"><span data-stu-id="27715-118">The following output has some fields omitted for brevity, and identifying information replaced.</span></span>
 
 ```json
 [
@@ -66,15 +66,15 @@ az vm list --output json
 ]
 ```
 
-## <a name="yaml-output-format"></a><span data-ttu-id="3b011-119">Formato de saída YAML</span><span class="sxs-lookup"><span data-stu-id="3b011-119">YAML output format</span></span>
+## <a name="yaml-output-format"></a><span data-ttu-id="27715-119">Formato de saída YAML</span><span class="sxs-lookup"><span data-stu-id="27715-119">YAML output format</span></span>
 
-<span data-ttu-id="3b011-120">O formato `yaml` imprime a saída como [YAML](http://yaml.org/), um formato de serialização de dados de texto sem formatação.</span><span class="sxs-lookup"><span data-stu-id="3b011-120">The `yaml` format prints output as [YAML](http://yaml.org/), a plain-text data serialization format.</span></span> <span data-ttu-id="3b011-121">YAML tende a ser mais fácil de ler que o JSON e facilmente mapeia para esse formato.</span><span class="sxs-lookup"><span data-stu-id="3b011-121">YAML tends to be easier to read than JSON, and easily maps to that format.</span></span> <span data-ttu-id="3b011-122">Alguns aplicativos e comandos da CLI usam YAML como entrada de configuração, em vez de JSON.</span><span class="sxs-lookup"><span data-stu-id="3b011-122">Some applications and CLI commands take YAML as configuration input, instead of JSON.</span></span>
+<span data-ttu-id="27715-120">O formato `yaml` imprime a saída como [YAML](http://yaml.org/), um formato de serialização de dados de texto sem formatação.</span><span class="sxs-lookup"><span data-stu-id="27715-120">The `yaml` format prints output as [YAML](http://yaml.org/), a plain-text data serialization format.</span></span> <span data-ttu-id="27715-121">YAML tende a ser mais fácil de ler que o JSON e facilmente mapeia para esse formato.</span><span class="sxs-lookup"><span data-stu-id="27715-121">YAML tends to be easier to read than JSON, and easily maps to that format.</span></span> <span data-ttu-id="27715-122">Alguns aplicativos e comandos da CLI usam YAML como entrada de configuração, em vez de JSON.</span><span class="sxs-lookup"><span data-stu-id="27715-122">Some applications and CLI commands take YAML as configuration input, instead of JSON.</span></span>
 
 ```azurecli-interactive
 az vm list --out yaml
 ```
 
-<span data-ttu-id="3b011-123">A saída a seguir tem alguns campos omitidos para fins de brevidade e informações de identificação substituídas.</span><span class="sxs-lookup"><span data-stu-id="3b011-123">The following output has some fields omitted for brevity, and identifying information replaced.</span></span>
+<span data-ttu-id="27715-123">A saída a seguir tem alguns campos omitidos para fins de brevidade e informações de identificação substituídas.</span><span class="sxs-lookup"><span data-stu-id="27715-123">The following output has some fields omitted for brevity, and identifying information replaced.</span></span>
 
 ```yaml
 - availabilitySet: null
@@ -96,9 +96,9 @@ az vm list --out yaml
 ...
 ```
 
-## <a name="table-output-format"></a><span data-ttu-id="3b011-124">Formato de saída da tabela</span><span class="sxs-lookup"><span data-stu-id="3b011-124">Table output format</span></span>
+## <a name="table-output-format"></a><span data-ttu-id="27715-124">Formato de saída da tabela</span><span class="sxs-lookup"><span data-stu-id="27715-124">Table output format</span></span>
 
-<span data-ttu-id="3b011-125">O formato `table` imprime a saída como uma tabela ASCII, facilitando a leitura e a análise.</span><span class="sxs-lookup"><span data-stu-id="3b011-125">The `table` format prints output as an ASCII table, making it easy to read and scan.</span></span> <span data-ttu-id="3b011-126">Objetos aninhados não são incluídos na saída da tabela, mas ainda podem ser filtrados como parte de uma consulta.</span><span class="sxs-lookup"><span data-stu-id="3b011-126">Nested objects aren't included in table output, but can still be filtered as part of a query.</span></span> <span data-ttu-id="3b011-127">Alguns campos não estão incluídos na tabela, por isso, esse formato é o ideal quando seu objetivo é ter uma visão geral rápida dos dados e que possa ser pesquisada manualmente.</span><span class="sxs-lookup"><span data-stu-id="3b011-127">Some fields aren't included in the table, so this format is best when you want a quick, human-searchable overview of data.</span></span>
+<span data-ttu-id="27715-125">O formato `table` imprime a saída como uma tabela ASCII, facilitando a leitura e a análise.</span><span class="sxs-lookup"><span data-stu-id="27715-125">The `table` format prints output as an ASCII table, making it easy to read and scan.</span></span> <span data-ttu-id="27715-126">Objetos aninhados não são incluídos na saída da tabela, mas ainda podem ser filtrados como parte de uma consulta.</span><span class="sxs-lookup"><span data-stu-id="27715-126">Nested objects aren't included in table output, but can still be filtered as part of a query.</span></span> <span data-ttu-id="27715-127">Alguns campos não estão incluídos na tabela, por isso, esse formato é o ideal quando seu objetivo é ter uma visão geral rápida dos dados e que possa ser pesquisada manualmente.</span><span class="sxs-lookup"><span data-stu-id="27715-127">Some fields aren't included in the table, so this format is best when you want a quick, human-searchable overview of data.</span></span>
 
 ```azurecli-interactive
 az vm list --out table
@@ -114,7 +114,7 @@ KBDemo001VM  RGDEMO001        westus
 KBDemo020    RGDEMO001        westus
 ```
 
-<span data-ttu-id="3b011-128">Você pode usar o parâmetro `--query` para personalizar as propriedades e as colunas que você deseja mostrar na saída da lista.</span><span class="sxs-lookup"><span data-stu-id="3b011-128">You can use the `--query` parameter to customize the properties and columns you want to show in the list output.</span></span> <span data-ttu-id="3b011-129">O exemplo a seguir mostra como selecionar o Nome da VM e o Nome do Grupo de Recursos no comando `list`.</span><span class="sxs-lookup"><span data-stu-id="3b011-129">The following example shows how to select just the VM Name and the Resource Group Name in the `list` command.</span></span>
+<span data-ttu-id="27715-128">Você pode usar o parâmetro `--query` para personalizar as propriedades e as colunas que você deseja mostrar na saída da lista.</span><span class="sxs-lookup"><span data-stu-id="27715-128">You can use the `--query` parameter to customize the properties and columns you want to show in the list output.</span></span> <span data-ttu-id="27715-129">O exemplo a seguir mostra como selecionar o Nome da VM e o Nome do Grupo de Recursos no comando `list`.</span><span class="sxs-lookup"><span data-stu-id="27715-129">The following example shows how to select just the VM Name and the Resource Group Name in the `list` command.</span></span>
 
 ```azurecli-interactive
 az vm list --query "[].{resource:resourceGroup, name:name}" -o table
@@ -131,19 +131,19 @@ RGDEMO001   KBDemo020
 ```
 
 > [!NOTE]
-> <span data-ttu-id="3b011-130">Algumas chaves não são impressas no modo de exibição de tabela, por padrão.</span><span class="sxs-lookup"><span data-stu-id="3b011-130">Some keys are not printed in the table view by default.</span></span> <span data-ttu-id="3b011-131">Elas são: `id`, `type` e `etag`.</span><span class="sxs-lookup"><span data-stu-id="3b011-131">These are `id`, `type`, and `etag`.</span></span> <span data-ttu-id="3b011-132">Se você precisar ver isso na saída, poderá usar o recurso de recriação de chave JMESPath para alterar o nome da chave e evitar a filtragem.</span><span class="sxs-lookup"><span data-stu-id="3b011-132">If you need to see these in your output, you can use the JMESPath re-keying feature to change the key name and avoid filtering.</span></span>
+> <span data-ttu-id="27715-130">Algumas chaves não são impressas no modo de exibição de tabela, por padrão.</span><span class="sxs-lookup"><span data-stu-id="27715-130">Some keys are not printed in the table view by default.</span></span> <span data-ttu-id="27715-131">Elas são: `id`, `type` e `etag`.</span><span class="sxs-lookup"><span data-stu-id="27715-131">These are `id`, `type`, and `etag`.</span></span> <span data-ttu-id="27715-132">Se você precisar ver isso na saída, poderá usar o recurso de recriação de chave JMESPath para alterar o nome da chave e evitar a filtragem.</span><span class="sxs-lookup"><span data-stu-id="27715-132">If you need to see these in your output, you can use the JMESPath re-keying feature to change the key name and avoid filtering.</span></span>
 >
 > ```azurecli-interactive
 > az vm list --query "[].{objectID:id}" -o table
 > ```
 
-<span data-ttu-id="3b011-133">Para obter mais informações sobre como usar consultas para filtrar dados, confira [Usar as consultas JMESPath com a CLI do Azure](/cli/azure/query-azure-cli).</span><span class="sxs-lookup"><span data-stu-id="3b011-133">For more about using queries to filter data, see [Use JMESPath queries with Azure CLI](/cli/azure/query-azure-cli).</span></span>
+<span data-ttu-id="27715-133">Para obter mais informações sobre como usar consultas para filtrar dados, confira [Usar as consultas JMESPath com a CLI do Azure](/cli/azure/query-azure-cli).</span><span class="sxs-lookup"><span data-stu-id="27715-133">For more about using queries to filter data, see [Use JMESPath queries with Azure CLI](/cli/azure/query-azure-cli).</span></span>
 
-## <a name="tsv-output-format"></a><span data-ttu-id="3b011-134">O formato de saída TSV</span><span class="sxs-lookup"><span data-stu-id="3b011-134">TSV output format</span></span>
+## <a name="tsv-output-format"></a><span data-ttu-id="27715-134">O formato de saída TSV</span><span class="sxs-lookup"><span data-stu-id="27715-134">TSV output format</span></span>
 
-<span data-ttu-id="3b011-135">O formato de saída `tsv` retorna valores separados por tabulação e nova linha sem formatação, chaves ou outros símbolos adicionais.</span><span class="sxs-lookup"><span data-stu-id="3b011-135">The `tsv` output format returns tab- and newline-separated values without additional formatting, keys, or other symbols.</span></span> <span data-ttu-id="3b011-136">Esse formato facilita o consumo da saída em outros comandos e ferramentas que precisam processar o texto de alguma maneira.</span><span class="sxs-lookup"><span data-stu-id="3b011-136">This format makes it easy to consume the output into other commands and tools that need to process the text in some form.</span></span> <span data-ttu-id="3b011-137">Como o formato `table`, `tsv` não imprime objetos aninhados.</span><span class="sxs-lookup"><span data-stu-id="3b011-137">Like the `table` format, `tsv` doesn't print nested objects.</span></span>
+<span data-ttu-id="27715-135">O formato de saída `tsv` retorna valores separados por tabulação e nova linha sem formatação, chaves ou outros símbolos adicionais.</span><span class="sxs-lookup"><span data-stu-id="27715-135">The `tsv` output format returns tab- and newline-separated values without additional formatting, keys, or other symbols.</span></span> <span data-ttu-id="27715-136">Esse formato facilita o consumo da saída em outros comandos e ferramentas que precisam processar o texto de alguma maneira.</span><span class="sxs-lookup"><span data-stu-id="27715-136">This format makes it easy to consume the output into other commands and tools that need to process the text in some form.</span></span> <span data-ttu-id="27715-137">Como o formato `table`, `tsv` não imprime objetos aninhados.</span><span class="sxs-lookup"><span data-stu-id="27715-137">Like the `table` format, `tsv` doesn't print nested objects.</span></span>
 
-<span data-ttu-id="3b011-138">Se o exemplo anterior com a opção `tsv` for usado, gerará o resultado separado por tabulações.</span><span class="sxs-lookup"><span data-stu-id="3b011-138">Using the preceding example with the `tsv` option outputs the tab-separated result.</span></span>
+<span data-ttu-id="27715-138">Se o exemplo anterior com a opção `tsv` for usado, gerará o resultado separado por tabulações.</span><span class="sxs-lookup"><span data-stu-id="27715-138">Using the preceding example with the `tsv` option outputs the tab-separated result.</span></span>
 
 ```azurecli-interactive
 az vm list --out tsv
@@ -157,11 +157,11 @@ None    None        /subscriptions/.../resourceGroups/RGDEMO001/providers/Micros
 None    None        /subscriptions/.../resourceGroups/RGDEMO001/providers/Microsoft.Compute/virtualMachines/KBDemo020   None    None    westus    KBDemo020            None    Succeeded    RGDEMO001    None            Microsoft.Compute/virtualMachines    36baa9-9b80-48a8-b4a9-854c7a858ece
 ```
 
-<span data-ttu-id="3b011-139">Uma restrição do formato de saída TSV é que não há uma garantia de ordem na saída.</span><span class="sxs-lookup"><span data-stu-id="3b011-139">One restriction of the TSV output format is that there isn't a guarantee on output ordering.</span></span> <span data-ttu-id="3b011-140">A CLI realiza todos os esforços para preservar a ordem classificando alfabeticamente as chaves na resposta JSON e, em seguida, imprimindo os valores em ordem para a saída TSV.</span><span class="sxs-lookup"><span data-stu-id="3b011-140">The CLI makes a best effort to preserve ordering by sorting keys in the response JSON alphebetically, and then printing their values in order for TSV output.</span></span> <span data-ttu-id="3b011-141">No entanto, isso não é uma garantia de que a ordem sempre será idêntica, pois o formato de resposta do serviço do Azure pode ser alterado.</span><span class="sxs-lookup"><span data-stu-id="3b011-141">This isn't a guarantee that the order is always identical though, since the Azure service response format may change.</span></span>
+<span data-ttu-id="27715-139">Uma restrição do formato de saída TSV é que não há uma garantia de ordem na saída.</span><span class="sxs-lookup"><span data-stu-id="27715-139">One restriction of the TSV output format is that there isn't a guarantee on output ordering.</span></span> <span data-ttu-id="27715-140">A CLI realiza todos os esforços para preservar a ordem classificando alfabeticamente as chaves na resposta JSON e, em seguida, imprimindo os valores em ordem para a saída TSV.</span><span class="sxs-lookup"><span data-stu-id="27715-140">The CLI makes a best effort to preserve ordering by sorting keys in the response JSON alphebetically, and then printing their values in order for TSV output.</span></span> <span data-ttu-id="27715-141">No entanto, isso não é uma garantia de que a ordem sempre será idêntica, pois o formato de resposta do serviço do Azure pode ser alterado.</span><span class="sxs-lookup"><span data-stu-id="27715-141">This isn't a guarantee that the order is always identical though, since the Azure service response format may change.</span></span>
 
-<span data-ttu-id="3b011-142">Para impor uma ordem consistente, é necessário usar o parâmetro `--query` e o formato de [lista de multisseleção](query-azure-cli.md#get-multiple-values).</span><span class="sxs-lookup"><span data-stu-id="3b011-142">In order to enforce consistent ordering, you'll need to use the `--query` parameter and the [multiselect list](query-azure-cli.md#get-multiple-values) format.</span></span> <span data-ttu-id="3b011-143">Quando um comando de CLI retorna um único dicionário JSON, use o formato geral `[key1, key2, ..., keyN]` para forçar uma ordem de chave.</span><span class="sxs-lookup"><span data-stu-id="3b011-143">When a CLI command returns a single JSON dictionary, use the general format `[key1, key2, ..., keyN]` to force a key order.</span></span>  <span data-ttu-id="3b011-144">Para comandos de CLI que retornam uma matriz, use o formato geral `[].[key1, key2, ..., keyN]` para ordenar os valores de coluna.</span><span class="sxs-lookup"><span data-stu-id="3b011-144">For CLI commands which return an array, use the general format `[].[key1, key2, ..., keyN]` to order column values.</span></span>
+<span data-ttu-id="27715-142">Para impor uma ordem consistente, é necessário usar o parâmetro `--query` e o formato de [lista de multisseleção](query-azure-cli.md#get-multiple-values).</span><span class="sxs-lookup"><span data-stu-id="27715-142">In order to enforce consistent ordering, you'll need to use the `--query` parameter and the [multiselect list](query-azure-cli.md#get-multiple-values) format.</span></span> <span data-ttu-id="27715-143">Quando um comando de CLI retorna um único dicionário JSON, use o formato geral `[key1, key2, ..., keyN]` para forçar uma ordem de chave.</span><span class="sxs-lookup"><span data-stu-id="27715-143">When a CLI command returns a single JSON dictionary, use the general format `[key1, key2, ..., keyN]` to force a key order.</span></span>  <span data-ttu-id="27715-144">Para comandos de CLI que retornam uma matriz, use o formato geral `[].[key1, key2, ..., keyN]` para ordenar os valores de coluna.</span><span class="sxs-lookup"><span data-stu-id="27715-144">For CLI commands which return an array, use the general format `[].[key1, key2, ..., keyN]` to order column values.</span></span>
 
-<span data-ttu-id="3b011-145">Por exemplo, para ordenar as informações exibidas acima da ID, do local, do grupo de recursos e do nome da VM:</span><span class="sxs-lookup"><span data-stu-id="3b011-145">For example, to order the information displayed above by ID, location, resource group, and VM name:</span></span>
+<span data-ttu-id="27715-145">Por exemplo, para ordenar as informações exibidas acima da ID, do local, do grupo de recursos e do nome da VM:</span><span class="sxs-lookup"><span data-stu-id="27715-145">For example, to order the information displayed above by ID, location, resource group, and VM name:</span></span>
 
 ```azurecli-interactive
 az vm list --out tsv --query '[].[id, location, resourceGroup, name]'
@@ -175,7 +175,7 @@ az vm list --out tsv --query '[].[id, location, resourceGroup, name]'
 /subscriptions/.../resourceGroups/RGDEMO001/providers/Microsoft.Compute/virtualMachines/KBDemo020       westus  RGDEMO001       KBDemo020
 ```
 
-<span data-ttu-id="3b011-146">O exemplo a seguir mostra como a saída `tsv` pode ser transportada para outros comandos no bash.</span><span class="sxs-lookup"><span data-stu-id="3b011-146">The next example shows how `tsv` output can be piped to other commands in bash.</span></span> <span data-ttu-id="3b011-147">A consulta é usada para filtrar a saída e forçar o ordenamento, `grep` seleciona itens com o texto "RGD" e o comando `cut` seleciona o quarto campo para mostrar o nome da VM na saída.</span><span class="sxs-lookup"><span data-stu-id="3b011-147">The query is used to filter output and force ordering, `grep` selects items that have text "RGD" in them, then the `cut` command selects the fourth field to show the name of the VM in output.</span></span>
+<span data-ttu-id="27715-146">O exemplo a seguir mostra como a saída `tsv` pode ser transportada para outros comandos no bash.</span><span class="sxs-lookup"><span data-stu-id="27715-146">The next example shows how `tsv` output can be piped to other commands in bash.</span></span> <span data-ttu-id="27715-147">A consulta é usada para filtrar a saída e forçar o ordenamento, `grep` seleciona itens com o texto "RGD" e o comando `cut` seleciona o quarto campo para mostrar o nome da VM na saída.</span><span class="sxs-lookup"><span data-stu-id="27715-147">The query is used to filter output and force ordering, `grep` selects items that have text "RGD" in them, then the `cut` command selects the fourth field to show the name of the VM in output.</span></span>
 
 ```azurecli-interactive
 az vm list --out tsv --query '[].[id, location, resourceGroup, name]' | grep RGD | cut -f4
@@ -186,9 +186,9 @@ KBDemo001VM
 KBDemo020
 ```
 
-## <a name="set-the-default-output-format"></a><span data-ttu-id="3b011-148">Definir o formato de saída padrão</span><span class="sxs-lookup"><span data-stu-id="3b011-148">Set the default output format</span></span>
+## <a name="set-the-default-output-format"></a><span data-ttu-id="27715-148">Definir o formato de saída padrão</span><span class="sxs-lookup"><span data-stu-id="27715-148">Set the default output format</span></span>
 
-<span data-ttu-id="3b011-149">Use o comando interativo `az configure` para configurar seu ambiente e estabelecer as configurações padrão para formatos de saída.</span><span class="sxs-lookup"><span data-stu-id="3b011-149">Use the interactive `az configure` command to set up your environment and establish default settings for output formats.</span></span> <span data-ttu-id="3b011-150">O formato de saída padrão é `json`.</span><span class="sxs-lookup"><span data-stu-id="3b011-150">The default output format is `json`.</span></span>
+<span data-ttu-id="27715-149">Use o comando interativo `az configure` para configurar seu ambiente e estabelecer as configurações padrão para formatos de saída.</span><span class="sxs-lookup"><span data-stu-id="27715-149">Use the interactive `az configure` command to set up your environment and establish default settings for output formats.</span></span> <span data-ttu-id="27715-150">O formato de saída padrão é `json`.</span><span class="sxs-lookup"><span data-stu-id="27715-150">The default output format is `json`.</span></span>
 
 ```azurecli-interactive
 az configure
@@ -214,4 +214,4 @@ What default output format would you like?
 Please enter a choice [1]:
 ```
 
-<span data-ttu-id="3b011-151">Para saber mais sobre como configurar seu ambiente, confira [Configuração da CLI do Azure](/cli/azure/azure-cli-configuration).</span><span class="sxs-lookup"><span data-stu-id="3b011-151">To learn more about configuring your environment, see [Azure CLI configuration](/cli/azure/azure-cli-configuration).</span></span>
+<span data-ttu-id="27715-151">Para saber mais sobre como configurar seu ambiente, confira [Configuração da CLI do Azure](/cli/azure/azure-cli-configuration).</span><span class="sxs-lookup"><span data-stu-id="27715-151">To learn more about configuring your environment, see [Azure CLI configuration](/cli/azure/azure-cli-configuration).</span></span>
