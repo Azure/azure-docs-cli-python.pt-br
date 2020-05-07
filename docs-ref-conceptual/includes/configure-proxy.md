@@ -7,10 +7,10 @@ ms.topic: include
 ms.prod: azure
 ms.technology: azure-cli
 ms.openlocfilehash: 676f33377a4e7122941bc789c51465b7f34aa1d3
-ms.sourcegitcommit: 08043c47d3ccf23522b91e6bba3932e312c04c7f
+ms.sourcegitcommit: ee64dc738cfe689a2a479e32a87bf420f96c31c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 05/06/2020
 ms.locfileid: "66516255"
 ---
 Se você não conseguir se conectar a um recurso externo por causa de um proxy, verifique se as variáveis `HTTP_PROXY` e `HTTPS_PROXY` foram definidas corretamente no shell. Será preciso entrar em contato com o administrador do sistema para saber quais hosts e portas devem ser usados para esses proxies.

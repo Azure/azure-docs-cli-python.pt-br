@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: azure-cli
 ms.devlang: azurecli
 ms.openlocfilehash: a98a51e4dc3ac85d27e27ef9b9164a7f98431d31
-ms.sourcegitcommit: 465f2402b71e3de8c699798dc2a766fc90df241a
+ms.sourcegitcommit: ee64dc738cfe689a2a479e32a87bf420f96c31c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 05/06/2020
 ms.locfileid: "78953327"
 ---
 # <a name="install-azure-cli-with-yum"></a>Instalar a CLI do Azure com o yum
@@ -54,7 +54,7 @@ Execute a CLI do Azure com o comando `az`. Para entrar, use o comando [az login]
 
 Para saber mais sobre os diferentes métodos de autenticação, confira [Entrar com a CLI do Azure](authenticate-azure-cli.md).
 
-## <a name="troubleshooting"></a>Solução de problemas
+## <a name="troubleshooting"></a>solução de problemas
 
 Aqui estão alguns problemas comuns vistos durante a instalação com `yum`. Se você tiver um problema não abordado aqui, [arquive um problema no github](https://github.com/Azure/azure-cli/issues).
 
