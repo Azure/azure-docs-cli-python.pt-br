@@ -4,18 +4,55 @@ description: Saiba mais sobre as últimas atualizações da CLI do Azure
 author: dbradish-microsoft
 ms.author: dbradish
 manager: barbkess
-ms.date: 04/28/2020
+ms.date: 04/30/2020
 ms.topic: article
 ms.service: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 032039cc5a51f0d158fbd3616a30263df139f53b
-ms.sourcegitcommit: 1e5d8f04091803d68ac6833d2e2af37a863486ac
+ms.openlocfilehash: efb17acb25b2268496efe313cac0a8189a78930a
+ms.sourcegitcommit: ee64dc738cfe689a2a479e32a87bf420f96c31c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82199386"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82591417"
 ---
 # <a name="azure-cli-release-notes"></a>Notas de versão da CLI do Azure
+
+## <a name="april-30-2020"></a>30 de abril de 2020
+
+Versão 2.5.1
+
+### <a name="acr"></a>ACR
+
+* `az acr check-health`: correção de "DOCKER_PULL_ERROR" no Windows
+
+### <a name="compute"></a>Computação
+
+* `az vm list-ip-addresses`: Tratamento de erros
+* Correção de um bug de criação de VM caso endpoint_vm_image_alias_doc não estivesse definido no perfil de nuvem
+* `az vmss create`: adição de --os-disk-size-gb
+
+### <a name="cosmos-db"></a>Cosmos DB
+
+* `az cosmosdb create/update`: adição de suporte a --enable-public-network
+
+### <a name="extension"></a>Extensão
+
+* Correção do carregamento de metadados errados para a extensão de tipo roda
+
+### <a name="packaging"></a>Empacotamento
+
+* Adição de script az para Git Bash/Cygwin no Windows
+
+### <a name="sql"></a>SQL
+
+* `az sql instance-pool`: adição de grupo de comando de pools de instância
+
+### <a name="storage"></a>Armazenamento
+
+* Atualização do pacote azure-multiapi-storage para 0.3.0
+* Dá suporte ao GZRS para a criação e atualização da conta de armazenamento
+* `az storage account failover`: adição de suporte para failover da conta de armazenamento de GRS/GZRS
+* `az storage blob upload`: adição do parâmetro --encryption-scope para dar suporte à especificação da informação do escopo da criptografia
 
 ## <a name="april-28-2020"></a>28 de abril de 2020
 

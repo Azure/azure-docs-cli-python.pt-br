@@ -4,17 +4,17 @@ description: Uma lista completa das extensões com suporte oficial para a CLI do
 author: haroldrandom
 ms.author: jianzen
 manager: yonzhan,yungezz
-ms.date: 04/28/2020
+ms.date: 05/02/2020
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: f14ba4c0230407ee072ff4b51841d33da5d33b72
-ms.sourcegitcommit: 1e5d8f04091803d68ac6833d2e2af37a863486ac
+ms.openlocfilehash: d9e92e3b2e03185c9f9ba446bd10ef5237f3297d
+ms.sourcegitcommit: ee64dc738cfe689a2a479e32a87bf420f96c31c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82199352"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82835672"
 ---
 # <a name="available-extensions-for-the-azure-cli"></a>Extensões disponíveis para a CLI do Azure
 
@@ -34,7 +34,7 @@ az extension list-available --output table
 | [versão prévia do aks](https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview) | 0.4.43 | Fornece uma versão prévia para futuros recursos do AKS | Sim |
 | [alertsmanagement](https://github.com/Azure/azure-cli-extensions) | 0.1.0 | Extensão de alertas das ferramentas de linha de comando do Microsoft Azure |  |
 | [alias](https://github.com/Azure/azure-cli-extensions) | 0.5.2 | Suporte para aliases de comando | Sim |
-| [application-insights](https://github.com/Azure/azure-cli-extensions/tree/master/src/application-insights) | 0.1.6 | Suporte para gerenciar componentes do Application Insights e consultar as métricas, os eventos e os logs de tais componentes. | Sim |
+| [application-insights](https://github.com/Azure/azure-cli-extensions/tree/master/src/application-insights) | 0.1.7 | Suporte para gerenciar componentes do Application Insights e consultar as métricas, os eventos e os logs de tais componentes. | Sim |
 | [azure-batch-cli-extensions](https://github.com/Azure/azure-batch-cli-extensions) | 5.0.1 | Comandos adicionais para trabalhar com o serviço de Lote do Azure |  |
 | [azure-cli-iot-ext](https://github.com/azure/azure-iot-cli-extension) | 0.8.9 | A extensão de IoT do Azure para a CLI do Azure. |  |
 | [azure-cli-ml](https://docs.microsoft.com/azure/machine-learning/service/) | 1.4.0 | Módulo de Comando do AzureML para as Ferramentas da Linha de Comando do Microsoft Azure |  |
@@ -66,7 +66,9 @@ az extension list-available --output table
 | [internet-analyzer](https://github.com/Azure/azure-cli-extensions) | 0.1.0rc5 | Extensão Analisador de Internet das Ferramentas de Linha de Comando do Microsoft Azure | Sim |
 | [ip-group](https://github.com/Azure/azure-cli-extensions) | 0.1.1 | Extensão IpGroup das Ferramentas de Linha de Comando do Microsoft Azure |  |
 | [keyvault-preview](https://github.com/Azure/azure-keyvault-cli-extension) | 0.1.3 | Visualizar comandos do Azure Key Vault. | Sim |
+| [kusto](https://github.com/Azure/azure-cli-extensions) | 0.1.0 | Extensão KustoManagementClient das ferramentas de linha de comando do Microsoft Azure |  |
 | [log-analytics](https://github.com/Azure/azure-cli-extensions/tree/master/src/log-analytics) | 0.1.4 | Suporte para recursos de consulta do Log Analytics do Azure. | Sim |
+| [log-analytics-solution](https://github.com/Azure/azure-cli-extensions) | 0.1.0 | Extensão de operações das ferramentas de linha de comando do Microsoft Azure |  |
 | [logic](https://github.com/Azure/azure-cli-extensions) | 0.1.0 | Extensão LogicManagementClient das ferramentas de linha de comando do Microsoft Azure |  |
 | [manutenção](https://github.com/Azure/azure-cli-extensions) | 1.0.1 | Suporte para o gerenciamento de manutenção do Azure. |  |
 | [managementpartner](https://github.com/Azure/azure-cli-extensions) | 0.1.2 | Suporte à versão prévia de Parceiro de Gerenciamento |  |
@@ -87,6 +89,7 @@ az extension list-available --output table
 | [subscription](https://github.com/Azure/azure-cli-extensions) | 0.1.3 | Suporte à versão prévia de gerenciamento de assinatura. |  |
 | [support](https://github.com/azure/azure-cli-extensions/tree/master/src/support) | 1.0.2 | Extensão Suporte das Ferramentas de Linha de Comando do Microsoft Azure |  |
 | [synapse](https://github.com/Azure/azure-cli-extensions) | 0.1.0 | Extensão do Synapse das Ferramentas da Linha de Comando do Microsoft Azure | Sim |
+| [timeseriesinsights](https://github.com/Azure/azure-cli-extensions/src/timeseriesinsights) | 0.1.0 | Extensão TimeSeriesInsightsClient das ferramentas de linha de comando do Microsoft Azure |  |
 | [virtual-network-tap](https://github.com/Azure/azure-cli-extensions/tree/master/src/virtual-network-tap) | 0.1.0 | Gerenciar TAPs de rede virtual (VTAP). | Sim |
 | [virtual-wan](https://github.com/Azure/azure-cli-extensions/tree/master/src/virtual-wan) | 0.1.3 | Gerencie WAN virtual, hubs, gateways de VPN e sites VPN. | Sim |
 | [vm-repair](https://github.com/Azure/azure-cli-extensions/tree/master/src/vm-repair) | 0.2.7 | Comandos de reparo automático para corrigir as VMs. |  |
