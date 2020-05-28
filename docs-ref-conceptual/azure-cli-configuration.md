@@ -8,12 +8,12 @@ ms.date: 06/11/2018
 ms.topic: conceptual
 ms.service: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 97f9fe767d8f7a6a1360c9068985b2fcfe1b7c6f
-ms.sourcegitcommit: ee64dc738cfe689a2a479e32a87bf420f96c31c8
+ms.openlocfilehash: 24a798e9b3c08f3cd9e66c017cc45f5346d8995e
+ms.sourcegitcommit: d05660a42b2a77c4b05a7f96c386e656bd2db0fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82199420"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83569163"
 ---
 # <a name="azure-cli-configuration"></a>Configuração da CLI do Azure
 
@@ -86,7 +86,7 @@ Quando você fornece um valor padrão, esse argumento já não é exigido pelos 
 |---------|-----------|------|------------|
 | __core__ | output | string | O formato de saída padrão. Pode ser `json`, `jsonc`, `tsv` ou `table`. |
 | | disable\_confirm\_prompt | booleano | Ativa e desativa prompts de confirmação. |
-| | collect\_telemetry | booleano | Permitir que a Microsoft colete dados anônimos sobre o uso da CLI. Para obter informações de privacidade, confira os [Termos de uso da CLI do Azure](https://aka.ms/AzureCliLegal). |
+| | collect\_telemetry | booleano | Permitir que a Microsoft colete dados anônimos sobre o uso da CLI. Para obter informações de privacidade, confira os [Termos de uso da licença MIT da CLI do Azure](https://github.com/Azure/azure-cli/blob/dev/LICENSE). |
 | | only\_show\_errors | booleano | Mostra apenas erros durante a invocação de comando. Em outras palavras, somente erros serão gravados em `stderr`. Ele suprime avisos dos comandos em versão prévia, preteridos e experimentais. Ele também está disponível para comandos individuais com o parâmetro `--only-show-errors`. |
 | | no\_color | booleano | Desabilita a cor. As mensagens originalmente coloridas serão prefixadas com `DEBUG`, `INFO`, `WARNING` e `ERROR`. Isso ignora o problema de uma biblioteca de terceiro em que a cor do terminal não pode ser revertida depois de um redirecionamento de `stdout`. |
 | __logging__ | enable\_log\_file | booleano | Ativar e desativar o registro em log. |

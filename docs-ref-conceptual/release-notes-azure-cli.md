@@ -4,18 +4,135 @@ description: Saiba mais sobre as últimas atualizações da CLI do Azure
 author: dbradish-microsoft
 ms.author: dbradish
 manager: barbkess
-ms.date: 04/30/2020
+ms.date: 05/19/2020
 ms.topic: article
 ms.service: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: efb17acb25b2268496efe313cac0a8189a78930a
-ms.sourcegitcommit: ee64dc738cfe689a2a479e32a87bf420f96c31c8
+ms.openlocfilehash: c95a635cc58afcc7956c230d0e3f47351fa0893d
+ms.sourcegitcommit: d05660a42b2a77c4b05a7f96c386e656bd2db0fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82591417"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83569180"
 ---
 # <a name="azure-cli-release-notes"></a>Notas de versão da CLI do Azure
+
+## <a name="may-19-2020"></a>19 de maio de 2020
+
+Versão 2.6.0
+
+### <a name="acr"></a>ACR
+
+* Adiciona tempo limite padrão de 5 minutos para solicitações ao ACR
+* Suporte para desabilitar o acesso à redes públicas
+* `az acr token create`: expõe o argumento --days
+* `az acr import`: aceita valores do argumento --source que contêm logon no nome do servidor por meio da correção final do cliente
+
+### <a name="acs"></a>ACS
+
+* Correção de bug: remover limpeza de campos para campos que não existem mais
+
+### <a name="aks"></a>AKS
+
+* Atualiza o tempo de atividade do contexto de ajuda de comando do SLA
+* Remove a verificação do intervalo para a atualização da contagem de minutos do dimensionador automático
+* Corrige o problema que fazia com que a CLI falhasse quando o usuário especificava apenas a senha do Windows
+
+### <a name="ams"></a>AMS
+
+* `az ams transform create`: Adiciona a capacidade de criar uma transformação com um FaceDetector predefinido
+* `az ams content-key-policy create`: Adiciona a capacidade de criar uma política de chave de conteúdo do FairPlay com uma configuração de aluguel offline
+
+### <a name="appconfig"></a>AppConfig
+
+* Correção de bug para valores de chave da lista com campos
+
+### <a name="appservice"></a>AppService
+
+* `az functionapp create`: AzureWebJobsDashboard será definido somente se AppInsights estiver desabilitado
+* Correção #10664 – Integração VNet – Problema de Verificação de Localização e Correção #13257-AZ Web App falha quando o RG precisar ser criado
+* `az webapp|functionapp config ssl import`: Pesquisa o cofre de chaves em grupos de recursos na assinatura e aprimora a ajuda e os exemplos.
+* Integra o contexto local para o serviço de aplicativo
+
+### <a name="arm"></a>ARM
+
+* `az deployment`: Corrige o problema que faz com que o templateLink não seja retornado ao implantar ou validar o template-uri
+* `az deployment`: Corrige o problema que faz com que implantação/validação não dê suporte ao caractere codificado especialmente
+* `az deployment sub/group what-if`: Corrige o alinhamento de matriz e o tratamento de erro
+* `az deployment operation`: Modifica as informações preteridas
+
+### <a name="aro"></a>ARO
+
+* Adiciona exemplos para az aro create, list, list-credentials, show, delete
+* Adiciona a função generate_random_id
+
+### <a name="backup"></a>Backup
+
+* Permite FriendlyName ao habilitar proteção para o comando AzureFileShare
+* Correção do comando restore-disks da IaasVM
+* Adiciona o BackupManagementType "MAB" ao comando item list
+* Adiciona suporte para a repetição de tentativas de atualização da política para itens com falha.
+* Adiciona a funcionalidade de Retomada de Proteção para as Máquinas Virtuais do Azure
+* Adiciona suporte para especificar o ResourceGroup para armazenar instantRP durante a Criação ou Modificação de Política
+
+### <a name="ci"></a>CI
+
+* Suporte para flake8 3.8.0
+
+### <a name="compute"></a>Computação
+
+* Novo comando az vm auto-shutdown
+* `az vm list-skus`: Atualização do comportamento --zone, retorna SKUs de todos os tipos agora
+
+### <a name="core"></a>Núcleo
+
+* Atualiza o status de ativado/desativado do contexto local para o nível de usuário global
+
+### <a name="extension"></a>Extensão
+
+* `az extension add`: Adiciona --system para habilitar a instalação de extensões em um caminho do sistema
+* Suporte para .egg-info para armazenar metadados de extensão de tipo de roda
+
+### <a name="iot"></a>IoT
+
+* `az iot`: Atualiza a mensagem de reconhecimento de extensão da primeira execução do módulo de comando IoT para a ID precisa e moderna não preterida `azure-iot`.
+
+### <a name="iot-hub"></a>Hub IoT
+
+* Suporte para comandos de isolamento de rede e API 2020-03-01
+
+### <a name="netappfiles"></a>NetAppFiles
+
+* `az volume create`: Adiciona snapshot-id como um parâmetro para criar volume – isso permitirá que os usuários criem um volume por meio de um instantâneo existente.
+
+### <a name="network"></a>Rede
+
+* Corrige o valor TTL alterado não destinado ao DNS add-record
+* `az network public-ip create`: Informa os clientes sobre futuras alterações da falha
+* Suporte para comandos genéricos para cenários de link privado
+* `az network private-endpoint-connection`: Suporte para tipos mysql, postgre e mariadb
+* `az network private-endpoint-connection`: Suporte para tipos cosmosdb
+* `az network private-endpoint`: pretere --group-ids e redireciona para --group-id
+
+### <a name="output"></a>Saída
+
+* Mostra instruções de atualização em localizar, comentários e --help
+
+### <a name="packaging"></a>Empacotamento
+
+* Cria pacotes MSI/Homebrew com dependências resolvidas de requirements.txt
+
+### <a name="rbac"></a>RBAC
+
+* `az ad sp credential reset`: corrige a geração de credenciais fracas
+
+### <a name="storage"></a>Armazenamento
+
+* `az storage account file-service-properties update/show`: Adiciona suporte a propriedades de arquivo para a conta de armazenamento
+* `az storage container create`: Correção #13373 ao adicionar o validador para acesso público
+* Adiciona suporte a ADLS Gen2 track2
+* `az storage blob sync`: Dar suporte à `--connection-string`
+* `az storage blob sync`: Corrige a mensagem de erro incorreta quando azcopy não consegue encontrar o local de instalação
 
 ## <a name="april-30-2020"></a>30 de abril de 2020
 
@@ -1370,7 +1487,7 @@ Esta versão contém um grande número de alterações da falha.
 * [ALTERAÇÃO SIGNIFICATIVA] O parâmetro `--persisted` de `hdinsight script-action list` foi removido
 * O parâmetro `hdinsight create --cluster-configurations` foi alterado para aceitar um caminho para um arquivo JSON local ou uma cadeia de caracteres JSON
 * Adicionado o comando `hdinsight script-action list-execution-history`
-* Alterado `hdinsight monitor enable --workspace` para aceitar uma ID do workspace ou nome do workspace do Log Analytics 
+* Alterado `hdinsight monitor enable --workspace` para aceitar uma ID do workspace ou nome do workspace do Log Analytics
 * O argumento `hdinsight monitor enable --primary-key`, que será necessário caso uma ID do workspace seja fornecida como o parâmetro, foi adicionado
 * Foram adicionados mais exemplos e atualização das descrições das mensagens de erro
 
@@ -4697,7 +4814,7 @@ Versão 2.0.13
 * Atualizado para o Lote SDK 3.1.0 e Gerenciamento de Lote SDK 4.1.0
 * Adicionado um novo comando que mostra as contagens de tarefas de um trabalho
 * Corrigido o bug no processamento de URL de SAS do arquivo de recurso
-* Ponto de extremidade da conta de lote agora dá suporte ao prefixo opcional “https://” 
+* Ponto de extremidade da conta de lote agora dá suporte ao prefixo opcional “https://”
 * Suporte para adicionar listas de mais de 100 tarefas a um trabalho
 * Adicionado log de depuração para carregar o módulo do comando de Extensões
 
