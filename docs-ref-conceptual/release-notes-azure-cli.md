@@ -4,18 +4,85 @@ description: Saiba mais sobre as últimas atualizações da CLI do Azure
 author: dbradish-microsoft
 ms.author: dbradish
 manager: barbkess
-ms.date: 05/19/2020
+ms.date: 06/02/2020
 ms.topic: article
 ms.service: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: c95a635cc58afcc7956c230d0e3f47351fa0893d
-ms.sourcegitcommit: d05660a42b2a77c4b05a7f96c386e656bd2db0fe
+ms.openlocfilehash: be0db24ca312825aba03256119d1b5e43afbd902
+ms.sourcegitcommit: 62355a77ca59addf7b19db6b95027676e52fd936
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83569180"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84275055"
 ---
 # <a name="azure-cli-release-notes"></a>Notas de versão da CLI do Azure
+
+## <a name="june-02-2020"></a>02 de Junho de 2020
+
+Versão 2.7.0
+
+### <a name="acr"></a>ACR
+
+* Correção de um erro de digitação em uma mensagem de erro de criação de token
+
+### <a name="aks"></a>AKS
+
+* Alteração da sku de vm padrão para Standard_D2s_v3
+* Correção da criação de atribuição de função para sub-rede personalizada MSI cluster Plus
+
+### <a name="appservice"></a>AppService
+
+* A correção #12739 az appservice list-locations retorna alguns locais inválidos
+
+### <a name="arm"></a>ARM
+
+* `az deployment`: Correção do problema #13159 de mensagem incorreta do JSON após a remoção de comentários e a compactação
+* `az resource tag`: Correção do problema #13255 de marcação de recursos com o tipo de recurso `Microsoft.ContainerRegistry/registries/webhooks`
+* Melhoria dos exemplos do módulo de recursos
+
+### <a name="aro"></a>ARO
+
+* Alteração do CLIError para corrigir o sinalizador para --worker-vm-disk-size-gb
+
+### <a name="eventhub"></a>EventHub
+
+* Correção do problema #12406 Argumento --capture-interval não atualiza o "intervalInSeconds"
+
+### <a name="hdinsight"></a>HDInsight
+
+* Alteração de get_json_object para shell_safe_json_parse
+
+### <a name="monitor"></a>Monitoramento
+
+* `az monitor metrics alert`: ajuste de várias mensagens de ajuda
+* `az monitor diagnostic-settings create`: suporte ao argumento --export-to-resource-specific
+* Suporte para recuperar o workspace de LA
+
+### <a name="network"></a>Rede
+
+* `az network dns zone`: suporte – caractere
+* `az network vpn-connection ipsec-policy`: alteração do --sa-lifetime e do --sa-max-size para valores maiores no exemplo
+* Aumento da rede para 2020-04-01
+* `az network private-endpoint-connection`: suporte à grade de eventos
+* `az network express-route list-route-tables`: correção do bug que faz não ser possível listar rotas como tabela
+
+### <a name="packaging"></a>Empacotamento
+
+* Adição do Pacote Focal do Ubuntu
+
+### <a name="rbac"></a>RBAC
+
+* `az ad sp credential reset`: modificar a geração de credenciais para evitar caracteres especiais problemáticos
+
+### <a name="redis"></a>Redis
+
+* Correção #13529: alteração da documentação do parâmetro enable_non_ssl_port
+
+### <a name="storage"></a>Armazenamento
+
+* `az storage copy`: adição do parâmetro `--follow-symlinks` para dar suporte ao symlinks
+* Habilitar contexto local para a conta de armazenamento
+* `az storage logging`: Correção do problema #11969 para ajustar a mensagem de erro
 
 ## <a name="may-19-2020"></a>19 de maio de 2020
 
