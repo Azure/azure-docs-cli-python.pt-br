@@ -8,12 +8,12 @@ ms.date: 09/09/2018
 ms.topic: conceptual
 ms.service: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: dad217dff159baa39bd1361258fb308eea872564
-ms.sourcegitcommit: ee64dc738cfe689a2a479e32a87bf420f96c31c8
+ms.openlocfilehash: 2c5f81b53806d0c7d8de7e48b8214f4ccd65c154
+ms.sourcegitcommit: 5c3a54d7e9153a67f9caaf0d2415f6d9c297ebee
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "77780053"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84819609"
 ---
 # <a name="use-multiple-azure-subscriptions"></a>Usar várias assinaturas do Azure
 
@@ -26,7 +26,7 @@ Para obter informações detalhadas sobre assinaturas, cobrança e gerenciamento
 Talvez você tenha alguma confusão sobre a diferença entre locatários, usuários e assinaturas no Azure. Um _locatário_ é a entidade do Azure Active Directory que abrange toda a organização. Esse locatário tem pelo menos uma _assinatura_ e _usuário_. Um usuário é um indivíduo e é associado a somente um locatário: a organização à qual pertence. Os usuários são as contas que se conectam ao Azure para criar, gerenciar e usar recursos.
 Um usuário pode ter acesso a várias _assinaturas_, que são contratos com a Microsoft para usar os serviços de nuvem, incluindo o Azure. Cada recurso é associado a uma assinatura.
 
-Para saber mais sobre as diferenças entre locatários, usuários e assinaturas, confira o [dicionário de terminologia de nuvem do Azure](/azure/azure-glossary-cloud-terminology).  Para saber como adicionar uma nova assinatura ao seu locatário do Azure Active Directory, confira [Como adicionar uma assinatura do Azure ao Azure Active Directory](/azure/active-directory/active-directory-how-subscriptions-associated-directory).
+Para saber mais sobre as diferenças entre locatários, usuários e assinaturas, confira o [dicionário de terminologia de nuvem do Azure](/azure/azure-glossary-cloud-terminology).  Para saber como adicionar uma nova assinatura ao seu locatário do Azure Active Directory, confira [Como associar ou adicionar uma assinatura do Azure ao locatário do Azure Active Directory](/azure/active-directory/active-directory-how-subscriptions-associated-directory).
 Para saber como entrar em um locatário específico, confira [Entrar com a CLI do Azure](/cli/azure/authenticate-azure-cli).
 
 ## <a name="change-the-active-subscription"></a>Alterar a assinatura ativa
