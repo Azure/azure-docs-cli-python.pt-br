@@ -1,6 +1,6 @@
 ---
 title: Serviços do Azure que a CLI do Azure pode gerenciar
-description: Links para serviços que oferecem as referências da CLI do Azure, Configuração de Aplicativos, Serviço de Aplicativo, AD (Active Directory), Backup, Cognitive Search, Cosmos DB, Data Lake Storage, Banco de Dados, MariaDB, MySQL, PostgreSQL, DevOps, DevTest Labs, DNS, Functions, IoT, IoT Central, IoT Edge, Hub IoT, AKS (Serviço de Kubernetes), Lab Services, Machine Learning, Aplicativos Gerenciados, Link Privado, Resource Manager, Spring Cloud, Banco de Dados SQL, Lote, Serviços Cognitivos, Instâncias de Contêiner, Registro de Contêiner, Data Lake Analytics, Grade de Eventos, Hubs de Eventos, HDInsight, Key Vault, Load Balancer, Managed Disks, Serviços de Mídia, Hubs de Notificação, Barramento de Serviço, Service Fabric, Contas de Armazenamento, Gerenciador de Tráfego, Conjuntos de Dimensionamento de Máquinas Virtuais, Rede Virtual, Computação, Rede, Internet das Coisas, Ferramentas para Desenvolvedores, Bancos de Dados, Análise, Gerenciamento e Governança, Híbrido, Armazenamento, Segurança, IA, IA + Machine Learning
+description: Links para serviços que oferecem as referências da CLI do Azure, Configuração de Aplicativos, Serviço de Aplicativo, AD (Active Directory), Backup, Cognitive Search, Cosmos DB, Data Lake Storage, Banco de Dados, MariaDB, MySQL, PostgreSQL, DevOps, DevTest Labs, DNS, Functions, IoT, IoT Central, IoT Edge, Hub IoT, AKS (Serviço de Kubernetes), Lab Services, Machine Learning, Aplicativos Gerenciados, Link Privado, Resource Manager, Spring Cloud, Banco de Dados SQL, Lote, Serviços Cognitivos, Instâncias de Contêiner, Registro de Contêiner, Data Lake Analytics, Grade de Eventos, Hubs de Eventos, HDInsight, Key Vault, Load Balancer, Managed Disks, Serviços de Mídia, Hubs de Notificação, Barramento de Serviço, Service Fabric, Contas de Armazenamento, Gerenciador de Tráfego, Conjuntos de Dimensionamento de Máquinas Virtuais, Rede Virtual, Computação, Rede, Internet das Coisas, Ferramentas para Desenvolvedores, Bancos de Dados, Análise, Gerenciamento e Governança, Híbrido, Armazenamento, Segurança, IA, IA + Machine Learning, Azure Data Explorer
 author: dbradish-microsoft
 ms.author: dbradish
 manager: barbkess
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: aaf9969030512668b22c1b5bbfbd2a9a7d7ae47d
-ms.sourcegitcommit: ee64dc738cfe689a2a479e32a87bf420f96c31c8
+ms.openlocfilehash: 04957e3f0da96e1523867da98ade27b80fe45e22
+ms.sourcegitcommit: 252e80dc48481f3c51267dd3c35f8665632d4f04
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "80417879"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84902174"
 ---
 # <a name="azure-services-the-azure-cli-can-manage"></a>Serviços do Azure que a CLI do Azure pode gerenciar
 
@@ -26,7 +26,8 @@ As referências da CLI do Azure estão disponíveis para:
 |-|-|
 |[IA + Machine Learning](/cli/azure/popular-articles-using-the-azure-cli?#ai--machine-learning)| [Azure Machine Learning](/azure/machine-learning/)
 ||[Serviços Cognitivos](/azure/cognitive-services/)
-|[Analytics](/cli/azure/popular-articles-using-the-azure-cli?#analytics)|[Armazenamento do Azure Data Lake](/azure/storage/blobs/data-lake-storage-introduction/)
+|[Analytics](/cli/azure/popular-articles-using-the-azure-cli?#analytics)|[Azure Data Explorer](/azure/data-explorer/)
+||[Armazenamento do Azure Data Lake](/azure/storage/blobs/data-lake-storage-introduction/)
 ||[Data Lake Analytics](/azure/data-lake-analytics/)
 ||[Hubs de Evento](/azure/event-hubs/)
 ||[HDInsight](/azure/hdinsight/)
