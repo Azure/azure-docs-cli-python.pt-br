@@ -8,12 +8,12 @@ ms.date: 09/09/2018
 ms.topic: conceptual
 ms.service: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: d07fe2e807bd6e1fac6d0e9f883bcc8092be46bb
-ms.sourcegitcommit: ee64dc738cfe689a2a479e32a87bf420f96c31c8
+ms.openlocfilehash: b06d1f9b97bb4ad8b569f608175754020f548642
+ms.sourcegitcommit: d056d09dd6268b8d70ca65303a3ebf640a8d4b26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "79037959"
+ms.lasthandoff: 07/03/2020
+ms.locfileid: "85938124"
 ---
 # <a name="install-azure-cli-with-zypper"></a>Instalar CLI do Azure com zypper
 
@@ -56,7 +56,7 @@ Para distribuições Linux com `zypper`, como o openSUSE ou SLES, há um pacote 
 
 Para saber mais sobre os diferentes métodos de autenticação, confira [Entrar com a CLI do Azure](authenticate-azure-cli.md).
 
-## <a name="troubleshooting"></a>solução de problemas
+## <a name="troubleshooting"></a>Solução de problemas
 
 Aqui estão alguns problemas comuns vistos durante a instalação com `zypper`. Se você tiver um problema não abordado aqui, [arquive um problema no github](https://github.com/Azure/azure-cli/issues).
 
@@ -94,6 +94,14 @@ Para obter a chave de assinatura da Microsoft e o pacote do nosso repositório, 
 * `https://download.opensuse.org`
 
 [!INCLUDE[troubleshoot-wsl.md](includes/troubleshoot-wsl.md)]
+
+### <a name="ssl-certificate-problem"></a>Problema com o certificado SSL
+
+Quando um certificado é inválido ou está desatualizado em um computador, você pode receber um erro indicando que o cURL falhou ao verificar a legitimidade do servidor e, portanto, não foi possível estabelecer uma conexão segura.  Atualize o certificado para corrigir o problema.  
+
+```bach
+sudo zypper update-ca-certificates
+```
 
 ## <a name="update"></a>Atualizar
 
