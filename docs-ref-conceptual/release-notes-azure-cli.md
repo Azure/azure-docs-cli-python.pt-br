@@ -4,20 +4,135 @@ description: Saiba mais sobre as últimas atualizações da CLI do Azure
 author: dbradish-microsoft
 ms.author: dbradish
 manager: barbkess
-ms.date: 06/23/2020
+ms.date: 07/14/2020
 ms.topic: article
 ms.service: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 68ba21af45850bc11b7568860607dc5bcb379b9f
-ms.sourcegitcommit: a13a02e99e8eefb91f11e4a40f5fa0d3b5e758e0
+ms.openlocfilehash: cf9c4e1a86b3315d45a7533f67b731ee2f3d6bc0
+ms.sourcegitcommit: 857d0f19fd87d37d134efdf0dda0e7003260938b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85256313"
+ms.lasthandoff: 07/14/2020
+ms.locfileid: "86308671"
 ---
 # <a name="azure-cli-release-notes"></a>Notas de versão da CLI do Azure
 
 # <a name="current-release-notes"></a>[Notas sobre a versão atuais](#tab/azure-cli)
+
+## <a name="july-14-2020"></a>14 de julho de 2020
+
+Versão 2.9.0
+
+### <a name="acr"></a>ACR
+
+* Manipular o link do artefato de log do Registro para os logs de fluxo
+* Substituir comandos helm2
+
+### <a name="aks"></a>AKS
+
+* `az aks create`: adiciona o argumento --enable-aad
+* `az aks update`: adiciona o argumento --enable-aad
+
+### <a name="apim"></a>APIM
+
+* Comandos az apim api gerais adicionados
+
+### <a name="appconfig"></a>AppConfig
+
+* Adicionar exemplo para usar --fields na revisão do appconfig
+
+### <a name="appservice"></a>AppService
+
+* `az functionapp create`: Suporte para Java 11 e PowerShell 7 adicionado. Suporte à API de pilhas adicionado.
+* Correção nº 14208 falha na criação de um aplicativo com vários contêineres
+* Corrige az webapp create – usa pilhas de runtime embutidas em código
+
+### <a name="arm"></a>ARM
+
+* `az resource tag`: corrige o problema de marcar recursos com o tipo de recurso `Microsoft.ContainerInstance/containerGroups`
+
+### <a name="compute"></a>Computação
+
+* Avançar os discos de versão 2020-05-01, computação 2020-06-01
+* Criptografia dupla do conjunto de criptografia de disco
+* `az vmss update`: dá suporte à especificação de imagem entre locatários.
+* `az sig image-version create`: dá suporte à especificação de imagem entre locatários.
+* vm/vmss create: Criptografia de cache e dados em trânsito para discos do sistema operacional/de dados e discos temporários para VM e VMSS
+* Adicionar operação de remoção simulada para VM e VMSS
+
+### <a name="cosmosdb"></a>CosmosDB
+
+* Recursos recentes: Autoscale, IpRules, EnableFreeTier e EnableAnalyticalStorage
+
+### <a name="eventgrid"></a>EventGrid
+
+* Adicionar suporte de CLI para 2020-04-01-preview e marcar a versão prévia dos recursos com is_Preview=True
+
+### <a name="find"></a>Localizar
+
+* Correção nº 14094 az find Corrige consultas que falhavam quando não estavam conectadas e quando a telemetria estava desabilitada
+
+### <a name="hdinsight"></a>HDInsight
+
+* Adicionar dois comandos para dar suporte ao recurso de reinicialização do nó do hdinsight
+
+### <a name="monitor"></a>Monitoramento
+
+* Remover sinalizador de visualização para comandos no workspace do Log Analytics
+* `az monitor diagnostic-settings subscription`: Dar suporte às configurações de diagnóstico para a assinatura
+* `az monitor metrics`: dá suporte para ', ' e '|' no nome da métrica
+* `az monitor log-analytics workspace data-export`: suporte à exportação de dados do Log Analytics
+
+### <a name="network"></a>Rede
+
+* `az network application-gateway frontend-ip update`: Substituir o parâmetro --public-ip-address
+* Avançar azure-mgmt-network para 11.0.0
+* `az network express-route gateway connection`: dá suporte à configuração de roteamento
+* `az network virtual-appliance`: dá suporte à solução de virtualização de rede do Azure.
+* Recurso de link privado de suporte do Gateway de Aplicativo
+
+### <a name="policyinsights"></a>PolicyInsights
+
+* `az policy state`: adiciona o comando trigger-scan para disparar avaliações de conformidade de política
+* `az policy state list`: expõe versões de entidades de política em cada registro de conformidade
+
+### <a name="profile"></a>Perfil
+
+* `az account get-access-token`: Mostra expiresOn para Identidade Gerenciada
+
+### <a name="rdbms"></a>RDBMS
+
+* Dar suporte à versão mínima do TLS
+* Adicionar criptografia de infraestrutura para o Azure Postgres e MySQL
+
+### <a name="security"></a>Segurança
+
+* Adicionar comandos allowed_connections
+* Adicionar comandos hardeningss da rede adaptável
+* Adicionar comandos adaptive_application_controls
+* Adição de az security iot-solution/ iot-alerts/iot-recommendations/iot-analytics REST à CLI do Azure
+* Adicionar CLI de conformidade regulatória
+
+### <a name="signalr"></a>SignalR
+
+* Adicionar recursos, incluindo o gerenciamento de conexões de ponto de extremidade privado, regras de rede e upstream
+
+### <a name="sql"></a>SQL
+
+* `az sql mi create`, `az sql mi update`: adiciona o parâmetro `--tags` para dar suporte à marcação de recursos
+* `az sql mi failover`: dá suporte ao failover de um ponto primário ou secundário
+
+### <a name="storage"></a>Armazenamento
+
+* `az storage account create/update`: adiciona --allow-blob-public-access para permitir ou não permitir acesso público para blob e contêineres
+* `az storage account create/update`: adiciona `--min-tls-version` para dar suporte à definição da versão mínima do TLS a ser permitida em solicitações de armazenamento.
+* Remover credencial de token de check-in
+* Corrigir o nome da conta de armazenamento em exemplos
+
+### <a name="webapp"></a>Webapp
+
+* Bugfix: az webapp log deployment show – retorna logs de implantação em vez de metadados de log
+* Bugfix: az webapp vnet-integration add – corrige o tratamento de erro se o nome da VNet é inadequado, dá suporte à ID do recurso da vnet
 
 ## <a name="june-23-2020"></a>23 de junho de 2020
 
@@ -5693,7 +5808,7 @@ A versão beta da CLI do Azure é uma migração do método de autenticação da
 -   Fazer logon novamente é necessário após a instalação da versão beta.
 -   A versão beta dá suporte apenas à plataforma Windows.
 -   Não há suporte para o Azure Stack.
--   Não há suporte para o parâmetro `--use-cert-sn-issuer` ao usar a chave de entidade de serviço para autenticar.
+-   Não há suporte para o parâmetro `--use-cert-sn-issuer` ao usar a chave de entidade de serviço para se autenticar.
 -   Não há suporte para ignorar a verificação SSL por meio do ambiente `ADAL_PYTHON_SSL_NO_VERIFY`.
 
 Se você encontrar problemas com a versão beta, a equipe de engenharia da CLI do Azure ficará feliz por receber seus comentários no [GitHub](https://github.com/Azure/azure-cli/issues/new/choose).
