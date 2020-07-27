@@ -84,6 +84,8 @@
       href: /azure/batch/cli-samples?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
 - name: Guias de instruções
   items:
+    - name: Dicas para usar a CLI com eficácia
+      href: use-cli-effectively.md
     - name: Resultados da consulta
       href: query-azure-cli.md
       displayName: 'filter, search, format, output, variable, scripting, array, dictionary, map, object, json, jsonc, jmespath'
