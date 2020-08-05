@@ -4,17 +4,17 @@ description: Uma lista completa das extensões com suporte oficial para a CLI do
 author: haroldrandom
 ms.author: jianzen
 manager: yonzhan,yungezz
-ms.date: 07/28/2020
+ms.date: 08/01/2020
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 9232bab4f17222e67101cb379967753f3d19dfe5
-ms.sourcegitcommit: 05ef6cb6cf049d8c8eb54dd408f56cb145fb5905
+ms.openlocfilehash: 39e4d797f98a16fcf9ef5a3b0a4c9d1c13441acc
+ms.sourcegitcommit: bf84dfb62e910ea246586481863bb43d09d07795
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87374364"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87551363"
 ---
 # <a name="available-extensions-for-the-azure-cli"></a>Extensões disponíveis para a CLI do Azure
 
@@ -64,7 +64,7 @@ az extension list-available --output table
 | [eventgrid](https://github.com/Azure/azure-cli-extensions) | 0.4.9 | Módulo de Comando do EventGrid para as Ferramentas da Linha de Comando do Microsoft Azure. | Sim |
 | [express-route](https://github.com/Azure/azure-cli-extensions/tree/master/src/express-route) | 0.1.3 | Gerenciar ExpressRoute com versão prévia dos recursos. | Sim |
 | [express-route-cross-connection](https://github.com/Azure/azure-cli-extensions/tree/master/src/express-route-cross-connection) | 0.1.1 | Gerencie os circuitos do ExpressRoute de cliente usando uma conexão cruzada do ExpressRoute. |  |
-| [front-door](https://github.com/Azure/azure-cli-extensions/tree/master/src/front-door) | 1.0.8 | Gerenciar FrontDoors de rede. |  |
+| [front-door](https://github.com/Azure/azure-cli-extensions/tree/master/src/front-door) | 1.0.9 | Gerenciar FrontDoors de rede. |  |
 | [hack](https://github.com/Azure/azure-cli-extensions) | 0.4.2 | Extensão Hack das Ferramentas de Linha de Comando do Microsoft Azure | Sim |
 | [hardware-security-modules](https://github.com/Azure/azure-cli-extensions) | 0.1.0 | Extensão AzureDedicatedHSMResourceProvider das Ferramentas de Linha de Comando do Microsoft Azure |  |
 | [healthcareapis](https://github.com/Azure/azure-cli-extensions) | 0.2.0 | Extensão HealthcareApisManagementClient das ferramentas de linha de comando do Microsoft Azure |  |
@@ -94,7 +94,7 @@ az extension list-available --output table
 | [sap-hana](https://github.com/Azure/azure-hanaonazure-cli-extension) | 0.6.4 | Comandos adicionais para trabalhar com instâncias do SAP HanaOnAzure. |  |
 | [spring-cloud](https://github.com/Azure/azure-cli-extensions) | 0.3.1 | Extensão spring-cloud das Ferramentas de Linha de Comando do Microsoft Azure | Sim |
 | [storage-or-preview](https://github.com/Azure/azure-cli-extensions) | 0.4.0 | Extensão storage-ors-preview das ferramentas da linha de comando do Microsoft Azure | Sim |
-| [storage-preview](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview) | 0.2.11 | Fornece uma visualização para recursos de armazenamento futuras. | Sim |
+| [storage-preview](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview) | 0.2.12 | Fornece uma visualização para recursos de armazenamento futuras. | Sim |
 | [storagesync](https://github.com/Azure/azure-cli-extensions) | 0.1.0 | Extensão MicrosoftStorageSync das ferramentas de linha de comando do Microsoft Azure |  |
 | [stream-analytics](https://github.com/Azure/azure-cli-extensions) | 0.1.0 | Extensão stream-analytics das ferramentas de linha de comando do Microsoft Azure |  |
 | [subscription](https://github.com/Azure/azure-cli-extensions) | 0.1.4 | Suporte à versão prévia de gerenciamento de assinatura. | Sim |
