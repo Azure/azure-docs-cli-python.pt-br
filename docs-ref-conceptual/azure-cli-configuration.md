@@ -8,12 +8,12 @@ ms.date: 06/11/2018
 ms.topic: conceptual
 ms.service: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 24a798e9b3c08f3cd9e66c017cc45f5346d8995e
-ms.sourcegitcommit: d05660a42b2a77c4b05a7f96c386e656bd2db0fe
+ms.openlocfilehash: 09300c2b0da50e326fc3a7651741b71708c89ec8
+ms.sourcegitcommit: bf84dfb62e910ea246586481863bb43d09d07795
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83569163"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87551175"
 ---
 # <a name="azure-cli-configuration"></a>Configuração da CLI do Azure
 
@@ -102,6 +102,8 @@ Quando você fornece um valor padrão, esse argumento já não é exigido pelos 
 | | endpoint | string | O ponto de extremidade padrão ao qual se conectar para comandos `az batch`. |
 | | auth\_mode | string | O modo de autorização a ser usado para comandos `az batch`. Pode ser `shared_key` ou `aad`. |
 | __nuvem__ | name | string | A nuvem padrão para todos os comandos `az`.  Os valores possíveis são `AzureCloud` (padrão), `AzureChinaCloud`, `AzureUSGovernment` e `AzureGermanCloud`. Para alterar as nuvens é possível usar o comando `az cloud set –name`.  Para obter um exemplo, consulte [Gerenciar Nuvens com a CLI do Azure](manage-clouds-azure-cli.md). |
+| __extension__ | use_dynamic_install | string | Instale uma extensão se ela ainda não tiver sido adicionada ao executar um comando por meio dela. Os valores possíveis são `no` (padrão), `yes_prompt` e `yes_without_prompt`. |
+| | run_after_dynamic_install | booleano | Continue a executar o comando quando uma extensão for instalada dinamicamente para ele. O padrão é `False`. |
 
 > [!NOTE]
 > Você pode ver outros valores em seu arquivo de configuração, mas eles são gerenciados diretamente por meio de comandos da CLI, incluindo `az configure`. Os valores listados na tabela acima são os únicos que você mesmo deve alterar.

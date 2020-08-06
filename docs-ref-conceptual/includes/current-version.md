@@ -2,13 +2,13 @@
 author: dbradish-microsoft
 ms.author: dbradish
 manager: barbkess
-ms.date: 07/16/2020
+ms.date: 08/04/2020
 ms.topic: include
-ms.openlocfilehash: 0589acad0a56842c1ab1f68468cde3a1026e20aa
-ms.sourcegitcommit: c473377d1c08ac4efd2480bf852c30dbf1044a57
+ms.openlocfilehash: 59ba8576ae9f4fd77133cfdb96854a0f002983ee
+ms.sourcegitcommit: bf84dfb62e910ea246586481863bb43d09d07795
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/16/2020
-ms.locfileid: "86436920"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87551142"
 ---
-A versão atual da CLI do Azure é __2.9.1__. Para saber mais sobre a versão mais recente, veja as [notas de versão](../release-notes-azure-cli.md). Para localizar sua versão instalada e ver se você precisar atualizá-la, execute `az --version`.
+A versão atual da CLI do Azure é __2.10.0__. Para saber mais sobre a versão mais recente, veja as [notas de versão](../release-notes-azure-cli.md). Para localizar sua versão instalada e ver se você precisar atualizá-la, execute `az --version`.
