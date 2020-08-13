@@ -4,20 +4,46 @@ description: Saiba mais sobre as últimas atualizações da CLI do Azure
 author: dbradish-microsoft
 ms.author: dbradish
 manager: barbkess
-ms.date: 08/04/2020
+ms.date: 08/06/2020
 ms.topic: article
 ms.service: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 68cd2632e33dcd4e35f818d2a330f009fcbfbdbc
-ms.sourcegitcommit: bf84dfb62e910ea246586481863bb43d09d07795
+ms.openlocfilehash: f81f5a69bd5806d2081a8eaa9b62a5b00b56edf9
+ms.sourcegitcommit: 04d3b43d7c960ff0e6188c9672d27046b45da6ed
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87551550"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87855926"
 ---
 # <a name="azure-cli-release-notes"></a>Notas de versão da CLI do Azure
 
 # <a name="current-release-notes"></a>[Notas sobre a versão atuais](#tab/azure-cli)
+
+## <a name="august-11-2020"></a>11 de agosto de 2020
+
+Versão 2.10.1
+
+### <a name="app-service"></a>Serviço de Aplicativo
+
+* Correção nº 9887 webapp e functionapp, dar suporte à atribuição/remoção de identidade gerenciada pelo usuário
+* Correção nº 1382, 14055: atualizar mensagens de erro para az webapp create e az webapp config container set
+* `az webapp up`: corrigir a lógica de seleção padrão do ASP quando o parâmetro --plan não é fornecido
+
+### <a name="appconfig"></a>AppConfig
+
+* Dar suporte para habilitar/desabilitar PublicNetworkAccess durante a criação da loja
+
+### <a name="compute"></a>Computação
+
+* Dar suporte à associação de disco e instantâneo com um recurso de acesso a disco
+
+### <a name="lab"></a>Laboratório
+
+* Correção do problema nº 7904: bug de validação de data na criação de VM do laboratório
+
+### <a name="storage"></a>Armazenamento
+
+* `az storage blob upload-batch`: correção do problema nº 14660 com argumentos não posicionais
 
 ## <a name="august-04-2020"></a>04 de agosto de 2020
 
