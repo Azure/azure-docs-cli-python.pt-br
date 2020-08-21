@@ -8,12 +8,12 @@ ms.date: 06/11/2018
 ms.topic: conceptual
 ms.service: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 09300c2b0da50e326fc3a7651741b71708c89ec8
-ms.sourcegitcommit: bf84dfb62e910ea246586481863bb43d09d07795
+ms.openlocfilehash: 465a7c86a883c27e94ca21412bdb59476203afa5
+ms.sourcegitcommit: 58d839589858acc1a7a9f114af7f4fce13d883ea
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87551175"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88601858"
 ---
 # <a name="azure-cli-configuration"></a>Configuração da CLI do Azure
 
@@ -78,7 +78,7 @@ Consulte a próxima seção para obter detalhes sobre todos os valores de config
 
 ## <a name="cli-configuration-values-and-environment-variables"></a>Valores de configuração da CLI e variáveis de ambiente
 
-A tabela a seguir contém todas as seções e as opções de nomes que podem ser colocadas em um arquivo de configuração. Suas variáveis de ambiente correspondentes estão definidas como `AZURE_{section}_{name}`, tudo em maiúsculas. Por exemplo, o `output` padrão para `core` é definido na variável `AZURE_CORE_OUTPUT` e o `storage_account` padrão para `batchai` é definido na variável `AZURE_BATCHAI_STORAGE_ACCOUNT`.
+A tabela a seguir contém todas as seções e as opções de nomes que podem ser colocadas em um arquivo de configuração. Suas variáveis de ambiente correspondentes estão definidas como `AZURE_{section}_{name}`, tudo em maiúsculas. Por exemplo, a `output` padrão para `core` é definida na variável `AZURE_CORE_OUTPUT`, a `storage_account` padrão para `batchai` é definida na variável `AZURE_BATCHAI_STORAGE_ACCOUNT` e a `location` padrão é definida na variável `AZURE_DEFAULTS_LOCATION`.
 
 Quando você fornece um valor padrão, esse argumento já não é exigido pelos comandos. Em vez disso, o valor padrão é usado.
 
@@ -91,6 +91,8 @@ Quando você fornece um valor padrão, esse argumento já não é exigido pelos 
 | | no\_color | booleano | Desabilita a cor. As mensagens originalmente coloridas serão prefixadas com `DEBUG`, `INFO`, `WARNING` e `ERROR`. Isso ignora o problema de uma biblioteca de terceiro em que a cor do terminal não pode ser revertida depois de um redirecionamento de `stdout`. |
 | __logging__ | enable\_log\_file | booleano | Ativar e desativar o registro em log. |
 | | log\_dir | string | O diretório no qual gravar os logs. Por padrão, esse valor é `${AZURE_CONFIG_DIR}/logs`. |
+| __defaults__ | group | string | O grupo de recursos padrão para usar para todos os comandos. |
+| | local | string | O local padrão para usar para todos os comandos. |
 | __storage__ | connection\_string | string | A cadeia de conexão padrão a ser usada para comandos `az storage`. |
 | | account | string | O nome de conta padrão a ser usado para comandos `az storage`. |
 | | chave | string | A chave de conta padrão a ser usada para comandos `az storage`. |
