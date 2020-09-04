@@ -4,20 +4,165 @@ description: Saiba mais sobre as últimas atualizações da CLI do Azure
 author: dbradish-microsoft
 ms.author: dbradish
 manager: barbkess
-ms.date: 08/06/2020
+ms.date: 08/28/2020
 ms.topic: article
 ms.service: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: f81f5a69bd5806d2081a8eaa9b62a5b00b56edf9
-ms.sourcegitcommit: 04d3b43d7c960ff0e6188c9672d27046b45da6ed
+ms.openlocfilehash: cc1ed8d904571fa7583445a8b7e7e79fa4f00b37
+ms.sourcegitcommit: 28e3282487dab68f9a4635f8bec161fbc412c3b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87855926"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89054607"
 ---
 # <a name="azure-cli-release-notes"></a>Notas de versão da CLI do Azure
 
 # <a name="current-release-notes"></a>[Notas sobre a versão atuais](#tab/azure-cli)
+
+## <a name="august-28-2020"></a>28 de agosto de 2020
+
+Versão 2.11.1
+
+### <a name="acr"></a>ACR
+
+* Adição de camada isolada ao pool de agentes
+* Adição de contexto de origem do artefato de OCI
+
+### <a name="aks"></a>AKS
+
+* Correção de um problema de criação do cluster do AKS
+
+### <a name="cognitive-services"></a>Serviços Cognitivos
+
+* [ALTERAÇÃO DA FALHA] Mostrar um termo legal adicional para determinadas APIs
+
+### <a name="network"></a>Rede
+
+* [ALTERAÇÃO DA FALHA] Permitir a criação de IP público e IP privado ao criar um Gateway de Aplicativo
+* `az network list-service-tags`: adição de detalhes sobre o uso de parâmetro de localização para a mensagem de ajuda
+
+### <a name="storage"></a>Armazenamento
+
+* `az storage blob list`: suporte OU propriedades com a nova versão de API
+
+## <a name="august-25-2020"></a>25 de agosto de 2020
+
+Versão 2.11.0
+
+### <a name="aks"></a>AKS
+
+* Remoção da marca de visualização do complemento de Nó Virtual
+* Adição do argumento CMK do AKS na criação do cluster
+* Definição do perfil de rede durante o uso do balanceador de carga básico.
+* Remoção da validação máxima de pods da CLI e permissão para que a simulação lide com ela
+* Correção de complementos disponíveis na mensagem de ajuda em `az aks create`
+* Introdução de suporte para o perfil de dimensionamento automático do cluster na CLI principal
+
+### <a name="appservice"></a>AppService
+
+* `az webapp`: adição do comando list-instances
+* `az webapp ssh`: adição do parâmetro --instance para se conectar a uma instância específica
+* `az webapp create-remote-connection`: adição do parâmetro --instance para se conectar a uma instância específica
+* Correção nº 14758: erros de az webapp create durante a criação de um aplicativo do Windows com --runtime dotnetcore
+* Correção nº 14701: implementação de functionapp create --assign-identity
+* Correção nº 11244: `az webapp auth update`: adição do parâmetro opcional para atualizar client-secret-certificate-thumbprint
+* `az functionapp keys`: comandos adicionados que permitem aos usuários gerenciar as chaves do aplicativo de funções
+* `az functionapp function`: comandos adicionados que permitem aos usuários gerenciar as funções individuais
+* `az functionapp function keys`: comandos adicionados que permitem aos usuários gerenciar as chaves de função
+* Correção nº14788: az webapp create não obtém o webapp correto quando os nomes são substrings
+* `az functionapp create`: capacidade removida para criar funções 2.x em regiões que não têm compatibilidade
+
+### <a name="arm"></a>ARM
+
+* `az resource list`: extensão dos dados retornados de `createdTime`, `changedTime` e `provisioningState`
+* `az resource`: adição do parâmetro `--latest-include-preview` para dar suporte ao uso da api-version mais recente se ela for versão prévia
+
+### <a name="aro"></a>ARO
+
+* Aprimoramentos da CLI, incluindo permissões de verificação da tabela de rotas
+
+### <a name="cloud"></a>Nuvem
+
+* `az cloud register`: correção do registro de nuvens com um arquivo de configuração
+
+### <a name="compute"></a>Computação
+
+* Atualização de SKUs de VM compatíveis com rede acelerada
+* `az vm create`: aplicação automática de patches no convidado
+* `az image builder create`: adição de --vm-size, --os-disk-size, --vnet, --subnet
+* Novo comando az vm assess-patches
+
+### <a name="container"></a>Contêiner
+
+* Correção nº 6235: atualização do texto de ajuda para o parâmetro de portas na criação do contêiner
+
+### <a name="datalake-store"></a>Datalake Store
+
+* Correção do problema nº 14545 para a operação de ingresso no data lake
+
+### <a name="eventhub"></a>EventHub
+
+* `az eventhubs eventhub create/update`: alterar a documentação de destination_name
+
+### <a name="extension"></a>Extensão
+
+* Adição do comando `az extension list-versions` para listar todas as versões disponíveis de uma extensão
+
+### <a name="hdinsight"></a>HDInsight
+
+* Suporte à criação de cluster com configuração de dimensionamento automático e suporte ao gerenciamento de configuração de dimensionamento automático
+* Suporte à criação de cluster com criptografia no host
+
+### <a name="iotcentral"></a>IoT Central
+
+* Aprimoramentos na documentação da CLI
+
+### <a name="monitor"></a>Monitor
+
+* `az monitor metrics alert create`: suporte a RG e Sub como os valores de escopo
+
+### <a name="netappfiles"></a>NetAppFiles
+
+* [ALTERAÇÃO DA FALHA] az netappfiles snapshot create: file-system-id removido dos parâmetros
+* [ALTERAÇÃO DA FALHA] az netappfiles snapshot show: o instantâneo não tem mais o parâmetro file-system-id
+* `az netappfiles account`: Model ActiveDirectory tem um novo parâmetro backup_operators
+* `az netappfiles volume show`: Model dataProtection tem um novo parâmetro snapshot
+* `az netappfiles volume show`: Model Volume tem um novo parâmetro snapshot_directory_visible
+
+### <a name="network"></a>Rede
+
+* `az network dns export`: exportação do FQDN para o tipo MX, PTR, NS e SRV em vez do caminho relativo
+* Suporte ao link privado para discos gerenciados
+* `az network application-gateway auth-cert show`: adição de exemplo para demonstrar o formato do certificado
+* `az network private-endpoint-connection`: suporte à configuração de aplicativos
+
+### <a name="rbac"></a>RBAC
+
+* `az ad group create`: suporte à especificação da descrição durante a criação de um grupo
+* `az role definition create`: impressão de mensagem legível em vez de exceção quando assignableScope for uma matriz vazia
+* [ALTERAÇÃO DA FALHA] `az ad sp create-for-rbac`: alteração da permissão padrão do certificado criado
+
+### <a name="sql"></a>SQL
+
+* `az sql server audit-policy`: adição de suporte à auditoria do SQL Server
+
+### <a name="storage"></a>Armazenamento
+
+* `az storage blob copy start-batch`: correção nº 6018 para --source-sas
+* `az storage account or-policy`: suporte à política de replicação de objeto de conta de armazenamento
+* Correção do problema nº 14083 para atualizar a versão do pacote do azure-multiapi-storage para o problema do pacote e suporte da versão à nova API
+* `az storage blob generate-sas`: adição de exemplos para --ip e refinamento da mensagem de erro
+* `az storage blob list`: correção do problema de next_marker
+
+### <a name="synapse"></a>Synapse
+
+* Adição de cmdlets relacionados a workspace, sparkpool e sqlpool
+* Adição de comandos relacionados a spark job com base no track2 sdk
+* Adição de comandos relacionados ao recurso accesscontrol com base no track2 sdk
+
+### <a name="upgrade"></a>Atualizar
+
+* Adição do comando `az upgrade` para atualizar a CLI do Azure e as extensões
 
 ## <a name="august-11-2020"></a>11 de agosto de 2020
 
