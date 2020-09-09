@@ -9,12 +9,13 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 3a0b2e315e0eaf6c352aa2737f33da043b5feb7d
-ms.sourcegitcommit: ee64dc738cfe689a2a479e32a87bf420f96c31c8
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 42e9de630530568a15bc6f9f05d2442d790d8b68
+ms.sourcegitcommit: 2da241715d25407ed22c1065c0c793acfd865996
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "80075926"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89563137"
 ---
 # <a name="popular-articles-using-the-azure-cli"></a>Artigos populares que usam a CLI do Azure
 
@@ -31,7 +32,7 @@ A CLI do Azure é usada em diversos serviços do Azure. Por isso, há artigos em
 |Máquinas Virtuais | Guia de instruções: Linux | [Criar uma galeria de imagens compartilhadas com a CLI do Azure](/azure/virtual-machines/linux/shared-images) | Crie uma Galeria de Imagens Compartilhadas com imagens de VM personalizadas com outras pessoas em sua organização, dentro ou entre regiões, ou em um locatário do Azure Active Directory.
 |Máquinas Virtuais | Guia de instruções: Linux | [Implantar VMs do Spot com a CLI do Azure (versão prévia)](/azure/virtual-machines/linux/spot-cli) | Implante uma máquina virtual spot do Linux que não será removida com base no preço.
 |Máquinas Virtuais | Início Rápido: Windows | [Criar uma máquina virtual do Windows com a CLI do Azure](/azure/virtual-machines/windows/quick-create-cli) | Implante uma máquina virtual no Azure que executa o Windows Server 2016.
-|Máquinas Virtuais | Módulo do Learn | [Gerenciar máquinas virtuais com a CLI do Azure](https://docs.microsoft.com/learn/modules/manage-virtual-machines-with-azure-cli/) | Crie, inicie, pare e realize outras tarefas de gerenciamento relacionadas às máquinas virtuais.
+|Máquinas Virtuais | Módulo de aprendizagem | [Gerenciar máquinas virtuais com a CLI do Azure](https://docs.microsoft.com/learn/modules/manage-virtual-machines-with-azure-cli/) | Crie, inicie, pare e realize outras tarefas de gerenciamento relacionadas às máquinas virtuais.
 |AKS (Serviço de Kubernetes do Azure)| Guia de Início Rápido | [Implantar um cluster do AKS (Serviço de Kubernetes do Azure) usando a CLI do Azure](/azure/aks/kubernetes-walkthrough) | Implante e gerencie clusters do AKS.  Veja como monitorar a integridade do cluster e dos pods que executam o aplicativo.
 |Lote do Azure|Amostra | [Executar um trabalho e tarefas com o Lote do Azure usando a CLI do Azure](/azure/batch/scripts/batch-cli-sample-run-job) | Crie um trabalho em lotes e adicione uma série de tarefas a ele. Monitore um trabalho e suas tarefas.
 |Lote do Azure|Amostra | [Criar e gerenciar um pool do Windows no Lote do Azure usando a CLI do Azure](/azure/batch/scripts/batch-cli-sample-manage-windows-pool) | Crie e gerencie um pool de nós de computação do Windows com uma configuração dos Serviços de Nuvem.
@@ -42,7 +43,7 @@ A CLI do Azure é usada em diversos serviços do Azure. Por isso, há artigos em
 
 | | | | |
 |-|-|-|-|
-|Rede Virtual|Guia de Início Rápido | [Criar uma rede virtual com a CLI do Azure](/azure/virtual-network/quick-create-cli) | Crie uma rede virtual, implante duas máquinas virtuais nessa rede virtual e conecte-se às máquinas virtuais na Internet.
+|Rede Virtual|Guia de Início Rápido | [Criar uma rede virtual usando a CLI do Azure](/azure/virtual-network/quick-create-cli) | Crie uma rede virtual, implante duas máquinas virtuais nessa rede virtual e conecte-se às máquinas virtuais na Internet.
 |Rede Virtual|Guia de instruções | [Habilitar a Rede Acelerada em uma máquina virtual do Linux com a CLI do Azure](/azure/virtual-network/create-vm-accelerated-networking-cli) | Crie uma máquina virtual do Linux, realize a associação dinâmica e a revogação da função virtual e habilite a Rede Acelerada.
 
 ## <a name="internet-of-things"></a>Internet das coisas
@@ -51,7 +52,7 @@ A CLI do Azure é usada em diversos serviços do Azure. Por isso, há artigos em
 |-|-|-|-|
 |Hub IoT|Tutorial | [Configurar o roteamento de mensagens do Hub IoT com a CLI do Azure](/azure/iot-hub/tutorial-routing) | Configurar e usar consultas de roteamento personalizadas com o Hub IoT.
 
-## <a name="developer-tools"></a>Ferramentas de Desenvolvedor
+## <a name="developer-tools"></a>Ferramentas para Desenvolvedores
 
 | | | | |
 |-|-|-|-|
@@ -74,7 +75,7 @@ A CLI do Azure é usada em diversos serviços do Azure. Por isso, há artigos em
 | | | | |
 |-|-|-|-|
 Hub de Eventos do Azure |Guia de Início Rápido |[Criar um hub de eventos com a CLI do Azure](/azure/event-hubs/event-hubs-quickstart-cli) | Crie um namespace dos Hubs de Eventos e um hub de eventos.
-HDInsight |Guia de instruções |[Criar os clusters do HDInsight com a CLI do Azure](/azure/hdinsight/hdinsight-hadoop-create-linux-clusters-azure-cli) | Crie um cluster do HDInsight 3.6.
+HDInsight |Guia de instruções |[Criar os clusters do HDInsight usando a CLI do Azure](/azure/hdinsight/hdinsight-hadoop-create-linux-clusters-azure-cli) | Crie um cluster do HDInsight 3.6.
 HDInsight |Tutorial |[Gerenciar os clusters do Azure HDInsight com a CLI do Azure](/azure/hdinsight/hdinsight-administer-use-command-line) | Liste, mostre, exclua e escale os clusters do HDInsight.
 
 ## <a name="management-and-governance"></a>Gerenciamento e governança
@@ -98,9 +99,9 @@ Azure Stack Hub| Guia de instruções: recursos do ASDK |[Gerenciar e implantar 
 
 | | | | |
 |-|-|-|-|
-Armazenamento de blob |Guia de Início Rápido |  [Criar, baixar e listar blobs com a CLI do Azure](/azure/storage/blobs/storage-quickstart-blobs-cli) | Carregar e baixar dados do Armazenamento de Blobs do Azure.
-Armazenamento de blob |Guia de instruções |[Autorizar acesso a dados de blob ou fila com a CLI do Azure](/azure/storage/common/authorize-data-operations-cli) | Especifique como as operações de dados são autorizadas e configure variáveis de ambiente para os parâmetros.
-Armazenamento de blob |Guia de instruções |[Usar a CLI do Azure para gerenciar diretórios, arquivos e ACLs no Azure Data Lake Storage Gen2 (versão prévia)](/azure/storage/blobs/data-lake-storage-directory-file-acl-cli) | Crie e gerencie diretórios, arquivos e permissões nas contas de armazenamento que têm um namespace hierárquico.
+Armazenamento de Blobs |Guia de Início Rápido |  [Criar, baixar e listar blobs com a CLI do Azure](/azure/storage/blobs/storage-quickstart-blobs-cli) | Carregar e baixar dados do Armazenamento de Blobs do Azure.
+Armazenamento de Blobs |Guia de instruções |[Autorizar acesso a dados de blob ou fila com a CLI do Azure](/azure/storage/common/authorize-data-operations-cli) | Especifique como as operações de dados são autorizadas e configure variáveis de ambiente para os parâmetros.
+Armazenamento de Blobs |Guia de instruções |[Usar a CLI do Azure para gerenciar diretórios, arquivos e ACLs no Azure Data Lake Storage Gen2 (versão prévia)](/azure/storage/blobs/data-lake-storage-directory-file-acl-cli) | Crie e gerencie diretórios, arquivos e permissões nas contas de armazenamento que têm um namespace hierárquico.
 Armazenamento de arquivos |Guia de Início Rápido |[Criar e gerenciar os compartilhamentos de arquivo do Azure com a CLI do Azure](/azure/storage/files/storage-how-to-use-files-cli) | Crie e use os compartilhamentos de arquivo do Azure.  Crie e gerencie instantâneos de compartilhamento.
 
 ## <a name="security"></a>Segurança
@@ -109,7 +110,7 @@ Armazenamento de arquivos |Guia de Início Rápido |[Criar e gerenciar os compar
 |-|-|-|-|
 Entidade de serviço |Guia de instruções |[Criar uma entidade de serviço do Azure com a CLI do Azure](/cli/azure/create-an-azure-service-principal-azure-cli) | Crie, obtenha informações e redefina uma entidade de serviço com a CLI do Azure.
 RBAC |Guia de instruções |[Adicione ou remova atribuições de função com o RBAC do Azure e a CLI do Azure](/azure/role-based-access-control/role-assignments-cli) | Atribua funções ao controle de acesso baseado em função do Azure.
-Key Vault |Guia de instruções |[Gerenciar o Key Vault com a CLI do Azure](/azure/key-vault/key-vault-manage-with-cli2) | Crie e gerencie o Azure Key Vault.  Registre e autorize um aplicativo, defina políticas de acesso avançadas e aprenda comandos de interface de linha de comando multiplataforma.
+Key Vault |Guia de instruções |[Gerenciar o Key Vault usando a CLI do Azure](/azure/key-vault/key-vault-manage-with-cli2) | Crie e gerencie o Azure Key Vault.  Registre e autorize um aplicativo, defina políticas de acesso avançadas e aprenda comandos de interface de linha de comando multiplataforma.
 Key Vault |Tutorial |[Gerenciar chaves de conta de armazenamento com o Key Vault e a CLI do Azure](/azure/key-vault/key-vault-ovw-storage-keys) | Gerencie chaves de conta de armazenamento e gere tokens de assinatura de acesso compartilhado.
 
 ## <a name="ai--machine-learning"></a>IA + Machine Learning

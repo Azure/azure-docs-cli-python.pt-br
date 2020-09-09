@@ -1,10 +1,20 @@
 ---
-ms.openlocfilehash: 4794f1eb2fb45ca767f67de5270e232d6b68aede
-ms.sourcegitcommit: 58d839589858acc1a7a9f114af7f4fce13d883ea
+title: Dicas para usar a CLI do Azure com eficácia
+description: Dicas para usar a CLI do Azure com eficácia
+author: dbradish-microsoft
+ms.author: dbradish
+manager: barbkess
+ms.date: 09/07/2018
+ms.topic: conceptual
+ms.service: azure-cli
+ms.devlang: azurecli
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 720e0866b97db0d56417db95f2518d5567836571
+ms.sourcegitcommit: 2da241715d25407ed22c1065c0c793acfd865996
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88601892"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89563052"
 ---
 # <a name="tips-for-using-azure-cli-effectively"></a>Dicas para usar a CLI do Azure com eficácia
 
@@ -122,15 +132,15 @@ Por exemplo, para atualizar `redirectUris` para um [Aplicativo](/graph/api/resou
 
 # Get the application
 az rest --method GET
-        --url 'https://graph.microsoft.com/v1.0/applications/b4e4d2ab-e2cb-45d5-a31a-98eb3f364001'
+        --uri 'https://graph.microsoft.com/v1.0/applications/b4e4d2ab-e2cb-45d5-a31a-98eb3f364001'
 
 # Update `redirectUris` for `web` property
 az rest --method PATCH
-        --url 'https://graph.microsoft.com/v1.0/applications/b4e4d2ab-e2cb-45d5-a31a-98eb3f364001'
+        --uri 'https://graph.microsoft.com/v1.0/applications/b4e4d2ab-e2cb-45d5-a31a-98eb3f364001'
         --body '{"web":{"redirectUris":["https://myapp.com"]}}'
 ```
 
-Ao usar `--url-parameters` para solicitações no formato de OData, use o caractere de escape `$` em ambientes diferentes. No `Bash`, use o caractere escape `$` como `\$`; e no `PowerShell`, use-o em `$` como `` `$``
+Ao usar `--uri-parameters` para solicitações no formato de OData, use o caractere de escape `$` em ambientes diferentes. No `Bash`, use o caractere escape `$` como `\$`; e no `PowerShell`, use-o em `$` como `` `$``
 
 ## <a name="quoting-issues"></a>Problemas com colocações de aspas
 
