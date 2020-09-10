@@ -45,11 +45,11 @@
         - name: Instalar – Script de instalação do Linux
           href: install-azure-cli-linux.md
           displayName: 'install, script, unix, bsd, linux, lfs, wsl, slackware'
-    - name: Executar – Docker
+    - name: Executar a CLI do Azure em um contêiner do Docker
       href: run-azure-cli-docker.md
       displayName: 'linux, unix, container, image'
-    - name: Executar – Azure Cloud Shell
-      href: /azure/cloud-shell/quickstart
+    - name: Iniciar o Azure Cloud Shell
+      href: start-azure-cloud-shell.md
       displayName: 'bash, Powershell'
     - name: Entrar
       href: authenticate-azure-cli.md
