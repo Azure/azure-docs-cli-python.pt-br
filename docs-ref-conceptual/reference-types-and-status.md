@@ -9,26 +9,26 @@ ms.topic: conceptual
 ms.service: azure-cli
 ms.devlang: azurecli
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 2b6b3c5faef66e714cddf7b07126ba14af8c149b
-ms.sourcegitcommit: fd8c3e32f0f50feb6fea33ead636a80a050bcf2a
+ms.openlocfilehash: 5f2ad8b4347257ee075d788d3cb500f464408724
+ms.sourcegitcommit: 2da241715d25407ed22c1065c0c793acfd865996
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88714334"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89563103"
 ---
 # <a name="overview-azure-cli-reference-types-and-status"></a>Visão geral: Status e tipos de referência da CLI do Azure
 
-A CLI do Azure tem tipos de referência diferentes que, às vezes, são descritos de maneira intercambiável com os status de referência.  Este artigo explica a diferença entre um tipo e um status da CLI do Azure e fornece informações para trabalhar com ambos.
+A CLI do Azure tem diferentes tipos de referência que, às vezes, são descritos de maneira intercambiável com os status de referência.  Este artigo explica a diferença entre um tipo e um status da CLI do Azure e fornece informações para trabalhar com ambos.
 
 ## <a name="azure-cli-syntax-components"></a>Componentes da sintaxe da CLI do Azure
 
-A sintaxe da CLI do Azure é uma combinação de referências, comandos e parâmetros.  Geralmente, o comando de referência completa é simplesmente chamado de **comando**.
+A sintaxe da CLI do Azure é uma combinação de referências, comandos e parâmetros.  Geralmente, o **comando de referência completo** é chamado de **comando**.
 
 | Serviço do Azure | Referência | Subserviço de referência | Comando | Comando de referência completa | Exemplos de parâmetro
 |-|-|-|-|-|-|
 | CLI do Azure | [az configure](/cli/azure/reference-index#az-configure) | | | az configure | --defaults, --list-default, --scope
 | Rede do Azure | [az network](/cli/azure/network) | application-gateway | create | [az network application-gateway create](/cli/azure/network/application-gateway#az-network-application-gateway-create) | --name, --resource-group, --capacity
-| Azure DevOps | [az pipelines](/cli/azure/pipelines) | agente | list | [az pipelines agent list](/cli/azure/pipelines/agent) | --pool-id, --agent-name, --demands
+| Azure DevOps Server | [az pipelines](/cli/azure/pipelines) | agente | list | [az pipelines agent list](/cli/azure/pipelines/agent) | --pool-id, --agent-name, --demands
 
 ## <a name="reference-types"></a>Tipos de referência
 
@@ -39,7 +39,7 @@ Um tipo de referência informa se o comando de referência faz parte do serviço
 | **Referências** | Fazem parte do serviço primário da CLI do Azure | São comandos de referência opcionais que devem ser instalados
 | **Instalar** | Em conjunto com o [MSI Installer]() | Individualmente com [az extension add]()|
 | **Lançado** | Com base em um agendamento | Conforme novos recursos ou atualizações ficam disponíveis
-| **Status** | Pode ser GA, versão prévia ou experimental | Também pode ser GA, versão prévia ou experimental
+| **Status** | Pode ser GA (em disponibilidade geral), versão prévia ou experimental | Também pode ser GA, versão prévia ou experimental
 
 Todas as referências da CLI do Azure podem ser executadas no Windows, no macOS, no Linux, no Docker e no Azure Cloud Shell.
 
@@ -69,10 +69,10 @@ Independentemente do tipo, as referências da CLI do Azure se enquadram em três
 
 | | GA  | Versão prévia pública | Habilitação
 |-|-|-|-|
-| **Estabilidade** | Permanente | Sujeito aos termos de [Versões prévias do Microsoft Azure](/support/legal/preview-supplemental-terms/) | Mudará para a versão prévia pública ou poderá ser removida
+| **Estabilidade** | Permanente | Pode ser alterada em resposta aos comentários do cliente.  Está sujeita aos termos das [Versões prévias do Microsoft Azure](/support/legal/preview-supplemental-terms/). | Pode ser alterada em resposta aos comentários do cliente.  Geralmente, será migrada para a versão prévia pública.  Pode ser removida.
 | **Nível de suporte** | Completo | Parcial | Nenhum
 
-Embora a maioria dos comandos e parâmetros de uma única referência tenha um único status, esse nem sempre é o caso.  Uma referência em GA que está sendo criada para oferecer mais comandos pode ter comandos de referência em GA, versão prévia e experimental.  Normalmente, em resposta a comentários públicos e conforme novos parâmetros são adicionados para aumentar a funcionalidade, um único comando também pode ter parâmetros que se enquadram em categorias de status diferentes.  Veja exemplos de referências que têm status diferentes:
+Embora a maioria dos comandos e parâmetros de uma única referência tenha um único status, esse nem sempre é o caso.  Uma referência em GA que está sendo criada para oferecer mais comandos pode ter comandos de referência em GA, versão prévia e experimental. Conforme novos parâmetros são adicionados para aumentar as funcionalidades, um comando individual também pode ter parâmetros que se enquadram em diferentes categorias de status.  Veja exemplos de referências que têm status diferentes:
 
 | Comando de referência completa | Parâmetros | Tipo | GA | Versão prévia pública | Habilitação
 |-|-|-|-|-|-|
