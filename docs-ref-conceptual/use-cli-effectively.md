@@ -1,5 +1,5 @@
 ---
-title: Dicas para usar a CLI do Azure com eficácia
+title: Usar a CLI do Azure com eficiência
 description: Dicas para usar a CLI do Azure com eficácia
 author: dbradish-microsoft
 ms.author: dbradish
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.service: azure-cli
 ms.devlang: azurecli
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 720e0866b97db0d56417db95f2518d5567836571
-ms.sourcegitcommit: 2da241715d25407ed22c1065c0c793acfd865996
+ms.openlocfilehash: 53fa51e3d17069c9d3af62d53214d366f33779b4
+ms.sourcegitcommit: 6c3032b1d74c65a8f186b3063ab6b301350e3704
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89563052"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90012724"
 ---
-# <a name="tips-for-using-azure-cli-effectively"></a>Dicas para usar a CLI do Azure com eficácia
+# <a name="use-azure-cli-effectively"></a>Usar a CLI do Azure com eficiência
 
 Para maior clareza, os scripts Bash são embutidos. Os exemplos do PowerShell ou do lote do Windows são listados no apêndice, que pode ser usado para criar exemplos semelhantes.
 
