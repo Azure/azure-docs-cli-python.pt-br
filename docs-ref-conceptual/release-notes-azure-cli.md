@@ -4,21 +4,151 @@ description: Saiba mais sobre as últimas atualizações da CLI do Azure
 author: dbradish-microsoft
 ms.author: dbradish
 manager: barbkess
-ms.date: 08/28/2020
+ms.date: 09/22/2020
 ms.topic: article
 ms.service: azure-cli
 ms.devlang: azurecli
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 896e62b8db9597ee3ff02cec333031ac59f20705
-ms.sourcegitcommit: 2da241715d25407ed22c1065c0c793acfd865996
+ms.openlocfilehash: 54befd19d810d84dd076241bd0718c933b3ff2d8
+ms.sourcegitcommit: a0cc51d7b2b39a52c402af1d98d3b48ff369bd16
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89563086"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90875936"
 ---
 # <a name="azure-cli-release-notes"></a>Notas de versão da CLI do Azure
 
 # <a name="current-release-notes"></a>[Notas sobre a versão atuais](#tab/azure-cli)
+
+## <a name="september-22-2020"></a>22 de setembro de 2020
+
+Versão 2.12.0
+
+### <a name="acr"></a>ACR
+
+* Correção nº 14811: adicionar suporte para substituição dockerignore
+
+### <a name="aks"></a>AKS
+
+* A CLI deve tolerar kubeconfig vazio
+* CORREÇÃO nº 12871: az aks enable-addons: o exemplo de ajuda gerada automaticamente está errado para a opção virtual-node
+* Remover ações do conector do aci herdado
+* Dar suporte ao complemento do Azure Policy em azure-cli
+* Corrigir o problema de diferenciação de maiúsculas e minúsculas do complemento do painel do AKS
+* Atualizar mgmt-containerservice para a versão 9.4.0 e habilitar a API 09-01
+
+### <a name="apim"></a>APIM
+
+* Dar suporte aos comandos de entidade product/productapi/namedValue e a versão do SDK bump &&
+
+### <a name="app-config"></a>Configuração do Aplicativo
+
+* Dar suporte para habilitar/desabilitar PublicNetworkAccess para armazenamentos existentes
+
+### <a name="app-service"></a>Serviço de Aplicativo
+
+* Adicionar suporte para o tipo de preço Premium V3
+* Correção nº12653: az webapp log config --application-logging false não o desativa
+* Correção nº 14684: a remoção de access-restriction por endereço IP não funcionava; nº 13837-az webapp create – Exemplo para diferentes RSgroups para Plan e WebApp
+* functionapp: Adicionar suporte para manipuladores personalizados. PowerShell 6.2 preterido.
+* functionapp: Correção do problema em que a configuração do aplicativo estava sendo definida incorretamente para imagens personalizadas do Linux
+
+### <a name="arm"></a>ARM
+
+* `az deployment group/sub/mg/tenant what-if`: Mostrar alterações de recurso "Ignorar" por último
+
+### <a name="compute"></a>Computação
+
+* Adicionar novo license_type na criação/atualização de VM: RHEL_BYOS, SLES_BYOS
+* Atualizar a API do disco para a versão 2020-06-30
+* criação do disco: add --logical-sector-size, --tier
+* atualização do disco: Suporte a --disk-iops-read-only, --disk-mbps-read-only, --max-shares
+* Novo comando disk-encryption-set list-associated-resources
+* Habilitação de vm boot-diagnostics: --storage se torna opcional
+* Novo comando: vm boot-diagnostics get-boot-log-uris
+* vm boot-diagnostics get-boot-log: suporte ao armazenamento gerenciado
+
+### <a name="config"></a>Config
+
+* Renomear local-context para configurar param-persist
+
+### <a name="cosmos-db"></a>Cosmos DB
+
+* Dar suporte a APIs de Migração para o recurso de taxa de transferência para o recurso de dimensionamento automático no CosmosDB
+
+### <a name="eventhub"></a>Eventhub
+
+Adição de comandos de cluster e do parâmetro trusted_service_access_enabled para Networkruleset
+
+### <a name="extension"></a>Extensão
+
+* `az extension add`: adicionar a opção `--upgrade` para atualizar a extensão, se ela já estiver instalada
+* Ativar a instalação dinâmica por padrão
+
+### <a name="iot"></a>IoT
+
+* Versão mínima do TLS habilitada na criação do Hub IoT
+
+### <a name="iot-central"></a>IoT Central
+
+* A operação de exclusão de aplicativo agora é uma operação de execução prolongada
+
+### <a name="iot-hub"></a>Hub IoT
+
+* Comando 'show-connection-string' preterido
+
+### <a name="key-vault"></a>Key Vault
+
+* Versão prévia pública do HSM gerenciado
+* Corrigir o problema em que `--maxresults` não entrou em vigor durante a listagem de recursos ou versões de recursos
+
+### <a name="kusto"></a>Kusto
+
+* Adicionar mensagem de substituição
+
+### <a name="monitor"></a>Monitoramento
+
+* `az monitor log-analytics workspace linked-storage`: expor a mensagem de erro detalhada aos clientes
+
+### <a name="network"></a>Rede
+
+* `az network vnet subnet`: dar suporte a --disable-private-endpoint-network-policies e --disable-private-link-service-network-policies
+* Corrigir o bug durante a atualização do log de fluxos quando a subpropriedade network_watcher_flow_analytics_configuration for None
+* Elevação da API para a versão 2020-06-01
+* Dar suporte --tcp-port-behavior durante a definição da configuração do TCP de um Monitor da Conexão V2
+* Dar suporte a mais tipos e ao nível de cobertura durante a criação do ponto de extremidade do Monitor da Conexão v2
+* Dar suporte a --host-subnet para criar o VirtualHub abaixo como VirtualRouter
+
+### <a name="rdbms"></a>RDBMS
+
+* Atualizações do Plano de Gerenciamento para PostgreSQL e MySQL
+
+### <a name="role"></a>Função
+
+* `az role assignment create/update`: dar suporte a `--description`, `--condition` e `--condition-version`
+* `az ad app permission delete`: dar suporte a `--api-permissions` para excluir o `ResourceAccess` específico
+
+### <a name="service-fabric"></a>Service Fabric
+
+* Adicionar comandos de tipo de nó e cluster gerenciado
+
+### <a name="sql"></a>SQL
+
+* Atualizar azure-mgmt-sql para 0.20.0
+* Adicionar parâmetro opcional de redundância de armazenamento de backup ao cmdlet MI create
+
+### <a name="storage"></a>Armazenamento
+
+* `az storage share-rm stats`: obter os bytes de uso dos dados armazenados no compartilhamento.
+* PITR de blob de armazenamento de versão GA
+* `az storage blob query`: dar suporte à Aceleração de Consulta do Armazenamento do Azure
+* Dar suporte à exclusão reversível para o compartilhamento de arquivo
+* `az storage copy`: adicionar suporte a credenciais de conta e substituir `--source-local-path`, `--destination-local-path`, `--destination-account-name`
+* `az storage account blob-service-properties update`: adicionar suporte à política de retenção de exclusão de contêiner
+
+### <a name="synapse"></a>Synapse
+
+* Correção de erro de digitação no exemplo de criação e exclusão de atribuição de função do az synapse
 
 ## <a name="august-28-2020"></a>28 de agosto de 2020
 
