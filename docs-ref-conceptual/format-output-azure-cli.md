@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-cli
 ms.devlang: azurecli
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d4cc869aa7e23f87cf6f13b8aca9f10cbbca82b5
-ms.sourcegitcommit: 2da241715d25407ed22c1065c0c793acfd865996
+ms.openlocfilehash: fd505aa70b847595d1b3dd02b6d88b60ca95db4c
+ms.sourcegitcommit: 5d29362589078b66d15f5cd494fe903a5195658d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89563154"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91225857"
 ---
 # <a name="output-formats-for-azure-cli-commands"></a>Formatos de saída dos comandos da CLI do Azure
 
@@ -138,7 +138,7 @@ RGDEMO001   KBDemo020
 > az vm list --query "[].{objectID:id}" -o table
 > ```
 
-Para obter mais informações sobre como usar consultas para filtrar dados, confira [Usar as consultas JMESPath com a CLI do Azure](/cli/azure/query-azure-cli).
+Para obter mais informações sobre como usar consultas para filtrar dados, confira [Usar as consultas JMESPath com a CLI do Azure](./query-azure-cli.md).
 
 ## <a name="tsv-output-format"></a>O formato de saída TSV
 
@@ -215,4 +215,4 @@ What default output format would you like?
 Please enter a choice [1]:
 ```
 
-Para saber mais sobre como configurar seu ambiente, confira [Configuração da CLI do Azure](/cli/azure/azure-cli-configuration).
+Para saber mais sobre como configurar seu ambiente, confira [Configuração da CLI do Azure](./azure-cli-configuration.md).

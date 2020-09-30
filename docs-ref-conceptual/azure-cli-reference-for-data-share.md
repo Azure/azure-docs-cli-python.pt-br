@@ -10,20 +10,20 @@ ms.topic: reference
 ms.date: 05/27/2020
 ms.author: dbradish
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e8d834864b2d967beb18e9cd304b922db859ef09
-ms.sourcegitcommit: 2da241715d25407ed22c1065c0c793acfd865996
+ms.openlocfilehash: 5d6ed2fae3988bbf43a83d40b10a3dc37ad25dad
+ms.sourcegitcommit: 5d29362589078b66d15f5cd494fe903a5195658d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89562763"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91225840"
 ---
 # <a name="azure-cli-for-azure-data-share"></a>CLI do Azure para o Azure Data Share
 
-A [CLI do Azure](/cli/azure/what-is-azure-cli) (Interface de Linha de Comando do Azure) é um conjunto de comandos usados para criar e gerenciar recursos do Azure.  Ela está disponível em muitos serviços do Azure, incluindo o Azure Data Share.  Há mais de 65 comandos diferentes para o compartilhamento de dados.  Esses comandos oferecem a capacidade de trabalhar com eficiência com o serviço de uma linha de comando.
+A [CLI do Azure](./what-is-azure-cli.md) (Interface de Linha de Comando do Azure) é um conjunto de comandos usados para criar e gerenciar recursos do Azure.  Ela está disponível em muitos serviços do Azure, incluindo o Azure Data Share.  Há mais de 65 comandos diferentes para o compartilhamento de dados.  Esses comandos oferecem a capacidade de trabalhar com eficiência com o serviço de uma linha de comando.
 
 ## <a name="references-for-data-share"></a>Referências para o Data Share
 
-Todos os comandos da CLI do Azure para o Azure Data Share são atualmente extensões para a CLI do Azure.  Uma extensão fornece acesso a comandos experimentais e de pré-lançamento.  Saiba mais sobre as referências de extensão em [Usar extensões com a CLI do Azure](/cli/azure/azure-cli-extensions-overview).
+Todos os comandos da CLI do Azure para o Azure Data Share são atualmente extensões para a CLI do Azure.  Uma extensão fornece acesso a comandos experimentais e de pré-lançamento.  Saiba mais sobre as referências de extensão em [Usar extensões com a CLI do Azure](./azure-cli-extensions-overview.md).
 
 |Referência da CLI do Azure |Descrição
 |-|-|-|
@@ -61,6 +61,6 @@ az datashare account create --location "West US 2" --tags tag1=Red tag2=White --
 
 ## <a name="see-also"></a>Confira também
 
-* [Introdução à CLI do Azure](/cli/azure/get-started-with-azure-cli) para saber mais sobre a instalação e a conexão.
+* [Introdução à CLI do Azure](./get-started-with-azure-cli.md) para saber mais sobre a instalação e a conexão.
 
-* Descubra referências adicionais de [núcleo](/cli/azure/reference-index) e de [extensão](/cli/azure/azure-cli-extensions-list) na documentação da CLI do Azure.
+* Descubra referências adicionais de [núcleo](/cli/azure/reference-index) e de [extensão](./azure-cli-extensions-list.md) na documentação da CLI do Azure.

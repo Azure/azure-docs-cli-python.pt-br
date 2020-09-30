@@ -10,12 +10,12 @@ ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 42e9de630530568a15bc6f9f05d2442d790d8b68
-ms.sourcegitcommit: 2da241715d25407ed22c1065c0c793acfd865996
+ms.openlocfilehash: 1b58fa03d93769a66ea4c02678a7409f27262fd7
+ms.sourcegitcommit: 5d29362589078b66d15f5cd494fe903a5195658d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89563137"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91225500"
 ---
 # <a name="popular-articles-using-the-azure-cli"></a>Artigos populares que usam a CLI do Azure
 
@@ -32,7 +32,7 @@ A CLI do Azure é usada em diversos serviços do Azure. Por isso, há artigos em
 |Máquinas Virtuais | Guia de instruções: Linux | [Criar uma galeria de imagens compartilhadas com a CLI do Azure](/azure/virtual-machines/linux/shared-images) | Crie uma Galeria de Imagens Compartilhadas com imagens de VM personalizadas com outras pessoas em sua organização, dentro ou entre regiões, ou em um locatário do Azure Active Directory.
 |Máquinas Virtuais | Guia de instruções: Linux | [Implantar VMs do Spot com a CLI do Azure (versão prévia)](/azure/virtual-machines/linux/spot-cli) | Implante uma máquina virtual spot do Linux que não será removida com base no preço.
 |Máquinas Virtuais | Início Rápido: Windows | [Criar uma máquina virtual do Windows com a CLI do Azure](/azure/virtual-machines/windows/quick-create-cli) | Implante uma máquina virtual no Azure que executa o Windows Server 2016.
-|Máquinas Virtuais | Módulo de aprendizagem | [Gerenciar máquinas virtuais com a CLI do Azure](https://docs.microsoft.com/learn/modules/manage-virtual-machines-with-azure-cli/) | Crie, inicie, pare e realize outras tarefas de gerenciamento relacionadas às máquinas virtuais.
+|Máquinas Virtuais | Módulo de aprendizagem | [Gerenciar máquinas virtuais com a CLI do Azure](/learn/modules/manage-virtual-machines-with-azure-cli/) | Crie, inicie, pare e realize outras tarefas de gerenciamento relacionadas às máquinas virtuais.
 |AKS (Serviço de Kubernetes do Azure)| Guia de Início Rápido | [Implantar um cluster do AKS (Serviço de Kubernetes do Azure) usando a CLI do Azure](/azure/aks/kubernetes-walkthrough) | Implante e gerencie clusters do AKS.  Veja como monitorar a integridade do cluster e dos pods que executam o aplicativo.
 |Lote do Azure|Amostra | [Executar um trabalho e tarefas com o Lote do Azure usando a CLI do Azure](/azure/batch/scripts/batch-cli-sample-run-job) | Crie um trabalho em lotes e adicione uma série de tarefas a ele. Monitore um trabalho e suas tarefas.
 |Lote do Azure|Amostra | [Criar e gerenciar um pool do Windows no Lote do Azure usando a CLI do Azure](/azure/batch/scripts/batch-cli-sample-manage-windows-pool) | Crie e gerencie um pool de nós de computação do Windows com uma configuração dos Serviços de Nuvem.
@@ -108,7 +108,7 @@ Armazenamento de arquivos |Guia de Início Rápido |[Criar e gerenciar os compar
 
 | | | | |
 |-|-|-|-|
-Entidade de serviço |Guia de instruções |[Criar uma entidade de serviço do Azure com a CLI do Azure](/cli/azure/create-an-azure-service-principal-azure-cli) | Crie, obtenha informações e redefina uma entidade de serviço com a CLI do Azure.
+Entidade de serviço |Guia de instruções |[Criar uma entidade de serviço do Azure com a CLI do Azure](./create-an-azure-service-principal-azure-cli.md) | Crie, obtenha informações e redefina uma entidade de serviço com a CLI do Azure.
 RBAC |Guia de instruções |[Adicione ou remova atribuições de função com o RBAC do Azure e a CLI do Azure](/azure/role-based-access-control/role-assignments-cli) | Atribua funções ao controle de acesso baseado em função do Azure.
 Key Vault |Guia de instruções |[Gerenciar o Key Vault usando a CLI do Azure](/azure/key-vault/key-vault-manage-with-cli2) | Crie e gerencie o Azure Key Vault.  Registre e autorize um aplicativo, defina políticas de acesso avançadas e aprenda comandos de interface de linha de comando multiplataforma.
 Key Vault |Tutorial |[Gerenciar chaves de conta de armazenamento com o Key Vault e a CLI do Azure](/azure/key-vault/key-vault-ovw-storage-keys) | Gerencie chaves de conta de armazenamento e gere tokens de assinatura de acesso compartilhado.
