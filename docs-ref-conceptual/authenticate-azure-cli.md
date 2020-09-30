@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.service: azure-cli
 ms.devlang: azurecli
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 0c522e30bfc55ea9c87cbea3ffa56762f63d5025
-ms.sourcegitcommit: 2da241715d25407ed22c1065c0c793acfd865996
+ms.openlocfilehash: 5159716ac8e9ba0d09697035b6d0e3dd2a2286c2
+ms.sourcegitcommit: 5d29362589078b66d15f5cd494fe903a5195658d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89562865"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91225959"
 ---
 # <a name="sign-in-with-azure-cli"></a>Entrar com a CLI do Azure 
 
 Há vários tipos de autenticação para a CLI do Azure. A maneira mais fácil de começar é com o [Azure Cloud Shell](/azure/cloud-shell/overview) que conecta você automaticamente.
 Localmente, você pode entrar no modo interativo pelo navegador com o comando [az login](/cli/azure/reference-index#az-login). Ao escrever scripts, a abordagem recomendada é usar entidades de serviço. Ao conceder apenas as permissões apropriadas necessárias para uma entidade de serviço, você mantém sua automação segura.
 
-Nenhuma das suas informações de entrada é armazenada pela CLI. Em vez disso, um [token de atualização de autenticação](https://docs.microsoft.com/azure/active-directory/develop/v1-id-and-access-tokens#refresh-tokens) é gerado pelo Azure e depois é armazenado. A partir de agosto de 2018, esse token será revogado após 90 dias de inatividade, mas esse valor poderá ser alterado pela Microsoft ou seu administrador de locatários. Depois que o token for revogado, você receberá uma mensagem da CLI dizendo que você precisa entrar novamente.
+Nenhuma das suas informações de entrada é armazenada pela CLI. Em vez disso, um [token de atualização de autenticação](/azure/active-directory/develop/v1-id-and-access-tokens#refresh-tokens) é gerado pelo Azure e depois é armazenado. A partir de agosto de 2018, esse token será revogado após 90 dias de inatividade, mas esse valor poderá ser alterado pela Microsoft ou seu administrador de locatários. Depois que o token for revogado, você receberá uma mensagem da CLI dizendo que você precisa entrar novamente.
 
 Após a conexão, os comandos da CLI são executados em sua assinatura padrão. Caso tenha várias assinaturas, é possível [alterar sua assinatura padrão](manage-azure-subscriptions-azure-cli.md).
 
@@ -58,7 +58,7 @@ az login -u <username> -p <password>
 
 ## <a name="sign-in-with-a-service-principal"></a>Entrar com uma entidade de serviço
 
-Entidades de serviço são contas que não estão associadas a nenhum usuário específico, as quais podem ter permissões atribuídas por meio de funções predefinidas. Autenticar com uma entidade de serviço é a melhor maneira de gravar scripts seguros ou programas, permitindo a aplicação de restrições de permissões e informações de credenciais estáticas armazenadas localmente. Para saber mais sobre entidades de serviço, consulte [Criar uma entidade de serviço do Azure com a CLI do Azure](/cli/azure/create-an-azure-service-principal-azure-cli#sign-in-using-a-service-principal).
+Entidades de serviço são contas que não estão associadas a nenhum usuário específico, as quais podem ter permissões atribuídas por meio de funções predefinidas. Autenticar com uma entidade de serviço é a melhor maneira de gravar scripts seguros ou programas, permitindo a aplicação de restrições de permissões e informações de credenciais estáticas armazenadas localmente. Para saber mais sobre entidades de serviço, consulte [Criar uma entidade de serviço do Azure com a CLI do Azure](./create-an-azure-service-principal-azure-cli.md#sign-in-using-a-service-principal).
 
 Para entrar com uma entidade de serviço, você precisa:
 
@@ -67,7 +67,7 @@ Para entrar com uma entidade de serviço, você precisa:
 * O locatário associado à entidade de serviço, como um domínio `.onmicrosoft.com` ou ID de objeto do Azure
 
 > [!NOTE]
-> Um **CERTIFICADO** precisa ser anexado à **CHAVE PRIVADA** dentro de um arquivo PEM.  Para obter um exemplo do formato de arquivo PEM, confira [Criar uma entidade de serviço do Azure com a CLI do Azure](/cli/azure/create-an-azure-service-principal-azure-cli#sign-in-using-a-service-principal). 
+> Um **CERTIFICADO** precisa ser anexado à **CHAVE PRIVADA** dentro de um arquivo PEM.  Para obter um exemplo do formato de arquivo PEM, confira [Criar uma entidade de serviço do Azure com a CLI do Azure](./create-an-azure-service-principal-azure-cli.md#sign-in-using-a-service-principal). 
 >
 
 > [!IMPORTANT]
@@ -108,4 +108,4 @@ Nos recursos configurados para identidades gerenciadas em recursos do Azure, voc
 az login --identity
 ```
 
-Para saber mais sobre identidades gerenciadas em recursos do Azure, confira [Configurar identidades gerenciadas em recursos do Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm) e [Usar identidades gerenciadas em recursos do Azure para fazer logon](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-sign-in).
+Para saber mais sobre identidades gerenciadas em recursos do Azure, confira [Configurar identidades gerenciadas em recursos do Azure](/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm) e [Usar identidades gerenciadas em recursos do Azure para fazer logon](/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-sign-in).
