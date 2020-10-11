@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-cli
 ms.devlang: azurecli
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 3acf4272392d9ef9be37db74b2e7a5087cbeaefb
-ms.sourcegitcommit: 2da241715d25407ed22c1065c0c793acfd865996
+ms.openlocfilehash: f3fb0e589c4a32cc8a8e9e53c0fa3e69bf9576c2
+ms.sourcegitcommit: 5d29362589078b66d15f5cd494fe903a5195658d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89562525"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91225942"
 ---
 # <a name="create-an-azure-service-principal-with-the-azure-cli"></a>Criar uma entidade de serviço do Azure com a CLI do Azure
 
@@ -189,6 +189,49 @@ az login --service-principal --username APP_ID --tenant TENANT_ID --password /pa
 ```
 
 Para saber mais sobre como entrar com uma entidade de serviço, confira [Entrar com a CLI do Azure](authenticate-azure-cli.md).
+
+## <a name="create-a-resource-using-service-principal"></a>Criar um recurso usando a entidade de serviço
+
+A seção a seguir fornece um exemplo de como criar um recurso do [Armazenamento do Azure](/azure/storage/) com uma entidade de serviço usando os seguintes comandos:
+
+* [az login](/cli/azure/reference-index?view=azure-cli-latest#az_login)
+* [az group create](/cli/azure/group?view=azure-cli-latest#az_group_create)
+* [az storage account create](/cli/azure/storage/account?view=azure-cli-latest#az_storage_account_create)
+* [az storage account keys list](/cli/azure/storage/account/keys?view=azure-cli-latest#az_storage_account_keys_list)
+
+Para entrar com uma entidade de serviço, você precisa dos valores de `appId`, `tenant` e `password` retornados como resposta quando você [criou a entidade de serviço](#sign-in-using-a-service-principal).
+
+1. Faça logon como a entidade de serviço.
+
+    ```azurecli-interactive
+    az login --service-principal --username APP_ID --password PASSWORD --tenant TENANT_ID
+    ```
+
+1. Crie um grupo de recursos para manter todos os recursos usados para o mesmo projeto de início rápido, tutorial ou desenvolvimento.
+
+    ```azurecli-interactive
+    az group create --location WESTUS --name MY_RESOURCE_GROUP
+    ```
+
+1. Crie um recurso para um serviço do Azure. Substitua `<SERVICENAME>` pelo nome do serviço do Azure.
+
+    Para o Armazenamento do Azure, os valores válidos para o parâmetro `<KIND>` são:
+
+    * BlobStorage
+    * BlockBlobStorage
+    * FileStorage
+    * Armazenamento
+    * StorageV2
+
+    ```azurecli-interactive
+    az storage account create --name MY_RESOURCE_<SERVICENAME> --resource-group MY_RESOURCE_GROUP --kind <KIND> --sku F0 --location WESTUS --yes
+    ```
+
+1. Obtenha as chaves de recurso para o novo recurso, que você usa em seu código para se autenticar no serviço do Azure.
+
+    ```azurecli-interactive
+    az storage account keys list --name MY_RESOURCE_<SERVICENAME> --resource-group MY_RESOURCE_GROUP
+    ```
 
 ## <a name="reset-credentials"></a>Redefinir credenciais
 

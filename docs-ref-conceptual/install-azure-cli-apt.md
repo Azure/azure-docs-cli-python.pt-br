@@ -4,30 +4,32 @@ description: Como instalar a CLI do Azure com o gerenciador de pacotes apt
 author: dbradish-microsoft
 ms.author: dbradish
 manager: barbkess
-ms.date: 10/14/2019
+ms.date: 09/29/2020
 ms.topic: conceptual
 ms.service: azure-cli
 ms.devlang: azurecli
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d098e8fe1016977cd10e3a7a89c28b59df8b3fca
-ms.sourcegitcommit: 5d29362589078b66d15f5cd494fe903a5195658d
+ms.openlocfilehash: 242c634717cf964af718873ab9ecf84ff707db3d
+ms.sourcegitcommit: aa44ec97af5c0e7558d254b3159f95921e22ff1c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91225891"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91625407"
 ---
 # <a name="install-azure-cli-with-apt"></a>Instalar CLI do Azure com o apt
 
 Se você estiver executando uma distribuição fornecida com `apt`, como Ubuntu ou Debian, há um pacote x86_64 disponível para a CLI do Azure. Este pacote foi testado e é compatível com:
 
-* Ubuntu trusty, xenial, artful, bionic e disco
-* Debian wheezy, jessie, stretch e buster
+* Ubuntu trusty, xenial, Bionic, eoan e focal
+* Debian jessie, stretch e buster
 
 [!INCLUDE [current-version](includes/current-version.md)]
 
 > [!NOTE]
 >
-> O pacote para a CLI do Azure instala seu próprio interpretador de Python e não usa o Python do sistema.
+> O pacote para a CLI do Azure instala seu próprio interpretador de Python e não usa o Python do sistema. 
+>
+> No Ubuntu 20.04 (Focal), há um pacote `azure-cli` com a versão `2.0.81` fornecida pelo repositório `focal/universe`. Ele está desatualizado e não é recomendado. Se você já o instalou, remova-o primeiro executando `sudo apt remove azure-cli -y && sudo apt autoremove -y` antes de seguir as etapas abaixo para instalar o pacote `azure-cli` mais recente.
 
 ## <a name="install"></a>Instalar
 
@@ -89,6 +91,9 @@ Para saber mais sobre os diferentes métodos de autenticação, confira [Entrar 
 
 Aqui estão alguns problemas comuns vistos durante a instalação com `apt`. Se você tiver um problema não abordado aqui, [arquive um problema no github](https://github.com/Azure/azure-cli/issues).
 
+### <a name="no-module-issue-on-ubuntu-2004-focalwsl"></a>Nenhum problema com o módulo no Ubuntu 20.04 (Focal)/WSL
+Se você tiver instalado `azure-cli` em `Focal` sem adicionar o repositório de software da CLI do Azure na [etapa 3](#set-release) das instruções de instalação manual ou sem usar nosso [script](#install-with-one-command), poderá encontrar problemas indicando, por exemplo, que não há nenhum módulo chamado "decorator" ou "antlr4", já que o pacote instalado é o `azure-cli 2.0.81` desatualizado do repositório `focal/universe`. Remova-a primeiro executando `sudo apt remove azure-cli -y && sudo apt autoremove -y` e, em seguida, siga as [instruções](#install) acima para instalar o pacote `azure-cli` mais recente.
+
 ### <a name="lsb_release-does-not-return-the-correct-base-distribution-version"></a>lsb_release não retorna a versão correta da distribuição de base
 
 Algumas distribuições derivadas do Ubuntu ou do Debian, como o Linux Mint, podem não retornar o nome correto da versão de `lsb_release`. Esse valor é usado no processo de instalação para determinar o pacote de instalação. Se você souber o nome do código da versão do Ubuntu ou do Debian da qual sua distribuição é derivada, poderá definir o valor de `AZ_REPO` manualmente ao [adicionar o repositório](#set-release). Caso contrário, procure informações para sua distribuição sobre como determinar o nome do código da distribuição de base e defina `AZ_REPO` com o valor correto.
@@ -140,8 +145,9 @@ Para obter a chave de assinatura da Microsoft e o pacote do nosso repositório, 
 [!INCLUDE[troubleshoot-wsl.md](includes/troubleshoot-wsl.md)]
 
 ## <a name="update"></a>Atualizar
+[!INCLUDE [az-upgrade](includes/az-upgrade.md)]
 
-Use `apt-get upgrade` para atualizar o pacote da CLI.
+Você também pode usar `apt-get upgrade` para atualizar o pacote da CLI.
 
    ```bash
    sudo apt-get update && sudo apt-get upgrade

@@ -4,17 +4,17 @@ description: Como configurar a CLI do Azure
 author: dbradish-microsoft
 ms.author: dbradish
 manager: barbkess
-ms.date: 06/11/2018
+ms.date: 09/30/2020
 ms.topic: conceptual
 ms.service: azure-cli
 ms.devlang: azurecli
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 8a431f3303d900cc5d2f8787d531d17d41a68a9e
-ms.sourcegitcommit: 5d29362589078b66d15f5cd494fe903a5195658d
+ms.openlocfilehash: 232e08faca59c0cc0a7c4f2d94bce732bbeb9ebb
+ms.sourcegitcommit: aa44ec97af5c0e7558d254b3159f95921e22ff1c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91225296"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91625220"
 ---
 # <a name="azure-cli-configuration"></a>Configuração da CLI do Azure
 
@@ -94,6 +94,10 @@ Quando você fornece um valor padrão, esse argumento já não é exigido pelos 
 | | log\_dir | string | O diretório no qual gravar os logs. Por padrão, esse valor é `${AZURE_CONFIG_DIR}/logs`. |
 | __defaults__ | group | string | O grupo de recursos padrão para usar para todos os comandos. |
 | | local | string | O local padrão para usar para todos os comandos. |
+| | web | string | O nome de aplicativo padrão para usar para os comandos `az webapp`. |
+| | vm | string | O nome de VM padrão para usar para os comandos `az vm`. |
+| | vmss | string | O nome do VMSS (conjunto de dimensionamento de máquinas virtuais) a ser usado para comandos `az vmss`. |
+| | acr | string | O nome de registro de contêiner padrão para usar para os comandos `az acr`. |
 | __storage__ | connection\_string | string | A cadeia de conexão padrão a ser usada para comandos `az storage`. |
 | | account | string | O nome de conta padrão a ser usado para comandos `az storage`. |
 | | chave | string | A chave de conta padrão a ser usada para comandos `az storage`. |

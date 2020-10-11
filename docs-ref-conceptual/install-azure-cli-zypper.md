@@ -4,17 +4,17 @@ description: Como instalar a CLI do Azure com o zypper
 author: dbradish-microsoft
 ms.author: dbradish
 manager: barbkess
-ms.date: 09/09/2018
+ms.date: 09/25/2020
 ms.topic: conceptual
 ms.service: azure-cli
 ms.devlang: azurecli
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 07e71a5a03dfbfe8f05b9580e54260460161597e
-ms.sourcegitcommit: 5d29362589078b66d15f5cd494fe903a5195658d
+ms.openlocfilehash: 0bf5fb04c90cea7185b169af756db29f9a97b235
+ms.sourcegitcommit: aa44ec97af5c0e7558d254b3159f95921e22ff1c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91225874"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91625339"
 ---
 # <a name="install-azure-cli-with-zypper"></a>Instalar CLI do Azure com zypper
 
@@ -106,7 +106,9 @@ sudo zypper update-ca-certificates
 
 ## <a name="update"></a>Atualizar
 
-Você pode atualizar o pacote com o comando `zypper update`.
+[!INCLUDE [az-upgrade](includes/az-upgrade.md)]
+
+Você também pode atualizar o pacote com o comando `zypper update`.
 
 ```bash
 sudo zypper refresh
