@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-cli
 ms.devlang: azurecli
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 53fa51e3d17069c9d3af62d53214d366f33779b4
-ms.sourcegitcommit: 6c3032b1d74c65a8f186b3063ab6b301350e3704
+ms.openlocfilehash: 4ffd47b7d88dafc717f496fe40d9db68c7af28a3
+ms.sourcegitcommit: ce10a134cb3c73aec32bb4f5887b09d08f9bde53
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90012724"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92308056"
 ---
 # <a name="use-azure-cli-effectively"></a>Usar a CLI do Azure com eficiência
 
@@ -254,6 +254,8 @@ O uso do proxy é comum em redes corporativas ou é introduzido por ferramentas 
     ```
 
    Uma pergunta frequente é se as variáveis de ambiente `HTTP_PROXY` ou `HTTPS_PROXY` devem ou não ser definidas e a resposta é: depende. Por padrão, para o Fiddler no Windows ele atua como um proxy do sistema ao iniciar, você não precisa definir nada. Se a opção estiver desativada ou usando outras ferramentas que não funcionam como proxy do sistema, você deverá defini-las. Como quase todo o tráfego da CLI é baseado em SSL, somente `HTTPS_PROXY` deve ser definido. Se você não tiver certeza, basta defini-las, mas lembre-se de remover a definição depois que o proxy for desligado. Para o Fiddler, o valor padrão é `http://localhost:8888`.
+
+   Alguns proxies exigem autenticação, portanto, o formato das variáveis de ambiente `HTTP_PROXY` ou `HTTPS_PROXY` deverão incluir a autenticação, por exemplo, `HTTPS_PROXY="https://username:password@proxy-server:port"`. Isso será necessário para as bibliotecas subjacentes do Python. Para obter detalhes, confira [Como configurar proxies para as bibliotecas do Azure](https://docs.microsoft.com/azure/developer/python/azure-sdk-configure-proxy?tabs=bash) 
 
    Para obter outros detalhes, confira o [blog do Stefan](https://blog.jhnr.ch/2018/05/16/working-with-azure-cli-behind-ssl-intercepting-proxy-server/).
 

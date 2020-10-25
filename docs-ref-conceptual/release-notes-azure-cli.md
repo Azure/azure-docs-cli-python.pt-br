@@ -4,21 +4,119 @@ description: Saiba mais sobre as últimas atualizações da CLI do Azure
 author: dbradish-microsoft
 ms.author: dbradish
 manager: barbkess
-ms.date: 09/29/2020
+ms.date: 10/13/2020
 ms.topic: article
 ms.service: azure-cli
 ms.devlang: azurecli
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 613411f9565298e606812af258486acb4b722fc0
-ms.sourcegitcommit: dd42eae9469c48f3cce66347e8e1cac317887a3a
+ms.openlocfilehash: bc77b0601222b4956a6f5bed4159859fca4c3a81
+ms.sourcegitcommit: 19c24ebcd1e15ac23ca40ebc28b8c4804bd1327f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91422504"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92029652"
 ---
 # <a name="azure-cli-release-notes"></a>Notas de versão da CLI do Azure
 
 # <a name="current-release-notes"></a>[Notas sobre a versão atuais](#tab/azure-cli)
+
+## <a name="october-13-2020"></a>13 de outubro de 2020
+
+Versão 2.13.0
+
+### <a name="acr"></a>ACR
+
+* `az acr helm`: atualizar a URL de substituição
+* Adicionar alterações de logtemplate e systemtask para Tarefas do ACR
+
+### <a name="aks"></a>AKS
+
+* Dar suporte ao nó virtual com o comando aks create: `az aks create --enable-addons virtual-node`
+* Adicionar a única opção de imagem de nó para a CLI
+* Esperar que o complemento kube-dashboard seja desabilitado por padrão
+* `az aks create/update`: adicionar suporte ao LicenseType para o Windows
+* Dar suporte para adicionar pools de nós spot
+* Respeitar os nomes de complementos definidos na CLI do Azure
+
+### <a name="ams"></a>AMS
+
+* Correção nº 14687: o grupo de recursos e o nome da conta misturados no comando "az ams streaming-endpoint show"
+
+### <a name="app-config"></a>Configuração do Aplicativo
+
+* Corrigir o bug de teste
+* Dar suporte à autenticação do AAD para operações de dados
+
+### <a name="app-service"></a>Serviço de Aplicativo
+
+* `az functionapp deployment source config-zip`: correção de um problema em que o config-zip poderia gerar uma exceção em caso de sucesso no consumo em Linux
+* Bugfix: mensagens de erro aprimoradas para comandos webapp
+* `az appservice domain create, show-terms`: adicionar a capacidade de criar um domínio do serviço de aplicativo
+* `az functionapp create`: o sinalizador de visualização do Java 11 foi removido durante a criação de um aplicativo de funções
+* [ALTERAÇÃO DA FALHA] az webapp create e az webapp up – Atualizar runtimes de webapp disponíveis
+
+### <a name="arm"></a>ARM
+
+* `az ts`: adicionar novos comandos para especificações de modelo
+* `az deployment`: adicionar suporte para --template-spec -s
+
+### <a name="compute"></a>Computação
+
+* Corrigir a limitação de contagem FD de criação de grupos de hosts
+* Adicionar um novo comando para dar suporte à atualização de extensões para VMSS
+* Não há problemas na correção da referência da imagem
+
+### <a name="hdinsight"></a>HDInsight
+
+* `az hdinsight create`: adicionar informações preteridas para os argumentos --public-networrk-access-type e --outbound-public-network-access-type
+* `az hdinsight create`: adicionar informações preteridas para os argumentos `--public-networrk-access-type` e `--outbound-public-network-access-type`
+* `az hdinsight create`: adicionar o parâmetro `--idbroker` para dar suporte ao cliente a fim de criar um cluster ESP com o Agente de IDs do HDInsight
+
+### <a name="iot-central"></a>Central da IoT
+
+* Remover o módulo de comando 'az iotcentral' preterido
+
+### <a name="key-vault"></a>Key Vault
+
+* Dar suporte à `--hsm-name` para `az keyvault key encrypt/decrypt`
+
+### <a name="lab"></a>Laboratório
+
+* Correção nº 14127: `__init__()` precisa de um argumento posicional, porém dois foram fornecidos
+
+### <a name="network"></a>Rede
+
+* `az network application-gateway ssl-cert show`: adicionar um exemplo para demonstrar o formato do certificado e buscar informações
+* `az network application-gateway rule`: dar suporte a --priority option
+* `az network application-gateway create`: corrigir um bug que não pode ser criado sem um IP especificado
+* `az network application-gateway waf-policy managed-rule rule-set add`: expor o erro do servidor ao usuário para fornecer uma mensagem de dica mais intuitiva.
+* `az network application-gateway waf-policy managed-rule rule-set update`: dar suporte para alterar a versão do tipo de conjunto de regras.
+
+### <a name="rdbms"></a>RDBMS
+
+* Bugfix: az postgres flexible-server create. Remover a versão de API codificada do cliente de rede.
+
+### <a name="role"></a>Função
+
+* Correção nº 15278: `az role assignment list/delete`: proibir argumentos de cadeias de caracteres vazias
+
+### <a name="sql"></a>SQL
+
+* `az sql midb log-replay`: dar suporte para serviços de reprodução de log em um banco de dados gerenciado
+* Ignorar a formatação de maiúsculas/minúsculas dos caracteres para o valor de parâmetro de redundância de armazenamento de backup para uma instância gerenciada
+* [ALTERAÇÃO DA FALHA] az sql db create: adicionar o parâmetro --backup-storage-redundancy. Adicionar um aviso para o bsr/bsr == Geo não especificado.
+
+### <a name="sql-vm"></a>SQL VM
+
+* `az sql vm show`: adicionar opções de configuração ao sinalizador --expand
+
+### <a name="storage"></a>Armazenamento
+
+* [ALTERAÇÃO DA FALHA] `az storage blob copy start`: corrigir o problema de formato para `--destination-if-modified-since` e `--destination-if-unmodified-since`
+* [ALTERAÇÃO DA FALHA] `az storage blob incremental-copy start`: corrigir o problema de formato para `--destination-if-modified-since` e `--destination-if-unmodified-since`
+* `az storage fs`: corrigir um problema de cadeia de conexão
+* `az storage share-rm`: camada de acesso da versão de GA
+* `az storage container-rm`: adicionar um novo grupo de comandos com o objetivo de usar o provedor de recursos Microsoft.Storage para operações de gerenciamento de contêineres.
 
 ## <a name="september-29-2020"></a>29 de setembro de 2020
 
