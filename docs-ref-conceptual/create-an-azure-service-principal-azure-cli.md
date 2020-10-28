@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-cli
 ms.devlang: azurecli
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: f3fb0e589c4a32cc8a8e9e53c0fa3e69bf9576c2
-ms.sourcegitcommit: 5d29362589078b66d15f5cd494fe903a5195658d
+ms.openlocfilehash: 17f550e2ce1df2e171d51c262d7a5e0428965039
+ms.sourcegitcommit: 1187fb75b68426c46e84b3f294c509ee7b7da9be
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91225942"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92687005"
 ---
 # <a name="create-an-azure-service-principal-with-the-azure-cli"></a>Criar uma entidade de serviço do Azure com a CLI do Azure
 
@@ -108,7 +108,7 @@ myCertificateValue
 > [!NOTE]
 > O comando `az ad sp create-for-rbac --create-cert` cria a entidade de serviço e um arquivo PEM. O arquivo PEM contém uma **CHAVE PRIVADA** e um **CERTIFICADO** formatados corretamente.
 
-O argumento `--keyvault` pode ser adicionado para armazenar o certificado no Azure Key Vault. Ao usar `--keyvault`, o argumento `--cert` também será __necessário__.
+O argumento `--keyvault` pode ser adicionado para armazenar o certificado no Azure Key Vault. Ao usar `--keyvault`, o argumento `--cert` também será __necessário__ .
 
 ```azurecli-interactive
 az ad sp create-for-rbac --name ServicePrincipalName --create-cert --cert CertName --keyvault VaultName
@@ -130,7 +130,7 @@ Uma lista das entidades de serviço em um locatário pode ser recuperada com o c
 * `--spn` filtra a correspondência do nome exato da entidade de serviço. O nome da entidade de serviço sempre começa com `https://`.
   se o valor usado para `--name` não era um URI, esse valor é `https://` seguido do nome de exibição.
 * `--show-mine` só envia solicitações às entidades de serviço criadas pelo usuário conectado.
-* `--filter` usa um filtro OData e realiza a filtragem _do lado do servidor_. Esse método é recomendado para a filtragem do lado do cliente com o argumento `--query` da CLI. Para saber mais sobre os filtros do OData, confira [Sintaxe de expressão do OData para filtros](/rest/api/searchservice/odata-expression-syntax-for-azure-search).
+* `--filter` usa um filtro OData e realiza a filtragem _do lado do servidor_ . Esse método é recomendado para a filtragem do lado do cliente com o argumento `--query` da CLI. Para saber mais sobre os filtros do OData, confira [Sintaxe de expressão do OData para filtros](/rest/api/searchservice/odata-expression-syntax-for-azure-search).
 
 As informações retornadas para objetos da entidade de serviço são detalhadas. Para obter apenas as informações necessárias para entrar, use a cadeia de consulta `[].{id:appId, tenant:appOwnerTenantId}`. Por exemplo, para obter as informações de logon para todas as entidades de serviço criadas pelo usuário conectado no momento:
 
@@ -152,9 +152,9 @@ A CLI do Azure oferece os seguintes comandos para gerenciar as atribuições de 
 * [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create)
 * [az role assignment delete](/cli/azure/role/assignment#az-role-assignment-delete)
 
-A função padrão para uma entidade de serviço é **Colaborador**. Essa função tem permissões completas para ler e gravar em uma conta do Azure. A função **Leitor** é mais restritiva, com acesso somente leitura.  Para obter mais informações sobre o Controle de Acesso Baseado em Função (RBAC) e funções, confira [RBAC: funções internas](/azure/active-directory/role-based-access-built-in-roles).
+A função padrão para uma entidade de serviço é **Colaborador** . Essa função tem permissões completas para ler e gravar em uma conta do Azure. A função **Leitor** é mais restritiva, com acesso somente leitura.  Para obter mais informações sobre o Controle de Acesso Baseado em Função (RBAC) e funções, confira [RBAC: funções internas](/azure/active-directory/role-based-access-built-in-roles).
 
-Esse exemplo adiciona a função **Leitor** e exclui a função **Colaborador**:
+Esse exemplo adiciona a função **Leitor** e exclui a função **Colaborador** :
 
 ```azurecli-interactive
 az role assignment create --assignee APP_ID --role Reader
@@ -194,10 +194,10 @@ Para saber mais sobre como entrar com uma entidade de serviço, confira [Entrar 
 
 A seção a seguir fornece um exemplo de como criar um recurso do [Armazenamento do Azure](/azure/storage/) com uma entidade de serviço usando os seguintes comandos:
 
-* [az login](/cli/azure/reference-index?view=azure-cli-latest#az_login)
-* [az group create](/cli/azure/group?view=azure-cli-latest#az_group_create)
-* [az storage account create](/cli/azure/storage/account?view=azure-cli-latest#az_storage_account_create)
-* [az storage account keys list](/cli/azure/storage/account/keys?view=azure-cli-latest#az_storage_account_keys_list)
+* [az login](/cli/azure/reference-index?#az_login)
+* [az group create](/cli/azure/group#az_group_create)
+* [az storage account create](/cli/azure/storage/account#az_storage_account_create)
+* [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list)
 
 Para entrar com uma entidade de serviço, você precisa dos valores de `appId`, `tenant` e `password` retornados como resposta quando você [criou a entidade de serviço](#sign-in-using-a-service-principal).
 
@@ -240,3 +240,8 @@ Se você esquecer as credenciais de uma entidade de serviço, use o comando [az 
 ```azurecli-interactive
 az ad sp credential reset --name APP_ID
 ```
+
+## <a name="see-also"></a>Veja também
+
+* [Aplicativo e objetos de entidade de serviço no Azure Active Directory](/azure/active-directory/develop/app-objects-and-service-principals)
+* [Como gerenciar entidades de serviço](/azure/developer/python/how-to-manage-service-principals)
