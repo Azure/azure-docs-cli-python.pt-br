@@ -4,21 +4,120 @@ description: Saiba mais sobre as últimas atualizações da CLI do Azure
 author: dbradish-microsoft
 ms.author: dbradish
 manager: barbkess
-ms.date: 10/13/2020
+ms.date: 10/27/2020
 ms.topic: article
 ms.service: azure-cli
 ms.devlang: azurecli
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: bc77b0601222b4956a6f5bed4159859fca4c3a81
-ms.sourcegitcommit: 19c24ebcd1e15ac23ca40ebc28b8c4804bd1327f
+ms.openlocfilehash: 4e1f03268ccd001d6fe371b1ecdecb869791b198
+ms.sourcegitcommit: 1187fb75b68426c46e84b3f294c509ee7b7da9be
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92029652"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92687123"
 ---
 # <a name="azure-cli-release-notes"></a>Notas de versão da CLI do Azure
 
 # <a name="current-release-notes"></a>[Notas sobre a versão atuais](#tab/azure-cli)
+
+## <a name="october-27-2020"></a>27 de outubro de 2020
+
+Versão 2.14.0
+
+### <a name="aks"></a>AKS
+
+* Adição de suporte a PPG
+* Atualização do tempo limite máximo Standard Load Balancer para 100 minutos
+
+### <a name="apim"></a>APIM
+
+* Correção de um problema com a criação da instância da camada de consumo
+
+### <a name="app-config"></a>Configuração do Aplicativo
+
+* Correção da consulta de pares chave-valor por rótulos separados por vírgula
+
+### <a name="app-service"></a>Serviço de Aplicativo
+
+* Correção de bug: falha no comando az webapp up quando o usuário não tem permissões de gravação no diretório pai do projeto
+* Correção nº 13777: Correção para remover caracteres de escape do XML
+* Correção nº 15441: falha no comando az webapp create-remote-connection com AttributeError: o objeto 'Thread' não tem nenhum atributo 'isAlive'
+* [ALTERAÇÃO DA FALHA] az webapp up: adição de parâmetros opcionais (sistema operacional e runtime) e atualização de runtimes
+
+### <a name="arm"></a>ARM
+
+* Migração para GA de comandos What-If de implantação de modelo
+* [ALTERAÇÃO DA FALHA] Adição da confirmação do usuário ao comando az ts create
+* Correção dos dados retornados na marcação de vários recursos
+
+### <a name="backup"></a>Backup
+
+* `az backup policy create`: adição de suporte para criação da política de backup de IaaSVM por meio da CLI
+* Aumento do limite de proteção da VM de 100 para 1.000
+
+### <a name="compute"></a>Computação
+
+* sig image-definition create: add --features
+* Nova versão de API de gallery_images 2020-09-30
+* `az vm update / az sig image-version update`: suporte à atualização da versão de VM/imagem mesmo quando ela usa uma imagem entre locatários
+* Remoção da validação de SKUs de host de VM
+
+### <a name="cosmos-db"></a>Cosmos DB
+
+* `az cosmosdb create/update`: aprimoramento da mensagem de erro da entrada incorreta de --locations
+* `az cosmosdb sql container create/update`: adição do parâmetro --analytical-storage-ttl
+
+### <a name="hdinsight"></a>HDInsight
+
+* [ALTERAÇÃO DA FALHA] az hdinsight create: remoção de dois parâmetros: --public-network-access-type e --outbound-public-network-access-type
+
+### <a name="iot-central"></a>Central da IoT
+
+* Remoção do aviso de versão prévia, pois ela já está em GA
+
+### <a name="key-vault"></a>Key Vault
+
+* Invalidação de `--enable-soft-delete false` na criação ou na atualização de cofres
+* Alteração para que `--bypass` e `--default-action` trabalhem em conjunto com parâmetros da ACL de rede na criação de cofres
+
+### <a name="misc"></a>Diversos.
+
+* Adição de bash-completion a Dockerfile
+
+### <a name="rdbms"></a>RDBMS
+
+* Adição do comando list-SKUS, de transformadores de tabela e do contexto local para o Postgres, o MySQL e o MariaDB – Servidor Único
+* [ALTERAÇÃO DA FALHA] Atualizações de nomes de parâmetros. Aprimoramentos no plano de gerenciamento para o MySQL e o PostgreSQL
+* `az postgres|mariadb|mysql server create`: atualização da experiência de criação para o Postgres, o MySQL e o MariaDB: novos campos na saída e introdução de novos valores para o parâmetro `--public` no comando create (tudo, <IP>, <IPRange>, 0.0.0.0)
+
+### <a name="signalr"></a>SignalR
+
+* `az signalr create`: adição da nova opção `--enable-messaging-logs` para controlar o serviço na geração de logs de mensagens ou não
+* `az signalr update`: adição da nova opção `--enable-messaging-logs` para controlar o serviço na geração de logs de mensagens ou não
+
+### <a name="sql"></a>SQL
+
+* [ALTERAÇÃO DA FALHA] Correção da resposta do nome de parâmetro de redundância do armazenamento de backup e do valor para a MI
+* `az sql db audit-policy show`: extensão para mostrar a política de auditoria do banco de dados, incluindo os dados de LA e EH
+* `az sql db audit-policy update`: extensão para permitir a atualização de LA e EH juntamente com a política de auditoria do banco de dados
+* `az sql db audit-policy wait`: colocação da CLI em um estado de espera até que uma condição da política de auditoria do banco de dados seja atendida.
+* `az sql server audit-policy show`: extensão para mostrar a política de auditoria do servidor, incluindo os dados de LA e EH
+* `az sql server audit-policy update`: extensão para permitir a atualização de LA e EH juntamente com a política de auditoria do servidor
+* `az sql server audit-policy wait`: colocação da CLI em um estado de espera até que uma condição da política de auditoria do servidor seja atendida.
+* Adição de suporte somente ao AAD para Servidores e Instâncias Gerenciadas de SQL
+* `az sql db replica create`: adição do argumento --partner-database
+
+### <a name="storage"></a>Armazenamento
+
+* Correção nº 15111: falha no comando `az storage logging update` sem argumento opcional
+* Correção de bug no uso do comando set-tier com o logon da entidade de serviço
+* Atualização da versão do data lake do arquivo para 2020-02-10
+* `az storage queue list`: suporte a Track2
+* `az storage fs access`: suporte ao gerenciamento de ACLs de maneira recursiva
+
+### <a name="synapse"></a>Synapse
+
+* adição de cmdlets relacionados a pipeline, serviço vinculado, gatilho, notebook, fluxo de dados e conjunto de dados
 
 ## <a name="october-13-2020"></a>13 de outubro de 2020
 
@@ -2704,7 +2803,7 @@ Versão 2.0.65
 ### <a name="compute"></a>Computação
 * `--computer-name` foi adicionado a `vm create` para configurar o nome do computador da VM
 * `--ssh-key-value` foi renomeado para `--ssh-key-values` para `[vm|vmss] create` – Agora, pode aceitar vários valores de chave pública ou caminhos ssh
-  * __Observação__: Isso **não** é uma alteração da falha – `--ssh-key-value` será analisado corretamente, pois corresponde somente a `--ssh-key-values`
+  * __Observação__ : Isso **não** é uma alteração da falha – `--ssh-key-value` será analisado corretamente, pois corresponde somente a `--ssh-key-values`
 * O argumento `--type` de `ppg create` foi alterado para ser opcional
 
 ## <a name="may-6-2019"></a>6 de maio de 2019
@@ -3879,7 +3978,7 @@ Versão 2.0.44
 
 ### <a name="batchai"></a>BatchAI
 
-* Alterada a saída do agente para criação de conta de armazenamento automática para especificar “*grupo* de recurso”.        
+* Alterada a saída do agente para criação de conta de armazenamento automática para especificar “ *grupo* de recurso”.        
 
 ### <a name="container"></a>Contêiner
 
@@ -6314,7 +6413,7 @@ Python (Darwin) 2.7.10 (default, Jul 30 2016, 19:40:32)
 ```
 
 > [!Note]
-> Alguns dos módulos de comando têm um sufixo "b*n*" ou "rc*n*". Esses módulos de comando ainda estão em versão prévia e estarão disponíveis no futuro
+> Alguns dos módulos de comando têm um sufixo "b *n* " ou "rc *n* ". Esses módulos de comando ainda estão em versão prévia e estarão disponíveis no futuro
 
 Também temos compilações de versão prévia noturnas da CLI. Para obter informações, consulte essas instruções sobre [como obter as compilações diárias](https://github.com/Azure/azure-cli#nightly-builds) e essas instruções sobre [configuração do desenvolvedor e código de contribuição](https://github.com/Azure/azure-cli#developer-setup)
 
