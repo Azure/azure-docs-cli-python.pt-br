@@ -4,21 +4,37 @@ description: Saiba mais sobre as últimas atualizações da CLI do Azure
 author: dbradish-microsoft
 ms.author: dbradish
 manager: barbkess
-ms.date: 10/27/2020
+ms.date: 11/09/2020
 ms.topic: article
 ms.service: azure-cli
 ms.devlang: azurecli
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 4e1f03268ccd001d6fe371b1ecdecb869791b198
-ms.sourcegitcommit: 1187fb75b68426c46e84b3f294c509ee7b7da9be
+ms.openlocfilehash: 02a7cf83bbd3de7dba69a75eeff0d6676d1e0952
+ms.sourcegitcommit: 133d53a85073e3ce526a3de8de668e7bca79f48e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92687123"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94484002"
 ---
 # <a name="azure-cli-release-notes"></a>Notas de versão da CLI do Azure
 
 # <a name="current-release-notes"></a>[Notas sobre a versão atuais](#tab/azure-cli)
+
+## <a name="november-09-2020"></a>9 de novembro de 2020
+
+Versão 2.14.2
+
+### <a name="app-service"></a>Serviço de Aplicativo
+
+* Correção nº 15604, nº 15605: adicionar suporte ao Dotnet5
+
+## <a name="november-06-2020"></a>6 de novembro de 2020
+
+Versão 2.14.1
+
+### <a name="arm"></a>ARM
+
+* Hotfix: adicionar suporte de cadeia de caracteres com várias linhas do TS para entradas de modelo
 
 ## <a name="october-27-2020"></a>27 de outubro de 2020
 
@@ -1062,7 +1078,7 @@ Versão 2.6.0
 * Corrige o valor TTL alterado não destinado ao DNS add-record
 * `az network public-ip create`: Informa os clientes sobre futuras alterações da falha
 * Suporte para comandos genéricos para cenários de link privado
-* `az network private-endpoint-connection`: Suporte para tipos mysql, postgre e mariadb
+* `az network private-endpoint-connection`: suporte a tipos mysql, postgres e mariadb
 * `az network private-endpoint-connection`: Suporte para tipos cosmosdb
 * `az network private-endpoint`: pretere --group-ids e redireciona para --group-id
 
