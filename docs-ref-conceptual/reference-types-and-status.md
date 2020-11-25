@@ -4,17 +4,17 @@ description: Uma explicação sobre status e tipos de referência
 author: dbradish-microsoft
 ms.author: dbradish
 manager: barbkess
-ms.date: 08/14/2020
+ms.date: 11/19/2020
 ms.topic: conceptual
 ms.service: azure-cli
 ms.devlang: azurecli
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 30c964ae2724f56f4563c9e726affc154bcb22bf
-ms.sourcegitcommit: 5d29362589078b66d15f5cd494fe903a5195658d
+ms.openlocfilehash: ff77011db5a64e7c541dc67f2b2564301bfeebfb
+ms.sourcegitcommit: 6996f3d05d73f528a95b61fdce1422eee3c7a580
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91225330"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95870144"
 ---
 # <a name="overview-azure-cli-reference-types-and-status"></a>Visão geral: Status e tipos de referência da CLI do Azure
 
@@ -69,7 +69,7 @@ Independentemente do tipo, as referências da CLI do Azure se enquadram em três
 
 | | GA  | Versão prévia pública | Habilitação
 |-|-|-|-|
-| **Estabilidade** | Permanente | Pode ser alterada em resposta aos comentários do cliente.  Está sujeita aos termos das [Versões prévias do Microsoft Azure](/support/legal/preview-supplemental-terms/). | Pode ser alterada em resposta aos comentários do cliente.  Geralmente, será migrada para a versão prévia pública.  Pode ser removida.
+| **Estabilidade** | Permanente | Pode ser alterada em resposta aos comentários do cliente.  Está sujeita aos termos das [Versões prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). | Pode ser alterada em resposta aos comentários do cliente.  Geralmente, será migrada para a versão prévia pública.  Pode ser removida.
 | **Nível de suporte** | Completo | Parcial | Nenhum
 
 Embora a maioria dos comandos e parâmetros de uma única referência tenha um único status, esse nem sempre é o caso.  Uma referência em GA que está sendo criada para oferecer mais comandos pode ter comandos de referência em GA, versão prévia e experimental. Conforme novos parâmetros são adicionados para aumentar as funcionalidades, um comando individual também pode ter parâmetros que se enquadram em diferentes categorias de status.  Veja exemplos de referências que têm status diferentes:
