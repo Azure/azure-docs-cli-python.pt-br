@@ -4,21 +4,161 @@ description: Saiba mais sobre as últimas atualizações da CLI do Azure
 author: dbradish-microsoft
 ms.author: dbradish
 manager: barbkess
-ms.date: 11/09/2020
+ms.date: 11/20/2020
 ms.topic: article
 ms.service: azure-cli
 ms.devlang: azurecli
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 02a7cf83bbd3de7dba69a75eeff0d6676d1e0952
-ms.sourcegitcommit: 133d53a85073e3ce526a3de8de668e7bca79f48e
+ms.openlocfilehash: b28bfc9ef06b7bac5e789cdeb2b53ded0afea273
+ms.sourcegitcommit: 753de7d5c45062d5138be86ced7eacddd5696ca3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94484002"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94976927"
 ---
 # <a name="azure-cli-release-notes"></a>Notas de versão da CLI do Azure
 
 # <a name="current-release-notes"></a>[Notas sobre a versão atuais](#tab/azure-cli)
+
+## <a name="november-20-2020"></a>20 de novembro de 2020
+
+Versão 2.15.1
+
+### <a name="profile"></a>Perfil
+
+* Hotfix: Correção nº 15961: az login: UnboundLocalError: variável local 'token_entry' referenciada antes da atribuição
+
+## <a name="november-17-2020"></a>17 de novembro de 2020
+
+Versão 2.15.0
+
+### <a name="acs"></a>ACS
+
+* Adição de avisos de substituição da v3
+
+### <a name="aks"></a>AKS
+
+* Adição de funcionalidade de sistema operacional efêmero
+* Aprimoramento de engenharia: substituição das cadeias de caracteres de complemento por constantes
+* `az aks install-cli`: suporte à personalização da URL de download
+* `az aks browse`: apontamento para a exibição de recursos de Kubernetes do portal do Azure se k8s for maior ou igual a 1,19 ou kube-dashboard não estiver habilitado
+* Suporte à identidade do painel de controle BYO
+* `az aks use-dev-spaces`: indicação de que comandos dev-spaces foram preteridos
+
+### <a name="ams"></a>AMS
+
+* Alteração de "region" para "location" na cadeia de caracteres de saída: az ams account sp create
+
+### <a name="app-config"></a>Configuração do Aplicativo
+
+* Correção da inicialização do cliente do cofre de chaves
+
+### <a name="app-service"></a>Serviço de Aplicativo
+
+* Correção nº 13646: não é possível criar um Plano do Serviço de Aplicativo em um grupo de recursos diferente para o Ambiente do Serviço de Aplicativo
+* Correções nº 11698 nº 15198 nº 14862 nº 15409: az webapp/functionapp config access-restriction add
+* `az functionapp create`: adição de suporte à versão prévia do Node 14.
+* `az functionapp create`: remoção do sinalizador da versão prévia de manipuladores personalizados.
+* [ALTERAÇÃO DA FALHA] az functionapp update: a migração de um functionapp do plano Premium para o de Consumo agora requer o sinalizador '--force'.
+* `az functionapp update`: adição de mensagem de erro se a migração do functionapp envolver planos no Linux.
+* `az functionapp update`: adição de uma mensagem de erro mais descritiva se a migração de functionapp falhar.
+
+### <a name="arm"></a>ARM
+
+* Correção de um problema em que What-If mostrava dois escopos de grupo de recursos com usos diferentes de maiúsculas e minúsculas
+* `az deployment`: impressão de detalhes do erro para implantação
+
+### <a name="backup"></a>Backup
+
+* Correção nº 14976: correção de KeyError e aprimoramento do texto de ajuda
+
+### <a name="batch"></a>Lote
+
+* Correção nº 15464: atualização da verificação de arquivo pfx sem senha no lote create_certificate
+
+### <a name="billing"></a>Cobrança
+
+* [ALTERAÇÃO DA FALHA] az billing invoice: remoção das propriedades BillingPeriodsNames e DownloadUrlExpiry da resposta.
+* `az billing invoice`: suporte a muitos outros escopos, como BillingAccount, BillingProfile e assinatura existente.
+* `az billing account`: novos comandos para dar suporte à exibição e à atualização de contas de cobrança existentes.
+* `az billing balance`: novos comandos para dar suporte à exibição do saldo de um perfil de cobrança.
+* `az billing customer`: novos comandos para dar suporte à exibição do cliente da conta de cobrança.
+* `az billing policy`: novos comandos para dar suporte à exibição e atualização da política de um cliente ou de um perfil de cobrança.
+* `az billing product`: novos comandos para gerenciar produtos de uma conta de cobrança.
+* `az billing profile`: novos comandos para gerenciar um perfil de cobrança.
+* `az billing property`: novos comandos para exibir e atualizar as propriedades de uma conta de cobrança.
+* `az billing subscription`: novos comandos para gerenciar as assinaturas de uma conta de cobrança.
+* `az billing transaction`: novos comandos para listar a transação de uma fatura.
+* `az billing agreement`: novos comandos para gerenciar o contrato de cobrança.
+* `az billing permission`: novos comandos para gerenciar a permissão de cobrança.
+* `az billing role-assignment`: novos comandos para gerenciar a atribuição de função.
+* `az billing role-definition`: novos comandos para exibir a definição de função.
+* `az billing instruction`: novos comandos para gerenciar as instruções de cobrança.
+
+### <a name="compute"></a>Computação
+
+* Correção do problema de verificação de permissão de atualização
+* Melhoria de vm list-skus table format
+* vm host group create: --platform-fault-domain-count obrigatório e atualização da ajuda
+* Suporte à atualização da versão de VM/imagem quando ela usa imagens entre locatários
+
+### <a name="dps"></a>DPS
+
+* Permissão para marcas no comando create do DPS em IoT
+
+### <a name="hdinsight"></a>HDInsight
+
+* az hdinsight create: adição de dois parâmetros `--resource-provider-connection` e `--enable-private-link` para dar suporte ao recurso de link privado e saída de retransmissão.
+
+### <a name="key-vault"></a>Key Vault
+
+* Refinamento de mensagens de erro para `list-deleted` e `purge` HSM
+* Suporte à restauração de chave seletiva para HSMs gerenciados
+
+### <a name="netappfiles"></a>NetAppFiles
+
+* [ALTERAÇÃO DA FALHA] az netappfiles pool update: remoção do nível de serviço dos parâmetros.
+* `az netappfiles pool update`: adição do parâmetro opcional qos-type.
+* `az netappfiles pool create`: adição do parâmetro opcional qos-type.
+* `az netappfiles volume replication suspend`: adição de force-break-replication como parâmetro opcional.
+* Adição de az netappfiles volume replication re-initialize: o novo comando é adicionado para reinicializar a replicação.
+* Adição de az netappfiles volume pool-change: novo comando para alterar o pool de um volume.
+* Adição de az netappfiles snapshot policy: novo grupo de comandos com os comandos list, delete, update, show, create e volumes.
+* Adição de az netappfiles account backup: novo grupo de comandos com os comandos show, list e delete
+* Adição de az netappfiles volume backups: novo grupo de comandos com os comandos show, list, delete, update e create.
+* Adição de az netappfiles account backup-policy: novo grupo de comandos com os comandos show, list, delete e update.
+* Adição de az netappfiles vault list: um novo comando foi adicionado.
+* `az netappfiles account ad add`: adição dos parâmetros opcionais kdc-ip, ad-name, server-root-ca-certificate e backup-operators
+* `az netappfiles volumes create`: adição dos parâmetros opcionais snapshot-policy-id, backup-policy-id, backup-enabled, backup-id, policy-enforced, vault-id, kerberos-enabled, throughput-mibps, snapshot-directory-visible, security-style, kerberos5-read-only, kerberos5-read-write, kerberos5i-read-only, kerberos5i-read-write, kerberos5p-read-only, kerberos5p-read-write e has-root-access.
+* `az netappfiles volume update`: adição dos parâmetros opcionais vault-id, backup-enabled, backup-policy-id, policy-enforced e throughput-mibps
+
+### <a name="network"></a>Rede
+
+* Correção do bug que não permitia a criação de um gateway de aplicativo Standard_v2 sem um endereço IP estático privado
+* `az network dns zone import`: adição de FileOperationError em vez de FileNotFoundError se o arquivo de zona não existir
+* Correção da falha de erro NoneType durante a exclusão de recursos não existentes de ApplicationGateway, LoadBalancer, Nic
+
+### <a name="private-dns"></a>DNS privado
+
+* `az network private-dns zone import`: adição de FileOperationError em vez de FileNotFoundError se o arquivo de zona não existir
+
+### <a name="profile"></a>Perfil
+
+* `az login`: nova adição do aviso de que um navegador está aberto
+
+### <a name="role"></a>Função
+
+* `az role assignment create`: `--description`, `--condition`, `--condition-version` em versão prévia
+
+### <a name="security"></a>Segurança
+
+* `az security pricing`: atualização da ajuda para refletir a versão atual da API que está sendo chamada
+
+### <a name="storage"></a>Armazenamento
+
+* Correção nº 15600: az storage fs existe: caso fs não exista, será retornado ResourceNotFoundError
+* Correção nº 15706: os exemplos de storage container create estão incorretos
+* `az storage blob delete-batch`: correção de um erro de digitação na documentação.
 
 ## <a name="november-09-2020"></a>9 de novembro de 2020
 
@@ -2819,7 +2959,7 @@ Versão 2.0.65
 ### <a name="compute"></a>Computação
 * `--computer-name` foi adicionado a `vm create` para configurar o nome do computador da VM
 * `--ssh-key-value` foi renomeado para `--ssh-key-values` para `[vm|vmss] create` – Agora, pode aceitar vários valores de chave pública ou caminhos ssh
-  * __Observação__ : Isso **não** é uma alteração da falha – `--ssh-key-value` será analisado corretamente, pois corresponde somente a `--ssh-key-values`
+  * __Observação__: Isso **não** é uma alteração da falha – `--ssh-key-value` será analisado corretamente, pois corresponde somente a `--ssh-key-values`
 * O argumento `--type` de `ppg create` foi alterado para ser opcional
 
 ## <a name="may-6-2019"></a>6 de maio de 2019
@@ -3994,7 +4134,7 @@ Versão 2.0.44
 
 ### <a name="batchai"></a>BatchAI
 
-* Alterada a saída do agente para criação de conta de armazenamento automática para especificar “ *grupo* de recurso”.        
+* Alterada a saída do agente para criação de conta de armazenamento automática para especificar “*grupo* de recurso”.        
 
 ### <a name="container"></a>Contêiner
 
@@ -6429,7 +6569,7 @@ Python (Darwin) 2.7.10 (default, Jul 30 2016, 19:40:32)
 ```
 
 > [!Note]
-> Alguns dos módulos de comando têm um sufixo "b *n* " ou "rc *n* ". Esses módulos de comando ainda estão em versão prévia e estarão disponíveis no futuro
+> Alguns dos módulos de comando têm um sufixo "b *n*" ou "rc *n*". Esses módulos de comando ainda estão em versão prévia e estarão disponíveis no futuro
 
 Também temos compilações de versão prévia noturnas da CLI. Para obter informações, consulte essas instruções sobre [como obter as compilações diárias](https://github.com/Azure/azure-cli#nightly-builds) e essas instruções sobre [configuração do desenvolvedor e código de contribuição](https://github.com/Azure/azure-cli#developer-setup)
 

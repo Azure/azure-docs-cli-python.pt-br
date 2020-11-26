@@ -9,18 +9,22 @@ ms.topic: conceptual
 ms.service: azure-cli
 ms.devlang: azurecli
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 17d62f7c6c5b819e34d6fce16caa0ded6faa53f0
-ms.sourcegitcommit: 2da241715d25407ed22c1065c0c793acfd865996
+ms.openlocfilehash: 780fc2dc87f949a1f36228af7a49cd987cb10cf6
+ms.sourcegitcommit: 753de7d5c45062d5138be86ced7eacddd5696ca3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89563120"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94976825"
 ---
 # <a name="query-azure-cli-command-output"></a>Consultar a saída do comando da CLI do Azure
 
 A CLI do Azure usa o argumento `--query` para executar uma [consulta JMESPath](http://jmespath.org) nos resultados dos comandos. JMESPath é uma linguagem de consulta do JSON, permitindo que você selecione e modifique os dados na saída da CLI. As consultas são executadas na saída do JSON antes de qualquer formatação da exibição.
 
 O argumento `--query` tem suporte de todos os comandos na CLI do Azure. Este artigo aborda como usar os recursos do JMESPath com uma série de exemplos pequenos e simples.
+
+> [!NOTE]
+>
+> Durante o uso da CLI do Azure no PowerShell no Windows, pode ser necessário um escape extra para o argumento de consulta. Confira [Problemas com colocações de aspas no PowerShell](https://github.com/Azure/azure-cli/blob/dev/doc/quoting-issues-with-powershell.md) para obter mais detalhes.
 
 ## <a name="dictionary-and-list-cli-results"></a>Dicionário e lista dos resultados da CLI
 

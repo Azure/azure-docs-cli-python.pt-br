@@ -4,17 +4,17 @@ description: Dicas para usar a CLI do Azure com eficácia
 author: dbradish-microsoft
 ms.author: dbradish
 manager: barbkess
-ms.date: 09/07/2018
+ms.date: 11/18/2020
 ms.topic: conceptual
 ms.service: azure-cli
 ms.devlang: azurecli
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 4ffd47b7d88dafc717f496fe40d9db68c7af28a3
-ms.sourcegitcommit: ce10a134cb3c73aec32bb4f5887b09d08f9bde53
+ms.openlocfilehash: 0f1985425328492c96262a835eb7ffd8be333cc5
+ms.sourcegitcommit: 753de7d5c45062d5138be86ced7eacddd5696ca3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92308056"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94976893"
 ---
 # <a name="use-azure-cli-effectively"></a>Usar a CLI do Azure com eficiência
 
@@ -243,7 +243,7 @@ Para evitar resultados inesperados, veja algumas sugestões:
 
 O uso do proxy é comum em redes corporativas ou é introduzido por ferramentas de rastreamento como Fiddler, mitmproxy etc. Se o proxy usar certificados autoassinados, a biblioteca de [Solicitações](https://github.com/kennethreitz/requests) do Python usada pela CLI vai gerar `SSLError("bad handshake: Error([('SSL routines', 'tls_process_server_certificate', 'certificate verify failed')],)",)`. Há dois modos de lidar com esse erro:
 
-1. Defina a variável de ambiente `REQUESTS_CA_BUNDLE` como o caminho do arquivo de certificado do pacote de AC no formato PEM. Isso será recomendado se você usar a CLI com frequência em um proxy corporativo. O pacote de AC padrão que a CLI usa está localizado em `C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\Lib\site-packages\certifi\cacert.pem` no Windows e em ` /opt/az/lib/python3.6/site-packages/certifi/cacert.pem` no Linux. Você pode acrescentar o certificado do servidor proxy nesse arquivo ou copiar o conteúdo para outro arquivo de certificado e, em seguida, definir ele como `REQUESTS_CA_BUNDLE`. Por exemplo:
+1. Defina a variável de ambiente `REQUESTS_CA_BUNDLE` como o caminho do arquivo de certificado do pacote de AC no formato PEM. Isso será recomendado se você usar a CLI com frequência em um proxy corporativo. O pacote de AC padrão que a CLI usa está localizado em `C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\Lib\site-packages\certifi\cacert.pem` no Windows e em ` /opt/az/lib/python3.6/site-packages/certifi/cacert.pem` no Ubuntu/Debian ou `/usr/lib64/az/lib/python3.6/site-packages/certifi/cacert.pem` no CentOS/RHEL/SUSE no Linux. Você pode acrescentar o certificado do servidor proxy nesse arquivo ou copiar o conteúdo para outro arquivo de certificado e, em seguida, definir ele como `REQUESTS_CA_BUNDLE`. Por exemplo:
 
     ```
     <Original cacert.pem>
