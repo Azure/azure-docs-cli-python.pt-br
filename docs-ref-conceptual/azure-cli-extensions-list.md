@@ -9,18 +9,18 @@ ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 849be7b3e5ff61852d55312a2d5ce8f3b6081f09
-ms.sourcegitcommit: 753de7d5c45062d5138be86ced7eacddd5696ca3
+ms.openlocfilehash: 771f1123246c2e533323eb4c13d6d0aeee3c86ee
+ms.sourcegitcommit: 9beaf9abb794f1006a56acee4e1cfb8ea7fe2405
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94976859"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850160"
 ---
 # <a name="available-extensions-for-the-azure-cli"></a>Extensões disponíveis para a CLI do Azure
 
 Este artigo é uma lista completa das extensões disponíveis para a CLI do Azure que têm suporte da Microsoft.
 
-A lista de extensões também está disponível na CLI. Para obtê-la, execute [az extension list-available](/cli/azure/extension?view=azure-cli-latest#az-extension-list-available):
+A lista de extensões também está disponível na CLI. Para obtê-la, execute [az extension list-available](/cli/azure/extension#az-extension-list-available):
 
 ```azurecli-interactive
 az extension list-available --output table
@@ -39,7 +39,7 @@ az extension list-available --output table
 | [automation](https://github.com/Azure/azure-cli-extensions/tree/master/src/automation) | 0.1.0 | Extensão AutomationClient das ferramentas de linha de comando do Microsoft Azure |  |
 | [azure-batch-cli-extensions](https://github.com/Azure/azure-batch-cli-extensions) | 6.0.0 | Comandos adicionais para trabalhar com o serviço de Lote do Azure |  |
 | [azure-cli-iot-ext](https://github.com/azure/azure-iot-cli-extension) | 0.8.10 | Preterido: remova a “azure-cli-iot-ext” e instale a extensão “azure-iot” no lugar dela. A extensão herdada “azure-cli-iot-ext” está agendada para remoção após 15/09/2020. |  |
-| [azure-cli-ml](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py) | 1.18.0 | Módulo de Comando do AzureML para as Ferramentas da Linha de Comando do Microsoft Azure |  |
+| [azure-cli-ml](https://docs.microsoft.com/python/api/overview/azure/ml/) | 1.18.0 | Módulo de Comando do AzureML para as Ferramentas da Linha de Comando do Microsoft Azure |  |
 | [azure-devops](https://github.com/Microsoft/azure-devops-cli-extension) | 0.18.0 | Ferramentas para gerenciar o Azure DevOps. |  |
 | [azure-firewall](https://github.com/Azure/azure-cli-extensions/tree/master/src/azure-firewall) | 0.7.0 | Gerenciar recursos do Firewall do Azure. | Sim |
 | [azure-iot](https://github.com/azure/azure-iot-cli-extension) | 0.10.6 | A extensão de IoT do Azure para a CLI do Azure. |  |

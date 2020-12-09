@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-cli
 ms.devlang: azurecli
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: b59da347069f0df61756eac958c6a0119a31be18
-ms.sourcegitcommit: 5d29362589078b66d15f5cd494fe903a5195658d
+ms.openlocfilehash: c25aa8229e7cbfc9e8c78056c3b61ff85d7a0439
+ms.sourcegitcommit: 9beaf9abb794f1006a56acee4e1cfb8ea7fe2405
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91225313"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850143"
 ---
 # <a name="select-clouds-with-the-azure-cli"></a>Selecionar nuvens com a CLI do Azure
 
@@ -74,7 +74,7 @@ az cloud show --name AzureChinaCloud --output json
 
 ## <a name="switch-the-active-cloud"></a>Alternar a nuvem ativa
 
-Para definir a nuvem padrão usando um arquivo de configuração, consulte [valores de configuração da CLI e variáveis de ambiente](./azure-cli-configuration.md?view=azure-cli-latest#cli-configuration-values-and-environment-variables).  Para alternar a nuvem ativa, execute o comando [az cloud set](/cli/azure/cloud#az-cloud-set). Esse comando usa um argumento necessário, o nome da nuvem.
+Para definir a nuvem padrão usando um arquivo de configuração, consulte [valores de configuração da CLI e variáveis de ambiente](./azure-cli-configuration.md#cli-configuration-values-and-environment-variables).  Para alternar a nuvem ativa, execute o comando [az cloud set](/cli/azure/cloud#az-cloud-set). Esse comando usa um argumento necessário, o nome da nuvem.
 
 ```azurecli-interactive
 az cloud set --name AzureChinaCloud
