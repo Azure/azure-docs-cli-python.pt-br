@@ -4,21 +4,113 @@ description: Saiba mais sobre as últimas atualizações da CLI do Azure
 author: dbradish-microsoft
 ms.author: dbradish
 manager: barbkess
-ms.date: 11/20/2020
+ms.date: 12/08/2020
 ms.topic: article
 ms.service: azure-cli
 ms.devlang: azurecli
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: b28bfc9ef06b7bac5e789cdeb2b53ded0afea273
-ms.sourcegitcommit: 753de7d5c45062d5138be86ced7eacddd5696ca3
+ms.openlocfilehash: bcbf52e6321e283864fb585cd314be22c2241c9d
+ms.sourcegitcommit: 9beaf9abb794f1006a56acee4e1cfb8ea7fe2405
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94976927"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850296"
 ---
 # <a name="azure-cli-release-notes"></a>Notas de versão da CLI do Azure
 
 # <a name="current-release-notes"></a>[Notas sobre a versão atuais](#tab/azure-cli)
+
+## <a name="december-08-2020"></a>08 de dezembro de 2020
+
+Versão 2.16.0
+
+### <a name="acr"></a>ACR
+
+* Descrição da atualização do parâmetro KEK
+
+### <a name="aks"></a>AKS
+
+* `az aks nodepool add/update/upgrade`: executa o parâmetro de sobretensão máxima
+* Adiciona suporte para o complemento AGIC
+* Altera o cluster MSI para padrão
+
+### <a name="apim"></a>APIM
+
+* `az apim restore`: novo comando para restaurar um backup de um serviço de Gerenciamento de API
+
+### <a name="app-service"></a>Serviço de Aplicativo
+
+* Correção nº 14857: permite que os usuários atualizem a configuração do aplicativo Web mesmo com a restrição de acesso
+* `az functionapp create`: aceita `--runtime python` e `--runtime-version 3.9` como um parâmetro do Azure Functions v3
+* Correção nº 16041: az webapp config ssl create resulta em um erro desconhecido
+
+### <a name="arm"></a>ARM
+
+* `az deployment-scripts`: remove o sinalizador de visualização
+
+### <a name="backup"></a>Backup
+
+* Correção nº 14976: aprimoramentos de erro da CLI para os casos ValueError e AttributeError
+* `az backup protection undelete`: adiciona suporte para restaurar a proteção do AzureWorkload usando a CLI
+* Corrige um erro de solicitação incorreta para a entrada do tipo de carga de trabalho correta
+
+### <a name="cdn"></a>CDN
+
+* Adiciona o suporte de várias origens na versão prévia.
+* Adiciona a rotação automática de BYOC.
+
+### <a name="key-vault"></a>Key Vault
+
+* `az keyvault key/secret list`: adiciona um parâmetro `--include-managed` para listar recursos gerenciados
+
+### <a name="monitor"></a>Monitoramento
+
+* `az monitor metrics alert create`: dá suporte a limites dinâmicos para o parâmetro de condição
+* `az monitor metrics alert update`: dá suporte a limites dinâmicos para o parâmetro de condição
+* `az monitor metrics alert dimension create`: cria uma dimensão de regra de alerta de métrica
+* `az monitor metrics alert condition create`: cria uma condição de regra de alerta de métrica
+
+### <a name="mysql"></a>MySQL
+
+* Adiciona a CLI de atualização de versão do MySQL
+
+### <a name="netappfiles"></a>NetAppFiles
+
+* `az netappfiles account ad add`: dois parâmetros opcionais adicionados, aes_encryption e ldap_signing
+* `az netappfiles account backup-policy update`: três parâmetros opcionais adicionados, chamados tags, type e id
+* `az netappfiles snapshot policy create`: um parâmetro opcional adicionado, chamado provisioning_state
+
+### <a name="network"></a>Rede
+
+* `az network network watcher configure`: corrige o erro NetworkWatcherCountLimitReached causado pela diferenciação de maiúsculas e minúsculas do valor de localização
+* `az network application-gateway http-listener`: corrige um bug em que não é possível criar e atualizar com o nome da política de WAF
+* `az network route-table`: pretere a tabela de rotas V1
+* `az network cross-region-lb`: suporte do balanceador de carga entre regiões
+* `az network express-route port generate-loa`: novo comando para gerar e baixar a carta de autorização do PDF de um ExpressRoutePort
+
+### <a name="packaging"></a>Empacotamento
+
+* Adiciona o pacote Ubuntu Groovy
+
+### <a name="rdbms"></a>RDBMS
+
+* Adiciona um servidor show-connection-string, testa os comandos de contexto local e realiza a criação de servidor
+
+### <a name="role"></a>Função
+
+* Adiciona um aviso/resumo longo para comandos que geram credenciais
+
+### <a name="search"></a>Pesquisar
+
+* Adiciona uma opção de SKU
+
+### <a name="service-fabric"></a>Service Fabric
+
+* Atualiza documentos do aplicativo SF. Suporte apenas para recursos implantados do ARM
+
+### <a name="synapse"></a>Synapse
+
+* Dá suporte para cmdlets synapse sql dw e atualiza o cmdlet az synapse workspace create
 
 ## <a name="november-20-2020"></a>20 de novembro de 2020
 
