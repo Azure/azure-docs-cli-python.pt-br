@@ -22,7 +22,7 @@
     - name: Controle de versão da CLI
       href: cli-versioning-identifiers.md
       displayName: 'version, classic, 2.0, 1.0, xplat'
-- name: Instalar e executar
+- name: 'Instalar, atualizar e executar'
   items:
     - name: Instalar
       href: install-azure-cli.md
@@ -45,6 +45,9 @@
         - name: Instalar – Script de instalação do Linux
           href: install-azure-cli-linux.md
           displayName: 'install, script, unix, bsd, linux, lfs, wsl, slackware'
+    - name: Atualizar
+      href: update-azure-cli.md
+      displayName: 'update, upgrade'
     - name: Executar a CLI do Azure em um contêiner do Docker
       href: run-azure-cli-docker.md
       displayName: 'linux, unix, container, image'
