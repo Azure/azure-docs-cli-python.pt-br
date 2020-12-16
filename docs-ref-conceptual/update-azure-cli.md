@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-cli
 ms.devlang: azurecli
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 91ed79b9f59af4ad070983eb7d0744bc85d09216
-ms.sourcegitcommit: 9beaf9abb794f1006a56acee4e1cfb8ea7fe2405
+ms.openlocfilehash: 475b58bca5ec9dca52a70416cb89860dcbd39278
+ms.sourcegitcommit: e1faf297ba2cdf2ba7e821fbeedff9c9a724c975
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96850865"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97576778"
 ---
 # <a name="update-the-azure-cli"></a>Atualizar a CLI do Azure
 
@@ -40,13 +40,13 @@ A CLI do Azure verificará novas versões regularmente e solicitará que você a
 A mensagem do prompt e as mensagens de saída durante a atualização poderão interromper o resultado do comando se ele for atribuído a alguma variável ou estiver em um fluxo automatizado. Para evitar a interrupção, você pode usar a configuração a seguir para permitir que a atualização ocorra automaticamente sem confirmação e mostrar apenas avisos e erros durante a atualização.
 
 ```azurecli
-az config auto-upgrade.prompt=no
+az config set auto-upgrade.prompt=no
 ```
 
 Por padrão, todas as extensões instaladas também serão atualizadas. Você pode desabilitar a atualização de extensão por meio da configuração.
 
 ```azurecli
-az config auto-upgrade.all=no
+az config set auto-upgrade.all=no
 ```
 
 > [!NOTE]
