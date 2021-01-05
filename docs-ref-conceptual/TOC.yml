@@ -33,18 +33,9 @@
         - name: Instalar – macOS
           href: install-azure-cli-macos.md
           displayName: 'install, macos, brew, homebrew, osx, os x, mac'
-        - name: Instalar – Linux com apt
-          href: install-azure-cli-apt.md
-          displayName: 'ubuntu, debian, mint, linux, install, wsl'
-        - name: Instalar – Linux com yum
-          href: install-azure-cli-yum.md
-          displayName: 'rhel, redhat, red hat, fedora, linux, install, wsl'
-        - name: Instalar – Linux com zypper
-          href: install-azure-cli-zypper.md
-          displayName: 'opensuse, suse, sles, leap, tumbleweed, linux, install, wsl'
-        - name: Instalar – Script de instalação do Linux
+        - name: Instalar – Linux
           href: install-azure-cli-linux.md
-          displayName: 'install, script, unix, bsd, linux, lfs, wsl, slackware'
+          displayName: 'install, script, unix, bsd, linux, lfs, wsl, slackware, ubuntu, debian, mint, opensuse, suse, sles, leap, tumbleweed, rhel, redhat, red hat, fedora'
     - name: Atualizar
       href: update-azure-cli.md
       displayName: 'update, upgrade'
