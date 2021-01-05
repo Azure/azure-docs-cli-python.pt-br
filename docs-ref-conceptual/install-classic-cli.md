@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-cli
 ms.devlang: azurecli
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 6e2032cf6db312474431796149b8dde990820671
-ms.sourcegitcommit: bf84dfb62e910ea246586481863bb43d09d07795
+ms.openlocfilehash: b53fb38c26ac8ad4dba4a956105b91e789334053
+ms.sourcegitcommit: d5f026468ea20bbd7ef35bdbf9852bcb2b812d83
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87551431"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97744537"
 ---
 # <a name="install-the-azure-classic-cli"></a>Instalar a CLI clássica do Azure
 
@@ -67,7 +67,7 @@ Se você usa um computador Windows ou Mac, há instaladores DMG e MSI disponíve
 Se você tiver configurado seu computador como um host do [Docker](https://docs.docker.com/engine/understanding-docker/), execute a CLI clássica do Azure em um contêiner do Docker. Execute o seguinte comando (em distribuições Linux, talvez seja necessário usar `sudo`):
 
 ```bash
-docker run -it microsoft/azure-cli:0.10.17
+docker run -it mcr.microsoft.com/azure-cli:0.10.14
 ```
 
 ## <a name="run-azure-classic-cli-commands"></a>Executar comandos da CLI clássica do Azure
