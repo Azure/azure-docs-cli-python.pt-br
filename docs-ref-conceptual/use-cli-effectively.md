@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-cli
 ms.devlang: azurecli
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 0f1985425328492c96262a835eb7ffd8be333cc5
-ms.sourcegitcommit: 753de7d5c45062d5138be86ced7eacddd5696ca3
+ms.openlocfilehash: 598d7498d17078bdd9f3f1aa9dc2ca4447ca97b2
+ms.sourcegitcommit: bd2dbc80328936dadd211764d25c32a14fc58083
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94976893"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97857794"
 ---
 # <a name="use-azure-cli-effectively"></a>Usar a CLI do Azure com eficiência
 
@@ -123,9 +123,9 @@ Pode haver casos em que um serviço no qual você está interessado não tenha c
 
 Se nenhum argumento de atualização genérico nem `az resource` atender às suas necessidades, você poderá usar o comando `az rest` para chamar a API REST. Ele é autenticado automaticamente usando a credencial conectada e define o cabeçalho `Content-Type: application/json`.
 
-Isso é extremamente útil para chamar a [API do Microsoft Graph](/graph/api/overview?toc=./ref/toc.json&view=graph-rest-1.0), o que não tem suporte atualmente nos comandos da CLI ([#12946](https://github.com/Azure/azure-cli/issues/12946)).
+Isso é extremamente útil para chamar a [API do Microsoft Graph](/graph/api/overview?toc=./ref/toc.json), o que não tem suporte atualmente nos comandos da CLI ([#12946](https://github.com/Azure/azure-cli/issues/12946)).
 
-Por exemplo, para atualizar `redirectUris` para um [Aplicativo](/graph/api/resources/application?view=graph-rest-1.0), chamamos a API REST [Aplicativo de atualização](/graph/api/application-update?view=graph-rest-1.0&tabs=http) com:
+Por exemplo, para atualizar `redirectUris` para um [Aplicativo](/graph/api/resources/application), chamamos a API REST [Aplicativo de atualização](/graph/api/application-update?tabs=http) com:
 
 ```sh
 # Line breaks for legibility only
@@ -142,7 +142,12 @@ az rest --method PATCH
 
 Ao usar `--uri-parameters` para solicitações no formato de OData, use o caractere de escape `$` em ambientes diferentes. No `Bash`, use o caractere escape `$` como `\$`; e no `PowerShell`, use-o em `$` como `` `$``
 
-## <a name="quoting-issues"></a>Problemas com colocações de aspas
+## <a name="pass-arguments"></a>Passar argumentos
+
+1. Se o valor de um argumento começar com um traço (como `-VerySecret`), ele será analisado como uma opção (nome do argumento, como `-n`) por [argparse](https://docs.python.org/3/library/argparse.html) (https://bugs.python.org/issue9334) ). Para forçá-lo a ser analisado como valor, use `--password="-VerySecret"`. ([Azure/azure-cli#7054](https://github.com/Azure/azure-cli/issues/7054)).
+2. Se o valor de um argumento contiver caracteres especiais, como espaço em branco (` `) ou aspas (`"`, `'`), algumas regras de aspas serão aplicadas. Veja a seção abaixo:
+
+### <a name="quoting-issues"></a>Problemas com colocações de aspas
 
 Isso é um problema porque quando o shell de comando (Bash, Zsh, Prompt de Comando do Windows, PowerShell etc.) analisa o comando da CLI, ele interpreta as aspas e os espaços. Sempre consulte os documentos quando você não tiver certeza sobre o uso de um shell:
 

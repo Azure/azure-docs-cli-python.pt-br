@@ -4,21 +4,138 @@ description: Saiba mais sobre as últimas atualizações da CLI do Azure
 author: dbradish-microsoft
 ms.author: dbradish
 manager: barbkess
-ms.date: 12/08/2020
+ms.date: 01/04/2021
 ms.topic: article
 ms.service: azure-cli
 ms.devlang: azurecli
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: bcbf52e6321e283864fb585cd314be22c2241c9d
-ms.sourcegitcommit: 9beaf9abb794f1006a56acee4e1cfb8ea7fe2405
+ms.openlocfilehash: 9e7fd550f5ec6957287f0c7a865517eb5332a604
+ms.sourcegitcommit: bd2dbc80328936dadd211764d25c32a14fc58083
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96850296"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97857862"
 ---
 # <a name="azure-cli-release-notes"></a>Notas de versão da CLI do Azure
 
 # <a name="current-release-notes"></a>[Notas sobre a versão atuais](#tab/azure-cli)
+
+## <a name="january-04-2021"></a>04 de janeiro de 2021
+
+Versão 2.17.1
+
+### <a name="rdbms"></a>RDBMS
+
+* Hotfix: `az mysql create`: reversão do nome de parâmetro incorreto 'serv_name' para 'service_name'
+
+## <a name="december-29-2020"></a>29 de dezembro de 2020
+
+Versão 2.17.0
+
+### <a name="acr"></a>ACR
+
+* Suporte à redundância de zona
+* `az acr connected-registry`: novo recurso para o Registro de Contêiner do Azure local
+* `az acr scope-map update`: --add e --remove foram preteridos e renomeados para --add-repo --remove-repo
+* `az acr scope-map create/update`: adição de suporte para manipular ações de gateway.
+* `az acr token create`: suporte adicionado para ações de gateway
+
+### <a name="aks"></a>AKS
+
+* Correção: remoção de adicionar argumentos realizada por uma PR anterior
+* `az aks get-credentials`: esclarecimento da documentação para get-credentials
+
+### <a name="app-service"></a>Serviço de Aplicativo
+
+* Permissão para o cliente criar o aplicativo de funções Python 3.9
+* Correção nº 14583: az webapp up deverá gerar o nome padrão se o nome não for fornecido
+* Correção: melhor tratamento de erro quando se tentava criar o ASP duplicado em um local diferente
+
+### <a name="arm"></a>ARM
+
+* `az ts`:  adição de suporte para --tags
+* `az ts`: suporte à exclusão de uma única versão
+* `az provider register`: adição de --accept-terms para registrar o RPaaS
+* Correção da análise de arquivos JSON com cadeias de caracteres multilinha
+
+### <a name="aro"></a>ARO
+
+* `az aro delete`: adição de validação RBAC na exclusão do cluster
+* `az aro update`: adição de validação RBAC na atualização do cluster
+* Verifique se worker_profile não é None antes de obter as sub-redes
+
+### <a name="backup"></a>Backup
+
+* `az backup job list`: solução do bug -o table e adição de backup_management_type como entrada de comando
+
+### <a name="batch"></a>Lote
+
+* Atualização do plano de dados para [lote do azure 10.0.0](https://pypi.org/project/azure-batch/10.0.0/)
+* [ALTERAÇÃO INTERRUPTIVA] az batch job task-counts: alteração da saída de um objeto JSON que retornava contagens de tarefas para um objeto JSON complexo que incluía contagens de tarefas (`taskCounts`) e contagens de slots de tarefas (`taskSlotCounts`).
+
+### <a name="compute"></a>Computação
+
+* Novo tipo de licença RHEL_ELS_6
+* Adoção do SDK track2, azure-mgmt-compute==18.0.0
+
+### <a name="container"></a>Contêiner
+
+* Correção de erro de ortografia no texto de exemplo da CLI `az container create`.
+
+### <a name="databoxedge"></a>DataBoxEdge
+
+* Novo módulo de comando: suporte para dispositivos data-box-edge e gerenciamento
+
+### <a name="iot"></a>IoT
+
+* Atualização da geração de chaves do dispositivo
+* Atualização de testes de hub habilitados para identidade para corrigir problemas de RBAC do ponto de extremidade
+
+### <a name="key-vault"></a>Key Vault
+
+* `az keyvault key import`: suporte a `--kty` para importar chaves BYOK
+
+### <a name="monitor"></a>Monitor
+
+* `az monitor metrics alert create`: aprimoramento de mensagem de erro para fornecer insights mais acionáveis
+
+### <a name="network"></a>Rede
+
+* `az network private-endpoint create`: adição de mais declarações de '--subnet' e '--private-connection-resource-id'
+* Alteração do validador de application-gateway ssl-cert create
+* Migração da rede para o SDK track2
+* Correção do bug de "az network traffic-manager profile create" quando "--routing-method MultiValue" era usado
+
+### <a name="profile"></a>Perfil
+
+* Correção de "segredo ou certificado ausente para fazer a autenticação por meio de uma entidade de serviço"
+
+### <a name="role"></a>Função
+
+* `az ad sp create-for-rbac`: substituição da criação da atribuição de função Colaborador por padrão
+
+### <a name="security"></a>Segurança
+
+* Adição de comandos de classificação de segurança
+* Correção do comando atualizar alerta e suporte a um novo valor
+
+### <a name="sql"></a>SQL
+
+* `az sql dw update`: não aceitação do argumento backup-storage-redundancy
+* `az sql db update`: atualização da redundância de armazenamento de backup conforme solicitado do comando
+
+### <a name="storage"></a>Armazenamento
+
+* Correção de problema nº 15965: esclarecimento sobre como remover várias marcas de retenção legal com `az storage container legal-hold [clear|set]`
+* `az storage account encryption-scope`: Suporte à GA
+* Correção de problema nº 9959: falha na tentativa de baixar uma versão de instantâneo de um compartilhamento de arquivo com ResourceNotFound
+
+### <a name="synapse"></a>Synapse
+
+* Adição de novos cmdlets az synapse sql ad-admin show, create, update, delete
+* Adição do novo cmdlet az synapse workspace firewall-rule update
+* Adição de novos cmdlets az synapse sql audit-policy show, update
+* Adição de cmdlets relacionados ao runtime de integração
 
 ## <a name="december-08-2020"></a>08 de dezembro de 2020
 
