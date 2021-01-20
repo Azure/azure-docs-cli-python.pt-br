@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.devlang: azurecli
 ms.technology: azure-cli
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 26e7f55d661928af78e645e820990a3617724644
-ms.sourcegitcommit: aa44ec97af5c0e7558d254b3159f95921e22ff1c
+ms.openlocfilehash: e8103b8b235c7ac003b2434c72e69839a39f4a9f
+ms.sourcegitcommit: e672284b83a9dbb46cbc54be17f5cd8512310e0a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91625373"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98594185"
 ---
 # <a name="install-azure-cli-on-windows"></a>Instalar a CLI do Azure no Windows
 
@@ -98,7 +98,7 @@ Se não for possível baixar o instalador do MSI porque o proxy está bloqueando
 Para obter o MSI, o proxy precisa permitir conexões HTTPS com os seguintes endereços:
 
 * `https://aka.ms/`
-* `https://azurecliprod.blob.core.windows.net/`
+* `https://azcliprod.blob.core.windows.net/`
 
 ## <a name="uninstall"></a>Desinstalar
 

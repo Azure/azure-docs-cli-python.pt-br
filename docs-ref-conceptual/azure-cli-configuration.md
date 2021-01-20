@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-cli
 ms.devlang: azurecli
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: c2197028048799f70f92d0f40525f7c4b17baa62
-ms.sourcegitcommit: 8d514f4147d6edfc02d8d95d5a4243d100a7fcc9
+ms.openlocfilehash: 2ca07510cf4f4cf1980d6a91f9fe880f371a0db6
+ms.sourcegitcommit: 59f08c5a7a967fa68adb9eefbf5beb92acda9e08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93413269"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98569064"
 ---
 # <a name="azure-cli-configuration"></a>Configuração da CLI do Azure
 
@@ -31,7 +31,7 @@ Os valores da configuração usados pela CLI são avaliados na seguinte precedê
 ## <a name="cli-configuration-with-az-configure"></a>Configurar a CLI com o az configure
 
 Você define padrões para a CLI com o comando [az configure](/cli/azure/reference-index#az-configure).
-Esse comando usa um argumento, **--defaults** , que é uma lista separada por espaços de pares `key=value`. Os valores fornecidos são usados pela CLI no lugar dos argumentos necessários.
+Esse comando usa um argumento, **--defaults**, que é uma lista separada por espaços de pares `key=value`. Os valores fornecidos são usados pela CLI no lugar dos argumentos necessários.
 
 A tabela a seguir contém uma lista de chaves de configuração disponíveis.
 
@@ -46,9 +46,9 @@ A tabela a seguir contém uma lista de chaves de configuração disponíveis.
 
 Como exemplo, a seguir você vê como poderia definir o grupo de recursos e local padrão para todos os comandos.
 
-`azurecli-interactive
+```azurecli-interactive
 az configure --defaults location=westus2 group=MyResourceGroup
-`
+```
 
 ## <a name="cli-configuration-file"></a>Arquivo de configuração da CLI
 
@@ -62,26 +62,31 @@ Os arquivos de configuração são gravados no formato de arquivo INI. Esse form
 
 Os valores boolianos diferenciam maiúsculas de minúsculas e são representados pelos valores a seguir.
 
-* __True__ : 1, yes, true, on
-* __False__ : 0, no, false, off
+* __True__: 1, yes, true, on
+* __False__: 0, no, false, off
 
 Veja um exemplo de um arquivo de configuração da CLI que desabilita prompts de confirmação e define o log para o diretório `/var/log/azure`.
 
-`ini [core] disable_confirm_prompt=Yes
+```ini
+[core]
+disable_confirm_prompt=Yes
 
-[logging] enable_log_file=yes log_dir=/var/log/azure `
+[logging]
+enable_log_file=yes
+log_dir=/var/log/azure
+```
 
 Consulte a próxima seção para obter detalhes sobre todos os valores de configuração disponíveis e o que significam. Para obter detalhes completos sobre o formato de arquivo INI, consulte a [Documentação do Python sobe INI](https://docs.python.org/3/library/configparser.html#supported-ini-file-structure).
 
 ## <a name="cli-configuration-values-and-environment-variables"></a>Valores de configuração da CLI e variáveis de ambiente
 
-A tabela a seguir contém todas as seções e as opções de nomes que podem ser colocadas em um arquivo de configuração. As variáveis de ambiente correspondentes são definidas como **AZURE_{section}_{name}** , tudo em maiúsculas. Por exemplo, o `output` padrão para `core` é definido na variável **AZURE_CORE_OUTPUT** ; o `storage_account` padrão para `batchai` é definido na variável **AZURE_BATCHAI_STORAGE_ACCOUNT** ; e o `location` padrão é definido na variável **AZURE_DEFAULTS_LOCATION**.
+A tabela a seguir contém todas as seções e as opções de nomes que podem ser colocadas em um arquivo de configuração. As variáveis de ambiente correspondentes são definidas como **AZURE_{section}_{name}** , tudo em maiúsculas. Por exemplo, o `output` padrão para `core` é definido na variável **AZURE_CORE_OUTPUT**; o `storage_account` padrão para `batchai` é definido na variável **AZURE_BATCHAI_STORAGE_ACCOUNT**; e o `location` padrão é definido na variável **AZURE_DEFAULTS_LOCATION**.
 
 Quando você fornece um valor padrão, esse argumento já não é exigido pelos comandos. Em vez disso, o valor padrão é usado.
 
-| Seção | Nome      | Tipo | Descrição|
+| Seção | Nome      | Type | Descrição|
 |---------|-----------|------|------------|
-| __core__ | output | string | O formato de saída padrão. Pode ser **json** , **jsonc** , **tsv** ou **table**. |
+| __core__ | output | string | O formato de saída padrão. Pode ser **json**, **jsonc**, **tsv** ou **table**. |
 | | disable\_confirm\_prompt | booleano | Ativa e desativa prompts de confirmação. |
 | | collect\_telemetry | booleano | Permitir que a Microsoft colete dados anônimos sobre o uso da CLI. Para obter informações de privacidade, confira os [Termos de uso da licença MIT da CLI do Azure](https://github.com/Azure/azure-cli/blob/dev/LICENSE). |
 | | only\_show\_errors | booleano | Mostra apenas erros durante a invocação de comando. Em outras palavras, somente os erros serão gravados em **stderr**. Ele suprime avisos dos comandos em versão prévia, preteridos e experimentais. Também está disponível para comandos individuais com o parâmetro **--only-show-errors**. |
