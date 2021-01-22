@@ -4,21 +4,88 @@ description: Saiba mais sobre as últimas atualizações da CLI do Azure
 author: dbradish-microsoft
 ms.author: dbradish
 manager: barbkess
-ms.date: 01/04/2021
+ms.date: 01/19/2021
 ms.topic: article
 ms.service: azure-cli
 ms.devlang: azurecli
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9e7fd550f5ec6957287f0c7a865517eb5332a604
-ms.sourcegitcommit: bd2dbc80328936dadd211764d25c32a14fc58083
+ms.openlocfilehash: 0eed53a8eec57c4329bce934c90e90b72282f548
+ms.sourcegitcommit: 59f08c5a7a967fa68adb9eefbf5beb92acda9e08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97857862"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98569020"
 ---
 # <a name="azure-cli-release-notes"></a>Notas de versão da CLI do Azure
 
 # <a name="current-release-notes"></a>[Notas sobre a versão atuais](#tab/azure-cli)
+
+## <a name="january-19-2021"></a>19 de janeiro de 2021
+
+Versão 2.18.0
+
+### <a name="acr"></a>ACR
+
+* `az acr create / update`: Adicione `--allow-trusted-services`. Esse parâmetro determina se os serviços confiáveis do Azure têm permissão para acessar registros restritos da rede. O padrão é permitir.
+
+### <a name="aks"></a>AKS
+
+* `az aks check-acr`: adicionar novo comando check-acr
+
+### <a name="app-service"></a>Serviço de Aplicativo
+
+* Correção nº 13907: `az webapp config ssl import`: alterar o comando para importar também o Certificado do Serviço de Aplicativo
+* Correção nº 16125: `az webapp ssh`: se estiver usando um cliente Windows, abra o navegador para o link do SCM
+* Correção nº 13291: `az webapp deployment slot swap`: o comando deve dar suporte à preservação da vNet.
+* [ALTERAÇÃO INTERRUPTIVA] Correção da regressão em que você não pode usar uma versão do runtime com um espaço no nome
+
+### <a name="arm"></a>ARM
+
+* `az deployment`: Adicionado suporte para `--query-string`
+* `az ts`: aprimoramento de tratamento de erro para `--template-file` sem `--version` proibido
+
+### <a name="backup"></a>Backup
+
+* `az backup protection backup-now`: definir o período de retenção padrão como 30 dias
+
+### <a name="compute"></a>Computação
+
+* Corrigir o problema em que não há nenhum storage_profile
+* Melhor tratamento de erro de tokens externos
+* Corrigir um problema para refazer imagem do vmss
+* `az vm/vmss extension set`: novo parâmetro `--enable-auto-upgrade`
+
+### <a name="container"></a>Contêiner
+
+* `az container exec`: remover a verificação de EOL para evitar fechar o terminal antes mesmo de seu início no Linux
+
+### <a name="dms"></a>DMS
+
+* `az dms project task create`: adicionado o parâmetro de tipo de tarefa para ajudar a distinguir se um cenário é uma migração online ou uma migração offline.
+* `az dms project task cutover`: adicionar novo comando que permite que tarefas do tipo migração online sejam transformadas e encerrem a migração.
+* `az dms project create/az dms project task create`: habilitar a criação de projetos/tarefas do MySQL e PostgreSQL.
+
+### <a name="iot"></a>IoT
+
+* Adicionar --tags ao criar e atualizar o Hub IoT
+
+### <a name="monitor"></a>Monitoramento
+
+* [ALTERAÇÃO DA FALHA] `az monitor log-analytics workspace data-export`: Remover o parâmetro `--export-all-tables` preterido e exigir o parâmetro `--tables`
+
+### <a name="rdbms"></a>RDBMS
+
+* Remover a marca de versão prévia dos comandos de administração do AD e chave do servidor para Postgres e MySql
+
+### <a name="role"></a>Função
+
+* Correção nº 11594: `az role assignment create`: Mostrar apenas valores com suporte para `--assignee-principal-type`
+
+### <a name="storage"></a>Armazenamento
+
+* Correção nº 16072: carregar arquivo com tamanho grande
+* Correção nº 12291: `az storage blob generate-sas` não codifica `--full-uri` corretamente
+* Propriedades de serviço de blob e recuperação pontual em GA no SRP
 
 ## <a name="january-04-2021"></a>04 de janeiro de 2021
 
