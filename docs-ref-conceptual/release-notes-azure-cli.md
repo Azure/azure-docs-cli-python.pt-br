@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: azure-cli
 ms.devlang: azurecli
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 0eed53a8eec57c4329bce934c90e90b72282f548
-ms.sourcegitcommit: 59f08c5a7a967fa68adb9eefbf5beb92acda9e08
+ms.openlocfilehash: ab837615dc4055abf7c08499dbab68c3ebefe515
+ms.sourcegitcommit: 2a0ae2ffc14ce325f9adb9c09d6b5eac534df8a6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98569020"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98887011"
 ---
 # <a name="azure-cli-release-notes"></a>Notas de versão da CLI do Azure
 
@@ -2741,8 +2741,8 @@ Versão 2.0.74
 ### <a name="batch"></a>Lote
 
 * Adição de novas definições de configuração JSON de `--json-file` para `batch pool create`:
-  * Adição de `MountConfigurations` para montagens do sistema de arquivos (confira https://docs.microsoft.com/rest/api/batchservice/pool/add#request-body para obter detalhes)
-  * Adição da propriedade opcional `publicIPs` a `NetworkConfiguration` para IPs públicos em pools (confira https://docs.microsoft.com/rest/api/batchservice/pool/add#request-body para obter detalhes)
+  * Adição de `MountConfigurations` para montagens do sistema de arquivos (confira [Corpo da solicitação](/rest/api/batchservice/pool/add#request-body) para obter detalhes)
+  * Adição da propriedade opcional `publicIPs` a `NetworkConfiguration` para IPs públicos em pools (confira [Corpo da solicitação](/rest/api/batchservice/pool/add#request-body) para obter detalhes)
 * Adição de suporte para galerias de imagens compartilhadas a `--image`
 * [ALTERAÇÃO SIGNIFICATIVA] Alteração do valor padrão de `--start-task-wait-for-success` em `batch pool create` para `true`
 * [ALTERAÇÃO SIGNIFICATIVA] Alteração do valor padrão de `Scope` em `AutoUserSpecification` para sempre ser Pool (anteriormente, `Task` em nós do Windows e `Pool` em nós do Linux)
@@ -4068,7 +4068,7 @@ Versão 2.0.50
 * Suporte adicionado para conceder permissões a aplicativos do AAD
 
 ### <a name="storage"></a>Armazenamento
-* Suporte adicionado para se conectar aos serviços de armazenamento somente com SAS e pontos de extremidade (sem um nome de conta ou uma chave), conforme descrito em `Configure Azure Storage connection strings <https://docs.microsoft.com/azure/storage/common/storage-configure-connection-string>`
+* Suporte adicionado para se conectar aos serviços de armazenamento somente com SAS e pontos de extremidade (sem um nome de conta ou uma chave), conforme descrito em [Configurar cadeias de conexão do Armazenamento do Azure](/azure/storage/common/storage-configure-connection-string).
 
 ### <a name="vm"></a>VM
 * O argumento `storage-sku` foi adicionado a `image create` para definir o tipo de conta de armazenamento padrão da imagem
