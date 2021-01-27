@@ -9,12 +9,12 @@ ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 034c9814215522d8a25a8d08ad0c3f15c63a4e63
-ms.sourcegitcommit: bd2dbc80328936dadd211764d25c32a14fc58083
+ms.openlocfilehash: 0dd2dbcf6d290e2a1309e150da5a37e57bc99f78
+ms.sourcegitcommit: 2a0ae2ffc14ce325f9adb9c09d6b5eac534df8a6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97857845"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98887062"
 ---
 # <a name="available-extensions-for-the-azure-cli"></a>Extensões disponíveis para a CLI do Azure
 
@@ -39,7 +39,7 @@ az extension list-available --output table
 | [automation](https://github.com/Azure/azure-cli-extensions/tree/master/src/automation) | 0.1.0 | Extensão AutomationClient das ferramentas de linha de comando do Microsoft Azure |  |
 | [azure-batch-cli-extensions](https://github.com/Azure/azure-batch-cli-extensions) | 6.0.0 | Comandos adicionais para trabalhar com o serviço de Lote do Azure |  |
 | [azure-cli-iot-ext](https://github.com/azure/azure-iot-cli-extension) | 0.8.10 | Preterido: remova a “azure-cli-iot-ext” e instale a extensão “azure-iot” no lugar dela. A extensão herdada “azure-cli-iot-ext” está agendada para remoção após 15/09/2020. |  |
-| [azure-cli-ml](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py) | 1.19.0 | Módulo de Comando do AzureML para as Ferramentas da Linha de Comando do Microsoft Azure |  |
+| [azure-cli-ml](/python/api/overview/azure/ml/?view=azure-ml-py) | 1.19.0 | Módulo de Comando do AzureML para as Ferramentas da Linha de Comando do Microsoft Azure |  |
 | [azure-devops](https://github.com/Microsoft/azure-devops-cli-extension) | 0.18.0 | Ferramentas para gerenciar o Azure DevOps. |  |
 | [azure-firewall](https://github.com/Azure/azure-cli-extensions/tree/master/src/azure-firewall) | 0.8.0 | Gerenciar recursos do Firewall do Azure. | Sim |
 | [azure-iot](https://github.com/azure/azure-iot-cli-extension) | 0.10.8 | A extensão de IoT do Azure para a CLI do Azure. |  |

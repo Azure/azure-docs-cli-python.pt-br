@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-cli
 ms.devlang: azurecli
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 598d7498d17078bdd9f3f1aa9dc2ca4447ca97b2
-ms.sourcegitcommit: bd2dbc80328936dadd211764d25c32a14fc58083
+ms.openlocfilehash: 2473f3ade5cf37e2c57835cfc9ac928d155caf9e
+ms.sourcegitcommit: 2a0ae2ffc14ce325f9adb9c09d6b5eac534df8a6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97857794"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98887028"
 ---
 # <a name="use-azure-cli-effectively"></a>Usar a CLI do Azure com eficiência
 
@@ -26,7 +26,7 @@ Para maior clareza, os scripts Bash são embutidos. Os exemplos do PowerShell ou
 
 2. O `table` é útil para obter um resumo das informações centralizadas, especialmente para comandos de lista. Se você não gostar dos campos no formato de tabela padrão (ou não houver um formato padrão), poderá usar `--output json` para ver todas as informações ou usar o `--query` para especificar o formato que deseja.
 
-    ```sh
+    ```azurelcli
     az vm show -g my_rg -n my_vm --query "{name: name, os:storageProfile.imageReference.offer}" -otable
     Name    Os
     ------  ------------
@@ -35,7 +35,7 @@ Para maior clareza, os scripts Bash são embutidos. Os exemplos do PowerShell ou
 
 3. `tsv` é útil para fins de script e de saída concisos. O TSV removerá aspas duplas que o formato JSON preserva. Para especificar o formato desejado para o TSV, use o argumento `--query`.
 
-    ```sh
+    ```bash
     export vm_ids=$(az vm list -d -g my_rg --query "[?powerState=='VM running'].id" -o tsv)
     az vm stop --ids $vm_ids
     ```
@@ -44,17 +44,20 @@ Para maior clareza, os scripts Bash são embutidos. Os exemplos do PowerShell ou
 
 1. Se o valor for usado mais de uma vez, atribua-o a uma variável. Observe o uso de `-o tsv` no seguinte exemplo:
 
-    ```sh
+    ```bash
     running_vm_ids=$(az vm list -d -g my_rg --query "[?powerState=='VM running'].id" -o tsv)
     ```
 2. Se o valor for usado apenas uma vez, considere usar pipe:
-    ```sh
+
+    ```azurecli
     az vm list --query "[?powerState=='VM running'].name" | grep my_vm
     ```
-3. Para listas, considere as seguintes sugestões:
+
+1. Para listas, considere as seguintes sugestões:
 
    Se você precisar de mais controles no resultado, use o loop "for":
-    ```sh
+    
+    ```bash
     #!/usr/bin/env bash
     for vm in $(az vm list -d -g my_rg --query "[?powerState=='VM running'].id" -o tsv); do
         echo stopping $vm
@@ -68,11 +71,14 @@ Para maior clareza, os scripts Bash são embutidos. Os exemplos do PowerShell ou
     ```
 
     Como alternativa, use `xargs` e considere usar o sinalizador `-P` para executar as operações em paralelo para melhor desempenho:
-    ```sh
+
+    ```azurecli
     az vm list -d -g my_rg --query "[?powerState=='VM stopped'].id" -o tsv | xargs -I {} -P 10 az vm start --ids "{}"
     ```
+
     Por fim, a CLI do Azure tem suporte interno para processar comandos com vários `--ids` em paralelo de modo a obter o mesmo efeito de xargs. Observe que `@-` é usado para obter valores do pipe:
-    ```sh
+
+    ```azurecli
     az vm list -d -g my_rg --query "[?powerState=='VM stopped'].id" -o tsv | az vm start --ids @-
     ```
 
@@ -81,12 +87,13 @@ Para maior clareza, os scripts Bash são embutidos. Os exemplos do PowerShell ou
 Muitos comandos e grupos expõem sinalizadores `--no-wait` nas suas operações de execução prolongada, além de um comando `wait` dedicado. Eles se tornam úteis para determinados cenários:
 
 1. Limpar recursos quando você não depende da limpeza para uma operação subsequente, como excluir um grupo de recursos:
-    ```sh
+    
+    ```azurecli
     az group delete -n my_rg --no-wait
     ```
 2. Quando você quiser criar vários recursos independentes em paralelo. Isso é semelhante a criar e unir threads:
 
-    ```sh
+    ```azurecli
     az vm create -g my_rg -n vm1 --image centos --no-wait
     az vm create -g my_rg -n vm2 --image centos --no-wait
 
@@ -105,18 +112,21 @@ A maioria dos comandos de atualização no recurso de CLI têm os três argument
 3. Use o comando `show` no recurso que você está interessado para descobrir qual caminho você deve fornecer nos argumentos genéricos. Por exemplo, antes de experimentar `az vm update`, execute `az vm show` para determinar o caminho correto. De modo geral, você usará a sintaxe Dot para acessar as propriedades do dicionário e os colchetes para indexar em listas.
 4. Confira os exemplos de trabalho para começar. `az vm update -h` tem bons exemplos.
 5. `--set` e `--add` obtêm uma lista de pares chave-valor no formato de `<key1>=<value1> <key2>=<value2>`. Use-os para construir conteúdos não triviais. Se a sintaxe receber mensagens demais, considere usar uma cadeia de caracteres JSON. Por exemplo, para anexar um novo disco de dados a uma VM:
-    ```sh
+    
+    ```azurecli
     az vm update -g my_rg -n my_vm --add storageProfile.dataDisks "{\"createOption\": \"Attach\", \"managedDisk\": {\"id\": \"/subscriptions/0b1f6471-1bf0-4dda-aec3-cb9272f09590/resourceGroups/yg/providers/Microsoft.Compute/disks/yg-disk\"}, \"lun\": 1}"
     ```
+
 6. Talvez você ache mais útil use a convenção de `@{file}` da CLI, colocar o JSON em um arquivo e carregá-lo. Isso simplifica o comando acima para:
-    ```sh
+    
+    ```azurecli
     az vm update -g my_rg -n my_vm --add storageProfile.dataDisks @~/my_disk.json
     ```
 
 ## <a name="generic-resource-commands---az-resource"></a>Comandos de recurso genéricos – `az resource`
 
 Pode haver casos em que um serviço no qual você está interessado não tenha cobertura de comando da CLI. Você pode usar os comandos `az resource create/show/list/delete/update/invoke-action` para trabalhar com esses recursos. Veja algumas sugestões:
-1. Se apenas `create/update` estiverem envolvidos, considere usar `az group deployment create`. Use os [Modelos de Início Rápido do Azure](https://github.com/Azure/azure-quickstart-templates) para obter exemplos de trabalho.
+1. Se apenas `create/update` estiverem envolvidos, considere usar `az deployment group create`. Use os [Modelos de Início Rápido do Azure](https://github.com/Azure/azure-quickstart-templates) para obter exemplos de trabalho.
 2. Confira a referência da API REST para obter o conteúdo de solicitação, a URL e a versão da API. Como um exemplo, confira os comentários da comunidade em [como criar o AppInsights](https://github.com/Azure/azure-cli/issues/5543).
 
 ## <a name="rest-api-command---az-rest"></a>Comando da API REST – `az rest`
@@ -127,7 +137,7 @@ Isso é extremamente útil para chamar a [API do Microsoft Graph](/graph/api/ove
 
 Por exemplo, para atualizar `redirectUris` para um [Aplicativo](/graph/api/resources/application), chamamos a API REST [Aplicativo de atualização](/graph/api/application-update?tabs=http) com:
 
-```sh
+```bash
 # Line breaks for legibility only
 
 # Get the application
@@ -164,20 +174,24 @@ Para evitar resultados inesperados, veja algumas sugestões:
 4. Se o comando for executado no Prompt de Comando do Windows, você precisará usar exclusivamente aspas duplas. Se o valor contiver aspas duplas, você precisará usar o caractere de escape: `"i like to use \" a lot"`. O equivalente do Prompt de Comando do exemplo acima seria: `"{\"foo\": \"bar\"}"`
 5. Variáveis exportadas no Bash dentro de aspas duplas serão avaliadas. Se isso não for o que você deseja, use novamente `\ ` para colocar o caractere de escape `"\$var"` ou use aspas simples `'$var'`.
 6. Alguns argumentos de CLI, incluindo os argumentos de atualização genéricos, tem uma lista de valores separados por espaços, como `<key1>=<value1> <key2>=<value2>`. Como o valor e o nome da chave podem usar uma cadeia de caracteres arbitrária que pode conter espaços em branco, será necessário usar aspas. Encapsule o par, não a chave ou o valor individual. Portanto, `"my name"=john` está errado. Em vez disso, use `"my name=john"`. Por exemplo:
-    ```sh
+    
+    ```azurecli
     az webapp config appsettings set -g my_rg -n my_web --settings "client id=id1" "my name=john"
     ```
+
 7. Use a convenção de `@<file>` da CLI para carregar de um arquivo de modo a ignorar os mecanismos de interpretação do shell:
-    ```sh
+    
+    ```azurecli
     az ad app create --display-name my-native --native-app --required-resource-accesses @manifest.json
     ```
 8. Quando um argumento da CLI aceita uma lista separada por espaços, estes são os formatos aceitos:
     - `--arg foo bar`: OK. Lista separada por espaços sem aspas
     - `--arg "foo" "bar"`: OK: Lista separada por espaços com aspas
     - `--arg "foo bar"`: INVÁLIDO. Essa é uma cadeia de caracteres com um espaço, não uma lista separada por espaços.
-9. Ao executar comandos da CLI do Azure no PowerShell, ocorrerão erros de análise se os argumentos contiverem caracteres especiais do PowerShell, como em `@`. Você pode resolver esse problema adicionando `` ` `` antes do caractere especial para usar o caractere de escape ou colocando o argumento em aspas simples ou duplas `'`/`"`. Por exemplo, `az group deployment create --parameters @parameters.json` não funciona no PowerShell porque `@` é analisado como um [símbolo de nivelamento](/powershell/module/microsoft.powershell.core/about/about_splatting). Para corrigir isso, você pode alterar o argumento para `` `@parameters.json`` ou `'@parameters.json'`.
+9. Ao executar comandos da CLI do Azure no PowerShell, ocorrerão erros de análise se os argumentos contiverem caracteres especiais do PowerShell, como em `@`. Você pode resolver esse problema adicionando `` ` `` antes do caractere especial para usar o caractere de escape ou colocando o argumento em aspas simples ou duplas `'`/`"`. Por exemplo, `az deployment group create --parameters @parameters.json` não funciona no PowerShell porque `@` é analisado como um [símbolo de nivelamento](/powershell/module/microsoft.powershell.core/about/about_splatting). Para corrigir isso, você pode alterar o argumento para `` `@parameters.json`` ou `'@parameters.json'`.
 10. Ao usar `--query` com um comando, alguns caracteres de [JMESPath](https://jmespath.org/specification.html) precisam usar o caractere de escape no shell. Por exemplo, no Bash:
-    ```sh
+    
+    ```bash
     # Wrong, as the dash needs to be quoted in a JMESPath query
     $ az version --query azure-cli
     az version: error: argument --query: invalid jmespath_type value: 'azure-cli'
@@ -226,7 +240,7 @@ Para evitar resultados inesperados, veja algumas sugestões:
 
 11. A melhor maneira de solucionar um problema de colocação de aspas é executar o comando com o sinalizador `--debug`. Ele revela os argumentos reais recebidos pela CLI na [sintaxe do Python](https://docs.python.org/3/tutorial/introduction.html#strings). Por exemplo, no Bash:
 
-    ```sh
+    ```bash
     # Wrong, as quotes and spaces are interpreted by Bash
     $ az {"key": "value"} --debug
     Command arguments: ['{key:', 'value}', '--debug']
@@ -250,7 +264,7 @@ O uso do proxy é comum em redes corporativas ou é introduzido por ferramentas 
 
 1. Defina a variável de ambiente `REQUESTS_CA_BUNDLE` como o caminho do arquivo de certificado do pacote de AC no formato PEM. Isso será recomendado se você usar a CLI com frequência em um proxy corporativo. O pacote de AC padrão que a CLI usa está localizado em `C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\Lib\site-packages\certifi\cacert.pem` no Windows e em ` /opt/az/lib/python3.6/site-packages/certifi/cacert.pem` no Ubuntu/Debian ou `/usr/lib64/az/lib/python3.6/site-packages/certifi/cacert.pem` no CentOS/RHEL/SUSE no Linux. Você pode acrescentar o certificado do servidor proxy nesse arquivo ou copiar o conteúdo para outro arquivo de certificado e, em seguida, definir ele como `REQUESTS_CA_BUNDLE`. Por exemplo:
 
-    ```
+    ```console
     <Original cacert.pem>
 
     -----BEGIN CERTIFICATE-----
@@ -260,7 +274,7 @@ O uso do proxy é comum em redes corporativas ou é introduzido por ferramentas 
 
    Uma pergunta frequente é se as variáveis de ambiente `HTTP_PROXY` ou `HTTPS_PROXY` devem ou não ser definidas e a resposta é: depende. Por padrão, para o Fiddler no Windows ele atua como um proxy do sistema ao iniciar, você não precisa definir nada. Se a opção estiver desativada ou usando outras ferramentas que não funcionam como proxy do sistema, você deverá defini-las. Como quase todo o tráfego da CLI é baseado em SSL, somente `HTTPS_PROXY` deve ser definido. Se você não tiver certeza, basta defini-las, mas lembre-se de remover a definição depois que o proxy for desligado. Para o Fiddler, o valor padrão é `http://localhost:8888`.
 
-   Alguns proxies exigem autenticação, portanto, o formato das variáveis de ambiente `HTTP_PROXY` ou `HTTPS_PROXY` deverão incluir a autenticação, por exemplo, `HTTPS_PROXY="https://username:password@proxy-server:port"`. Isso será necessário para as bibliotecas subjacentes do Python. Para obter detalhes, confira [Como configurar proxies para as bibliotecas do Azure](https://docs.microsoft.com/azure/developer/python/azure-sdk-configure-proxy?tabs=bash) 
+   Alguns proxies exigem autenticação, portanto, o formato das variáveis de ambiente `HTTP_PROXY` ou `HTTPS_PROXY` deverão incluir a autenticação, por exemplo, `HTTPS_PROXY="https://username:password@proxy-server:port"`. Isso será necessário para as bibliotecas subjacentes do Python. Para obter detalhes, confira [Como configurar proxies para as bibliotecas do Azure](/azure/developer/python/azure-sdk-configure-proxy?tabs=bash) 
 
    Para obter outros detalhes, confira o [blog do Stefan](https://blog.jhnr.ch/2018/05/16/working-with-azure-cli-behind-ssl-intercepting-proxy-server/).
 
@@ -291,6 +305,7 @@ az vm stop --ids $vm_ids # CLI stops all VMs in parallel
 ```
 
 ### <a name="windows-batch-scripts-to-loop-through-a-list"></a>Scripts de lote do Windows para executar um loop em uma lista
+
 ```batch
 ECHO OFF
 SETLOCAL
@@ -301,6 +316,7 @@ FOR /F "tokens=* USEBACKQ" %%F IN (`az vm list -d -g my_rg --query "[?powerState
 ```
 
 ### <a name="windows-powershell-scripts-to-loop-through-a-list"></a>Scripts do Windows PowerShell para executar em loop em uma lista
+
 ```powershell
 $vm_ids=(az vm list -d -g my_rg --query "[?powerState=='VM running'].id" -o tsv)
 foreach ($vm_id in $vm_ids) {
