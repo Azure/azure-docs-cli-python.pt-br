@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.devlang: azurecli
 ms.technology: azure-cli
 ms.custom: devex-track-azurecli
-ms.openlocfilehash: 087f5f05d6a4a6b25e6aebd0d2c482ebba656b01
-ms.sourcegitcommit: 9beaf9abb794f1006a56acee4e1cfb8ea7fe2405
+ms.openlocfilehash: bfaf414ab03482fb1bae7da98ddb517435f331ee
+ms.sourcegitcommit: 4c41593455b473c796735c73590403d9b6be87a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96850211"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99572758"
 ---
 # <a name="azure-cli-persisted-parameter"></a>Parâmetro persistente da CLI do Azure
 
@@ -24,19 +24,19 @@ A referência do [az config param-persist](/cli/azure/param-persist) da CLI do A
 Os valores da configuração usados pela CLI são avaliados na seguinte precedência, com os itens na parte superior da lista sendo prioridade.
 
 1. Parâmetros de linha de comando
-1. Valores do diretório de trabalho local definidos pelo **az config param-persist**
+1. Valores do diretório de trabalho local definidos pelo `az config param-persist`
 1. Variáveis de ambiente
-1. Valores do arquivo de configuração ou definidos com o **az config**
+1. Valores no arquivo de configuração ou definidos com `az config`
 
-[Instale a CLI do Azure](install-azure-cli.md) ou abra o [Azure Cloud Shell](https://shell.azure.com) para executar os scripts deste artigo.  Se você estiver usando uma instalação local da CLI do Azure, será necessário ter a versão 2.12.0 (ou posterior) para executar os comandos do **az config param-persist**.  Execute [az version](/cli/azure/reference-index#az_version) para localizar a versão e as bibliotecas dependentes que estão instaladas. Para fazer a atualização para a versão mais recente, execute [az upgrade](/cli/azure/reference-index#az_upgrade).  O Azure Cloud Shell sempre tem a última versão da CLI do Azure.
+[Instale a CLI do Azure](install-azure-cli.md) ou abra o [Azure Cloud Shell](https://shell.azure.com) para executar os scripts deste artigo.  Se você estiver usando uma instalação local da CLI do Azure, será necessário ter a versão 2.12.0 (ou posterior) para executar os comandos do `az config param-persist`.  Execute [az version](/cli/azure/reference-index#az_version) para localizar a versão e as bibliotecas dependentes que estão instaladas. Para fazer a atualização para a versão mais recente, execute [az upgrade](/cli/azure/reference-index#az_upgrade).  O Azure Cloud Shell sempre tem a última versão da CLI do Azure.
 
 ## <a name="persisted-parameter-data-file"></a>Arquivo de dados do parâmetro persistente
 
-Os valores dos parâmetros persistentes são mantidos em um arquivo chamado **.param_persist**, armazenado no diretório de trabalho.  Se você estiver usando o [Azure Cloud Shell](https://shell.azure.com) para executar comandos da CLI do Azure, o diretório de trabalho estará na conta de armazenamento usada pela CLI do Azure.  Se você estiver usando uma [instalação local](/install-azure-cli) da CLI do Azure, o diretório de trabalho estará no computador local.  Seja em qualquer um dos locais, o arquivo **.param_persist** fica oculto e não deve ser atualizado manualmente.
+Os valores dos parâmetros persistentes são mantidos em um arquivo chamado `.param_persist`, armazenado no diretório de trabalho.  Se você estiver usando o [Azure Cloud Shell](https://shell.azure.com) para executar comandos da CLI do Azure, o diretório de trabalho estará na conta de armazenamento usada pela CLI do Azure.  Se você estiver usando uma [instalação local](/install-azure-cli) da CLI do Azure, o diretório de trabalho estará no computador local.  Seja em qualquer um dos locais, o arquivo `.param_persist` fica oculto e não deve ser atualizado manualmente.
 
 ## <a name="persisted-parameter-storage-and-support"></a>Armazenamento e suporte de parâmetros persistentes
 
-Os parâmetros da CLI do Azure a seguir são compatíveis com parâmetros persistentes.  Os parâmetros **resource_group_name** e **location** são armazenados de maneira diferente, de modo que você pode adicioná-los a parâmetros persistentes _sem_ executar o comando create.
+Os parâmetros da CLI do Azure a seguir são compatíveis com parâmetros persistentes.  Os parâmetros `resource_group_name` e `location` são armazenados de maneira diferente, de modo que você pode adicioná-los a parâmetros persistentes _sem_ executar o comando create.
 
 | Parâmetro persistente | Ação de armazenamento | Com suporte por
 |-|-|-|
@@ -49,7 +49,7 @@ Os parâmetros da CLI do Azure a seguir são compatíveis com parâmetros persis
 
 ## <a name="sample-script-using-persisted-parameters"></a>Script de exemplo usando parâmetros persistentes
 
-Sem os parâmetros persistentes, os comandos sequenciais da CLI devem repetir os mesmos valores de parâmetro.  Com os parâmetros persistentes habilitados, os valores de parâmetros armazenados podem ser omitidos nos comandos sequenciais.  Neste exemplo, o **local**, o **nome do grupo de recursos** ou o **nome da conta de armazenamento** são repetidos nos comandos subsequentes.
+Sem os parâmetros persistentes, os comandos sequenciais da CLI devem repetir os mesmos valores de parâmetro.  Com os parâmetros persistentes habilitados, os valores de parâmetros armazenados podem ser omitidos nos comandos sequenciais.  Neste exemplo, o `location`, o `resource group name` ou o `storage account name` são repetidos nos comandos subsequentes.
 
 ```azurecli
 # Reminder: function app and storage account names must be unique.
@@ -77,7 +77,7 @@ az config param-persist show
 
 ## <a name="persisted-parameter-and-global-variable-comparison"></a>Comparação entre o parâmetro persistente e a variável global
 
-Há dois comandos da CLI do Azure que podem ser usados para valores de parâmetro padrão: o **az configure** e o **az config param-persist**.  Use o comando **az configure** para especificar _variáveis globais_, como grupo, local ou Web.  Use **az param-persist** para especificar _valores padrão locais_ exclusivos para a carga de trabalho.  Os valores armazenados são usados pela CLI no lugar dos argumentos necessários.
+Há dois comandos da CLI do Azure que podem ser usados para valores de parâmetro padrão: o `az configure` e o `az config param-persist`.  Use o comando `az configure` para especificar _variáveis globais_, como grupo, local ou Web.  Use `az param-persist` para especificar _valores padrão locais_ exclusivos para a carga de trabalho.  Os valores armazenados são usados pela CLI no lugar dos argumentos necessários.
 
 > [!Important]
 > Parâmetros persistentes substituem os valores de contexto global.
@@ -85,12 +85,12 @@ Há dois comandos da CLI do Azure que podem ser usados para valores de parâmetr
 
 | Referência | Escopo | Definir | Use
 |-|-|-|-|
-[az configure](/cli/azure/reference-index#az_configure) | Com escopo global em toda a CLI | Definir explicitamente usando **az configure --defaults** | Usar para configurações como registro em log, coleta de dados e valores de argumento padrão
+[az configure](/cli/azure/reference-index#az_configure) | Com escopo global em toda a CLI | Definir explicitamente usando `az configure --defaults` | Usar para configurações como registro em log, coleta de dados e valores de argumento padrão
 [az config param-persist](/cli/azure/config/param-persist) | Com escopo definido localmente para um diretório de trabalho específico | Definir automaticamente quando os parâmetros persistentes forem ativados | Use para comandos sequenciais de uma carga de trabalho individual.
 
 ### <a name="command-examples"></a>Exemplos de comando
 
-Use o **az config param-persist** para definir uma variável global usada na criação de uma conta de armazenamento do Azure.
+Use o `az config param-persist` para definir uma variável global usada na criação de uma conta de armazenamento do Azure.
 
 ```azurecli
 # set the global variable for resource group
@@ -123,7 +123,7 @@ A saída do comando da CLI mostra que foi criada uma conta de armazenamento no g
 ...
 ```
 
-Use o **az config param-persist** para definir parâmetros persistentes usados na criação de uma conta de armazenamento do Azure.  Se uma variável global for definida para o mesmo objeto, o parâmetro persistente substituirá a variável global.
+Use o `az config param-persist` para definir parâmetros persistentes usados na criação de uma conta de armazenamento do Azure.  Se uma variável global for definida para o mesmo objeto, o parâmetro persistente substituirá a variável global.
 
 ```azurecli
 # turn persisted parameter on
@@ -163,4 +163,3 @@ Mesmo com uma variável global definida para o grupo de recursos com o valor `my
 
 * [Tutorial: usar parâmetros persistentes com comandos sequenciais da CLI do Azure](param-persist-tutorial.md)
 * [Configuração da CLI do Azure usando o az configure](azure-cli-configuration.md)
-
