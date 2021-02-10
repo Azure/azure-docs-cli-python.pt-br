@@ -101,7 +101,7 @@
     - name: Gerenciar Assinaturas
       href: manage-azure-subscriptions-azure-cli.md
       displayName: 'tenant, user, sign in, signin, log in, login, authenticate, authentication, accounts'
-    - name: Gerenciar grupos de referência
+    - name: Gerenciar grupos de recursos
       href: manage-azure-groups-azure-cli.md
     - name: Trabalhar no modo interativo
       href: interactive-azure-cli.md
