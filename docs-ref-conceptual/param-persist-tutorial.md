@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.devlang: azurecli
 ms.technology: azure-cli
 ms.custom: devex-track-azurecli
-ms.openlocfilehash: fc214285b947650e06ff9ee3db20e19c78e9b14e
-ms.sourcegitcommit: 9beaf9abb794f1006a56acee4e1cfb8ea7fe2405
+ms.openlocfilehash: 75833b18da0aea04dfc2aa33d9d7d18910525e98
+ms.sourcegitcommit: 4c41593455b473c796735c73590403d9b6be87a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96850126"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99572775"
 ---
 # <a name="tutorial-use-persisted-parameters-to-simplify-sequential-azure-cli-commands"></a>Tutorial: usar parâmetros persistentes para simplificar comandos sequenciais da CLI do Azure
 
@@ -24,7 +24,7 @@ A CLI do Azure oferece os parâmetros persistentes que lhe permitem armazenar va
 Neste tutorial, você aprenderá a:
 
 > [!div class="checklist"]
-> * Usar comandos de referência do **az config param-persist**
+> * Usar comandos de referência do `az config param-persist`
 > * Executar comandos sequenciais usando os parâmetros persistentes
 
 Este tutorial usa os comandos da CLI do Azure a seguir
@@ -77,7 +77,7 @@ cd azCLI
 
 ## <a name="2-turn-on-persisted-parameters"></a>2. Ativar os parâmetros persistentes
 
-Os [Parâmetros persistentes](/cli/azure/param-persist) devem ser ativados para que seja possível armazenar valores de parâmetros.  Você receberá um aviso até que o **az config param-persist** saia da fase experimental.  Confira [Visão geral: tipos de referência e status da CLI do Azure](/cli/azure/reference-types-and-status) para saber mais sobre os tipos de referência, os status e os níveis de suporte da CLI do Azure.
+Os [Parâmetros persistentes](/cli/azure/param-persist) devem ser ativados para que seja possível armazenar valores de parâmetros.  Você receberá um aviso até que `az config param-persist` saia da fase experimental.  Confira [Visão geral: tipos de referência e status da CLI do Azure](/cli/azure/reference-types-and-status) para saber mais sobre os tipos de referência, os status e os níveis de suporte da CLI do Azure.
 
 ```azurecli
 az config param-persist on
@@ -85,7 +85,7 @@ az config param-persist on
 
 ## <a name="3-create-persisted-parameters"></a>3. Criar parâmetros persistentes
 
-Para armazenar valores em parâmetros persistentes, execute o comando que preferir da CLI do Azure que contenha os parâmetros que você deseja armazenar.  Por exemplo, crie um grupo de recursos e os parâmetros **--location** e **--name** serão armazenados para uso futuro.
+Para armazenar valores em parâmetros persistentes, execute o comando que preferir da CLI do Azure que contenha os parâmetros que você deseja armazenar.  Por exemplo, crie um grupo de recursos e os parâmetros `--location` e `--name` serão armazenados para uso futuro.
 
 1. Armazene o local e o nome do grupo de recursos.
    ```azurecli
@@ -127,13 +127,13 @@ Para armazenar valores em parâmetros persistentes, execute o comando que prefer
 
 1. Crie um parâmetro persistente sem criar um recurso.
 
-   Se você não quiser criar um recurso do Azure, os parâmetros **resource_group_name** e **location** poderão ser armazenados usando comandos que não são de criação, como o **show** ou **list**.   Confira [Parâmetros persistentes da CLI do Azure](/cli/azure/param-persist-howto#compare-parameter-persistence-and-global-variables) para obter uma lista completa dos parâmetros com suporte e a ação necessária para manter os valores.  Este exemplo também remove todos os valores de parâmetro usando o comando [az config param-persist delete](/cli/azure/config/param-persist#az-param-persist-delete).
+   Se você não quiser criar um recurso do Azure, os parâmetros `resource_group_name` e `location` poderão ser armazenados usando comandos que não são de criação, como o `show` ou `list`.   Confira [Parâmetros persistentes da CLI do Azure](/cli/azure/param-persist-howto#compare-parameter-persistence-and-global-variables) para obter uma lista completa dos parâmetros com suporte e a ação necessária para manter os valores.  Este exemplo também remove todos os valores de parâmetro usando o comando [az config param-persist delete](/cli/azure/config/param-persist#az-param-persist-delete).
 
    ```azurecli
    # Clear all persisted parameters for demonstration.
    az config param-persist delete --all
 
-   # List all storage accounts which will create the **resource_group_name** stored parameter value.
+   # List all storage accounts which will create the `resource_group_name` stored parameter value.
    az storage account show --resource-group RG1forTutorial --name sa1fortutorial
 
    # See the new stored value created for resource group.  The storage account name is only stored with a 'create' command.

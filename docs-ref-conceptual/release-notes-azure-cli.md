@@ -4,21 +4,147 @@ description: Saiba mais sobre as últimas atualizações da CLI do Azure
 author: dbradish-microsoft
 ms.author: dbradish
 manager: barbkess
-ms.date: 01/19/2021
+ms.date: 02/09/2021
 ms.topic: article
 ms.service: azure-cli
 ms.devlang: azurecli
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: ab837615dc4055abf7c08499dbab68c3ebefe515
-ms.sourcegitcommit: 2a0ae2ffc14ce325f9adb9c09d6b5eac534df8a6
+ms.openlocfilehash: f84a71be28b7128c904b3a30e9b13a91a56395d1
+ms.sourcegitcommit: df9d6597535ef9103775afbaee5a8282e0e218ee
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98887011"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99987195"
 ---
 # <a name="azure-cli-release-notes"></a>Notas de versão da CLI do Azure
 
 # <a name="current-release-notes"></a>[Notas sobre a versão atuais](#tab/azure-cli)
+
+## <a name="february-09-2021"></a>09 de fevereiro de 2021
+
+Versão 2.19.0
+
+### <a name="acr"></a>ACR
+
+* `az acr connected-registry install info`: adicione uma chave `ACR_SYNC_TOKEN_NAME` usando o mesmo valor de `ACR_SYNC_TOKEN_USERNAME`. Um aviso aparecerá indicando que a última chave será preterida.
+* `az acr connected-registry install renew-credentials`: adicione uma chave `ACR_SYNC_TOKEN_NAME` usando o mesmo valor de `ACR_SYNC_TOKEN_USERNAME`. Um aviso aparecerá indicando que a última chave será preterida.
+
+### <a name="aks"></a>AKS
+
+* Adicionar associações ao iniciar/parar um cluster gerenciado
+* `az aks check-acr`: correção da verificação de versão do Kubernetes
+
+### <a name="apim"></a>APIM
+
+* Colocar o grupo de comandos em GA
+
+### <a name="app-config"></a>Configuração do Aplicativo
+
+* [ALTERAÇÃO DA FALHA] `az appconfig feature filter add`: dar suporte à adição de objetos JSON como valores de parâmetros de filtros de recurso. Confira mais detalhes nesta [PR](https://github.com/Azure/azure-cli/pull/16536)
+
+### <a name="app-service"></a>Serviço de Aplicativo
+
+* `az appservice ase/plan`: dar suporte ao ASEv3
+* Correção nº 16026 e nº 16118 do comando az appservice plan
+* Correção nº 16509: adicionar suporte para obter preferência de sistema operacional
+* Aprimorar o comportamento de create-inbound-services do comando appservice ase para permitir ignorar serviços DNS e dar suporte ao DNS para ASEv2
+* `az webapp up/az webapp create`: correção de erros nonetype
+* `az webapp up/create`: tratamento de erro mais adequado do nome do aplicativo com ponto final
+* Correção nº 16681: `az webapp config ssl import`: correção de um bug que causava falhas em nuvens nacionais
+
+### <a name="arm"></a>ARM
+
+* `az provider register`: dar suporte ao registro do grupo de gerenciamento
+
+### <a name="backup"></a>Backup
+
+* Adicionar a funcionalidade de CRR a uma VM de IaaS e outros comandos de CRR
+* `az backup protectable-item list`: adicionar protectable-item-type como um argumento opcional
+
+### <a name="botservice"></a>BotService
+
+* `az bot create/update`: adicionar os recursos de Criptografia `--cmk-key-url` e `--encryption-off`
+* `az bot update`: renomear um argumento Encryption-OFF como CMK-OFF e atualizar a versão da API
+
+### <a name="compute"></a>Computação
+
+* [ALTERAÇÃO INTERRUPTIVA] Criar um VMSS: renomear valores do modo de orquestração
+* Novo SSHKey do grupo de comandos. Permitir a referência a um recurso de chave SSH ao criar uma VM
+* `az disk create/update`: adicionar o parâmetro `--enable-bursting` para dar suporte ao bursting de disco
+
+### <a name="extension"></a>Extensão
+
+* Dar suporte à correspondência de prefixos do comando de extensão para obter uma instalação dinâmica
+
+### <a name="hdinsight"></a>HDInsight
+
+* `az hdinsight create`: adicionar um parâmetro `--enable-compute-isolation` para dar suporte à criação de cluster usando um recurso de isolamento de computação.
+
+### <a name="key-vault"></a>Key Vault
+
+* `az keyvault key import`: dar suporte ao parâmetro `--curve` para importar chaves BYOK
+* `az keyvault certificate download`: correção de uma chamada de método preterida/removida
+* `az keyvault create/update`: remover a marca de visualização de `--enable-rbac-authorization`
+
+### <a name="monitor"></a>Monitoramento
+
+* `az monitor metrics alert create`: correção do erro 'resource is not found'
+
+### <a name="netappfiles"></a>NetAppFiles
+
+* `az netappfiles account ad add`: adicionar o parâmetro `--security-operators`.
+* `az netappfiles volume create`: adicionar o parâmetro `--smb-continuously-available`.
+* `az netappfiles volume create`: adicionar o parâmetro `--smb-encryption`.
+* `az netappfiles`: não está mais no modo de visualização.
+
+### <a name="network"></a>Rede
+
+* [ALTERAÇÃO DA FALHA] `az network vrouter`: Use `az network routeserver` para substituir esse grupo de comandos.
+* `az network routeserver`: adicionar um novo grupo de comandos.
+* `az network application-gateway create`: adicionar o parâmetro `--ssl-profile-id`
+* `az network application-gateway client-cert`: gerenciar um certificado confiável do cliente do gateway de aplicativo
+* `az network application-gateway ssl-profile`: gerenciar perfis SSL do gateway de aplicativo
+* Adicionar suporte para obter conexões de pontos de extremidade privados para os Gêmeos Digitais
+
+### <a name="profile"></a>Perfil
+
+* `az login`: inicialização do navegador no WSL 2
+
+### <a name="rdbms"></a>RDBMS
+
+* `az mysql flexible-server create --iops`: permitir que o usuário escolha a IOPS do SKU.
+* Atualizar o comando de restauração do Postgres para dar suporte à zona disponível
+
+### <a name="search"></a>Search
+
+* Atualização para usar a versão mais recente do SDK do Python (8.0.0) do azure-mgmt-search
+
+### <a name="security"></a>Segurança
+
+* Adicionar novos comandos para `az security`
+
+### <a name="sql"></a>SQL
+
+* Adicionar uma correspondência de regex de HSM gerenciado ao SQL
+* Atualizar o azure-mgmt-sql para 0.26.0
+* `az sql mi create/update`: adicionar suporte para obter uma configuração de manutenção em operações de instância gerenciada
+* Dar suporte aos comandos de política de auditoria de DevOps do SQL Server
+
+### <a name="storage"></a>Armazenamento
+
+* Correção nº 16079: blob público que gera um erro
+* Referência de roteamento de armazenamento em GA
+* Correção nº 9158: não é possível gerar uma chave SAS em funcionamento de uma política
+* Correção nº 16489: atualizar o comando azcopy para 10.8.0
+* `az storage account blob-service-properties`: dar suporte à versão do serviço padrão
+* Correção nº 16519: o comando azcopy recebe um SAS mais avançado do que o necessário (ele tem a opção de gravação, porém precisa somente da opção de leitura)
+
+### <a name="synapse"></a>Synapse
+
+* `az synapse workspace create `: adicionar o parâmetro `--key-identifier` para dar suporte a fim de criar um workspace usando uma chave gerenciada pelo cliente.
+* `az synapse workspace key`: adicionar cmdlets CRUD para dar suporte ao gerenciamento de chaves em um workspace específico do Azure Synapse.
+* `az synapse workspace managed-identity`: adicionar cmdlets para dar suporte à identidade gerenciada CRUD a fim de configurar o SQL Access.
+* `az synapse workspace`: adicionar suporte à proteção de exfiltração dos dados, bem como adicionar o parâmetro `--allowed-tenant-ids`.
 
 ## <a name="january-19-2021"></a>19 de janeiro de 2021
 
