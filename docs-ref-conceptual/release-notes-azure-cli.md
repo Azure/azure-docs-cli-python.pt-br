@@ -4,21 +4,29 @@ description: Saiba mais sobre as últimas atualizações da CLI do Azure
 author: dbradish-microsoft
 ms.author: dbradish
 manager: barbkess
-ms.date: 02/09/2021
+ms.date: 02/10/2021
 ms.topic: article
 ms.service: azure-cli
 ms.devlang: azurecli
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: f84a71be28b7128c904b3a30e9b13a91a56395d1
-ms.sourcegitcommit: df9d6597535ef9103775afbaee5a8282e0e218ee
+ms.openlocfilehash: 6f60c62974be947de8b1a2efbc7d0be9e9724e98
+ms.sourcegitcommit: a75bc3963fb815e8f19b7b3d575d3bd065b5b0cc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99987195"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100090234"
 ---
 # <a name="azure-cli-release-notes"></a>Notas de versão da CLI do Azure
 
 # <a name="current-release-notes"></a>[Notas sobre a versão atuais](#tab/azure-cli)
+
+## <a name="february-10-2021"></a>10 de fevereiro de 2021
+
+Versão 2.19.1
+
+### <a name="key-vault"></a>Key Vault
+
+* Hotfix: o pacote de dependência `azure-keyvault-administration` está fixado à 4.0.0b1
 
 ## <a name="february-09-2021"></a>09 de fevereiro de 2021
 
@@ -118,6 +126,11 @@ Versão 2.19.0
 ### <a name="search"></a>Search
 
 * Atualização para usar a versão mais recente do SDK do Python (8.0.0) do azure-mgmt-search
+* `az search create`: adicionar suporte para a criação de serviço de pesquisa com regras de IP, acesso de ponto de extremidade público e/ou msi
+* `az search update`: adicionar suporte para atualizações do serviço de pesquisa com regras de IP, acesso de ponto de extremidade público e/ou msi
+* `az search private-endpoint-connection`: gerenciar a conexão do ponto de extremidade privado a um serviço de pesquisa
+* `az search shared-private-link-resource`: gerenciar recursos de link privado compartilhados em um serviço de pesquisa
+* `az search private-link-resource`: listar recursos de link privado disponíveis em um serviço de pesquisa
 
 ### <a name="security"></a>Segurança
 
