@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-cli
 ms.devlang: azurecli
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 2a3e2c96a9ec3a294f076fc8c86506e277425619
-ms.sourcegitcommit: 9beaf9abb794f1006a56acee4e1cfb8ea7fe2405
+ms.openlocfilehash: 2fcd8e8be4fe188143d0032822070b57f6474975
+ms.sourcegitcommit: 594e9c620a6f74f5eaedf91a7f6a791e03a64c74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "97820200"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100630958"
 ---
 # <a name="install-the-azure-cli"></a>Instalar a CLI do Azure
 
@@ -28,16 +28,16 @@ A CLI do Azure está disponível para instalação em ambientes Windows, macOS e
 * [Instalar no macOS](install-azure-cli-macos.md)
 * Instalar no Linux ou [Subsistema Windows para Linux (WSL)](/windows/wsl/about)
   * [Instalar com apt no Debian ou Ubuntu](install-azure-cli-apt.md)
-  * [Instalar com yum no RHEL, Fedora ou CentOS](install-azure-cli-yum.md)
+  * [Instalar com dnf no RHEL, Fedora ou CentOS](install-azure-cli-yum.md)
   * [Instalar com zypper no openSUSE ou SLE](install-azure-cli-zypper.md)
   * [Instalar do script](install-azure-cli-linux.md)
 * [Executar um contêiner do Docker](run-azure-cli-docker.md)
-* [Executar no Azure Cloud Shell](/azure/cloud-shell/quickstart)
+* [Execução no Azure Cloud Shell](/azure/cloud-shell/quickstart)
 
 > [!NOTE]
 > Se você estiver usando o modelo de implantação clássico do Azure, [instale a CLI clássica do Azure](install-classic-cli.md).
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 * [Atualizar a CLI do Azure](update-azure-cli.md)
 * [O que é CLI do Azure?](what-is-azure-cli.md)

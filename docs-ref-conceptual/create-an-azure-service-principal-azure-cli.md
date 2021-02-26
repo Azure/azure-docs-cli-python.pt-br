@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-cli
 ms.devlang: azurecli
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: a17c0c24335dea634fb364dd5f1eab4bbac95eac
-ms.sourcegitcommit: 9beaf9abb794f1006a56acee4e1cfb8ea7fe2405
+ms.openlocfilehash: 6b64a8f781907977d6123561d91fb8266a0ebe08
+ms.sourcegitcommit: 594e9c620a6f74f5eaedf91a7f6a791e03a64c74
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96850194"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100631060"
 ---
 # <a name="create-an-azure-service-principal-with-the-azure-cli"></a>Criar uma entidade de serviço do Azure com a CLI do Azure
 
@@ -28,11 +28,18 @@ Este artigo mostra as etapas para criar, obter informações e redefinir uma ent
 
 Crie uma entidade de serviço com o comando [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac). Ao criar uma entidade de serviço, você pode escolher o tipo de autenticação de entrada usada.
 
+Há dois tipos de autenticação disponíveis para as entidades de serviço: A autenticação baseada em senha e em certificado.
+
 > [!NOTE]
 >
 > Se sua conta não tiver permissão para criar uma entidade de serviço, `az ad sp create-for-rbac` mostrará uma mensagem de erro “Privilégios insuficientes para concluir a operação”. Entre em contato com o administrador do Azure Active Directory para criar uma entidade de serviço.
 
-Há dois tipos de autenticação disponíveis para as entidades de serviço: A autenticação baseada em senha e em certificado.
+> [!WARNING]
+> Quando você cria uma entidade de serviço usando o comando `az ad sp create-for-rbac`, a saída inclui as credenciais que você precisa proteger. Lembre-se de não incluir essas credenciais em seu código ou de verificar as credenciais em seu controle do código-fonte. Como alternativa, considere usar as [identidades gerenciadas](/azure/active-directory/managed-identities-azure-resources/overview), se estiverem disponíveis, para evitar a necessidade de usar credenciais.
+>
+> Por padrão, `az ad sp create-for-rbac` atribui a função [Colaborador](/azure/role-based-access-control/built-in-roles#contributor) à entidade de serviço no escopo da assinatura. Para reduzir o risco de uma entidade de serviço comprometida, atribua uma função mais específica e restrinja o escopo a um recurso ou grupo de recursos. Confira [Etapas para adicionar uma atribuição de função](/azure/role-based-access-control/role-assignments-steps) para obter mais informações.
+>
+> Em uma versão futura, `az ad sp create-for-rbac` NÃO criará uma atribuição de função de **Colaborador** por padrão. Se necessário, use o argumento `--role` para criar explicitamente uma atribuição de função.
 
 ### <a name="password-based-authentication"></a>Autenticação baseada em senha
 
